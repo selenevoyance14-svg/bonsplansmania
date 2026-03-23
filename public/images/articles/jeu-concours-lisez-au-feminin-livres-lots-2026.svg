@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#AB47BC"/>
+      <stop offset="50%" style="stop-color:#8E24AA"/>
+      <stop offset="100%" style="stop-color:#6A1B9A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="110" cy="75" r="55" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="1090" cy="555" r="80" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="960" cy="80" r="40" fill="rgba(255,255,255,0.09)"/>
+  <rect x="80" y="120" width="1040" height="390" rx="24" fill="rgba(0,0,0,0.25)"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.9)" font-weight="bold">JEU CONCOURS LISEZ !</text>
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" fill="white" font-weight="bold">Concours Au Feminin</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#CE93D8">Jusqu'a 30 livres + kit lecture</text>
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" fill="#FFD54F" font-weight="bold">Valeur jusqu'a 300&#8364;</text>
+  <text x="600" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">📚 Romans · Autrices · Editions Pocket</text>
+  <text x="600" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.75)">Participation gratuite en ligne</text>
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">bonsplansmania.fr</text>
+</svg>

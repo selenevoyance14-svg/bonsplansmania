@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e91e63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ad1457;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="160" font-family="Georgia,serif" font-size="46" font-weight="bold" fill="white" text-anchor="middle">✨ YesStyle — Offres de la Semaine</text>
+  <text x="600" y="245" font-family="Georgia,serif" font-size="42" fill="rgba(255,255,255,0.95)" text-anchor="middle">Jusqu'à -50% sur 18 marques</text>
+  <text x="600" y="340" font-family="Arial,sans-serif" font-size="26" fill="rgba(255,255,255,0.9)" text-anchor="middle">TOCOBO • Neogen • Huxley • Dear Klairs • Holika Holika</text>
+  <text x="600" y="400" font-family="Arial,sans-serif" font-size="26" fill="rgba(255,255,255,0.85)" text-anchor="middle">Rovectin • Dr. Ceuracle • Macqueen • Sungboon Editor</text>
+  <text x="600" y="530" font-family="Arial,sans-serif" font-size="22" fill="rgba(255,255,255,0.7)" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

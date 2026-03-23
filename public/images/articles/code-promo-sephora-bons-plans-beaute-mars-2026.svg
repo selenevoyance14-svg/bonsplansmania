@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#000000"/><stop offset="100%" style="stop-color:#1a1a1a"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="16"/>
+  <rect x="40" y="30" width="720" height="340" rx="12" fill="white" fill-opacity="0.06"/>
+  <text x="400" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" font-weight="700" fill="#E8D5B7" letter-spacing="4">BONS PLANS BEAUTÉ</text>
+  <text x="400" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="white">SEPHORA</text>
+  <text x="400" y="175" text-anchor="middle" font-family="Arial,sans-serif" font-size="26" font-weight="800" fill="#E8D5B7">Jusqu'à -40% + Code Promo</text>
+  <rect x="250" y="195" width="300" height="36" rx="18" fill="#E8D5B7"/>
+  <text x="400" y="219" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" fill="#000000">SPRING0326</text>
+  <text x="400" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="white">Parfums -30% · Maquillage -25% · Steampod -60€</text>
+  <text x="400" y="300" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="white">GHD -20% · Masques 3+1 · Dernière Chance -40%</text>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.5)">Mars 2026 · Offres réservées aux membres fidélité</text>
+</svg>

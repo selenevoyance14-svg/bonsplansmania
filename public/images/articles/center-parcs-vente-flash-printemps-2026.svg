@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="cp-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F5E0"/>
+      <stop offset="100%" style="stop-color:#D0E8C0"/>
+    </linearGradient>
+    <linearGradient id="cp-green" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A6B3A"/>
+      <stop offset="100%" style="stop-color:#0E4A28"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#cp-bg)"/>
+  <!-- Nature background -->
+  <g opacity="0.08" fill="#2A8A4A">
+    <circle cx="100" cy="380" r="80"/>
+    <circle cx="200" cy="350" r="100"/>
+    <circle cx="600" cy="370" r="90"/>
+    <circle cx="720" cy="390" r="70"/>
+    <circle cx="400" cy="400" r="60"/>
+  </g>
+  <!-- Trees silhouette -->
+  <g opacity="0.06" fill="#1A5A30">
+    <polygon points="150,200 130,350 170,350"/>
+    <polygon points="180,230 165,350 195,350"/>
+    <polygon points="620,210 600,350 640,350"/>
+    <polygon points="660,240 648,350 672,350"/>
+  </g>
+  <!-- Brand -->
+  <text x="400" y="50" font-family="Poppins, sans-serif" font-size="22" fill="#1A6B3A" text-anchor="middle" font-weight="800">Center Parcs</text>
+  <text x="400" y="72" font-family="Poppins, sans-serif" font-size="10" fill="#4A8A5A" text-anchor="middle" letter-spacing="2">RECONNECTEZ-VOUS EN PLEINE NATURE</text>
+  <!-- 3 offer cards -->
+  <!-- Card 1 - Vente Flash -->
+  <g transform="translate(40, 95)">
+    <rect x="0" y="0" width="220" height="250" rx="16" fill="white"/>
+    <rect x="0" y="0" width="220" height="100" rx="16" fill="#F8C8D0" opacity="0.5"/>
+    <rect x="0" y="80" width="220" height="20" fill="white"/>
+    <text x="110" y="130" font-family="Poppins, sans-serif" font-size="13" fill="#333" text-anchor="middle" font-weight="600">Vente Flash Printemps</text>
+    <text x="110" y="165" font-family="Arial Black, sans-serif" font-size="28" fill="#E63946" text-anchor="middle" font-weight="900">-500€</text>
+    <text x="110" y="195" font-family="Poppins, sans-serif" font-size="11" fill="#1A6B3A" text-anchor="middle" font-weight="700">+ 50€ Credit Activite</text>
+    <text x="110" y="215" font-family="Poppins, sans-serif" font-size="11" fill="#1A6B3A" text-anchor="middle" font-weight="700">offert</text>
+  </g>
+  <!-- Card 2 - Offre Famille -->
+  <g transform="translate(290, 95)">
+    <rect x="0" y="0" width="220" height="250" rx="16" fill="white"/>
+    <rect x="0" y="0" width="220" height="100" rx="16" fill="#F0E8A0" opacity="0.4"/>
+    <rect x="0" y="80" width="220" height="20" fill="white"/>
+    <text x="110" y="130" font-family="Poppins, sans-serif" font-size="13" fill="#333" text-anchor="middle" font-weight="600">Offre Famille</text>
+    <text x="110" y="165" font-family="Poppins, sans-serif" font-size="14" fill="#333" text-anchor="middle" font-weight="700">Pension complete ou</text>
+    <text x="110" y="185" font-family="Poppins, sans-serif" font-size="14" fill="#333" text-anchor="middle" font-weight="700">demi-pension</text>
+    <text x="110" y="215" font-family="Arial Black, sans-serif" font-size="16" fill="#E63946" text-anchor="middle" font-weight="900">OFFERTE</text>
+    <text x="110" y="235" font-family="Poppins, sans-serif" font-size="10" fill="#888" text-anchor="middle">pour vos enfants !</text>
+  </g>
+  <!-- Card 3 - Early Booking -->
+  <g transform="translate(540, 95)">
+    <rect x="0" y="0" width="220" height="250" rx="16" fill="white"/>
+    <rect x="0" y="0" width="220" height="100" rx="16" fill="#D0D8F0" opacity="0.4"/>
+    <rect x="0" y="80" width="220" height="20" fill="white"/>
+    <text x="110" y="130" font-family="Poppins, sans-serif" font-size="13" fill="#333" text-anchor="middle" font-weight="600">Early Booking</text>
+    <text x="110" y="165" font-family="Arial Black, sans-serif" font-size="24" fill="#E63946" text-anchor="middle" font-weight="900">-20%</text>
+    <text x="110" y="190" font-family="Poppins, sans-serif" font-size="11" fill="#333" text-anchor="middle">sur votre sejour</text>
+    <text x="110" y="215" font-family="Poppins, sans-serif" font-size="11" fill="#1A6B3A" text-anchor="middle" font-weight="700">+ Jusqu'a 45€</text>
+    <text x="110" y="232" font-family="Poppins, sans-serif" font-size="11" fill="#1A6B3A" text-anchor="middle" font-weight="700">credit activite</text>
+  </g>
+  <!-- CTA -->
+  <rect x="250" y="375" width="300" height="48" rx="24" fill="url(#cp-green)"/>
+  <text x="400" y="405" font-family="Poppins, sans-serif" font-size="15" font-weight="700" fill="white" text-anchor="middle">Voir toutes les offres</text>
+</svg>

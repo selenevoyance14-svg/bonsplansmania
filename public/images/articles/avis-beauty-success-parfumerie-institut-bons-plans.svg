@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f8f4f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ede6dd;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="bs" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5e3c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6d4830;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8962e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <rect x="200" y="15" width="400" height="50" rx="4" fill="url(#bs)"/>
+  <text x="400" y="47" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white" letter-spacing="3">BEAUTY SUCCESS</text>
+  <rect x="260" y="78" width="280" height="26" rx="13" fill="url(#gold)"/>
+  <text x="400" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a0a0a" letter-spacing="1">PARFUMERIE + INSTITUT</text>
+  <text x="400" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#666">100+ marques beaute et luxe</text>
+  <g transform="translate(55, 160)">
+    <rect x="0" y="0" width="160" height="100" rx="8" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5e3c">Parfums</text>
+    <text x="80" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Chanel, Dior</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Guerlain, Hermes</text>
+    <text x="80" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">YSL, Prada</text>
+  </g>
+  <g transform="translate(235, 160)">
+    <rect x="0" y="0" width="160" height="100" rx="8" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5e3c">Maquillage</text>
+    <text x="80" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Lancome, MAC</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Too Faced, NYX</text>
+    <text x="80" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Beauty Success</text>
+  </g>
+  <g transform="translate(415, 160)">
+    <rect x="0" y="0" width="160" height="100" rx="8" fill="white" stroke="#ddd" stroke-width="1"/>
+    <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#8b5e3c">Soins</text>
+    <text x="80" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Clarins, Nuxe</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Caudalie, Rituals</text>
+    <text x="80" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Shiseido</text>
+  </g>
+  <g transform="translate(595, 160)">
+    <rect x="0" y="0" width="160" height="100" rx="8" fill="url(#bs)" opacity="0.9"/>
+    <text x="80" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Institut</text>
+    <text x="80" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" opacity="0.8">Soins Thalgo</text>
+    <text x="80" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" opacity="0.8">Epilation</text>
+    <text x="80" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" opacity="0.8">Manucure</text>
+  </g>
+  <rect x="200" y="290" width="400" height="45" rx="8" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="300" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5e3c">3x sans frais</text>
+  <line x1="400" y1="298" x2="400" y2="328" stroke="#ddd" stroke-width="1"/>
+  <text x="500" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#8b5e3c">Retours gratuits</text>
+  <rect x="280" y="360" width="240" height="30" rx="15" fill="url(#bs)"/>
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">BONS PLANS + AVIS</text>
+  <text x="400" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#999">Livraison offerte des 60 EUR</text>
+</svg>

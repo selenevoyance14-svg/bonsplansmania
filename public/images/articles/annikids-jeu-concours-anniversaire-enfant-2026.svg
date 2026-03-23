@@ -1,0 +1,32 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#BE185D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#EC4899;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F9A8D4;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="100" r="200" fill="white" fill-opacity="0.06"/>
+  <circle cx="80" cy="540" r="140" fill="white" fill-opacity="0.04"/>
+  <rect x="60" y="60" width="680" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="100" y="100" width="140" height="36" rx="18" fill="#16A34A"/>
+  <text x="170" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">CONCOURS</text>
+  <text x="100" y="200" font-family="Arial, sans-serif" font-size="52" font-weight="900" fill="white">Annikids</text>
+  <text x="100" y="255" font-family="Arial, sans-serif" font-size="24" fill="white" fill-opacity="0.9">Jeu concours anniversaire enfant</text>
+  <rect x="100" y="290" width="560" height="50" rx="14" fill="white" fill-opacity="0.2"/>
+  <text x="380" y="321" font-family="Arial, sans-serif" font-size="17" fill="white" text-anchor="middle" font-weight="600">🎂 Bons d'achat et cadeaux à gagner</text>
+  <rect x="100" y="360" width="260" height="44" rx="12" fill="white" fill-opacity="0.15"/>
+  <text x="120" y="387" font-family="Arial, sans-serif" font-size="16" fill="white">🎡 Jeu en popup sur le site</text>
+  <rect x="374" y="360" width="280" height="44" rx="12" fill="white" fill-opacity="0.15"/>
+  <text x="394" y="387" font-family="Arial, sans-serif" font-size="16" fill="white">🏆 N°1 anniversaire enfant</text>
+  <text x="100" y="460" font-family="Arial, sans-serif" font-size="19" fill="white">+400 thèmes · Note 4,6/5 (23 000 avis)</text>
+  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">annikids.com</text>
+  <text x="920" y="340" font-family="Arial, sans-serif" font-size="140" text-anchor="middle" opacity="0.2">🎈</text>
+  <rect x="900" y="560" width="240" height="40" rx="20" fill="white" fill-opacity="0.15"/>
+  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+</svg>

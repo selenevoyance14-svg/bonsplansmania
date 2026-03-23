@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF8E1"/>
+      <stop offset="100%" style="stop-color:#FFE082"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="200" cy="150" r="150" fill="#FFB300" opacity="0.08"/>
+  <circle cx="1000" cy="500" r="180" fill="#FF8F00" opacity="0.06"/>
+  <!-- Gift box -->
+  <g transform="translate(500, 60)" opacity="0.25">
+    <rect x="20" y="80" width="160" height="110" rx="10" fill="#FF6F00"/>
+    <rect x="10" y="58" width="180" height="30" rx="8" fill="#E65100"/>
+    <rect x="88" y="58" width="24" height="132" fill="#FFB300"/>
+    <rect x="10" y="65" width="180" height="16" fill="#FFB300" opacity="0.5"/>
+    <ellipse cx="100" cy="55" rx="25" ry="15" fill="#FFB300"/>
+  </g>
+  <!-- 13 number -->
+  <g transform="translate(520, 140)" opacity="0.12">
+    <text x="80" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="120" font-weight="bold" fill="#FF6F00">13</text>
+  </g>
+  <!-- Sparkles -->
+  <g fill="#FFB300" opacity="0.2">
+    <polygon points="300,150 304,162 316,162 306,170 310,182 300,174 290,182 294,170 284,162 296,162"/>
+    <polygon points="880,120 884,132 896,132 886,140 890,152 880,144 870,152 874,140 864,132 876,132"/>
+    <polygon points="200,400 203,408 212,408 205,413 207,422 200,417 193,422 195,413 188,408 197,408"/>
+  </g>
+  <text x="600" y="310" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#E65100" opacity="0.8">BOX BEAUT&#201; SP&#201;CIALE</text>
+  <text x="600" y="375" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="bold" fill="#BF360C">Glowria</text>
+  <text x="600" y="435" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#E65100">Vendredi 13 Mars 2026</text>
+  <rect x="410" y="470" width="380" height="50" rx="25" fill="#FF6F00"/>
+  <text x="600" y="502" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">OFFRE LIMIT&#201;E &#8212; STOCKS R&#201;DUITS</text>
+  <rect x="0" y="610" width="1200" height="20" fill="#FF6F00"/>
+</svg>

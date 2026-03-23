@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B5E20;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#43A047;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="priceBadge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.06" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="160" height="36" rx="18" fill="white" fill-opacity="0.2" />
+  <text x="160" y="152" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">💰 BON PLAN</text>
+  <text x="80" y="260" font-family="Georgia, serif" font-size="64" fill="white" font-weight="700">Cashback 2026</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="34" fill="white" fill-opacity="0.9">Gagnez de l'argent sur vos achats</text>
+  <rect x="80" y="348" width="100" height="3" rx="2" fill="white" fill-opacity="0.5" />
+  <rect x="80" y="372" width="520" height="60" rx="12" fill="url(#priceBadge)" />
+  <text x="100" y="395" font-family="Arial, sans-serif" font-size="18" fill="#1A3A00">Poulpeo · iGraal · eBuyClub · Swagbucks</text>
+  <text x="100" y="422" font-family="Arial, sans-serif" font-size="28" fill="#1A3A00" font-weight="700">Comparatif complet + bonus inscription</text>
+  <text x="80" y="475" font-family="Arial, sans-serif" font-size="20" fill="white" fill-opacity="0.85">Jusqu'à 10% remboursé sur vos achats en ligne</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026</text>
+</svg>

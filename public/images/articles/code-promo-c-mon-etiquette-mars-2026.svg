@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F57F17;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#F9A825;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FBC02D;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFFFFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFF9C4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.05" />
+  <circle cx="150" cy="530" r="160" fill="white" fill-opacity="0.05" />
+  <circle cx="1100" cy="500" r="120" fill="white" fill-opacity="0.03" />
+  <circle cx="600" cy="-50" r="250" fill="white" fill-opacity="0.04" />
+  <rect x="80" y="60" width="240" height="44" rx="22" fill="white" fill-opacity="0.20" />
+  <text x="200" y="88" font-family="Georgia, serif" font-size="18" fill="#5D4037" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="130" width="300" height="36" rx="18" fill="url(#badge)" />
+  <text x="230" y="154" font-family="Georgia, serif" font-size="16" fill="#E65100" text-anchor="middle" font-weight="700">CODES PROMO ETIQUETTES</text>
+  <text x="80" y="248" font-family="Georgia, serif" font-size="50" fill="white" font-weight="700" letter-spacing="1">C-MONETIQUETTE</text>
+  <rect x="80" y="270" width="120" height="3" rx="2" fill="white" fill-opacity="0.6" />
+  <text x="80" y="315" font-family="Arial, sans-serif" font-size="28" fill="white" fill-opacity="0.95" font-weight="600">Codes Promo Mars 2026</text>
+  <rect x="80" y="345" width="520" height="50" rx="10" fill="white" fill-opacity="0.15" />
+  <text x="100" y="377" font-family="Arial, sans-serif" font-size="20" fill="#5D4037" font-weight="700">Poulpeo10 : -10%</text>
+  <rect x="80" y="407" width="520" height="50" rx="10" fill="white" fill-opacity="0.12" />
+  <text x="100" y="439" font-family="Arial, sans-serif" font-size="20" fill="#5D4037" font-weight="600">Jusqu'a -50% sur selection</text>
+  <rect x="80" y="469" width="520" height="50" rx="10" fill="white" fill-opacity="0.10" />
+  <text x="100" y="501" font-family="Arial, sans-serif" font-size="20" fill="#5D4037" font-weight="600">3€ 1ere commande + livraison gratuite des 9€</text>
+  <text x="80" y="580" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.6">Mars 2026 - Codes verifies</text>
+</svg>

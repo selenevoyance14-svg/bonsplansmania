@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#16213e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0f3460;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e94560;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f97316;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.03" />
+  <circle cx="100" cy="550" r="180" fill="white" fill-opacity="0.03" />
+
+  <!-- Browser mockup -->
+  <rect x="120" y="180" width="400" height="300" rx="12" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.2" stroke-width="1.5" />
+  <circle cx="148" cy="200" r="5" fill="#ef4444" />
+  <circle cx="168" cy="200" r="5" fill="#f59e0b" />
+  <circle cx="188" cy="200" r="5" fill="#22c55e" />
+  <rect x="140" y="220" width="360" height="1" fill="white" fill-opacity="0.1" />
+  <!-- Content lines -->
+  <rect x="155" y="245" width="180" height="14" rx="4" fill="white" fill-opacity="0.25" />
+  <rect x="155" y="275" width="280" height="8" rx="3" fill="white" fill-opacity="0.12" />
+  <rect x="155" y="295" width="240" height="8" rx="3" fill="white" fill-opacity="0.12" />
+  <rect x="155" y="315" width="260" height="8" rx="3" fill="white" fill-opacity="0.12" />
+  <rect x="155" y="350" width="120" height="32" rx="8" fill="url(#accent)" />
+  <text x="215" y="372" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle" font-weight="bold">Voir l'offre</text>
+  <!-- Image placeholder -->
+  <rect x="360" y="245" width="140" height="100" rx="6" fill="white" fill-opacity="0.08" />
+
+  <!-- Price tag -->
+  <rect x="580" y="240" width="220" height="80" rx="16" fill="url(#accent)" />
+  <text x="690" y="272" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="bold">A partir de</text>
+  <text x="690" y="305" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" font-weight="bold">250 &#8364;</text>
+
+  <!-- Checkmarks -->
+  <text x="580" y="370" font-family="Arial, sans-serif" font-size="16" fill="#22c55e">&#10003;</text>
+  <text x="604" y="370" font-family="Arial, sans-serif" font-size="15" fill="white" fill-opacity="0.9">Design professionnel</text>
+  <text x="580" y="400" font-family="Arial, sans-serif" font-size="16" fill="#22c55e">&#10003;</text>
+  <text x="604" y="400" font-family="Arial, sans-serif" font-size="15" fill="white" fill-opacity="0.9">Adapte mobile</text>
+  <text x="580" y="430" font-family="Arial, sans-serif" font-size="16" fill="#22c55e">&#10003;</text>
+  <text x="604" y="430" font-family="Arial, sans-serif" font-size="15" fill="white" fill-opacity="0.9">Optimise Google (SEO)</text>
+  <text x="580" y="460" font-family="Arial, sans-serif" font-size="16" fill="#22c55e">&#10003;</text>
+  <text x="604" y="460" font-family="Arial, sans-serif" font-size="15" fill="white" fill-opacity="0.9">0&#8364; d'abonnement mensuel</text>
+
+  <!-- Badge -->
+  <rect x="900" y="250" width="180" height="45" rx="22" fill="url(#accent)" />
+  <text x="990" y="279" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle" font-weight="bold">BON PLAN</text>
+
+  <!-- Title -->
+  <text x="600" y="90" font-family="Arial, sans-serif" font-size="36" fill="white" text-anchor="middle" font-weight="bold">Creer Son Site Web Pro</text>
+  <text x="600" y="135" font-family="Arial, sans-serif" font-size="28" fill="white" fill-opacity="0.7" text-anchor="middle">Le Guide Complet 2026</text>
+
+  <!-- Footer -->
+  <text x="600" y="590" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.4" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

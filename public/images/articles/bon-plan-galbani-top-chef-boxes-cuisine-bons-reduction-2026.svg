@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#1A365D"/><stop offset="100%" style="stop-color:#2A4365"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="16"/>
+  <rect x="40" y="30" width="720" height="340" rx="12" fill="white" fill-opacity="0.1"/>
+  <text x="400" y="75" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="700" fill="#FC8181">PROGRAMME FIDELITE</text>
+  <text x="400" y="130" text-anchor="middle" font-family="Arial,sans-serif" font-size="44" font-weight="900" fill="white">GALBANI</text>
+  <text x="400" y="175" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="800" fill="#FFD700">x TOP CHEF</text>
+  <text x="400" y="225" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="white">Boxes cuisine + Bons de reduction + Cadeaux</text>
+  <rect x="220" y="255" width="360" height="50" rx="25" fill="#E53E3E"/>
+  <text x="400" y="287" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="700" fill="white">Du 1er mars au 31 dec 2026</text>
+  <text x="400" y="350" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="rgba(255,255,255,0.7)">Mozzarella - Ricotta - Mascarpone - Burrata - Gorgonzola</text>
+</svg>

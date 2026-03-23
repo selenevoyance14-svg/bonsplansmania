@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2D1B69;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7B2D8B;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C4235C;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative circles -->
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
+  <circle cx="100" cy="550" r="180" fill="white" fill-opacity="0.05" />
+  <circle cx="1100" cy="480" r="100" fill="white" fill-opacity="0.04" />
+
+  <!-- VS decoration -->
+  <text x="920" y="340" font-family="Georgia, serif" font-size="160" fill="white" fill-opacity="0.06" font-weight="700">VS</text>
+
+  <!-- Site badge -->
+  <rect x="80" y="60" width="240" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="200" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <!-- Category badge -->
+  <rect x="80" y="128" width="200" height="36" rx="18" fill="url(#badge)" />
+  <text x="180" y="152" font-family="Georgia, serif" font-size="16" fill="#5B1A00" text-anchor="middle" font-weight="700">BON PLAN BEAUTÉ</text>
+
+  <!-- Main title -->
+  <text x="80" y="255" font-family="Georgia, serif" font-size="64" fill="white" font-weight="700">Dupes Parfums</text>
+  <text x="80" y="330" font-family="Georgia, serif" font-size="64" fill="white" font-weight="700">
+    <tspan fill="#FFD700">adopt</tspan>
+    <tspan fill="white" font-size="40"> — Guide Complet</tspan>
+  </text>
+
+  <!-- Divider -->
+  <rect x="80" y="355" width="100" height="3" rx="2" fill="white" fill-opacity="0.5" />
+
+  <!-- Dupes list -->
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="20" fill="white" fill-opacity="0.9">J'adore Dior • Black Opium YSL • La Vie est Belle Lancôme</text>
+  <text x="80" y="432" font-family="Arial, sans-serif" font-size="20" fill="white" fill-opacity="0.9">Good Girl CH • Chloé • Bleu Chanel • 1 Million...</text>
+
+  <!-- Price highlight -->
+  <rect x="80" y="458" width="420" height="56" rx="12" fill="white" fill-opacity="0.12" />
+  <text x="100" y="479" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.8">Parfums luxe à partir de</text>
+  <text x="100" y="503" font-family="Arial, sans-serif" font-size="26" fill="#FFD700" font-weight="700">4,95€ le 10ml chez Adopt</text>
+
+  <!-- Date -->
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Guide 2026 · 10 dupes comparés</text>
+</svg>

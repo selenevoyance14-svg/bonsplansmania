@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B9D"/>
+      <stop offset="100%" style="stop-color:#C2185B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF">Blissim</text>
+  <text x="600" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#FCE4EC">&#201;ditions Limit&#233;es</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFF9C4">Splendist Printemps 49,90&#8364;</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#FFFFFF">Valeur 261&#8364; de produits</text>
+  <rect x="320" y="460" width="560" height="60" rx="30" fill="#FFFFFF"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#C2185B">Coffrets d&#232;s 30,60&#8364;</text>
+</svg>

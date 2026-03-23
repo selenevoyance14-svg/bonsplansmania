@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66BB6A"/>
+      <stop offset="50%" style="stop-color:#43A047"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="100" cy="70" r="50" fill="rgba(255,255,255,0.09)"/>
+  <circle cx="1100" cy="560" r="85" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="950" cy="75" r="40" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="170" cy="550" r="45" fill="rgba(255,255,255,0.07)"/>
+  <rect x="80" y="120" width="1040" height="390" rx="24" fill="rgba(0,0,0,0.25)"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.9)" font-weight="bold">JEU CONCOURS</text>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" fill="white" font-weight="bold">Love &amp; Green</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" fill="#C8E6C9" font-weight="bold">fete ses 15 ans !</text>
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" fill="#FFD54F" font-weight="bold">100% GAGNANT</text>
+  <text x="600" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">🎁 Cartes cadeaux · Produits · Bons de reduction</text>
+  <text x="600" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.75)">Couches ecologiques · Soins bebe BIO · Hygiene feminine</text>
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">bonsplansmania.fr</text>
+</svg>

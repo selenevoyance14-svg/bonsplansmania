@@ -1,0 +1,15 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#ffe0e0;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="68" font-weight="bold" fill="#ffffff">✨ Adopt</text>
+  <text x="600" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#ffffff">Top 10 à Moins de 10€</text>
+  <rect x="200" y="275" width="800" height="4" rx="2" fill="#ffffff" opacity="0.4"/>
+  <text x="600" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#e63946">Format voyage 10ml • 4.95€</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#ffffff">Femme et Homme</text>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#e63946">bonsplansmania.fr</text>
+</svg>

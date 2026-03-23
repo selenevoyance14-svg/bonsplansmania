@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a2e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16213e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8962e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6c3483;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a235a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <rect x="300" y="15" width="200" height="40" rx="20" fill="url(#gold)"/>
+  <text x="400" y="41" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#1a1a2e" letter-spacing="2">TOP 10</text>
+  <text x="400" y="85" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="white">Meilleurs Sites Parfum</text>
+  <text x="400" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">Notre selection 2026</text>
+  <!-- Perfume bottle icon -->
+  <rect x="370" y="130" width="60" height="100" rx="8" fill="url(#purple)" opacity="0.6"/>
+  <rect x="385" y="118" width="30" height="18" rx="4" fill="url(#gold)" opacity="0.7"/>
+  <circle cx="400" cy="112" r="6" fill="url(#gold)" opacity="0.5"/>
+  <!-- Sites list -->
+  <g transform="translate(100, 255)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.08)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#gold)">1. Notino</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Meilleurs prix</text>
+  </g>
+  <g transform="translate(225, 255)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.08)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#gold)">2. Lookfantastic</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Codes promo</text>
+  </g>
+  <g transform="translate(350, 255)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.08)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#gold)">3. Nocibe</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">600 boutiques</text>
+  </g>
+  <g transform="translate(475, 255)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.08)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#gold)">4. Sephora</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Exclusivites</text>
+  </g>
+  <g transform="translate(600, 255)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.08)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#gold)">5. Marionnaud</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Ventes privees</text>
+  </g>
+  <g transform="translate(100, 310)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.05)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">6. Amazon</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">Flash sales</text>
+  </g>
+  <g transform="translate(225, 310)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.05)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">7. Perfume's Club</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">Jusqu'a -70%</text>
+  </g>
+  <g transform="translate(350, 310)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.05)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">8. Gal. Lafayette</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">Niche + luxe</text>
+  </g>
+  <g transform="translate(475, 310)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.05)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">9. Yves Rocher</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">Prix plancher</text>
+  </g>
+  <g transform="translate(600, 310)">
+    <rect x="0" y="0" width="115" height="45" rx="6" fill="rgba(255,255,255,0.05)"/>
+    <text x="58" y="20" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">10. Beauty Success</text>
+    <text x="58" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#666">3x sans frais</text>
+  </g>
+  <rect x="270" y="380" width="260" height="30" rx="15" fill="url(#gold)"/>
+  <text x="400" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a1a2e">COMPARATIF + BONS PLANS</text>
+  <text x="400" y="435" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#666">Selection bonsplansmania - 2026</text>
+</svg>

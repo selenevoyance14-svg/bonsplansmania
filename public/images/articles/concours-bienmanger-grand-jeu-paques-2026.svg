@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6D4C41"/>
+      <stop offset="100%" style="stop-color:#4E342E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.10)"/>
+  <text x="600" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="58" font-weight="bold" fill="#FFFFFF">BienManger.com</text>
+  <text x="600" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" fill="#FFF9C4">Grand Jeu de P&#226;ques</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#FFFFFF">Panier de Chocolats</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFFFFF">&#224; gagner</text>
+  <rect x="380" y="455" width="440" height="56" rx="28" fill="#FFFFFF"/>
+  <text x="600" y="492" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#4E342E">Participation gratuite</text>
+</svg>

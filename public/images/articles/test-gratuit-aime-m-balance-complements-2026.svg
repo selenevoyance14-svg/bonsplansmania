@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#CE93D8"/>
+      <stop offset="100%" style="stop-color:#AB47BC"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#FFFFFF">Beaut&#233; Test x Aime</text>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFF9C4">M-Balance+</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#FFFFFF">Compl&#233;ments Alimentaires</text>
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#FFFFFF">15 Testeuses</text>
+  <rect x="350" y="420" width="500" height="56" rx="28" fill="#FFFFFF"/>
+  <text x="600" y="457" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#AB47BC">Test Produit Gratuit &#8212; Inscription</text>
+</svg>

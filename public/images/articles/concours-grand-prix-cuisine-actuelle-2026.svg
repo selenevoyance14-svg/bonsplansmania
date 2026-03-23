@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4CAF50"/>
+      <stop offset="100%" style="stop-color:#2E7D32"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#FFFFFF">Grand Prix</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#FFF9C4">Cuisine Actuelle 2026</text>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">1000 Paniers Gratuits</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFFFFF">5 paniers th&#233;matiques &#224; tester chez vous</text>
+  <rect x="350" y="430" width="500" height="60" rx="30" fill="#FFFFFF"/>
+  <text x="600" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#2E7D32">Inscriptions jusqu&#39;au 29 mars</text>
+</svg>

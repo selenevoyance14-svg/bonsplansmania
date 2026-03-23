@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E53935"/>
+      <stop offset="100%" style="stop-color:#FF6F00"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF">AliExpress</text>
+  <text x="600" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" fill="#FFF9C4">Promo Anniversaire</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="96" font-weight="bold" fill="#FFFFFF">-60%</text>
+  <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#FFFFFF">+ Codes Promo FRAS</text>
+  <rect x="350" y="460" width="500" height="60" rx="30" fill="#FFFFFF"/>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#E53935">16 - 25 Mars 2026</text>
+</svg>

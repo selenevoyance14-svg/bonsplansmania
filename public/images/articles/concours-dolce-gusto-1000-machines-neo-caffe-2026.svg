@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4E342E"/>
+      <stop offset="100%" style="stop-color:#3E2723"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.08)"/>
+  <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">NESCAF&#201;&#174; Dolce Gusto&#174;</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#FFD54F">1 000 Machines &#224; Gagner</text>
+  <text x="600" y="305" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="#FFFFFF">NEO Caff&#232; Blanche &#8212; 109&#8364;</text>
+  <text x="600" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFD54F">Instant Gagnant &#8212; R&#233;sultat Imm&#233;diat</text>
+  <rect x="350" y="420" width="500" height="56" rx="28" fill="#FFD54F"/>
+  <text x="600" y="457" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#3E2723">Du 17 au 27 mars 2026 &#8212; Gratuit</text>
+</svg>

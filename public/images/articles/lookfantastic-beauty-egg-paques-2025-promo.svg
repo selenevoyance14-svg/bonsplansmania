@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f0e8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e8ddd0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4a847;stop-opacity:1" />
+      <stop offset="30%" style="stop-color:#f0d060;stop-opacity:1" />
+      <stop offset="60%" style="stop-color:#c8963c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8862d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="goldTop" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0d060;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4a847;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2c2c2c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a1a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Lookfantastic text -->
+  <text x="400" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888" letter-spacing="3">LOOKFANTASTIC</text>
+
+  <!-- Title -->
+  <text x="400" y="70" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#333">Beauty Egg 2026</text>
+  <text x="400" y="95" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#888" font-style="italic">L'oeuf beaute de Paques</text>
+
+  <!-- Golden egg -->
+  <g transform="translate(310, 110)">
+    <!-- Egg bottom -->
+    <ellipse cx="90" cy="170" rx="70" ry="85" fill="url(#gold)"/>
+    <!-- Egg top (lid) shifted up -->
+    <ellipse cx="90" cy="95" rx="55" ry="50" fill="url(#goldTop)"/>
+    <!-- Shine on egg -->
+    <ellipse cx="65" cy="145" rx="12" ry="30" fill="white" opacity="0.15" transform="rotate(-10 65 145)"/>
+    <!-- Lid line -->
+    <ellipse cx="90" cy="130" rx="68" ry="8" fill="#c8963c" opacity="0.4"/>
+  </g>
+
+  <!-- Products around the egg -->
+  <!-- Left products -->
+  <rect x="120" y="175" width="22" height="65" rx="4" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="123" y="178" width="16" height="20" rx="2" fill="#f0c040" opacity="0.6"/>
+
+  <rect x="155" y="165" width="20" height="72" rx="10" fill="#c8963c" opacity="0.5"/>
+  <circle cx="165" cy="175" r="5" fill="white" opacity="0.3"/>
+
+  <rect x="185" y="180" width="24" height="58" rx="4" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="188" y="183" width="18" height="15" rx="2" fill="#e91e63" opacity="0.4"/>
+
+  <!-- Right products -->
+  <rect x="490" y="170" width="24" height="65" rx="4" fill="#64b5f6" opacity="0.6"/>
+  <text x="502" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="white">111</text>
+
+  <rect x="525" y="160" width="20" height="75" rx="4" fill="#333" opacity="0.7"/>
+  <text x="535" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="5" fill="white">W</text>
+
+  <rect x="555" y="175" width="22" height="60" rx="4" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <rect x="558" y="178" width="16" height="18" rx="2" fill="#1a237e" opacity="0.4"/>
+
+  <rect x="590" y="168" width="18" height="68" rx="9" fill="white" stroke="#ddd" stroke-width="0.5"/>
+  <circle cx="599" cy="178" r="4" fill="#333" opacity="0.4"/>
+
+  <!-- Value boxes -->
+  <rect x="130" y="290" width="220" height="55" rx="10" fill="white" opacity="0.9" stroke="#d4a847" stroke-width="1.5"/>
+  <text x="240" y="312" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#888">Valeur totale</text>
+  <text x="240" y="335" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#c8963c">260€+</text>
+
+  <rect x="450" y="290" width="220" height="55" rx="10" fill="url(#dark)"/>
+  <text x="560" y="312" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#aaa">Votre prix</text>
+  <text x="560" y="335" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#f0d060">70€</text>
+
+  <!-- Brands -->
+  <text x="400" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#999" letter-spacing="1">RODIAL - MEDIK8 - FENTY BEAUTY - SOL DE JANEIRO</text>
+  <text x="400" y="392" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#999" letter-spacing="1">ANASTASIA BEVERLY HILLS - 111SKIN - COLOR WOW</text>
+
+  <!-- Economisez badge -->
+  <rect x="270" y="405" width="260" height="28" rx="14" fill="#c8963c"/>
+  <text x="400" y="424" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white">Economisez 190€</text>
+</svg>

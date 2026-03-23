@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A237E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#283593;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7986CB;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
+  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.05" />
+
+  <!-- Site badge -->
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <!-- Category badge -->
+  <rect x="80" y="128" width="200" height="36" rx="18" fill="url(#badge)" />
+  <text x="180" y="152" font-family="Arial, sans-serif" font-size="16" fill="#5B1A00" text-anchor="middle" font-weight="700">🎁 TEST GRATUIT</text>
+
+  <!-- Title -->
+  <text x="80" y="258" font-family="Georgia, serif" font-size="52" fill="white" font-weight="400" fill-opacity="0.9">Kiabi</text>
+  <text x="80" y="348" font-family="Georgia, serif" font-size="100" fill="white" font-weight="700">Community</text>
+
+  <rect x="80" y="366" width="100" height="3" rx="2" fill="#FFD700" fill-opacity="0.8" />
+
+  <text x="80" y="412" font-family="Arial, sans-serif" font-size="26" fill="white" fill-opacity="0.95" font-weight="600">Tests Vêtements &amp; Produits Gratuits</text>
+
+  <!-- Products -->
+  <rect x="80" y="436" width="720" height="64" rx="12" fill="white" fill-opacity="0.12" />
+  <text x="100" y="460" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.85">👗 Mode femme · 👶 Enfant &amp; bébé · 🛴 Accessoires</text>
+  <text x="100" y="488" font-family="Arial, sans-serif" font-size="22" fill="#FFD700" font-weight="700">Sélection par profil · Produit complet offert</text>
+
+  <!-- Badge -->
+  <rect x="80" y="530" width="310" height="44" rx="10" fill="white" fill-opacity="0.15" />
+  <text x="100" y="557" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="700">Inscription gratuite · Sans engagement</text>
+
+  <text x="80" y="606" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · France métropolitaine</text>
+</svg>

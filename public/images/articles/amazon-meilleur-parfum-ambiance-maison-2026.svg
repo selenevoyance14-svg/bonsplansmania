@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#4C1D95"/><stop offset="100%" style="stop-color:#6D28D9"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="16"/>
+  <rect x="40" y="30" width="720" height="340" rx="12" fill="white" fill-opacity="0.08"/>
+  <text x="400" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#DDD6FE" letter-spacing="4">COMPARATIF AMAZON 2026</text>
+  <text x="400" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" font-weight="900" fill="white">PARFUMS D'AMBIANCE</text>
+  <text x="400" y="155" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#DDD6FE">Maison · Sprays · Bâtonnets · Diffuseurs</text>
+  <rect x="220" y="175" width="360" height="44" rx="22" fill="#F59E0B"/>
+  <text x="400" y="203" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="800" fill="white">Top 5 dès 10€</text>
+  <text x="400" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="15" fill="rgba(255,255,255,0.8)">Lampe Berger · Rituals · Yankee Candle · Mathilde M.</text>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)">Bien-être · Décoration · Intérieur</text>
+</svg>

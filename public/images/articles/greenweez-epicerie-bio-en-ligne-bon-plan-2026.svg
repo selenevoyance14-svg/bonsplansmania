@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#166534;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#15803d;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.13" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.04" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="16"/>
+  <circle cx="680" cy="80" r="140" fill="white" opacity="0.06"/>
+  <circle cx="100" cy="390" r="100" fill="white" opacity="0.05"/>
+  <!-- Badges -->
+  <rect x="40" y="40" width="200" height="38" rx="19" fill="white" opacity="0.2"/>
+  <text x="140" y="64" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">N°1 E-COMMERCE BIO</text>
+  <rect x="255" y="40" width="190" height="38" rx="19" fill="#f59e0b" opacity="0.9"/>
+  <text x="350" y="64" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">-10% 1ère commande</text>
+  <!-- Card -->
+  <rect x="40" y="100" width="720" height="230" rx="16" fill="url(#card)"/>
+  <!-- Icon -->
+  <rect x="60" y="120" width="80" height="80" rx="12" fill="white" opacity="0.15"/>
+  <text x="100" y="172" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">🛒</text>
+  <!-- Brand -->
+  <text x="165" y="148" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="white" opacity="0.75">GREENWEEZ · ÉPICERIE BIO EN LIGNE</text>
+  <!-- Title -->
+  <text x="165" y="183" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="white">35 000 produits bio</text>
+  <text x="165" y="213" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="white">Livraison dès 1,90€</text>
+  <!-- Subtitle -->
+  <text x="165" y="248" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.85">Alimentation · Cosmétiques · Maison · Bien-être</text>
+  <!-- Features -->
+  <rect x="60" y="295" width="215" height="22" rx="11" fill="white" opacity="0.15"/>
+  <text x="167" y="311" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">✓ Livraison offerte 59€</text>
+  <rect x="290" y="295" width="200" height="22" rx="11" fill="white" opacity="0.15"/>
+  <text x="390" y="311" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">✓ Programme fidélité</text>
+  <rect x="505" y="295" width="235" height="22" rx="11" fill="white" opacity="0.15"/>
+  <text x="622" y="311" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">✓ Promos jusqu'à -80%</text>
+  <!-- Bottom -->
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

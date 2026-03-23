@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a0a0a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d1515;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4af37;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#b8962e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <text x="400" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="url(#gold)" letter-spacing="4">LE ROUGE FRANCAIS</text>
+  <text x="400" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888" letter-spacing="3">MAISON DE MAQUILLAGE VEGETAL</text>
+  <line x1="300" y1="95" x2="500" y2="95" stroke="url(#gold)" stroke-width="1" opacity="0.5"/>
+  <text x="400" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">1ere marque de maquillage</text>
+  <text x="400" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="white">aux pigments de plantes</text>
+  <rect x="280" y="185" width="240" height="26" rx="13" fill="url(#gold)" opacity="0.2"/>
+  <text x="400" y="203" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#gold)" letter-spacing="1">PROCEDE BREVETE</text>
+  <g transform="translate(120, 235)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="rgba(255,255,255,0.05)" stroke="url(#gold)" stroke-width="0.5"/>
+    <text x="80" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="url(#gold)">BIO</text>
+    <text x="80" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Cosmos Organic</text>
+    <text x="80" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">certifie</text>
+  </g>
+  <g transform="translate(320, 235)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="rgba(255,255,255,0.05)" stroke="url(#gold)" stroke-width="0.5"/>
+    <text x="80" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="url(#gold)">VEGAN</text>
+    <text x="80" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Zero ingredient</text>
+    <text x="80" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">animal</text>
+  </g>
+  <g transform="translate(520, 235)">
+    <rect x="0" y="0" width="160" height="80" rx="8" fill="rgba(255,255,255,0.05)" stroke="url(#gold)" stroke-width="0.5"/>
+    <text x="80" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="url(#gold)">FRANCE</text>
+    <text x="80" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Fabrique a Paris</text>
+    <text x="80" y="65" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Boutique Le Marais</text>
+  </g>
+  <text x="400" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#aaa">Rouges a levres - Mascara - Blush - Vernis</text>
+  <rect x="280" y="385" width="240" height="30" rx="15" fill="url(#gold)"/>
+  <text x="400" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#1a0a0a">DECOUVERTE + AVIS</text>
+  <text x="400" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#666">Emballages en verre recyclable</text>
+</svg>

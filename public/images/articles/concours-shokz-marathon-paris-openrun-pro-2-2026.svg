@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="100%" style="stop-color:#16213E"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.08)"/>
+  <text x="600" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#00E676">Shokz</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#FFFFFF">Sp&#233;cial Marathon de Paris</text>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">OpenRun Pro 2 &#224; Gagner</text>
+  <text x="600" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#00E676">Tirage au sort &#8212; R&#233;sultats le 20 avril</text>
+  <rect x="380" y="430" width="440" height="56" rx="28" fill="#00E676"/>
+  <text x="600" y="467" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#1A1A2E">Participation Gratuite</text>
+</svg>

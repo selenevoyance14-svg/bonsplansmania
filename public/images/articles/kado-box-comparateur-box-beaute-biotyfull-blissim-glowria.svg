@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#880E4F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#AD1457;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F48FB1;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="note" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#6A1B9A;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8E24AA;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
+  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="190" height="36" rx="18" fill="url(#badge)" />
+  <text x="175" y="152" font-family="Arial, sans-serif" font-size="16" fill="#5B1A00" text-anchor="middle" font-weight="700">💄 BOX BEAUTÉ</text>
+  <rect x="290" y="128" width="190" height="36" rx="18" fill="url(#note)" />
+  <text x="385" y="152" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">⭐ Note 4,4/5</text>
+  <text x="80" y="248" font-family="Georgia, serif" font-size="52" fill="white" font-weight="400" fill-opacity="0.9">Kado</text>
+  <text x="80" y="338" font-family="Georgia, serif" font-size="120" fill="white" font-weight="700">Box</text>
+  <rect x="80" y="356" width="100" height="3" rx="2" fill="#FFD700" fill-opacity="0.8" />
+  <text x="80" y="402" font-family="Arial, sans-serif" font-size="24" fill="white" fill-opacity="0.95" font-weight="600">Comparateur Box Beauté · Trouvez la Vôtre</text>
+  <rect x="80" y="426" width="820" height="64" rx="12" fill="white" fill-opacity="0.12" />
+  <text x="100" y="450" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.85">💚 Biotyfull · 💄 Blissim · ✨ Glowria · 🌿 Belle au Naturel</text>
+  <text x="100" y="478" font-family="Arial, sans-serif" font-size="22" fill="#FFD700" font-weight="700">De 17,90€ à 39,90€/mois · Bio · Vegan · Full-size</text>
+  <rect x="80" y="524" width="280" height="44" rx="10" fill="white" fill-opacity="0.15" />
+  <text x="100" y="551" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="700">kado-box.fr · Comparez gratuitement</text>
+  <text x="80" y="606" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Toutes les meilleures box France</text>
+</svg>

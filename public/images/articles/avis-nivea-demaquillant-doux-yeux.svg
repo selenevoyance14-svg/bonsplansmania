@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="niv-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EEF2FA"/>
+      <stop offset="100%" style="stop-color:#D8E4F8"/>
+    </linearGradient>
+    <linearGradient id="niv-nivblue" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#003DA5"/>
+      <stop offset="100%" style="stop-color:#002878"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#niv-bg)"/>
+  <g transform="translate(100, 50)">
+    <rect x="40" y="30" width="120" height="280" rx="20" fill="white" stroke="#C0D0E8" stroke-width="2"/>
+    <rect x="55" y="0" width="90" height="45" rx="8" fill="url(#niv-nivblue)"/>
+    <text x="100" y="28" font-family="Arial Black, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="900">NIVEA</text>
+    <rect x="55" y="85" width="90" height="90" rx="6" fill="#E8EEF8" opacity="0.8"/>
+    <text x="100" y="115" font-family="Poppins, sans-serif" font-size="9" fill="#003DA5" text-anchor="middle" font-weight="700">DEMAQUILLANT</text>
+    <text x="100" y="132" font-family="Poppins, sans-serif" font-size="9" fill="#003DA5" text-anchor="middle" font-weight="700">DOUX</text>
+    <text x="100" y="152" font-family="Poppins, sans-serif" font-size="8" fill="#4A6AA0" text-anchor="middle">pour les yeux</text>
+    <!-- Eye icon -->
+    <ellipse cx="100" cy="220" rx="20" ry="12" fill="none" stroke="#003DA5" stroke-width="2" opacity="0.4"/>
+    <circle cx="100" cy="220" r="6" fill="#003DA5" opacity="0.3"/>
+  </g>
+  <text x="380" y="80" font-family="Poppins, sans-serif" font-size="14" fill="#003DA5" font-weight="700">NOTRE AVIS</text>
+  <text x="380" y="120" font-family="Arial Black, sans-serif" font-size="28" font-weight="bold" fill="#003DA5">NIVEA</text>
+  <text x="380" y="155" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#2A2A40">Demaquillant Doux</text>
+  <text x="380" y="185" font-family="Georgia, serif" font-size="18" fill="#4A6AA0" font-style="italic">Special Yeux</text>
+  <g transform="translate(380, 210)">
+    <polygon points="12,0 15,8 24,8 17,14 19,22 12,17 5,22 7,14 0,8 9,8" fill="#FFB800"/>
+    <polygon points="37,0 40,8 49,8 42,14 44,22 37,17 30,22 32,14 25,8 34,8" fill="#FFB800"/>
+    <polygon points="62,0 65,8 74,8 67,14 69,22 62,17 55,22 57,14 50,8 59,8" fill="#FFB800"/>
+    <polygon points="87,0 90,8 99,8 92,14 94,22 87,17 80,22 82,14 75,8 84,8" fill="#FFB800"/>
+    <polygon points="112,0 115,8 124,8 117,14 119,22 112,17 105,22 107,14 100,8 109,8" fill="#FFB800" opacity="0.3"/>
+  </g>
+  <text x="510" y="228" font-family="Poppins, sans-serif" font-size="14" fill="#888">4/5</text>
+  <g transform="translate(380, 260)">
+    <circle cx="8" cy="8" r="8" fill="#003DA5" opacity="0.8"/>
+    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
+    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#2A2A40">Formule biphase efficace</text>
+  </g>
+  <g transform="translate(380, 290)">
+    <circle cx="8" cy="8" r="8" fill="#003DA5" opacity="0.8"/>
+    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
+    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#2A2A40">Retire le waterproof</text>
+  </g>
+  <g transform="translate(380, 320)">
+    <circle cx="8" cy="8" r="8" fill="#003DA5" opacity="0.8"/>
+    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
+    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#2A2A40">Yeux sensibles et porteuses de lentilles</text>
+  </g>
+  <rect x="380" y="360" width="120" height="40" rx="20" fill="url(#niv-nivblue)"/>
+  <text x="440" y="386" font-family="Poppins, sans-serif" font-size="16" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
+  <text x="520" y="386" font-family="Poppins, sans-serif" font-size="12" fill="#888">sur Amazon</text>
+</svg>

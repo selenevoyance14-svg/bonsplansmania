@@ -1,0 +1,19 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fdcb6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f9ca24;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="100" cy="80" r="120" fill="rgba(255,255,255,0.1)"/>
+  <circle cx="1100" cy="550" r="150" fill="rgba(255,255,255,0.08)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="rgba(0,0,0,0.3)"/>
+  <text x="600" y="170" font-family="Arial,sans-serif" font-size="42" font-weight="bold" fill="#FFEAA7" text-anchor="middle">☀️ BON PLAN YESSTYLE</text>
+  <text x="600" y="240" font-family="Arial,sans-serif" font-size="40" font-weight="bold" fill="white" text-anchor="middle">Beauty of Joseon Relief Sun</text>
+  <text x="600" y="295" font-family="Arial,sans-serif" font-size="30" fill="rgba(255,255,255,0.8)" text-anchor="middle">SPF50+ PA++++ • Le SPF K-Beauty n°1</text>
+  <text x="600" y="385" font-family="Arial,sans-serif" font-size="80" font-weight="bold" fill="#FFD700" text-anchor="middle">14,40€</text>
+  <text x="600" y="440" font-family="Arial,sans-serif" font-size="36" fill="rgba(255,255,255,0.7)" text-anchor="middle" text-decoration="line-through">18,00€</text>
+  <text x="600" y="490" font-family="Arial,sans-serif" font-size="40" font-weight="bold" fill="#00FF88" text-anchor="middle">-20% • ~12€ avec code WOMEN26</text>
+  <text x="600" y="540" font-family="Arial,sans-serif" font-size="22" fill="rgba(255,255,255,0.6)" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

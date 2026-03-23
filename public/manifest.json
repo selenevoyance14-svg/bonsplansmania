@@ -1,0 +1,21 @@
+{
+  "name": "Bons Plans Mania",
+  "short_name": "BonsPlansMania",
+  "description": "Les meilleurs bons plans beauté, tests gratuits, concours et box beauté",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFBF8",
+  "theme_color": "#E63946",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

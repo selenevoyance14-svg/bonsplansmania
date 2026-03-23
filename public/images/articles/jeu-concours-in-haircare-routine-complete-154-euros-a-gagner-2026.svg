@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8A87C"/>
+      <stop offset="50%" style="stop-color:#D4956B"/>
+      <stop offset="100%" style="stop-color:#8B6914"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="110" cy="75" r="55" fill="rgba(255,255,255,0.08)"/>
+  <circle cx="1090" cy="555" r="80" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="960" cy="80" r="40" fill="rgba(255,255,255,0.09)"/>
+  <circle cx="180" cy="540" r="35" fill="rgba(255,255,255,0.07)"/>
+  <rect x="80" y="120" width="1040" height="390" rx="24" fill="rgba(0,0,0,0.28)"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.9)" font-weight="bold">JEU CONCOURS</text>
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="66" fill="white" font-weight="bold">In Haircare</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="rgba(255,255,255,0.9)">1 Routine Complete a gagner</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="#FFD54F" font-weight="bold">154&#8364;</text>
+  <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">💇 Cure pousse · Serum · Masque · Shampoing</text>
+  <text x="600" y="475" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.75)">Made in France · Vegan · Cheveux boucles &amp; textures</text>
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.6)">bonsplansmania.fr</text>
+</svg>

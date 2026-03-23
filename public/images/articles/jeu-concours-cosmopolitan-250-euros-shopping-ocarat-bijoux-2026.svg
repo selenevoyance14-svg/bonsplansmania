@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A2E"/>
+      <stop offset="50%" style="stop-color:#16213E"/>
+      <stop offset="100%" style="stop-color:#0F3460"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="100" cy="70" r="50" fill="rgba(255,215,0,0.06)"/>
+  <circle cx="1100" cy="560" r="85" fill="rgba(255,215,0,0.04)"/>
+  <circle cx="960" cy="75" r="40" fill="rgba(255,215,0,0.07)"/>
+  <circle cx="170" cy="550" r="35" fill="rgba(255,215,0,0.05)"/>
+  <rect x="80" y="120" width="1040" height="390" rx="24" fill="rgba(255,255,255,0.07)"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="rgba(255,255,255,0.8)" font-weight="bold">JEU CONCOURS COSMOPOLITAN</text>
+  <text x="600" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" fill="#FFD700" font-weight="bold">250&#8364;</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" fill="white" font-weight="bold">de Shopping Bijoux</text>
+  <text x="600" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" fill="rgba(255,255,255,0.9)">chez Ocarat</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,215,0,0.9)">💎 Montres · Bijoux · +300 marques</text>
+  <text x="600" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.7)">Tissot · Pandora · Swarovski · Hamilton · Fossil</text>
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.5)">bonsplansmania.fr</text>
+</svg>

@@ -1,0 +1,18 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00b894;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#55efc4;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="100" cy="80" r="120" fill="rgba(255,255,255,0.07)"/>
+  <circle cx="1100" cy="550" r="150" fill="rgba(255,255,255,0.05)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="24" fill="rgba(0,0,0,0.3)"/>
+  <text x="600" y="155" font-family="Arial,sans-serif" font-size="38" font-weight="bold" fill="#A3FFD0" text-anchor="middle">🌿 JOURNÉE DE LA FEMME</text>
+  <text x="600" y="225" font-family="Arial,sans-serif" font-size="50" font-weight="bold" fill="white" text-anchor="middle">BIOTYFULL BOX 100% Bio</text>
+  <text x="600" y="320" font-family="Arial,sans-serif" font-size="90" font-weight="bold" fill="#FFD700" text-anchor="middle">9,75€</text>
+  <text x="600" y="390" font-family="Arial,sans-serif" font-size="36" fill="rgba(255,255,255,0.9)" text-anchor="middle">45 produits bio • valeur 987€</text>
+  <text x="600" y="445" font-family="Arial,sans-serif" font-size="28" fill="rgba(255,255,255,0.8)" text-anchor="middle">3 box + Calendrier de l'Après • Made in France</text>
+  <text x="600" y="530" font-family="Arial,sans-serif" font-size="22" fill="rgba(255,255,255,0.6)" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

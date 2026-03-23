@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5C6BC0"/>
+      <stop offset="100%" style="stop-color:#3F51B5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#FFFFFF">Mont Roucous x Biberon Fran&#231;ais</text>
+  <text x="600" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#F8BBD0">Gourde B&#233;b&#233;</text>
+  <text x="600" y="320" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#FFFFFF">&#224; Gagner !</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#F8BBD0">Roue de la Fortune &#8212; R&#233;sultat Imm&#233;diat</text>
+  <rect x="350" y="435" width="500" height="56" rx="28" fill="#F8BBD0"/>
+  <text x="600" y="472" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#3F51B5">Achetez un pack &#8212; Jouez &#8212; Gagnez</text>
+</svg>

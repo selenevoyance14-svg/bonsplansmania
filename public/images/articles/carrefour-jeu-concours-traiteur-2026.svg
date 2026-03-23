@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD"/>
+      <stop offset="100%" style="stop-color:#BBDEFB"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="100" cy="530" r="150" fill="#1565C0" opacity="0.06"/>
+  <circle cx="1100" cy="100" r="180" fill="#0D47A1" opacity="0.05"/>
+  <!-- Food/traiteur icons -->
+  <g transform="translate(480, 70)" opacity="0.2">
+    <!-- Plate -->
+    <ellipse cx="120" cy="100" rx="80" ry="20" fill="#1565C0"/>
+    <ellipse cx="120" cy="95" rx="70" ry="15" fill="#E3F2FD"/>
+    <!-- Dome cover -->
+    <path d="M50 95 Q120 20, 190 95" fill="#1565C0" opacity="0.5"/>
+    <circle cx="120" cy="40" r="8" fill="#1565C0" opacity="0.5"/>
+  </g>
+  <!-- Decorative circles -->
+  <g opacity="0.08">
+    <circle cx="300" cy="200" r="30" fill="#E53935"/>
+    <circle cx="900" cy="400" r="25" fill="#1565C0"/>
+    <circle cx="350" cy="450" r="20" fill="#E53935"/>
+  </g>
+  <text x="600" y="300" text-anchor="middle" font-family="Georgia, serif" font-size="28" fill="#1565C0" opacity="0.8">JEU CONCOURS</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Georgia, serif" font-size="56" font-weight="bold" fill="#0D47A1">Carrefour Traiteur</text>
+  <text x="600" y="430" text-anchor="middle" font-family="Georgia, serif" font-size="32" fill="#1565C0">Lots Gourmands &#224; Gagner</text>
+  <rect x="420" y="470" width="360" height="50" rx="25" fill="#1565C0"/>
+  <text x="600" y="502" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="white">PARTICIPATION GRATUITE</text>
+  <rect x="0" y="610" width="600" height="20" fill="#1565C0"/>
+  <rect x="600" y="610" width="600" height="20" fill="#E53935"/>
+</svg>

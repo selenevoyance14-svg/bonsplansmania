@@ -1,0 +1,15 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1565C0"/>
+      <stop offset="100%" style="stop-color:#0D47A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.10)"/>
+  <text x="600" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="72" font-weight="bold" fill="#FFFFFF">Casanis</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="96" font-weight="bold" fill="#FFF9C4">100 Ans</text>
+  <text x="600" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#FFFFFF">Jeu Anniversaire</text>
+  <rect x="380" y="410" width="440" height="60" rx="30" fill="#FFFFFF"/>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#0D47A1">Des lots &#224; gagner</text>
+</svg>

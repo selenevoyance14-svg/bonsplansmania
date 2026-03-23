@@ -1,0 +1,15 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#66BB6A"/>
+      <stop offset="100%" style="stop-color:#43A047"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#FFFFFF">Cuisine Actuelle</text>
+  <text x="600" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" fill="#FFF9C4">Grand Jeu du Printemps</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#FFFFFF">Nombreux Lots &#224; Gagner</text>
+  <rect x="350" y="400" width="500" height="56" rx="28" fill="#FFFFFF"/>
+  <text x="600" y="437" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#43A047">Jouez et Rejouez &#8212; Gratuit</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="atl-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F8E8E8"/>
+      <stop offset="100%" style="stop-color:#F0D8D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#atl-bg)"/>
+  <!-- Balloons -->
+  <g opacity="0.8">
+    <circle cx="100" cy="160" r="65" fill="#CC2020"/>
+    <text x="100" y="172" font-family="Arial Black, sans-serif" font-size="36" fill="white" text-anchor="middle" opacity="0.4">%</text>
+    <line x1="100" y1="225" x2="100" y2="280" stroke="#CC2020" stroke-width="1.5"/>
+    <circle cx="700" cy="140" r="55" fill="#CC2020"/>
+    <text x="700" y="150" font-family="Arial Black, sans-serif" font-size="30" fill="white" text-anchor="middle" opacity="0.4">%</text>
+    <line x1="700" y1="195" x2="700" y2="240" stroke="#CC2020" stroke-width="1.5"/>
+    <circle cx="680" cy="320" r="45" fill="#CC2020" opacity="0.6"/>
+    <text x="680" y="328" font-family="Arial Black, sans-serif" font-size="24" fill="white" text-anchor="middle" opacity="0.4">%</text>
+    <circle cx="130" cy="350" r="40" fill="#CC2020" opacity="0.5"/>
+  </g>
+  <!-- Brand -->
+  <text x="400" y="60" font-family="Georgia, serif" font-size="18" fill="#5A4A30" text-anchor="middle">atlas<tspan font-weight="bold" fill="#8B6914">for</tspan>men</text>
+  <text x="400" y="78" font-family="Poppins, sans-serif" font-size="8" fill="#8B7355" text-anchor="middle" letter-spacing="3">TAILLE POUR L'AVENTURE</text>
+  <!-- Date -->
+  <text x="400" y="115" font-family="Georgia, serif" font-size="16" fill="#5A4A30" text-anchor="middle">Du 18 au 25 mars 2026</text>
+  <!-- VENTE FLASH -->
+  <text x="400" y="185" font-family="Arial Black, sans-serif" font-size="65" font-weight="900" fill="#8B1A1A" text-anchor="middle">VENTE FLASH</text>
+  <!-- -70% box -->
+  <rect x="280" y="210" width="240" height="100" rx="8" fill="#A02020"/>
+  <text x="320" y="260" font-family="Poppins, sans-serif" font-size="16" fill="white" font-weight="700">TOUT A</text>
+  <text x="400" y="290" font-family="Arial Black, sans-serif" font-size="55" fill="white" text-anchor="middle" font-weight="900">-70<tspan font-size="30">%</tspan></text>
+  <!-- CTA buttons -->
+  <rect x="220" y="340" width="160" height="44" rx="4" fill="#4A3A20"/>
+  <text x="300" y="368" font-family="Poppins, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="700">HOMME</text>
+  <rect x="420" y="340" width="160" height="44" rx="4" fill="#4A3A20"/>
+  <text x="500" y="368" font-family="Poppins, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="700">FEMME</text>
+  <!-- Bottom -->
+  <text x="400" y="425" font-family="Poppins, sans-serif" font-size="12" fill="#8B7355" text-anchor="middle">Vetements homme &amp; femme — Offre limitee</text>
+</svg>

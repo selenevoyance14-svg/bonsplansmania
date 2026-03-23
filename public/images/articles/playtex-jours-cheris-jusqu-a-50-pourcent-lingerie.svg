@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f9f5f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#efe8df;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="purple" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3a1d6e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#271248;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6a3daa;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4a2080;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Playtex logo bar -->
+  <rect x="250" y="15" width="300" height="50" rx="4" fill="url(#purple)"/>
+  <text x="400" y="47" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-style="italic" font-weight="bold" fill="white" letter-spacing="3">Playtex</text>
+
+  <!-- Jours Cheris tag -->
+  <rect x="270" y="78" width="260" height="28" rx="14" fill="url(#accent)"/>
+  <text x="400" y="97" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" letter-spacing="2">JOURS CHERIS</text>
+
+  <!-- Main discount -->
+  <text x="400" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">Jusqu'a</text>
+  <text x="400" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="90" font-weight="bold" fill="url(#purple)">-50%</text>
+  <text x="400" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">sur une large selection</text>
+
+  <!-- Categories -->
+  <g transform="translate(95, 310)">
+    <rect x="0" y="0" width="190" height="55" rx="8" fill="url(#purple)"/>
+    <text x="95" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">SOUTIENS-GORGE</text>
+    <text x="95" y="43" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">Maintien et confort</text>
+  </g>
+
+  <g transform="translate(305, 310)">
+    <rect x="0" y="0" width="190" height="55" rx="8" fill="#4a2080"/>
+    <text x="95" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">CULOTTES</text>
+    <text x="95" y="43" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">Classiques et confort</text>
+  </g>
+
+  <g transform="translate(515, 310)">
+    <rect x="0" y="0" width="190" height="55" rx="8" fill="#6a3daa"/>
+    <text x="95" y="25" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white">SCULPTANTE</text>
+    <text x="95" y="43" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="white" opacity="0.7">Lingerie gainante</text>
+  </g>
+
+  <!-- Deadline -->
+  <rect x="270" y="390" width="260" height="30" rx="15" fill="url(#purple)"/>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Jusqu'au 13 avril 2026</text>
+
+  <!-- Bottom tagline -->
+  <text x="400" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#999">Confort et maintien depuis 1932</text>
+</svg>

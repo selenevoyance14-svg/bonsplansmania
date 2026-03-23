@@ -1,0 +1,34 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8E0D4;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D4C5B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F5F0EA;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.6" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.3" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1050" cy="120" r="180" fill="white" fill-opacity="0.3"/>
+  <circle cx="100" cy="520" r="130" fill="white" fill-opacity="0.2"/>
+  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="#C4B39A" stroke-opacity="0.3" stroke-width="1"/>
+  <rect x="100" y="100" width="220" height="36" rx="18" fill="#22C55E"/>
+  <text x="210" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">TEST GRATUIT</text>
+  <text x="100" y="195" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="#1B1B1B">aime</text>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="24" fill="#4A4A4A">M-Balance+ Perimenopause</text>
+  <rect x="100" y="275" width="250" height="65" rx="16" fill="#1B1B1B" fill-opacity="0.08"/>
+  <text x="225" y="300" font-family="Arial, sans-serif" font-size="15" fill="#1B1B1B" text-anchor="middle">Beaute Test Club</text>
+  <text x="225" y="328" font-family="Arial, sans-serif" font-size="22" fill="#1B1B1B" text-anchor="middle" font-weight="900">Mars 2026</text>
+  <rect x="364" y="275" width="250" height="65" rx="16" fill="#DC2626" fill-opacity="0.1"/>
+  <text x="489" y="300" font-family="Arial, sans-serif" font-size="15" fill="#DC2626" text-anchor="middle">Places limitees</text>
+  <text x="489" y="328" font-family="Arial, sans-serif" font-size="20" fill="#DC2626" text-anchor="middle" font-weight="700">Fin dans 5 jours !</text>
+  <text x="100" y="400" font-family="Arial, sans-serif" font-size="18" fill="#4A4A4A">Complement alimentaire hormonal</text>
+  <text x="100" y="435" font-family="Arial, sans-serif" font-size="18" fill="#4A4A4A">Formule clean et naturelle</text>
+  <text x="100" y="480" font-family="Arial, sans-serif" font-size="17" fill="#4A4A4A" fill-opacity="0.7">100% gratuit — produit offert</text>
+  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="#4A4A4A" fill-opacity="0.4">bonsplansmania.fr</text>
+  <text x="920" y="320" font-family="Arial, sans-serif" font-size="90" text-anchor="middle" fill="#1B1B1B" opacity="0.06">GRATUIT</text>
+  <rect x="900" y="560" width="240" height="40" rx="20" fill="#1B1B1B" fill-opacity="0.06"/>
+  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="#4A4A4A" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+</svg>

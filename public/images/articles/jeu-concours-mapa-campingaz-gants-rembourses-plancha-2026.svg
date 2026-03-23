@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#166534"/><stop offset="100%" style="stop-color:#15803D"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="16"/>
+  <rect x="40" y="30" width="720" height="340" rx="12" fill="white" fill-opacity="0.1"/>
+  <text x="400" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#FDE68A" letter-spacing="4">OFFRE + CONCOURS</text>
+  <text x="400" y="115" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="white">MAPA × CAMPINGAZ</text>
+  <rect x="170" y="135" width="230" height="44" rx="22" fill="#1D4ED8"/>
+  <text x="285" y="163" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" fill="white">Gants 100% remboursés</text>
+  <text x="510" y="163" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="900" fill="white">+</text>
+  <rect x="540" y="135" width="100" height="44" rx="22" fill="#84CC16"/>
+  <text x="590" y="163" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" fill="white">10</text>
+  <text x="400" y="225" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" font-weight="800" fill="#FDE68A">Planchas Campingaz à gagner</text>
+  <text x="400" y="280" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="rgba(255,255,255,0.85)">1 000 premières demandes · Remboursement intégral</text>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)">Du 1er janvier au 30 juin 2026</text>
+</svg>

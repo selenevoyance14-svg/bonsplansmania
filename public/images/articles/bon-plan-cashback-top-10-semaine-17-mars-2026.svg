@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FF6B35"/>
+      <stop offset="100%" style="stop-color:#E91E63"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
+  <text x="600" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#FFF9C4">&#128293; Top 10 Cashback de la Semaine</text>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#FFFFFF">Semaine du 17 Mars 2026</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFFFFF">Uber &#8211;10&#8364; | Adidas &#8211;15% | LOOKFANTASTIC &#8211;5&#8364;</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" fill="#FFFFFF">Respire &#8211;15% | Quitoque &#8211;75&#8364; | Dr Ricaud &#8211;10%</text>
+  <text x="600" y="420" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#FFF9C4">Poulp&#233;o &#183; eBuyClub &#183; iGraal</text>
+  <rect x="350" y="465" width="500" height="56" rx="28" fill="#FFFFFF"/>
+  <text x="600" y="502" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#E91E63">Inscription Gratuite + Cashback</text>
+</svg>

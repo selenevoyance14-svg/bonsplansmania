@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A237E"/>
+      <stop offset="50%" style="stop-color:#0D1559"/>
+      <stop offset="100%" style="stop-color:#000051"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="110" cy="75" r="55" fill="rgba(255,255,255,0.06)"/>
+  <circle cx="1090" cy="555" r="80" fill="rgba(255,255,255,0.04)"/>
+  <circle cx="960" cy="80" r="40" fill="rgba(255,255,255,0.07)"/>
+  <rect x="80" y="120" width="1040" height="390" rx="24" fill="rgba(0,0,0,0.25)"/>
+  <text x="600" y="70" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#FF9900" font-weight="bold">VENTES FLASH PRINTEMPS AMAZON</text>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" fill="white" font-weight="bold">Samsung Galaxy Buds</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#9FA8DA">Ecouteurs sans fil · ANC</text>
+  <text x="600" y="360" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" fill="#FF9900" font-weight="bold">En promo du 10 au 16 mars</text>
+  <text x="600" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="rgba(255,255,255,0.9)">🎧 Audio 360 · IP57 · 30h autonomie</text>
+  <text x="600" y="470" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.6)">L'alternative premium aux AirPods</text>
+  <text x="600" y="580" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="rgba(255,255,255,0.4)">bonsplansmania.fr</text>
+</svg>

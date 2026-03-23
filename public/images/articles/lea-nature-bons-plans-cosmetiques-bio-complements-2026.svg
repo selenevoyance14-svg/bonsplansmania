@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#15803d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#16a34a;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.13" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.04" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="16"/>
+  <circle cx="680" cy="80" r="140" fill="white" opacity="0.06"/>
+  <circle cx="100" cy="390" r="100" fill="white" opacity="0.05"/>
+  <rect x="40" y="40" width="180" height="38" rx="19" fill="white" opacity="0.2"/>
+  <text x="130" y="64" font-family="Arial, sans-serif" font-size="13" font-weight="700" fill="white" text-anchor="middle">1 800+ RÉFÉRENCES</text>
+  <rect x="235" y="40" width="160" height="38" rx="19" fill="#f59e0b" opacity="0.9"/>
+  <text x="315" y="64" font-family="Arial, sans-serif" font-size="14" font-weight="800" fill="white" text-anchor="middle">Jusqu'à -30%</text>
+  <rect x="40" y="100" width="720" height="230" rx="16" fill="url(#card)"/>
+  <rect x="60" y="120" width="80" height="80" rx="12" fill="white" opacity="0.15"/>
+  <text x="100" y="172" font-family="Arial, sans-serif" font-size="36" text-anchor="middle">🌿</text>
+  <text x="165" y="148" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="white" opacity="0.75">LÉA NATURE · BONS PLANS BIO</text>
+  <text x="165" y="183" font-family="Arial, sans-serif" font-size="28" font-weight="800" fill="white">So'Bio étic · Boho Green</text>
+  <text x="165" y="213" font-family="Arial, sans-serif" font-size="22" font-weight="700" fill="white">Jardin Bio · Phyto Actif</text>
+  <text x="165" y="248" font-family="Arial, sans-serif" font-size="15" fill="white" opacity="0.85">Codes promo actifs · Livraison gratuite 50€</text>
+  <rect x="60" y="295" width="215" height="22" rx="11" fill="white" opacity="0.15"/>
+  <text x="167" y="311" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">✓ Cosmebio -20%</text>
+  <rect x="290" y="295" width="200" height="22" rx="11" fill="white" opacity="0.15"/>
+  <text x="390" y="311" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">✓ Argan -30%</text>
+  <rect x="505" y="295" width="235" height="22" rx="11" fill="white" opacity="0.15"/>
+  <text x="622" y="311" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">✓ Made in France</text>
+  <text x="400" y="410" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.5" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

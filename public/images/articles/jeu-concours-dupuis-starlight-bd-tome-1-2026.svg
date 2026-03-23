@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#0F172A"/><stop offset="100%" style="stop-color:#1E293B"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="16"/>
+  <circle cx="150" cy="80" r="2" fill="#FDE68A" opacity="0.7"/>
+  <circle cx="650" cy="60" r="1.5" fill="#FDE68A" opacity="0.5"/>
+  <circle cx="400" cy="40" r="2.5" fill="#FDE68A" opacity="0.8"/>
+  <circle cx="700" cy="150" r="1.5" fill="#FDE68A" opacity="0.6"/>
+  <circle cx="100" cy="200" r="2" fill="#FDE68A" opacity="0.4"/>
+  <circle cx="550" cy="350" r="1.5" fill="#FDE68A" opacity="0.5"/>
+  <circle cx="250" cy="360" r="2" fill="#FDE68A" opacity="0.6"/>
+  <rect x="40" y="30" width="720" height="340" rx="12" fill="white" fill-opacity="0.06"/>
+  <text x="400" y="70" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#FDE68A" letter-spacing="4">CONCOURS BD</text>
+  <text x="400" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" font-weight="600" fill="#94A3B8">DUPUIS × JOURNAL DE MICKEY</text>
+  <text x="400" y="185" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="white">STARLIGHT</text>
+  <text x="400" y="225" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="600" fill="#FDE68A">Gagne la nouvelle BD !</text>
+  <rect x="250" y="250" width="300" height="44" rx="22" fill="#DC2626"/>
+  <text x="400" y="278" text-anchor="middle" font-family="Arial,sans-serif" font-size="17" font-weight="800" fill="white">Tome 1 à gagner</text>
+  <text x="400" y="355" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" fill="rgba(255,255,255,0.4)">Participation gratuite · Mars 2026</text>
+</svg>

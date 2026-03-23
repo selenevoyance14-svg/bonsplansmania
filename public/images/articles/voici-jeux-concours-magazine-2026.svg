@@ -1,0 +1,33 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#701A75;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#C026D3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0ABFC;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1000" cy="100" r="200" fill="white" fill-opacity="0.05"/>
+  <circle cx="80" cy="540" r="140" fill="white" fill-opacity="0.04"/>
+  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="100" y="100" width="140" height="36" rx="18" fill="#E11D48"/>
+  <text x="170" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">CONCOURS</text>
+  <text x="100" y="200" font-family="Arial, sans-serif" font-size="52" font-weight="900" fill="white">Voici</text>
+  <text x="100" y="250" font-family="Arial, sans-serif" font-size="24" fill="white" fill-opacity="0.9">Jeux concours du magazine</text>
+  <rect x="100" y="280" width="260" height="65" rx="16" fill="white" fill-opacity="0.25"/>
+  <text x="230" y="305" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle">Grand lot</text>
+  <text x="230" y="333" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="900">Séjour hôtel 1500€</text>
+  <rect x="374" y="280" width="280" height="65" rx="16" fill="white" fill-opacity="0.15"/>
+  <text x="514" y="305" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle">+ tablettes, puzzles</text>
+  <text x="514" y="333" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="700">places de cinéma</text>
+  <text x="100" y="405" font-family="Arial, sans-serif" font-size="19" fill="white">4 tablettes Facilotab 259€ · 25 licences PC</text>
+  <text x="100" y="445" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.85">Jouez chaque jour · Jusqu'au 31 mars 2026</text>
+  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">jeux.voici.fr</text>
+  <text x="920" y="340" font-family="Arial, sans-serif" font-size="130" text-anchor="middle" opacity="0.2">🏨</text>
+  <rect x="900" y="560" width="240" height="40" rx="20" fill="white" fill-opacity="0.15"/>
+  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+</svg>

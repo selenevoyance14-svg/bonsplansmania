@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="cms-bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF8F0"/>
+      <stop offset="100%" style="stop-color:#F0E8E0"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#cms-bg)"/>
+  <!-- Title -->
+  <text x="400" y="45" font-family="Poppins, sans-serif" font-size="14" fill="#E63946" text-anchor="middle" font-weight="700">COMPARATIF 2026</text>
+  <text x="400" y="80" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#2A2A2A" text-anchor="middle">Top 4 Meilleurs Shampooings</text>
+  <text x="400" y="112" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#2A2A2A" text-anchor="middle">Solides</text>
+  <!-- Product 1 - Garnier Miel -->
+  <g transform="translate(30, 140)">
+    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#E8DDD8" stroke-width="1.5"/>
+    <circle cx="85" cy="15" r="15" fill="#F0A830"/>
+    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900">1</text>
+    <rect x="30" y="40" width="110" height="80" rx="8" fill="#F5D060" opacity="0.3"/>
+    <text x="85" y="75" font-family="Georgia, serif" font-size="10" fill="#6B4513" text-anchor="middle" font-weight="bold">Ultra Doux</text>
+    <text x="85" y="90" font-family="Poppins, sans-serif" font-size="8" fill="#D4901A" text-anchor="middle">Tresors de Miel</text>
+    <text x="85" y="145" font-family="Poppins, sans-serif" font-size="11" fill="#333" text-anchor="middle" font-weight="700">Garnier</text>
+    <text x="85" y="165" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Cheveux fragiles</text>
+    <!-- Stars -->
+    <g transform="translate(30, 180)">
+      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
+      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
+      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
+      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
+    </g>
+    <text x="102" y="192" font-family="Poppins, sans-serif" font-size="10" fill="#888">4/5</text>
+    <rect x="35" y="210" width="100" height="30" rx="15" fill="#F0A830"/>
+    <text x="85" y="230" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
+  </g>
+  <!-- Product 2 - Garnier Avoine -->
+  <g transform="translate(215, 140)">
+    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#E8DDD8" stroke-width="1.5"/>
+    <circle cx="85" cy="15" r="15" fill="#D08898"/>
+    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900">2</text>
+    <rect x="30" y="40" width="110" height="80" rx="8" fill="#F8E0E4" opacity="0.5"/>
+    <text x="85" y="75" font-family="Georgia, serif" font-size="10" fill="#6B4513" text-anchor="middle" font-weight="bold">Ultra Doux</text>
+    <text x="85" y="90" font-family="Poppins, sans-serif" font-size="8" fill="#C8A870" text-anchor="middle">Delicatesse Avoine</text>
+    <text x="85" y="145" font-family="Poppins, sans-serif" font-size="11" fill="#333" text-anchor="middle" font-weight="700">Garnier</text>
+    <text x="85" y="165" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Cheveux delicats</text>
+    <g transform="translate(30, 180)">
+      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
+      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
+      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
+      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
+    </g>
+    <text x="102" y="192" font-family="Poppins, sans-serif" font-size="10" fill="#888">4/5</text>
+    <rect x="35" y="210" width="100" height="30" rx="15" fill="#D08898"/>
+    <text x="85" y="230" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
+  </g>
+  <!-- Product 3 - Weleda -->
+  <g transform="translate(400, 140)">
+    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#4A8A7A" stroke-width="2"/>
+    <circle cx="85" cy="15" r="15" fill="#4A8A7A"/>
+    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="900">TOP</text>
+    <rect x="30" y="40" width="110" height="80" rx="8" fill="#E8F5F0" opacity="0.5"/>
+    <text x="85" y="72" font-family="Georgia, serif" font-size="14" fill="#2A5A4A" text-anchor="middle" font-weight="bold">WELEDA</text>
+    <text x="85" y="90" font-family="Poppins, sans-serif" font-size="8" fill="#4A8A7A" text-anchor="middle">Hydratation Brillance</text>
+    <text x="85" y="145" font-family="Poppins, sans-serif" font-size="11" fill="#333" text-anchor="middle" font-weight="700">Weleda</text>
+    <text x="85" y="165" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Normaux a secs</text>
+    <g transform="translate(22, 180)">
+      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
+      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
+      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
+      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
+      <polygon points="72,0 74,5 80,5 75,9 77,14 72,11 67,14 69,9 64,5 70,5" fill="#FFB800" opacity="0.5"/>
+    </g>
+    <text x="112" y="192" font-family="Poppins, sans-serif" font-size="10" fill="#888">4,5/5</text>
+    <rect x="35" y="210" width="100" height="30" rx="15" fill="#4A8A7A"/>
+    <text x="85" y="230" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 7 €</text>
+  </g>
+  <!-- Product 4 - Arista -->
+  <g transform="translate(585, 140)">
+    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#E8DDD8" stroke-width="1.5"/>
+    <circle cx="85" cy="15" r="15" fill="#A89080"/>
+    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900">4</text>
+    <rect x="30" y="40" width="110" height="80" rx="8" fill="#E8DDD0" opacity="0.5"/>
+    <text x="85" y="75" font-family="Georgia, serif" font-size="14" fill="#6A5A4A" text-anchor="middle" font-style="italic">arista</text>
+    <text x="85" y="92" font-family="Poppins, sans-serif" font-size="8" fill="#A89080" text-anchor="middle">Cheveux Boucles</text>
+    <text x="85" y="145" font-family="Poppins, sans-serif" font-size="11" fill="#333" text-anchor="middle" font-weight="700">Arista</text>
+    <text x="85" y="165" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Boucles, frises</text>
+    <g transform="translate(30, 180)">
+      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
+      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
+      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
+      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
+    </g>
+    <text x="102" y="192" font-family="Poppins, sans-serif" font-size="10" fill="#888">4/5</text>
+    <rect x="35" y="210" width="100" height="30" rx="15" fill="#A89080"/>
+    <text x="85" y="230" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 10 €</text>
+  </g>
+  <!-- Bottom -->
+  <text x="400" y="435" font-family="Poppins, sans-serif" font-size="12" fill="#888" text-anchor="middle">Testes et compares — BonsPlansMania 2026</text>
+</svg>

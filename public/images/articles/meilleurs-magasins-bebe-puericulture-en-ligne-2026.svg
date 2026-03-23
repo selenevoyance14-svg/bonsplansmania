@@ -1,0 +1,106 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef9f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fdf0e0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5ba3d9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3d8abf;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="pink" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f0a0b0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e08898;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <rect x="300" y="15" width="200" height="40" rx="20" fill="url(#blue)"/>
+  <text x="400" y="41" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" letter-spacing="2">TOP 10</text>
+  <text x="400" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#333">Meilleurs Magasins Bebe</text>
+  <text x="400" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">Puericulture en ligne - 2026</text>
+  <!-- Baby items icons row -->
+  <g transform="translate(150, 125)">
+    <rect x="0" y="0" width="120" height="75" rx="10" fill="url(#blue)" opacity="0.15"/>
+    <text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22">👶</text>
+    <text x="60" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#5ba3d9">Vetements</text>
+  </g>
+  <g transform="translate(290, 125)">
+    <rect x="0" y="0" width="120" height="75" rx="10" fill="url(#pink)" opacity="0.15"/>
+    <text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22">🍼</text>
+    <text x="60" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#e08898">Repas</text>
+  </g>
+  <g transform="translate(430, 125)">
+    <rect x="0" y="0" width="120" height="75" rx="10" fill="url(#blue)" opacity="0.15"/>
+    <text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22">🛏️</text>
+    <text x="60" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#5ba3d9">Sommeil</text>
+  </g>
+  <g transform="translate(570, 125)">
+    <rect x="0" y="0" width="120" height="75" rx="10" fill="url(#pink)" opacity="0.15"/>
+    <text x="60" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="22">🧸</text>
+    <text x="60" y="58" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#e08898">Eveil</text>
+  </g>
+  <!-- Sites grid -->
+  <g transform="translate(55, 220)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#blue)">1</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">Vertbaudet</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Univers complet</text>
+  </g>
+  <g transform="translate(200, 220)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#blue)">2</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">Bebeboutik</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Jusqu'a -70%</text>
+  </g>
+  <g transform="translate(345, 220)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#blue)">3</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">Beaba</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Made in France</text>
+  </g>
+  <g transform="translate(490, 220)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#blue)">4</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">Amazon</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Livraison Prime</text>
+  </g>
+  <g transform="translate(635, 220)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="url(#blue)">5</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#333">Autour de bebe</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Conseil expert</text>
+  </g>
+  <g transform="translate(55, 280)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">6</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#555">Orchestra</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Club -50%</text>
+  </g>
+  <g transform="translate(200, 280)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">7</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#555">Petit Bateau</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Qualite textile</text>
+  </g>
+  <g transform="translate(345, 280)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">8</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#555">Cyrillus</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Chic intemporel</text>
+  </g>
+  <g transform="translate(490, 280)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">9</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#555">La Redoute</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">Mobilier + mode</text>
+  </g>
+  <g transform="translate(635, 280)">
+    <rect x="0" y="0" width="130" height="50" rx="6" fill="white" stroke="#eee" stroke-width="1"/>
+    <text x="18" y="22" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#aaa">10</text>
+    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#555">BB Malin</text>
+    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">0-3 ans</text>
+  </g>
+  <rect x="270" y="355" width="260" height="30" rx="15" fill="url(#blue)"/>
+  <text x="400" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">COMPARATIF + BONS PLANS</text>
+  <text x="400" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#999">Selection bonsplansmania - 2026</text>
+</svg>

@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2d6a4f;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#52b788;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="180" text-anchor="middle" font-family="Georgia, serif" font-size="72" font-weight="bold" fill="#ffffff">🌿 Belle au Naturel</text>
+  <text x="600" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" fill="#d8f3dc">Box Beauté 100% Bio</text>
+  <rect x="200" y="310" width="800" height="4" rx="2" fill="#95d5b2" opacity="0.6"/>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#ffffff">-50% minimum + 5€ offerts</text>
+  <text x="600" y="450" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#d8f3dc">4 à 6 produits full-size • Livraison gratuite</text>
+  <rect x="380" y="490" width="440" height="70" rx="35" fill="#ffffff"/>
+  <text x="600" y="537" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2d6a4f">Code : NL3P62NT</text>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#b7e4c7">bonsplansmania.fr</text>
+</svg>

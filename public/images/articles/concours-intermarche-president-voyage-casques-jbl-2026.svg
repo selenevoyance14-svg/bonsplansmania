@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C62828"/>
+      <stop offset="100%" style="stop-color:#B71C1C"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.1)"/>
+  <text x="600" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="46" font-weight="bold" fill="#FFFFFF">Intermarch&#233; x Pr&#233;sident</text>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="62" font-weight="bold" fill="#FFD54F">Voyage 5 000&#8364;</text>
+  <text x="600" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#FFFFFF">+ 4 S&#233;jours en Cabane (2 000&#8364;)</text>
+  <text x="600" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#FFFFFF">+ 40 Casques Audio JBL (349,99&#8364;)</text>
+  <text x="600" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#FFD54F">45 lots &#8212; Valeur totale 27 000&#8364;+</text>
+  <rect x="350" y="450" width="500" height="56" rx="28" fill="#FFD54F"/>
+  <text x="600" y="487" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#B71C1C">Du 17 au 29 mars 2026</text>
+</svg>

@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#FDE68A"/><stop offset="100%" style="stop-color:#FCD34D"/></linearGradient></defs>
+  <rect width="800" height="400" fill="url(#bg)" rx="16"/>
+  <rect x="40" y="30" width="720" height="340" rx="12" fill="white" fill-opacity="0.3"/>
+  <text x="400" y="65" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#1F2937" letter-spacing="4">BON PLAN LINGERIE</text>
+  <text x="400" y="120" text-anchor="middle" font-family="Arial,sans-serif" font-size="44" font-weight="900" fill="#1F2937">POMM'POIRE</text>
+  <circle cx="180" cy="210" r="40" fill="#1F2937"/>
+  <text x="180" y="218" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="white">5€</text>
+  <circle cx="300" cy="210" r="40" fill="#1F2937"/>
+  <text x="300" y="218" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="white">10€</text>
+  <circle cx="420" cy="210" r="40" fill="#1F2937"/>
+  <text x="420" y="218" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="white">15€</text>
+  <circle cx="540" cy="210" r="40" fill="#1F2937"/>
+  <text x="540" y="218" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="white">20€</text>
+  <circle cx="660" cy="210" r="40" fill="#1F2937"/>
+  <text x="660" y="210" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="white">PRIX</text>
+  <text x="660" y="228" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="white">RONDS</text>
+  <text x="400" y="305" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#1F2937">Soutien-gorge · Culottes · Bodys · Collants · Nuit</text>
+  <text x="400" y="340" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" fill="#4B5563">Camille Cerf · Brigitte Bardot · Morgan · Grande Taille</text>
+</svg>

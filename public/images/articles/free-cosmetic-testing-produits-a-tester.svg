@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00695C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#009688;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4DB6AC;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
+  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.05" />
+
+  <!-- Site badge -->
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <!-- Category badge -->
+  <rect x="80" y="128" width="200" height="36" rx="18" fill="url(#badge)" />
+  <text x="180" y="152" font-family="Arial, sans-serif" font-size="16" fill="#5B1A00" text-anchor="middle" font-weight="700">🎁 TEST GRATUIT</text>
+
+  <!-- Main title -->
+  <text x="80" y="255" font-family="Georgia, serif" font-size="56" fill="white" font-weight="700">Free Cosmetic</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="56" fill="white" font-weight="700">Testing</text>
+
+  <!-- Divider -->
+  <rect x="80" y="344" width="100" height="3" rx="2" fill="white" fill-opacity="0.5" />
+
+  <!-- Key info -->
+  <rect x="80" y="366" width="560" height="60" rx="12" fill="white" fill-opacity="0.12" />
+  <text x="100" y="390" font-family="Arial, sans-serif" font-size="19" fill="white" fill-opacity="0.9">L'Oréal · Garnier · Nuxe · Nivea · NYX...</text>
+  <text x="100" y="416" font-family="Arial, sans-serif" font-size="23" fill="#FFD700" font-weight="700">40+ produits à tester gratuitement</text>
+
+  <!-- Stats -->
+  <rect x="80" y="446" width="220" height="52" rx="10" fill="white" fill-opacity="0.15" />
+  <text x="100" y="467" font-family="Arial, sans-serif" font-size="15" fill="white" fill-opacity="0.8">Inscription</text>
+  <text x="100" y="490" font-family="Arial, sans-serif" font-size="22" fill="white" font-weight="700">100% Gratuit</text>
+
+  <rect x="320" y="446" width="220" height="52" rx="10" fill="white" fill-opacity="0.15" />
+  <text x="340" y="467" font-family="Arial, sans-serif" font-size="15" fill="white" fill-opacity="0.8">Tirage au sort</text>
+  <text x="340" y="490" font-family="Arial, sans-serif" font-size="22" fill="white" font-weight="700">Jusqu'en oct. 2026</text>
+
+  <!-- Date -->
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Guide complet</text>
+</svg>

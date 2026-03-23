@@ -1,0 +1,70 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0d0d1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1a1a3e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="redglow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4444;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#ff0066;stop-opacity:0.1" />
+    </linearGradient>
+    <linearGradient id="blueglow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4488ff;stop-opacity:0.3" />
+      <stop offset="100%" style="stop-color:#0044cc;stop-opacity:0.1" />
+    </linearGradient>
+    <radialGradient id="face" cx="50%" cy="40%" r="40%">
+      <stop offset="0%" style="stop-color:#e8a0ff;stop-opacity:0.15" />
+      <stop offset="100%" style="stop-color:#4400aa;stop-opacity:0.05" />
+    </radialGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Ambient glow -->
+  <ellipse cx="400" cy="200" rx="250" ry="180" fill="url(#face)"/>
+
+  <!-- Mask outline (stylized face shape) -->
+  <ellipse cx="400" cy="195" rx="120" ry="150" fill="none" stroke="#e8a0ff" stroke-width="2" opacity="0.4"/>
+  <ellipse cx="400" cy="195" rx="115" ry="145" fill="none" stroke="#ff4488" stroke-width="1" opacity="0.2"/>
+
+  <!-- LED dots pattern on mask -->
+  <g opacity="0.6">
+    <!-- Red LEDs -->
+    <circle cx="350" cy="150" r="4" fill="#ff4444"/>
+    <circle cx="370" cy="140" r="4" fill="#ff4444"/>
+    <circle cx="390" cy="135" r="4" fill="#ff4444"/>
+    <circle cx="410" cy="135" r="4" fill="#ff4444"/>
+    <circle cx="430" cy="140" r="4" fill="#ff4444"/>
+    <circle cx="450" cy="150" r="4" fill="#ff4444"/>
+    <!-- Blue LEDs -->
+    <circle cx="355" cy="220" r="4" fill="#4488ff"/>
+    <circle cx="375" cy="225" r="4" fill="#4488ff"/>
+    <circle cx="395" cy="228" r="4" fill="#4488ff"/>
+    <circle cx="415" cy="228" r="4" fill="#4488ff"/>
+    <circle cx="435" cy="225" r="4" fill="#4488ff"/>
+    <circle cx="445" cy="220" r="4" fill="#4488ff"/>
+    <!-- Yellow LEDs -->
+    <circle cx="360" cy="180" r="3" fill="#ffcc00"/>
+    <circle cx="380" cy="175" r="3" fill="#ffcc00"/>
+    <circle cx="400" cy="172" r="3" fill="#ffcc00"/>
+    <circle cx="420" cy="175" r="3" fill="#ffcc00"/>
+    <circle cx="440" cy="180" r="3" fill="#ffcc00"/>
+    <!-- Purple LEDs -->
+    <circle cx="370" cy="260" r="3" fill="#cc44ff"/>
+    <circle cx="390" cy="270" r="3" fill="#cc44ff"/>
+    <circle cx="410" cy="270" r="3" fill="#cc44ff"/>
+    <circle cx="430" cy="260" r="3" fill="#cc44ff"/>
+  </g>
+
+  <!-- Brand -->
+  <text x="400" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#888" letter-spacing="4">SILK'N</text>
+
+  <!-- Title -->
+  <text x="400" y="380" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white">Masque LED Visage</text>
+  <text x="400" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#aaa">Luminotherapie anti-age a domicile</text>
+
+  <!-- Test badge -->
+  <rect x="320" y="415" width="160" height="26" rx="13" fill="rgba(255,255,255,0.1)" stroke="#e8a0ff" stroke-width="1"/>
+  <text x="400" y="433" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e8a0ff">NOTRE AVIS + TEST</text>
+</svg>
