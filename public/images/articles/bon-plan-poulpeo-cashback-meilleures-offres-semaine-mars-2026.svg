@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="100%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#4fc3f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0f7fa;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#43a047;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2e7d32;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="blue" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#29b6f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0288d1;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Title -->
+  <text x="400" y="45" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#0277bd" letter-spacing="2">POULPEO</text>
+  <text x="400" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#01579b">Les meilleurs cashbacks de la semaine</text>
+
+  <!-- Cashback cards - Row 1 -->
+  <rect x="40" y="95" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="122" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Temu</text>
+  <text x="122" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">24%</text>
+  <text x="122" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">cashback</text>
+
+  <rect x="225" y="95" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="307" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">C&amp;A</text>
+  <text x="307" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">8.5%</text>
+  <text x="307" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en magasin</text>
+
+  <rect x="410" y="95" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="492" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Nocibe</text>
+  <text x="492" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">6.5%</text>
+  <text x="492" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">cashback</text>
+
+  <rect x="595" y="95" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="677" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Yves Rocher</text>
+  <text x="677" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">6%</text>
+  <text x="677" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en ligne + magasin</text>
+
+  <!-- Row 2 -->
+  <rect x="40" y="210" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="122" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Marionnaud</text>
+  <text x="122" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">6%</text>
+  <text x="122" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en ligne + magasin</text>
+
+  <rect x="225" y="210" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="307" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Rituals</text>
+  <text x="307" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">5.5%</text>
+  <text x="307" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en ligne + magasin</text>
+
+  <rect x="410" y="210" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="492" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Primark</text>
+  <text x="492" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">5%</text>
+  <text x="492" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en magasin</text>
+
+  <rect x="595" y="210" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="677" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Sarenza</text>
+  <text x="677" y="270" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">5%</text>
+  <text x="677" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en ligne</text>
+
+  <!-- Row 3 -->
+  <rect x="130" y="325" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="212" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Kiabi</text>
+  <text x="212" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">3.5%</text>
+  <text x="212" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en magasin</text>
+
+  <rect x="315" y="325" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="397" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">Crocs</text>
+  <text x="397" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">3%</text>
+  <text x="397" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en ligne</text>
+
+  <rect x="500" y="325" width="165" height="95" rx="8" fill="white" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="582" y="355" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="#333">ASOS</text>
+  <text x="582" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="url(#green)">2%</text>
+  <text x="582" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#888">en ligne</text>
+</svg>
