@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <rect width="800" height="450" fill="#1B2838" rx="12"/>
+  <ellipse cx="400" cy="190" rx="90" ry="110" fill="#4ECDC4"/>
+  <rect x="340" y="170" width="120" height="40" rx="8" fill="white" opacity="0.85"/>
+  <text x="400" y="197" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="18" font-weight="bold" fill="#1B2838">Normal</text>
+  <text x="400" y="70" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="46" font-weight="bold" fill="#E84C6F" letter-spacing="2">Eggscape</text>
+  <text x="400" y="350" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="white" font-weight="bold">10 000 PRIX A GAGNER</text>
+  <rect x="280" y="375" width="240" height="44" rx="22" fill="#E8C84C"/>
+  <text x="400" y="403" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#1B2838">Ouvrir l'oeuf</text>
+</svg>
