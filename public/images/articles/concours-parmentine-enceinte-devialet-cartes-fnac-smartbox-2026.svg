@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e2a5e"/>
+      <stop offset="100%" style="stop-color:#2d3f8e"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="400" fill="url(#bg)"/>
+  <circle cx="150" cy="80" r="35" fill="#e8973b" opacity="0.7"/>
+  <circle cx="650" cy="100" r="25" fill="#4a6db5" opacity="0.6"/>
+  <circle cx="700" cy="300" r="40" fill="#e8973b" opacity="0.5"/>
+  <rect x="280" y="30" width="240" height="50" rx="5" fill="#3a2218"/>
+  <text x="400" y="63" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="#ffffff" letter-spacing="3">PARMENTINE</text>
+  <text x="400" y="120" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" opacity="0.9">Grand Jeu Concours</text>
+  <text x="400" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#e8973b">A gagner :</text>
+  <text x="400" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="#ffffff">1 Enceinte Devialet</text>
+  <text x="400" y="255" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" opacity="0.9">3 Cartes Fnac 50E</text>
+  <text x="400" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#ffffff" opacity="0.9">10 Codes Smartbox</text>
+  <rect x="290" y="320" width="220" height="42" rx="21" fill="#c27a3a"/>
+  <text x="400" y="347" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">Participer</text>
+</svg>
