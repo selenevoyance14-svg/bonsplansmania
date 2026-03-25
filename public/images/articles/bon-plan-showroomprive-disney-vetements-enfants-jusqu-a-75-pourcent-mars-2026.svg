@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#e8f5e9"/>
+  <rect x="0" y="0" width="800" height="45" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">SHOWROOMPRIVE</text>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e91e63" letter-spacing="3">VENTE PRIVEE</text>
+  <text x="400" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-style="italic" fill="#1a237e">Disney</text>
+  <text x="400" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#666">Vetements Fille - Garcon - Bebe</text>
+  <text x="400" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="56" font-weight="bold" fill="#e53935">-75%</text>
+  <text x="400" y="298" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#888">Stitch - Spiderman - Roi Lion - Cars - Winnie</text>
+  <text x="400" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#e91e63">Code MISS10 : 10E offerts des 99E</text>
+  <rect x="280" y="348" width="240" height="36" rx="18" fill="#1a237e"/>
+  <text x="400" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Voir la vente</text>
+</svg>
