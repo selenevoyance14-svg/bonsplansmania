@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Partenariats — Bons Plans Mania",
   description:
-    "Vous etes une marque ou une agence ? Decouvrez comment collaborer avec BonsPlansMania.fr : articles dedies, codes promo exclusifs, affiliation.",
+    "Vous êtes une marque ou une agence ? Découvrez comment collaborer avec BonsPlansMania.fr : articles dédiés, codes promo exclusifs, affiliation.",
 };
 
 export default function Partenariats() {
@@ -33,8 +33,8 @@ export default function Partenariats() {
               lineHeight: 1.6,
             }}
           >
-            Vous representez une marque, une agence ou une plateforme
-            d'affiliation ? Decouvrez comment travailler avec Bons Plans Mania.
+            Vous représentez une marque, une agence ou une plateforme
+            d'affiliation ? Découvrez comment travailler avec Bons Plans Mania.
           </p>
 
           {/* Stats */}
@@ -56,10 +56,10 @@ export default function Partenariats() {
               }}
             >
               {[
-                { value: `${totalArticles}+`, label: "articles publies" },
-                { value: "SEO", label: "1ere page Google sur plusieurs requetes" },
+                { value: `${totalArticles}+`, label: "articles publiés" },
+                { value: "SEO", label: "1ère page Google sur plusieurs requêtes" },
                 { value: "Quotidien", label: "nouveau contenu chaque jour" },
-                { value: "6+", label: "categories couvertes" },
+                { value: "6+", label: "catégories couvertes" },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -87,7 +87,7 @@ export default function Partenariats() {
             </div>
           </section>
 
-          {/* Thematiques */}
+          {/* Thématiques */}
           <section style={{ marginBottom: "48px" }}>
             <h2
               style={{
@@ -96,7 +96,7 @@ export default function Partenariats() {
                 marginBottom: "16px",
               }}
             >
-              Nos thematiques
+              Nos thématiques
             </h2>
             <div
               style={{
@@ -106,14 +106,14 @@ export default function Partenariats() {
               }}
             >
               {[
-                "Beaute et cosmetiques",
+                "Beauté et cosmétiques",
                 "Soins visage et corps",
                 "K-beauty",
                 "Bio et naturel",
-                "Box beaute",
+                "Box beauté",
                 "Mode et accessoires",
-                "Maison et bien-etre",
-                "Epicerie et alimentation",
+                "Maison et bien-être",
+                "Épicerie et alimentation",
               ].map((t) => (
                 <span
                   key={t}
@@ -145,20 +145,20 @@ export default function Partenariats() {
             <div style={{ display: "grid", gap: "20px" }}>
               {[
                 {
-                  title: "Article dedie",
-                  desc: "Un article complet et optimise SEO autour de votre marque, vos produits ou votre offre en cours. Redige avec un ton authentique et publie dans la categorie adaptee.",
+                  title: "Article dédié",
+                  desc: "Un article complet et optimisé SEO autour de votre marque, vos produits ou votre offre en cours. Rédigé avec un ton authentique et publié dans la catégorie adaptée.",
                 },
                 {
                   title: "Code promo exclusif",
-                  desc: "Un code promo reserve a notre audience, mis en avant dans un article dedie et reference sur Google. Ideal pour generer du trafic qualifie et mesurer les conversions.",
+                  desc: "Un code promo réservé à notre audience, mis en avant dans un article dédié et référencé sur Google. Idéal pour générer du trafic qualifié et mesurer les conversions.",
                 },
                 {
                   title: "Affiliation",
-                  desc: "Integration de vos produits dans nos selections, comparatifs et bons plans avec un suivi des performances via votre programme d'affiliation.",
+                  desc: "Intégration de vos produits dans nos sélections, comparatifs et bons plans avec un suivi des performances via votre programme d'affiliation.",
                 },
                 {
                   title: "Test produit",
-                  desc: "Presentation detaillee d'un produit avec un avis honnete, des photos et un lien direct vers votre site. Un format qui genere de la confiance aupres des lecteurs.",
+                  desc: "Présentation détaillée d'un produit avec un avis honnête, des photos et un lien direct vers votre site. Un format qui génère de la confiance auprès des lecteurs.",
                 },
               ].map((format) => (
                 <div
@@ -190,7 +190,7 @@ export default function Partenariats() {
                 marginBottom: "16px",
               }}
             >
-              Ils nous font deja confiance
+              Ils nous font déjà confiance
             </h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {[
@@ -241,7 +241,7 @@ export default function Partenariats() {
               Travaillons ensemble
             </h2>
             <p style={{ fontSize: "1rem", marginBottom: "24px", opacity: 0.9 }}>
-              Contactez-nous pour discuter d'un partenariat adapte a vos objectifs.
+              Contactez-nous pour discuter d'un partenariat adapté à vos objectifs.
             </p>
             <a
               href="mailto:bonsplansmania@gmail.com?subject=Partenariat%20BonsPlansMania"
