@@ -280,7 +280,7 @@ export default function Home() {
               <h4>Contact</h4>
               <ul className="footer-links" role="list">
                 <li><a href="mailto:bonsplansmania@gmail.com">bonsplansmania@gmail.com</a></li>
-                <li style={{ fontSize: "0.8em", color: "#8B9099", marginTop: "4px" }}>Partenariats &amp; collaborations</li>
+                <li style={{ marginTop: "4px" }}><a href="/partenariats">Partenariats &amp; collaborations</a></li>
                 <li style={{ marginTop: "12px" }}><a href="/mentions-legales">Mentions légales</a></li>
                 <li><a href="/confidentialite">Confidentialité</a></li>
               </ul>
