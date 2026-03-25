@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#ffffff"/>
+  <rect x="0" y="0" width="800" height="60" fill="#003b8e"/>
+  <text x="400" y="40" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#ffffff">Cdiscount</text>
+  <text x="400" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#003b8e" letter-spacing="3">CODES PROMO PAQUES</text>
+  <text x="280" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">Chocolats</text>
+  <rect x="180" y="190" width="200" height="40" rx="6" fill="#f5f5f5" stroke="#003b8e" stroke-width="2"/>
+  <text x="280" y="216" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#003b8e">PAQUES26</text>
+  <text x="520" y="175" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#666">Jouets</text>
+  <rect x="420" y="190" width="200" height="40" rx="6" fill="#f5f5f5" stroke="#003b8e" stroke-width="2"/>
+  <text x="520" y="216" text-anchor="middle" font-family="monospace" font-size="20" font-weight="bold" fill="#003b8e">JOUETSPAQ</text>
+  <text x="400" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#e53935">1 achete = le 2eme a -50%</text>
+  <text x="400" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#888">Valable jusqu'au 2 avril 2026</text>
+  <rect x="280" y="340" width="240" height="38" rx="19" fill="#003b8e"/>
+  <text x="400" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">En profiter</text>
+</svg>

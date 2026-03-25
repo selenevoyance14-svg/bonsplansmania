@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#faf5ef"/>
+  <circle cx="680" cy="70" r="30" fill="#e8a87c" opacity="0.3"/>
+  <circle cx="720" cy="150" r="25" fill="#8bc6d0" opacity="0.3"/>
+  <circle cx="660" cy="230" r="28" fill="#d4a5c9" opacity="0.3"/>
+  <circle cx="710" cy="310" r="22" fill="#f0c987" opacity="0.3"/>
+  <text x="400" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#c0775e" letter-spacing="3">CONCOURS</text>
+  <text x="400" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#c0775e">LA</text>
+  <text x="400" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" font-weight="bold" fill="#333333">METROPOLE</text>
+  <text x="400" y="200" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#c0775e">Mobilite</text>
+  <text x="400" y="260" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#c0775e">Des chocolats a gagner !</text>
+  <text x="400" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#888">Jeu de Paques — Tirage au sort gratuit</text>
+  <rect x="290" y="325" width="220" height="40" rx="20" fill="#c0775e"/>
+  <text x="400" y="351" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Participer</text>
+</svg>
