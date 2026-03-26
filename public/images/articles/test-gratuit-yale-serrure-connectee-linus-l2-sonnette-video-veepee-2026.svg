@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1C1C1C"/>
+      <stop offset="50%" style="stop-color:#2D2D2D"/>
+      <stop offset="100%" style="stop-color:#1C1C1C"/>
+    </linearGradient>
+    <linearGradient id="yellow" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD34D"/>
+      <stop offset="100%" style="stop-color:#F59E0B"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#9CA3AF"/>
+      <stop offset="100%" style="stop-color:#6B7280"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Door frame decoration -->
+  <rect x="80" y="100" width="200" height="400" rx="8" fill="none" stroke="#4B5563" stroke-width="2" opacity="0.3"/>
+  <circle cx="250" cy="300" r="12" fill="url(#steel)" opacity="0.5"/>
+  <rect x="245" y="280" width="10" height="40" rx="5" fill="url(#steel)" opacity="0.4"/>
+  <!-- Lock icon -->
+  <g transform="translate(140, 240)">
+    <rect x="15" y="35" width="50" height="40" rx="6" fill="url(#yellow)" opacity="0.7"/>
+    <path d="M 25 35 L 25 20 Q 25 5, 40 5 Q 55 5, 55 20 L 55 35" stroke="url(#yellow)" stroke-width="4" fill="none" opacity="0.7"/>
+    <circle cx="40" cy="52" r="5" fill="#1C1C1C" opacity="0.6"/>
+  </g>
+  <!-- Camera/doorbell icon right -->
+  <g transform="translate(980, 180)">
+    <rect x="0" y="0" width="70" height="110" rx="12" fill="#374151" opacity="0.6"/>
+    <circle cx="35" cy="40" r="18" fill="none" stroke="url(#yellow)" stroke-width="2" opacity="0.6"/>
+    <circle cx="35" cy="40" r="8" fill="url(#yellow)" opacity="0.4"/>
+    <rect x="20" y="75" width="30" height="8" rx="4" fill="url(#yellow)" opacity="0.5"/>
+  </g>
+  <!-- Badge TEST GRATUIT -->
+  <rect x="415" y="55" width="370" height="50" rx="25" fill="url(#yellow)"/>
+  <text x="600" y="88" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#1C1C1C">TEST GRATUIT via Veepee</text>
+  <!-- Yale brand -->
+  <circle cx="600" cy="170" r="45" fill="url(#yellow)" opacity="0.9"/>
+  <text x="600" y="180" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" font-weight="900" fill="#1C1C1C">Yale</text>
+  <!-- Main text -->
+  <text x="600" y="275" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="900" fill="white">Serrure Linus L2</text>
+  <text x="600" y="335" text-anchor="middle" font-family="Arial,sans-serif" font-size="38" font-weight="700" fill="url(#yellow)">+ Sonnette Video</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" fill="white" opacity="0.6">Securite connectee a tester chez vous</text>
+  <!-- Value badge -->
+  <rect x="470" y="420" width="260" height="40" rx="20" fill="white" opacity="0.1"/>
+  <text x="600" y="447" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="white" opacity="0.7">Valeur totale : ~450E de produits</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="530" width="1200" height="100" fill="url(#yellow)" opacity="0.95"/>
+  <text x="600" y="575" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#1C1C1C">Selection le 9 avril 2026 — 180 ans d'expertise securite</text>
+</svg>
