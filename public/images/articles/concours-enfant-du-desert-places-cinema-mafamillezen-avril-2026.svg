@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#F59E0B"/>
+      <stop offset="40%" style="stop-color:#D97706"/>
+      <stop offset="100%" style="stop-color:#92400E"/>
+    </linearGradient>
+    <linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#0EA5E9"/>
+      <stop offset="60%" style="stop-color:#F59E0B"/>
+      <stop offset="100%" style="stop-color:#DC2626"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Sun -->
+  <circle cx="600" cy="180" r="80" fill="#FDE68A" opacity="0.6"/>
+  <circle cx="600" cy="180" r="50" fill="#FEF3C7" opacity="0.8"/>
+  <!-- Sand dunes -->
+  <path d="M 0 380 Q 200 330, 400 370 Q 600 410, 800 360 Q 1000 310, 1200 370 L 1200 630 L 0 630 Z" fill="#D97706" opacity="0.5"/>
+  <path d="M 0 420 Q 300 370, 500 410 Q 700 450, 900 400 Q 1100 350, 1200 400 L 1200 630 L 0 630 Z" fill="#B45309" opacity="0.4"/>
+  <!-- Small figure silhouette -->
+  <g transform="translate(560, 290)" opacity="0.3">
+    <circle cx="10" cy="0" r="8" fill="#1C1917"/>
+    <rect x="5" y="8" width="10" height="20" rx="3" fill="#1C1917"/>
+  </g>
+  <!-- Small animal silhouette -->
+  <g transform="translate(610, 298)" opacity="0.25">
+    <ellipse cx="10" cy="8" rx="12" ry="7" fill="#1C1917"/>
+    <circle cx="22" cy="4" r="4" fill="#1C1917"/>
+  </g>
+  <!-- Badge CONCOURS -->
+  <rect x="410" y="40" width="380" height="50" rx="25" fill="#0EA5E9"/>
+  <text x="600" y="73" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="white">CONCOURS CINEMA</text>
+  <!-- Main text -->
+  <text x="600" y="170" text-anchor="middle" font-family="Georgia,serif" font-size="50" font-weight="900" fill="white" style="text-shadow: 2px 2px 4px rgba(0,0,0,0.3)">L'Enfant du Desert</text>
+  <text x="600" y="230" text-anchor="middle" font-family="Arial,sans-serif" font-size="24" fill="white" opacity="0.85">D'apres une incroyable histoire vraie</text>
+  <!-- Cinema tickets -->
+  <g transform="translate(440, 440)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#FEF3C7" opacity="0.9" transform="rotate(-5, 70, 25)"/>
+    <text x="70" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#92400E" transform="rotate(-5, 70, 25)">CINEMA</text>
+  </g>
+  <g transform="translate(620, 435)">
+    <rect x="0" y="0" width="140" height="50" rx="6" fill="#FEF3C7" opacity="0.9" transform="rotate(5, 70, 25)"/>
+    <text x="70" y="30" text-anchor="middle" font-family="Arial,sans-serif" font-size="14" font-weight="700" fill="#92400E" transform="rotate(5, 70, 25)">CINEMA</text>
+  </g>
+  <!-- Director -->
+  <text x="600" y="410" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="white" opacity="0.6">Un film de Gilles de Maistre · Studiocanal</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="530" width="1200" height="100" fill="white" opacity="0.95"/>
+  <text x="600" y="572" text-anchor="middle" font-family="Arial,sans-serif" font-size="21" font-weight="700" fill="#92400E">Du 25 mars au 6 avril 2026 — Places de cinema a gagner — Sortie le 8 avril</text>
+</svg>

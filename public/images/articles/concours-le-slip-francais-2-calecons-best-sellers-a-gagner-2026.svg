@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0A0A3E"/>
+      <stop offset="50%" style="stop-color:#141464"/>
+      <stop offset="100%" style="stop-color:#0A0A3E"/>
+    </linearGradient>
+    <linearGradient id="tricolore" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#0055A4"/>
+      <stop offset="50%" style="stop-color:#FFFFFF"/>
+      <stop offset="100%" style="stop-color:#EF4135"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- French flag stripe top -->
+  <rect x="0" y="0" width="400" height="5" fill="#0055A4"/>
+  <rect x="400" y="0" width="400" height="5" fill="white"/>
+  <rect x="800" y="0" width="400" height="5" fill="#EF4135"/>
+  <!-- Decorative pattern (tropical like their prints) -->
+  <circle cx="150" cy="200" r="80" fill="none" stroke="#1E40AF" stroke-width="1" opacity="0.2"/>
+  <circle cx="1050" cy="400" r="100" fill="none" stroke="#1E40AF" stroke-width="1" opacity="0.15"/>
+  <path d="M 100 350 Q 120 300, 110 250 Q 100 200, 120 150" stroke="#059669" stroke-width="2" fill="none" opacity="0.15"/>
+  <path d="M 1080 200 Q 1100 250, 1090 300 Q 1080 350, 1100 400" stroke="#059669" stroke-width="2" fill="none" opacity="0.15"/>
+  <!-- Badge CONCOURS -->
+  <rect x="430" y="60" width="340" height="50" rx="25" fill="#EF4135"/>
+  <text x="600" y="93" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="white">CONCOURS GRATUIT</text>
+  <!-- Brand -->
+  <text x="600" y="175" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="white" opacity="0.5" letter-spacing="6">LE SLIP FRANCAIS · FABRIQUE EN FRANCE</text>
+  <!-- Main text -->
+  <text x="600" y="265" text-anchor="middle" font-family="Arial,sans-serif" font-size="52" font-weight="900" fill="white">2 Calecons</text>
+  <text x="600" y="335" text-anchor="middle" font-family="Arial,sans-serif" font-size="46" font-weight="800" fill="#60A5FA">Best-Sellers</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial,sans-serif" font-size="28" fill="white" opacity="0.8">a gagner cette semaine</text>
+  <!-- Value -->
+  <rect x="460" y="420" width="280" height="38" rx="19" fill="white" opacity="0.1"/>
+  <text x="600" y="446" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" font-weight="600" fill="white" opacity="0.7">Valeur ~80E · Made in France</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="530" width="1200" height="100" fill="white" opacity="0.95"/>
+  <text x="600" y="575" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="#0A0A3E">Participation gratuite par email — 30 secondes chrono</text>
+  <!-- French flag stripe bottom -->
+  <rect x="0" y="625" width="400" height="5" fill="#0055A4"/>
+  <rect x="400" y="625" width="400" height="5" fill="#E5E7EB"/>
+  <rect x="800" y="625" width="400" height="5" fill="#EF4135"/>
+</svg>
