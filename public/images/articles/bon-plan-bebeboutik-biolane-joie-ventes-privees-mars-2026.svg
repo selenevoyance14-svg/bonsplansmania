@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#fef9f5"/>
+  <rect x="0" y="0" width="800" height="45" fill="#6a1b9a"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">BEBEBOUTIK</text>
+  <text x="400" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#6a1b9a" letter-spacing="3">VENTES PRIVEES BEBE</text>
+  <rect x="60" y="110" width="310" height="170" rx="12" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="215" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#2e7d32">BIOLANE</text>
+  <text x="215" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">Couches et soins naturels</text>
+  <text x="215" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6a1b9a">Livraison offerte</text>
+  <text x="215" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#888">Expedie en 72h</text>
+  <rect x="430" y="110" width="310" height="170" rx="12" fill="#ffffff" stroke="#e0e0e0" stroke-width="1"/>
+  <text x="585" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#e65100">JOIE</text>
+  <text x="585" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">Poussettes et puericulture</text>
+  <text x="585" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#6a1b9a">Livraison offerte</text>
+  <text x="585" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#888">Paiement 4x sans frais</text>
+  <rect x="280" y="330" width="240" height="36" rx="18" fill="#6a1b9a"/>
+  <text x="400" y="354" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Voir les ventes</text>
+</svg>
