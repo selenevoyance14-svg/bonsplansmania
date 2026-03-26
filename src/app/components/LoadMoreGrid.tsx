@@ -15,6 +15,7 @@ interface ArticleCard {
   categoryLabel: string;
   categoryColor: string;
   readingTime: string;
+  expired?: boolean;
 }
 
 const PER_PAGE = 24;
@@ -28,7 +29,12 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleCard[] }) 
     <>
       <div className="articles-grid">
         {shown.map((article) => (
-          <a key={article.slug} href={`/article/${article.slug}`} className="card" style={{ textDecoration: "none" }}>
+          <a key={article.slug} href={`/article/${article.slug}`} className="card" style={{ textDecoration: "none", ...(article.expired ? { opacity: 0.55, filter: "grayscale(40%)" } : {}) }}>
+            {article.expired && (
+              <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#DC2626", color: "white", padding: "3px 10px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.3px" }}>
+                Terminé
+              </div>
+            )}
             <div style={{ position: "relative", height: "190px", overflow: "hidden" }}>
               <Image src={article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
             </div>

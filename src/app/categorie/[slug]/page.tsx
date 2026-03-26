@@ -67,6 +67,7 @@ export default async function CategoryPage({ params }: PageProps) {
       categoryLabel: cl?.label ?? a.meta.category,
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
+      expired: a.meta.expired,
     };
   });
 

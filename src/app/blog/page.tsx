@@ -38,6 +38,7 @@ export default function BlogPage() {
       categoryLabel: cat?.label ?? a.meta.category,
       categoryColor: cat?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
+      expired: a.meta.expired,
     };
   });
 

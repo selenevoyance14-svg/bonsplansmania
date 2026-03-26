@@ -124,6 +124,16 @@ export default async function ArticlePage({ params }: PageProps) {
           </nav>
 
           <article className="article">
+            {article.meta.expired && (
+              <div style={{ background: "#FEE2E2", border: "2px solid #F87171", borderRadius: "12px", padding: "16px 20px", marginBottom: "20px", textAlign: "center" }}>
+                <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem", color: "#B91C1C" }}>
+                  Ce concours est terminé
+                </p>
+                <p style={{ margin: "6px 0 0", fontSize: "0.88rem", color: "#DC2626" }}>
+                  Cette offre n'est plus disponible. Découvrez nos <a href="/categorie/concours" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>concours en cours</a>.
+                </p>
+              </div>
+            )}
             <div className="article-header">
               <div className="article-meta-top">
                 <span className={`pill pill-${article.meta.category}`}>{cat?.emoji} {cat?.label}</span>

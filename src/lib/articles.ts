@@ -24,6 +24,7 @@ export interface ArticleMeta {
   featured?: boolean;
   seoTitle?: string;
   seoDescription?: string;
+  expired?: boolean;
 }
 
 export interface Article {
@@ -83,6 +84,7 @@ export function getArticleBySlug(slug: string): Article | null {
       featured: data.featured || false,
       seoTitle: data.seoTitle,
       seoDescription: data.seoDescription,
+      expired: data.expired || false,
     },
     content,
   };
