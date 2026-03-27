@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FEF3C7"/>
+      <stop offset="50%" style="stop-color:#FDE68A"/>
+      <stop offset="100%" style="stop-color:#FEF3C7"/>
+    </linearGradient>
+    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E05A6D"/>
+      <stop offset="100%" style="stop-color:#D94462"/>
+    </linearGradient>
+    <linearGradient id="dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1F2937"/>
+      <stop offset="100%" style="stop-color:#111827"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Cards decoration -->
+  <g transform="translate(100, 180)" opacity="0.3">
+    <rect x="0" y="0" width="70" height="95" rx="6" fill="white" stroke="#F59E0B" stroke-width="2" transform="rotate(-10, 35, 47)"/>
+    <text x="35" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#F59E0B" transform="rotate(-10, 35, 47)">S</text>
+  </g>
+  <g transform="translate(160, 200)" opacity="0.25">
+    <rect x="0" y="0" width="70" height="95" rx="6" fill="white" stroke="#F59E0B" stroke-width="2" transform="rotate(5, 35, 47)"/>
+    <text x="35" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#F59E0B" transform="rotate(5, 35, 47)">B</text>
+  </g>
+  <g transform="translate(1000, 190)" opacity="0.25">
+    <rect x="0" y="0" width="70" height="95" rx="6" fill="white" stroke="#F59E0B" stroke-width="2" transform="rotate(8, 35, 47)"/>
+    <text x="35" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#F59E0B" transform="rotate(8, 35, 47)">A</text>
+  </g>
+  <g transform="translate(1060, 210)" opacity="0.2">
+    <rect x="0" y="0" width="70" height="95" rx="6" fill="white" stroke="#F59E0B" stroke-width="2" transform="rotate(-5, 35, 47)"/>
+    <text x="35" y="55" text-anchor="middle" font-family="Arial,sans-serif" font-size="36" font-weight="900" fill="#F59E0B" transform="rotate(-5, 35, 47)">C</text>
+  </g>
+  <!-- Badge TEST GRATUIT -->
+  <rect x="370" y="50" width="460" height="52" rx="26" fill="url(#red)"/>
+  <text x="600" y="84" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="white">TEST GRATUIT · 14 EXEMPLAIRES</text>
+  <!-- Brand -->
+  <text x="600" y="170" text-anchor="middle" font-family="Arial,sans-serif" font-size="16" fill="#92400E" opacity="0.5" letter-spacing="5">TESTER DES PRODUITS</text>
+  <!-- Main text -->
+  <text x="600" y="270" text-anchor="middle" font-family="Arial,sans-serif" font-size="56" font-weight="900" fill="url(#dark)">Speed Bac</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-size="32" font-weight="700" fill="#B45309">Jeu de Société d'Ambiance</text>
+  <!-- Features -->
+  <g transform="translate(260, 370)">
+    <rect x="0" y="0" width="140" height="38" rx="19" fill="url(#dark)" opacity="0.08"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1F2937">Dès 10 ans</text>
+  </g>
+  <g transform="translate(420, 370)">
+    <rect x="0" y="0" width="170" height="38" rx="19" fill="url(#dark)" opacity="0.08"/>
+    <text x="85" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1F2937">Parties rapides</text>
+  </g>
+  <g transform="translate(610, 370)">
+    <rect x="0" y="0" width="170" height="38" rx="19" fill="url(#dark)" opacity="0.08"/>
+    <text x="85" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1F2937">Famille et amis</text>
+  </g>
+  <g transform="translate(800, 370)">
+    <rect x="0" y="0" width="140" height="38" rx="19" fill="url(#dark)" opacity="0.08"/>
+    <text x="70" y="25" text-anchor="middle" font-family="Arial,sans-serif" font-size="13" font-weight="600" fill="#1F2937">Hilarant</text>
+  </g>
+  <!-- Bottom bar -->
+  <rect x="0" y="530" width="1200" height="100" fill="url(#red)" opacity="0.95"/>
+  <text x="600" y="575" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="white">Tirage au sort le 15 juin 2026 — Inscription gratuite</text>
+</svg>
