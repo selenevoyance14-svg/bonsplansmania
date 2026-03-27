@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5f0f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ede5e5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Badge TEST GRATUIT -->
+  <rect x="40" y="25" width="200" height="36" rx="18" fill="#2d2d2d"/>
+  <text x="140" y="49" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">TEST GRATUIT</text>
+
+  <!-- Brand name -->
+  <text x="260" y="49" font-family="Arial, sans-serif" font-size="18" font-weight="300" fill="#2d2d2d" letter-spacing="3">naali</text>
+
+  <!-- Main title -->
+  <text x="40" y="110" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#2d2d2d">DUO MAGNESIUM +</text>
+  <text x="40" y="148" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#2d2d2d">ET DREAM</text>
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="16" fill="#777">Gummies sommeil et anti-stress</text>
+
+  <!-- Features -->
+  <text font-family="Arial, sans-serif" font-size="14" fill="#555">
+    <tspan x="40" y="225">&#x2714; Dream : melatonine, safran, gout cerise</tspan>
+    <tspan x="40" y="251">&#x2714; Magnesium + : magnesium, taurine, B6</tspan>
+    <tspan x="40" y="277">&#x2714; Format gummies, agreable a prendre</tspan>
+  </text>
+
+  <!-- Deadline -->
+  <rect x="40" y="305" width="280" height="40" rx="8" fill="#2d2d2d"/>
+  <text x="180" y="330" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Candidature jusqu'au 2 avril 2026</text>
+
+  <!-- Pot 1 - Dream (dark/noir) -->
+  <rect x="500" y="80" width="120" height="180" rx="16" fill="#2d2d2d"/>
+  <rect x="510" y="90" width="100" height="25" rx="8" fill="#3d3d3d"/>
+  <text x="560" y="108" font-family="Arial, sans-serif" font-size="14" font-weight="300" fill="white" text-anchor="middle" letter-spacing="2">naali</text>
+  <text x="560" y="155" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">DREAM</text>
+  <text x="560" y="175" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">Melatonine Vegetale</text>
+  <text x="560" y="188" font-family="Arial, sans-serif" font-size="8" fill="#aaa" text-anchor="middle">Safran</text>
+  <text x="560" y="225" font-family="Arial, sans-serif" font-size="9" fill="#888" text-anchor="middle">60 gummies</text>
+  <text x="560" y="245" font-family="Arial, sans-serif" font-size="8" fill="#777" text-anchor="middle">Gout cerise</text>
+
+  <!-- Pot 2 - Magnesium + (bordeaux) -->
+  <rect x="650" y="95" width="120" height="180" rx="16" fill="#5a2035"/>
+  <rect x="660" y="105" width="100" height="25" rx="8" fill="#6a2a40"/>
+  <text x="710" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="300" fill="white" text-anchor="middle" letter-spacing="2">naali</text>
+  <text x="710" y="165" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Magnesium+</text>
+  <text x="710" y="185" font-family="Arial, sans-serif" font-size="8" fill="#daa" text-anchor="middle">Magnesium - Taurine</text>
+  <text x="710" y="198" font-family="Arial, sans-serif" font-size="8" fill="#daa" text-anchor="middle">Vitamine B6</text>
+  <text x="710" y="235" font-family="Arial, sans-serif" font-size="9" fill="#c88" text-anchor="middle">30 doses</text>
+  <text x="710" y="255" font-family="Arial, sans-serif" font-size="8" fill="#b77" text-anchor="middle">Gout framboise</text>
+
+  <!-- NEW badge on Magnesium -->
+  <circle cx="755" cy="260" r="18" fill="#e74c5e"/>
+  <text x="755" y="264" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">NEW</text>
+
+  <!-- Gummies decoration -->
+  <circle cx="520" cy="295" r="8" fill="#8b2252" opacity="0.6"/>
+  <circle cx="540" cy="305" r="7" fill="#8b2252" opacity="0.5"/>
+  <circle cx="555" cy="292" r="6" fill="#8b2252" opacity="0.4"/>
+  <circle cx="680" cy="305" r="7" fill="#d4738a" opacity="0.4"/>
+  <circle cx="700" cy="298" r="6" fill="#d4738a" opacity="0.3"/>
+
+  <!-- Footer -->
+  <rect x="40" y="400" width="720" height="1" fill="#d0c8c8"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="13" fill="#999" text-anchor="middle">bonsplansmania.fr — Naali, complements bien-etre</text>
+</svg>

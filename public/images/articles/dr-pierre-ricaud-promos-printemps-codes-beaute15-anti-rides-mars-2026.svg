@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e3f2fd;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Badge CODE PROMO -->
+  <rect x="40" y="25" width="180" height="36" rx="18" fill="#2e7d32"/>
+  <text x="130" y="49" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">CODE PROMO</text>
+
+  <!-- 40 ans badge -->
+  <circle cx="250" cy="43" r="18" fill="white" stroke="#2e7d32" stroke-width="2"/>
+  <text x="250" y="41" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#2e7d32" text-anchor="middle">40</text>
+  <text x="250" y="52" font-family="Arial, sans-serif" font-size="7" fill="#2e7d32" text-anchor="middle">ANS</text>
+
+  <!-- Brand -->
+  <text x="40" y="100" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#1a237e">Dr.Pierre Ricaud</text>
+
+  <!-- Main offer -->
+  <text x="40" y="145" font-family="Arial, sans-serif" font-size="22" fill="#333">Offres printemps jusqu'a</text>
+  <rect x="40" y="158" width="120" height="42" rx="8" fill="#2e7d32"/>
+  <text x="100" y="186" font-family="Arial, sans-serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle">-50%</text>
+
+  <!-- Code box -->
+  <rect x="40" y="220" width="380" height="70" rx="10" fill="white" stroke="#2e7d32" stroke-width="2"/>
+  <text x="50" y="248" font-family="Arial, sans-serif" font-size="13" fill="#666">Code du week-end :</text>
+  <rect x="200" y="232" width="140" height="30" rx="6" fill="#2e7d32"/>
+  <text x="270" y="253" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="2">BEAUTE15</text>
+  <text x="50" y="275" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#2e7d32">15E offerts des 60E d'achat</text>
+
+  <!-- Offers list -->
+  <text font-family="Arial, sans-serif" font-size="13" fill="#555">
+    <tspan x="40" y="320">&#x2714; Creme anti-rides acide hyaluronique -40%</tspan>
+    <tspan x="40" y="344">&#x2714; Creme nuit regeneration supreme (nouveaute)</tspan>
+    <tspan x="40" y="368">&#x2714; Lifting Cou Collector -30%</tspan>
+  </text>
+
+  <!-- Product illustrations (right side) -->
+  <!-- Blue tube -->
+  <rect x="520" y="70" width="45" height="140" rx="12" fill="#1a3a8a"/>
+  <rect x="525" y="75" width="35" height="20" rx="6" fill="#2a4a9a"/>
+  <text x="542" y="150" font-family="Arial, sans-serif" font-size="6" fill="white" text-anchor="middle" transform="rotate(-90, 542, 150)">Dr.Pierre Ricaud</text>
+
+  <!-- Gold jar -->
+  <ellipse cx="630" cy="150" rx="50" ry="15" fill="#c8a84a"/>
+  <rect x="580" y="150" width="100" height="60" rx="4" fill="#d4b85a"/>
+  <ellipse cx="630" cy="210" rx="50" ry="12" fill="#c8a84a"/>
+  <text x="630" y="180" font-family="Arial, sans-serif" font-size="8" fill="white" text-anchor="middle">CREME DE NUIT</text>
+  <text x="630" y="192" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle">Probiotiques</text>
+
+  <!-- Green jar -->
+  <ellipse cx="720" cy="170" rx="40" ry="12" fill="#2e6e32"/>
+  <rect x="680" y="170" width="80" height="50" rx="4" fill="#3a8a3e"/>
+  <ellipse cx="720" cy="220" rx="40" ry="10" fill="#2e6e32"/>
+  <text x="720" y="198" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle">ANTI-RIDES</text>
+
+  <!-- Pink jar -->
+  <ellipse cx="670" cy="250" rx="35" ry="10" fill="#c87080"/>
+  <rect x="635" y="250" width="70" height="40" rx="4" fill="#d4808a"/>
+  <ellipse cx="670" cy="290" rx="35" ry="8" fill="#c87080"/>
+
+  <!-- Promo stickers on products -->
+  <circle cx="560" cy="85" r="18" fill="#e53935"/>
+  <text x="560" y="89" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">-40%</text>
+
+  <circle cx="755" cy="175" r="16" fill="#e53935"/>
+  <text x="755" y="179" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="white" text-anchor="middle">-30%</text>
+
+  <!-- Footer -->
+  <rect x="40" y="400" width="720" height="1" fill="#c0d8c0"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="13" fill="#999" text-anchor="middle">bonsplansmania.fr — Offres valables jusqu'au 2 avril 2026</text>
+</svg>
