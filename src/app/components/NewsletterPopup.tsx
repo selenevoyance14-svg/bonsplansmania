@@ -31,7 +31,7 @@ export default function NewsletterPopup() {
 
     setStatus("loading");
     try {
-      const res = await fetch("/api/newsletter/subscribe", {
+      const res = await fetch("https://bonsplansmania-newsletter.selenevoyance14.workers.dev/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
@@ -39,22 +39,15 @@ export default function NewsletterPopup() {
       const data = await res.json();
 
       if (res.ok) {
+        const isAlready = data.already === true;
         setStatus("success");
-        setMessage("Vous etes inscrit !");
+        setMessage(isAlready ? "Vous etes deja inscrit !" : "Vous etes inscrit !");
         localStorage.setItem("bpm_subscribed", "true");
         localStorage.setItem(STORAGE_KEY, Date.now().toString());
         setTimeout(() => setShow(false), 2500);
       } else {
-        if (data.error?.includes("inscrit")) {
-          setStatus("success");
-          setMessage("Vous etes deja inscrit !");
-          localStorage.setItem("bpm_subscribed", "true");
-          localStorage.setItem(STORAGE_KEY, Date.now().toString());
-          setTimeout(() => setShow(false), 2500);
-        } else {
-          setStatus("error");
-          setMessage(data.error || "Une erreur est survenue.");
-        }
+        setStatus("error");
+        setMessage(data.error || "Une erreur est survenue.");
       }
     } catch {
       setStatus("error");
