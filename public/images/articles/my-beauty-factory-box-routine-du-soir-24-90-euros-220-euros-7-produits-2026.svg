@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a3e;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#2d2d5e;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#c9a86c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e0c88a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark night background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Stars -->
+  <circle cx="100" cy="40" r="1.5" fill="white" opacity="0.6"/>
+  <circle cx="250" cy="25" r="1" fill="white" opacity="0.4"/>
+  <circle cx="400" cy="50" r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="550" cy="30" r="1" fill="white" opacity="0.3"/>
+  <circle cx="680" cy="45" r="1.5" fill="white" opacity="0.5"/>
+  <circle cx="150" cy="65" r="1" fill="white" opacity="0.3"/>
+  <circle cx="350" cy="15" r="1" fill="white" opacity="0.4"/>
+  <circle cx="750" cy="20" r="1" fill="white" opacity="0.3"/>
+
+  <!-- Moon -->
+  <circle cx="720" cy="60" r="30" fill="#f0e68c" opacity="0.15"/>
+  <circle cx="730" cy="55" r="28" fill="url(#bg)"/>
+
+  <!-- Badge -->
+  <rect x="40" y="25" width="160" height="36" rx="18" fill="url(#badge)"/>
+  <text x="120" y="49" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a1a3e" text-anchor="middle" letter-spacing="1">EDITION LIMITEE</text>
+
+  <!-- Main title -->
+  <text x="40" y="110" font-family="Georgia, serif" font-size="34" font-weight="bold" fill="white">BOX ROUTINE</text>
+  <text x="40" y="150" font-family="Georgia, serif" font-size="34" font-weight="bold" fill="white">DU SOIR</text>
+
+  <!-- Brand -->
+  <text x="40" y="180" font-family="Arial, sans-serif" font-size="14" fill="#c9a86c" letter-spacing="2">MY BEAUTY FACTORY</text>
+
+  <!-- Price -->
+  <text x="40" y="225" font-family="Arial, sans-serif" font-size="18" fill="#888" text-decoration="line-through">220,50E</text>
+  <rect x="140" y="205" width="145" height="35" rx="8" fill="#c9a86c"/>
+  <text x="212" y="229" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#1a1a3e" text-anchor="middle">24,90E</text>
+  <text x="300" y="229" font-family="Arial, sans-serif" font-size="14" fill="#e0c88a">  -88%</text>
+
+  <!-- Features -->
+  <text x="40" y="275" font-family="Arial, sans-serif" font-size="14" fill="#ccc">
+    <tspan x="40" dy="0">&#x2022; 4 soins visage, corps et cheveux</tspan>
+    <tspan x="40" dy="24">&#x2022; 2 coups de coeur eclat</tspan>
+    <tspan x="40" dy="24">&#x2022; 1 surprise gourmande et relaxante</tspan>
+    <tspan x="40" dy="24">&#x2022; 7 produits au total</tspan>
+  </text>
+
+  <!-- Box illustration (right side) -->
+  <rect x="500" y="90" width="250" height="260" rx="14" fill="#252550" stroke="#c9a86c" stroke-width="1.5"/>
+
+  <!-- Products inside box -->
+  <rect x="520" y="130" width="35" height="90" rx="6" fill="#2a5a3a" opacity="0.8"/>
+  <text x="537" y="180" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle" transform="rotate(-90, 537, 180)">KIRARGAN</text>
+
+  <rect x="565" y="140" width="30" height="80" rx="6" fill="#4a2a5a"/>
+  <text x="580" y="185" font-family="Arial, sans-serif" font-size="7" fill="white" text-anchor="middle" transform="rotate(-90, 580, 185)">VENDOME</text>
+
+  <rect x="605" y="125" width="32" height="95" rx="6" fill="#5a3a2a"/>
+
+  <rect x="647" y="145" width="28" height="75" rx="6" fill="#3a3a5a"/>
+
+  <rect x="685" y="135" width="30" height="85" rx="6" fill="#2a4a5a"/>
+
+  <!-- Tisane cup -->
+  <ellipse cx="560" cy="260" rx="30" ry="12" fill="#3a5a3a" opacity="0.6"/>
+  <rect x="535" y="250" width="50" height="30" rx="4" fill="#2a4a2a" opacity="0.5"/>
+  <text x="560" y="270" font-family="Arial, sans-serif" font-size="7" fill="#a0d0a0" text-anchor="middle">CLIPPER</text>
+
+  <!-- Feather decoration -->
+  <ellipse cx="670" cy="280" rx="8" ry="30" fill="white" opacity="0.1" transform="rotate(15, 670, 280)"/>
+
+  <!-- 7 products badge -->
+  <circle cx="720" cy="110" r="28" fill="#c9a86c"/>
+  <text x="720" y="106" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#1a1a3e" text-anchor="middle">7</text>
+  <text x="720" y="122" font-family="Arial, sans-serif" font-size="9" fill="#1a1a3e" text-anchor="middle">produits</text>
+
+  <!-- Footer -->
+  <rect x="40" y="400" width="720" height="1" fill="#3a3a5e"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="13" fill="#666" text-anchor="middle">bonsplansmania.fr — My Beauty Factory, edition limitee</text>
+</svg>
