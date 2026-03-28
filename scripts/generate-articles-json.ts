@@ -65,3 +65,37 @@ function getAllArticles(): ArticleInfo[] {
 const articles = getAllArticles();
 fs.writeFileSync(OUTPUT_PATH, JSON.stringify(articles, null, 0));
 console.log(`Generated articles.json with ${articles.length} articles`);
+
+// --- Génération RSS ---
+const RSS_PATH = path.join(process.cwd(), "public", "rss.xml");
+const SITE_URL = "https://bonsplansmania.fr";
+
+function escapeXml(str: string): string {
+  return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
+}
+
+function generateRss(items: ArticleInfo[]): string {
+  const rssItems = items.map((a) => `    <item>
+      <title>${escapeXml(a.title)}</title>
+      <link>${a.url}</link>
+      <guid>${a.url}</guid>
+      <description>${escapeXml(a.description)}</description>
+      <category>${escapeXml(a.category)}</category>
+    </item>`).join("\n");
+
+  return `<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Bons Plans Mania</title>
+    <link>${SITE_URL}</link>
+    <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
+    <language>fr</language>
+    <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+    <atom:link href="${SITE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
+${rssItems}
+  </channel>
+</rss>`;
+}
+
+fs.writeFileSync(RSS_PATH, generateRss(articles));
+console.log(`Generated rss.xml with ${articles.length} items`);
