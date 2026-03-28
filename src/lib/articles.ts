@@ -5,6 +5,10 @@ import readingTime from "reading-time";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 
+// Cache mémoire pour éviter de relire 1105 fichiers à chaque appel
+let _fileMapCache: Map<string, string> | null = null;
+let _allArticlesCache: Article[] | null = null;
+
 export interface ArticleMeta {
   slug: string;
   title: string;
@@ -47,10 +51,12 @@ function findMdxFiles(dir: string): { slug: string; filePath: string }[] {
 }
 
 function getFileMap(): Map<string, string> {
+  if (_fileMapCache) return _fileMapCache;
   const map = new Map<string, string>();
   for (const { slug, filePath } of findMdxFiles(CONTENT_DIR)) {
     map.set(slug, filePath);
   }
+  _fileMapCache = map;
   return map;
 }
 
@@ -91,10 +97,12 @@ export function getArticleBySlug(slug: string): Article | null {
 }
 
 export function getAllArticles(): Article[] {
-  return getArticleSlugs()
+  if (_allArticlesCache) return _allArticlesCache;
+  _allArticlesCache = getArticleSlugs()
     .map((slug) => getArticleBySlug(slug))
     .filter((a): a is Article => a !== null && a.meta.published)
     .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
+  return _allArticlesCache;
 }
 
 export function getArticlesByCategory(category: string): Article[] {
