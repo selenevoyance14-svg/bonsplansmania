@@ -85,6 +85,7 @@ function generateRss(items: ArticleInfo[]): string {
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
       <description>${escapeXml(a.description)}</description>
       <category>${escapeXml(a.category)}</category>
+      <enclosure url="${SITE_URL}${a.image}" type="image/svg+xml" length="0"/>
     </item>`).join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
