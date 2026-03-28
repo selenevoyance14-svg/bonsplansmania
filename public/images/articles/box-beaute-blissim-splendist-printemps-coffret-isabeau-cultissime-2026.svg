@@ -1,0 +1,39 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5b2c6f;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#c39bd3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f5eef8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="110" r="180" fill="white" fill-opacity="0.05"/>
+  <circle cx="80" cy="540" r="120" fill="white" fill-opacity="0.04"/>
+  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="100" y="100" width="220" height="36" rx="18" fill="#8e44ad"/>
+  <text x="210" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">BOX BEAUTE</text>
+  <text x="100" y="195" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">Blissim</text>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">3 coffrets beaute exceptionnels</text>
+  <rect x="100" y="275" width="185" height="90" rx="16" fill="white" fill-opacity="0.25"/>
+  <text x="192" y="300" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">Isabeau</text>
+  <text x="192" y="325" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="900">44,20€</text>
+  <text x="192" y="350" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle" fill-opacity="0.7">au lieu de 247€</text>
+  <rect x="300" y="275" width="185" height="90" rx="16" fill="white" fill-opacity="0.2"/>
+  <text x="392" y="300" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">Splendist</text>
+  <text x="392" y="325" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="900">49,90€</text>
+  <text x="392" y="350" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle" fill-opacity="0.7">au lieu de 261€</text>
+  <rect x="500" y="275" width="185" height="90" rx="16" fill="white" fill-opacity="0.15"/>
+  <text x="592" y="300" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">Cultissime</text>
+  <text x="592" y="325" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="900">36,55€</text>
+  <text x="592" y="350" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle" fill-opacity="0.7">au lieu de 200€</text>
+  <text x="100" y="420" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.85">Tarte · Caudalie · Anastasia · Filorga · Vichy</text>
+  <text x="100" y="455" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7">Jusqu'a 200€ d'economies par coffret</text>
+  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">bonsplansmania.fr</text>
+  <text x="920" y="340" font-family="Arial, sans-serif" font-size="110" text-anchor="middle" opacity="0.15">💄</text>
+  <rect x="900" y="560" width="240" height="40" rx="20" fill="white" fill-opacity="0.15"/>
+  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+</svg>
