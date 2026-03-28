@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 28 Mar 2026 14:07:56 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 28 Mar 2026 14:29:29 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Erborian Ginseng Infusion Total Eye à 27,98€ au lieu de 47€ (-40%) sur Amazon</title>
@@ -60,6 +60,24 @@
       <description>Jeu concours Douce France 100% gagnant : videoprojecteurs, licence sportive remboursee et milliers de lots a gagner. 1 produit achete = 1 cadeau. Du 01/04 au 06/09/2026.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-douce-france-toujours-a-vos-cotes-videoprojecteur-licence-sport-2026.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Jeu Concours Marionnaud x Eisenberg : des Cadeaux Beaute Luxe a Gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-marionnaud-eisenberg-paris-cadeaux-beaute-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-marionnaud-eisenberg-paris-cadeaux-beaute-2026</guid>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Jeu concours gratuit Marionnaud en partenariat avec Eisenberg Paris : tentez de gagner des produits de soin luxe. Machine a sous, participation gratuite.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-marionnaud-eisenberg-paris-cadeaux-beaute-2026.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Concours RIFFX : Gagnez vos Invitations pour le Printemps de Bourges Credit Mutuel 2026</title>
+      <link>https://bonsplansmania.fr/article/concours-riffx-printemps-de-bourges-credit-mutuel-invitations-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-riffx-printemps-de-bourges-credit-mutuel-invitations-2026</guid>
+      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Tentez de remporter vos invitations pour le Printemps de Bourges Credit Mutuel 2026 avec RIFFX. Festival du 14 au 19 avril, 50e edition. Concours gratuit.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-riffx-printemps-de-bourges-credit-mutuel-invitations-2026.svg" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>Test Gratuit L'Oreal Paris Revitalift Filler Glass Skin : 125 Testeurs Recherches</title>
@@ -168,24 +186,6 @@
       <description>Participez au jeu concours Guillaume Bichet, artisan chocolatier suisse, et tentez de gagner des chocolats artisanaux. Inscription gratuite par email.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-guillaume-bichet-chocolatier-suisse-paques-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Concours Pâques Paris La Défense : Jouez au Memory et Gagnez des Cadeaux</title>
-      <link>https://bonsplansmania.fr/article/concours-paris-la-defense-paques-memory-cadeaux-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-paris-la-defense-paques-memory-cadeaux-2026</guid>
-      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Paris La Défense organise un jeu concours de Pâques : participez au Memory et qualifiez-vous pour le tirage au sort. Des cadeaux à gagner gratuitement.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-paris-la-defense-paques-memory-cadeaux-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Concours Pâques Tribuca : un Bon d'Achat de 50 euros chez LAC Chocolatier à Gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-tribuca-lac-chocolatier-bon-achat-50-euros-paques-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-tribuca-lac-chocolatier-bon-achat-50-euros-paques-2026</guid>
-      <pubDate>Fri, 27 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Tribuca.net organise un jeu concours de Pâques : tentez de gagner un bon d'achat de 50 euros chez LAC Chocolatier + un abonnement numérique Tribune Côte d'Azur. Jusqu'au 31 mars 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-tribuca-lac-chocolatier-bon-achat-50-euros-paques-2026.svg" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
