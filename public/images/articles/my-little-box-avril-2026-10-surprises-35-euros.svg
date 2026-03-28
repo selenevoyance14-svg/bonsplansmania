@@ -1,0 +1,18 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4a373;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#e9c46a;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <text x="600" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="68" font-weight="bold" fill="#ffffff">My Little Box</text>
+  <text x="600" y="230" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" fill="#ffffffcc">Avril 2026</text>
+  <rect x="200" y="265" width="800" height="4" rx="2" fill="#ffffff" opacity="0.4"/>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#ffffff">10 Surprises pour 35,80&#8364;</text>
+  <text x="600" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#ffffffcc">6 cosmetiques + 4 accessoires lifestyle</text>
+  <text x="600" y="460" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#ffffffcc">Valeur totale : 182&#8364;</text>
+  <rect x="350" y="495" width="500" height="70" rx="35" fill="#ffffff"/>
+  <text x="600" y="542" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#d4a373">Decouvrir la box</text>
+  <text x="600" y="610" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" fill="#ffffffaa">bonsplansmania.fr</text>
+</svg>
