@@ -11,6 +11,7 @@ interface ArticleInfo {
   description: string;
   category: string;
   image: string;
+  date: string;
 }
 
 function getAllArticles(): ArticleInfo[] {
@@ -30,6 +31,7 @@ function getAllArticles(): ArticleInfo[] {
       description: data.description || "",
       category: data.category || "bon-plan",
       image: data.image || "/images/placeholder.svg",
+      date: data.date || "2020-01-01",
     });
   }
 
@@ -55,6 +57,7 @@ function getAllArticles(): ArticleInfo[] {
       description: data.description || "",
       category: data.category || "bon-plan",
       image: data.image || "/images/placeholder.svg",
+      date: data.date || "2020-01-01",
     });
   }
 
@@ -79,6 +82,7 @@ function generateRss(items: ArticleInfo[]): string {
       <title>${escapeXml(a.title)}</title>
       <link>${a.url}</link>
       <guid>${a.url}</guid>
+      <pubDate>${new Date(a.date).toUTCString()}</pubDate>
       <description>${escapeXml(a.description)}</description>
       <category>${escapeXml(a.category)}</category>
     </item>`).join("\n");
