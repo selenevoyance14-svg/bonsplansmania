@@ -2,7 +2,7 @@ import { getArticlesByCategory } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import type { Metadata } from "next";
-import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, type LucideIcon } from "lucide-react";
+import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -12,14 +12,15 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
   "test":             { label: "Test Produit",          color: "test" },
   "concours":         { label: "Concours",              color: "concours" },
   "box-beaute":       { label: "Box Beauté",            color: "box-beaute" },
-  "selection":        { label: "Beauté",                color: "selection" },
+  "beaute":           { label: "Beauté",                color: "beaute" },
+  "selection":        { label: "Beauté",                color: "beaute" },
   "calendrier-avent": { label: "Calendrier de l'Avent", color: "calendrier-avent" },
   "code-promo":       { label: "Code Promo",            color: "code-promo" },
 };
 
 
 export async function generateStaticParams() {
-  return ["bon-plan", "test-gratuit", "concours", "box-beaute", "selection", "test", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
+  return ["bon-plan", "test-gratuit", "concours", "box-beaute", "beaute", "selection", "test", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
 }
 
 interface PageProps { params: Promise<{ slug: string }>; }
@@ -29,6 +30,7 @@ const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: st
   "test-gratuit":     { label: "Tests Gratuits",          Icon: Gift,         desc: "Des produits à tester gratuitement avant tout le monde", seoTitle: "Tests Gratuits : Produits Beauté à Tester Gratuitement — Bons Plans Mania", seoDesc: "Recevez des produits beauté gratuits à tester chez vous. Missions Trustt, ConsoBaby, TikTok et plus. Inscrivez-vous et testez les nouveautés avant tout le monde.", color: "test-gratuit" },
   "concours":         { label: "Concours",                Icon: Trophy,       desc: "Les meilleurs jeux concours avec des lots à gagner", seoTitle: "Concours & Jeux : Gagnez des Lots Beauté, Tech, Voyages — Bons Plans Mania", seoDesc: "Les meilleurs jeux concours gratuits avec des lots à gagner : coffrets beauté, voyages, high-tech, bons d'achat. Participez en quelques clics, mis à jour chaque jour.", color: "concours" },
   "box-beaute":       { label: "Box Beauté",              Icon: ShoppingBag,  desc: "Tests et avis complets sur les box beauté du moment", seoTitle: "Box Beauté : Avis, Comparatifs et Bons Plans — Bons Plans Mania", seoDesc: "Découvrez les meilleures box beauté du moment : Blissim, Biotyfull Box, Lookfantastic. Avis détaillés, comparatifs et codes promo pour économiser sur vos abonnements.", color: "box-beaute" },
+  "beaute":           { label: "Beauté",                   Icon: Sparkles,     desc: "Tutos, guides, comparatifs et avis sur les produits beauté", seoTitle: "Conseils Beauté : Tutos, Tests et Guides — Bons Plans Mania", seoDesc: "Tutos maquillage, comparatifs soins, guides skincare et avis produits. Tous nos conseils beauté pour bien choisir vos cosmétiques.", color: "beaute" },
   "selection":        { label: "Sélection",               Icon: Calendar,     desc: "Nos coups de cœur et sélections du moment", seoTitle: "Sélections Beauté : Nos Coups de Cœur — Bons Plans Mania", seoDesc: "Nos sélections et coups de cœur beauté du moment. Les meilleurs produits testés et approuvés par la rédaction, à prix doux.", color: "selection" },
   "test":             { label: "Tests Produits",          Icon: FlaskConical, desc: "Nos tests et avis détaillés sur les produits beauté", seoTitle: "Tests Produits Beauté : Avis et Comparatifs — Bons Plans Mania", seoDesc: "Tests et avis détaillés sur les produits beauté. Comparatifs, notes et recommandations pour bien choisir vos cosmétiques, soins et maquillage.", color: "test" },
   "calendrier":       { label: "Calendrier",              Icon: Calendar,     desc: "Calendriers beauté et coffrets à saisir", seoTitle: "Calendriers Beauté : Offres et Coffrets — Bons Plans Mania", seoDesc: "Calendriers beauté et coffrets à saisir. Les meilleures offres sur les calendriers des grandes marques beauté.", color: "calendrier" },

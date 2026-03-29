@@ -2,7 +2,7 @@ import { getAllArticles, getFeaturedArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import Image from "next/image";
-import { Clock, Tag, Gift, Calendar, Trophy, Star, Flame, ShoppingBag, TreePine, FlaskConical, type LucideIcon } from "lucide-react";
+import { Clock, Tag, Gift, Calendar, Trophy, Star, Flame, ShoppingBag, TreePine, FlaskConical, Sparkles, type LucideIcon } from "lucide-react";
 import CurrentMonth from "@/app/components/CurrentMonth";
 
 
@@ -15,7 +15,8 @@ const categoryConfig: Record<string, CategoryConfig> = {
   "test":             { label: "Test Produit",          Icon: FlaskConical, color: "test" },
   "concours":         { label: "Concours",              Icon: Trophy,       color: "concours" },
   "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  color: "box-beaute" },
-  "selection":        { label: "Sélection",             Icon: Calendar,     color: "selection" },
+  "beaute":           { label: "Beauté",                Icon: Sparkles,     color: "beaute" },
+  "selection":        { label: "Beauté",                Icon: Sparkles,     color: "beaute" },
   "calendrier":       { label: "Calendrier",            Icon: Calendar,     color: "calendrier" },
   "calendrier-avent": { label: "Calendrier de l'Avent", Icon: TreePine,     color: "calendrier-avent" },
 };

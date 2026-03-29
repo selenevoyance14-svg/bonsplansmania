@@ -22,7 +22,8 @@ const categoryLabels: Record<string, string> = {
   "box-beaute": "Box Beauté",
   "calendrier": "Calendrier",
   "calendrier-avent": "Calendrier de l'Avent",
-  "selection": "Sélection",
+  "beaute": "Beauté",
+  "selection": "Beauté",
   "test": "Test Produit",
   "code-promo": "Code Promo",
 };

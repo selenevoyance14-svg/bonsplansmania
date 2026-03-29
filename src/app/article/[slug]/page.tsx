@@ -37,6 +37,7 @@ const categoryConfig: Record<string, { label: string; emoji: string }> = {
   "test":            { label: "Test Produit", emoji: "🧪" },
   "concours":        { label: "Concours",     emoji: "🏆" },
   "box-beaute":      { label: "Box Beauté",   emoji: "💄" },
+  "beaute":            { label: "Beauté",               emoji: "✨" },
   "selection":         { label: "Beauté",               emoji: "✨" },
   "calendrier-avent":  { label: "Calendrier de l'Avent", emoji: "🎄" },
 };
@@ -243,7 +244,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 { slug: "concours", label: "Concours", emoji: "🏆" },
                 { slug: "box-beaute", label: "Box Beauté", emoji: "💄" },
                 { slug: "code-promo", label: "Codes Promo", emoji: "🎟️" },
-                { slug: "selection", label: "Sélections", emoji: "✨" },
+                { slug: "beaute", label: "Beauté", emoji: "✨" },
               ].filter(c => c.slug !== article.meta.category).map(({ slug: catSlug, label, emoji }) => (
                 <a key={catSlug} href={`/categorie/${catSlug}`}
                   style={{ padding: "6px 14px", borderRadius: "999px", background: "white", fontSize: "0.82rem", color: "var(--text, #374151)", textDecoration: "none", fontWeight: 500, border: "1px solid var(--border, #e5e7eb)" }}>

@@ -18,7 +18,8 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
   "test":             { label: "Test Produit",          color: "test" },
   "concours":         { label: "Concours",              color: "concours" },
   "box-beaute":       { label: "Box Beauté",            color: "box-beaute" },
-  "selection":        { label: "Beauté",                color: "selection" },
+  "beaute":           { label: "Beauté",                color: "beaute" },
+  "selection":        { label: "Beauté",                color: "beaute" },
   "calendrier-avent": { label: "Calendrier de l'Avent", color: "calendrier-avent" },
 };
 
