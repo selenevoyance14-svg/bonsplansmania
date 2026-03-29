@@ -33,7 +33,8 @@
   <text x="100" y="410" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.85">Aosom 4,95% · 1500+ enseignes · Retrait des 3€</text>
   <text x="100" y="445" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7">Inscription gratuite · Cumul avec promos et soldes</text>
   <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">bonsplansmania.fr</text>
-  <text x="920" y="340" font-family="Arial, sans-serif" font-size="110" text-anchor="middle" opacity="0.15">💰</text>
+  <circle cx="920" cy="300" r="80" fill="white" fill-opacity="0.08"/>
+  <text x="920" y="320" font-family="Georgia, serif" font-size="60" text-anchor="middle" fill="white" fill-opacity="0.15" font-weight="700">CashBack</text>
   <rect x="900" y="560" width="240" height="40" rx="20" fill="white" fill-opacity="0.15"/>
   <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
 </svg>
