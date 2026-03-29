@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 29 Mar 2026 07:15:11 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 07:21:15 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>eBuyClub : les Meilleurs Codes Promo et Cashback de la Semaine (HelloFresh -85€, Shark -10%, Stylevana -15%)</title>
@@ -15,6 +15,15 @@
       <description>Les meilleures offres eBuyClub du moment : codes promo exclusifs HelloFresh -85€, Shark -10%, Stylevana -15%, Emma -10% + cashback Tommy Hilfiger, Calvin Klein, Dyson, Yves Rocher.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-ebuyclub-codes-promo-cashback-mars-2026.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Poulpeo : les Cashback Boostes de la Semaine (Expedia 9%, Huawei 6%, Emma 8%, Michael Kors 5%)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-poulpeo-cashback-boostes-michael-kors-expedia-huawei-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-poulpeo-cashback-boostes-michael-kors-expedia-huawei-mars-2026</guid>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Les meilleurs cashback boostes Poulpeo du moment : Expedia 9%, Emma 8%, Huawei 6%, Michael Kors 5%, New Balance 5%, Beauty Success 4,5%. Inscription gratuite avec parrainage.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-poulpeo-cashback-boostes-michael-kors-expedia-huawei-mars-2026.svg" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>Box Magicmaman Maman et Moi : le Cadeau de Naissance Ideal a 32,90€</title>
@@ -177,15 +186,6 @@
       <description>Faut-il vraiment ajouter un serum a sa routine soin ? On a teste 5 serums visage populaires sur Amazon (acide hyaluronique, vitamine C, niacinamide, retinol). Notre avis et classement.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-pourquoi-utiliser-serum-visage-routine-soin-meilleurs-serums-amazon-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Routine Beaute de Printemps : le Guide Complet pour Preparer sa Peau a la Belle Saison</title>
-      <link>https://bonsplansmania.fr/article/test-routine-beaute-printemps-guide-complet-produits-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-routine-beaute-printemps-guide-complet-produits-2026</guid>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Notre guide complet pour adapter sa routine beaute au printemps. Nettoyage, exfoliation, serum, hydratation, SPF — chaque etape expliquee avec nos produits preferes.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-routine-beaute-printemps-guide-complet-produits-2026.svg" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
