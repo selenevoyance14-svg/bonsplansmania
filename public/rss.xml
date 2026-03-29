@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 29 Mar 2026 07:25:01 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 07:33:55 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>eBuyClub : les Meilleurs Codes Promo et Cashback de la Semaine (HelloFresh -85€, Shark -10%, Stylevana -15%)</title>
@@ -33,6 +33,15 @@
       <description>Les meilleurs cashback boostes Poulpeo du moment : Expedia 9%, Emma 8%, Huawei 6%, Michael Kors 5%, New Balance 5%, Beauty Success 4,5%. Inscription gratuite avec parrainage.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-poulpeo-cashback-boostes-michael-kors-expedia-huawei-mars-2026.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>YesStyle : Nouveautes K-Beauty BINCAVIDOU des 8,72€ (-20%) + Serums TIA'M, Laneige, The Saem</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-yesstyle-nouveautes-bincavidou-tiam-laneige-serums-k-beauty-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-yesstyle-nouveautes-bincavidou-tiam-laneige-serums-k-beauty-2026</guid>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Les nouveautes YesStyle du moment : maquillage BINCAVIDOU a -20%, serums TIA'M Blue Peptide, Laneige Water Bank, The Saem Aloe. Code NATHALIE83 pour -5% supplementaires.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-yesstyle-nouveautes-bincavidou-tiam-laneige-serums-k-beauty-2026.svg" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>Box Magicmaman Maman et Moi : le Cadeau de Naissance Ideal a 32,90€</title>
@@ -177,15 +186,6 @@
       <description>On a teste le Medicube Age R Booster Pro pendant plusieurs semaines. Les 4 modes passes au crible, les pour, les contre, et notre verdict honnete sur cet appareil anti-age coreen.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-medicube-age-r-booster-pro-avis-apres-utilisation-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Les Meilleurs Baumes a Levres Teintes : Notre Selection et Avis Apres Test</title>
-      <link>https://bonsplansmania.fr/article/test-meilleurs-baumes-levres-teintes-selection-avis-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-meilleurs-baumes-levres-teintes-selection-avis-2026</guid>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-      <description>On a teste 8 baumes a levres teintes de NYX, Dior, Laneige, Romand, Charlotte Tilbury et plus. Notre classement, nos coups de coeur et ceux a eviter.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-meilleurs-baumes-levres-teintes-selection-avis-2026.svg" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
