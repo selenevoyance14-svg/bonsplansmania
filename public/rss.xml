@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 29 Mar 2026 07:21:15 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 07:25:01 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>eBuyClub : les Meilleurs Codes Promo et Cashback de la Semaine (HelloFresh -85€, Shark -10%, Stylevana -15%)</title>
@@ -15,6 +15,15 @@
       <description>Les meilleures offres eBuyClub du moment : codes promo exclusifs HelloFresh -85€, Shark -10%, Stylevana -15%, Emma -10% + cashback Tommy Hilfiger, Calvin Klein, Dyson, Yves Rocher.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-ebuyclub-codes-promo-cashback-mars-2026.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>iGraal : Samsung 15% de Cashback (Boost du Jour), Smartbox 6,5%, Lidl 1,5% — les Top Offres</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-igraal-top-cashback-samsung-15-smartbox-lidl-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-igraal-top-cashback-samsung-15-smartbox-lidl-mars-2026</guid>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Les meilleures offres iGraal cette semaine : Samsung jusqu'a 15% de cashback (boost du jour), Smartbox 6,5%, Body&amp;Fit 5,5%, Aosom 4,95%, Lidl 1,5%. Inscription gratuite.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-igraal-top-cashback-samsung-15-smartbox-lidl-mars-2026.svg" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>Poulpeo : les Cashback Boostes de la Semaine (Expedia 9%, Huawei 6%, Emma 8%, Michael Kors 5%)</title>
@@ -177,15 +186,6 @@
       <description>On a teste 8 baumes a levres teintes de NYX, Dior, Laneige, Romand, Charlotte Tilbury et plus. Notre classement, nos coups de coeur et ceux a eviter.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-meilleurs-baumes-levres-teintes-selection-avis-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Pourquoi Utiliser un Serum Visage dans sa Routine : on a Teste les 5 Meilleurs sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/test-pourquoi-utiliser-serum-visage-routine-soin-meilleurs-serums-amazon-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-pourquoi-utiliser-serum-visage-routine-soin-meilleurs-serums-amazon-2026</guid>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Faut-il vraiment ajouter un serum a sa routine soin ? On a teste 5 serums visage populaires sur Amazon (acide hyaluronique, vitamine C, niacinamide, retinol). Notre avis et classement.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-pourquoi-utiliser-serum-visage-routine-soin-meilleurs-serums-amazon-2026.svg" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
