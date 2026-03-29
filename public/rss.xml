@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 28 Mar 2026 20:09:28 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 29 Mar 2026 07:15:11 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>eBuyClub : les Meilleurs Codes Promo et Cashback de la Semaine (HelloFresh -85€, Shark -10%, Stylevana -15%)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-ebuyclub-codes-promo-cashback-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-ebuyclub-codes-promo-cashback-mars-2026</guid>
+      <pubDate>Sun, 29 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Les meilleures offres eBuyClub du moment : codes promo exclusifs HelloFresh -85€, Shark -10%, Stylevana -15%, Emma -10% + cashback Tommy Hilfiger, Calvin Klein, Dyson, Yves Rocher.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-ebuyclub-codes-promo-cashback-mars-2026.svg" type="image/svg+xml" length="0"/>
+    </item>
     <item>
       <title>Box Magicmaman Maman et Moi : le Cadeau de Naissance Ideal a 32,90€</title>
       <link>https://bonsplansmania.fr/article/bon-plan-box-magicmaman-maman-et-moi-cadeau-naissance-2026</link>
@@ -177,15 +186,6 @@
       <description>Notre guide complet pour adapter sa routine beaute au printemps. Nettoyage, exfoliation, serum, hydratation, SPF — chaque etape expliquee avec nos produits preferes.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-routine-beaute-printemps-guide-complet-produits-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Twenty DC Peau Magnifique : on a Teste le Collagene qui Fait Parler — Notre Avis Honnete</title>
-      <link>https://bonsplansmania.fr/article/test-twenty-dc-collagene-peau-magnifique-avis-complement-beaute-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-twenty-dc-collagene-peau-magnifique-avis-complement-beaute-2026</guid>
-      <pubDate>Sat, 28 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Test et avis complet sur le collagene Twenty DC Peau Magnifique saveur the peche. Peptides de collagene + Ovoderm, nouveau prix a 39,90€. Apres plusieurs semaines d'utilisation, voici notre verdict.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-twenty-dc-collagene-peau-magnifique-avis-complement-beaute-2026.svg" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
