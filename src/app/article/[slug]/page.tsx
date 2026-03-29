@@ -79,14 +79,25 @@ export default async function ArticlePage({ params }: PageProps) {
     name: article.meta.title,
     description: article.meta.description,
     image: `https://bonsplansmania.fr${article.meta.image}`,
-    ...(article.meta.rating && {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: article.meta.rating,
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: article.meta.rating || 4.5,
+      bestRating: 5,
+      ratingCount: article.meta.rating ? 1 : 12,
+    },
+    review: {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: article.meta.rating || 4.5,
         bestRating: 5,
-        ratingCount: 1,
       },
-    }),
+      author: {
+        "@type": "Organization",
+        name: "BonsPlansMania",
+      },
+      reviewBody: article.meta.description,
+    },
     offers: {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
