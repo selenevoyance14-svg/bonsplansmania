@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ECEFF1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#B0BEC5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="rgba(255,255,255,0.4)" stroke="rgba(255,255,255,0.6)" stroke-width="2"/>
+  <text x="600" y="155" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#37474F" text-anchor="middle" letter-spacing="-1">Tristar WK-3372</text>
+  <text x="600" y="225" font-family="Georgia, serif" font-size="36" fill="#455A64" text-anchor="middle">Bouilloire Classe Energetique A</text>
+  <text x="600" y="285" font-family="Arial, sans-serif" font-size="26" fill="#607D8B" text-anchor="middle">1 litre - Arret auto - Choix Amazon</text>
+  <rect x="420" y="320" width="360" height="70" rx="35" fill="#37474F"/>
+  <text x="600" y="366" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#fff" text-anchor="middle">-37% : 9,99E</text>
+  <text x="600" y="455" font-family="Arial, sans-serif" font-size="22" fill="#607D8B" text-anchor="middle">Pieds antiderapants - Base pivotante - Sans fil</text>
+  <text x="600" y="540" font-family="Arial, sans-serif" font-size="18" fill="#90A4AE" text-anchor="middle">bonsplansmania.fr</text>
+</svg>
