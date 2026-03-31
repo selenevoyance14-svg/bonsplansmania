@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 31 Mar 2026 16:38:14 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 31 Mar 2026 17:55:36 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>10 aides CAF que la plupart des Français oublient de demander en 2026</title>
@@ -26,6 +26,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/acheter-reconditionne-2026-meilleurs-sites-economies.svg" type="image/svg+xml" length="0"/>
     </item>
     <item>
+      <title>Aide alimentaire en France : où trouver de l'aide quand le frigo est vide</title>
+      <link>https://bonsplansmania.fr/article/aide-alimentaire-france-2026-restos-du-coeur-epiceries-solidaires</link>
+      <guid>https://bonsplansmania.fr/article/aide-alimentaire-france-2026-restos-du-coeur-epiceries-solidaires</guid>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <description>Restos du Coeur, épiceries solidaires, CCAS, colis alimentaires : toutes les solutions d'aide alimentaire en France en 2026. Sans jugement.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/aide-alimentaire-france-2026-restos-du-coeur-epiceries-solidaires.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
       <title>Toutes les aides pouvoir d'achat en 2026 : chèques, primes et bons plans de l'État</title>
       <link>https://bonsplansmania.fr/article/aides-pouvoir-achat-2026-cheques-primes-bons-plans-etat</link>
       <guid>https://bonsplansmania.fr/article/aides-pouvoir-achat-2026-cheques-primes-bons-plans-etat</guid>
@@ -42,6 +51,15 @@
       <description>L'allocation de rentrée scolaire aide à financer fournitures et vêtements. Montants par âge, conditions de revenus et date de versement en août 2026.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/allocation-rentree-scolaire-2026-montant-date-conditions.svg" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Anti-gaspi alimentaire : comment ne plus jeter de nourriture (et économiser)</title>
+      <link>https://bonsplansmania.fr/article/anti-gaspi-alimentaire-2026-astuces-reduire-gaspillage-economies</link>
+      <guid>https://bonsplansmania.fr/article/anti-gaspi-alimentaire-2026-astuces-reduire-gaspillage-economies</guid>
+      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
+      <description>30% de notre nourriture finit à la poubelle. Voici des astuces concrètes pour réduire le gaspillage alimentaire et économiser jusqu'à 100€ par mois.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/anti-gaspi-alimentaire-2026-astuces-reduire-gaspillage-economies.svg" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>APL 2026 : aide au logement, comment savoir si tu y as droit</title>
@@ -168,24 +186,6 @@
       <description>Bon plan E.Leclerc : nettoyeur haute pression Foxter 150 bar à seulement 49 euros. Multi-surfaces, flexible 5 mètres, vu à la TV. Click &amp; Collect 2h disponible.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-foxter-nettoyeur-haute-pression-150-bar-49-euros-leclerc-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Gillette Labs Rasoir Barre Exfoliante + 5 Recharges a 34,90 euros (-22%)</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-gillette-labs-rasoir-barre-exfoliante-34-90-euros-amazon-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-gillette-labs-rasoir-barre-exfoliante-34-90-euros-amazon-2026</guid>
-      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Bon plan Gillette Labs sur Amazon : rasoir barre exfoliante avec 5 cartouches de recharge à 34,90 euros au lieu de 44,90 euros (-22%). 4.6/5, 2453 avis, étui voyage inclus.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-gillette-labs-rasoir-barre-exfoliante-34-90-euros-amazon-2026.svg" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Lindt Lapin Or : Sachet de 10 Mini-Moulages Chocolat au Lait a 5,99 euros pour Paques</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-lindt-lapin-or-mini-moulages-paques-5-99-euros-amazon-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-lindt-lapin-or-mini-moulages-paques-5-99-euros-amazon-2026</guid>
-      <pubDate>Tue, 31 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Bon plan Lindt Lapin Or sur Amazon : sachet de 10 mini-moulages chocolat au lait à 5,99 euros au lieu de 7,99 euros (-25%). #1 meilleure vente, 4.6/5. Idéal Pâques.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-lindt-lapin-or-mini-moulages-paques-5-99-euros-amazon-2026.svg" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
