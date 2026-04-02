@@ -61,8 +61,8 @@ function getAllArticles(): ArticleInfo[] {
     });
   }
 
-  // Garder les 20 plus recents
-  return sorted.slice(0, 20);
+  // Garder les 50 plus recents
+  return sorted.slice(0, 50);
 }
 
 const articles = getAllArticles();

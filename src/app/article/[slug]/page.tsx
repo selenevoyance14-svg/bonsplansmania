@@ -356,7 +356,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/^---$/gm, "<hr>");
   html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, "<em>$1</em>");
-  html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="nofollow noopener">$1</a>');
+  html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="nofollow sponsored noopener">$1</a>');
   html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
   html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, "<ul>$&</ul>");
   html = "<p>" + html.replace(/\n\n+/g, "</p><p>") + "</p>";
