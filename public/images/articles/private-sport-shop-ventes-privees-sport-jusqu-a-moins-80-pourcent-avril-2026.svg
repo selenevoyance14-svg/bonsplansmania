@@ -1,0 +1,18 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#263238"/>
+      <stop offset="100%" style="stop-color:#546E7A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.08)"/>
+  <text x="600" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#FFFFFF">VENTES PRIV&#201;ES SPORT</text>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#FFFFFF">Private Sport Shop</text>
+  <text x="600" y="280" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#FFD600">Jusqu'&#224; -80%</text>
+  <text x="600" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#B0BEC5">Mavic &#183; Mizuno &#183; Adidas Terrex &#183; Rossignol &#183; Scarpa</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#B0BEC5">DC Shoes &#183; HUUB &#183; Horseware &#183; Montres Sport</text>
+  <text x="600" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#B0BEC5">V&#233;lo &#183; Running &#183; Trail &#183; Ski &#183; &#201;quitation &#183; Streetwear</text>
+  <rect x="370" y="470" width="460" height="56" rx="28" fill="#FFD600"/>
+  <text x="600" y="507" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#263238">Inscription gratuite &#183; Exp&#233;dition 24-72h</text>
+</svg>
