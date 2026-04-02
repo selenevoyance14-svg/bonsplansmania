@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#EFEBE9"/>
+      <stop offset="100%" style="stop-color:#A1887F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#3E2723">TEST GRATUIT &#183; AVANT-PREMI&#200;RE</text>
+  <text x="600" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="44" font-weight="bold" fill="#3E2723">Nubiance Cr&#232;me &#201;clat</text>
+  <text x="600" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#3E2723">Anti-Taches Visage</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#4E342E">Nouveaut&#233; &#183; 90% naturelle &#183; Sans parfum</text>
+  <text x="600" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#4E342E">Mission TikTok #ClearSkinNubiance</text>
+  <rect x="370" y="440" width="460" height="56" rx="28" fill="#3E2723"/>
+  <text x="600" y="477" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">Candidature jusqu'au 29 avril 2026</text>
+</svg>
