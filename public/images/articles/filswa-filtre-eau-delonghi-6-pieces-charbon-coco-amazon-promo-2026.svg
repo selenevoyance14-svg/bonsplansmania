@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E3F2FD"/>
+      <stop offset="100%" style="stop-color:#90CAF9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#0D47A1">FILSWA Filtres Delonghi</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#1565C0">Lot de 6 &#183; Charbon Actif de Coco</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#0D47A1">20,89&#8364; au lieu de 24,99&#8364;</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#1565C0">Compatible ECAM &#183; Dinamica &#183; Magnifica S &#183; 4,4/5</text>
+  <rect x="370" y="430" width="460" height="56" rx="28" fill="#1565C0"/>
+  <text x="600" y="467" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">-16% &#183; 3,48&#8364;/filtre</text>
+</svg>

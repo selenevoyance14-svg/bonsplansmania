@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4E342E"/>
+      <stop offset="100%" style="stop-color:#6D4C41"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.10)"/>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#FFFFFF">Casaria</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#D7CCC8">Table &#224; Manger + 4 Chaises Ch&#234;ne</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#FFF9C4">94,99&#8364; au lieu de 126,99&#8364;</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#FFFFFF">110x70cm &#183; 5 pi&#232;ces &#183; Style industriel &#183; 4,2/5</text>
+  <rect x="370" y="430" width="460" height="56" rx="28" fill="#FF9800"/>
+  <text x="600" y="467" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">-25% &#183; Choix d&#39;Amazon</text>
+</svg>
