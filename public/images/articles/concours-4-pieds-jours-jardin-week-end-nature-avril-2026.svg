@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#d4895a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c07a4a;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Decorative -->
+  <circle cx="680" cy="80" r="70" fill="white" opacity="0.05"/>
+  <circle cx="100" cy="380" r="50" fill="white" opacity="0.04"/>
+
+  <!-- Badge -->
+  <rect x="40" y="25" width="220" height="36" rx="18" fill="white" fill-opacity="0.2"/>
+  <text x="150" y="49" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">JEU CONCOURS</text>
+
+  <!-- Brand -->
+  <text x="40" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">4 PIEDS</text>
+  <text x="40" y="140" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.8">Infinies possibilites</text>
+
+  <!-- Main title -->
+  <text x="40" y="195" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">Les jours jardin</text>
+  <text x="40" y="235" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">Gagnez un week-end</text>
+  <text x="40" y="267" font-family="Arial, sans-serif" font-size="22" fill="#ffecd2" font-weight="bold">nature et evasion</text>
+  <text x="40" y="299" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">pour 2 personnes</text>
+
+  <!-- Info box -->
+  <rect x="40" y="325" width="350" height="50" rx="12" fill="white" fill-opacity="0.15"/>
+  <text x="60" y="347" font-family="Arial, sans-serif" font-size="13" fill="white">Jusqu'au 27 avril 2026 inclus</text>
+  <text x="60" y="366" font-family="Arial, sans-serif" font-size="13" fill="white" fill-opacity="0.8">En ligne ou dans les 25 magasins 4 Pieds</text>
+
+  <!-- Nature illustration (right side) -->
+  <!-- Tree -->
+  <circle cx="600" cy="160" r="50" fill="#6a9a4a" opacity="0.25"/>
+  <rect x="594" y="210" width="12" height="50" rx="3" fill="#8b6b4a" opacity="0.2"/>
+  <!-- Tree 2 -->
+  <circle cx="690" cy="140" r="40" fill="#5a8a3a" opacity="0.2"/>
+  <rect x="685" y="180" width="10" height="45" rx="3" fill="#8b6b4a" opacity="0.15"/>
+  <!-- Sun -->
+  <circle cx="740" cy="70" r="25" fill="#ffecd2" opacity="0.2"/>
+  <!-- Hills -->
+  <ellipse cx="650" cy="310" rx="120" ry="40" fill="#6a9a4a" opacity="0.12"/>
+  <ellipse cx="720" cy="330" rx="80" ry="30" fill="#5a8a3a" opacity="0.1"/>
+
+  <!-- Weekend badge -->
+  <circle cx="680" cy="360" r="40" fill="white" opacity="0.15"/>
+  <text x="680" y="353" font-family="Arial, sans-serif" font-size="10" fill="white" text-anchor="middle">WEEK-END</text>
+  <text x="680" y="370" font-family="Arial, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">POUR 2</text>
+
+  <!-- Footer -->
+  <rect x="40" y="408" width="720" height="1" fill="white" opacity="0.1"/>
+  <text x="400" y="435" font-family="Arial, sans-serif" font-size="13" fill="white" fill-opacity="0.3" text-anchor="middle">bonsplansmania.fr — 4 Pieds</text>
+</svg>
