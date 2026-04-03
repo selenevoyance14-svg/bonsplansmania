@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF0F5"/>
+      <stop offset="100%" stop-color="#FFE0EB"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond rose doux -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Boîte produit -->
+  <rect x="280" y="90" width="240" height="200" rx="12" fill="#FFFFFF" stroke="#F8C8D8" stroke-width="2"/>
+  <!-- Texte boîte -->
+  <text x="400" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="7" fill="#E8A0B8" letter-spacing="1">TESTÉ DERMATOLOGIQUEMENT</text>
+  <text x="400" y="165" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#333" font-style="italic">grace &amp; stella</text>
+  <text x="400" y="200" text-anchor="middle" font-family="Georgia, serif" font-size="10" fill="#E8A0B8" font-style="italic">Tout est mieux en rose.</text>
+  <!-- Patch illustré -->
+  <ellipse cx="370" cy="240" rx="30" ry="12" fill="#F8C8D8" opacity="0.7" transform="rotate(-10 370 240)"/>
+  <ellipse cx="430" cy="240" rx="30" ry="12" fill="#F8C8D8" opacity="0.7" transform="rotate(10 430 240)"/>
+  <!-- Badge 48 paires -->
+  <circle cx="330" cy="260" r="22" fill="#E8A0B8"/>
+  <text x="330" y="257" text-anchor="middle" font-family="Arial" font-weight="bold" font-size="14" fill="#FFFFFF">48</text>
+  <text x="330" y="272" text-anchor="middle" font-family="Arial" font-size="8" fill="#FFFFFF">PAIRES</text>
+  <!-- Sachets individuels -->
+  <rect x="560" y="120" width="60" height="80" rx="6" fill="#FFF5F8" stroke="#F0C0D0" stroke-width="1" transform="rotate(5 590 160)"/>
+  <text x="590" y="160" text-anchor="middle" font-family="Georgia" font-size="7" fill="#E8A0B8" font-style="italic" transform="rotate(5 590 160)">grace</text>
+  <text x="590" y="172" text-anchor="middle" font-family="Georgia" font-size="7" fill="#E8A0B8" font-style="italic" transform="rotate(5 590 172)">&amp; stella</text>
+  <rect x="580" y="130" width="55" height="75" rx="6" fill="#FFF5F8" stroke="#F0C0D0" stroke-width="1" transform="rotate(-8 607 167)"/>
+  <!-- Yeux détendus icône -->
+  <g transform="translate(150, 180)">
+    <path d="M0 0 Q15 -10 30 0" fill="none" stroke="#E8A0B8" stroke-width="2" stroke-linecap="round"/>
+    <path d="M45 0 Q60 -10 75 0" fill="none" stroke="#E8A0B8" stroke-width="2" stroke-linecap="round"/>
+    <!-- Patchs sous les yeux -->
+    <ellipse cx="15" cy="12" rx="18" ry="7" fill="#F8C8D8" opacity="0.6"/>
+    <ellipse cx="60" cy="12" rx="18" ry="7" fill="#F8C8D8" opacity="0.6"/>
+  </g>
+  <!-- Badge -56% -->
+  <circle cx="690" cy="80" r="45" fill="#CC0C39"/>
+  <text x="690" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">-56%</text>
+  <text x="690" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFD0D8">26,55€</text>
+  <!-- Badge vegan -->
+  <rect x="30" y="60" width="100" height="40" rx="8" fill="#6BAF6B"/>
+  <text x="80" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">Vegan</text>
+  <text x="80" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#D0FFD0">Cruelty-free</text>
+  <!-- Titre -->
+  <rect x="140" y="350" width="520" height="70" rx="10" fill="rgba(232,160,184,0.9)"/>
+  <text x="400" y="378" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#FFFFFF" font-style="italic">Grace &amp; Stella — Patch Yeux</text>
+  <text x="400" y="402" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#FFF0F5">48 paires anti cernes au collagène</text>
+</svg>

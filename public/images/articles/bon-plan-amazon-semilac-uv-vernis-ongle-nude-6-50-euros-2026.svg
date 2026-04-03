@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF5F0"/>
+      <stop offset="100%" stop-color="#FFE8E0"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond rose pâle -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Flacon de vernis -->
+  <!-- Bouchon -->
+  <rect x="370" y="80" width="60" height="50" rx="6" fill="#111111"/>
+  <rect x="375" y="75" width="50" height="10" rx="3" fill="#222222"/>
+  <!-- Corps du flacon -->
+  <rect x="365" y="130" width="70" height="140" rx="8" fill="#111111"/>
+  <!-- Étiquette -->
+  <rect x="372" y="150" width="56" height="80" rx="4" fill="#1A1A1A"/>
+  <text x="400" y="175" text-anchor="middle" font-family="Arial" font-size="8" fill="#FFFFFF" letter-spacing="2">SEMILAC</text>
+  <text x="400" y="190" text-anchor="middle" font-family="Arial" font-size="6" fill="#AAAAAA">UV GEL POLISH</text>
+  <text x="400" y="215" text-anchor="middle" font-family="Arial" font-size="7" fill="#D4A088">Just Nude</text>
+  <text x="400" y="225" text-anchor="middle" font-family="Arial" font-size="6" fill="#888888">584</text>
+  <!-- Ongle nude déco -->
+  <ellipse cx="570" cy="180" rx="45" ry="70" fill="#F0D5C8" stroke="#E8C4B4" stroke-width="1"/>
+  <ellipse cx="570" cy="145" rx="38" ry="15" fill="#F5DDD0" opacity="0.5"/>
+  <!-- Pinceau -->
+  <rect x="220" y="100" width="6" height="80" fill="#333"/>
+  <rect x="215" y="175" width="16" height="30" rx="3" fill="#E8C4B0"/>
+  <!-- Touches de couleur nude -->
+  <circle cx="160" cy="200" r="20" fill="#F0D5C8" opacity="0.4"/>
+  <circle cx="640" cy="300" r="25" fill="#E8C4B4" opacity="0.3"/>
+  <!-- Petites étoiles (avis) -->
+  <text x="550" y="310" font-family="Arial" font-size="14" fill="#FFB800">&#9733;&#9733;&#9733;&#9733;</text>
+  <text x="606" y="310" font-family="Arial" font-size="14" fill="#FFB800" opacity="0.5">&#9733;</text>
+  <text x="555" y="328" font-family="Arial" font-size="9" fill="#999">8412 avis</text>
+  <!-- Badge -41% -->
+  <circle cx="690" cy="80" r="45" fill="#CC0C39"/>
+  <text x="690" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">-41%</text>
+  <text x="690" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFD0D0">6,50€</text>
+  <!-- Badge durée limitée -->
+  <rect x="30" y="60" width="130" height="40" rx="8" fill="#CC0C39"/>
+  <text x="95" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#FFFFFF">Durée limitée</text>
+  <text x="95" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFD0D0">Offre Amazon</text>
+  <!-- Titre -->
+  <rect x="140" y="355" width="520" height="70" rx="10" fill="rgba(17,17,17,0.85)"/>
+  <text x="400" y="383" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">Semilac UV — Just Nude 584</text>
+  <text x="400" y="407" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#D4A088">Vernis semi-permanent 7ml</text>
+</svg>
