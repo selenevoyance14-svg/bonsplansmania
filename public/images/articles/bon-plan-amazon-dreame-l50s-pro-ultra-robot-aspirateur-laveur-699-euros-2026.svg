@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#F5F5F5"/>
+      <stop offset="100%" stop-color="#E0E0E0"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond gris premium -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Sol parquet -->
+  <rect x="0" y="280" width="800" height="170" fill="#D7CCC8" opacity="0.3"/>
+  <line x1="0" y1="310" x2="800" y2="310" stroke="#BCAAA4" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="340" x2="800" y2="340" stroke="#BCAAA4" stroke-width="1" opacity="0.3"/>
+  <line x1="0" y1="370" x2="800" y2="370" stroke="#BCAAA4" stroke-width="1" opacity="0.3"/>
+  <!-- Station de base -->
+  <rect x="160" y="80" width="120" height="200" rx="12" fill="#333"/>
+  <rect x="165" y="85" width="110" height="50" rx="8" fill="#2A2A2A"/>
+  <rect x="175" y="95" width="90" height="25" rx="4" fill="#444"/>
+  <!-- Écran station -->
+  <rect x="185" y="100" width="70" height="15" rx="3" fill="#1A1A1A"/>
+  <circle cx="220" cy="107" r="2" fill="#4CAF50" opacity="0.7"/>
+  <!-- Bac station -->
+  <rect x="170" y="180" width="100" height="90" rx="6" fill="#3A3A3A"/>
+  <rect x="180" y="190" width="80" height="30" rx="4" fill="#444"/>
+  <!-- Robot aspirateur -->
+  <ellipse cx="450" cy="240" rx="90" ry="25" fill="#222"/>
+  <ellipse cx="450" cy="235" rx="88" ry="23" fill="#333"/>
+  <ellipse cx="450" cy="230" rx="85" ry="20" fill="#3A3A3A"/>
+  <!-- Dessus du robot -->
+  <circle cx="450" cy="220" r="75" fill="#444"/>
+  <circle cx="450" cy="220" r="70" fill="#3D3D3D"/>
+  <!-- Lidar bump -->
+  <circle cx="450" cy="195" r="18" fill="#555"/>
+  <circle cx="450" cy="195" r="14" fill="#4A4A4A"/>
+  <!-- Logo Dreame -->
+  <text x="450" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#888" letter-spacing="2">DREAME</text>
+  <!-- Brosse latérale -->
+  <line x1="385" y1="250" x2="370" y2="260" stroke="#666" stroke-width="2"/>
+  <line x1="385" y1="250" x2="375" y2="270" stroke="#666" stroke-width="2"/>
+  <line x1="385" y1="250" x2="365" y2="248" stroke="#666" stroke-width="2"/>
+  <!-- Traces de nettoyage -->
+  <path d="M550 280 Q600 275 650 280" fill="none" stroke="#90CAF9" stroke-width="1.5" opacity="0.3"/>
+  <path d="M560 290 Q610 285 660 290" fill="none" stroke="#90CAF9" stroke-width="1.5" opacity="0.25"/>
+  <!-- Badge -7% -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">-7%</text>
+  <text x="700" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#FFCDD2">699€</text>
+  <text x="700" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFCDD2">au lieu de 749€</text>
+  <!-- Badge 30 000 Pa -->
+  <rect x="30" y="60" width="120" height="40" rx="8" fill="#333"/>
+  <text x="90" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#FFFFFF">30 000 Pa</text>
+  <text x="90" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#BDBDBD">Aspiration ultra</text>
+  <!-- Titre -->
+  <rect x="120" y="360" width="560" height="70" rx="10" fill="rgba(51,51,51,0.9)"/>
+  <text x="400" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">Dreame L50s Pro Ultra Robot Aspirateur</text>
+  <text x="400" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#BDBDBD">Laveur — 100 jours vidage auto — Nettoyage haute temp.</text>
+</svg>
