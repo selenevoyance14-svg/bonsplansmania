@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fff5f0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#ffe0d0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#e17055;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8a488;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="egg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffeaa7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fdcb6e;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Decorative circles -->
+  <circle cx="720" cy="70" r="70" fill="#ffeaa7" opacity="0.25"/>
+  <circle cx="60" cy="390" r="50" fill="#fab1a0" opacity="0.2"/>
+  <circle cx="750" cy="400" r="40" fill="#e17055" opacity="0.1"/>
+
+  <!-- Badge -->
+  <rect x="40" y="25" width="360" height="36" rx="18" fill="url(#badge)"/>
+  <text x="220" y="49" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">LA CHASSE AUX BOX EST OUVERTE</text>
+
+  <!-- Main title -->
+  <text x="40" y="110" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#2d3436">3 NOUVELLES BOX</text>
+  <text x="40" y="155" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#2d3436">POUR</text>
+
+  <!-- Price box -->
+  <rect x="165" y="125" width="170" height="55" rx="10" fill="#e17055"/>
+  <text x="250" y="162" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white" text-anchor="middle">9,90 E</text>
+
+  <!-- Value -->
+  <text x="40" y="205" font-family="Arial, sans-serif" font-size="18" fill="#636e72">17 produits - valeur 327 euros</text>
+  <text x="40" y="230" font-family="Arial, sans-serif" font-size="15" fill="#e17055" font-weight="bold">dont la box Beauty Brunch en version XXL</text>
+
+  <!-- Features -->
+  <text x="40" y="275" font-family="Arial, sans-serif" font-size="15" fill="#444">
+    <tspan x="40" dy="0">&#x2714; 3 box beaute completes</tspan>
+    <tspan x="40" dy="26">&#x2714; Box Beauty Brunch en version XXL inedite</tspan>
+    <tspan x="40" dy="26">&#x2714; 17 produits format vente</tspan>
+    <tspan x="40" dy="26">&#x2714; Livraison offerte</tspan>
+  </text>
+
+  <!-- Box illustrations (right side) -->
+  <!-- Box 1 -->
+  <rect x="470" y="70" width="130" height="155" rx="12" fill="white" stroke="#fab1a0" stroke-width="2"/>
+  <rect x="470" y="70" width="130" height="38" rx="12" fill="#fab1a0" opacity="0.6"/>
+  <text x="535" y="95" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#e17055" text-anchor="middle">BOX 1</text>
+  <rect x="490" y="125" width="22" height="50" rx="5" fill="#a8e6cf"/>
+  <rect x="520" y="130" width="20" height="45" rx="5" fill="#ffd3b6"/>
+  <rect x="548" y="120" width="25" height="55" rx="5" fill="#dcedc1"/>
+
+  <!-- Box 2 - Beauty Brunch XXL -->
+  <rect x="620" y="55" width="145" height="175" rx="12" fill="white" stroke="#fdcb6e" stroke-width="2"/>
+  <rect x="620" y="55" width="145" height="38" rx="12" fill="#fdcb6e" opacity="0.7"/>
+  <text x="692" y="78" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#e17055" text-anchor="middle">BEAUTY BRUNCH XXL</text>
+  <rect x="638" y="110" width="22" height="50" rx="5" fill="#fab1a0"/>
+  <rect x="668" y="105" width="22" height="55" rx="5" fill="#ffeaa7"/>
+  <rect x="698" y="115" width="22" height="45" rx="5" fill="#a8e6cf"/>
+  <rect x="728" y="108" width="22" height="52" rx="5" fill="#dcedc1"/>
+  <text x="692" y="205" font-family="Arial, sans-serif" font-size="10" fill="#e17055" text-anchor="middle" font-weight="bold">NOUVEAUTE</text>
+
+  <!-- Easter egg decoration -->
+  <ellipse cx="560" cy="310" rx="30" ry="38" fill="url(#egg)"/>
+  <rect x="530" y="300" width="60" height="6" rx="3" fill="#e17055" opacity="0.6"/>
+  <rect x="535" y="315" width="50" height="5" rx="2" fill="#fab1a0" opacity="0.5"/>
+
+  <!-- Price sticker -->
+  <circle cx="680" cy="320" r="45" fill="#e17055"/>
+  <text x="680" y="310" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">VALEUR</text>
+  <text x="680" y="332" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">327E</text>
+  <text x="680" y="350" font-family="Arial, sans-serif" font-size="11" fill="white" text-anchor="middle">pour 9,90E</text>
+
+  <!-- Footer -->
+  <rect x="40" y="400" width="720" height="1" fill="#f0c0b0"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="13" fill="#b0b0b0" text-anchor="middle">bonsplansmania.fr — Glowria (ex Beautiful Box) — Special Paques</text>
+</svg>
