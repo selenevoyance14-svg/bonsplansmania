@@ -322,10 +322,46 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   const lines = content.split("\n");
   const out: string[] = [];
   let inTable = false;
+  let inProduct = false;
+  let productData: Record<string, string> = {};
   let h2Count = 0;
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
+
+    // Product card block: :::product ... :::
+    if (line === ":::product") {
+      inProduct = true;
+      productData = {};
+      continue;
+    }
+    if (inProduct && line === ":::") {
+      // Render product card
+      const name = productData.name || "";
+      const price = productData.price || "";
+      const oldPrice = productData.oldPrice || "";
+      const url = productData.url || affiliateUrl || "#";
+      const label = productData.label || "Voir l'offre";
+      const badge = productData.badge || "";
+      const desc = productData.desc || "";
+      const rating = productData.rating || "";
+
+      let ratingHtml = "";
+      if (rating) {
+        const stars = Math.round(parseFloat(rating));
+        ratingHtml = `<div class="product-card-rating"><span class="product-card-stars">${"★".repeat(stars)}${"☆".repeat(5 - stars)}</span> <strong>${rating}/5</strong></div>`;
+      }
+
+      out.push(`<div class="product-card">${badge ? `<span class="product-card-badge">${badge}</span>` : ""}<div class="product-card-info"><strong class="product-card-name">${fmt(name)}</strong>${desc ? `<p class="product-card-desc">${fmt(desc)}</p>` : ""}${ratingHtml}</div><div class="product-card-action">${oldPrice ? `<span class="product-card-old-price">${oldPrice}</span>` : ""}${price ? `<span class="product-card-price">${price}</span>` : ""}<a href="${url}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${label} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div></div>`);
+      inProduct = false;
+      continue;
+    }
+    if (inProduct) {
+      const match = line.match(/^(\w+):\s*(.+)$/);
+      if (match) productData[match[1]] = match[2];
+      continue;
+    }
+
     if (line.startsWith("|") && line.endsWith("|")) {
       if (/^\|[\s\-:|]+\|$/.test(line) && !line.replace(/[\s|:\-]/g, "")) continue;
       if (!inTable) {
@@ -364,6 +400,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/<p>(<ul>)/g, "$1").replace(/(<\/ul>)<\/p>/g, "$1");
   html = html.replace(/<p>(<hr>)<\/p>/g, "$1");
   html = html.replace(/<p>(<div class="table-wrapper">)/g, "$1").replace(/(<\/div>)<\/p>/g, "$1");
+  html = html.replace(/<p>(<div class="product-card">)/g, "$1");
   html = html.replace(/<p>\s*<\/p>/g, "");
   return html;
 }

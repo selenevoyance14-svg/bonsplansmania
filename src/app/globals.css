@@ -1080,6 +1080,115 @@ body {
   text-decoration: none !important;
 }
 
+/* ── FICHE PRODUIT (:::product) ── */
+.product-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin: 24px 0;
+  padding: 20px 24px;
+  background: var(--surface);
+  border-radius: var(--radius);
+  border: 1.5px solid var(--border);
+  box-shadow: var(--shadow-card);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.product-card:hover {
+  border-color: var(--primary);
+  box-shadow: 0 4px 24px rgba(230, 57, 70, 0.10);
+}
+
+.product-card-badge {
+  position: absolute;
+  top: -10px;
+  left: 20px;
+  background: var(--accent);
+  color: white;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 12px;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.product-card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.product-card-name {
+  font-size: 1.05rem;
+  color: var(--foreground);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.product-card-desc {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.product-card-rating {
+  margin-top: 6px;
+  font-size: 0.85rem;
+}
+
+.product-card-stars {
+  color: var(--accent);
+  letter-spacing: 1px;
+}
+
+.product-card-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.product-card-old-price {
+  font-size: 0.82rem;
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+}
+
+.product-card-price {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+}
+
+.product-card-action .btn {
+  white-space: nowrap;
+}
+
+@media (max-width: 600px) {
+  .product-card {
+    flex-direction: column;
+    align-items: stretch;
+    text-align: center;
+    padding: 20px 16px;
+  }
+
+  .product-card-action {
+    align-items: center;
+    flex-direction: row;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 8px;
+  }
+
+  .product-card-badge {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
 /* ── LIENS VISIBLES DANS LE CONTENU ── */
 .article-content a[target="_blank"] {
   color: var(--primary);
