@@ -133,17 +133,31 @@ async function handleStats(request: Request, env: Env): Promise<Response> {
 
 // --- CORE: SEND NEWSLETTER ---
 async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
-  // 1. Recuperer les derniers articles via le sitemap ou un feed
-  const articles = await fetchLatestArticles(env.SITE_URL);
+  // 1. Recuperer les derniers articles par categorie
+  const categorized = await fetchLatestArticles(env.SITE_URL);
+  const allArticles = [...categorized.concours, ...categorized.testGratuit, ...categorized.bonsPlans];
 
-  if (articles.length === 0) {
+  if (allArticles.length === 0) {
     return { status: "skip", reason: "Aucun article recent" };
   }
 
   // 2. Construire le HTML de la newsletter
-  const html = buildNewsletterHTML(articles, env.SITE_URL);
+  const html = buildNewsletterHTML(categorized, env.SITE_URL);
 
-  // 3. Recuperer tous les abonnes
+  // 3. Sujet : mettre en avant concours/tests
+  let subject = "";
+  if (categorized.concours.length > 0) {
+    subject = `${categorized.concours.length} concours a ne pas rater`;
+    if (categorized.testGratuit.length > 0) {
+      subject += ` + ${categorized.testGratuit.length} tests gratuits`;
+    }
+  } else if (categorized.testGratuit.length > 0) {
+    subject = `${categorized.testGratuit.length} tests produits gratuits cette semaine`;
+  } else {
+    subject = `${allArticles[0].title} + ${allArticles.length - 1} autres bons plans`;
+  }
+
+  // 4. Recuperer tous les abonnes
   const subscriberList = await env.SUBSCRIBERS.list();
   const emails: string[] = [];
 
@@ -161,13 +175,15 @@ async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
     return {
       status: "dry_run",
       subscribers: emails.length,
-      articles: articles.length,
-      articleTitles: articles.map((a) => a.title),
+      concours: categorized.concours.length,
+      testGratuit: categorized.testGratuit.length,
+      bonsPlans: categorized.bonsPlans.length,
+      subject,
       preview: html.substring(0, 500) + "...",
     };
   }
 
-  // 4. Envoyer par lots de 50 (limite Resend)
+  // 5. Envoyer par lots de 50 (limite Resend)
   let sent = 0;
   let errors = 0;
   const BATCH_SIZE = 50;
@@ -189,7 +205,7 @@ async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
           body: JSON.stringify({
             from: `${env.FROM_NAME} <${env.FROM_EMAIL}>`,
             to: [email],
-            subject: `${articles[0].title} + ${articles.length - 1} autres bons plans`,
+            subject,
             html: html.replace("{{UNSUB_URL}}", unsubUrl),
           }),
         });
@@ -205,7 +221,7 @@ async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
     }
   }
 
-  return { status: "sent", sent, errors, total: emails.length, articles: articles.length };
+  return { status: "sent", sent, errors, total: emails.length, articles: allArticles.length };
 }
 
 // --- FETCH LATEST ARTICLES ---
@@ -217,26 +233,33 @@ interface ArticleInfo {
   image: string;
 }
 
-async function fetchLatestArticles(siteUrl: string): Promise<ArticleInfo[]> {
-  // On fetch la page d'accueil et on parse les articles recents
-  // Alternative simple : on utilise un endpoint statique genere au build
+interface CategorizedArticles {
+  concours: ArticleInfo[];
+  testGratuit: ArticleInfo[];
+  bonsPlans: ArticleInfo[];
+}
+
+async function fetchLatestArticles(siteUrl: string): Promise<CategorizedArticles> {
   try {
     const res = await fetch(`${siteUrl}/articles.json`, { cf: { cacheTtl: 300 } });
     if (res.ok) {
       const data = await res.json<ArticleInfo[]>();
-      // Retourner les 6 plus recents
-      return data.slice(0, 6);
+      return {
+        concours: data.filter((a) => a.category === "concours").slice(0, 3),
+        testGratuit: data.filter((a) => a.category === "test-gratuit" || a.category === "test").slice(0, 3),
+        bonsPlans: data.filter((a) => a.category !== "concours" && a.category !== "test-gratuit" && a.category !== "test").slice(0, 4),
+      };
     }
   } catch {
     // Fallback : pas de feed disponible
   }
 
-  return [];
+  return { concours: [], testGratuit: [], bonsPlans: [] };
 }
 
 // --- BUILD NEWSLETTER HTML ---
-function buildNewsletterHTML(articles: ArticleInfo[], siteUrl: string): string {
-  const articleCards = articles
+function buildArticleCards(articles: ArticleInfo[], siteUrl: string): string {
+  return articles
     .map(
       (a) => `
     <tr>
@@ -248,8 +271,7 @@ function buildNewsletterHTML(articles: ArticleInfo[], siteUrl: string): string {
                 <img src="${siteUrl}${a.image}" alt="${a.title}" width="100" height="70" style="border-radius:8px;object-fit:cover;display:block;" />
               </td>
               <td>
-                <span style="display:inline-block;padding:2px 8px;border-radius:999px;background:#FEE2E2;color:#DC2626;font-size:11px;font-weight:600;margin-bottom:4px;">${a.category}</span>
-                <p style="margin:4px 0 0;font-size:15px;font-weight:700;color:#1f2937;line-height:1.3;">${a.title}</p>
+                <p style="margin:0;font-size:15px;font-weight:700;color:#1f2937;line-height:1.3;">${a.title}</p>
               </td>
             </tr>
           </table>
@@ -258,6 +280,31 @@ function buildNewsletterHTML(articles: ArticleInfo[], siteUrl: string): string {
     </tr>`
     )
     .join("");
+}
+
+function buildSection(title: string, emoji: string, bgColor: string, textColor: string, articles: ArticleInfo[], siteUrl: string): string {
+  if (articles.length === 0) return "";
+  return `
+        <tr>
+          <td style="padding:24px 24px 0;">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="padding:10px 16px;background:${bgColor};border-radius:10px;">
+                  <h2 style="margin:0;font-size:17px;color:${textColor};">${emoji} ${title}</h2>
+                </td>
+              </tr>
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:8px;">
+              ${buildArticleCards(articles, siteUrl)}
+            </table>
+          </td>
+        </tr>`;
+}
+
+function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string): string {
+  const concoursSection = buildSection("Concours en cours", "🎁", "#DCFCE7", "#166534", categorized.concours, siteUrl);
+  const testSection = buildSection("Tests produits gratuits", "🧴", "#F3E8FF", "#7C3AED", categorized.testGratuit, siteUrl);
+  const bonsPlansSection = buildSection("Bons plans du moment", "🔥", "#FEE2E2", "#DC2626", categorized.bonsPlans, siteUrl);
 
   return `<!DOCTYPE html>
 <html lang="fr">
@@ -271,23 +318,17 @@ function buildNewsletterHTML(articles: ArticleInfo[], siteUrl: string): string {
         <tr>
           <td style="background:linear-gradient(135deg,#DC2626,#F97316);padding:32px 24px;text-align:center;">
             <h1 style="margin:0;color:white;font-size:24px;">Bons Plans Mania</h1>
-            <p style="margin:8px 0 0;color:rgba(255,255,255,0.85);font-size:14px;">Les meilleurs bons plans de la semaine</p>
+            <p style="margin:8px 0 0;color:rgba(255,255,255,0.85);font-size:14px;">Concours, tests gratuits et bons plans de la semaine</p>
           </td>
         </tr>
 
-        <!-- Articles -->
-        <tr>
-          <td style="padding:24px;">
-            <h2 style="margin:0 0 16px;font-size:18px;color:#1f2937;">Les derniers articles</h2>
-            <table cellpadding="0" cellspacing="0" border="0" width="100%">
-              ${articleCards}
-            </table>
-          </td>
-        </tr>
+        ${concoursSection}
+        ${testSection}
+        ${bonsPlansSection}
 
         <!-- CTA -->
         <tr>
-          <td style="padding:0 24px 24px;text-align:center;">
+          <td style="padding:24px;text-align:center;">
             <a href="${siteUrl}/blog" style="display:inline-block;padding:14px 32px;background:#DC2626;color:white;text-decoration:none;border-radius:999px;font-weight:700;font-size:15px;">
               Voir tous les bons plans
             </a>
