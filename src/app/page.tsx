@@ -1,6 +1,7 @@
 import { getAllArticles, getFeaturedArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
+import NewsletterInline from "@/app/components/NewsletterInline";
 import Image from "next/image";
 import { Clock, Tag, Gift, Calendar, Trophy, Star, Flame, ShoppingBag, TreePine, FlaskConical, Sparkles, type LucideIcon } from "lucide-react";
 import CurrentMonth from "@/app/components/CurrentMonth";
@@ -187,6 +188,11 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ═══ NEWSLETTER MILIEU ═══ */}
+      <section className="container" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
+        <NewsletterInline />
+      </section>
 
       {/* ═══ DERNIERS ARTICLES ═══ */}
       <section className="section">
