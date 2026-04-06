@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <rect width="800" height="420" fill="#FFF0F0" rx="18"/>
+  <!-- Bulles déco -->
+  <circle cx="700" cy="60" r="30" fill="#E8E8E8" opacity="0.4"/>
+  <circle cx="730" cy="100" r="18" fill="#E8E8E8" opacity="0.3"/>
+  <circle cx="80" cy="350" r="25" fill="#E8E8E8" opacity="0.3"/>
+  <!-- Titre -->
+  <text x="400" y="75" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#333">YesStyle</text>
+  <text x="400" y="108" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" fill="#888">K-Beauty et soins coreens</text>
+  <!-- Badge -->
+  <rect x="175" y="130" width="450" height="65" rx="12" fill="#E74C3C"/>
+  <text x="400" y="172" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="32" font-weight="900" fill="#fff">JUSQU'A -50% CETTE SEMAINE</text>
+  <!-- Marques grid -->
+  <rect x="60" y="225" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="137" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">FOODOLOGY</text>
+  <text x="137" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-50%</text>
+  <rect x="235" y="225" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="312" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">APLB</text>
+  <text x="312" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-50%</text>
+  <rect x="410" y="225" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="487" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">romand</text>
+  <text x="487" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-50%</text>
+  <rect x="585" y="225" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="662" y="248" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Meditherapy</text>
+  <text x="662" y="268" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-50%</text>
+  <rect x="60" y="295" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="137" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Green Monster</text>
+  <text x="137" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-50%</text>
+  <rect x="235" y="295" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="312" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Nutrione BB Lab</text>
+  <text x="312" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-30%</text>
+  <rect x="410" y="295" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="487" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Seapuri</text>
+  <text x="487" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-30%</text>
+  <rect x="585" y="295" width="155" height="55" rx="10" fill="#fff" stroke="#E8E8E8" stroke-width="1.5"/>
+  <text x="662" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">celimax</text>
+  <text x="662" y="338" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#E74C3C">-50%</text>
+  <!-- Footer -->
+  <text x="400" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#999">Offres hebdomadaires de marques — livraison internationale</text>
+</svg>
