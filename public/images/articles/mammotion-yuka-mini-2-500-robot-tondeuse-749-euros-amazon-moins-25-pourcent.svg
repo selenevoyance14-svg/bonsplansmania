@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8F5E9"/>
+      <stop offset="100%" style="stop-color:#81C784"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#1B5E20">Robot Tondeuse Mammotion</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#2E7D32">YUKA Mini 2 &#183; 500m&#178; &#183; IA 3 Cam&#233;ras &#183; Garage</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#1B5E20">749&#8364; au lieu de 999&#8364;</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#2E7D32">Sans fil &#183; Cartographie auto &#183; 3,9/5</text>
+  <rect x="370" y="430" width="460" height="56" rx="28" fill="#2E7D32"/>
+  <text x="600" y="467" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">-25% &#183; Offre &#224; dur&#233;e limit&#233;e</text>
+</svg>
