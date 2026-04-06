@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <rect width="800" height="420" fill="#fff" rx="18"/>
+  <!-- Accent lines roses -->
+  <rect x="100" y="8" width="120" height="4" rx="2" fill="#E91E8C"/>
+  <rect x="300" y="8" width="120" height="4" rx="2" fill="#E91E8C"/>
+  <rect x="500" y="8" width="120" height="4" rx="2" fill="#E91E8C"/>
+  <!-- Titre -->
+  <text x="400" y="75" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="48" font-weight="900" fill="#333">SHOES.FR</text>
+  <!-- Badge -->
+  <rect x="175" y="100" width="450" height="65" rx="12" fill="#E91E8C"/>
+  <text x="400" y="143" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="34" font-weight="900" fill="#fff">VENTES PRIVEES -50%</text>
+  <!-- Marques -->
+  <rect x="60" y="200" width="155" height="80" rx="10" fill="#F8F8F8" stroke="#eee" stroke-width="1.5"/>
+  <text x="137" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#333">JB.MARTIN</text>
+  <text x="137" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#E91E8C">jusqu'a -50%</text>
+  <rect x="235" y="200" width="155" height="80" rx="10" fill="#F8F8F8" stroke="#eee" stroke-width="1.5"/>
+  <text x="312" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#333">GEOX</text>
+  <text x="312" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#E91E8C">jusqu'a -50%</text>
+  <rect x="410" y="200" width="155" height="80" rx="10" fill="#F8F8F8" stroke="#eee" stroke-width="1.5"/>
+  <text x="487" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#333">CONVERSE</text>
+  <text x="487" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#E91E8C">jusqu'a -50%</text>
+  <rect x="585" y="200" width="155" height="80" rx="10" fill="#F8F8F8" stroke="#eee" stroke-width="1.5"/>
+  <text x="662" y="238" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="700" fill="#333">PUMA</text>
+  <text x="662" y="262" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#E91E8C">jusqu'a -50%</text>
+  <!-- Offres -->
+  <rect x="150" y="315" width="220" height="40" rx="20" fill="#E91E8C"/>
+  <text x="260" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#fff">5 euros offerts (newsletter)</text>
+  <rect x="400" y="315" width="250" height="40" rx="20" fill="#333"/>
+  <text x="525" y="341" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" font-weight="700" fill="#fff">100 euros a gagner (panel)</text>
+  <!-- Footer -->
+  <text x="400" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#999">Chaussures, sacs, vetements — Femme, Homme, Enfant</text>
+</svg>
