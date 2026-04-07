@@ -15,7 +15,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
   "bon-plan-beaute":  { label: "Bon Plan",              color: "bon-plan" },
   "test-gratuit":     { label: "Test Gratuit",          color: "test-gratuit" },
-  "test":             { label: "Test Produit",          color: "test" },
+  "test-avis":        { label: "Test & Avis",           color: "test-avis" },
   "concours":         { label: "Concours",              color: "concours" },
   "box-beaute":       { label: "Box Beauté",            color: "box-beaute" },
   "beaute":           { label: "Beauté",                color: "beaute" },

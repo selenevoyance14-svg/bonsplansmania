@@ -34,7 +34,7 @@ const categoryConfig: Record<string, { label: string; emoji: string }> = {
   "bon-plan":        { label: "Bon Plan",     emoji: "🏷️" },
   "bon-plan-beaute": { label: "Bon Plan",     emoji: "🏷️" },
   "test-gratuit":    { label: "Test Gratuit", emoji: "🎁" },
-  "test":            { label: "Test Produit", emoji: "🧪" },
+  "test-avis":       { label: "Test & Avis",  emoji: "🧪" },
   "concours":        { label: "Concours",     emoji: "🏆" },
   "box-beaute":      { label: "Box Beauté",   emoji: "💄" },
   "beaute":            { label: "Beauté",               emoji: "✨" },

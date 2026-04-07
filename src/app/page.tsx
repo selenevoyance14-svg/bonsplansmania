@@ -13,7 +13,7 @@ const categoryConfig: Record<string, CategoryConfig> = {
   "bon-plan":         { label: "Bon Plan",              Icon: Tag,          color: "bon-plan" },
   "bon-plan-beaute":  { label: "Bon Plan",              Icon: Tag,          color: "bon-plan" },
   "test-gratuit":     { label: "Test Gratuit",          Icon: Gift,         color: "test-gratuit" },
-  "test":             { label: "Test Produit",          Icon: FlaskConical, color: "test" },
+  "test-avis":        { label: "Test & Avis",           Icon: FlaskConical, color: "test-avis" },
   "concours":         { label: "Concours",              Icon: Trophy,       color: "concours" },
   "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  color: "box-beaute" },
   "beaute":           { label: "Beauté",                Icon: Sparkles,     color: "beaute" },
@@ -73,8 +73,8 @@ export default function Home() {
             <a href="/categorie/bon-plan" className="btn btn-primary">
               <Tag size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} /> Voir les bons plans
             </a>
-            <a href="/categorie/test-gratuit" className="btn btn-secondary">
-              <Gift size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} /> Tests gratuits
+            <a href="/categorie/test-produit" className="btn btn-secondary">
+              <FlaskConical size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} /> Tests produits
             </a>
           </div>
         </div>
@@ -111,7 +111,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "16px" }}>
             {([
               { href: "/categorie/bon-plan", Icon: Tag, label: "Bons Plans", desc: "Réductions & promos", bg: "#FFF0F0", color: "#E63946" },
-              { href: "/categorie/test-gratuit", Icon: Gift, label: "Tests Gratuits", desc: "Produits à tester", bg: "#FFF7ED", color: "#C2410C" },
+              { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits", desc: "Tests gratuits & avis", bg: "#FFF7ED", color: "#C2410C" },
               { href: "/categorie/concours", Icon: Trophy, label: "Concours", desc: "Jeux & cadeaux à gagner", bg: "#F0FDF4", color: "#166534" },
               { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", desc: "Tests & avis de box", bg: "#FDF4FF", color: "#86198F" },
               { href: "/categorie/calendrier-avent", Icon: TreePine, label: "Calendrier de l'Avent", desc: "Les meilleurs calendriers", bg: "#F0FDF4", color: "#15803D" },
@@ -270,7 +270,7 @@ export default function Home() {
               <h4>Catégories</h4>
               <ul className="footer-links" role="list">
                 <li><a href="/categorie/bon-plan">Bons Plans</a></li>
-                <li><a href="/categorie/test-gratuit">Tests Gratuits</a></li>
+                <li><a href="/categorie/test-produit">Tests Produits</a></li>
                 <li><a href="/categorie/concours">Concours</a></li>
                 <li><a href="/categorie/box-beaute">Box Beauté</a></li>
               </ul>

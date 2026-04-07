@@ -3,12 +3,17 @@ import { useState, useRef, useEffect } from "react";
 
 export default function Header({ activePage }: { activePage?: string }) {
   const [beautyOpen, setBeautyOpen] = useState(false);
+  const [testsOpen, setTestsOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const testsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     function handleClick(e: MouseEvent) {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setBeautyOpen(false);
+      }
+      if (testsRef.current && !testsRef.current.contains(e.target as Node)) {
+        setTestsOpen(false);
       }
     }
     document.addEventListener("mousedown", handleClick);
@@ -16,6 +21,7 @@ export default function Header({ activePage }: { activePage?: string }) {
   }, []);
 
   const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent"].some(p => activePage === p);
+  const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis"].some(p => activePage === p);
 
   return (
     <header className="header">
@@ -27,12 +33,26 @@ export default function Header({ activePage }: { activePage?: string }) {
           <nav className="nav">
             <a href="/" className={activePage === "/" ? "active" : ""}>Accueil</a>
             <a href="/categorie/bon-plan" className={activePage === "/bon-plan" ? "active" : ""}>Bons Plans</a>
-            <a href="/categorie/test-gratuit" className={activePage === "/test-gratuit" ? "active" : ""}>Tests Gratuits</a>
+            <div className="nav-dropdown" ref={testsRef}>
+              <button
+                className={`nav-dropdown-toggle ${isTestsActive ? "active" : ""}`}
+                onClick={() => { setTestsOpen(!testsOpen); setBeautyOpen(false); }}
+              >
+                Tests Produits ▾
+              </button>
+              {testsOpen && (
+                <div className="nav-dropdown-menu">
+                  <a href="/categorie/test-produit">Tous les tests</a>
+                  <a href="/categorie/test-gratuit">Tests Gratuits</a>
+                  <a href="/categorie/test-avis">Tests & Avis</a>
+                </div>
+              )}
+            </div>
             <a href="/categorie/concours" className={activePage === "/concours" ? "active" : ""}>Concours</a>
             <div className="nav-dropdown" ref={dropdownRef}>
               <button
                 className={`nav-dropdown-toggle ${isBeautyActive ? "active" : ""}`}
-                onClick={() => setBeautyOpen(!beautyOpen)}
+                onClick={() => { setBeautyOpen(!beautyOpen); setTestsOpen(false); }}
               >
                 Beauté ▾
               </button>
