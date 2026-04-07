@@ -1,0 +1,14 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#f5e6d3;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#d4a574;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <text x="600" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="bold" fill="#3d2b1f">Guide Parfum</text>
+  <text x="600" y="250" text-anchor="middle" font-family="Georgia, serif" font-size="36" fill="#3d2b1f" opacity="0.9">Beauty Success</text>
+  <text x="600" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#3d2b1f" opacity="0.8">Familles olfactives - Pyramide - Conseils</text>
+  <text x="600" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#3d2b1f" opacity="0.8">Comment bien choisir sa fragrance</text>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#3d2b1f" opacity="0.7">Femme - Homme - Par ingredient - Par age</text>
+</svg>
