@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1B3A5C;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2A5580;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#3A70A0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8A820;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4920A;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Waves -->
+  <path d="M0 500 Q100 470 200 490 Q300 510 400 480 Q500 450 600 480 Q700 510 800 480 Q900 450 1000 480 Q1100 510 1200 490 L1200 630 L0 630 Z" fill="white" fill-opacity="0.06" />
+  <path d="M0 530 Q150 500 300 520 Q450 540 600 510 Q750 480 900 510 Q1050 540 1200 520 L1200 630 L0 630 Z" fill="white" fill-opacity="0.04" />
+
+  <!-- Decorative circles -->
+  <circle cx="1000" cy="120" r="140" fill="white" fill-opacity="0.04" />
+  <circle cx="150" cy="480" r="100" fill="white" fill-opacity="0.04" />
+
+  <!-- Egg shapes -->
+  <ellipse cx="1020" cy="300" rx="30" ry="40" fill="#E8A820" fill-opacity="0.2" />
+  <ellipse cx="1080" cy="250" rx="20" ry="28" fill="#E8A820" fill-opacity="0.15" />
+
+  <!-- Site badge -->
+  <rect x="80" y="60" width="240" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="200" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <!-- Concours badge -->
+  <rect x="80" y="130" width="220" height="36" rx="18" fill="url(#badge)" />
+  <text x="190" y="154" font-family="Georgia, serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">JEU CONCOURS</text>
+
+  <!-- Main title -->
+  <text x="80" y="255" font-family="Georgia, serif" font-size="48" fill="white" font-weight="700">Pointe de Penmarc'h</text>
+  <text x="80" y="315" font-family="Georgia, serif" font-size="38" fill="#E8A820" font-weight="600">La grande pêche de Pâques</text>
+
+  <!-- Divider -->
+  <rect x="80" y="345" width="120" height="3" rx="2" fill="white" fill-opacity="0.5" />
+
+  <!-- Info lines -->
+  <rect x="80" y="380" width="500" height="50" rx="10" fill="white" fill-opacity="0.12" />
+  <text x="100" y="412" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="700">5 coffrets gourmands à gagner (jusqu'à 51,90 euros)</text>
+
+  <rect x="80" y="445" width="460" height="50" rx="10" fill="white" fill-opacity="0.10" />
+  <text x="100" y="477" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="600">Gratuit - Tirage au sort le 5 mai 2026</text>
+
+  <!-- Date -->
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Avril 2026 - Participation gratuite</text>
+</svg>
