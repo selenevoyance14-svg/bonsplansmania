@@ -6,6 +6,7 @@ import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-re
 import Header from "@/app/components/Header";
 import LikeButton from "@/app/components/LikeButton";
 import NewsletterInline from "@/app/components/NewsletterInline";
+import AdBlock from "@/app/components/AdBlock";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -193,11 +194,17 @@ export default async function ArticlePage({ params }: PageProps) {
               <Image src={article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "auto" }} priority />
             </div>
 
+            {/* Pub après l'image hero */}
+            <AdBlock format="auto" />
+
             <NewsletterInline />
 
             <div className="article-content">
               <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" ? affiliateUrl : undefined, affiliateUrl !== "#" ? affiliateLabel : undefined) }} />
             </div>
+
+            {/* Pub après le contenu */}
+            <AdBlock format="auto" />
 
             {affiliateUrl !== "#" && (
               <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", borderRadius: "16px", border: "2px solid #FECDD3" }}>
@@ -208,6 +215,9 @@ export default async function ArticlePage({ params }: PageProps) {
               </div>
             )}
           </article>
+
+          {/* Pub avant les articles liés */}
+          <AdBlock format="auto" />
 
           {relatedArticles.length > 0 && (
             <section className="related-articles">
@@ -384,10 +394,14 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
   html = html.replace(/^## (.+)$/gm, (_match, title) => {
     h2Count++;
-    if (affiliateUrl && h2Count % 2 === 0) {
-      return `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || "Voir l\u0027offre"} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div><h2>${title}</h2>`;
+    let prefix = "";
+    if (h2Count % 3 === 0) {
+      // Bloc pub AdSense tous les 3 H2
+      prefix = `<div class="ad-container" style="text-align:center;margin:24px 0;min-height:90px;overflow:hidden"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5064203547863113" data-ad-format="auto" data-full-width-responsive="true"></ins></div>`;
+    } else if (affiliateUrl && h2Count % 2 === 0) {
+      prefix = `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || "Voir l\u0027offre"} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>`;
     }
-    return `<h2>${title}</h2>`;
+    return `${prefix}<h2>${title}</h2>`;
   });
   html = html.replace(/^---$/gm, "<hr>");
   html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");

@@ -33,6 +33,19 @@ export default function ThirdPartyScripts() {
       adScript.async = true;
       adScript.crossOrigin = "anonymous";
       document.head.appendChild(adScript);
+
+      adScript.onload = () => {
+        // Initialise tous les blocs pub présents dans la page
+        document.querySelectorAll("ins.adsbygoogle").forEach((ins) => {
+          if (!ins.getAttribute("data-adsbygoogle-status")) {
+            try {
+              (window.adsbygoogle = window.adsbygoogle || []).push({});
+            } catch {
+              // already pushed
+            }
+          }
+        });
+      };
     }
 
     // Load on first user interaction or after 5s max

@@ -3,6 +3,7 @@ import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
+import AdBlock from "@/app/components/AdBlock";
 
 
 export const metadata: Metadata = {
@@ -68,6 +69,10 @@ export default function BlogPage() {
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>Tous les articles</h1>
             <p style={{ color: "var(--muted-foreground)" }}>{articles.length} article{articles.length > 1 ? "s" : ""} — bons plans, tests, concours &amp; box</p>
           </div>
+        </section>
+
+        <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
+          <AdBlock format="auto" />
         </section>
 
         <section className="section">

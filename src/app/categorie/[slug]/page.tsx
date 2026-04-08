@@ -4,6 +4,7 @@ import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import type { Metadata } from "next";
 import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
+import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
@@ -137,6 +138,10 @@ export default async function CategoryPage({ params }: PageProps) {
               </div>
             )}
           </div>
+        </section>
+
+        <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
+          <AdBlock format="auto" />
         </section>
 
         <section className="section">

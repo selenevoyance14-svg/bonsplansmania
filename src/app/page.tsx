@@ -5,6 +5,7 @@ import NewsletterInline from "@/app/components/NewsletterInline";
 import Image from "next/image";
 import { Clock, Tag, Gift, Calendar, Trophy, Star, Flame, ShoppingBag, TreePine, FlaskConical, Sparkles, type LucideIcon } from "lucide-react";
 import CurrentMonth from "@/app/components/CurrentMonth";
+import AdBlock from "@/app/components/AdBlock";
 
 
 type CategoryConfig = { label: string; Icon: LucideIcon; color: string };
@@ -192,6 +193,11 @@ export default function Home() {
       {/* ═══ NEWSLETTER MILIEU ═══ */}
       <section className="container" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
         <NewsletterInline />
+      </section>
+
+      {/* ═══ PUB ENTRE VEDETTES ET DERNIERS ═══ */}
+      <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
+        <AdBlock format="auto" />
       </section>
 
       {/* ═══ DERNIERS ARTICLES ═══ */}
