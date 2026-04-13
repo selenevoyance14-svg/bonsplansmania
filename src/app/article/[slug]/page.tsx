@@ -195,7 +195,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
 
             {/* Pub après l'image hero */}
-            <AdBlock format="auto" />
+            <AdBlock />
 
             <NewsletterInline />
 
@@ -204,7 +204,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
 
             {/* Pub après le contenu */}
-            <AdBlock format="auto" />
+            <AdBlock />
 
             {affiliateUrl !== "#" && (
               <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", borderRadius: "16px", border: "2px solid #FECDD3" }}>
@@ -217,7 +217,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </article>
 
           {/* Pub avant les articles liés */}
-          <AdBlock format="auto" />
+          <AdBlock />
 
           {relatedArticles.length > 0 && (
             <section className="related-articles">
@@ -396,8 +396,8 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
     h2Count++;
     let prefix = "";
     if (h2Count % 3 === 0) {
-      // Bloc pub AdSense tous les 3 H2
-      prefix = `<div class="ad-container" style="text-align:center;margin:24px 0;min-height:90px;overflow:hidden"><ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-5064203547863113" data-ad-format="auto" data-full-width-responsive="true"></ins></div>`;
+      // Emplacement pub Ezoic tous les 3 H2
+      prefix = `<div id="ezoic-pub-ad-placeholder-${200 + h2Count}" class="ad-container" style="text-align:center;margin:24px 0;min-height:90px;overflow:hidden"></div>`;
     } else if (affiliateUrl && h2Count % 2 === 0) {
       prefix = `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || "Voir l\u0027offre"} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>`;
     }

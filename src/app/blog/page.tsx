@@ -72,7 +72,7 @@ export default function BlogPage() {
         </section>
 
         <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
-          <AdBlock format="auto" />
+          <AdBlock />
         </section>
 
         <section className="section">

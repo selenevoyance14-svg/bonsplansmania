@@ -197,7 +197,7 @@ export default function Home() {
 
       {/* ═══ PUB ENTRE VEDETTES ET DERNIERS ═══ */}
       <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
-        <AdBlock format="auto" />
+        <AdBlock />
       </section>
 
       {/* ═══ DERNIERS ARTICLES ═══ */}

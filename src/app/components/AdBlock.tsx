@@ -2,44 +2,51 @@
 
 import { useEffect, useRef } from "react";
 
+let ezoicIdCounter = 100;
+
 interface AdBlockProps {
-  format?: "auto" | "fluid" | "rectangle" | "horizontal" | "vertical";
-  slot?: string;
   className?: string;
 }
 
 declare global {
   interface Window {
-    adsbygoogle: unknown[];
+    ezstandalone: {
+      cmd: Array<() => void>;
+      showAds: () => void;
+      findAll: () => void;
+    };
   }
 }
 
-export default function AdBlock({ format = "auto", slot = "", className = "" }: AdBlockProps) {
-  const adRef = useRef<HTMLModElement>(null);
-  const pushed = useRef(false);
+export default function AdBlock({ className = "" }: AdBlockProps) {
+  const idRef = useRef<number | null>(null);
+  const initialized = useRef(false);
+
+  if (idRef.current === null) {
+    idRef.current = ezoicIdCounter++;
+  }
 
   useEffect(() => {
-    if (pushed.current) return;
-    pushed.current = true;
+    if (initialized.current) return;
+    initialized.current = true;
 
     try {
-      (window.adsbygoogle = window.adsbygoogle || []).push({});
+      if (window.ezstandalone) {
+        window.ezstandalone.cmd = window.ezstandalone.cmd || [];
+        window.ezstandalone.cmd.push(() => {
+          window.ezstandalone.showAds();
+        });
+      }
     } catch {
-      // AdSense not loaded yet or blocked
+      // Ezoic not loaded yet
     }
   }, []);
 
   return (
-    <div className={`ad-container ${className}`} style={{ textAlign: "center", margin: "24px 0", minHeight: "90px", overflow: "hidden" }}>
-      <ins
-        ref={adRef}
-        className="adsbygoogle"
-        style={{ display: "block" }}
-        data-ad-client="ca-pub-5064203547863113"
-        data-ad-slot={slot}
-        data-ad-format={format}
-        data-full-width-responsive="true"
-      />
-    </div>
+    <div
+      id={`ezoic-pub-ad-placeholder-${idRef.current}`}
+      className={`ad-container ${className}`}
+      style={{ textAlign: "center", margin: "24px 0", minHeight: "90px", overflow: "hidden" }}
+    />
   );
 }
