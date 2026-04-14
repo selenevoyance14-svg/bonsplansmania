@@ -24,7 +24,7 @@ export default function MentionsLegales() {
 
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Hébergement</h2>
-            <p>Netlify, Inc.<br />512 2nd Street, Suite 200, San Francisco, CA 94107, USA</p>
+            <p>Cloudflare, Inc.<br />101 Townsend St, San Francisco, CA 94107, USA</p>
           </section>
 
           <section style={{ marginBottom: "32px" }}>

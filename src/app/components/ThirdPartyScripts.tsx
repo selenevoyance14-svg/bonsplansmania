@@ -27,35 +27,12 @@ export default function ThirdPartyScripts() {
         gtag("config", "G-HH3TT98TED");
       };
 
-      // Ezoic CMP (consentement RGPD)
-      const ezoicCmp1 = document.createElement("script");
-      ezoicCmp1.src = "https://cmp.gatekeeperconsent.com/min.js";
-      ezoicCmp1.setAttribute("data-cfasync", "false");
-      document.head.appendChild(ezoicCmp1);
-
-      const ezoicCmp2 = document.createElement("script");
-      ezoicCmp2.src = "https://the.gatekeeperconsent.com/cmp.min.js";
-      ezoicCmp2.setAttribute("data-cfasync", "false");
-      document.head.appendChild(ezoicCmp2);
-
-      // Ezoic principal
-      const ezoicScript = document.createElement("script");
-      ezoicScript.src = "//www.ezojs.com/ezoic/sa.min.js";
-      ezoicScript.async = true;
-      document.head.appendChild(ezoicScript);
-
-      // Ezoic standalone init
-      const ezoicInit = document.createElement("script");
-      ezoicInit.textContent = `
-        window.ezstandalone = window.ezstandalone || {};
-        ezstandalone.cmd = ezstandalone.cmd || [];
-      `;
-      document.head.appendChild(ezoicInit);
-
-      // Ezoic Analytics
-      const ezoicAnalytics = document.createElement("script");
-      ezoicAnalytics.src = "//ezoicanalytics.com/analytics.js";
-      document.head.appendChild(ezoicAnalytics);
+      // Google AdSense
+      const adsenseScript = document.createElement("script");
+      adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113";
+      adsenseScript.async = true;
+      adsenseScript.crossOrigin = "anonymous";
+      document.head.appendChild(adsenseScript);
     }
 
     // Load on first user interaction or after 5s max

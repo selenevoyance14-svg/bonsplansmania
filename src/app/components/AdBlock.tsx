@@ -2,51 +2,45 @@
 
 import { useEffect, useRef } from "react";
 
-let ezoicIdCounter = 100;
-
 interface AdBlockProps {
   className?: string;
 }
 
 declare global {
   interface Window {
-    ezstandalone: {
-      cmd: Array<() => void>;
-      showAds: () => void;
-      findAll: () => void;
-    };
+    adsbygoogle: unknown[];
   }
 }
 
 export default function AdBlock({ className = "" }: AdBlockProps) {
-  const idRef = useRef<number | null>(null);
-  const initialized = useRef(false);
-
-  if (idRef.current === null) {
-    idRef.current = ezoicIdCounter++;
-  }
+  const adRef = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
 
   useEffect(() => {
-    if (initialized.current) return;
-    initialized.current = true;
+    if (pushed.current) return;
+    pushed.current = true;
 
     try {
-      if (window.ezstandalone) {
-        window.ezstandalone.cmd = window.ezstandalone.cmd || [];
-        window.ezstandalone.cmd.push(() => {
-          window.ezstandalone.showAds();
-        });
-      }
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
     } catch {
-      // Ezoic not loaded yet
+      // AdSense not loaded yet
     }
   }, []);
 
   return (
     <div
-      id={`ezoic-pub-ad-placeholder-${idRef.current}`}
       className={`ad-container ${className}`}
       style={{ textAlign: "center", margin: "24px 0", minHeight: "90px", overflow: "hidden" }}
-    />
+    >
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client="ca-pub-5064203547863113"
+        data-ad-slot="auto"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+        ref={adRef}
+      />
+    </div>
   );
 }
