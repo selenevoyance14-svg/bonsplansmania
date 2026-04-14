@@ -190,8 +190,8 @@ export default async function ArticlePage({ params }: PageProps) {
               )}
             </div>
 
-            <div className="article-hero-image">
-              <Image src={article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "auto" }} priority />
+            <div className="article-hero-image" style={{ background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
+              <Image src={article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
             </div>
 
             {/* Pub après l'image hero */}
@@ -406,7 +406,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/^---$/gm, "<hr>");
   html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, "<em>$1</em>");
-  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure style="margin:24px 0;text-align:center"><img src="$2" alt="$1" loading="lazy" style="max-width:100%;height:auto;border-radius:12px" /><figcaption style="font-size:0.82rem;color:#6b7280;margin-top:8px">$1</figcaption></figure>');
+  html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure style="margin:24px 0;text-align:center;background:#fff;border-radius:12px;overflow:hidden;padding:12px"><img src="$2" alt="$1" loading="lazy" style="max-width:100%;max-height:500px;height:auto;object-fit:contain;border-radius:8px;margin:0 auto;display:block" /><figcaption style="font-size:0.82rem;color:#6b7280;margin-top:8px">$1</figcaption></figure>');
   html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="nofollow sponsored noopener">$1</a>');
   html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
   html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, "<ul>$&</ul>");
