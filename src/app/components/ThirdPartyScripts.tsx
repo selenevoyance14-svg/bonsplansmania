@@ -27,12 +27,7 @@ export default function ThirdPartyScripts() {
         gtag("config", "G-HH3TT98TED");
       };
 
-      // Google AdSense
-      const adsenseScript = document.createElement("script");
-      adsenseScript.src = "https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113";
-      adsenseScript.async = true;
-      adsenseScript.crossOrigin = "anonymous";
-      document.head.appendChild(adsenseScript);
+      // AdSense is loaded via layout.tsx head
     }
 
     // Load on first user interaction or after 5s max
