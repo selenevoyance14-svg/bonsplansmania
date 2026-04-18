@@ -29,7 +29,7 @@ function slugToTag(slug: string): string | null {
 
 export async function generateStaticParams() {
   return getAllTags()
-    .filter(({ count }) => count >= 1)
+    .filter(({ count }) => count >= 5)
     .map(({ tag }) => ({
       slug: tag.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
     }));
