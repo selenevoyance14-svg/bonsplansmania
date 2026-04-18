@@ -1,72 +1,76 @@
-import { getArticlesByTag } from "@/lib/articles";
+import { getAllTags, getArticlesByTag } from "@/lib/articles";
 import Header from "@/app/components/Header";
-import Image from "next/image";
+import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import type { Metadata } from "next";
-import { Clock, ChevronRight, Tag } from "lucide-react";
+import { ChevronRight, Tag } from "lucide-react";
 import { notFound } from "next/navigation";
+import AdBlock from "@/app/components/AdBlock";
 
+const categoryLabels: Record<string, { label: string; color: string }> = {
+  "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
+  "bon-plan-beaute":  { label: "Bon Plan",              color: "bon-plan" },
+  "test-gratuit":     { label: "Test Gratuit",          color: "test-gratuit" },
+  "test-avis":        { label: "Test & Avis",           color: "test-avis" },
+  "concours":         { label: "Concours",              color: "concours" },
+  "box-beaute":       { label: "Box Beauté",            color: "box-beaute" },
+  "beaute":           { label: "Beauté",                color: "beaute" },
+  "selection":        { label: "Beauté",                color: "beaute" },
+  "calendrier-avent": { label: "Calendrier de l'Avent", color: "calendrier-avent" },
+  "code-promo":       { label: "Code Promo",            color: "code-promo" },
+};
+
+function slugToTag(slug: string): string | null {
+  const allTags = getAllTags();
+  const match = allTags.find(
+    ({ tag }) => tag.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "") === slug
+  );
+  return match ? match.tag : null;
+}
+
+export async function generateStaticParams() {
+  return getAllTags()
+    .filter(({ count }) => count >= 1)
+    .map(({ tag }) => ({
+      slug: tag.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, ""),
+    }));
+}
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
-// Mapping slug → nom d'affichage
-const BRAND_NAMES: Record<string, string> = {
-  "nyx": "NYX Professional Makeup",
-  "maybelline": "Maybelline",
-  "loreal": "L'Oréal",
-  "garnier": "Garnier",
-  "cerave": "CeraVe",
-  "la-roche-posay": "La Roche-Posay",
-  "neutrogena": "Neutrogena",
-  "kerastase": "Kérastase",
-  "moroccanoil": "Moroccanoil",
-  "nuxe": "Nuxe",
-  "weleda": "Weleda",
-  "bioderma": "Bioderma",
-  "vichy": "Vichy",
-  "rimmel": "Rimmel",
-  "catrice": "Catrice",
-  "essence": "Essence",
-  "nivea": "Nivea",
-  "pantene": "Pantene",
-  "ogx": "OGX",
-  "glowria": "Glowria",
-  "prescription-lab": "Prescription Lab",
-  "biotyfull": "Biotyfull Box",
-  "blissim": "Blissim",
-  "my-little-box": "My Little Box",
-  "lookfantastic": "Lookfantastic",
-  "igraal": "iGraal",
-  "ebuyclub": "eBuyClub",
-  "poulpeo": "Poulpeo",
-  "swagbucks": "Swagbucks",
-  "amazon": "Amazon",
-  "sephora": "Sephora",
-  "yves-rocher": "Yves Rocher",
-  "nailmatic": "Nailmatic",
-  "garancia": "Garancia",
-  "sabon": "Sabon",
-};
-
-export function generateStaticParams() {
-  return Object.keys(BRAND_NAMES).map((slug) => ({ slug }));
-}
-
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
-  const name = BRAND_NAMES[slug] || slug;
+  const tag = slugToTag(slug);
+  if (!tag) return {};
   return {
-    title: `${name} — Bons Plans & Articles | BonsPlansMania`,
-    description: `Tous les bons plans, tests produits et avis sur ${name}. Retrouvez les meilleures offres ${name} sur BonsPlansMania.`,
+    title: `${tag} : tous les bons plans et articles | Bons Plans Mania`,
+    description: `Retrouvez tous les bons plans, tests gratuits, concours et articles sur ${tag}. Promos, codes promo et avis.`,
     alternates: { canonical: `https://bonsplansmania.fr/marque/${slug}` },
   };
 }
 
-export default async function BrandPage({ params }: PageProps) {
+export default async function MarquePage({ params }: PageProps) {
   const { slug } = await params;
-  const articles = getArticlesByTag(slug);
-  const name = BRAND_NAMES[slug] || slug.replace(/-/g, " ");
+  const tag = slugToTag(slug);
+  if (!tag) notFound();
 
-  if (articles.length === 0) notFound();
+  const articles = getArticlesByTag(tag);
+
+  const cards = articles.map((a) => {
+    const cl = categoryLabels[a.meta.category];
+    return {
+      slug: a.meta.slug,
+      title: a.meta.title,
+      description: a.meta.description,
+      date: a.meta.date,
+      image: a.meta.image,
+      imageAlt: a.meta.imageAlt,
+      category: a.meta.category,
+      categoryLabel: cl?.label ?? a.meta.category,
+      categoryColor: cl?.color ?? a.meta.category,
+      readingTime: a.meta.readingTime,
+      expired: a.meta.expired,
+    };
+  });
 
   return (
     <>
@@ -75,8 +79,8 @@ export default async function BrandPage({ params }: PageProps) {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: name,
-          description: `Tous les bons plans, tests produits et avis sur ${name}.`,
+          name: tag,
+          description: `Tous les articles sur ${tag}`,
           url: `https://bonsplansmania.fr/marque/${slug}`,
           mainEntity: {
             "@type": "ItemList",
@@ -97,8 +101,7 @@ export default async function BrandPage({ params }: PageProps) {
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Accueil", item: "https://bonsplansmania.fr" },
-            { "@type": "ListItem", position: 2, name: "Marques", item: "https://bonsplansmania.fr/#marques" },
-            { "@type": "ListItem", position: 3, name: name },
+            { "@type": "ListItem", position: 2, name: tag },
           ],
         }) }}
       />
@@ -109,43 +112,30 @@ export default async function BrandPage({ params }: PageProps) {
             <nav className="breadcrumbs">
               <a href="/">Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <a href="/#marques">Marques</a>
-              <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <span>{name}</span>
+              <span><Tag size={12} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} />{tag}</span>
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
-              <Tag size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px" }} />{name}
+              <Tag size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px" }} />{tag}
             </h1>
             <p style={{ color: "var(--muted-foreground)" }}>
-              {articles.length} article{articles.length > 1 ? "s" : ""} sur {name}
+              Tous les bons plans, tests et articles sur {tag} — {articles.length} article{articles.length > 1 ? "s" : ""}
             </p>
           </div>
         </section>
 
+        <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
+          <AdBlock />
+        </section>
+
         <section className="section">
           <div className="container">
-            <div className="articles-grid">
-              {articles.map((article) => (
-                <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
-                  <div style={{ position: "relative", height: "190px", overflow: "hidden" }}>
-                    <Image src={article.meta.image} alt={article.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
-                  </div>
-                  <div className="card-body">
-                    <div style={{ marginBottom: "10px" }}>
-                      <time style={{ fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
-                        {new Date(article.meta.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Paris" })}
-                      </time>
-                    </div>
-                    <h2 className="card-title">{article.meta.title}</h2>
-                    <p className="card-excerpt">{article.meta.description}</p>
-                  </div>
-                  <div className="card-footer">
-                    <span style={{ display: "flex", alignItems: "center", gap: "4px" }}><Clock size={12} /> {article.meta.readingTime}</span>
-                    <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.82rem" }}>Lire →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+            {articles.length === 0 ? (
+              <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "64px 0" }}>
+                Aucun article avec ce tag pour le moment.
+              </p>
+            ) : (
+              <LoadMoreGrid articles={cards} />
+            )}
           </div>
         </section>
       </main>

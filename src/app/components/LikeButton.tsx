@@ -1,4 +1,5 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import { Heart } from "lucide-react";
 
@@ -6,38 +7,30 @@ export default function LikeButton({ slug }: { slug: string }) {
   const [liked, setLiked] = useState(false);
 
   useEffect(() => {
-    const hasLiked = localStorage.getItem(`liked:${slug}`) === "1";
-    setLiked(hasLiked);
+    const likes = JSON.parse(localStorage.getItem("bpm_likes") || "[]");
+    setLiked(likes.includes(slug));
   }, [slug]);
 
-  function handleLike() {
-    if (liked) return;
-    setLiked(true);
-    localStorage.setItem(`liked:${slug}`, "1");
+  function toggle() {
+    const likes: string[] = JSON.parse(localStorage.getItem("bpm_likes") || "[]");
+    const updated = liked ? likes.filter((s) => s !== slug) : [...likes, slug];
+    localStorage.setItem("bpm_likes", JSON.stringify(updated));
+    setLiked(!liked);
   }
 
   return (
     <button
-      onClick={handleLike}
-      disabled={liked}
-      aria-label={liked ? "Vous avez aimé cet article" : "J'aime cet article"}
+      onClick={toggle}
+      aria-label={liked ? "Retirer des favoris" : "Ajouter aux favoris"}
       style={{
-        display: "inline-flex",
-        alignItems: "center",
-        gap: "6px",
-        padding: "8px 16px",
-        borderRadius: "999px",
-        border: `2px solid ${liked ? "var(--primary)" : "var(--border, #e5e7eb)"}`,
-        background: liked ? "var(--primary)" : "transparent",
-        color: liked ? "white" : "var(--text-muted, #6b7280)",
-        cursor: liked ? "default" : "pointer",
-        fontSize: "0.9rem",
-        fontWeight: 600,
-        transition: "all 0.2s",
+        display: "inline-flex", alignItems: "center", gap: "6px",
+        padding: "6px 14px", borderRadius: "20px", border: "1px solid var(--border, #e5e7eb)",
+        background: liked ? "#FEE2E2" : "transparent", color: liked ? "#DC2626" : "var(--text-muted, #6b7280)",
+        cursor: "pointer", fontSize: "0.85rem", fontWeight: 500, transition: "all 0.2s",
       }}
     >
-      <Heart size={16} fill={liked ? "currentColor" : "none"} />
-      {liked ? "Aimé !" : "J'aime"}
+      <Heart size={14} fill={liked ? "#DC2626" : "none"} />
+      {liked ? "Favori" : "Ajouter"}
     </button>
   );
 }

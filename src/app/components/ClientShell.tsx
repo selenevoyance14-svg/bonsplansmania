@@ -1,9 +1,7 @@
 "use client";
 
-import dynamic from "next/dynamic";
-
-const NewsletterPopup = dynamic(() => import("./NewsletterPopup"), { ssr: false });
-const ThirdPartyScripts = dynamic(() => import("./ThirdPartyScripts"), { ssr: false });
+import NewsletterPopup from "./NewsletterPopup";
+import ThirdPartyScripts from "./ThirdPartyScripts";
 
 export default function ClientShell() {
   return (
