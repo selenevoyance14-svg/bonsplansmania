@@ -11,7 +11,7 @@ import AdBlock from "@/app/components/AdBlock";
 interface PageProps { params: Promise<{ slug: string }>; }
 
 export async function generateStaticParams() {
-  return getAllArticles().filter((a) => !a.meta.expired).map((a) => ({ slug: a.meta.slug }));
+  return getAllArticles().map((a) => ({ slug: a.meta.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -297,10 +297,10 @@ export default async function ArticlePage({ params }: PageProps) {
               <div style={{ margin: "24px 0", display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
                 <span style={{ fontSize: "0.82rem", color: "var(--text-muted, #6b7280)", fontWeight: 600 }}>Tags :</span>
                 {article.meta.tags.map((tag) => (
-                  <span key={tag}
-                    style={{ padding: "4px 12px", borderRadius: "999px", background: "var(--muted, #f3f4f6)", fontSize: "0.78rem", color: "var(--text, #374151)", fontWeight: 500 }}>
+                  <a key={tag} href={`/marque/${tag.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}`}
+                    style={{ padding: "4px 12px", borderRadius: "999px", background: "var(--muted, #f3f4f6)", fontSize: "0.78rem", color: "var(--text, #374151)", textDecoration: "none", fontWeight: 500 }}>
                     {tag}
-                  </span>
+                  </a>
                 ))}
               </div>
             )}
