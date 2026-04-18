@@ -6,10 +6,12 @@
     "dev": "next dev",
     "prebuild": "npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts",
     "build": "next build",
+    "build:cloudflare": "npx @opennextjs/cloudflare build",
     "start": "next start",
     "lint": "eslint"
   },
   "dependencies": {
+    "@opennextjs/cloudflare": "^1.19.1",
     "gray-matter": "^4.0.3",
     "lucide-react": "^0.564.0",
     "next": "16.1.6",
