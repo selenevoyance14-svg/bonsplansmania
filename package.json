@@ -6,7 +6,6 @@
     "dev": "next dev",
     "prebuild": "npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts",
     "build": "next build",
-    "build:cloudflare": "npx @opennextjs/cloudflare build",
     "start": "next start",
     "lint": "eslint"
   },
