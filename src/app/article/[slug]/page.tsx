@@ -11,7 +11,7 @@ import AdBlock from "@/app/components/AdBlock";
 interface PageProps { params: Promise<{ slug: string }>; }
 
 export async function generateStaticParams() {
-  return getAllArticles().map((a) => ({ slug: a.meta.slug }));
+  return getAllArticles().filter((a) => !a.meta.expired).map((a) => ({ slug: a.meta.slug }));
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
