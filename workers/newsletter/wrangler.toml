@@ -3,7 +3,7 @@ main = "src/index.ts"
 compatibility_date = "2024-01-01"
 
 [triggers]
-crons = ["0 7 * * 2,6"]  # mardi et samedi a 7h UTC (8h France)
+crons = ["0 7 * * TUE,SAT"]  # mardi et samedi a 7h UTC (9h France heure d'ete)
 
 [[kv_namespaces]]
 binding = "SUBSCRIBERS"
