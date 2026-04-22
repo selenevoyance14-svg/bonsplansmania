@@ -28,6 +28,19 @@ function slugifyTag(tag: string): string {
     .replace(/[^a-z0-9-]/g, "");
 }
 
+// Minimum article count required to generate a static /marque/[slug] page.
+// Limit prevents Cloudflare Pages 20k-file cap while keeping the SEO value
+// where it matters (marques avec vraie masse de contenu).
+const MIN_ARTICLES_FOR_STATIC_PAGE = 3;
+
+// Brand slugs curated in the footer : always generated even if count < MIN
+const CURATED_BRAND_SLUGS = new Set<string>([
+  "nyx", "maybelline", "loreal", "garnier", "cerave", "la-roche-posay",
+  "neutrogena", "kerastase", "moroccanoil", "nuxe", "weleda", "bioderma",
+  "rimmel", "catrice", "nivea", "glowria", "prescription-lab", "biotyfull",
+  "blissim", "igraal", "ebuyclub", "poulpeo", "sephora", "yves-rocher", "amazon",
+]);
+
 // Build slug → raw tag map once (first occurrence wins)
 function getTagSlugMap(): Map<string, string> {
   const map = new Map<string, string>();
@@ -38,6 +51,22 @@ function getTagSlugMap(): Map<string, string> {
     }
   }
   return map;
+}
+
+// Build slug → count map to filter thin tags before static generation
+function getTagCountMap(): Map<string, number> {
+  const counts = new Map<string, number>();
+  for (const article of getAllArticles()) {
+    const seen = new Set<string>();
+    for (const tag of article.meta.tags || []) {
+      const slug = slugifyTag(tag);
+      if (slug && !seen.has(slug)) {
+        seen.add(slug);
+        counts.set(slug, (counts.get(slug) || 0) + 1);
+      }
+    }
+  }
+  return counts;
 }
 
 // Nicely formatted display name for known brand slugs
@@ -79,8 +108,14 @@ function getDisplayName(slug: string, fallbackTag: string): string {
 }
 
 export async function generateStaticParams() {
-  const slugs = Array.from(getTagSlugMap().keys());
-  return slugs.map((slug) => ({ slug }));
+  const counts = getTagCountMap();
+  const allSlugs = Array.from(getTagSlugMap().keys());
+  const filtered = allSlugs.filter(
+    (slug) =>
+      CURATED_BRAND_SLUGS.has(slug) ||
+      (counts.get(slug) || 0) >= MIN_ARTICLES_FOR_STATIC_PAGE,
+  );
+  return filtered.map((slug) => ({ slug }));
 }
 
 interface PageProps { params: Promise<{ slug: string }>; }
