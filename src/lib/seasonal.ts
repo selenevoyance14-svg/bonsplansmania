@@ -33,7 +33,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Fête des Mères 2026 : Idées Cadeaux, Coffrets & Bons Plans — Bons Plans Mania",
     seoDescription: "Sélection complète de cadeaux pour la Fête des Mères 2026 (dimanche 7 juin) : coffrets beauté, bijoux, bougies, box, codes promo. Mis à jour quotidiennement.",
     intro: "La Fête des Mères 2026 aura lieu le dimanche 7 juin. Voici notre sélection d'idées cadeaux testées, de coffrets beauté, de box, de bijoux et de bons plans pour gâter ta maman sans te ruiner.",
-    keywords: ["fête-des-mères", "fete-des-meres", "fete des meres", "fête des mères", "maman", "cadeau maman", "fête maman"],
+    keywords: ["fête-des-mères", "fete-des-meres", "fete des meres", "fête des mères", "cadeau maman", "fête maman"],
     highlightStart: "2026-04-20",
     highlightEnd: "2026-06-10",
     tips: [
@@ -55,7 +55,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Fête des Pères 2026 : Idées Cadeaux, Bons Plans — Bons Plans Mania",
     seoDescription: "Cadeaux Fête des Pères 2026 (21 juin) : tech, sport, bricolage, soin homme, mode. Sélection testée tous budgets, mis à jour quotidiennement.",
     intro: "La Fête des Pères 2026 tombe le dimanche 21 juin — deux semaines après la Fête des Mères. Nos idées cadeaux pour surprendre ton papa : tech, sport, bien-être, bricolage, mode et made in France.",
-    keywords: ["fête-des-pères", "fete-des-peres", "fete des peres", "fête des pères", "papa", "cadeau papa", "fête papa", "homme"],
+    keywords: ["fête-des-pères", "fete-des-peres", "fete des peres", "fête des pères", "cadeau papa", "fête papa"],
     highlightStart: "2026-06-08",
     highlightEnd: "2026-06-25",
     tips: [
@@ -77,7 +77,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Calendriers de l'Avent 2026 : Comparatif et Bons Plans — Bons Plans Mania",
     seoDescription: "Les meilleurs calendriers de l'Avent 2026 : Sephora, Dior, Rituals, Lookfantastic, ESPA. Comparatif complet, prix, contenu et codes promo.",
     intro: "Chaque fin d'année, les marques lancent leurs calendriers de l'Avent. Notre comparatif 2026 t'aide à choisir le meilleur selon ton budget et tes goûts : beauté, thé, chocolat, bien-être ou pour les enfants.",
-    keywords: ["calendrier-avent", "calendrier de l'avent", "avent", "calendrier-beaute", "24 surprises"],
+    keywords: ["calendrier-avent", "calendrier de l'avent", "calendrier avent", "calendrier-beaute", "24 surprises"],
     highlightStart: "2026-09-15",
     highlightEnd: "2026-12-25",
     tips: [
@@ -99,7 +99,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Black Friday 2026 : Bons Plans et Promos -80% — Bons Plans Mania",
     seoDescription: "Black Friday 2026 (27 novembre) : promos Amazon, Sephora, Darty, Fnac. Beauté, high-tech, mode jusqu'à -80%. Mis à jour en temps réel.",
     intro: "Le Black Friday 2026 tombe le vendredi 27 novembre. Jour le plus intense de l'année pour les promos, on te sélectionne les vraies bonnes affaires — sans les fausses remises maquillées. Amazon, Sephora, Darty, Fnac et plus.",
-    keywords: ["black-friday", "black friday", "cyber monday", "promo novembre", "bonnes affaires noel"],
+    keywords: ["black-friday", "black friday", "cyber monday", "cyber-monday"],
     highlightStart: "2026-11-10",
     highlightEnd: "2026-12-02",
     tips: [
@@ -121,7 +121,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Idées Cadeaux Noël 2026 : Sélection et Bons Plans — Bons Plans Mania",
     seoDescription: "Idées cadeaux Noël 2026 : pour enfants, femmes, hommes, ados. Coffrets beauté, jouets, tech, gastronomie. Sélection testée avec bons plans.",
     intro: "Noël 2026 tombe le vendredi 25 décembre. Nos idées cadeaux pour toute la famille : coffrets beauté, jouets, tech, gastronomie, made in France. Organise tes achats avant les ruptures de stock.",
-    keywords: ["noel", "noël", "cadeau noel", "cadeau noël", "idee cadeau noel", "santa"],
+    keywords: ["noël", "cadeau noel", "cadeau noël", "idée cadeau noël", "idee cadeau noel", "père noël", "pere noel"],
     highlightStart: "2026-11-28",
     highlightEnd: "2026-12-26",
     tips: [
@@ -143,7 +143,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Saint-Valentin 2026 : Idées Cadeaux et Bons Plans — Bons Plans Mania",
     seoDescription: "Idées cadeaux Saint-Valentin 2026 pour lui et elle : bijoux, parfums, coffrets, week-end romantique. Sélection testée avec bons plans.",
     intro: "La Saint-Valentin 2026 est le samedi 14 février. Nos idées cadeaux pour surprendre ton/ta partenaire : bijoux, parfums, coffrets romantiques, expériences, lingerie… Pour tous les budgets.",
-    keywords: ["saint-valentin", "saint valentin", "valentine", "cadeau couple", "romantique", "amoureux"],
+    keywords: ["saint-valentin", "saint valentin", "valentine", "cadeau couple", "cadeau romantique"],
     highlightStart: "2026-01-20",
     highlightEnd: "2026-02-16",
     tips: [
@@ -165,7 +165,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Halloween 2026 : Déguisements, Déco et Bons Plans — Bons Plans Mania",
     seoDescription: "Halloween 2026 (31 octobre) : déguisements enfants et adultes, déco, maquillage, bonbons. Meilleurs prix Amazon, Fnac.",
     intro: "Halloween 2026 tombe le samedi 31 octobre — jour parfait pour faire la fête. Nos bons plans déguisements pour enfants et adultes, décoration, maquillage monstre et bonbons en gros format.",
-    keywords: ["halloween", "déguisement", "deco-halloween", "citrouille", "costume enfant", "monstre"],
+    keywords: ["halloween", "déguisement halloween", "deco halloween", "citrouille"],
     highlightStart: "2026-10-01",
     highlightEnd: "2026-11-02",
     tips: [
@@ -187,7 +187,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Soldes d'Été 2026 : Bons Plans Mode, Beauté, Maison — Bons Plans Mania",
     seoDescription: "Soldes d'été 2026 (24 juin au 21 juillet) : mode, beauté, maison. Zalando, Sephora, Nocibé, Amazon. Promos jusqu'à -70%.",
     intro: "Les soldes d'été 2026 commencent le mercredi 24 juin et durent 4 semaines (jusqu'au 21 juillet). Nos meilleures affaires mode, beauté, maison chez les grandes enseignes : jusqu'à -70% de remise.",
-    keywords: ["soldes", "soldes-ete", "soldes été", "promo ete", "soldes mode"],
+    keywords: ["soldes été", "soldes-ete", "soldes d'ete", "soldes d'été", "soldes été 2026"],
     highlightStart: "2026-06-15",
     highlightEnd: "2026-07-25",
     tips: [
@@ -209,7 +209,7 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
     seoTitle: "Rentrée Scolaire 2026 : Fournitures, Cartables et Bons Plans — Bons Plans Mania",
     seoDescription: "Rentrée scolaire 2026 : bons plans fournitures, cartables, vêtements enfants. Comparatifs Carrefour, Leclerc, Auchan, Amazon.",
     intro: "La rentrée scolaire 2026 approche. Nos bons plans fournitures, cartables, vêtements, équipement pour enfants et étudiants. Comparatifs des grandes enseignes et astuces pour économiser jusqu'à 40% sur la liste de rentrée.",
-    keywords: ["rentree-scolaire", "rentrée scolaire", "fournitures-scolaires", "cartable", "ecole", "étudiant", "lycée"],
+    keywords: ["rentree-scolaire", "rentrée scolaire", "rentree scolaire", "fournitures scolaires", "fournitures-scolaires", "cartable"],
     highlightStart: "2026-08-01",
     highlightEnd: "2026-09-15",
     tips: [
@@ -228,9 +228,11 @@ export function findArticlesForHub(hub: SeasonalHub) {
   return all.filter((a) => {
     const tags = (a.meta.tags || []).map((t) => t.toLowerCase());
     const title = (a.meta.title || "").toLowerCase();
-    const desc = (a.meta.description || "").toLowerCase();
+    // Strict matching : on ne regarde QUE les tags (curés par l'auteur) et le titre
+    // de l'article. On ignore la description qui peut contenir des mots en passant
+    // et polluer le hub avec des articles hors sujet.
     return keywords.some(
-      (k) => tags.some((t) => t.includes(k)) || title.includes(k) || desc.includes(k),
+      (k) => tags.some((t) => t.includes(k)) || title.includes(k),
     );
   });
 }
