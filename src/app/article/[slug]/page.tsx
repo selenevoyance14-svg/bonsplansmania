@@ -273,11 +273,35 @@ export default async function ArticlePage({ params }: PageProps) {
             if (cat === "beaute" || cat === "test-avis" || /skincare|maquillage|serum|sérum|visage|anti-cerne|anti-age|anti-âge|fond de teint|mascara|rouge à lèvres|blush|k-beauty|crème solaire/.test(blob)) {
               push({ url: "/tests-beaute-skincare", label: "Tests Beauté & Skincare", emoji: "✨" });
             }
-            // Fête des Mères (saisonnier jusqu'au 7 juin 2026)
+            // Hubs saisonniers — affichés selon la fenêtre de pertinence de chaque événement
             const now = new Date();
-            const fdmEnd = new Date("2026-06-10");
-            if (now < fdmEnd && /fete.des.meres|fête.des.mères|maman|cadeau/.test(blob)) {
-              push({ url: "/fete-des-meres-2026", label: "Cadeaux Fête des Mères 2026", emoji: "🌸" });
+            const within = (start: string, end: string) => now >= new Date(start) && now <= new Date(end);
+            if (within("2026-01-20", "2026-02-16") && /saint.valentin|valentine|couple|amoureux|romantique/.test(blob)) {
+              push({ url: "/saint-valentin-2026", label: "Cadeaux Saint-Valentin", emoji: "💕" });
+            }
+            if (within("2026-04-20", "2026-06-10") && /fete.des.meres|fête.des.mères|maman|cadeau maman/.test(blob)) {
+              push({ url: "/fete-des-meres-2026", label: "Cadeaux Fête des Mères", emoji: "🌸" });
+            }
+            if (within("2026-06-08", "2026-06-25") && /fete.des.peres|fête.des.pères|papa|cadeau papa/.test(blob)) {
+              push({ url: "/fete-des-peres-2026", label: "Cadeaux Fête des Pères", emoji: "👨" });
+            }
+            if (within("2026-06-15", "2026-07-25") && /soldes|promo.ete|soldes.ete/.test(blob)) {
+              push({ url: "/soldes-ete-2026", label: "Soldes d'Été", emoji: "☀️" });
+            }
+            if (within("2026-08-01", "2026-09-15") && /rentree|rentrée|fourniture|cartable|ecole/.test(blob)) {
+              push({ url: "/rentree-scolaire-2026", label: "Rentrée Scolaire", emoji: "🎒" });
+            }
+            if (within("2026-10-01", "2026-11-02") && /halloween|déguisement|deguisement|citrouille|monstre/.test(blob)) {
+              push({ url: "/halloween-2026", label: "Halloween", emoji: "🎃" });
+            }
+            if (within("2026-11-10", "2026-12-02") && /black.friday|cyber.monday|promo.novembre/.test(blob)) {
+              push({ url: "/black-friday-2026", label: "Black Friday", emoji: "🛍️" });
+            }
+            if (within("2026-09-15", "2026-12-25") && /calendrier.avent|calendrier de l.avent|avent/.test(blob)) {
+              push({ url: "/calendrier-avent-2026", label: "Calendrier de l'Avent", emoji: "🎄" });
+            }
+            if (within("2026-11-28", "2026-12-26") && /noel|noël|cadeau noel|cadeau noël/.test(blob)) {
+              push({ url: "/noel-2026", label: "Cadeaux de Noël", emoji: "🎁" });
             }
             // Concours fallback
             if (cat === "concours" && hubs.length < 2) {

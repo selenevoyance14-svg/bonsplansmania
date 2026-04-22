@@ -282,13 +282,26 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4>Nos hubs SEO</h4>
+              <h4>Hubs permanents</h4>
               <ul className="footer-links" role="list">
-                <li><a href="/fete-des-meres-2026">🌸 Fête des Mères 2026</a></li>
-                <li><a href="/meilleures-box-beaute">⭐ Meilleures Box Beauté</a></li>
                 <li><a href="/amazon-bons-plans">🛒 Amazon Bons Plans</a></li>
                 <li><a href="/bons-plans-bebe">👶 Bons Plans Bébé</a></li>
+                <li><a href="/meilleures-box-beaute">⭐ Meilleures Box Beauté</a></li>
                 <li><a href="/tests-beaute-skincare">✨ Tests Beauté & Skincare</a></li>
+              </ul>
+            </div>
+            <div>
+              <h4>Hubs saison</h4>
+              <ul className="footer-links" role="list">
+                <li><a href="/fete-des-meres-2026">🌸 Fête des Mères</a></li>
+                <li><a href="/fete-des-peres-2026">👨 Fête des Pères</a></li>
+                <li><a href="/soldes-ete-2026">☀️ Soldes d&apos;Été</a></li>
+                <li><a href="/rentree-scolaire-2026">🎒 Rentrée Scolaire</a></li>
+                <li><a href="/halloween-2026">🎃 Halloween</a></li>
+                <li><a href="/black-friday-2026">🛍️ Black Friday</a></li>
+                <li><a href="/calendrier-avent-2026">🎄 Calendrier de l&apos;Avent</a></li>
+                <li><a href="/noel-2026">🎁 Noël</a></li>
+                <li><a href="/saint-valentin-2026">💕 Saint-Valentin</a></li>
               </ul>
             </div>
             <div>
