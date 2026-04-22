@@ -224,16 +224,23 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
 
 export function findArticlesForHub(hub: SeasonalHub) {
   const all = getAllArticles();
-  const keywords = hub.keywords.map((k) => k.toLowerCase());
+  // Keywords normalisés sans espaces/accents pour matcher le slug
+  const slugKeywords = hub.keywords
+    .map((k) => k.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, ""))
+    .filter((k) => k.length >= 5); // exclure mots trop courts
+  const tagKeywords = hub.keywords.map((k) => k.toLowerCase());
+
   return all.filter((a) => {
+    const slug = (a.meta.slug || "").toLowerCase();
     const tags = (a.meta.tags || []).map((t) => t.toLowerCase());
-    const title = (a.meta.title || "").toLowerCase();
-    // Strict matching : on ne regarde QUE les tags (curés par l'auteur) et le titre
-    // de l'article. On ignore la description qui peut contenir des mots en passant
-    // et polluer le hub avec des articles hors sujet.
-    return keywords.some(
-      (k) => tags.some((t) => t.includes(k)) || title.includes(k),
-    );
+
+    // Un article entre dans le hub si :
+    // 1. Son slug contient un keyword (signifie que l'événement est le sujet principal de l'article)
+    // 2. OU un de ses tags correspond exactement (auteur a explicitement tagué l'article)
+    // On ne matche PAS sur le titre ni la description pour éviter les mentions en passant.
+    if (slugKeywords.some((k) => slug.includes(k))) return true;
+    if (tagKeywords.some((k) => tags.some((t) => t === k || t.includes(k)))) return true;
+    return false;
   });
 }
 
