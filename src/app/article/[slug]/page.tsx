@@ -244,6 +244,62 @@ export default async function ArticlePage({ params }: PageProps) {
             </section>
           )}
 
+          {/* Maillage SEO automatique : Hubs pertinents selon les tags et la catégorie */}
+          {(() => {
+            const tags = (article.meta.tags || []).map(t => t.toLowerCase());
+            const cat = article.meta.category;
+            const title = (article.meta.title || "").toLowerCase();
+            const desc = (article.meta.description || "").toLowerCase();
+            const blob = `${title} ${desc} ${tags.join(" ")}`;
+
+            const hubs: Array<{ url: string; label: string; emoji: string }> = [];
+            const push = (h: { url: string; label: string; emoji: string }) => {
+              if (!hubs.some(x => x.url === h.url)) hubs.push(h);
+            };
+
+            // Bébé / puériculture
+            if (/bebe|bébé|puericulture|puériculture|biberon|poussette|siege-auto|siège-auto|couche|landau|chaise-haute|maman|grossesse|berceau|bavoir|lait infantile|philips avent|mam|chicco|thermobaby|biolane|babybio|vulli/.test(blob)) {
+              push({ url: "/bons-plans-bebe", label: "Bons Plans Bébé", emoji: "👶" });
+            }
+            // Amazon
+            if (tags.includes("amazon") || /amazon|amzn/.test(blob)) {
+              push({ url: "/amazon-bons-plans", label: "Amazon Bons Plans", emoji: "🛒" });
+            }
+            // Box beauté
+            if (cat === "box-beaute" || /box beaut|biotyfull|blissim|glowria|lookfantastic|aromabox|prescription lab/.test(blob)) {
+              push({ url: "/meilleures-box-beaute", label: "Meilleures Box Beauté", emoji: "⭐" });
+            }
+            // Beauté / skincare / maquillage
+            if (cat === "beaute" || cat === "test-avis" || /skincare|maquillage|serum|sérum|visage|anti-cerne|anti-age|anti-âge|fond de teint|mascara|rouge à lèvres|blush|k-beauty|crème solaire/.test(blob)) {
+              push({ url: "/tests-beaute-skincare", label: "Tests Beauté & Skincare", emoji: "✨" });
+            }
+            // Fête des Mères (saisonnier jusqu'au 7 juin 2026)
+            const now = new Date();
+            const fdmEnd = new Date("2026-06-10");
+            if (now < fdmEnd && /fete.des.meres|fête.des.mères|maman|cadeau/.test(blob)) {
+              push({ url: "/fete-des-meres-2026", label: "Cadeaux Fête des Mères 2026", emoji: "🌸" });
+            }
+            // Concours fallback
+            if (cat === "concours" && hubs.length < 2) {
+              push({ url: "/categorie/concours", label: "Tous les concours", emoji: "🏆" });
+            }
+
+            if (hubs.length === 0) return null;
+            return (
+              <nav style={{ margin: "32px 0", padding: "20px 24px", background: "linear-gradient(135deg, #fef3f2 0%, #fff7ed 100%)", borderRadius: "16px", border: "1px solid rgba(225,29,72,0.12)" }}>
+                <h3 style={{ fontSize: "1rem", marginBottom: "12px", fontWeight: 700 }}>Nos sélections à explorer</h3>
+                <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                  {hubs.slice(0, 4).map(({ url, label, emoji }) => (
+                    <a key={url} href={url}
+                      style={{ padding: "8px 16px", borderRadius: "999px", background: "white", fontSize: "0.85rem", color: "#374151", textDecoration: "none", fontWeight: 600, border: "1.5px solid rgba(225,29,72,0.15)", transition: "all 0.15s" }}>
+                      {emoji} {label}
+                    </a>
+                  ))}
+                </div>
+              </nav>
+            );
+          })()}
+
           {/* Navigation par catégorie pour maillage interne */}
           <nav style={{ margin: "40px 0", padding: "24px", background: "var(--muted, #f3f4f6)", borderRadius: "16px" }}>
             <h3 style={{ fontSize: "1rem", marginBottom: "12px" }}>Explorer par catégorie</h3>

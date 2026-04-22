@@ -282,6 +282,16 @@ export default function Home() {
               </ul>
             </div>
             <div>
+              <h4>Nos hubs SEO</h4>
+              <ul className="footer-links" role="list">
+                <li><a href="/fete-des-meres-2026">🌸 Fête des Mères 2026</a></li>
+                <li><a href="/meilleures-box-beaute">⭐ Meilleures Box Beauté</a></li>
+                <li><a href="/amazon-bons-plans">🛒 Amazon Bons Plans</a></li>
+                <li><a href="/bons-plans-bebe">👶 Bons Plans Bébé</a></li>
+                <li><a href="/tests-beaute-skincare">✨ Tests Beauté & Skincare</a></li>
+              </ul>
+            </div>
+            <div>
               <h4>Le site</h4>
               <ul className="footer-links" role="list">
                 <li><a href="/blog">Tous les articles</a></li>
