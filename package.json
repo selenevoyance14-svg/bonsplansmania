@@ -6,6 +6,7 @@
     "dev": "next dev",
     "prebuild": "npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts",
     "build": "next build",
+    "postbuild": "npx tsx scripts/clean-rsc-txt.ts",
     "start": "next start",
     "lint": "eslint"
   },
