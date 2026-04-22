@@ -10,48 +10,57 @@ import { join } from "node:path";
 //
 // We register on both `exit` and `beforeExit` so the cleanup runs regardless
 // of how the build is invoked (npm run build, next build, or a wrapper).
-const OUT_DIR = "out";
+// We also clean .next/ pages HTML/RSC artifacts that some Cloudflare adapters
+// (next-on-pages, opennext) might include in their deployment bundle.
+const OUT_DIRS = ["out", ".vercel/output/static", ".open-next/assets", ".next/server/app"];
 const ROOT_KEEP = [/^__next\._/];
 
 function cleanupRscTxtSync() {
-  try {
-    statSync(OUT_DIR);
-  } catch {
-    return; // no out/ yet
-  }
-  let deleted = 0;
-  const walk = (dir: string, depth: number): void => {
-    let names: string[];
+  let totalDeleted = 0;
+  for (const OUT_DIR of OUT_DIRS) {
     try {
-      names = readdirSync(dir);
+      statSync(OUT_DIR);
     } catch {
-      return;
+      continue; // dir doesn't exist, skip
     }
-    for (const name of names) {
-      const full = join(dir, name);
-      let st;
+    let deleted = 0;
+    const walk = (dir: string, depth: number): void => {
+      let names: string[];
       try {
-        st = statSync(full);
+        names = readdirSync(dir);
       } catch {
-        continue;
+        return;
       }
-      if (st.isDirectory()) {
-        walk(full, depth + 1);
-      } else if (st.isFile() && name.endsWith(".txt")) {
-        const keepAtRoot = depth === 0 && ROOT_KEEP.some((p) => p.test(name));
-        if (keepAtRoot) continue;
+      for (const name of names) {
+        const full = join(dir, name);
+        let st;
         try {
-          unlinkSync(full);
-          deleted++;
+          st = statSync(full);
         } catch {
-          // ignore
+          continue;
+        }
+        if (st.isDirectory()) {
+          walk(full, depth + 1);
+        } else if (st.isFile() && name.endsWith(".txt")) {
+          const keepAtRoot = depth === 0 && ROOT_KEEP.some((p) => p.test(name));
+          if (keepAtRoot) continue;
+          try {
+            unlinkSync(full);
+            deleted++;
+          } catch {
+            // ignore
+          }
         }
       }
+    };
+    walk(OUT_DIR, 0);
+    if (deleted > 0) {
+      console.log(`[next-config] Cleaned ${deleted} RSC payload .txt files from ${OUT_DIR}/`);
+      totalDeleted += deleted;
     }
-  };
-  walk(OUT_DIR, 0);
-  if (deleted > 0) {
-    console.log(`[next-config] Cleaned ${deleted} RSC payload .txt files from ${OUT_DIR}/`);
+  }
+  if (totalDeleted > 0) {
+    console.log(`[next-config] Total RSC .txt cleaned : ${totalDeleted}`);
   }
 }
 
