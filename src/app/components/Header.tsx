@@ -25,6 +25,7 @@ export default function Header({ activePage }: { activePage?: string }) {
   const [beautyOpen, setBeautyOpen] = useState(false);
   const [testsOpen, setTestsOpen] = useState(false);
   const [bonsPlansOpen, setBonsPlansOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false);
   const dropdownRef = useRef<HTMLDivElement>(null);
   const testsRef = useRef<HTMLDivElement>(null);
   const bonsPlansRef = useRef<HTMLDivElement>(null);
@@ -125,8 +126,75 @@ export default function Header({ activePage }: { activePage?: string }) {
               <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
             </a>
           </nav>
+
+          {/* Burger button : visible uniquement sur mobile via CSS */}
+          <button
+            className="burger-btn"
+            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
+            aria-expanded={mobileOpen}
+            onClick={() => setMobileOpen(!mobileOpen)}
+          >
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+              {mobileOpen ? (
+                <>
+                  <line x1="18" y1="6" x2="6" y2="18" />
+                  <line x1="6" y1="6" x2="18" y2="18" />
+                </>
+              ) : (
+                <>
+                  <line x1="3" y1="6" x2="21" y2="6" />
+                  <line x1="3" y1="12" x2="21" y2="12" />
+                  <line x1="3" y1="18" x2="21" y2="18" />
+                </>
+              )}
+            </svg>
+          </button>
         </div>
       </div>
+
+      {/* Panneau menu mobile (s'affiche quand mobileOpen = true) */}
+      {mobileOpen && (
+        <div className="mobile-menu" role="navigation" aria-label="Menu principal">
+          <a href="/" onClick={() => setMobileOpen(false)}>Accueil</a>
+          <div className="mobile-menu-section">
+            <span className="mobile-menu-title">Bons Plans</span>
+            <a href="/categorie/bon-plan" onClick={() => setMobileOpen(false)}>Tous les bons plans</a>
+            <a href="/amazon-bons-plans" onClick={() => setMobileOpen(false)}>🛒 Amazon Bons Plans</a>
+            <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Bons Plans Bébé</a>
+          </div>
+          <div className="mobile-menu-section">
+            <span className="mobile-menu-title">Tests Produits</span>
+            <a href="/categorie/test-produit" onClick={() => setMobileOpen(false)}>Tous les tests</a>
+            <a href="/categorie/test-gratuit" onClick={() => setMobileOpen(false)}>Tests Gratuits</a>
+            <a href="/categorie/test-avis" onClick={() => setMobileOpen(false)}>Tests & Avis</a>
+            <a href="/tests-beaute-skincare" onClick={() => setMobileOpen(false)}>✨ Tests Beauté & Skincare</a>
+          </div>
+          <a href="/categorie/concours" onClick={() => setMobileOpen(false)}>Concours</a>
+          <div className="mobile-menu-section">
+            <span className="mobile-menu-title">Beauté</span>
+            <a href="/categorie/beaute" onClick={() => setMobileOpen(false)}>Conseils & Tests</a>
+            <a href="/categorie/box-beaute" onClick={() => setMobileOpen(false)}>Box Beauté</a>
+            <a href="/meilleures-box-beaute" onClick={() => setMobileOpen(false)}>⭐ Meilleures Box Beauté</a>
+            <a href="/tests-beaute-skincare" onClick={() => setMobileOpen(false)}>✨ Tests Skincare & Maquillage</a>
+            <a href="/categorie/calendrier-avent" onClick={() => setMobileOpen(false)}>Calendrier de l&apos;Avent</a>
+          </div>
+          {(() => {
+            const seasonal = getActiveSeasonalHub();
+            if (!seasonal) return null;
+            return (
+              <a
+                href={`/${seasonal.slug}`}
+                onClick={() => setMobileOpen(false)}
+                style={{ color: seasonal.color, fontWeight: 700 }}
+              >
+                {seasonal.emoji} {seasonal.label}
+              </a>
+            );
+          })()}
+          <a href="/blog" onClick={() => setMobileOpen(false)}>Tous les articles</a>
+          <a href="/recherche" onClick={() => setMobileOpen(false)}>🔍 Rechercher</a>
+        </div>
+      )}
     </header>
   );
 }

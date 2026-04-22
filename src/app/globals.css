@@ -1234,6 +1234,27 @@ body {
 }
 
 /* ── RESPONSIVE ── */
+/* Burger menu : caché par défaut (desktop), affiché sur mobile */
+.burger-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: inherit;
+  cursor: pointer;
+  padding: 8px;
+  margin-left: auto;
+  border-radius: 8px;
+  transition: background 0.15s;
+}
+.burger-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Panneau menu mobile : caché par défaut */
+.mobile-menu {
+  display: none;
+}
+
 @media (max-width: 768px) {
   .footer-grid {
     grid-template-columns: 1fr 1fr;
@@ -1255,6 +1276,79 @@ body {
 
   .nav {
     display: none;
+  }
+
+  /* Burger visible uniquement sur mobile */
+  .burger-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* Panneau menu mobile plein largeur sous le header */
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    background: var(--header-bg, #0a0a0a);
+    color: var(--header-text, #fff);
+    padding: 12px 16px 24px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    max-height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    position: absolute;
+    top: var(--header-height);
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  }
+
+  .mobile-menu > a {
+    display: block;
+    padding: 14px 12px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 600;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    transition: background 0.15s;
+  }
+
+  .mobile-menu > a:hover,
+  .mobile-menu > a:active {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .mobile-menu-section {
+    display: flex;
+    flex-direction: column;
+    padding: 8px 0 4px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .mobile-menu-section .mobile-menu-title {
+    display: block;
+    padding: 6px 12px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .mobile-menu-section a {
+    display: block;
+    padding: 10px 12px 10px 20px;
+    color: inherit;
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: background 0.15s;
+  }
+
+  .mobile-menu-section a:hover,
+  .mobile-menu-section a:active {
+    background: rgba(255, 255, 255, 0.05);
   }
 
   .articles-grid {
