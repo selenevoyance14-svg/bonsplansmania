@@ -224,22 +224,21 @@ export const SEASONAL_HUBS: SeasonalHub[] = [
 
 export function findArticlesForHub(hub: SeasonalHub) {
   const all = getAllArticles();
-  // Keywords normalisés sans espaces/accents pour matcher le slug
-  const slugKeywords = hub.keywords
-    .map((k) => k.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, ""))
-    .filter((k) => k.length >= 5); // exclure mots trop courts
-  const tagKeywords = hub.keywords.map((k) => k.toLowerCase());
+  // Normalise un texte (accents, espaces → tirets) pour comparer slugs et tags de façon homogène.
+  const norm = (s: string) => s.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").replace(/[^a-z0-9]/g, "-").replace(/-+/g, "-").replace(/^-|-$/g, "");
+  // Keyword slugifié, utilisé pour matcher le slug (inclusion) ET les tags (égalité stricte).
+  const normKeywords = hub.keywords.map(norm).filter((k) => k.length >= 5);
 
   return all.filter((a) => {
     const slug = (a.meta.slug || "").toLowerCase();
-    const tags = (a.meta.tags || []).map((t) => t.toLowerCase());
+    const tagsNorm = (a.meta.tags || []).map((t) => norm(t));
 
     // Un article entre dans le hub si :
-    // 1. Son slug contient un keyword (signifie que l'événement est le sujet principal de l'article)
-    // 2. OU un de ses tags correspond exactement (auteur a explicitement tagué l'article)
-    // On ne matche PAS sur le titre ni la description pour éviter les mentions en passant.
-    if (slugKeywords.some((k) => slug.includes(k))) return true;
-    if (tagKeywords.some((k) => tags.some((t) => t === k || t.includes(k)))) return true;
+    // 1. son slug contient un mot-clé normalisé (l'événement est le sujet principal)
+    // 2. OU un de ses tags correspond EXACTEMENT à un mot-clé normalisé (tag déclaré par l'auteur)
+    // Pas de match sur le titre, la description ou les tags partiels : ça pompe trop de contenu hors sujet.
+    if (normKeywords.some((k) => slug.includes(k))) return true;
+    if (normKeywords.some((k) => tagsNorm.includes(k))) return true;
     return false;
   });
 }

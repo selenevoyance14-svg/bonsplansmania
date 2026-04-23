@@ -26,21 +26,27 @@ export const metadata: Metadata = {
 
 export default async function BonsPlansBebePage() {
   const all = getAllArticles();
-  const keywords = [
-    "bebe", "bébé", "puericulture", "puériculture", "biberon", "tetine", "tétine",
-    "enfant", "enfants", "bambin", "nouveau-né", "maman", "grossesse", "couche",
-    "poussette", "siege-auto", "siège-auto", "bavoir", "berceau", "chaise-haute",
-    "landau", "babycook", "babyphone", "jouet", "peluche", "lait infantile",
-    "philips avent", "mam", "chicco", "thermobaby", "tigex", "babymoov",
-    "vertbaudet", "kesser", "kenlumo", "momi", "vulli", "homvana", "biolane",
-    "babybio", "sophie la girafe",
+  // Strict : slug OR tag exact (pas de match sur title/description qui polluait massivement).
+  const slugTokens = [
+    "bebe", "puericulture", "biberon", "tetine", "poussette", "siege-auto", "landau",
+    "babycook", "babyphone", "tire-lait", "chaise-haute", "berceau", "cododo", "sophie-la-girafe",
+    "babyboom", "mamadvisor", "allaitement", "grossesse", "maternite", "parent-bebe",
+    "philips-avent", "thermobaby", "babymoov", "vertbaudet", "babybio", "biolane", "chicco-",
+    "babyphone", "kesser", "bebeboutik",
   ];
+  const exactTags = new Set([
+    "bebe", "puericulture", "biberon", "tetine", "poussette", "siege-auto", "maman",
+    "maternite", "allaitement", "grossesse", "babyboom", "enfant", "parent",
+    "philips-avent", "mam", "chicco", "thermobaby", "babymoov", "tigex", "vertbaudet",
+    "babybio", "biolane", "vulli", "kesser", "sophie-la-girafe",
+  ]);
 
   const articles = all.filter((a) => {
+    const slug = (a.meta.slug || "").toLowerCase();
     const tags = (a.meta.tags || []).map((t) => t.toLowerCase());
-    const title = (a.meta.title || "").toLowerCase();
-    const desc = (a.meta.description || "").toLowerCase();
-    return keywords.some((k) => tags.some((t) => t.includes(k)) || title.includes(k) || desc.includes(k));
+    if (slugTokens.some((k) => slug.includes(k))) return true;
+    if (tags.some((t) => exactTags.has(t))) return true;
+    return false;
   });
 
   const cards = articles.map((a) => {

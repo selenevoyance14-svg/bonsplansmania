@@ -27,13 +27,16 @@ export const metadata: Metadata = {
 export default async function MeilleuresBoxBeautePage() {
   const all = getAllArticles();
 
-  // Include category box-beaute + articles tagged with a box brand
-  const boxBrands = ["biotyfull", "blissim", "glowria", "lookfantastic", "beautybox", "aromabox", "prescription-lab", "prescription lab", "my-little-box", "my little box", "kookie-box", "box-beaute", "box beaute", "box beauté"];
+  // Strict : catégorie box-beaute OU slug/tag qui mentionne explicitement une box (pas de match sur le titre, trop permissif)
+  const slugTokens = ["biotyfull-box", "blissim-box", "glowria-box", "box-beaute", "aromabox", "laromabox", "lookfantastic-beauty-box", "my-little-box", "kookie-box", "prescription-lab", "box-decouverte-beaute"];
+  const exactTags = new Set(["box-beaute", "box-beauté", "biotyfull-box", "blissim", "glowria", "lookfantastic-beauty-box", "aromabox", "laromabox", "my-little-box", "prescription-lab", "kookie-box", "beauty-box"]);
   const articles = all.filter((a) => {
     if (a.meta.category === "box-beaute") return true;
+    const slug = (a.meta.slug || "").toLowerCase();
     const tags = (a.meta.tags || []).map((t) => t.toLowerCase());
-    const title = (a.meta.title || "").toLowerCase();
-    return boxBrands.some((b) => tags.some((t) => t.includes(b)) || title.includes(b));
+    if (slugTokens.some((k) => slug.includes(k))) return true;
+    if (tags.some((t) => exactTags.has(t))) return true;
+    return false;
   });
 
   const cards = articles.map((a) => {

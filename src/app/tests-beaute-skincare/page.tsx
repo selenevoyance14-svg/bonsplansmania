@@ -26,26 +26,30 @@ export const metadata: Metadata = {
 
 export default async function TestsBeauteSkincarePage() {
   const all = getAllArticles();
-  const beautyCats = ["test-avis", "test-gratuit", "beaute", "box-beaute", "selection"];
-  const beautyKeywords = [
-    "skincare", "maquillage", "creme", "crème", "serum", "sérum", "soin",
-    "visage", "contour-yeux", "anti-age", "anti-âge", "anti-ride",
-    "anti-cerne", "fond-de-teint", "mascara", "rouge-a-levres", "rouge à lèvres",
-    "blush", "teint", "correcteur", "illuminateur", "parfum",
-    "k-beauty", "coreen", "coréen", "yesstyle", "erborian",
-    "cosmetique", "cosmétique", "clean-beauty", "vegan beaute", "bio",
-    "hydratation", "nettoyant", "lotion", "exfoliant", "masque visage",
-    "cheveux", "shampoing", "shampooing", "conditioner", "coloration",
-    "maybelline", "nyx", "loreal", "cerave", "la roche-posay", "bioderma",
-    "nuxe", "avene", "avène", "uriage", "neutrogena", "sephora", "yves rocher",
+  // Strict : catégories explicitement beauté + slug/tag dédié. Pas de match sur title/description (trop permissif).
+  const beautyCats = new Set(["test-avis", "beaute", "selection"]);
+  const slugTokens = [
+    "skincare", "maquillage", "fond-de-teint", "anti-cerne", "anti-age", "anti-ride",
+    "creme-solaire", "serum-visage", "soin-visage", "contour-yeux", "masque-visage",
+    "shampoing", "shampooing", "apres-shampoing", "soin-cheveux", "seche-cheveux", "lisseur", "boucleur",
+    "erborian", "magnifaik", "nuxe", "cerave", "la-roche-posay", "bioderma", "avene", "uriage",
+    "maybelline", "loreal", "yves-rocher", "sephora-", "nocibe", "dior-beaute",
+    "k-beauty", "coreen", "yesstyle", "mascara", "rouge-a-levres", "blush-", "fard-",
   ];
+  const exactTags = new Set([
+    "skincare", "maquillage", "soin-visage", "anti-age", "anti-cerne", "fond-de-teint",
+    "mascara", "rouge-a-levres", "serum", "creme-visage", "parfum", "beaute",
+    "cheveux", "shampoing", "coloration", "k-beauty", "cosmetique",
+    "maybelline", "erborian", "nuxe", "cerave", "bioderma", "la-roche-posay", "avene", "uriage", "magnifaik",
+  ]);
 
   const articles = all.filter((a) => {
-    if (beautyCats.includes(a.meta.category)) return true;
+    if (beautyCats.has(a.meta.category)) return true;
+    const slug = (a.meta.slug || "").toLowerCase();
     const tags = (a.meta.tags || []).map((t) => t.toLowerCase());
-    const title = (a.meta.title || "").toLowerCase();
-    const desc = (a.meta.description || "").toLowerCase();
-    return beautyKeywords.some((k) => tags.some((t) => t.includes(k)) || title.includes(k) || desc.includes(k));
+    if (slugTokens.some((k) => slug.includes(k))) return true;
+    if (tags.some((t) => exactTags.has(t))) return true;
+    return false;
   });
 
   const cards = articles.map((a) => {
