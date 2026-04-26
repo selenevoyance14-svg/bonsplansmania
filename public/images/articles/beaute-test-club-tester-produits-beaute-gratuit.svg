@@ -1,44 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#4A148C;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#6A1B9A;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#AB47BC;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#880E4F;stop-opacity:1" />
     </linearGradient>
   </defs>
-
   <rect width="1200" height="630" fill="url(#bg)" />
-  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
-  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.05" />
-
-  <!-- Site badge -->
-  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
   <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#E91E63" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Beauté-Test : Testez</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">des Produits</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Beauté-Test.com sélectionne des testeuses chaque sem...</text>
 
-  <!-- Category badge -->
-  <rect x="80" y="128" width="200" height="36" rx="18" fill="url(#badge)" />
-  <text x="180" y="152" font-family="Arial, sans-serif" font-size="16" fill="#5B1A00" text-anchor="middle" font-weight="700">🎁 TEST GRATUIT</text>
-
-  <!-- Title -->
-  <text x="80" y="262" font-family="Georgia, serif" font-size="88" fill="white" font-weight="700">beauté</text>
-  <text x="80" y="342" font-family="Georgia, serif" font-size="88" fill="#FFD700" font-weight="700">test</text>
-
-  <rect x="80" y="360" width="100" height="3" rx="2" fill="white" fill-opacity="0.5" />
-
-  <text x="80" y="404" font-family="Arial, sans-serif" font-size="26" fill="white" fill-opacity="0.95" font-weight="600">Le Club des Testeuses Beauté</text>
-
-  <!-- Brands -->
-  <rect x="80" y="428" width="600" height="64" rx="12" fill="white" fill-opacity="0.12" />
-  <text x="100" y="452" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.85">L'Oréal · Garnier · Nuxe · Gillette · et +</text>
-  <text x="100" y="480" font-family="Arial, sans-serif" font-size="22" fill="#FFD700" font-weight="700">+1 000 produits testés · Nouvelles campagnes /semaine</text>
-
-  <!-- Free badge -->
-  <rect x="80" y="514" width="220" height="44" rx="10" fill="white" fill-opacity="0.15" />
-  <text x="100" y="541" font-family="Arial, sans-serif" font-size="22" fill="white" font-weight="700">Inscription gratuite</text>
-
-  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Campagnes en cours</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

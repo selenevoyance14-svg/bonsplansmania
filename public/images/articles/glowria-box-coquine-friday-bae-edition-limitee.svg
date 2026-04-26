@@ -1,90 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fce4ec;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#fde8e8;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="coral" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ef5350;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e53935;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="pinkCircle" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#f8bbd0;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f48fb1;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#880E4F;stop-opacity:1" />
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
-
-  <!-- Hearts -->
-  <text x="620" y="40" font-size="16" fill="#e53935" opacity="0.4">&#9829;</text>
-  <text x="660" y="60" font-size="12" fill="#e53935" opacity="0.3">&#9829;</text>
-  <text x="640" y="85" font-size="10" fill="#e53935" opacity="0.25">&#9829;</text>
-  <text x="150" y="60" font-size="14" fill="#e53935" opacity="0.3">&#9829;</text>
-
-  <!-- Glowria branding -->
-  <text x="400" y="38" text-anchor="middle" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#e53935">Glowria</text>
-  <text x="400" y="55" text-anchor="middle" font-family="Georgia, serif" font-size="9" fill="#999" font-style="italic">ex Beautiful Box</text>
-
-  <!-- Title -->
-  <text x="400" y="90" text-anchor="middle" font-family="Georgia, serif" font-size="26" font-weight="bold" fill="#c62828" font-style="italic">La Box Coquine</text>
-  <text x="400" y="115" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">by Glowria x Friday Bae</text>
-
-  <!-- Products -->
-  <!-- Vibromasseur -->
-  <g transform="translate(100, 140)">
-    <rect x="0" y="0" width="130" height="115" rx="10" fill="white" opacity="0.85"/>
-    <rect x="50" y="15" width="14" height="60" rx="7" fill="#fff9c4"/>
-    <circle cx="57" cy="18" r="10" fill="#fff176" opacity="0.8"/>
-    <text x="65" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#c62828">Vibromasseur</text>
-  </g>
-
-  <!-- Lubrifiant -->
-  <g transform="translate(250, 140)">
-    <rect x="0" y="0" width="130" height="115" rx="10" fill="white" opacity="0.85"/>
-    <rect x="30" y="15" width="28" height="55" rx="6" fill="#ffcdd2" opacity="0.8"/>
-    <text x="44" y="35" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#c62828" font-weight="bold">KISS</text>
-    <rect x="68" y="18" width="26" height="50" rx="5" fill="#ffe0b2" opacity="0.8"/>
-    <text x="81" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#e65100" font-weight="bold">TASTE</text>
-    <text x="65" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#c62828">Lubrifiant</text>
-    <text x="65" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Friday Bae</text>
-  </g>
-
-  <!-- Baume -->
-  <g transform="translate(400, 140)">
-    <rect x="0" y="0" width="130" height="115" rx="10" fill="white" opacity="0.85"/>
-    <circle cx="65" cy="42" r="20" fill="#f8bbd0" opacity="0.5"/>
-    <circle cx="65" cy="42" r="12" fill="#ef9a9a" opacity="0.4"/>
-    <text x="65" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#c62828">Baume Levres</text>
-    <text x="65" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Chaud Froid</text>
-  </g>
-
-  <!-- Trousse Shibae -->
-  <g transform="translate(550, 140)">
-    <rect x="0" y="0" width="130" height="115" rx="10" fill="white" opacity="0.85"/>
-    <!-- Shiba shape -->
-    <ellipse cx="65" cy="42" rx="28" ry="20" fill="#ffcc80"/>
-    <ellipse cx="65" cy="48" rx="18" ry="12" fill="white" opacity="0.6"/>
-    <circle cx="55" cy="38" r="3" fill="#333"/>
-    <circle cx="75" cy="38" r="3" fill="#333"/>
-    <ellipse cx="65" cy="43" rx="4" ry="3" fill="#333"/>
-    <!-- Ears -->
-    <polygon points="42,28 48,15 54,28" fill="#e0a050"/>
-    <polygon points="76,28 82,15 88,28" fill="#e0a050"/>
-    <text x="65" y="82" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" font-weight="bold" fill="#c62828">Trousse Shibae</text>
-    <text x="65" y="95" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#888">Friday Bae</text>
-  </g>
-
-  <!-- 50% badge -->
-  <circle cx="400" cy="320" r="50" fill="url(#pinkCircle)"/>
-  <text x="400" y="315" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="white">50%</text>
-  <text x="400" y="338" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="white" font-style="italic">offerts</text>
-
-  <!-- Price -->
-  <text x="280" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#999" text-decoration="line-through">69€</text>
-  <text x="400" y="395" text-anchor="middle" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#c62828">29,90€</text>
-
-  <!-- Bottom -->
-  <text x="400" y="425" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#888">A l'unite sans abonnement — Livraison offerte — 121€ de produits</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="100" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="130" y="152" font-family="Arial, sans-serif" font-size="16" fill="#E91E63" text-anchor="middle" font-weight="700">-50%</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Glowria Box Coquine x</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Friday Bae</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">La Box Coquine Glowria x Friday Bae à 29,90&#8364; au lieu...</text>
+  <text x="80" y="460" font-family="Arial, sans-serif" font-size="36" fill="white" font-weight="700">121&#8364;</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

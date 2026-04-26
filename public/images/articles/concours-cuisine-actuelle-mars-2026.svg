@@ -1,46 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#B71C1C;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#C62828;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#EF5350;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
-      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#7B1FA2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A148C;stop-opacity:1" />
     </linearGradient>
   </defs>
-
   <rect width="1200" height="630" fill="url(#bg)" />
-  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
-  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.05" />
-  <!-- Fork/knife deco -->
-  <path d="M 900 100 Q 1000 300 950 550" stroke="white" stroke-width="2" fill="none" stroke-opacity="0.08" />
-  <path d="M 860 80 Q 960 280 920 560" stroke="white" stroke-width="1.5" fill="none" stroke-opacity="0.06" />
-
-  <!-- Site badge -->
-  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
   <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#7B1FA2" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Concours Cuisine</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Actuelle : Voyages,</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Cuisine Actuelle organise plusieurs concours gratuit...</text>
 
-  <!-- Category badge -->
-  <rect x="80" y="128" width="180" height="36" rx="18" fill="url(#badge)" />
-  <text x="170" y="152" font-family="Arial, sans-serif" font-size="16" fill="#5B1A00" text-anchor="middle" font-weight="700">🏆 CONCOURS</text>
-
-  <!-- Title -->
-  <text x="80" y="250" font-family="Georgia, serif" font-size="38" fill="white" font-weight="400" fill-opacity="0.85">Concours</text>
-  <text x="80" y="318" font-family="Georgia, serif" font-size="78" fill="white" font-weight="700">Cuisine</text>
-  <text x="80" y="378" font-family="Georgia, serif" font-size="78" fill="white" font-weight="700">Actuelle</text>
-
-  <rect x="80" y="396" width="100" height="3" rx="2" fill="#FFD700" fill-opacity="0.8" />
-
-  <!-- Lots -->
-  <rect x="80" y="418" width="660" height="66" rx="12" fill="white" fill-opacity="0.12" />
-  <text x="100" y="442" font-family="Arial, sans-serif" font-size="19" fill="white" fill-opacity="0.9" font-weight="600">🌍 Séjour PortAventura 4★ · 🎡 Futuroscope</text>
-  <text x="100" y="472" font-family="Arial, sans-serif" font-size="22" fill="#FFD700" font-weight="700">+3 500 € de lots à gagner · Mars 2026</text>
-
-  <!-- Free badge -->
-  <rect x="80" y="504" width="220" height="44" rx="10" fill="white" fill-opacity="0.15" />
-  <text x="100" y="531" font-family="Arial, sans-serif" font-size="22" fill="white" font-weight="700">Participation gratuite</text>
-
-  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Concours en cours</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

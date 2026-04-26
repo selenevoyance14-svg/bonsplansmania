@@ -1,110 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#fce4ec;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f8bbd0;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="box1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#c8956c;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#a0714e;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="box2" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#a8d5a2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#81c784;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="box3" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#90caf9;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#7babd4;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e91e63;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c2185b;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#880E4F;stop-opacity:1" />
     </linearGradient>
   </defs>
-
-  <!-- Background -->
-  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
-
-  <!-- Decorative circles -->
-  <circle cx="50" cy="50" r="80" fill="#f48fb1" opacity="0.15"/>
-  <circle cx="750" cy="400" r="100" fill="#f48fb1" opacity="0.12"/>
-  <circle cx="400" cy="20" r="40" fill="#f8bbd0" opacity="0.2"/>
-
-  <!-- Title -->
-  <text x="400" y="55" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="16" font-weight="bold" fill="#e91e63" letter-spacing="2">VIVE LE 20 !</text>
-  <text x="400" y="90" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="30" font-weight="bold" fill="#333">3 Nouvelles Box</text>
-  <text x="400" y="120" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="22" fill="#555">pour moins de <tspan font-weight="bold" fill="#e91e63" font-size="28">20€</tspan></text>
-
-  <!-- Sans engagement badge -->
-  <rect x="280" y="132" width="240" height="30" rx="15" fill="url(#badge)"/>
-  <text x="400" y="152" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="13" font-weight="bold" fill="white" letter-spacing="1">SANS ENGAGEMENT</text>
-
-  <!-- Box 1 - Leopard -->
-  <g transform="translate(95, 190)">
-    <rect x="0" y="0" width="170" height="180" rx="12" fill="url(#box1)" opacity="0.9"/>
-    <rect x="10" y="10" width="150" height="110" rx="8" fill="white" opacity="0.3"/>
-    <!-- Leopard pattern dots -->
-    <circle cx="40" cy="40" r="6" fill="#5d4037" opacity="0.4"/>
-    <circle cx="70" cy="55" r="5" fill="#5d4037" opacity="0.35"/>
-    <circle cx="100" cy="35" r="7" fill="#5d4037" opacity="0.4"/>
-    <circle cx="130" cy="60" r="5" fill="#5d4037" opacity="0.3"/>
-    <circle cx="55" cy="75" r="6" fill="#5d4037" opacity="0.35"/>
-    <circle cx="115" cy="85" r="5" fill="#5d4037" opacity="0.4"/>
-    <circle cx="85" cy="95" r="4" fill="#5d4037" opacity="0.3"/>
-    <!-- Products icons -->
-    <rect x="30" y="70" width="20" height="45" rx="4" fill="white" opacity="0.6"/>
-    <rect x="60" y="60" width="18" height="55" rx="4" fill="#f5e6d3" opacity="0.7"/>
-    <circle cx="115" cy="80" r="18" fill="#ffd54f" opacity="0.5"/>
-    <text x="85" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Trousse Léopard</text>
-    <text x="85" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.9">594€ de produits</text>
-  </g>
-
-  <!-- Box 2 - Ecosecret -->
-  <g transform="translate(315, 190)">
-    <rect x="0" y="0" width="170" height="180" rx="12" fill="url(#box2)" opacity="0.9"/>
-    <rect x="10" y="10" width="150" height="110" rx="8" fill="white" opacity="0.3"/>
-    <!-- Leaf decorations -->
-    <ellipse cx="45" cy="50" rx="15" ry="8" fill="#4caf50" opacity="0.4" transform="rotate(-30 45 50)"/>
-    <ellipse cx="85" cy="40" rx="12" ry="6" fill="#66bb6a" opacity="0.35" transform="rotate(20 85 40)"/>
-    <ellipse cx="125" cy="55" rx="14" ry="7" fill="#4caf50" opacity="0.3" transform="rotate(-15 125 55)"/>
-    <!-- Products -->
-    <rect x="50" y="55" width="22" height="50" rx="3" fill="white" opacity="0.6"/>
-    <rect x="80" y="50" width="18" height="55" rx="3" fill="#e8f5e9" opacity="0.7"/>
-    <rect x="108" y="60" width="20" height="42" rx="3" fill="white" opacity="0.5"/>
-    <text x="85" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Ecosecret x Glowria</text>
-    <text x="85" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.9">Soins naturels</text>
-  </g>
-
-  <!-- Box 3 - Nouveauté -->
-  <g transform="translate(535, 190)">
-    <rect x="0" y="0" width="170" height="180" rx="12" fill="url(#box3)" opacity="0.9"/>
-    <rect x="10" y="10" width="150" height="110" rx="8" fill="white" opacity="0.3"/>
-    <!-- Sparkle decorations -->
-    <text x="40" y="50" font-size="16" fill="white" opacity="0.5">+</text>
-    <text x="100" y="40" font-size="14" fill="white" opacity="0.4">+</text>
-    <text x="130" y="70" font-size="18" fill="white" opacity="0.45">+</text>
-    <!-- Products -->
-    <rect x="35" y="50" width="24" height="50" rx="4" fill="white" opacity="0.6"/>
-    <rect x="70" y="45" width="20" height="58" rx="4" fill="#e3f2fd" opacity="0.7"/>
-    <rect x="100" y="55" width="28" height="40" rx="4" fill="white" opacity="0.5"/>
-    <!-- Nouveauté tag -->
-    <rect x="45" y="5" width="80" height="20" rx="10" fill="#4caf50"/>
-    <text x="85" y="19" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">NOUVEAUTÉ</text>
-    <text x="85" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white">Box Bleue</text>
-    <text x="85" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.9">Routine complète</text>
-  </g>
-
-  <!-- Price badge -->
-  <circle cx="85" cy="410" r="35" fill="url(#badge)"/>
-  <text x="85" y="405" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white">19,90€</text>
-  <text x="85" y="422" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" opacity="0.9">/mois</text>
-
-  <!-- Bottom text -->
-  <text x="400" y="415" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="14" fill="#666">Testez sans risque — Résiliable à tout moment</text>
-
-  <!-- Flowers decoration -->
-  <circle cx="680" cy="415" r="8" fill="#f48fb1" opacity="0.5"/>
-  <circle cx="700" cy="400" r="6" fill="#f8bbd0" opacity="0.6"/>
-  <circle cx="720" cy="420" r="7" fill="#f48fb1" opacity="0.4"/>
-  <circle cx="695" cy="430" r="5" fill="#f8bbd0" opacity="0.5"/>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#E91E63" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">3 Nouvelles Box Beauté</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">pour moins de</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Découvrez 3 nouvelles box beauté à moins de 20&#8364; par ...</text>
+  <text x="80" y="460" font-family="Arial, sans-serif" font-size="36" fill="white" font-weight="700">20&#8364;</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

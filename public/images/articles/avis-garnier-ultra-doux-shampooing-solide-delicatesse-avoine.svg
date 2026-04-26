@@ -1,80 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="gda-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFF5F5"/>
-      <stop offset="100%" style="stop-color:#F5E8E8"/>
-    </linearGradient>
-    <linearGradient id="gda-pink" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#E8A0B0"/>
-      <stop offset="100%" style="stop-color:#D08898"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#9C27B0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6A1B9A;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#gda-bg)"/>
-  <!-- Oat grain decorations -->
-  <g opacity="0.08" fill="#C8A870">
-    <ellipse cx="100" cy="80" rx="8" ry="25" transform="rotate(-30, 100, 80)"/>
-    <ellipse cx="130" cy="70" rx="7" ry="22" transform="rotate(-20, 130, 70)"/>
-    <ellipse cx="700" cy="380" rx="8" ry="25" transform="rotate(20, 700, 380)"/>
-    <ellipse cx="670" cy="400" rx="7" ry="22" transform="rotate(35, 670, 400)"/>
-    <ellipse cx="720" cy="100" rx="6" ry="20" transform="rotate(-15, 720, 100)"/>
-  </g>
-  <!-- Product box -->
-  <g transform="translate(80, 60)">
-    <rect x="0" y="0" width="250" height="280" rx="8" fill="#F8E0E4" opacity="0.95"/>
-    <rect x="0" y="0" width="250" height="35" rx="8" fill="#2D7A3A"/>
-    <rect x="0" y="20" width="250" height="15" fill="#2D7A3A"/>
-    <text x="125" y="25" font-family="Poppins, sans-serif" font-size="14" font-weight="900" fill="white" text-anchor="middle">ZERO DECHET PLASTIQUE</text>
-    <text x="160" y="65" font-family="Georgia, serif" font-size="12" fill="#2D7A3A" text-anchor="middle">GARNIER</text>
-    <text x="160" y="90" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#6B4513" text-anchor="middle">Ultra</text>
-    <text x="160" y="115" font-family="Arial Black, sans-serif" font-size="24" font-weight="900" fill="#6B4513" text-anchor="middle">DOUX</text>
-    <text x="125" y="145" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="#4A3000" text-anchor="middle">SHAMPOOING SOLIDE</text>
-    <text x="125" y="165" font-family="Poppins, sans-serif" font-size="9" fill="#6B4513" text-anchor="middle">94% D'ORIGINE VEGETALE</text>
-    <text x="125" y="182" font-family="Poppins, sans-serif" font-size="10" font-weight="700" fill="#4A3000" text-anchor="middle">DOUCEUR</text>
-    <!-- Oat badge -->
-    <ellipse cx="125" cy="225" rx="75" ry="30" fill="white" opacity="0.85"/>
-    <text x="125" y="220" font-family="Georgia, serif" font-size="10" fill="#C8A870" text-anchor="middle" font-style="italic">delicatesse</text>
-    <text x="125" y="236" font-family="Georgia, serif" font-size="10" fill="#C8A870" text-anchor="middle" font-style="italic">d'avoine</text>
-    <!-- Type cheveux -->
-    <text x="125" y="268" font-family="Poppins, sans-serif" font-size="9" fill="#D08898" text-anchor="middle" font-weight="600">Cheveux delicats</text>
-    <!-- Fabrique en France -->
-    <rect x="10" y="50" width="65" height="25" rx="3" fill="white" opacity="0.8"/>
-    <text x="42" y="62" font-family="Poppins, sans-serif" font-size="5" fill="#333" text-anchor="middle" font-weight="bold">FABRIQUE</text>
-    <text x="42" y="70" font-family="Poppins, sans-serif" font-size="5" fill="#333" text-anchor="middle" font-weight="bold">EN FRANCE</text>
-    <circle cx="220" cy="60" r="22" fill="#2D7A3A" opacity="0.9"/>
-    <text x="220" y="58" font-family="Poppins, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="900">x2</text>
-    <text x="220" y="70" font-family="Poppins, sans-serif" font-size="5" fill="white" text-anchor="middle">flacons</text>
-  </g>
-  <!-- Right side content -->
-  <text x="440" y="100" font-family="Poppins, sans-serif" font-size="14" fill="#D08898" font-weight="700">NOTRE AVIS</text>
-  <text x="440" y="140" font-family="Georgia, serif" font-size="26" font-weight="bold" fill="#4A3000">Garnier Ultra Doux</text>
-  <text x="440" y="175" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#4A3000">Shampooing Solide</text>
-  <text x="440" y="205" font-family="Georgia, serif" font-size="20" fill="#C8A870" font-style="italic">Delicatesse d'Avoine</text>
-  <!-- Stars -->
-  <g transform="translate(440, 230)">
-    <polygon points="12,0 15,8 24,8 17,14 19,22 12,17 5,22 7,14 0,8 9,8" fill="#FFB800"/>
-    <polygon points="37,0 40,8 49,8 42,14 44,22 37,17 30,22 32,14 25,8 34,8" fill="#FFB800"/>
-    <polygon points="62,0 65,8 74,8 67,14 69,22 62,17 55,22 57,14 50,8 59,8" fill="#FFB800"/>
-    <polygon points="87,0 90,8 99,8 92,14 94,22 87,17 80,22 82,14 75,8 84,8" fill="#FFB800"/>
-    <polygon points="112,0 115,8 124,8 117,14 119,22 112,17 105,22 107,14 100,8 109,8" fill="#FFB800" opacity="0.3"/>
-  </g>
-  <text x="580" y="248" font-family="Poppins, sans-serif" font-size="14" fill="#888">4/5</text>
-  <!-- Key points -->
-  <g transform="translate(440, 280)">
-    <circle cx="8" cy="8" r="8" fill="#2D7A3A" opacity="0.8"/>
-    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
-    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#4A3000">Sans silicone, sans paraben</text>
-  </g>
-  <g transform="translate(440, 310)">
-    <circle cx="8" cy="8" r="8" fill="#2D7A3A" opacity="0.8"/>
-    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
-    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#4A3000">Lait d'avoine + creme de riz</text>
-  </g>
-  <g transform="translate(440, 340)">
-    <circle cx="8" cy="8" r="8" fill="#2D7A3A" opacity="0.8"/>
-    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
-    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#4A3000">Cheveux delicats, sans alourdir</text>
-  </g>
-  <rect x="440" y="380" width="120" height="40" rx="20" fill="url(#gda-pink)"/>
-  <text x="500" y="406" font-family="Poppins, sans-serif" font-size="16" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
-  <text x="580" y="406" font-family="Poppins, sans-serif" font-size="12" fill="#888">sur Amazon</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#9C27B0" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Avis Garnier Ultra</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Doux Shampooing</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Notre avis sur le shampooing solide Garnier Ultra Do...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

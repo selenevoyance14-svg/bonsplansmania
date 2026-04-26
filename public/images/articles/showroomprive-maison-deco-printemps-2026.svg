@@ -1,9 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
-  <defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:#6a1b9a"/><stop offset="100%" style="stop-color:#4a148c"/></linearGradient></defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.12)"/>
-  <text x="600" y="200" font-family="Georgia,serif" font-size="52" font-weight="bold" fill="white" text-anchor="middle">🛍️ Showroomprivé</text>
-  <text x="600" y="290" font-family="Georgia,serif" font-size="36" fill="rgba(255,255,255,0.9)" text-anchor="middle">Ventes privées mode &amp; maison</text>
-  <text x="600" y="400" font-family="Arial,sans-serif" font-size="28" fill="rgba(255,255,255,0.85)" text-anchor="middle">Printemps 2026 — nouvelles collections</text>
-  <text x="600" y="530" font-family="Arial,sans-serif" font-size="22" fill="rgba(255,255,255,0.7)" text-anchor="middle">bonsplansmania.fr</text>
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#795548;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4E342E;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#795548" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Maison &amp; Déco</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Printemps 2026 sur</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Guy Degrenne, Bassetti, Seb, Tefal en vente privée s...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

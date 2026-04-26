@@ -1,48 +1,21 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#134E4A;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#0F766E;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#14B8A6;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <!-- Decorative -->
-  <circle cx="980" cy="90" r="180" fill="white" fill-opacity="0.05"/>
-  <circle cx="100" cy="540" r="140" fill="white" fill-opacity="0.05"/>
-  <circle cx="1050" cy="520" r="100" fill="white" fill-opacity="0.06"/>
-  <!-- Card -->
-  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
-  <!-- Badge avis -->
-  <rect x="100" y="100" width="130" height="36" rx="18" fill="#F59E0B"/>
-  <text x="165" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">MON AVIS</text>
-  <!-- Brand -->
-  <text x="100" y="196" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white" fill-opacity="0.75" letter-spacing="3">JUMISO</text>
-  <!-- Title -->
-  <text x="100" y="248" font-family="Arial, sans-serif" font-size="40" font-weight="900" fill="white">Niacinamide 20</text>
-  <text x="100" y="294" font-family="Arial, sans-serif" font-size="28" font-weight="700" fill="white" fill-opacity="0.9">Sérum affinant les pores</text>
-  <!-- Stars -->
-  <text x="100" y="345" font-family="Arial, sans-serif" font-size="28" fill="#F59E0B">★★★★</text>
-  <text x="226" y="345" font-family="Arial, sans-serif" font-size="28" fill="#F59E0B" fill-opacity="0.5">★</text>
-  <text x="262" y="342" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">4,5/5</text>
-  <!-- Key ingredients -->
-  <rect x="100" y="368" width="620" height="52" rx="14" fill="white" fill-opacity="0.2"/>
-  <text x="410" y="389" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">✨ Niacinamide 20% · TXA · Glutathion · Cica</text>
-  <text x="410" y="410" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.8" text-anchor="middle">Sans parfum · Peaux sensibles et acnéiques</text>
-  <!-- Price badge -->
-  <rect x="100" y="438" width="200" height="52" rx="14" fill="#F59E0B"/>
-  <text x="200" y="459" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle" font-weight="600">YesStyle</text>
-  <text x="200" y="481" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="900">15,82 €</text>
-  <rect x="314" y="438" width="140" height="52" rx="14" fill="white" fill-opacity="0.15"/>
-  <text x="384" y="459" font-family="Arial, sans-serif" font-size="13" fill="white" text-anchor="middle">-10%</text>
-  <text x="384" y="481" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">40ml</text>
-  <!-- Site tag -->
-  <text x="100" y="540" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.6">bonsplansmania.fr</text>
-  <!-- Right decoration -->
-  <text x="920" y="360" font-family="Arial, sans-serif" font-size="140" text-anchor="middle" opacity="0.22">🧴</text>
-  <text x="920" y="210" font-family="Arial, sans-serif" font-size="70" text-anchor="middle" opacity="0.18">✨</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#6366F1" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">JUMISO Niacinamide 20</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Sérum : Mon avis</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">J'ai testé le sérum affinant les pores JUMISO Niacin...</text>
+  <text x="80" y="460" font-family="Arial, sans-serif" font-size="36" fill="white" font-weight="700">15,82&#8364;</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

@@ -1,65 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="leg-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#0A1628"/>
-      <stop offset="100%" style="stop-color:#1A2A4A"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7B1FA2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A148C;stop-opacity:1" />
     </linearGradient>
-    <radialGradient id="leg-glow" cx="50%" cy="50%">
-      <stop offset="0%" style="stop-color:#2A4A7A;stop-opacity:0.4"/>
-      <stop offset="100%" style="stop-color:#0A1628;stop-opacity:0"/>
-    </radialGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#leg-bg)"/>
-  <circle cx="400" cy="225" r="300" fill="url(#leg-glow)"/>
-  <!-- Stars -->
-  <g fill="white" opacity="0.4">
-    <circle cx="100" cy="50" r="1.5"/><circle cx="200" cy="120" r="1"/><circle cx="350" cy="30" r="1.5"/>
-    <circle cx="500" cy="80" r="1"/><circle cx="650" cy="40" r="1.5"/><circle cx="720" cy="130" r="1"/>
-    <circle cx="80" cy="200" r="1"/><circle cx="750" cy="250" r="1.5"/><circle cx="600" cy="400" r="1"/>
-    <circle cx="150" cy="350" r="1.5"/><circle cx="300" cy="420" r="1"/><circle cx="450" cy="15" r="1"/>
-    <circle cx="50" cy="400" r="1"/><circle cx="700" cy="380" r="1.5"/>
-  </g>
-  <!-- LEGO logo -->
-  <rect x="345" y="40" width="110" height="55" rx="8" fill="#E3000B"/>
-  <text x="400" y="76" font-family="Arial Black, sans-serif" font-size="30" font-weight="900" fill="white" text-anchor="middle">LEGO</text>
-  <!-- Insiders text -->
-  <text x="400" y="125" font-family="Georgia, serif" font-size="28" fill="white" text-anchor="middle" font-style="italic" opacity="0.9">insiders</text>
-  <!-- Main text -->
-  <text x="400" y="180" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="white" text-anchor="middle" font-style="italic">Gagnez une galaxie de sets</text>
-  <text x="400" y="215" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">LEGO Star Wars SMART Play</text>
-  <!-- Subtitle -->
-  <text x="400" y="260" font-family="Poppins, sans-serif" font-size="12" fill="#AAC0E0" text-anchor="middle">8 sets Star Wars a gagner - 0 point de fidelite necessaire</text>
-  <text x="400" y="280" font-family="Poppins, sans-serif" font-size="12" fill="#AAC0E0" text-anchor="middle">Tirage au sort reserve aux membres Insiders</text>
-  <!-- Box shapes (simplified LEGO boxes) -->
-  <g transform="translate(100, 300)">
-    <rect x="0" y="0" width="55" height="70" rx="4" fill="#2A4A6A" stroke="#4A6A9A" stroke-width="1"/>
-    <text x="27" y="30" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">STAR</text>
-    <text x="27" y="40" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">WARS</text>
-    <text x="27" y="60" font-family="Poppins, sans-serif" font-size="7" fill="white" text-anchor="middle">75426</text>
-  </g>
-  <g transform="translate(180, 310)">
-    <rect x="0" y="0" width="50" height="60" rx="4" fill="#3A5A7A" stroke="#5A7A9A" stroke-width="1"/>
-    <text x="25" y="25" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">STAR</text>
-    <text x="25" y="35" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">WARS</text>
-    <text x="25" y="50" font-family="Poppins, sans-serif" font-size="7" fill="white" text-anchor="middle">75422</text>
-  </g>
-  <g transform="translate(560, 300)">
-    <rect x="0" y="0" width="55" height="70" rx="4" fill="#2A4A6A" stroke="#4A6A9A" stroke-width="1"/>
-    <text x="27" y="25" font-family="Poppins, sans-serif" font-size="5" fill="white" text-anchor="middle">SMART</text>
-    <text x="27" y="35" font-family="Poppins, sans-serif" font-size="5" fill="white" text-anchor="middle">PLAY</text>
-    <text x="27" y="55" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">ALL-IN-ONE</text>
-  </g>
-  <g transform="translate(640, 310)">
-    <rect x="0" y="0" width="50" height="60" rx="4" fill="#3A5A7A" stroke="#5A7A9A" stroke-width="1"/>
-    <text x="25" y="25" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">STAR</text>
-    <text x="25" y="35" font-family="Poppins, sans-serif" font-size="6" fill="#FFCC00" text-anchor="middle" font-weight="bold">WARS</text>
-    <text x="25" y="50" font-family="Poppins, sans-serif" font-size="7" fill="white" text-anchor="middle">75431</text>
-  </g>
-  <!-- CTA buttons -->
-  <rect x="250" y="330" width="140" height="38" rx="19" stroke="white" stroke-width="2" fill="transparent"/>
-  <text x="320" y="355" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="600">Deviens membre</text>
-  <rect x="410" y="330" width="140" height="38" rx="19" stroke="white" stroke-width="2" fill="transparent"/>
-  <text x="480" y="355" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="600">Se connecter</text>
-  <!-- Deadline -->
-  <text x="400" y="410" font-family="Poppins, sans-serif" font-size="13" fill="#FFCC00" text-anchor="middle" font-weight="bold">Fin le 8 mai 2026</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#7B1FA2" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">LEGO Insiders : Gagnez</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">8 Sets LEGO</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">LEGO organise un tirage au sort reserve aux membres ...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

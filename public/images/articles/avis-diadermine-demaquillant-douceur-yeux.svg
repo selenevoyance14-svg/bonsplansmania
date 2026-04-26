@@ -1,55 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="dia-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F8F0F8"/>
-      <stop offset="100%" style="stop-color:#EEE0F0"/>
-    </linearGradient>
-    <linearGradient id="dia-purple" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#7A4098"/>
-      <stop offset="100%" style="stop-color:#5A2878"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#AD1457;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#dia-bg)"/>
-  <g transform="translate(100, 50)">
-    <rect x="40" y="30" width="120" height="280" rx="20" fill="white" stroke="#D8C0E0" stroke-width="2"/>
-    <rect x="55" y="0" width="90" height="45" rx="8" fill="url(#dia-purple)"/>
-    <text x="100" y="20" font-family="Georgia, serif" font-size="11" fill="white" text-anchor="middle" font-weight="bold">DIADERMINE</text>
-    <text x="100" y="35" font-family="Poppins, sans-serif" font-size="7" fill="white" text-anchor="middle" opacity="0.8">Depuis 1904</text>
-    <rect x="55" y="85" width="90" height="90" rx="6" fill="#F0E8F4" opacity="0.8"/>
-    <text x="100" y="112" font-family="Poppins, sans-serif" font-size="9" fill="#7A4098" text-anchor="middle" font-weight="700">DEMAQUILLANT</text>
-    <text x="100" y="130" font-family="Georgia, serif" font-size="10" fill="#7A4098" text-anchor="middle" font-style="italic">Douceur</text>
-    <text x="100" y="152" font-family="Poppins, sans-serif" font-size="8" fill="#9A6AB0" text-anchor="middle">Yeux</text>
-    <ellipse cx="100" cy="220" rx="20" ry="12" fill="none" stroke="#7A4098" stroke-width="2" opacity="0.3"/>
-    <circle cx="100" cy="220" r="6" fill="#7A4098" opacity="0.2"/>
-  </g>
-  <text x="380" y="80" font-family="Poppins, sans-serif" font-size="14" fill="#7A4098" font-weight="700">NOTRE AVIS</text>
-  <text x="380" y="120" font-family="Georgia, serif" font-size="26" font-weight="bold" fill="#3A2050">Diadermine</text>
-  <text x="380" y="155" font-family="Georgia, serif" font-size="22" font-weight="bold" fill="#3A2050">Demaquillant</text>
-  <text x="380" y="185" font-family="Georgia, serif" font-size="18" fill="#9A6AB0" font-style="italic">Douceur Yeux</text>
-  <g transform="translate(380, 210)">
-    <polygon points="12,0 15,8 24,8 17,14 19,22 12,17 5,22 7,14 0,8 9,8" fill="#FFB800"/>
-    <polygon points="37,0 40,8 49,8 42,14 44,22 37,17 30,22 32,14 25,8 34,8" fill="#FFB800"/>
-    <polygon points="62,0 65,8 74,8 67,14 69,22 62,17 55,22 57,14 50,8 59,8" fill="#FFB800"/>
-    <polygon points="87,0 90,8 99,8 92,14 94,22 87,17 80,22 82,14 75,8 84,8" fill="#FFB800"/>
-    <polygon points="112,0 115,8 124,8 117,14 119,22 112,17 105,22 107,14 100,8 109,8" fill="#FFB800" opacity="0.5"/>
-  </g>
-  <text x="510" y="228" font-family="Poppins, sans-serif" font-size="14" fill="#888">4,5/5</text>
-  <g transform="translate(380, 260)">
-    <circle cx="8" cy="8" r="8" fill="#7A4098" opacity="0.8"/>
-    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
-    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#3A2050">Expertise depuis 1904</text>
-  </g>
-  <g transform="translate(380, 290)">
-    <circle cx="8" cy="8" r="8" fill="#7A4098" opacity="0.8"/>
-    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
-    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#3A2050">Ultra doux, sans residus</text>
-  </g>
-  <g transform="translate(380, 320)">
-    <circle cx="8" cy="8" r="8" fill="#7A4098" opacity="0.8"/>
-    <text x="8" y="12" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle">✓</text>
-    <text x="25" y="13" font-family="Poppins, sans-serif" font-size="13" fill="#3A2050">Yeux sensibles, waterproof</text>
-  </g>
-  <rect x="380" y="360" width="120" height="40" rx="20" fill="url(#dia-purple)"/>
-  <text x="440" y="386" font-family="Poppins, sans-serif" font-size="16" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
-  <text x="520" y="386" font-family="Poppins, sans-serif" font-size="12" fill="#888">sur Amazon</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#E91E63" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Avis Diadermine</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Demaquillant Douceur</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Notre avis sur le demaquillant Douceur Yeux de Diade...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

@@ -1,56 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="lor-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#F2EDE8"/>
-      <stop offset="100%" style="stop-color:#E8E0D8"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#7B1FA2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4A148C;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#lor-bg)"/>
-  <!-- Leaf decorations -->
-  <g opacity="0.08" fill="#4A7A5A">
-    <ellipse cx="650" cy="80" rx="120" ry="60" transform="rotate(-30, 650, 80)"/>
-    <ellipse cx="700" cy="150" rx="100" ry="45" transform="rotate(15, 700, 150)"/>
-    <ellipse cx="150" cy="380" rx="80" ry="40" transform="rotate(-20, 150, 380)"/>
-  </g>
-  <!-- Brand -->
-  <text x="400" y="60" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#3A3A3A" text-anchor="middle" letter-spacing="4">LORICA</text>
-  <text x="400" y="80" font-family="Poppins, sans-serif" font-size="10" fill="#888" text-anchor="middle" letter-spacing="2">LABORATOIRE</text>
-  <!-- Badge JEU CONCOURS -->
-  <rect x="280" y="100" width="240" height="40" rx="4" fill="#4A8A6A" opacity="0.9"/>
-  <text x="400" y="127" font-family="Poppins, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">JEU CONCOURS</text>
-  <!-- Subtitle -->
-  <text x="400" y="175" font-family="Poppins, sans-serif" font-size="20" fill="#4A5A4A" text-anchor="middle">3 produits a gagner :</text>
-  <text x="400" y="200" font-family="Poppins, sans-serif" font-size="20" fill="#4A5A4A" text-anchor="middle">Tentez votre chance !</text>
-  <!-- Product 1 -->
-  <rect x="80" y="230" width="190" height="150" rx="16" fill="white" opacity="0.9"/>
-  <rect x="140" y="245" width="60" height="80" rx="12" fill="#E8E4F0" opacity="0.8"/>
-  <text x="170" y="275" font-family="Poppins, sans-serif" font-size="7" fill="#5A5A8A" text-anchor="middle" font-weight="bold">LORICA</text>
-  <text x="170" y="290" font-family="Poppins, sans-serif" font-size="8" fill="#6A5AAA" text-anchor="middle" font-weight="bold">CAP</text>
-  <text x="170" y="302" font-family="Poppins, sans-serif" font-size="7" fill="#6A5AAA" text-anchor="middle" font-weight="bold">SERENITE</text>
-  <text x="175" y="350" font-family="Poppins, sans-serif" font-size="10" fill="#555" text-anchor="middle">Gestion du stress</text>
-  <text x="175" y="365" font-family="Poppins, sans-serif" font-size="10" fill="#555" text-anchor="middle">stabilite nerveuse</text>
-  <circle cx="175" cy="390" r="12" fill="#D4785A"/>
-  <text x="175" y="395" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">1</text>
-  <!-- Product 2 -->
-  <rect x="305" y="230" width="190" height="150" rx="16" fill="white" opacity="0.9"/>
-  <rect x="365" y="245" width="60" height="80" rx="12" fill="#E0F0E8" opacity="0.8"/>
-  <text x="395" y="275" font-family="Poppins, sans-serif" font-size="7" fill="#5A5A8A" text-anchor="middle" font-weight="bold">LORICA</text>
-  <text x="395" y="292" font-family="Poppins, sans-serif" font-size="9" fill="#4A8A6A" text-anchor="middle" font-weight="bold">GERMAG</text>
-  <text x="400" y="350" font-family="Poppins, sans-serif" font-size="10" fill="#555" text-anchor="middle">Fatigue nerveuse</text>
-  <text x="400" y="365" font-family="Poppins, sans-serif" font-size="10" fill="#555" text-anchor="middle">magnesium</text>
-  <circle cx="400" cy="390" r="12" fill="#D4785A"/>
-  <text x="400" y="395" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">2</text>
-  <!-- Product 3 -->
-  <rect x="530" y="230" width="190" height="150" rx="16" fill="white" opacity="0.9"/>
-  <rect x="590" y="245" width="60" height="80" rx="12" fill="#E8E8F4" opacity="0.8"/>
-  <text x="620" y="275" font-family="Poppins, sans-serif" font-size="7" fill="#5A5A8A" text-anchor="middle" font-weight="bold">LORICA</text>
-  <text x="620" y="290" font-family="Poppins, sans-serif" font-size="9" fill="#5A6A9A" text-anchor="middle" font-weight="bold">OMEGA 3</text>
-  <text x="620" y="302" font-family="Poppins, sans-serif" font-size="7" fill="#5A6A9A" text-anchor="middle">(34/24)</text>
-  <text x="625" y="350" font-family="Poppins, sans-serif" font-size="10" fill="#555" text-anchor="middle">Fonctions cerebrale</text>
-  <text x="625" y="365" font-family="Poppins, sans-serif" font-size="10" fill="#555" text-anchor="middle">cardiaque, visuelle</text>
-  <circle cx="625" cy="390" r="12" fill="#D4785A"/>
-  <text x="625" y="395" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="bold">3</text>
-  <!-- Bottom banner -->
-  <rect x="180" y="410" width="440" height="32" rx="4" fill="#4A8A6A" opacity="0.85"/>
-  <text x="400" y="432" font-family="Poppins, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle">Lot : CapSerenite + Germag + Omega 3</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#7B1FA2" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Laboratoire Lorica :</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Gagnez un Trio</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Le Laboratoire Lorica organise un jeu concours avec ...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

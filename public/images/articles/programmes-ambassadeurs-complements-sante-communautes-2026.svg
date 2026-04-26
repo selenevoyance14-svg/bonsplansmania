@@ -1,33 +1,21 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#7C2D12;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#FB923C;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFF7ED;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1000" cy="100" r="200" fill="white" fill-opacity="0.05"/>
-  <circle cx="80" cy="540" r="140" fill="white" fill-opacity="0.04"/>
-  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
-  <rect x="100" y="100" width="300" height="36" rx="18" fill="#EA580C"/>
-  <text x="250" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">TESTS GRATUITS</text>
-  <text x="100" y="195" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">Compléments &amp; Santé</text>
-  <text x="100" y="245" font-family="Arial, sans-serif" font-size="24" fill="white" fill-opacity="0.9">Communautés testeuses — gratuit</text>
-  <rect x="100" y="280" width="260" height="65" rx="16" fill="white" fill-opacity="0.25"/>
-  <text x="230" y="305" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle">Nutrition</text>
-  <text x="230" y="333" font-family="Arial, sans-serif" font-size="22" fill="white" text-anchor="middle" font-weight="900">Granions · Solgar</text>
-  <rect x="374" y="280" width="280" height="65" rx="16" fill="white" fill-opacity="0.15"/>
-  <text x="514" y="305" font-family="Arial, sans-serif" font-size="15" fill="white" text-anchor="middle">Communautés</text>
-  <text x="514" y="333" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="700">Doctissimo · Aufeminin</text>
-  <text x="100" y="405" font-family="Arial, sans-serif" font-size="19" fill="white">Granions · Solgar · Novoma · Actinutrition</text>
-  <text x="100" y="445" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.85">Nutrivie · Biophytum · Doctissimo Le Lab</text>
-  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">bonsplansmania.fr</text>
-  <text x="920" y="340" font-family="Arial, sans-serif" font-size="130" text-anchor="middle" opacity="0.2">💊</text>
-  <rect x="900" y="560" width="240" height="40" rx="20" fill="white" fill-opacity="0.15"/>
-  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#6366F1" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Compléments</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">alimentaires, santé et</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Granions, Solgar, Novoma, Actinutrition, Nutrivie, B...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

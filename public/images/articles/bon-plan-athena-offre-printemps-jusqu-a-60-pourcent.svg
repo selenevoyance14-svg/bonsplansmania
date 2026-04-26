@@ -1,73 +1,20 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#f5f5f5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#e8e8e8;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="navy" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#1a237e;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#0d1642;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#e53935;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c62828;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#42A5F5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E88E5;stop-opacity:1" />
     </linearGradient>
   </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="100" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="130" y="152" font-family="Arial, sans-serif" font-size="16" fill="#42A5F5" text-anchor="middle" font-weight="700">-60%</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Athena : jusqu'</text>
+  <rect x="80" y="275" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Offre printemps Athena : jusqu'à -60% sur 421 articl...</text>
 
-  <!-- Background -->
-  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
-
-  <!-- Athena logo bar -->
-  <rect x="280" y="15" width="240" height="45" rx="4" fill="url(#navy)"/>
-  <text x="400" y="44" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" letter-spacing="4">ATHENA</text>
-
-  <!-- Offre Printemps tag -->
-  <rect x="290" y="70" width="220" height="26" rx="13" fill="url(#red)"/>
-  <text x="400" y="88" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" letter-spacing="1">OFFRE PRINTEMPS</text>
-
-  <!-- Main title -->
-  <text x="400" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="bold" fill="#333">Jusqu'a -60% sur tout le site</text>
-
-  <!-- 4 discount badges -->
-  <g transform="translate(95, 160)">
-    <rect x="0" y="0" width="130" height="100" rx="10" fill="url(#navy)"/>
-    <text x="65" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white">-60%</text>
-    <text x="65" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.8">Meilleures affaires</text>
-  </g>
-
-  <g transform="translate(245, 160)">
-    <rect x="0" y="0" width="130" height="100" rx="10" fill="#283593"/>
-    <text x="65" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white">-50%</text>
-    <text x="65" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.8">Prix attractifs</text>
-  </g>
-
-  <g transform="translate(395, 160)">
-    <rect x="0" y="0" width="130" height="100" rx="10" fill="#3949ab"/>
-    <text x="65" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white">-40%</text>
-    <text x="65" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.8">Bon compromis</text>
-  </g>
-
-  <g transform="translate(545, 160)">
-    <rect x="0" y="0" width="130" height="100" rx="10" fill="#5c6bc0"/>
-    <text x="65" y="50" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="white">-30%</text>
-    <text x="65" y="80" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.8">Recentes collections</text>
-  </g>
-
-  <!-- Categories -->
-  <rect x="150" y="290" width="500" height="45" rx="8" fill="white" stroke="#ddd" stroke-width="1"/>
-  <text x="250" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a237e">HOMME</text>
-  <line x1="325" y1="298" x2="325" y2="328" stroke="#ddd" stroke-width="1"/>
-  <text x="400" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a237e">FEMME</text>
-  <line x1="475" y1="298" x2="475" y2="328" stroke="#ddd" stroke-width="1"/>
-  <text x="550" y="318" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="#1a237e">ENFANT</text>
-
-  <!-- 421 produits -->
-  <text x="400" y="370" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#888">421 produits en promotion</text>
-
-  <!-- Brands -->
-  <text x="400" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#999">+ articles Adidas et Wilson a prix reduits</text>
-
-  <!-- Bottom bar -->
-  <rect x="250" y="415" width="300" height="24" rx="12" fill="url(#navy)"/>
-  <text x="400" y="431" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white">Sous-vetements de qualite depuis 1868</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

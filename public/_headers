@@ -1,0 +1,32 @@
+# Cache long pour les images articles (1 an, immutable)
+/images/articles/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache long pour toutes les images
+/images/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache long pour favicons et apple-touch
+/favicon.*
+  Cache-Control: public, max-age=2592000
+
+/apple-touch-icon*
+  Cache-Control: public, max-age=2592000
+
+# Cache long pour les assets Next.js (déjà hashés)
+/_next/static/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Cache modéré pour les fichiers statiques (CSS / JS racine)
+/*.css
+  Cache-Control: public, max-age=86400
+
+/*.js
+  Cache-Control: public, max-age=86400
+
+# Cache court pour les pages HTML (revalidation)
+/*
+  Cache-Control: public, max-age=300, must-revalidate
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin

@@ -1,55 +1,21 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#8B1A3A;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#C4235C;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#E8406A;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+      <stop offset="0%" style="stop-color:#CE93D8;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#6A1B9A;stop-opacity:1" />
     </linearGradient>
   </defs>
-
-  <!-- Background -->
   <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#CE93D8" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Adopt Parfums : Toutes</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">les Offres du</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">3 parfums achetés = le 4ème offert, 2 brumes = la 3è...</text>
 
-  <!-- Decorative circles -->
-  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.05" />
-  <circle cx="150" cy="530" r="160" fill="white" fill-opacity="0.05" />
-  <circle cx="1100" cy="500" r="120" fill="white" fill-opacity="0.04" />
-  <circle cx="600" cy="-50" r="250" fill="white" fill-opacity="0.04" />
-
-  <!-- Perfume bottle decoration -->
-  <rect x="980" y="180" width="60" height="90" rx="8" fill="white" fill-opacity="0.12" />
-  <rect x="995" y="165" width="30" height="20" rx="4" fill="white" fill-opacity="0.12" />
-  <rect x="1003" y="150" width="14" height="18" rx="3" fill="white" fill-opacity="0.15" />
-
-  <!-- Site badge -->
-  <rect x="80" y="60" width="240" height="44" rx="22" fill="white" fill-opacity="0.15" />
-  <text x="200" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
-
-  <!-- Promo badge -->
-  <rect x="80" y="130" width="180" height="36" rx="18" fill="url(#badge)" />
-  <text x="170" y="154" font-family="Georgia, serif" font-size="16" fill="#7B1A00" text-anchor="middle" font-weight="700">BON PLAN BEAUTÉ</text>
-
-  <!-- Main title -->
-  <text x="80" y="250" font-family="Georgia, serif" font-size="72" fill="white" font-weight="700" letter-spacing="-1">adopt</text>
-  <text x="80" y="330" font-family="Georgia, serif" font-size="42" fill="white" font-weight="400" fill-opacity="0.92">parfums</text>
-
-  <!-- Divider -->
-  <rect x="80" y="355" width="120" height="3" rx="2" fill="white" fill-opacity="0.5" />
-
-  <!-- Subtitle -->
-  <text x="80" y="400" font-family="Arial, sans-serif" font-size="28" fill="white" fill-opacity="0.95" font-weight="600">Toutes les Offres du Moment</text>
-
-  <!-- Offer highlights -->
-  <rect x="80" y="430" width="520" height="50" rx="10" fill="white" fill-opacity="0.12" />
-  <text x="100" y="462" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="700">🎁 3 parfums achetés = le 4ème OFFERT</text>
-
-  <rect x="80" y="492" width="480" height="50" rx="10" fill="white" fill-opacity="0.10" />
-  <text x="100" y="524" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="600">💨 3 brumes achetées = la 4ème OFFERTE</text>
-
-  <!-- Date -->
-  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Offres vérifiées</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

@@ -1,94 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="cmd-bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#FFF5F8"/>
-      <stop offset="100%" style="stop-color:#F0E5EE"/>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#880E4F;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#cmd-bg)"/>
-  <text x="400" y="45" font-family="Poppins, sans-serif" font-size="14" fill="#E63946" text-anchor="middle" font-weight="700">COMPARATIF 2026</text>
-  <text x="400" y="80" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#2A2A2A" text-anchor="middle">Top 4 Meilleurs</text>
-  <text x="400" y="112" font-family="Georgia, serif" font-size="28" font-weight="bold" fill="#2A2A2A" text-anchor="middle">Demaquillants</text>
-  <!-- Product 1 - Evoluderm -->
-  <g transform="translate(30, 140)">
-    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#E8DDD8" stroke-width="1.5"/>
-    <circle cx="85" cy="15" r="15" fill="#4A90C8"/>
-    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900">1</text>
-    <rect x="30" y="40" width="110" height="70" rx="8" fill="#E8F0F8" opacity="0.5"/>
-    <text x="85" y="75" font-family="Poppins, sans-serif" font-size="10" fill="#4A90C8" text-anchor="middle" font-weight="bold">EVOLUDERM</text>
-    <text x="85" y="92" font-family="Poppins, sans-serif" font-size="8" fill="#888" text-anchor="middle">Lait Doux</text>
-    <text x="85" y="135" font-family="Poppins, sans-serif" font-size="10" fill="#333" text-anchor="middle" font-weight="700">Lait visage</text>
-    <text x="85" y="155" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Tous types</text>
-    <g transform="translate(30, 170)">
-      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
-      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
-      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
-      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800" opacity="0.5"/>
-    </g>
-    <text x="102" y="182" font-family="Poppins, sans-serif" font-size="10" fill="#888">3,5/5</text>
-    <rect x="35" y="205" width="100" height="30" rx="15" fill="#4A90C8"/>
-    <text x="85" y="225" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 3 €</text>
-  </g>
-  <!-- Product 2 - SO'BiO -->
-  <g transform="translate(215, 140)">
-    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#E8DDD8" stroke-width="1.5"/>
-    <circle cx="85" cy="15" r="15" fill="#6BAA5A"/>
-    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900">2</text>
-    <rect x="30" y="40" width="110" height="70" rx="8" fill="#E8F5E8" opacity="0.5"/>
-    <text x="85" y="72" font-family="Poppins, sans-serif" font-size="9" fill="#6BAA5A" text-anchor="middle" font-weight="bold">SO'BiO etic</text>
-    <text x="85" y="92" font-family="Poppins, sans-serif" font-size="8" fill="#888" text-anchor="middle">Lait d'Anesse</text>
-    <text x="85" y="135" font-family="Poppins, sans-serif" font-size="10" fill="#333" text-anchor="middle" font-weight="700">Lait visage bio</text>
-    <text x="85" y="155" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Sensibles, seches</text>
-    <g transform="translate(30, 170)">
-      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
-      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
-      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
-      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
-    </g>
-    <text x="102" y="182" font-family="Poppins, sans-serif" font-size="10" fill="#888">4/5</text>
-    <rect x="35" y="205" width="100" height="30" rx="15" fill="#6BAA5A"/>
-    <text x="85" y="225" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 6 €</text>
-  </g>
-  <!-- Product 3 - Nivea -->
-  <g transform="translate(400, 140)">
-    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#E8DDD8" stroke-width="1.5"/>
-    <circle cx="85" cy="15" r="15" fill="#003DA5"/>
-    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="12" fill="white" text-anchor="middle" font-weight="900">3</text>
-    <rect x="30" y="40" width="110" height="70" rx="8" fill="#E8EEF8" opacity="0.5"/>
-    <text x="85" y="75" font-family="Arial Black, sans-serif" font-size="11" fill="#003DA5" text-anchor="middle" font-weight="bold">NIVEA</text>
-    <text x="85" y="92" font-family="Poppins, sans-serif" font-size="8" fill="#888" text-anchor="middle">Doux Yeux</text>
-    <text x="85" y="135" font-family="Poppins, sans-serif" font-size="10" fill="#333" text-anchor="middle" font-weight="700">Biphase yeux</text>
-    <text x="85" y="155" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Waterproof</text>
-    <g transform="translate(30, 170)">
-      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
-      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
-      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
-      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
-    </g>
-    <text x="102" y="182" font-family="Poppins, sans-serif" font-size="10" fill="#888">4/5</text>
-    <rect x="35" y="205" width="100" height="30" rx="15" fill="#003DA5"/>
-    <text x="85" y="225" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
-  </g>
-  <!-- Product 4 - Diadermine TOP -->
-  <g transform="translate(585, 140)">
-    <rect x="0" y="0" width="170" height="260" rx="12" fill="white" stroke="#7A4098" stroke-width="2"/>
-    <circle cx="85" cy="15" r="15" fill="#7A4098"/>
-    <text x="85" y="20" font-family="Poppins, sans-serif" font-size="10" fill="white" text-anchor="middle" font-weight="900">TOP</text>
-    <rect x="30" y="40" width="110" height="70" rx="8" fill="#F0E8F4" opacity="0.5"/>
-    <text x="85" y="72" font-family="Georgia, serif" font-size="10" fill="#7A4098" text-anchor="middle" font-weight="bold">DIADERMINE</text>
-    <text x="85" y="92" font-family="Poppins, sans-serif" font-size="8" fill="#888" text-anchor="middle">Douceur Yeux</text>
-    <text x="85" y="135" font-family="Poppins, sans-serif" font-size="10" fill="#333" text-anchor="middle" font-weight="700">Biphase yeux</text>
-    <text x="85" y="155" font-family="Poppins, sans-serif" font-size="9" fill="#888" text-anchor="middle">Ultra doux</text>
-    <g transform="translate(22, 170)">
-      <polygon points="8,0 10,5 16,5 11,9 13,14 8,11 3,14 5,9 0,5 6,5" fill="#FFB800"/>
-      <polygon points="24,0 26,5 32,5 27,9 29,14 24,11 19,14 21,9 16,5 22,5" fill="#FFB800"/>
-      <polygon points="40,0 42,5 48,5 43,9 45,14 40,11 35,14 37,9 32,5 38,5" fill="#FFB800"/>
-      <polygon points="56,0 58,5 64,5 59,9 61,14 56,11 51,14 53,9 48,5 54,5" fill="#FFB800"/>
-      <polygon points="72,0 74,5 80,5 75,9 77,14 72,11 67,14 69,9 64,5 70,5" fill="#FFB800" opacity="0.5"/>
-    </g>
-    <text x="112" y="182" font-family="Poppins, sans-serif" font-size="10" fill="#888">4,5/5</text>
-    <rect x="35" y="205" width="100" height="30" rx="15" fill="#7A4098"/>
-    <text x="85" y="225" font-family="Poppins, sans-serif" font-size="13" font-weight="800" fill="white" text-anchor="middle">~ 5 €</text>
-  </g>
-  <text x="400" y="435" font-family="Poppins, sans-serif" font-size="12" fill="#888" text-anchor="middle">Testes et compares — BonsPlansMania 2026</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#E91E63" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Comparatif : Les 4</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Meilleurs</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">On a teste 4 demaquillants (Evoluderm, SO'BiO etic, ...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

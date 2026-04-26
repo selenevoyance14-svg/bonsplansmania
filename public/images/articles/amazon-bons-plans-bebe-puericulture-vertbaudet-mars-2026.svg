@@ -1,34 +1,20 @@
-<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#9D174D;stop-opacity:1" />
-      <stop offset="50%" style="stop-color:#F9A8D4;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#FDF2F8;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
-      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+      <stop offset="0%" style="stop-color:#6366F1;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4338CA;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="1200" height="630" fill="url(#bg)"/>
-  <circle cx="1050" cy="120" r="180" fill="white" fill-opacity="0.05"/>
-  <circle cx="100" cy="520" r="130" fill="white" fill-opacity="0.04"/>
-  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
-  <rect x="100" y="100" width="260" height="36" rx="18" fill="#BE185D"/>
-  <text x="230" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">OFFRES A DUREE LIMITEE</text>
-  <text x="100" y="195" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="#831843">Amazon Bebe</text>
-  <text x="100" y="245" font-family="Arial, sans-serif" font-size="24" fill="#831843" fill-opacity="0.9">Vertbaudet et puericulture -25%</text>
-  <rect x="100" y="280" width="200" height="65" rx="16" fill="#831843" fill-opacity="0.15"/>
-  <text x="200" y="305" font-family="Arial, sans-serif" font-size="15" fill="#831843" text-anchor="middle">Prix flash</text>
-  <text x="200" y="333" font-family="Arial, sans-serif" font-size="22" fill="#831843" text-anchor="middle" font-weight="900">Mars 2026</text>
-  <rect x="314" y="280" width="340" height="65" rx="16" fill="#831843" fill-opacity="0.1"/>
-  <text x="484" y="305" font-family="Arial, sans-serif" font-size="15" fill="#831843" text-anchor="middle">Stocks limites</text>
-  <text x="484" y="333" font-family="Arial, sans-serif" font-size="20" fill="#831843" text-anchor="middle" font-weight="700">A saisir rapidement !</text>
-  <text x="100" y="405" font-family="Arial, sans-serif" font-size="18" fill="#831843">Vertbaudet . BabyBjorn . Gigoteuses</text>
-  <text x="100" y="440" font-family="Arial, sans-serif" font-size="18" fill="#831843">Tapis eveil . Mobile . Nid d'ange</text>
-  <text x="100" y="485" font-family="Arial, sans-serif" font-size="17" fill="#831843" fill-opacity="0.7">Livraison Prime gratuite . Retours 30 jours</text>
-  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="#831843" fill-opacity="0.4">bonsplansmania.fr</text>
-  <text x="920" y="340" font-family="Arial, sans-serif" font-size="130" text-anchor="middle" fill="#831843" opacity="0.12">-25%</text>
-  <rect x="900" y="560" width="240" height="40" rx="20" fill="#831843" fill-opacity="0.1"/>
-  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="#831843" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="100" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="130" y="152" font-family="Arial, sans-serif" font-size="16" fill="#6366F1" text-anchor="middle" font-weight="700">-25%</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Amazon Bébé</text>
+  <rect x="80" y="275" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Bons plans Amazon Bébé mars 2026 : 10 offres Vertbau...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

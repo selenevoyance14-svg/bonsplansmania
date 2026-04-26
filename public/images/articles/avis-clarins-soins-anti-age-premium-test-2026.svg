@@ -1,40 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#faf7f2;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#f0ebe3;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="red" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#c41e3a;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#8b1a2b;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#AD1457;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
-  <rect x="250" y="20" width="300" height="50" rx="4" fill="url(#red)"/>
-  <text x="400" y="52" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="white" letter-spacing="6">CLARINS</text>
-  <text x="400" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#999" letter-spacing="2">PARIS - DEPUIS 1954</text>
-  <rect x="200" y="125" width="400" height="180" rx="10" fill="white" stroke="#eee" stroke-width="1"/>
-  <text x="400" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#333">Soins Anti-Age Premium</text>
-  <text x="400" y="195" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">Double Serum - 21 actifs vegetaux</text>
-  <text x="400" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">Technologie Collagen III</text>
-  <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">Diagnostic de peau par IA</text>
-  <rect x="290" y="255" width="220" height="30" rx="15" fill="url(#red)"/>
-  <text x="400" y="275" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">Cadeaux des 60 EUR d'achat</text>
-  <g transform="translate(150, 330)">
-    <rect x="0" y="0" width="150" height="50" rx="8" fill="#c41e3a" opacity="0.1"/>
-    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c41e3a">EXPERTISE</text>
-    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">70 ans de recherche</text>
-  </g>
-  <g transform="translate(325, 330)">
-    <rect x="0" y="0" width="150" height="50" rx="8" fill="#c41e3a" opacity="0.1"/>
-    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c41e3a">MADE IN FRANCE</text>
-    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Fabrication francaise</text>
-  </g>
-  <g transform="translate(500, 330)">
-    <rect x="0" y="0" width="150" height="50" rx="8" fill="#c41e3a" opacity="0.1"/>
-    <text x="75" y="22" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="#c41e3a">ACTIFS VEGETAUX</text>
-    <text x="75" y="38" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Formules naturelles</text>
-  </g>
-  <rect x="280" y="400" width="240" height="28" rx="14" fill="url(#red)"/>
-  <text x="400" y="419" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">NOTRE AVIS + TEST</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#E91E63" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Clarins : notre avis</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">sur les soins</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">On a teste les soins Clarins : serums, cremes anti-a...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

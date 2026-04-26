@@ -1,45 +1,21 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
-    <linearGradient id="bg" x1="0%" y1="0%" x2="0%" y2="100%">
-      <stop offset="0%" style="stop-color:#fff5f5;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ffe8e8;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="coral" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#ff6b6b;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#ee5a5a;stop-opacity:1" />
-    </linearGradient>
-    <linearGradient id="nude" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#d4a574;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#c4956a;stop-opacity:1" />
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D81B60;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#880E4F;stop-opacity:1" />
     </linearGradient>
   </defs>
-  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
-  <rect x="220" y="18" width="360" height="50" rx="25" fill="url(#coral)"/>
-  <text x="400" y="50" text-anchor="middle" font-family="Georgia, serif" font-size="24" font-weight="bold" fill="white" letter-spacing="3">MAGNIFAIK</text>
-  <text x="400" y="90" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#999">by Cristina Cordula</text>
-  <text x="400" y="135" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#333">Maquillage Teint Glowy</text>
-  <text x="400" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#888">Lumineux, naturel, longue tenue</text>
-  <g transform="translate(95, 185)">
-    <rect x="0" y="0" width="180" height="110" rx="10" fill="white" stroke="#fdd" stroke-width="1"/>
-    <circle cx="90" cy="40" r="22" fill="url(#nude)"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">Fond de Teint</text>
-    <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">SPF30 integre</text>
-  </g>
-  <g transform="translate(310, 185)">
-    <rect x="0" y="0" width="180" height="110" rx="10" fill="white" stroke="#fdd" stroke-width="1"/>
-    <circle cx="90" cy="40" r="22" fill="url(#coral)"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">Blush</text>
-    <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Poudre + creme</text>
-  </g>
-  <g transform="translate(525, 185)">
-    <rect x="0" y="0" width="180" height="110" rx="10" fill="white" stroke="#fdd" stroke-width="1"/>
-    <circle cx="90" cy="40" r="22" fill="#c4956a"/>
-    <text x="90" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="#333">Bronzer</text>
-    <text x="90" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#999">Bonne mine</text>
-  </g>
-  <rect x="250" y="320" width="300" height="30" rx="8" fill="white" stroke="#eee" stroke-width="1"/>
-  <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">27 - 42 EUR | Disponible chez Nocibe</text>
-  <rect x="280" y="370" width="240" height="30" rx="15" fill="url(#coral)"/>
-  <text x="400" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white">NOTRE AVIS + TEST</text>
-  <text x="400" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#ccc">Pack Builder : cree ton coffret personnalise</text>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.07" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#D81B60" text-anchor="middle" font-weight="700">PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Magnifaik de Cristina</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Cordula : notre</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
+  <text x="80" y="400" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Test de la marque Magnifaik de Cristina Cordula. Not...</text>
+
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>
