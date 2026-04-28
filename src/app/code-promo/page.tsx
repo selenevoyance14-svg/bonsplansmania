@@ -47,7 +47,7 @@ export default function CodePromoIndexPage() {
                     Code promo {brand.name}
                   </div>
                   <div style={{ fontSize: "0.88rem", color: "var(--muted-foreground)", marginBottom: "12px", lineHeight: 1.5 }}>
-                    {brand.tagline}
+                    Voir tous nos articles {brand.name}
                   </div>
                   <span style={{ color: brand.color, fontWeight: 700, fontSize: "0.85rem" }}>
                     Voir les offres →
