@@ -3,7 +3,9 @@ main = "src/index.ts"
 compatibility_date = "2024-01-01"
 
 [triggers]
-crons = ["0 7 * * TUE,SAT"]  # mardi et samedi a 7h UTC (9h France heure d'ete)
+# Newsletter principale : mardi et samedi a 7h UTC (9h France heure d'ete)
+# Sequence drip guide PDF : tous les jours a 8h UTC (envoi des emails J+2/J+5/J+9/J+14/J+21)
+crons = ["0 7 * * TUE,SAT", "0 8 * * *"]
 
 [[kv_namespaces]]
 binding = "SUBSCRIBERS"

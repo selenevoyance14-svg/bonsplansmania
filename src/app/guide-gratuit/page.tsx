@@ -16,7 +16,7 @@ export default function GuideGratuit() {
 
     setStatus("loading");
     try {
-      const res = await fetch("/api/guide", {
+      const res = await fetch("https://bonsplansmania-newsletter.selenevoyance14.workers.dev/guide", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
