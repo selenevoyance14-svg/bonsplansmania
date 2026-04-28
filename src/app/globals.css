@@ -1071,6 +1071,52 @@ body {
   }
 }
 
+/* ── STICKY AD MOBILE (uniquement articles SANS CTA affilié) ── */
+.sticky-ad-mobile {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sticky-ad-mobile {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: 98;
+    padding: 4px 8px 6px;
+    background: rgba(255, 255, 255, 0.96);
+    backdrop-filter: blur(8px);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    min-height: 60px;
+  }
+
+  .sticky-ad-close {
+    position: absolute;
+    top: -10px;
+    right: 8px;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.6);
+    color: white;
+    border: none;
+    font-size: 14px;
+    line-height: 1;
+    cursor: pointer;
+    z-index: 1;
+  }
+
+  /* Si la sticky-ad est active, ajouter padding-bottom au contenu */
+  body:has(.sticky-ad-mobile) .article-page {
+    padding-bottom: 80px;
+  }
+  body:has(.sticky-ad-mobile) .footer {
+    padding-bottom: 70px;
+  }
+}
+
 /* ── CTA INTERMÉDIAIRE (injecté dans le contenu) ── */
 .cta-inline {
   text-align: center;
