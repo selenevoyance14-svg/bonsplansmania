@@ -151,8 +151,14 @@ export default function Home() {
             <div className="articles-grid">
               {featured.map((article, index) => {
                 const cat = categoryConfig[article.meta.category];
+                const isExpired = article.meta.expired === true;
                 return (
-                  <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
+                  <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none", ...(isExpired ? { opacity: 0.55, filter: "grayscale(40%)" } : {}) }}>
+                    {isExpired && (
+                      <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#DC2626", color: "white", padding: "3px 10px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.3px" }}>
+                        Terminé
+                      </div>
+                    )}
                     <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
                       <Image
                         src={article.meta.image}
@@ -220,8 +226,14 @@ export default function Home() {
             <div className="articles-grid">
               {latest.map((article) => {
                 const cat = categoryConfig[article.meta.category];
+                const isExpired = article.meta.expired === true;
                 return (
-                  <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
+                  <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none", ...(isExpired ? { opacity: 0.55, filter: "grayscale(40%)" } : {}) }}>
+                    {isExpired && (
+                      <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#DC2626", color: "white", padding: "3px 10px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.3px" }}>
+                        Terminé
+                      </div>
+                    )}
                     <div style={{ position: "relative", height: "190px", overflow: "hidden" }}>
                       <Image
                         src={article.meta.image}
