@@ -8,6 +8,7 @@ import LikeButton from "@/app/components/LikeButton";
 import NewsletterInline from "@/app/components/NewsletterInline";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -216,6 +217,9 @@ export default async function ArticlePage({ params }: PageProps) {
               </div>
             )}
           </article>
+
+          {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
+          {article.meta.category === "concours" && <IgraalConcoursCTA />}
 
           {/* Multiplex (recommandations natives AdSense) avant les articles liés — RPM nettement plus haut que display ici */}
           <AdBlock format="multiplex" />
