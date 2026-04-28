@@ -49,6 +49,7 @@ export default function Header({ activePage }: { activePage?: string }) {
               {bonsPlansOpen && (
                 <div className="nav-dropdown-menu">
                   <a href="/categorie/bon-plan">Tous les bons plans</a>
+                  <a href="/code-promo">Codes promo marques</a>
                   <a href="/bons-plans-bebe">👶 Coin Bébé</a>
                 </div>
               )}
@@ -122,6 +123,7 @@ export default function Header({ activePage }: { activePage?: string }) {
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Bons Plans</span>
             <a href="/categorie/bon-plan" onClick={() => setMobileOpen(false)}>Tous les bons plans</a>
+            <a href="/code-promo" onClick={() => setMobileOpen(false)}>Codes promo marques</a>
             <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
           </div>
           <div className="mobile-menu-section">
