@@ -7,9 +7,7 @@ type AdFormat = "display" | "in-article" | "multiplex";
 interface AdBlockProps {
   className?: string;
   format?: AdFormat;
-  // TODO Yann : créer 3 slots dédiés dans AdSense (in-article fluid + multiplex autorelaxed + display)
-  // et remplacer ces IDs. En attendant, on réutilise le slot display existant — AdSense optimise quand même.
-  slot?: string;
+  slot?: string; // override optionnel
 }
 
 declare global {
@@ -18,7 +16,12 @@ declare global {
   }
 }
 
-const DEFAULT_SLOT = "1564426359";
+// Slots AdSense dédiés (créés depuis le compte AdSense de Yann)
+const SLOTS: Record<AdFormat, string> = {
+  "display": "5683891928",       // BPM Display
+  "in-article": "9104262184",    // BPM In-article (fluid)
+  "multiplex": "4554643083",     // BPM Multiplex (autorelaxed)
+};
 
 export default function AdBlock({ className = "", format = "display", slot }: AdBlockProps) {
   const adRef = useRef<HTMLModElement>(null);
@@ -34,7 +37,7 @@ export default function AdBlock({ className = "", format = "display", slot }: Ad
     }
   }, []);
 
-  const slotId = slot ?? DEFAULT_SLOT;
+  const slotId = slot ?? SLOTS[format];
 
   if (format === "in-article") {
     return (

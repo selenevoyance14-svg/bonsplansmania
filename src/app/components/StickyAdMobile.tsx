@@ -8,7 +8,7 @@ declare global {
   }
 }
 
-const SLOT_ID = "1564426359";
+const SLOT_ID = "5683891928"; // BPM Display (responsive)
 
 export default function StickyAdMobile() {
   const pushed = useRef(false);
