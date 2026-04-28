@@ -13,7 +13,7 @@ import { join } from "node:path";
 // We also clean .next/ pages HTML/RSC artifacts that some Cloudflare adapters
 // (next-on-pages, opennext) might include in their deployment bundle.
 const OUT_DIRS = ["out", ".vercel/output/static", ".open-next/assets", ".next/server/app"];
-const ROOT_KEEP = [/^__next\._/];
+const ROOT_KEEP = [/^__next\._/, /^robots\.txt$/, /^ads\.txt$/];
 
 function cleanupRscTxtSync() {
   let totalDeleted = 0;

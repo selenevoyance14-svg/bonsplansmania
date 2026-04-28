@@ -2,8 +2,8 @@ import { readdir, stat, unlink } from "node:fs/promises";
 import { join } from "node:path";
 
 const OUT_DIR = "out";
-// Framework-level txt files to preserve
-const KEEP_PATTERNS = [/^__next\._/];
+// Framework-level txt files + static public/ .txt files to preserve at the root of out/
+const KEEP_PATTERNS = [/^__next\._/, /^robots\.txt$/, /^ads\.txt$/];
 
 async function* walk(dir: string): AsyncGenerator<string> {
   const entries = await readdir(dir, { withFileTypes: true });
