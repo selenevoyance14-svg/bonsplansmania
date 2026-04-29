@@ -311,6 +311,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#EC4899",
   },
   {
+    slug: "somatoline-cosmetic",
+    name: "Somatoline Cosmetic",
+    affiliateUrl: "https://www.somatolinecosmetic.fr/",
+    affiliateLabel: "Voir les offres Somatoline Cosmetic",
+    matchTags: ["somatoline", "somatoline-cosmetic"],
+    color: "#1E3A8A",
+  },
+  {
     slug: "stylevana",
     name: "Stylevana",
     affiliateUrl: "https://tidd.ly/4bqrGYB",
