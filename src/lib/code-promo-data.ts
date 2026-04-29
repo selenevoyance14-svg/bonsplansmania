@@ -183,6 +183,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#5D4D8C",
   },
   {
+    slug: "famille-mary",
+    name: "Famille Mary",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249989&url=https%3A%2F%2Fwww.famillemary.fr",
+    affiliateLabel: "Voir les offres Famille Mary",
+    matchTags: ["famille-mary", "famille mary"],
+    color: "#D97706",
+  },
+  {
     slug: "glowria",
     name: "Glowria",
     affiliateUrl: "https://c3po.link/QJcVKJrpze",
