@@ -1,6 +1,6 @@
 import { ExternalLink, Coins } from "lucide-react";
 
-const IGRAAL_PARRAINAGE_URL = "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=raf&utm_source=refer_friend";
+const IGRAAL_PARRAINAGE_URL = "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=raf&utm_source=refer_premium";
 
 // CTA auto-injecté en bas des articles concours.
 // Profil concouriste = profil cashback parfait → on cross-sell iGraal en parrainage.

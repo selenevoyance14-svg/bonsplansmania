@@ -33,7 +33,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "aliexpress",
     name: "AliExpress",
-    affiliateUrl: "https://tidd.ly/4mdabjv",
+    affiliateUrl: "https://tidd.ly/42BTllj",
     affiliateLabel: "Voir les offres AliExpress",
     matchTags: ["aliexpress"],
     color: "#FF4500",
@@ -109,6 +109,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Carte Noire",
     matchTags: ["carte-noire", "carte noire"],
     color: "#1F2937",
+  },
+  {
+    slug: "cdiscount",
+    name: "Cdiscount",
+    affiliateUrl: "https://www.cdiscount.com/",
+    affiliateLabel: "Voir les offres Cdiscount",
+    matchTags: ["cdiscount"],
+    color: "#0A4FA1",
   },
   {
     slug: "chaussea",
