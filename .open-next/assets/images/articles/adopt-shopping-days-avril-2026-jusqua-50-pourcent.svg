@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#D4467A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#E86A90;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F0A0B0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA500;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1200" height="630" fill="url(#bg)" />
+
+  <!-- Decorative circles -->
+  <circle cx="900" cy="315" r="220" fill="white" fill-opacity="0.08" stroke="white" stroke-opacity="0.15" stroke-width="2" />
+  <circle cx="900" cy="315" r="180" fill="white" fill-opacity="0.05" />
+  <circle cx="150" cy="530" r="160" fill="white" fill-opacity="0.05" />
+  <circle cx="1100" cy="80" r="100" fill="white" fill-opacity="0.04" />
+
+  <!-- Site badge -->
+  <rect x="80" y="60" width="240" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="200" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <!-- Promo badge -->
+  <rect x="80" y="130" width="200" height="36" rx="18" fill="url(#badge)" />
+  <text x="180" y="154" font-family="Georgia, serif" font-size="16" fill="#7B1A00" text-anchor="middle" font-weight="700">SHOPPING DAYS</text>
+
+  <!-- Main title -->
+  <text x="80" y="260" font-family="Georgia, serif" font-size="72" fill="white" font-weight="700" letter-spacing="-1">adopt</text>
+  <text x="80" y="330" font-family="Georgia, serif" font-size="36" fill="white" font-weight="400" fill-opacity="0.92">Shopping Days</text>
+
+  <!-- Divider -->
+  <rect x="80" y="355" width="120" height="3" rx="2" fill="white" fill-opacity="0.5" />
+
+  <!-- Discount highlight -->
+  <text x="850" y="280" font-family="Georgia, serif" font-size="120" fill="white" font-weight="700" text-anchor="middle">-50%</text>
+  <text x="850" y="330" font-family="Arial, sans-serif" font-size="22" fill="white" font-weight="400" text-anchor="middle" fill-opacity="0.9">sur une selection d'articles</text>
+
+  <!-- Info lines -->
+  <rect x="80" y="385" width="480" height="50" rx="10" fill="white" fill-opacity="0.12" />
+  <text x="100" y="417" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="700">Jusqu'a -50% + 20% offerts (newsletter)</text>
+
+  <rect x="80" y="450" width="440" height="50" rx="10" fill="white" fill-opacity="0.10" />
+  <text x="100" y="482" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="600">Parfums, brumes, soins, coffrets...</text>
+
+  <!-- Date -->
+  <text x="80" y="560" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Avril 2026 - Offres verifiees</text>
+</svg>

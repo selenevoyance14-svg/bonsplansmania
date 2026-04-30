@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F5E9"/>
+      <stop offset="100%" stop-color="#A5D6A7"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond vert pelouse -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Maison en fond -->
+  <rect x="200" y="30" width="400" height="120" rx="4" fill="#B0BEC5" opacity="0.2"/>
+  <polygon points="400,5 170,60 630,60" fill="#90A4AE" opacity="0.15"/>
+  <rect x="350" y="80" width="50" height="70" rx="2" fill="#B0BEC5" opacity="0.15"/>
+  <!-- Pelouse avec zones -->
+  <rect x="0" y="180" width="800" height="270" fill="#66BB6A" opacity="0.2"/>
+  <!-- Zone No-Go (hachurée) -->
+  <rect x="550" y="200" width="100" height="80" rx="6" fill="#EF5350" opacity="0.1" stroke="#EF5350" stroke-width="1.5" stroke-dasharray="5,5"/>
+  <text x="600" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#EF5350" opacity="0.5">No-Go</text>
+  <!-- Robot tondeuse -->
+  <ellipse cx="350" cy="280" rx="80" ry="30" fill="#222"/>
+  <ellipse cx="350" cy="275" rx="78" ry="28" fill="#2E2E2E"/>
+  <!-- Dessus du robot -->
+  <ellipse cx="350" cy="265" rx="75" ry="25" fill="#333"/>
+  <ellipse cx="350" cy="260" rx="70" ry="22" fill="#3A3A3A"/>
+  <!-- Roues AWD -->
+  <ellipse cx="290" cy="280" rx="15" ry="20" fill="#1A1A1A"/>
+  <ellipse cx="290" cy="280" rx="12" ry="17" fill="#222"/>
+  <ellipse cx="410" cy="280" rx="15" ry="20" fill="#1A1A1A"/>
+  <ellipse cx="410" cy="280" rx="12" ry="17" fill="#222"/>
+  <!-- Capteurs/boutons -->
+  <circle cx="350" cy="250" r="8" fill="#444"/>
+  <circle cx="350" cy="250" r="5" fill="#4CAF50" opacity="0.6"/>
+  <!-- Logo -->
+  <text x="350" y="272" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#777" letter-spacing="1.5">MAMMOTION</text>
+  <!-- Lignes de tonte -->
+  <line x1="100" y1="320" x2="250" y2="320" stroke="#4CAF50" stroke-width="1.5" opacity="0.3"/>
+  <line x1="100" y1="335" x2="250" y2="335" stroke="#4CAF50" stroke-width="1.5" opacity="0.3"/>
+  <line x1="100" y1="350" x2="250" y2="350" stroke="#4CAF50" stroke-width="1.5" opacity="0.3"/>
+  <!-- Signal GPS/RTK -->
+  <path d="M340 220 Q350 205 360 220" fill="none" stroke="#2196F3" stroke-width="1.5" opacity="0.4"/>
+  <path d="M335 212 Q350 194 365 212" fill="none" stroke="#2196F3" stroke-width="1.5" opacity="0.3"/>
+  <path d="M330 204 Q350 183 370 204" fill="none" stroke="#2196F3" stroke-width="1.5" opacity="0.2"/>
+  <!-- Badge -13% -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">-28%</text>
+  <text x="700" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFCDD2">1 299€</text>
+  <text x="700" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFCDD2">au lieu de 1 799€</text>
+  <!-- Badge AWD -->
+  <rect x="30" y="60" width="120" height="40" rx="8" fill="#1B5E20"/>
+  <text x="90" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">AWD 4x4</text>
+  <text x="90" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#A5D6A7">1 000 m²</text>
+  <!-- Titre -->
+  <rect x="120" y="360" width="560" height="70" rx="10" fill="rgba(27,94,32,0.85)"/>
+  <text x="400" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">Mammotion LUBA Mini 2 AWD 1000</text>
+  <text x="400" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#A5D6A7">Robot tondeuse — Sans fil — Cartographie auto — Multizone</text>
+</svg>

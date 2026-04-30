@@ -1,0 +1,37 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#bf360c;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#ff8a65;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fff3e0;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ffffff;stop-opacity:0.18" />
+      <stop offset="100%" style="stop-color:#ffffff;stop-opacity:0.06" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="110" r="180" fill="white" fill-opacity="0.05"/>
+  <circle cx="80" cy="540" r="120" fill="white" fill-opacity="0.04"/>
+  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2" stroke-width="1"/>
+  <rect x="100" y="100" width="220" height="36" rx="18" fill="#d84315"/>
+  <text x="210" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle" letter-spacing="1">BOX BEAUTE</text>
+  <text x="100" y="195" font-family="Arial, sans-serif" font-size="30" font-weight="900" fill="white">Box Marie Claire</text>
+  <text x="100" y="240" font-family="Arial, sans-serif" font-size="26" fill="white" fill-opacity="0.9">Bonne Mine</text>
+  <text x="100" y="275" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.8">Routine eclat en 6 etapes</text>
+  <rect x="100" y="310" width="180" height="80" rx="16" fill="white" fill-opacity="0.25"/>
+  <text x="190" y="340" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Prix</text>
+  <text x="190" y="375" font-family="Arial, sans-serif" font-size="28" fill="white" text-anchor="middle" font-weight="900">39,90€</text>
+  <rect x="300" y="310" width="160" height="80" rx="16" fill="white" fill-opacity="0.2"/>
+  <text x="380" y="340" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Contenu</text>
+  <text x="380" y="375" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="900">8 full size</text>
+  <rect x="480" y="310" width="170" height="80" rx="16" fill="white" fill-opacity="0.15"/>
+  <text x="565" y="340" font-family="Arial, sans-serif" font-size="14" fill="white" text-anchor="middle">Valeur</text>
+  <text x="565" y="375" font-family="Arial, sans-serif" font-size="20" fill="white" text-anchor="middle" font-weight="700">+150€ de produits</text>
+  <text x="100" y="440" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.85">Rexaline · Embryolisse · myBlend · Kerargan · Dijo</text>
+  <text x="100" y="475" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7">Peeling + SPF + Serum + Soin cheveux + Maquillage</text>
+  <text x="100" y="530" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">bonsplansmania.fr</text>
+  <text x="920" y="340" font-family="Arial, sans-serif" font-size="110" text-anchor="middle" opacity="0.15">✨</text>
+  <rect x="900" y="560" width="240" height="40" rx="20" fill="white" fill-opacity="0.15"/>
+  <text x="1020" y="585" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="600">bonsplansmania.fr</text>
+</svg>

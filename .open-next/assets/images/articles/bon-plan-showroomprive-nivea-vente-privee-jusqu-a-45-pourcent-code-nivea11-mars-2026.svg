@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#e8f4f8"/>
+  <rect x="0" y="0" width="800" height="45" fill="#1a1a1a"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">SHOWROOMPRIVE</text>
+  <text x="400" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e91e63" letter-spacing="3">VENTE PRIVEE</text>
+  <circle cx="400" cy="160" r="40" fill="#1a3264"/>
+  <text x="400" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="#ffffff">NIVEA</text>
+  <text x="400" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#1a3264">-45%</text>
+  <text x="400" y="278" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#666">Soins visage - Corps - Nivea Men - Labello</text>
+  <rect x="230" y="300" width="340" height="30" rx="6" fill="#ffffff" stroke="#1a3264" stroke-width="2"/>
+  <text x="400" y="321" text-anchor="middle" font-family="monospace" font-size="16" font-weight="bold" fill="#1a3264">NIVEA11 : -20% supp des 49,99E</text>
+  <rect x="280" y="348" width="240" height="36" rx="18" fill="#1a3264"/>
+  <text x="400" y="372" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Voir la vente</text>
+</svg>

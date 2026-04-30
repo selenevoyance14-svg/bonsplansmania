@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E8EAF6"/>
+      <stop offset="100%" style="stop-color:#9FA8DA"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#1A237E">Kit Nettoyage Dentaire DDKJ</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#283593">Brosse &#201;lectrique + Hydropulseur</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#1A237E">37,99&#8364; au lieu de 39,99&#8364;</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#283593">5 modes &#183; USB rechargeable &#183; M&#233;moire intelligente &#183; 4,2/5</text>
+  <rect x="370" y="430" width="460" height="56" rx="28" fill="#283593"/>
+  <text x="600" y="467" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">-5% &#183; Choix d&#39;Amazon</text>
+</svg>

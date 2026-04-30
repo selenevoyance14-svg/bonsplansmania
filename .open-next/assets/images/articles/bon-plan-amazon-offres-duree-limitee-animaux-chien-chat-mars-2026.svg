@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#232f3e"/>
+  <text x="400" y="60" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ff9900" letter-spacing="3">OFFRES A DUREE LIMITEE</text>
+  <text x="400" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#ffffff">amazon</text>
+  <rect x="200" y="130" width="400" height="2" fill="#ff9900" opacity="0.5"/>
+  <text x="400" y="180" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#cccccc">Chiens et Chats</text>
+  <text x="200" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Clement Thekan</text>
+  <text x="200" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ff9900">-11%</text>
+  <text x="400" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Rabbitgoo Harnais</text>
+  <text x="400" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ff9900">-10%</text>
+  <text x="600" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#ffffff">Arquivet Croquettes</text>
+  <text x="600" y="258" text-anchor="middle" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="#ff9900">-7%</text>
+  <text x="400" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" fill="#cccccc">6 produits selectionnes — stocks limites</text>
+  <rect x="280" y="340" width="240" height="38" rx="19" fill="#ff9900"/>
+  <text x="400" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#232f3e">Voir les offres</text>
+</svg>

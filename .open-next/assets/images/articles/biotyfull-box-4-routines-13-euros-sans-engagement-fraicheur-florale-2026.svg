@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#6B4FA0;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9B7FD0;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#D4C4F0;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.06" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <circle cx="900" cy="480" r="100" fill="white" fill-opacity="0.04" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="180" height="36" rx="18" fill="#8BC34A" fill-opacity="0.8" />
+  <text x="170" y="152" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">SANS ENGAGEMENT</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="56" fill="white" font-weight="700">Biotyfull Box</text>
+  <text x="80" y="320" font-family="Georgia, serif" font-size="48" fill="white" fill-opacity="0.95">4 Routines pour 13E</text>
+  <rect x="80" y="345" width="100" height="3" rx="2" fill="white" fill-opacity="0.5" />
+  <text x="80" y="390" font-family="Arial, sans-serif" font-size="24" fill="white" fill-opacity="0.95">Box Fraicheur Florale + 3 routines</text>
+  <text x="80" y="430" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.8">Apicia · Ladrome · Prim Aloe · Cottan</text>
+  <rect x="80" y="460" width="380" height="50" rx="10" fill="white" fill-opacity="0.15" />
+  <text x="100" y="492" font-family="Arial, sans-serif" font-size="22" fill="white" font-weight="700">100% bio · Full size · Made in France</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Offre limitee</text>
+</svg>

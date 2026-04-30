@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F3E5F5"/>
+      <stop offset="100%" style="stop-color:#CE93D8"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="140" text-anchor="middle" font-family="Arial, sans-serif" font-size="38" font-weight="bold" fill="#4A148C">BON PLAN COURSES</text>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#4A148C">eBuyClub : 67 Coupons</text>
+  <text x="600" y="290" text-anchor="middle" font-family="Arial, sans-serif" font-size="32" fill="#6A1B9A">Remboursements sur vos courses</text>
+  <text x="600" y="365" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#6A1B9A">Activia &#183; Kiri &#183; Danone &#183; L'Or &#183; Pr&#233;sident &#183; Harry's</text>
+  <text x="600" y="415" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#6A1B9A">De 0,20&#8364; &#224; 2&#8364; rembours&#233;s par produit</text>
+  <rect x="370" y="450" width="460" height="56" rx="28" fill="#7B1FA2"/>
+  <text x="600" y="487" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">Inscription gratuite &#183; Avril 2026</text>
+</svg>

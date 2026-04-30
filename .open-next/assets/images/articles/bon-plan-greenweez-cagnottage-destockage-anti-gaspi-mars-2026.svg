@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#c8e6c9;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#2e7d32;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#43a047;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <!-- Logo area -->
+  <rect x="40" y="30" width="200" height="50" rx="8" fill="url(#badge)"/>
+  <text x="140" y="62" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">GREENWEEZ</text>
+  <!-- Main heading -->
+  <text x="400" y="140" font-family="Arial, sans-serif" font-size="42" font-weight="bold" fill="#1b5e20" text-anchor="middle">3 Bons Plans Bio</text>
+  <!-- Offer boxes -->
+  <!-- Box 1: Cagnottage -->
+  <rect x="40" y="180" width="220" height="200" rx="12" fill="white" opacity="0.9"/>
+  <rect x="40" y="180" width="220" height="50" rx="12" fill="#2e7d32"/>
+  <rect x="40" y="210" width="220" height="20" fill="#2e7d32"/>
+  <text x="150" y="212" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">CAGNOTTAGE</text>
+  <text x="150" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#e65100" text-anchor="middle">10%</text>
+  <text x="150" y="310" font-family="Arial, sans-serif" font-size="14" fill="#424242" text-anchor="middle">sur la marque Greenweez</text>
+  <text x="150" y="335" font-family="Arial, sans-serif" font-size="13" fill="#757575" text-anchor="middle">jusqu'au 31/03</text>
+  <!-- Box 2: Destockage -->
+  <rect x="290" y="180" width="220" height="200" rx="12" fill="white" opacity="0.9"/>
+  <rect x="290" y="180" width="220" height="50" rx="12" fill="#e65100"/>
+  <rect x="290" y="210" width="220" height="20" fill="#e65100"/>
+  <text x="400" y="212" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">DESTOCKAGE</text>
+  <text x="400" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#e65100" text-anchor="middle">-60%</text>
+  <text x="400" y="310" font-family="Arial, sans-serif" font-size="14" fill="#424242" text-anchor="middle">sur des centaines</text>
+  <text x="400" y="335" font-family="Arial, sans-serif" font-size="13" fill="#757575" text-anchor="middle">de references bio</text>
+  <!-- Box 3: Anti-gaspi -->
+  <rect x="540" y="180" width="220" height="200" rx="12" fill="white" opacity="0.9"/>
+  <rect x="540" y="180" width="220" height="50" rx="12" fill="#f57c00"/>
+  <rect x="540" y="210" width="220" height="20" fill="#f57c00"/>
+  <text x="650" y="212" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">ANTI-GASPI</text>
+  <text x="650" y="280" font-family="Arial, sans-serif" font-size="48" font-weight="bold" fill="#e65100" text-anchor="middle">-50%</text>
+  <text x="650" y="310" font-family="Arial, sans-serif" font-size="14" fill="#424242" text-anchor="middle">ancien packaging,</text>
+  <text x="650" y="335" font-family="Arial, sans-serif" font-size="13" fill="#757575" text-anchor="middle">date courte, surstock</text>
+  <!-- Footer -->
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="16" fill="#2e7d32" text-anchor="middle" font-weight="bold">Epicerie, entretien, cosmetiques bio a prix reduit</text>
+</svg>

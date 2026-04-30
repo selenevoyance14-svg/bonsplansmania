@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E0F7FA"/>
+      <stop offset="100%" stop-color="#B2EBF2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Piste de running -->
+  <rect x="0" y="310" width="800" height="140" fill="#E57373" opacity="0.15"/>
+  <line x1="0" y1="340" x2="800" y2="340" stroke="#E57373" stroke-width="1" opacity="0.2"/>
+  <line x1="0" y1="370" x2="800" y2="370" stroke="#E57373" stroke-width="1" opacity="0.2"/>
+  <!-- Chaussure de running simplifiée -->
+  <!-- Semelle -->
+  <path d="M220,260 Q200,265 190,275 L190,290 Q250,300 450,295 L470,280 Q475,265 460,260 Z" fill="#C0E863"/>
+  <path d="M195,285 Q250,295 445,290 L450,282 Q250,287 200,278 Z" fill="#A8D84E" opacity="0.7"/>
+  <!-- Tige (upper) -->
+  <path d="M220,260 Q230,200 280,170 Q350,140 420,160 Q460,175 460,260 Z" fill="#4DD0E1"/>
+  <path d="M225,255 Q235,200 282,172 Q348,143 418,162 Q455,177 455,255 Z" fill="#26C6DA"/>
+  <!-- Bandes Adidas -->
+  <path d="M280,180 L310,250" stroke="#FFFFFF" stroke-width="6" opacity="0.7"/>
+  <path d="M310,175 L335,248" stroke="#FFFFFF" stroke-width="6" opacity="0.7"/>
+  <path d="M340,175 L358,245" stroke="#FFFFFF" stroke-width="6" opacity="0.7"/>
+  <!-- Languette -->
+  <rect x="310" y="140" width="50" height="40" rx="8" fill="#4DD0E1"/>
+  <rect x="315" y="145" width="40" height="30" rx="6" fill="#26C6DA"/>
+  <text x="335" y="165" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="8" fill="#FFF">adidas</text>
+  <!-- Lacets -->
+  <line x1="310" y1="175" x2="360" y2="175" stroke="#FFF" stroke-width="1.5" opacity="0.5"/>
+  <line x1="308" y1="190" x2="362" y2="190" stroke="#FFF" stroke-width="1.5" opacity="0.5"/>
+  <line x1="305" y1="205" x2="365" y2="205" stroke="#FFF" stroke-width="1.5" opacity="0.5"/>
+  <!-- Texte STRUNG sur la tige -->
+  <text x="400" y="230" font-family="Arial, sans-serif" font-size="8" fill="#FFF" opacity="0.6">UNIVERSAL PRO</text>
+  <!-- Lignes de vitesse -->
+  <line x1="140" y1="220" x2="180" y2="220" stroke="#4DD0E1" stroke-width="2" opacity="0.3"/>
+  <line x1="130" y1="240" x2="175" y2="240" stroke="#4DD0E1" stroke-width="2" opacity="0.25"/>
+  <line x1="150" y1="260" x2="185" y2="260" stroke="#4DD0E1" stroke-width="2" opacity="0.2"/>
+  <!-- Badge -50% -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#FFFFFF">-50%</text>
+  <text x="700" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#FFCDD2">149,99€</text>
+  <!-- Badge Private Sport Shop -->
+  <rect x="30" y="60" width="150" height="40" rx="8" fill="#1A237E"/>
+  <text x="105" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#FFFFFF">Private Sport Shop</text>
+  <text x="105" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#BBDEFB">Vente privée Adidas</text>
+  <!-- Titre -->
+  <rect x="120" y="360" width="560" height="70" rx="10" fill="rgba(0,150,136,0.85)"/>
+  <text x="400" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="17" fill="#FFFFFF">Adidas Adizero Prime X3 Strung</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#B2DFDB">Running route — 285g — Drop 7mm — Tige STRUNG</text>
+</svg>

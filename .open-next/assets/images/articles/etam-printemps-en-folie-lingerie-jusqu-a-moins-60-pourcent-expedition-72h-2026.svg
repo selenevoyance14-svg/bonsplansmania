@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF8E1"/>
+      <stop offset="100%" style="stop-color:#FFD54F"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="130" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#E65100">PRINTEMPS EN FOLIE</text>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="60" font-weight="bold" fill="#BF360C">Etam</text>
+  <text x="600" y="295" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" fill="#E65100">Lingerie &#183; Maillots de bain &#183; Pyjamas</text>
+  <text x="600" y="375" text-anchor="middle" font-family="Arial, sans-serif" font-size="52" font-weight="bold" fill="#BF360C">Jusqu'&#224; -60%</text>
+  <text x="600" y="430" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#E65100">Exp&#233;dition sous 72h &#183; Offre limit&#233;e</text>
+  <rect x="370" y="460" width="460" height="56" rx="28" fill="#BF360C"/>
+  <text x="600" y="497" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">Stocks limit&#233;s &#183; Vente priv&#233;e</text>
+</svg>

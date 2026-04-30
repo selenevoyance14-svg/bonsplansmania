@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1A1A1A;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#2D2D2D;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" rx="18"/>
+  <!-- Accent rose -->
+  <rect x="0" y="0" width="800" height="5" fill="#C4466C" rx="2"/>
+  <!-- Logo -->
+  <text x="400" y="80" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="400" letter-spacing="6" fill="#fff">LANCOME</text>
+  <text x="400" y="105" text-anchor="middle" font-family="Georgia, serif" font-size="14" letter-spacing="4" fill="#999">PARIS</text>
+  <!-- Badge principal -->
+  <rect x="175" y="130" width="450" height="75" rx="8" fill="#C4466C"/>
+  <text x="400" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="32" font-weight="700" fill="#fff">10 CADEAUX OFFERTS</text>
+  <text x="400" y="190" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#FFD4E0">des 120 euros d'achat</text>
+  <!-- Catégories -->
+  <rect x="130" y="240" width="120" height="40" rx="20" fill="#333" stroke="#666" stroke-width="1"/>
+  <text x="190" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#fff">Best-sellers</text>
+  <rect x="270" y="240" width="100" height="40" rx="20" fill="#333" stroke="#666" stroke-width="1"/>
+  <text x="320" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#fff">Soin</text>
+  <rect x="390" y="240" width="130" height="40" rx="20" fill="#333" stroke="#666" stroke-width="1"/>
+  <text x="455" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#fff">Maquillage</text>
+  <rect x="540" y="240" width="120" height="40" rx="20" fill="#333" stroke="#666" stroke-width="1"/>
+  <text x="600" y="265" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" font-weight="600" fill="#fff">Parfum</text>
+  <!-- Offre newsletter -->
+  <rect x="225" y="310" width="350" height="40" rx="20" fill="#C4466C" opacity="0.2"/>
+  <text x="400" y="336" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#C4466C">-10% sur la prochaine commande</text>
+  <!-- Footer -->
+  <text x="400" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#666">Genifique, Renergie, Idole, La Vie Est Belle, Teint Idole Ultra Wear</text>
+</svg>

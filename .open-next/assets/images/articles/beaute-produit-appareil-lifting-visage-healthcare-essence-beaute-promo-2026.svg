@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#5C1A3D;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#8B3A62;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#C06090;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FF4444;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#CC0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="accent" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.05" />
+  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.05" />
+
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <rect x="80" y="128" width="180" height="36" rx="18" fill="url(#badge)" />
+  <text x="170" y="152" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">OFFRE PAQUES</text>
+
+  <text x="80" y="240" font-family="Georgia, serif" font-size="44" fill="white" font-weight="400" fill-opacity="0.9">Appareil Lifting Visage</text>
+  <text x="80" y="310" font-family="Georgia, serif" font-size="42" fill="white" font-weight="400" fill-opacity="0.85">HealthCare</text>
+
+  <text x="80" y="400" font-family="Georgia, serif" font-size="88" fill="url(#accent)" font-weight="700">-58%</text>
+
+  <rect x="80" y="420" width="100" height="3" rx="2" fill="#FFD700" fill-opacity="0.8" />
+
+  <text x="80" y="470" font-family="Arial, sans-serif" font-size="32" fill="white" fill-opacity="0.6" text-decoration="line-through">59,99€</text>
+  <text x="310" y="470" font-family="Arial, sans-serif" font-size="36" fill="#FFD700" font-weight="700">25,49€</text>
+
+  <rect x="80" y="500" width="700" height="56" rx="12" fill="white" fill-opacity="0.08" />
+  <text x="100" y="535" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.8">3 modes · LED collagene · Anti-rides · Visage et cou</text>
+
+  <text x="80" y="606" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.5">Avril 2026 · Beaute Produit</text>
+</svg>

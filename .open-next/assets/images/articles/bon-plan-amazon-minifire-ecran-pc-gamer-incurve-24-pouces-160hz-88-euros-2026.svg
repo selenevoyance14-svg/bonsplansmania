@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#16213E"/>
+    </linearGradient>
+    <linearGradient id="screen" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#0D47A1"/>
+      <stop offset="50%" stop-color="#1565C0"/>
+      <stop offset="100%" stop-color="#0D47A1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Moniteur incurvé -->
+  <!-- Pied métal -->
+  <rect x="365" y="295" width="20" height="40" rx="3" fill="#555"/>
+  <ellipse cx="375" cy="340" rx="60" ry="10" fill="#444"/>
+  <!-- Cadre moniteur -->
+  <path d="M170,100 Q375,80 580,100 L580,290 Q375,310 170,290 Z" fill="#222"/>
+  <!-- Écran -->
+  <path d="M178,108 Q375,90 572,108 L572,282 Q375,302 178,282 Z" fill="url(#screen)"/>
+  <!-- Contenu gaming sur l'écran -->
+  <text x="375" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="40" fill="#4FC3F7" opacity="0.8">160Hz</text>
+  <text x="375" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#90CAF9" opacity="0.6">FHD 1920x1080</text>
+  <text x="375" y="235" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#64B5F6" opacity="0.5">1ms MPRT • 1500R • FreeSync</text>
+  <!-- Reflet courbe -->
+  <path d="M200,120 Q375,105 550,120 L550,125 Q375,110 200,125 Z" fill="#FFFFFF" opacity="0.05"/>
+  <!-- Badge prix -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">88,34€</text>
+  <text x="700" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#FFCDD2">au lieu de 92,99€</text>
+  <text x="700" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFCDD2">Choix d'Amazon</text>
+  <!-- Badge specs -->
+  <rect x="30" y="60" width="130" height="40" rx="8" fill="#1565C0"/>
+  <text x="95" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#FFFFFF">2 980 avis</text>
+  <text x="95" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#BBDEFB">4,4/5 — 24 pouces</text>
+  <!-- Titre -->
+  <rect x="120" y="370" width="560" height="65" rx="10" fill="rgba(21,101,192,0.9)"/>
+  <text x="400" y="395" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="17" fill="#FFFFFF">Minifire Écran PC Gamer Incurvé 24" 160Hz</text>
+  <text x="400" y="418" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#BBDEFB">FHD — 1ms — 1500R — FreeSync — Pied métal — HDMI/DP</text>
+</svg>

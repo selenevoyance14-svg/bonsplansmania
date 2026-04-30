@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E3F2FD"/>
+      <stop offset="100%" stop-color="#BBDEFB"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond bleu Bosch -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Boulonneuse simplifiée -->
+  <!-- Corps principal -->
+  <rect x="300" y="100" width="160" height="70" rx="10" fill="#1565C0"/>
+  <rect x="300" y="105" width="160" height="60" rx="8" fill="#1976D2"/>
+  <!-- Mandrin/tête -->
+  <rect x="460" y="110" width="60" height="50" rx="6" fill="#90A4AE"/>
+  <rect x="520" y="120" width="30" height="30" rx="4" fill="#78909C"/>
+  <rect x="545" y="125" width="15" height="20" rx="2" fill="#607D8B"/>
+  <!-- Poignée -->
+  <rect x="340" y="170" width="50" height="120" rx="8" fill="#1565C0"/>
+  <rect x="345" y="175" width="40" height="110" rx="6" fill="#1976D2"/>
+  <!-- Grip poignée -->
+  <rect x="348" y="200" width="34" height="5" rx="1" fill="#1255A1" opacity="0.5"/>
+  <rect x="348" y="210" width="34" height="5" rx="1" fill="#1255A1" opacity="0.5"/>
+  <rect x="348" y="220" width="34" height="5" rx="1" fill="#1255A1" opacity="0.5"/>
+  <rect x="348" y="230" width="34" height="5" rx="1" fill="#1255A1" opacity="0.5"/>
+  <!-- Gâchette -->
+  <rect x="355" y="178" width="20" height="15" rx="3" fill="#F44336"/>
+  <!-- Emplacement batterie (vide) -->
+  <rect x="330" y="280" width="70" height="30" rx="4" fill="#E0E0E0" stroke="#BDBDBD" stroke-width="1" stroke-dasharray="4,3"/>
+  <text x="365" y="300" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#999">18V</text>
+  <!-- Label Bosch -->
+  <rect x="320" y="120" width="80" height="18" rx="3" fill="#FFFFFF" opacity="0.9"/>
+  <text x="360" y="133" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#1565C0">BOSCH</text>
+  <!-- Éclairs de puissance -->
+  <polygon points="250,130 260,150 252,150 258,170 245,148 253,148" fill="#FFC107" opacity="0.5"/>
+  <polygon points="580,110 588,125 582,125 586,140 576,123 582,123" fill="#FFC107" opacity="0.4"/>
+  <!-- Badge -27% -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">-27%</text>
+  <text x="700" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#FFCDD2">166,24€</text>
+  <!-- Badge Choix Amazon -->
+  <rect x="30" y="60" width="130" height="40" rx="8" fill="#FF9800"/>
+  <text x="95" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#FFFFFF">Choix d'Amazon</text>
+  <text x="95" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFF3E0">4,6/5 — 94 avis</text>
+  <!-- Titre -->
+  <rect x="120" y="360" width="560" height="70" rx="10" fill="rgba(21,101,192,0.85)"/>
+  <text x="400" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="17" fill="#FFFFFF">Bosch Professional GDS 18V-350</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#BBDEFB">Boulonneuse sans fil 18V — Sans batterie ni chargeur</text>
+</svg>

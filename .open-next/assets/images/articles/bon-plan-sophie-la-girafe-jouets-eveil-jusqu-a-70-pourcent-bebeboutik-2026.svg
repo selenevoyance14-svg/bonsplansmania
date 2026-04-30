@@ -1,0 +1,17 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFD54F;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F9A825;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <rect x="40" y="40" width="1120" height="550" rx="24" fill="rgba(255,255,255,0.15)" stroke="rgba(255,255,255,0.3)" stroke-width="2"/>
+  <text x="600" y="135" font-family="Georgia, serif" font-size="52" font-weight="bold" fill="#4E342E" text-anchor="middle" letter-spacing="-1">Sophie la Girafe</text>
+  <text x="600" y="210" font-family="Georgia, serif" font-size="36" fill="rgba(78,52,46,0.9)" text-anchor="middle">Jouets d'Eveil &amp; Coffrets Naissance</text>
+  <text x="600" y="270" font-family="Arial, sans-serif" font-size="26" fill="rgba(78,52,46,0.75)" text-anchor="middle">Coffrets sensoriels, tableaux, tapis d'eveil - Bebeboutik</text>
+  <rect x="390" y="310" width="420" height="70" rx="35" fill="#4E342E"/>
+  <text x="600" y="356" font-family="Arial, sans-serif" font-size="34" font-weight="bold" fill="#FFD54F" text-anchor="middle">JUSQU'A -70%</text>
+  <text x="600" y="445" font-family="Arial, sans-serif" font-size="22" fill="rgba(78,52,46,0.7)" text-anchor="middle">53 produits - Coffret sensoriel 14,95E - Coffret naissance 10,95E</text>
+  <text x="600" y="540" font-family="Arial, sans-serif" font-size="18" fill="rgba(78,52,46,0.4)" text-anchor="middle">bonsplansmania.fr</text>
+</svg>

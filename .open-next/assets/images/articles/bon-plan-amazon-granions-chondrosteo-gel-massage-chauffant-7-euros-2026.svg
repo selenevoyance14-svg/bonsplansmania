@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#E8F5E9"/>
+      <stop offset="100%" stop-color="#C8E6C9"/>
+    </linearGradient>
+    <linearGradient id="tube" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#43A047"/>
+      <stop offset="100%" stop-color="#2E7D32"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Tube de gel -->
+  <rect x="320" y="80" width="80" height="220" rx="10" fill="url(#tube)"/>
+  <rect x="325" y="85" width="70" height="210" rx="8" fill="#388E3C"/>
+  <!-- Bouchon -->
+  <rect x="340" y="60" width="40" height="28" rx="6" fill="#E0E0E0"/>
+  <rect x="345" y="55" width="30" height="12" rx="4" fill="#BDBDBD"/>
+  <!-- Étiquette -->
+  <rect x="330" y="110" width="60" height="130" rx="4" fill="#FFFFFF" opacity="0.9"/>
+  <text x="360" y="132" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="7" fill="#1B5E20">GRANIONS</text>
+  <text x="360" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="9" fill="#E65100">Chondrostéo</text>
+  <text x="360" y="168" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#666">GEL DE MASSAGE</text>
+  <text x="360" y="182" text-anchor="middle" font-family="Arial, sans-serif" font-size="6" fill="#666">CHAUFFANT</text>
+  <rect x="338" y="190" width="44" height="1" fill="#E65100" opacity="0.5"/>
+  <text x="360" y="205" text-anchor="middle" font-family="Arial, sans-serif" font-size="5.5" fill="#888">Huiles essentielles</text>
+  <text x="360" y="215" text-anchor="middle" font-family="Arial, sans-serif" font-size="5.5" fill="#888">de Gaulthérie</text>
+  <text x="360" y="228" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="7" fill="#333">100 ml</text>
+  <!-- Ondes de chaleur -->
+  <path d="M420 160 Q435 150 420 140" fill="none" stroke="#FF6F00" stroke-width="1.5" opacity="0.3"/>
+  <path d="M430 165 Q448 152 430 138" fill="none" stroke="#FF6F00" stroke-width="1.5" opacity="0.25"/>
+  <path d="M440 170 Q460 155 440 135" fill="none" stroke="#FF6F00" stroke-width="1.5" opacity="0.2"/>
+  <!-- Feuilles naturelles -->
+  <ellipse cx="530" cy="180" rx="15" ry="30" fill="#66BB6A" opacity="0.3" transform="rotate(-20,530,180)"/>
+  <ellipse cx="550" cy="170" rx="12" ry="25" fill="#66BB6A" opacity="0.25" transform="rotate(10,550,170)"/>
+  <line x1="530" y1="155" x2="540" y2="205" stroke="#4CAF50" stroke-width="1" opacity="0.3"/>
+  <!-- Drapeau français -->
+  <rect x="230" y="140" width="8" height="18" fill="#0055A4"/>
+  <rect x="238" y="140" width="8" height="18" fill="#FFFFFF"/>
+  <rect x="246" y="140" width="8" height="18" fill="#EF4135"/>
+  <!-- Badge -5% -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="72" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">7,09€</text>
+  <text x="700" y="92" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#FFCDD2">2 000+ achetés</text>
+  <text x="700" y="106" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFCDD2">ce mois</text>
+  <!-- Badge Choix Amazon -->
+  <rect x="30" y="60" width="130" height="40" rx="8" fill="#FF9800"/>
+  <text x="95" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#FFFFFF">Choix d'Amazon</text>
+  <text x="95" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFF3E0">4,3/5 — 1 799 avis</text>
+  <!-- Titre -->
+  <rect x="120" y="360" width="560" height="70" rx="10" fill="rgba(46,125,50,0.85)"/>
+  <text x="400" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="17" fill="#FFFFFF">Granions Chondrostéo Gel Chauffant</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#C8E6C9">Décontractant musculaire — Huiles essentielles — 100 ml</text>
+</svg>

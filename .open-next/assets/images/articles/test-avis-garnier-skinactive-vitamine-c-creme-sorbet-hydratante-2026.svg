@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FFF7ED"/>
+      <stop offset="50%" style="stop-color:#FEF3C7"/>
+      <stop offset="100%" style="stop-color:#FFF7ED"/>
+    </linearGradient>
+    <linearGradient id="orange" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#F97316"/>
+      <stop offset="100%" style="stop-color:#EA580C"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16A34A"/>
+      <stop offset="100%" style="stop-color:#15803D"/>
+    </linearGradient>
+    <linearGradient id="jar" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#FCD34D"/>
+      <stop offset="100%" style="stop-color:#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Citrus slices decoration -->
+  <circle cx="180" cy="150" r="60" fill="none" stroke="url(#orange)" stroke-width="2" opacity="0.2"/>
+  <circle cx="180" cy="150" r="40" fill="none" stroke="url(#orange)" stroke-width="1" opacity="0.15"/>
+  <circle cx="1020" cy="450" r="50" fill="none" stroke="url(#orange)" stroke-width="2" opacity="0.2"/>
+  <circle cx="1020" cy="450" r="30" fill="none" stroke="url(#orange)" stroke-width="1" opacity="0.15"/>
+  <!-- Jar illustration -->
+  <g transform="translate(85, 200)">
+    <ellipse cx="60" cy="10" rx="50" ry="12" fill="url(#jar)" opacity="0.8"/>
+    <rect x="10" y="10" width="100" height="80" rx="10" fill="url(#jar)" opacity="0.7"/>
+    <rect x="20" y="25" width="80" height="45" rx="4" fill="white" opacity="0.4"/>
+    <text x="60" y="48" text-anchor="middle" font-family="Arial,sans-serif" font-size="10" font-weight="700" fill="url(#orange)" opacity="0.8">VITAMINE C</text>
+    <text x="60" y="62" text-anchor="middle" font-family="Arial,sans-serif" font-size="7" fill="#92400E" opacity="0.6">SORBET</text>
+  </g>
+  <!-- Stars rating -->
+  <g transform="translate(460, 130)">
+    <text x="0" y="0" font-size="28" fill="#F59E0B">&#9733;</text>
+    <text x="32" y="0" font-size="28" fill="#F59E0B">&#9733;</text>
+    <text x="64" y="0" font-size="28" fill="#F59E0B">&#9733;</text>
+    <text x="96" y="0" font-size="28" fill="#F59E0B">&#9733;</text>
+    <text x="128" y="0" font-size="28" fill="#F59E0B">&#9733;</text>
+    <text x="170" y="-2" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="#92400E">4,5/5</text>
+  </g>
+  <!-- Badge NOTRE AVIS -->
+  <rect x="430" y="55" width="340" height="48" rx="24" fill="url(#green)"/>
+  <text x="600" y="87" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="white">ON A TESTE POUR VOUS</text>
+  <!-- Brand -->
+  <text x="600" y="195" text-anchor="middle" font-family="Arial,sans-serif" font-size="18" fill="#92400E" opacity="0.6" letter-spacing="5">GARNIER SKINACTIVE</text>
+  <!-- Main text -->
+  <text x="600" y="280" text-anchor="middle" font-family="Arial,sans-serif" font-size="48" font-weight="900" fill="#1C1917">Creme Sorbet</text>
+  <text x="600" y="340" text-anchor="middle" font-family="Arial,sans-serif" font-size="44" font-weight="800" fill="url(#orange)">Vitamine C</text>
+  <!-- Features -->
+  <text x="600" y="400" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#78716C">48h d'hydratation · Anti-taches · Boost d'eclat</text>
+  <!-- Price badge -->
+  <rect x="510" y="425" width="180" height="42" rx="21" fill="url(#orange)" opacity="0.9"/>
+  <text x="600" y="453" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" font-weight="800" fill="white">Seulement 5,99E</text>
+  <!-- Bottom bar -->
+  <rect x="0" y="530" width="1200" height="100" fill="url(#orange)" opacity="0.9"/>
+  <text x="600" y="575" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="white">85 ml · Tous types de peau · 4,4/5 sur Amazon (207 avis)</text>
+</svg>

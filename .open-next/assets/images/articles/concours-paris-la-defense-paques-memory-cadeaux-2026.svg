@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#FDEAE4"/>
+      <stop offset="50%" style="stop-color:#FBE0D8"/>
+      <stop offset="100%" style="stop-color:#FDEAE4"/>
+    </linearGradient>
+    <linearGradient id="green" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#16A34A"/>
+      <stop offset="100%" style="stop-color:#15803D"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <!-- Easter eggs -->
+  <ellipse cx="150" cy="200" rx="25" ry="32" fill="#F59E0B" opacity="0.4"/>
+  <ellipse cx="180" cy="180" rx="8" ry="10" fill="#F59E0B" opacity="0.2"/>
+  <ellipse cx="1050" cy="220" rx="22" ry="28" fill="#8B5CF6" opacity="0.35"/>
+  <ellipse cx="1080" cy="190" rx="12" ry="15" fill="#EC4899" opacity="0.3"/>
+  <ellipse cx="200" cy="400" rx="18" ry="24" fill="#EC4899" opacity="0.25"/>
+  <ellipse cx="1000" cy="380" rx="20" ry="26" fill="#3B82F6" opacity="0.25"/>
+  <!-- Bunny ears left -->
+  <g transform="translate(80, 280)" opacity="0.2">
+    <ellipse cx="10" cy="0" rx="12" ry="40" fill="white" transform="rotate(-15, 10, 0)"/>
+    <ellipse cx="40" cy="0" rx="12" ry="40" fill="white" transform="rotate(15, 40, 0)"/>
+  </g>
+  <!-- Bunny ears right -->
+  <g transform="translate(1070, 300)" opacity="0.15">
+    <ellipse cx="10" cy="0" rx="10" ry="35" fill="white" transform="rotate(-10, 10, 0)"/>
+    <ellipse cx="35" cy="0" rx="10" ry="35" fill="white" transform="rotate(10, 35, 0)"/>
+  </g>
+  <!-- Memory cards -->
+  <g transform="translate(370, 120)" opacity="0.2">
+    <rect x="0" y="0" width="50" height="60" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="25" y="40" text-anchor="middle" font-size="24">?</text>
+  </g>
+  <g transform="translate(430, 120)" opacity="0.2">
+    <rect x="0" y="0" width="50" height="60" rx="6" fill="white" stroke="#D1D5DB" stroke-width="1"/>
+    <text x="25" y="40" text-anchor="middle" font-size="24">?</text>
+  </g>
+  <g transform="translate(720, 120)" opacity="0.2">
+    <rect x="0" y="0" width="50" height="60" rx="6" fill="url(#green)" opacity="0.3"/>
+    <text x="25" y="40" text-anchor="middle" font-size="24">🐰</text>
+  </g>
+  <g transform="translate(780, 120)" opacity="0.2">
+    <rect x="0" y="0" width="50" height="60" rx="6" fill="url(#green)" opacity="0.3"/>
+    <text x="25" y="40" text-anchor="middle" font-size="24">🐰</text>
+  </g>
+  <!-- Badge CONCOURS -->
+  <rect x="380" y="55" width="440" height="52" rx="26" fill="url(#green)"/>
+  <text x="600" y="89" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="800" fill="white">CONCOURS PÂQUES · JEU MEMORY</text>
+  <!-- Main text -->
+  <text x="600" y="265" text-anchor="middle" font-family="Arial,sans-serif" font-size="50" font-weight="900" fill="#1F2937">Gagnez des Cadeaux</text>
+  <text x="600" y="330" text-anchor="middle" font-family="Arial,sans-serif" font-size="30" font-weight="700" fill="url(#green)">Paris La Défense</text>
+  <!-- Subtitle -->
+  <text x="600" y="390" text-anchor="middle" font-family="Arial,sans-serif" font-size="20" fill="#78716C">Jouez au Memory de Pâques et qualifiez-vous pour le tirage au sort</text>
+  <!-- Grass bottom -->
+  <path d="M 0 530 Q 100 510, 200 525 Q 300 540, 400 520 Q 500 500, 600 525 Q 700 550, 800 520 Q 900 490, 1000 525 Q 1100 540, 1200 520 L 1200 630 L 0 630 Z" fill="url(#green)" opacity="0.9"/>
+  <!-- Bottom text -->
+  <text x="600" y="590" text-anchor="middle" font-family="Arial,sans-serif" font-size="22" font-weight="700" fill="white">Participation gratuite — Jeu ludique en quelques minutes</text>
+</svg>

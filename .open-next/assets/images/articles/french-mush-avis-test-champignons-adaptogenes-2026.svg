@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#3E2723;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#5D4037;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A1887F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#FFD700;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FFA000;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="80" r="220" fill="white" fill-opacity="0.04" />
+  <circle cx="100" cy="560" r="180" fill="white" fill-opacity="0.04" />
+
+  <!-- Site badge -->
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.12" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+
+  <!-- Category badge -->
+  <rect x="80" y="128" width="200" height="36" rx="18" fill="url(#badge)" />
+  <text x="180" y="152" font-family="Arial, sans-serif" font-size="16" fill="#3E2723" text-anchor="middle" font-weight="700">TEST PRODUIT</text>
+
+  <!-- Title -->
+  <text x="80" y="248" font-family="Georgia, serif" font-size="42" fill="white" font-weight="400" fill-opacity="0.8">On a teste</text>
+  <text x="80" y="340" font-family="Georgia, serif" font-size="88" fill="white" font-weight="700">French</text>
+  <text x="540" y="340" font-family="Georgia, serif" font-size="88" fill="#FFD700" font-weight="700">Mush</text>
+
+  <rect x="80" y="362" width="100" height="3" rx="2" fill="#FFD700" fill-opacity="0.8" />
+
+  <text x="80" y="410" font-family="Arial, sans-serif" font-size="28" fill="white" fill-opacity="0.95" font-weight="600">Champignons Adaptogenes Bio</text>
+
+  <!-- Details -->
+  <rect x="80" y="436" width="740" height="64" rx="12" fill="white" fill-opacity="0.08" />
+  <text x="100" y="462" font-family="Arial, sans-serif" font-size="19" fill="white" fill-opacity="0.85">Boost · Lion's Mane · Cordyceps · Reishi</text>
+  <text x="100" y="488" font-family="Arial, sans-serif" font-size="22" fill="#FFD700" font-weight="700">92% biodisponibilite · 4,7/5 Trustpilot · Bio · France</text>
+
+  <!-- Badge -->
+  <rect x="80" y="530" width="420" height="44" rx="10" fill="white" fill-opacity="0.1" />
+  <text x="100" y="557" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="700">Made in France · Extraction ultrasonique · Bio</text>
+
+  <text x="80" y="606" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.6">Avril 2026 · Bien-etre · 4 produits testes · Notre verdict</text>
+</svg>

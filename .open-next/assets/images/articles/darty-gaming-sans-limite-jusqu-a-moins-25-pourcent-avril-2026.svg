@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1A1A2E"/>
+      <stop offset="100%" stop-color="#16213E"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond sombre gaming -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Lignes néon déco -->
+  <line x1="0" y1="100" x2="200" y2="100" stroke="#FF0040" stroke-width="2" opacity="0.3"/>
+  <line x1="600" y1="350" x2="800" y2="350" stroke="#00D4FF" stroke-width="2" opacity="0.3"/>
+  <line x1="700" y1="0" x2="700" y2="150" stroke="#FF0040" stroke-width="1" opacity="0.2"/>
+  <line x1="100" y1="300" x2="100" y2="450" stroke="#00D4FF" stroke-width="1" opacity="0.2"/>
+  <!-- Manette centrale -->
+  <ellipse cx="400" cy="220" rx="100" ry="55" fill="#2D2D44" stroke="#444" stroke-width="2"/>
+  <!-- Sticks -->
+  <circle cx="360" cy="210" r="18" fill="#3A3A55" stroke="#555" stroke-width="1.5"/>
+  <circle cx="360" cy="210" r="10" fill="#4A4A65"/>
+  <circle cx="430" cy="235" r="15" fill="#3A3A55" stroke="#555" stroke-width="1.5"/>
+  <circle cx="430" cy="235" r="8" fill="#4A4A65"/>
+  <!-- Boutons -->
+  <circle cx="460" cy="200" r="7" fill="#FF0040"/>
+  <circle cx="475" cy="215" r="7" fill="#00D4FF"/>
+  <circle cx="445" cy="215" r="7" fill="#4CAF50"/>
+  <circle cx="460" cy="230" r="7" fill="#FFD700"/>
+  <!-- D-pad -->
+  <rect x="340" y="232" width="10" height="26" rx="2" fill="#555"/>
+  <rect x="332" y="240" width="26" height="10" rx="2" fill="#555"/>
+  <!-- Grips manette -->
+  <rect x="310" y="250" width="30" height="35" rx="10" fill="#2D2D44" stroke="#444" stroke-width="1.5"/>
+  <rect x="460" y="250" width="30" height="35" rx="10" fill="#2D2D44" stroke="#444" stroke-width="1.5"/>
+  <!-- Casque gaming -->
+  <path d="M160 180 Q160 130 200 130 Q240 130 240 180" fill="none" stroke="#FF0040" stroke-width="6" stroke-linecap="round"/>
+  <rect x="148" y="175" width="20" height="35" rx="8" fill="#333" stroke="#FF0040" stroke-width="1.5"/>
+  <rect x="232" y="175" width="20" height="35" rx="8" fill="#333" stroke="#FF0040" stroke-width="1.5"/>
+  <!-- Ecran gaming -->
+  <rect x="560" y="130" width="120" height="80" rx="4" fill="#111" stroke="#00D4FF" stroke-width="2"/>
+  <rect x="570" y="140" width="100" height="60" rx="2" fill="#1A1A2E"/>
+  <text x="620" y="175" text-anchor="middle" font-family="monospace" font-size="12" fill="#00D4FF">GAMING</text>
+  <rect x="610" y="210" width="20" height="15" fill="#333"/>
+  <rect x="595" y="225" width="50" height="4" rx="2" fill="#444"/>
+  <!-- Badge -25% -->
+  <circle cx="690" cy="70" r="48" fill="#FF0040"/>
+  <text x="690" y="62" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="14" fill="#FFFFFF">JUSQU'A</text>
+  <text x="690" y="85" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="24" fill="#FFFFFF">-25%</text>
+  <!-- Logo Darty style -->
+  <rect x="30" y="30" width="100" height="35" rx="6" fill="#FF0040"/>
+  <text x="80" y="53" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">DARTY</text>
+  <!-- Titre -->
+  <rect x="140" y="350" width="520" height="70" rx="10" fill="rgba(255,0,64,0.85)"/>
+  <text x="400" y="378" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#FFFFFF">Gaming Sans Limite</text>
+  <text x="400" y="402" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#FFD4DE">Du 30 mars au 19 avril 2026</text>
+</svg>

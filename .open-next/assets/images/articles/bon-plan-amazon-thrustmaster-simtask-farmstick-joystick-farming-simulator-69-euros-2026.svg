@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#1C1C2E"/>
+      <stop offset="100%" stop-color="#2A2A3E"/>
+    </linearGradient>
+  </defs>
+  <!-- Fond sombre gaming -->
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Base du joystick -->
+  <ellipse cx="400" cy="310" rx="110" ry="30" fill="#222"/>
+  <rect x="300" y="285" width="200" height="30" rx="8" fill="#2A2A2A" stroke="#444" stroke-width="1"/>
+  <!-- Boutons directionnels sur la base -->
+  <polygon points="340,290 350,283 360,290 350,297" fill="#555"/>
+  <polygon points="430,290 440,283 450,290 440,297" fill="#555"/>
+  <rect x="380" y="288" width="15" height="8" rx="2" fill="#555"/>
+  <rect x="400" y="288" width="15" height="8" rx="2" fill="#555"/>
+  <!-- Tige du joystick -->
+  <rect x="388" y="140" width="24" height="150" rx="6" fill="#333" stroke="#444" stroke-width="1"/>
+  <!-- Tête du joystick -->
+  <rect x="378" y="90" width="44" height="60" rx="8" fill="#2A2A2A" stroke="#444" stroke-width="1.5"/>
+  <!-- Boutons orange -->
+  <rect x="385" y="100" width="12" height="8" rx="2" fill="#FF6B00"/>
+  <rect x="400" y="100" width="12" height="8" rx="2" fill="#FF6B00"/>
+  <rect x="385" y="112" width="12" height="8" rx="2" fill="#FF6B00"/>
+  <rect x="400" y="112" width="12" height="8" rx="2" fill="#FF6B00"/>
+  <!-- Mini joystick sur la tête -->
+  <circle cx="400" cy="135" r="6" fill="#444" stroke="#555" stroke-width="1"/>
+  <circle cx="400" cy="135" r="3" fill="#555"/>
+  <!-- Boutons noirs sur la tête -->
+  <circle cx="388" cy="128" r="4" fill="#333" stroke="#555" stroke-width="0.5"/>
+  <circle cx="412" cy="128" r="4" fill="#333" stroke="#555" stroke-width="0.5"/>
+  <!-- Texte THRUSTMASTER sur la tige -->
+  <text x="400" y="245" text-anchor="middle" font-family="Arial" font-size="6" fill="#888" letter-spacing="1.5" transform="rotate(-90 400 245)">THRUSTMASTER</text>
+  <!-- Champ de blé décoratif -->
+  <line x1="100" y1="350" x2="105" y2="310" stroke="#D4A030" stroke-width="1.5" opacity="0.3"/>
+  <line x1="115" y1="350" x2="118" y2="315" stroke="#C89828" stroke-width="1.5" opacity="0.3"/>
+  <line x1="130" y1="350" x2="127" y2="308" stroke="#D4A030" stroke-width="1.5" opacity="0.25"/>
+  <ellipse cx="105" cy="308" rx="5" ry="3" fill="#D4A030" opacity="0.3"/>
+  <ellipse cx="118" cy="313" rx="5" ry="3" fill="#C89828" opacity="0.3"/>
+  <ellipse cx="127" cy="306" rx="5" ry="3" fill="#D4A030" opacity="0.25"/>
+  <line x1="650" y1="350" x2="655" y2="312" stroke="#D4A030" stroke-width="1.5" opacity="0.3"/>
+  <line x1="665" y1="350" x2="668" y2="318" stroke="#C89828" stroke-width="1.5" opacity="0.3"/>
+  <line x1="680" y1="350" x2="677" y2="310" stroke="#D4A030" stroke-width="1.5" opacity="0.25"/>
+  <ellipse cx="655" cy="310" rx="5" ry="3" fill="#D4A030" opacity="0.3"/>
+  <ellipse cx="668" cy="316" rx="5" ry="3" fill="#C89828" opacity="0.3"/>
+  <!-- Badge -42% -->
+  <circle cx="690" cy="80" r="45" fill="#FF6B00"/>
+  <text x="690" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="20" fill="#FFFFFF">-42%</text>
+  <text x="690" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFE0C0">69,99€</text>
+  <!-- Badge PS5/PC -->
+  <rect x="30" y="60" width="100" height="40" rx="8" fill="#0070D1"/>
+  <text x="80" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#FFFFFF">PS5 &amp; PC</text>
+  <text x="80" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="8" fill="#B0D8FF">33 boutons</text>
+  <!-- Titre -->
+  <rect x="140" y="360" width="520" height="70" rx="10" fill="rgba(255,107,0,0.85)"/>
+  <text x="400" y="388" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="19" fill="#FFFFFF">Thrustmaster SimTask FarmStick</text>
+  <text x="400" y="412" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#FFE0C0">Joystick Farming Simulator 25</text>
+</svg>

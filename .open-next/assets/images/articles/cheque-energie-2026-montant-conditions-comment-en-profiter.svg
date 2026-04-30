@@ -1,0 +1,39 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1E3A5F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#2E86AB;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A8DADC;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.15)" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="950" cy="120" r="200" fill="white" fill-opacity="0.05"/>
+  <circle cx="1050" cy="450" r="150" fill="white" fill-opacity="0.04"/>
+  <circle cx="150" cy="500" r="120" fill="white" fill-opacity="0.03"/>
+  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2"/>
+  <rect x="100" y="100" width="130" height="36" rx="18" fill="#16A34A"/>
+  <text x="165" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">BON PLAN</text>
+  <text x="100" y="195" font-family="Arial, sans-serif" font-size="36" font-weight="900" fill="white">Chèque Énergie 2026</text>
+  <text x="100" y="245" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">Jusqu'à 277€ pour payer</text>
+  <text x="100" y="275" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">vos factures d'énergie</text>
+  <rect x="100" y="320" width="560" height="1" fill="white" fill-opacity="0.2"/>
+  <text x="100" y="370" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.8">Électricité, gaz, fioul, bois, travaux</text>
+  <text x="100" y="400" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.8">Envoyé automatiquement aux foyers éligibles</text>
+  <text x="100" y="430" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.8">Valable jusqu'au 31 mars 2027</text>
+  <rect x="100" y="470" width="260" height="50" rx="25" fill="#16A34A"/>
+  <text x="230" y="501" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">Vérifier mon éligibilité</text>
+  <rect x="820" y="180" width="300" height="280" rx="20" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.2"/>
+  <text x="970" y="240" font-family="Arial, sans-serif" font-size="60" font-weight="900" fill="#16A34A" text-anchor="middle">277€</text>
+  <text x="970" y="275" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7" text-anchor="middle">montant maximum</text>
+  <line x1="870" y1="305" x2="1070" y2="305" stroke="white" stroke-opacity="0.15"/>
+  <text x="970" y="345" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.9" text-anchor="middle">5,8 millions</text>
+  <text x="970" y="370" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.6" text-anchor="middle">de foyers concernés</text>
+  <line x1="870" y1="395" x2="1070" y2="395" stroke="white" stroke-opacity="0.15"/>
+  <text x="970" y="430" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.9" text-anchor="middle">0 démarche</text>
+  <text x="970" y="455" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.6" text-anchor="middle">envoi automatique</text>
+  <text x="1140" y="600" font-family="Arial, sans-serif" font-size="13" fill="white" fill-opacity="0.4" text-anchor="end">bonsplansmania.fr</text>
+</svg>

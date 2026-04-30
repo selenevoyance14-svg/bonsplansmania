@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fef5f5;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f8e8e8;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="darkred" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#b71c1c;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b0000;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="amazon" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff9900;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#e68a00;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="dark" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#0d0d0d;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Machine illustration -->
+  <g transform="translate(250, 50)">
+    <!-- Base -->
+    <ellipse cx="100" cy="280" rx="90" ry="15" fill="#222"/>
+    <rect x="30" y="260" width="140" height="25" rx="4" fill="#1a1a1a"/>
+    <!-- Body -->
+    <rect x="50" y="80" width="100" height="185" rx="20" fill="url(#darkred)"/>
+    <!-- Chrome top -->
+    <ellipse cx="100" cy="85" rx="45" ry="12" fill="#ccc"/>
+    <rect x="55" y="60" width="90" height="30" rx="15" fill="#ddd"/>
+    <!-- Nespresso label -->
+    <text x="100" y="170" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="white" letter-spacing="1">NESPRESSO</text>
+    <!-- Button -->
+    <circle cx="100" cy="110" r="8" fill="#ddd" stroke="#bbb" stroke-width="1"/>
+    <!-- Cup area -->
+    <rect x="120" y="220" width="50" height="40" rx="4" fill="none" stroke="#333" stroke-width="1.5"/>
+    <!-- Cup -->
+    <rect x="128" y="230" width="35" height="25" rx="3" fill="white" stroke="#ddd" stroke-width="1"/>
+    <!-- Coffee in cup -->
+    <rect x="130" y="237" width="31" height="10" rx="2" fill="#4e342e"/>
+    <!-- Drip tray -->
+    <rect x="115" y="258" width="60" height="6" rx="2" fill="#333"/>
+  </g>
+
+  <!-- Promo badge -->
+  <rect x="480" y="60" width="240" height="110" rx="14" fill="url(#amazon)"/>
+  <text x="600" y="100" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="white">-59%</text>
+  <text x="600" y="125" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="white" opacity="0.9">Offre a duree limitee</text>
+  <text x="600" y="155" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="white" opacity="0.7">Amazon</text>
+
+  <!-- Price -->
+  <text x="600" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#999" text-decoration="line-through">122,13E</text>
+  <text x="600" y="250" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" font-weight="bold" fill="#b71c1c">49,99E</text>
+
+  <!-- Brand -->
+  <text x="400" y="340" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#333" letter-spacing="4">NESPRESSO KRUPS</text>
+  <text x="400" y="362" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="url(#darkred)" letter-spacing="2">VERTUO NEXT</text>
+
+  <!-- Features pills -->
+  <rect x="130" y="385" width="120" height="28" rx="14" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="190" y="404" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">Centrifusion</text>
+
+  <rect x="270" y="385" width="120" height="28" rx="14" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="330" y="404" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">5 tailles de cafe</text>
+
+  <rect x="410" y="385" width="120" height="28" rx="14" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="470" y="404" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">Prete en 30s</text>
+
+  <rect x="550" y="385" width="120" height="28" rx="14" fill="white" stroke="#ddd" stroke-width="1"/>
+  <text x="610" y="404" text-anchor="middle" font-family="Arial, sans-serif" font-size="10" fill="#555">4/5 (1429 avis)</text>
+
+  <!-- Bottom -->
+  <text x="400" y="440" text-anchor="middle" font-family="Arial, sans-serif" font-size="11" fill="#888">Coloris Rouge -- Livraison gratuite -- Retours 30 jours</text>
+</svg>

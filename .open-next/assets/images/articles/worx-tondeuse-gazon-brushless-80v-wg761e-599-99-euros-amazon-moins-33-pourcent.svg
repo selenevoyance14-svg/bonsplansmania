@@ -1,0 +1,16 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#C8E6C9"/>
+      <stop offset="100%" style="stop-color:#66BB6A"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="60" y="60" width="1080" height="510" rx="20" fill="rgba(255,255,255,0.15)"/>
+  <text x="600" y="150" text-anchor="middle" font-family="Arial, sans-serif" font-size="54" font-weight="bold" fill="#1B5E20">Tondeuse WORX 80V WG761E</text>
+  <text x="600" y="225" text-anchor="middle" font-family="Arial, sans-serif" font-size="36" fill="#2E7D32">Brushless &#183; Autotract&#233;e &#183; 1000m&#178; &#183; 4 Batteries</text>
+  <text x="600" y="325" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#1B5E20">599,99&#8364; au lieu de 899,99&#8364;</text>
+  <text x="600" y="390" text-anchor="middle" font-family="Arial, sans-serif" font-size="28" fill="#2E7D32">Coupe 51cm &#183; Mulching &#183; 4,0/5 (630 avis)</text>
+  <rect x="370" y="430" width="460" height="56" rx="28" fill="#2E7D32"/>
+  <text x="600" y="467" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" font-weight="bold" fill="#FFFFFF">-33% &#183; Offre &#224; dur&#233;e limit&#233;e</text>
+</svg>

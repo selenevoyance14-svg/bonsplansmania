@@ -1,0 +1,22 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#BCAAA4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4E342E;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#F06292;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <rect x="60" y="60" width="1080" height="510" rx="32" fill="white" fill-opacity="0.12"/>
+  <rect x="700" y="100" width="320" height="60" rx="30" fill="url(#badge)"/>
+  <text x="860" y="140" font-family="Arial, Helvetica, sans-serif" font-size="26" font-weight="bold" fill="white" text-anchor="middle">100+ places gratuites</text>
+  <text x="600" y="225" font-family="Arial, Helvetica, sans-serif" font-size="54" font-weight="bold" fill="white" text-anchor="middle">Tests Gratuits Naali</text>
+  <text x="600" y="295" font-family="Arial, Helvetica, sans-serif" font-size="36" fill="white" text-anchor="middle" fill-opacity="0.95">Magnésium+ - Gummies Dream - Anti-Stress</text>
+  <text x="600" y="360" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="white" text-anchor="middle" fill-opacity="0.85">Compléments naturels : fatigue, sommeil, détente</text>
+  <text x="600" y="435" font-family="Arial, Helvetica, sans-serif" font-size="38" font-weight="bold" fill="white" text-anchor="middle">Devenez ambassadeur Naali</text>
+  <text x="600" y="490" font-family="Arial, Helvetica, sans-serif" font-size="28" fill="white" text-anchor="middle" fill-opacity="0.8">Candidature jusqu'au 13 avril 2026</text>
+  <text x="600" y="545" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="white" text-anchor="middle" fill-opacity="0.8">bonsplansmania.fr</text>
+</svg>

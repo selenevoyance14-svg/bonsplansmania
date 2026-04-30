@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" width="800" height="450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f4fd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#fce4ec;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#64b5f6;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#90caf9;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background -->
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+
+  <!-- Soft decorative circles -->
+  <circle cx="700" cy="80" r="60" fill="#bbdefb" opacity="0.2"/>
+  <circle cx="80" cy="380" r="50" fill="#f8bbd0" opacity="0.2"/>
+  <circle cx="720" cy="370" r="40" fill="#c8e6c9" opacity="0.15"/>
+
+  <!-- Badge -->
+  <rect x="40" y="25" width="280" height="36" rx="18" fill="url(#badge)"/>
+  <text x="180" y="49" font-family="Arial, sans-serif" font-size="13" font-weight="bold" fill="white" text-anchor="middle" letter-spacing="1">EDITION LIMITEE x MAGICMAMAN</text>
+
+  <!-- Main title -->
+  <text x="40" y="108" font-family="Georgia, serif" font-size="34" font-weight="bold" fill="#2d2d2d">BOX BEBE</text>
+  <text x="40" y="148" font-family="Georgia, serif" font-size="34" font-weight="bold" fill="#2d2d2d">MODE D'EMPLOI</text>
+
+  <!-- Brand -->
+  <text x="40" y="178" font-family="Arial, sans-serif" font-size="14" fill="#888" font-style="italic">My Beauty Factory</text>
+
+  <!-- Price -->
+  <text x="40" y="220" font-family="Arial, sans-serif" font-size="18" fill="#999" text-decoration="line-through">169,37E</text>
+  <rect x="145" y="200" width="140" height="35" rx="8" fill="#64b5f6"/>
+  <text x="215" y="224" font-family="Arial, sans-serif" font-size="22" font-weight="bold" fill="white" text-anchor="middle">22,90E</text>
+  <text x="300" y="224" font-family="Arial, sans-serif" font-size="14" fill="#e57373">  -86%</text>
+
+  <!-- Features -->
+  <text font-family="Arial, sans-serif" font-size="14" fill="#555">
+    <tspan x="40" y="268">&#x2022; 8 indispensables soins et puericulture bebe</tspan>
+    <tspan x="40" y="294">&#x2022; 4 essentiels beaute pour maman</tspan>
+    <tspan x="40" y="320">&#x2022; 1 album photo souvenir</tspan>
+    <tspan x="40" y="346">&#x2022; 13 produits au total</tspan>
+  </text>
+
+  <!-- Box illustration (right side) -->
+  <!-- Gift bag shape -->
+  <rect x="530" y="100" width="220" height="240" rx="16" fill="white" stroke="#90caf9" stroke-width="2" opacity="0.9"/>
+
+  <!-- Bag handles -->
+  <ellipse cx="600" cy="105" rx="25" ry="15" fill="none" stroke="#90caf9" stroke-width="2"/>
+  <ellipse cx="690" cy="105" rx="25" ry="15" fill="none" stroke="#90caf9" stroke-width="2"/>
+
+  <!-- "Pensee pour vous, testee pour bebe" label -->
+  <rect x="550" y="125" width="180" height="30" rx="6" fill="#e3f2fd"/>
+  <text x="640" y="144" font-family="Arial, sans-serif" font-size="10" fill="#1976d2" text-anchor="middle">PENSEE POUR VOUS</text>
+
+  <!-- Baby products -->
+  <rect x="555" y="170" width="28" height="65" rx="6" fill="#bbdefb"/>
+  <rect x="590" y="175" width="25" height="60" rx="6" fill="#c8e6c9"/>
+  <rect x="622" y="168" width="30" height="67" rx="6" fill="#ffe0b2"/>
+  <rect x="660" y="172" width="26" height="63" rx="6" fill="#f8bbd0"/>
+  <rect x="694" y="178" width="28" height="57" rx="6" fill="#d1c4e9"/>
+
+  <!-- Bear toy -->
+  <circle cx="580" cy="275" r="18" fill="#ffcc80"/>
+  <circle cx="572" cy="270" r="3" fill="#5d4037"/>
+  <circle cx="588" cy="270" r="3" fill="#5d4037"/>
+  <ellipse cx="580" cy="278" rx="4" ry="3" fill="#8d6e63"/>
+  <circle cx="568" cy="260" r="8" fill="#ffe0b2"/>
+  <circle cx="592" cy="260" r="8" fill="#ffe0b2"/>
+
+  <!-- Album photo icon -->
+  <rect x="630" y="260" width="45" height="35" rx="4" fill="#e3f2fd" stroke="#90caf9" stroke-width="1.5"/>
+  <rect x="637" y="267" width="15" height="12" rx="2" fill="#90caf9" opacity="0.4"/>
+  <circle cx="662" cy="273" r="5" fill="#90caf9" opacity="0.3"/>
+  <text x="652" y="288" font-family="Arial, sans-serif" font-size="7" fill="#1976d2" text-anchor="middle">ALBUM</text>
+
+  <!-- 13 products badge -->
+  <circle cx="720" cy="130" r="28" fill="#64b5f6"/>
+  <text x="720" y="126" font-family="Arial, sans-serif" font-size="18" font-weight="bold" fill="white" text-anchor="middle">13</text>
+  <text x="720" y="142" font-family="Arial, sans-serif" font-size="9" fill="white" text-anchor="middle">produits</text>
+
+  <!-- Footer -->
+  <rect x="40" y="400" width="720" height="1" fill="#c8dae8"/>
+  <text x="400" y="430" font-family="Arial, sans-serif" font-size="13" fill="#999" text-anchor="middle">bonsplansmania.fr — My Beauty Factory x magicmaman</text>
+</svg>

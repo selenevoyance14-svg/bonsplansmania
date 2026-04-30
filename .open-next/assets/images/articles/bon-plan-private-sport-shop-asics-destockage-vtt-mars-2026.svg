@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
+  <rect width="800" height="400" fill="#f5f5f5"/>
+  <rect x="0" y="0" width="800" height="45" fill="#e65100"/>
+  <text x="400" y="30" text-anchor="middle" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="#ffffff">PRIVATE SPORT SHOP</text>
+  <text x="250" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e65100" letter-spacing="3">CODE PROMO</text>
+  <text x="250" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#111111">ASICS</text>
+  <text x="250" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#e53935">-10%</text>
+  <text x="250" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">supplementaires jusqu'au 31/03</text>
+  <rect x="390" y="80" width="1" height="180" fill="#ddd"/>
+  <text x="580" y="110" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" fill="#e65100" letter-spacing="3">DESTOCKAGE 48H</text>
+  <text x="580" y="160" text-anchor="middle" font-family="Arial, sans-serif" font-size="40" font-weight="bold" fill="#111111">VTT</text>
+  <text x="580" y="210" text-anchor="middle" font-family="Arial, sans-serif" font-size="50" font-weight="bold" fill="#e53935">-72%</text>
+  <text x="580" y="240" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#888">stocks limites</text>
+  <rect x="280" y="300" width="240" height="36" rx="18" fill="#e65100"/>
+  <text x="400" y="324" text-anchor="middle" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="#ffffff">Voir les offres</text>
+</svg>

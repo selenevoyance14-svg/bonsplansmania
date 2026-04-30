@@ -1,0 +1,22 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#90A4AE;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#37474F;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="badge" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" style="stop-color:#E53935;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FF5252;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <rect x="60" y="60" width="1080" height="510" rx="32" fill="white" fill-opacity="0.12"/>
+  <rect x="735" y="100" width="280" height="60" rx="30" fill="url(#badge)"/>
+  <text x="875" y="140" font-family="Arial, Helvetica, sans-serif" font-size="32" font-weight="bold" fill="white" text-anchor="middle">-58%</text>
+  <text x="600" y="225" font-family="Arial, Helvetica, sans-serif" font-size="48" font-weight="bold" fill="white" text-anchor="middle">Tablette SUAAT S3 10 pouces</text>
+  <text x="600" y="290" font-family="Arial, Helvetica, sans-serif" font-size="38" fill="white" text-anchor="middle" fill-opacity="0.95">20 Go RAM - 128 Go - Wi-Fi 6</text>
+  <text x="600" y="350" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="white" text-anchor="middle" fill-opacity="0.85">Clavier + Souris inclus - Widevine L1 - Gemini AI</text>
+  <text x="600" y="440" font-family="Arial, Helvetica, sans-serif" font-size="64" font-weight="bold" fill="white" text-anchor="middle">89,99€</text>
+  <text x="600" y="490" font-family="Arial, Helvetica, sans-serif" font-size="30" fill="white" text-anchor="middle" fill-opacity="0.7" text-decoration="line-through">215,99€</text>
+  <text x="600" y="545" font-family="Arial, Helvetica, sans-serif" font-size="26" fill="white" text-anchor="middle" fill-opacity="0.8">bonsplansmania.fr</text>
+</svg>

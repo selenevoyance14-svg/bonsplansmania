@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#FFF8E1"/>
+      <stop offset="100%" stop-color="#FFE0B2"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <!-- Plan de travail -->
+  <rect x="0" y="310" width="800" height="140" fill="#D7CCC8" opacity="0.2"/>
+  <!-- Robot pâtissier -->
+  <!-- Socle -->
+  <ellipse cx="380" cy="300" rx="100" ry="20" fill="#F5F5DC"/>
+  <rect x="280" y="260" width="200" height="42" rx="8" fill="#F5F5DC"/>
+  <rect x="285" y="265" width="190" height="32" rx="6" fill="#FFFDE7"/>
+  <!-- Bouton vitesse -->
+  <circle cx="320" cy="281" r="12" fill="#B0BEC5"/>
+  <circle cx="320" cy="281" r="9" fill="#90A4AE"/>
+  <circle cx="320" cy="276" r="2" fill="#78909C"/>
+  <!-- Bol inox -->
+  <ellipse cx="400" cy="280" rx="55" ry="15" fill="#E0E0E0"/>
+  <rect x="345" y="220" width="110" height="62" rx="4" fill="#BDBDBD"/>
+  <rect x="348" y="223" width="104" height="56" rx="3" fill="#CFD8DC"/>
+  <ellipse cx="400" cy="220" rx="52" ry="12" fill="#E0E0E0"/>
+  <!-- Reflets bol -->
+  <rect x="360" y="230" width="8" height="40" rx="3" fill="#EEEEEE" opacity="0.5"/>
+  <!-- Bras du robot -->
+  <rect x="340" y="130" width="120" height="30" rx="10" fill="#F5F5DC"/>
+  <rect x="335" y="133" width="15" height="24" rx="4" fill="#FFFDE7"/>
+  <!-- Tête moteur -->
+  <rect x="280" y="100" width="80" height="70" rx="12" fill="#F5F5DC"/>
+  <rect x="285" y="105" width="70" height="60" rx="10" fill="#FFFDE7"/>
+  <!-- Charnière -->
+  <circle cx="350" cy="135" r="8" fill="#E0E0E0"/>
+  <!-- Fouet (dans le bol) -->
+  <line x1="400" y1="160" x2="400" y2="210" stroke="#BDBDBD" stroke-width="3"/>
+  <ellipse cx="400" cy="210" rx="12" ry="20" fill="none" stroke="#BDBDBD" stroke-width="2"/>
+  <line x1="395" y1="195" x2="395" y2="225" stroke="#BDBDBD" stroke-width="1.5"/>
+  <line x1="405" y1="195" x2="405" y2="225" stroke="#BDBDBD" stroke-width="1.5"/>
+  <!-- Accessoires à côté -->
+  <!-- Crochet -->
+  <line x1="550" y1="200" x2="550" y2="250" stroke="#BDBDBD" stroke-width="2.5"/>
+  <path d="M545 250 Q550 270 555 250" fill="none" stroke="#BDBDBD" stroke-width="2.5"/>
+  <!-- Batteur -->
+  <line x1="590" y1="200" x2="590" y2="240" stroke="#BDBDBD" stroke-width="2"/>
+  <ellipse cx="590" cy="250" rx="8" ry="15" fill="none" stroke="#BDBDBD" stroke-width="2"/>
+  <!-- Badge -28% -->
+  <circle cx="700" cy="80" r="45" fill="#F44336"/>
+  <text x="700" y="75" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="22" fill="#FFFFFF">-28%</text>
+  <text x="700" y="96" text-anchor="middle" font-family="Arial, sans-serif" font-size="12" fill="#FFCDD2">144,97€</text>
+  <!-- Badge #1 -->
+  <rect x="30" y="60" width="140" height="40" rx="8" fill="#FF6F00"/>
+  <text x="100" y="78" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="11" fill="#FFFFFF">#1 Meilleure vente</text>
+  <text x="100" y="93" text-anchor="middle" font-family="Arial, sans-serif" font-size="9" fill="#FFE0B2">2 759 avis — 4,4/5</text>
+  <!-- Titre -->
+  <rect x="120" y="360" width="560" height="70" rx="10" fill="rgba(255,143,0,0.85)"/>
+  <text x="400" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-weight="bold" font-size="18" fill="#FFFFFF">CHeflee Robot Pâtissier 2000W 8L</text>
+  <text x="400" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="13" fill="#FFF3E0">Fouet + Batteur + Crochet — 6 vitesses — Inox</text>
+</svg>

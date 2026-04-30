@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#fce4ec;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#f3e5f5;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <!-- Title -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="13" fill="#ad1457" text-anchor="middle" font-weight="bold" letter-spacing="2">TEST ET AVIS</text>
+  <text x="400" y="78" font-family="Arial, sans-serif" font-size="28" font-weight="bold" fill="#212121" text-anchor="middle">Foreo Bear</text>
+  <text x="400" y="108" font-family="Arial, sans-serif" font-size="15" fill="#757575" text-anchor="middle">Micro courants — Tonification et anti-âge du visage</text>
+  <!-- Bear device shape -->
+  <ellipse cx="400" cy="230" rx="70" ry="85" fill="white" stroke="#e91e63" stroke-width="2"/>
+  <!-- Two spheres (Bear design) -->
+  <circle cx="375" cy="195" r="25" fill="#f8bbd0"/>
+  <circle cx="425" cy="195" r="25" fill="#f8bbd0"/>
+  <!-- Micro current waves -->
+  <path d="M 360 195 Q 350 185 340 195" stroke="#e91e63" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M 355 195 Q 340 180 325 195" stroke="#e91e63" stroke-width="1" fill="none" opacity="0.3"/>
+  <path d="M 440 195 Q 450 185 460 195" stroke="#e91e63" stroke-width="1.5" fill="none" opacity="0.5"/>
+  <path d="M 445 195 Q 460 180 475 195" stroke="#e91e63" stroke-width="1" fill="none" opacity="0.3"/>
+  <!-- Handle -->
+  <rect x="385" y="260" width="30" height="60" rx="15" fill="#f8bbd0" stroke="#e91e63" stroke-width="1"/>
+  <!-- Info boxes -->
+  <rect x="80" y="350" width="140" height="55" rx="8" fill="white" opacity="0.8"/>
+  <text x="150" y="373" font-family="Arial, sans-serif" font-size="11" fill="#ad1457" text-anchor="middle" font-weight="bold">Micro courants</text>
+  <text x="150" y="393" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">Intensité 1 à 10</text>
+  <rect x="245" y="350" width="120" height="55" rx="8" fill="white" opacity="0.8"/>
+  <text x="305" y="373" font-family="Arial, sans-serif" font-size="11" fill="#ad1457" text-anchor="middle" font-weight="bold">3-5 min/séance</text>
+  <text x="305" y="393" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">Programmes guidés</text>
+  <rect x="390" y="350" width="120" height="55" rx="8" fill="white" opacity="0.8"/>
+  <text x="450" y="373" font-family="Arial, sans-serif" font-size="11" fill="#ad1457" text-anchor="middle" font-weight="bold">App Bluetooth</text>
+  <text x="450" y="393" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">Tutos vidéo</text>
+  <rect x="535" y="350" width="170" height="55" rx="8" fill="white" opacity="0.8"/>
+  <text x="620" y="373" font-family="Arial, sans-serif" font-size="11" fill="#ad1457" text-anchor="middle" font-weight="bold">Tonification</text>
+  <text x="620" y="393" font-family="Arial, sans-serif" font-size="10" fill="#757575" text-anchor="middle">Ovale, contours, rides</text>
+  <!-- Footer -->
+  <text x="400" y="440" font-family="Arial, sans-serif" font-size="12" fill="#9e9e9e" text-anchor="middle">Disponible sur Amazon — Prévention anti-âge dès 30 ans</text>
+</svg>

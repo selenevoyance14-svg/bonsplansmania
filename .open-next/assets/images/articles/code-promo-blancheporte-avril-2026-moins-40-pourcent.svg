@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 420">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#E91E63;stop-opacity:1"/>
+      <stop offset="100%" style="stop-color:#C2185B;stop-opacity:1"/>
+    </linearGradient>
+  </defs>
+  <rect width="800" height="420" fill="url(#bg)" rx="18"/>
+  <!-- Déco -->
+  <circle cx="700" cy="70" r="50" fill="#fff" opacity="0.07"/>
+  <circle cx="100" cy="370" r="40" fill="#fff" opacity="0.07"/>
+  <!-- Titre -->
+  <text x="400" y="85" text-anchor="middle" font-family="Georgia, serif" font-size="44" font-weight="700" fill="#fff">Blancheporte</text>
+  <!-- Badge code promo -->
+  <rect x="200" y="115" width="400" height="70" rx="12" fill="#fff"/>
+  <text x="400" y="157" text-anchor="middle" font-family="Arial Black, Arial, sans-serif" font-size="38" font-weight="900" fill="#E91E63">-40% des 2 articles</text>
+  <!-- Code -->
+  <rect x="270" y="210" width="260" height="50" rx="25" fill="#fff" opacity="0.2"/>
+  <text x="400" y="243" text-anchor="middle" font-family="monospace" font-size="28" font-weight="700" fill="#fff">Code : 899004</text>
+  <!-- Offres -->
+  <text x="400" y="310" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="600" fill="#fff">-25% sur les tenues de ceremonie</text>
+  <text x="400" y="345" text-anchor="middle" font-family="Arial, sans-serif" font-size="18" fill="#fff" opacity="0.85">+ tote bag et casquette offerts</text>
+  <!-- Footer -->
+  <text x="400" y="400" text-anchor="middle" font-family="Arial, sans-serif" font-size="15" fill="#fff" opacity="0.6">Mode femme — Grandes tailles — Maison</text>
+</svg>

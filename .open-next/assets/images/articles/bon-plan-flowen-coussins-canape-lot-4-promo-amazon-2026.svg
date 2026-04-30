@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2E8B7A;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4DB8A4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#A8E6CF;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" />
+  <circle cx="1050" cy="100" r="200" fill="white" fill-opacity="0.06" />
+  <circle cx="100" cy="550" r="160" fill="white" fill-opacity="0.05" />
+  <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.15" />
+  <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
+  <rect x="80" y="128" width="130" height="36" rx="18" fill="#E53935" fill-opacity="0.9" />
+  <text x="145" y="152" font-family="Arial, sans-serif" font-size="16" fill="white" text-anchor="middle" font-weight="700">-44% PROMO</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="56" fill="white" font-weight="700">Flowen</text>
+  <text x="80" y="315" font-family="Georgia, serif" font-size="44" fill="white" fill-opacity="0.95">Lot de 4 Coussins</text>
+  <rect x="80" y="340" width="100" height="3" rx="2" fill="white" fill-opacity="0.5" />
+  <text x="80" y="385" font-family="Arial, sans-serif" font-size="24" fill="white" fill-opacity="0.95">Canape · Salon · Decoration</text>
+  <text x="80" y="425" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.8">OEKO-TEX · Antiallergique · Anti-acariens</text>
+  <rect x="80" y="455" width="400" height="55" rx="10" fill="#E53935" fill-opacity="0.2" />
+  <text x="100" y="490" font-family="Arial, sans-serif" font-size="28" fill="white" font-weight="700">18,88E au lieu de 33,99E</text>
+  <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.7">Mars 2026 · Amazon · Offre limitee</text>
+</svg>

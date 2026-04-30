@@ -1,0 +1,40 @@
+<svg width="1200" height="630" viewBox="0 0 1200 630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#78350F;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#D97706;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#FEF3C7;stop-opacity:1" />
+    </linearGradient>
+    <linearGradient id="card" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:rgba(255,255,255,0.15)" />
+      <stop offset="100%" style="stop-color:rgba(255,255,255,0.05)" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="960" cy="120" r="180" fill="white" fill-opacity="0.05"/>
+  <circle cx="1060" cy="490" r="130" fill="white" fill-opacity="0.04"/>
+  <circle cx="130" cy="520" r="100" fill="white" fill-opacity="0.03"/>
+  <rect x="60" y="60" width="700" height="510" rx="24" fill="url(#card)" stroke="white" stroke-opacity="0.2"/>
+  <rect x="100" y="100" width="150" height="36" rx="18" fill="#15803D"/>
+  <text x="175" y="123" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="white" text-anchor="middle">CODE PROMO</text>
+  <text x="100" y="190" font-family="Arial, sans-serif" font-size="34" font-weight="900" fill="white">Léa Nature</text>
+  <text x="100" y="235" font-family="Arial, sans-serif" font-size="22" font-weight="900" fill="#FDE68A">Quinzaine de la Cosmétique Bio</text>
+  <text x="100" y="290" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">-20% code QCB2026 dès 30€</text>
+  <text x="100" y="320" font-family="Arial, sans-serif" font-size="22" fill="white" fill-opacity="0.9">-30% gamme Précieux Argan</text>
+  <rect x="100" y="360" width="560" height="1" fill="white" fill-opacity="0.2"/>
+  <text x="100" y="405" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.8">SO BiO étic, Natessance, Jonzac</text>
+  <text x="100" y="435" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.8">Label Cosmebio, fabriqué en France</text>
+  <text x="100" y="465" font-family="Arial, sans-serif" font-size="17" fill="white" fill-opacity="0.8">Du 30 mars au 13 avril 2026</text>
+  <rect x="100" y="500" width="200" height="50" rx="25" fill="#15803D"/>
+  <text x="200" y="531" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="white" text-anchor="middle">Voir les offres</text>
+  <rect x="820" y="180" width="300" height="280" rx="20" fill="white" fill-opacity="0.1" stroke="white" stroke-opacity="0.2"/>
+  <text x="970" y="225" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="#FDE68A" text-anchor="middle">-20%</text>
+  <text x="970" y="260" font-family="Arial, sans-serif" font-size="16" fill="white" fill-opacity="0.7" text-anchor="middle">code QCB2026</text>
+  <line x1="870" y1="290" x2="1070" y2="290" stroke="white" stroke-opacity="0.15"/>
+  <text x="970" y="325" font-family="Arial, sans-serif" font-size="48" font-weight="900" fill="#FDE68A" text-anchor="middle">-30%</text>
+  <text x="970" y="360" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.6" text-anchor="middle">Précieux Argan SO BiO</text>
+  <line x1="870" y1="390" x2="1070" y2="390" stroke="white" stroke-opacity="0.15"/>
+  <text x="970" y="425" font-family="Arial, sans-serif" font-size="18" fill="white" fill-opacity="0.9" text-anchor="middle">Jusqu'au 13 avril</text>
+  <text x="970" y="450" font-family="Arial, sans-serif" font-size="14" fill="white" fill-opacity="0.6" text-anchor="middle">offre limitée</text>
+  <text x="1140" y="600" font-family="Arial, sans-serif" font-size="13" fill="white" fill-opacity="0.4" text-anchor="end">bonsplansmania.fr</text>
+</svg>

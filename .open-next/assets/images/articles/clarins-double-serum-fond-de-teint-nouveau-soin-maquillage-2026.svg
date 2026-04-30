@@ -1,0 +1,14 @@
+<svg width="1200" height="630" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#c9956b;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5e3c;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)" rx="0"/>
+  <text x="600" y="160" text-anchor="middle" font-family="Georgia, serif" font-size="46" font-weight="bold" fill="#ffffff">Clarins Double Serum</text>
+  <text x="600" y="240" text-anchor="middle" font-family="Georgia, serif" font-size="38" fill="#ffffff" opacity="0.95">Fond de Teint</text>
+  <text x="600" y="335" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.9">Double texture - Double eclat</text>
+  <text x="600" y="385" text-anchor="middle" font-family="Arial, sans-serif" font-size="26" fill="#ffffff" opacity="0.9">Soin + Maquillage en un seul geste</text>
+  <text x="600" y="500" text-anchor="middle" font-family="Arial, sans-serif" font-size="24" fill="#ffffff" opacity="0.8">12h de perfection — +58% teint lumineux</text>
+</svg>

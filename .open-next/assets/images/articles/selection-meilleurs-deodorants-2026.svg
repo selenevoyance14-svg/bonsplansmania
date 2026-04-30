@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#e8f5e9;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#dcedc8;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+  <rect width="800" height="450" fill="url(#bg)" rx="12"/>
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="14" fill="#2e7d32" text-anchor="middle" font-weight="bold" letter-spacing="2">SÉLECTION 2026</text>
+  <text x="400" y="80" font-family="Arial, sans-serif" font-size="30" font-weight="bold" fill="#212121" text-anchor="middle">Top 10 Déodorants</text>
+  <text x="400" y="110" font-family="Arial, sans-serif" font-size="15" fill="#757575" text-anchor="middle">Bio, naturels et sans sels d'aluminium</text>
+  <!-- Roll-on bottles -->
+  <rect x="55" y="150" width="40" height="130" rx="20" fill="#e91e63" opacity="0.8"/>
+  <circle cx="75" cy="150" r="15" fill="#e91e63"/>
+  <text x="75" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">Monoprix</text>
+
+  <rect x="125" y="145" width="40" height="135" rx="20" fill="#f44336"/>
+  <circle cx="145" cy="145" r="15" fill="#c62828"/>
+  <text x="145" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">Weleda</text>
+
+  <rect x="195" y="148" width="40" height="132" rx="20" fill="#4fc3f7"/>
+  <circle cx="215" cy="148" r="15" fill="#0288d1"/>
+  <text x="215" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">Naturé Moi</text>
+
+  <rect x="265" y="152" width="40" height="128" rx="20" fill="#66bb6a"/>
+  <circle cx="285" cy="152" r="15" fill="#388e3c"/>
+  <text x="285" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">Cien Bio</text>
+
+  <circle cx="355" cy="210" r="35" fill="#fff9c4" stroke="#f9a825" stroke-width="2"/>
+  <text x="355" y="205" font-family="Arial, sans-serif" font-size="7" fill="#424242" text-anchor="middle">Énergie</text>
+  <text x="355" y="217" font-family="Arial, sans-serif" font-size="7" fill="#424242" text-anchor="middle">Fruit</text>
+
+  <rect x="405" y="150" width="40" height="130" rx="20" fill="#f5f5f5" stroke="#bdbdbd" stroke-width="1"/>
+  <circle cx="425" cy="150" r="15" fill="#e0e0e0"/>
+  <text x="425" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">Sensible</text>
+
+  <rect x="475" y="148" width="40" height="132" rx="20" fill="#a5d6a7"/>
+  <circle cx="495" cy="148" r="15" fill="#43a047"/>
+  <text x="495" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">So'Soft</text>
+
+  <rect x="545" y="145" width="40" height="135" rx="8" fill="#bcaaa4"/>
+  <text x="565" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">Bio Naïa</text>
+
+  <rect x="615" y="150" width="40" height="130" rx="20" fill="#81c784"/>
+  <circle cx="635" cy="150" r="15" fill="#2e7d32"/>
+  <text x="635" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">SO'BiO</text>
+
+  <rect x="685" y="148" width="40" height="132" rx="20" fill="#c8e6c9"/>
+  <circle cx="705" cy="148" r="15" fill="#66bb6a"/>
+  <text x="705" y="245" font-family="Arial, sans-serif" font-size="6" fill="#424242" text-anchor="middle">U Bio</text>
+
+  <rect x="150" y="310" width="140" height="28" rx="14" fill="#43a047"/>
+  <text x="220" y="329" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">SANS ALUMINIUM</text>
+  <rect x="310" y="310" width="80" height="28" rx="14" fill="#2e7d32"/>
+  <text x="350" y="329" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">BIO</text>
+  <rect x="410" y="310" width="130" height="28" rx="14" fill="#795548"/>
+  <text x="475" y="329" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">ÉCO-PACKAGING</text>
+  <rect x="560" y="310" width="120" height="28" rx="14" fill="#e91e63"/>
+  <text x="620" y="329" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">PEAUX SENSIBLES</text>
+
+  <text x="400" y="395" font-family="Arial, sans-serif" font-size="13" fill="#9e9e9e" text-anchor="middle">Comparatif et guide d'achat — Disponibles sur Amazon</text>
+</svg>
