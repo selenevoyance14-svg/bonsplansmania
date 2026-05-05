@@ -3,13 +3,13 @@ import path from "path";
 import matter from "gray-matter";
 
 // Élagage des articles featured : on ne garde featured: true que pour
-// les articles affiliés, récents (<30j), non expirés, et au max 12 articles.
+// les articles affiliés, récents (<30j), non expirés, et au max 6 articles.
 // Lance avec --apply pour modifier les fichiers, sinon dry-run.
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const TODAY = new Date();
 const MAX_AGE_DAYS = 30;
-const MAX_FEATURED = 12;
+const MAX_FEATURED = 6;
 const APPLY = process.argv.includes("--apply");
 
 interface Info { file: string; date: string; category: string; aff: boolean; expired: boolean; featured: boolean; }
