@@ -63,6 +63,7 @@ export default async function BonsPlansBebePage() {
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
+      price: a.meta.price,
     };
   });
 

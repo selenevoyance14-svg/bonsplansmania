@@ -29,6 +29,7 @@ export interface ArticleMeta {
   seoTitle?: string;
   seoDescription?: string;
   expired?: boolean;
+  dealOfDay?: boolean;
 }
 
 export interface Article {
@@ -91,6 +92,7 @@ export function getArticleBySlug(slug: string): Article | null {
       seoTitle: data.seoTitle,
       seoDescription: data.seoDescription,
       expired: data.expired || false,
+      dealOfDay: data.dealOfDay || false,
     },
     content,
   };
@@ -111,6 +113,36 @@ export function getArticlesByCategory(category: string): Article[] {
 
 export function getFeaturedArticles(): Article[] {
   return getAllArticles().filter((a) => a.meta.featured);
+}
+
+/**
+ * Returns the "Deal of the Day" article.
+ * Priority:
+ *   1. Manual override: any non-expired article with `dealOfDay: true`
+ *   2. Auto fallback: best % discount among non-expired articles published in the last 7 days
+ * Returns null if nothing qualifies.
+ */
+export function getDealOfDay(): Article | null {
+  const all = getAllArticles().filter((a) => !a.meta.expired);
+
+  const manual = all.find((a) => a.meta.dealOfDay);
+  if (manual) return manual;
+
+  const sevenDaysAgo = Date.now() - 7 * 24 * 60 * 60 * 1000;
+  let best: { article: Article; pct: number } | null = null;
+  for (const a of all) {
+    const t = new Date(a.meta.date + "T12:00:00").getTime();
+    if (t < sevenDaysAgo) continue;
+    if (!a.meta.price) continue;
+    const m = a.meta.price.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
+    if (!m) continue;
+    const now = parseFloat(m[1].replace(/[^\d,.]/g, "").replace(",", "."));
+    const was = parseFloat(m[2].replace(/[^\d,.]/g, "").replace(",", "."));
+    if (!Number.isFinite(now) || !Number.isFinite(was) || was <= now) continue;
+    const pct = ((was - now) / was) * 100;
+    if (!best || pct > best.pct) best = { article: a, pct };
+  }
+  return best?.article ?? null;
 }
 
 export function getRelatedArticles(slug: string, category: string, limit = 3, tags: string[] = []): Article[] {

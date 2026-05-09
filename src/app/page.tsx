@@ -1,34 +1,18 @@
-import { getAllArticles, getFeaturedArticles } from "@/lib/articles";
+import { getAllArticles, getFeaturedArticles, getDealOfDay } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import Image from "next/image";
-import { Clock, Tag, Gift, Calendar, Trophy, Star, Flame, ShoppingBag, TreePine, FlaskConical, Sparkles, type LucideIcon } from "lucide-react";
-import CurrentMonth from "@/app/components/CurrentMonth";
+import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, type LucideIcon, Search } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
-
-
-type CategoryConfig = { label: string; Icon: LucideIcon; color: string };
-
-const categoryConfig: Record<string, CategoryConfig> = {
-  "bon-plan":         { label: "Bon Plan",              Icon: Tag,          color: "bon-plan" },
-  "bon-plan-beaute":  { label: "Bon Plan",              Icon: Tag,          color: "bon-plan" },
-  "test-gratuit":     { label: "Test Gratuit",          Icon: Gift,         color: "test-gratuit" },
-  "test-avis":        { label: "Test & Avis",           Icon: FlaskConical, color: "test-avis" },
-  "concours":         { label: "Concours",              Icon: Trophy,       color: "concours" },
-  "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  color: "box-beaute" },
-  "beaute":           { label: "Beauté",                Icon: Sparkles,     color: "beaute" },
-  "selection":        { label: "Beauté",                Icon: Sparkles,     color: "beaute" },
-  "calendrier":       { label: "Calendrier",            Icon: Calendar,     color: "calendrier" },
-  "calendrier-avent": { label: "Calendrier de l'Avent", Icon: TreePine,     color: "calendrier-avent" },
-};
+import ArticleCard from "@/app/components/ArticleCard";
+import DealOfDay from "@/app/components/DealOfDay";
+import DealTicker from "@/app/components/DealTicker";
 
 export default function Home() {
   const allArticles = getAllArticles();
   const featured = getFeaturedArticles().slice(0, 6);
   const latest = allArticles.slice(0, 24);
-
-  // La date est gérée côté client par le composant CurrentMonth
+  const dealOfDay = getDealOfDay();
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -56,52 +40,31 @@ export default function Home() {
       <Header activePage="/" />
 
       <main>
-      {/* ═══ HERO ═══ */}
-      <section className="hero">
+      {/* ═══ HERO v2 ═══ */}
+      <section className="bpm-hero">
         <div className="container">
-          <div className="hero-badge">
-            <Flame size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} /> Mis à jour — <CurrentMonth />
-          </div>
-          <h1>
-            Les meilleurs <em>bons plans beauté</em><br />
-            tests gratuits &amp; concours
-          </h1>
-          <p className="hero-subtitle">
-            Chaque jour, on déniche les meilleures offres : échantillons gratuits,
-            réductions, jeux concours et tests de produits beauté pour vous.
+          <h1>Les meilleurs bons plans du moment.</h1>
+          <p className="bpm-hero-sub">
+            Chaque jour, on déniche pour vous : échantillons gratuits,
+            réductions, jeux concours et tests de produits beauté.
           </p>
-          <div className="hero-cta">
-            <a href="/categorie/bon-plan" className="btn btn-primary">
-              <Tag size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} /> Voir les bons plans
-            </a>
-            <a href="/categorie/test-produit" className="btn btn-secondary">
-              <FlaskConical size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} /> Tests produits
-            </a>
-          </div>
+
+          <form action="/recherche" method="get" className="bpm-hero-search" role="search">
+            <input
+              type="search"
+              name="q"
+              placeholder="Une marque, un produit, un mot-clé…"
+              aria-label="Rechercher un bon plan, un test, un concours"
+            />
+            <button type="submit">
+              <Search size={16} aria-hidden /> Chercher
+            </button>
+          </form>
         </div>
       </section>
 
-      {/* ═══ STATS ═══ */}
-      <section className="container">
-        <div className="stats-bar">
-          <div className="stat-item">
-            <span className="stat-number">{allArticles.length}+</span>
-            <span className="stat-label">Bons plans</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number">100%</span>
-            <span className="stat-label">Gratuit</span>
-          </div>
-          <div className="stat-item">
-            <span className="stat-number"><Star size={14} style={{ display: "inline", verticalAlign: "middle", marginRight: "2px" }} fill="currentColor" /> 4.8</span>
-            <span className="stat-label">Note lecteurs</span>
-          </div>
-          <a href="/categorie/code-promo" className="stat-item" style={{ textDecoration: "none", color: "inherit" }}>
-            <span className="stat-number">Codes Promo</span>
-            <span className="stat-label">Réductions exclusives</span>
-          </a>
-        </div>
-      </section>
+      {/* ═══ TICKER ═══ */}
+      <DealTicker articles={latest} />
 
       {/* ═══ CATÉGORIES ═══ */}
       <section className="section-sm" style={{ paddingTop: "56px" }}>
@@ -115,7 +78,7 @@ export default function Home() {
               { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits", desc: "Tests gratuits & avis", bg: "#FFF7ED", color: "#C2410C" },
               { href: "/categorie/concours", Icon: Trophy, label: "Concours", desc: "Jeux & cadeaux à gagner", bg: "#F0FDF4", color: "#166534" },
               { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", desc: "Tests & avis de box", bg: "#FDF4FF", color: "#86198F" },
-              { href: "/categorie/calendrier-avent", Icon: TreePine, label: "Calendrier de l'Avent", desc: "Les meilleurs calendriers", bg: "#F0FDF4", color: "#15803D" },
+              { href: "/categorie/code-promo", Icon: Percent, label: "Codes Promo", desc: "Réductions actives", bg: "#EFF6FF", color: "#1D4ED8" },
             ] as { href: string; Icon: LucideIcon; label: string; desc: string; bg: string; color: string }[]).map((cat) => (
               <a
                 key={cat.href}
@@ -149,48 +112,9 @@ export default function Home() {
               <p>Nos meilleures offres du moment</p>
             </div>
             <div className="articles-grid">
-              {featured.map((article, index) => {
-                const cat = categoryConfig[article.meta.category];
-                const isExpired = article.meta.expired === true;
-                return (
-                  <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none", ...(isExpired ? { opacity: 0.55, filter: "grayscale(40%)" } : {}) }}>
-                    {isExpired && (
-                      <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#DC2626", color: "white", padding: "3px 10px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.3px" }}>
-                        Terminé
-                      </div>
-                    )}
-                    <div style={{ position: "relative", height: "200px", overflow: "hidden" }}>
-                      <Image
-                        src={article.meta.image}
-                        alt={article.meta.imageAlt}
-                        fill style={{ objectFit: "cover" }}
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        priority={index < 3}
-                      />
-                    </div>
-                    <div className="card-body">
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
-                        <span className={`card-category card-category-${cat?.color ?? article.meta.category}`}>
-                          {cat?.Icon && <cat.Icon size={12} style={{ display: "inline", verticalAlign: "middle", marginRight: "3px" }} />}{cat?.label ?? article.meta.category}
-                        </span>
-                        <time style={{ fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
-                          {new Date(article.meta.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" })}
-                        </time>
-                      </div>
-                      <h3 className="card-title">{article.meta.title}</h3>
-                      <p className="card-excerpt">{article.meta.description}</p>
-                    </div>
-                    <div className="card-footer">
-                      <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                        <Clock size={12} /> {article.meta.readingTime}
-                      </span>
-                      <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.82rem" }}>
-                        Lire →
-                      </span>
-                    </div>
-                  </a>
-                );
-              })}
+              {featured.map((article, index) => (
+                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
+              ))}
             </div>
           </div>
         </section>
@@ -200,6 +124,9 @@ export default function Home() {
       <section className="container" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
         <NewsletterInline />
       </section>
+
+      {/* ═══ DEAL DU JOUR ═══ */}
+      {dealOfDay && <DealOfDay article={dealOfDay} />}
 
       {/* ═══ PUB ENTRE VEDETTES ET DERNIERS ═══ */}
       <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
@@ -224,46 +151,9 @@ export default function Home() {
             </p>
           ) : (
             <div className="articles-grid">
-              {latest.map((article) => {
-                const cat = categoryConfig[article.meta.category];
-                const isExpired = article.meta.expired === true;
-                return (
-                  <a key={article.meta.slug} href={`/article/${article.meta.slug}`} className="card" style={{ textDecoration: "none", ...(isExpired ? { opacity: 0.55, filter: "grayscale(40%)" } : {}) }}>
-                    {isExpired && (
-                      <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#DC2626", color: "white", padding: "3px 10px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700, letterSpacing: "0.3px" }}>
-                        Terminé
-                      </div>
-                    )}
-                    <div style={{ position: "relative", height: "190px", overflow: "hidden" }}>
-                      <Image
-                        src={article.meta.image}
-                        alt={article.meta.imageAlt}
-                        fill style={{ objectFit: "cover" }}
-                        sizes="(max-width: 768px) 100vw, 33vw"
-                        loading="lazy"
-                      />
-                    </div>
-                    <div className="card-body">
-                      <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "10px" }}>
-                        <span className={`card-category card-category-${cat?.color ?? article.meta.category}`}>
-                          {cat?.Icon && <cat.Icon size={12} style={{ display: "inline", verticalAlign: "middle", marginRight: "3px" }} />}{cat?.label ?? article.meta.category}
-                        </span>
-                        <time style={{ fontSize: "0.75rem", color: "var(--muted-foreground)" }}>
-                          {new Date(article.meta.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" })}
-                        </time>
-                      </div>
-                      <h3 className="card-title">{article.meta.title}</h3>
-                      <p className="card-excerpt">{article.meta.description}</p>
-                    </div>
-                    <div className="card-footer">
-                      <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
-                        <Clock size={12} /> {article.meta.readingTime}
-                      </span>
-                      <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.82rem" }}>Lire →</span>
-                    </div>
-                  </a>
-                );
-              })}
+              {latest.map((article) => (
+                <ArticleCard key={article.meta.slug} article={article} />
+              ))}
             </div>
           )}
         </div>
