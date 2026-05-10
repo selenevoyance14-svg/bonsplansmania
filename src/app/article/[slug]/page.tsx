@@ -9,6 +9,7 @@ import NewsletterInline from "@/app/components/NewsletterInline";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
+import FlashDeals from "@/app/components/FlashDeals";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -53,6 +54,9 @@ export default async function ArticlePage({ params }: PageProps) {
   const cat = categoryConfig[article.meta.category];
   const affiliateUrl = article.meta.affiliateUrl || "#";
   const affiliateLabel = article.meta.affiliateLabel || "Voir l'offre";
+  // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
+  // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
+  const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
   const relatedArticles = getRelatedArticles(slug, article.meta.category, 3, article.meta.tags);
 
   const jsonLd = {
@@ -168,7 +172,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <h1>{article.meta.title}</h1>
               <p className="article-subtitle">{article.meta.description}</p>
 
-              {(article.meta.rating || article.meta.price || affiliateUrl !== "#") && (
+              {(article.meta.rating || article.meta.price || (affiliateUrl !== "#" && !isFreebieCategory)) && (
                 <div className="article-rating-bar">
                   {article.meta.rating && (
                     <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
@@ -183,7 +187,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   {article.meta.price && (
                     <span style={{ fontWeight: 700, color: "var(--primary)", fontSize: "1.05rem" }}>{article.meta.price}</span>
                   )}
-                  {affiliateUrl !== "#" && (
+                  {affiliateUrl !== "#" && !isFreebieCategory && (
                     <a href={affiliateUrl} className="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">
                       {affiliateLabel} <ExternalLink size={13} />
                     </a>
@@ -202,11 +206,15 @@ export default async function ArticlePage({ params }: PageProps) {
             <NewsletterInline />
 
             <div className="article-content">
-              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" ? affiliateUrl : undefined, affiliateUrl !== "#" ? affiliateLabel : undefined) }} />
+              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined) }} />
             </div>
 
             {/* Pub après le contenu */}
             <AdBlock />
+
+            {/* Bloc cross-sell "promo flash" : AVANT le CTA principal pour les freebies
+                (le visiteur doit voir les bons plans avant de quitter le site via "Participer") */}
+            {isFreebieCategory && <FlashDeals slug={slug} />}
 
             {affiliateUrl !== "#" && (
               <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", borderRadius: "16px", border: "2px solid #FECDD3" }}>
