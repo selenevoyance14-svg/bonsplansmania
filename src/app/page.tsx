@@ -11,7 +11,6 @@ import DealTicker from "@/app/components/DealTicker";
 export default function Home() {
   const allArticles = getAllArticles();
   const featured = getFeaturedArticles().slice(0, 6);
-  const latest = allArticles.slice(0, 24);
   const dealOfDay = getDealOfDay();
 
   // Bons plans actifs : bon-plan/code-promo, non expirés, des 14 derniers jours, max 6
@@ -20,6 +19,10 @@ export default function Home() {
   const liveDeals = allArticles
     .filter((a) => (a.meta.category === "bon-plan" || a.meta.category === "code-promo") && !a.meta.expired && now - new Date(a.meta.date).getTime() < FOURTEEN_DAYS)
     .slice(0, 6);
+  const liveDealSlugs = new Set(liveDeals.map((a) => a.meta.slug));
+
+  // Dernières offres : on exclut les bons plans déjà affichés au-dessus pour éviter la duplication
+  const latest = allArticles.filter((a) => !liveDealSlugs.has(a.meta.slug)).slice(0, 24);
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
