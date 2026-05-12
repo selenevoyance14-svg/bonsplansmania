@@ -177,7 +177,9 @@ export default function Home() {
             <div>
               <h4>Catégories</h4>
               <ul className="footer-links" role="list">
-                <li><a href="/categorie/bon-plan">Bons Plans</a></li>
+                <li><a href="/bons-plans-en-cours">🔥 Bons plans en cours</a></li>
+                <li><a href="/codes-promo-permanents">♾️ Codes promo permanents</a></li>
+                <li><a href="/categorie/bon-plan">Tous les bons plans</a></li>
                 <li><a href="/categorie/test-produit">Tests Produits</a></li>
                 <li><a href="/categorie/concours">Concours</a></li>
                 <li><a href="/categorie/box-beaute">Box Beauté</a></li>

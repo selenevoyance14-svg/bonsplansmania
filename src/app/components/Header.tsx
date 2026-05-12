@@ -48,6 +48,8 @@ export default function Header({ activePage }: { activePage?: string }) {
               </button>
               {bonsPlansOpen && (
                 <div className="nav-dropdown-menu">
+                  <a href="/bons-plans-en-cours">🔥 Bons plans en cours</a>
+                  <a href="/codes-promo-permanents">♾️ Codes promo permanents</a>
                   <a href="/categorie/bon-plan">Tous les bons plans</a>
                   <a href="/code-promo">Codes promo marques</a>
                   <a href="/bons-plans-bebe">👶 Coin Bébé</a>
@@ -122,6 +124,8 @@ export default function Header({ activePage }: { activePage?: string }) {
           <a href="/" onClick={() => setMobileOpen(false)}>Accueil</a>
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Bons Plans</span>
+            <a href="/bons-plans-en-cours" onClick={() => setMobileOpen(false)}>🔥 Bons plans en cours</a>
+            <a href="/codes-promo-permanents" onClick={() => setMobileOpen(false)}>♾️ Codes promo permanents</a>
             <a href="/categorie/bon-plan" onClick={() => setMobileOpen(false)}>Tous les bons plans</a>
             <a href="/code-promo" onClick={() => setMobileOpen(false)}>Codes promo marques</a>
             <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
