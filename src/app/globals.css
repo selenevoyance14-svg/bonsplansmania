@@ -1072,6 +1072,14 @@ body {
   }
 }
 
+/* ── PUB MOBILE-ONLY ABOVE-THE-FOLD (avant l'image hero) ── */
+@media (max-width: 768px) {
+  .ad-mobile-only {
+    display: block !important;
+    margin-bottom: 16px;
+  }
+}
+
 /* ── STICKY AD MOBILE (uniquement articles SANS CTA affilié) ── */
 .sticky-ad-mobile {
   display: none;

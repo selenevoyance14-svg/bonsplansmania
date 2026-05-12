@@ -65,6 +65,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" className={poppins.variable}>
       <head>
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113" crossOrigin="anonymous" />
+        {/* AdSense Auto Ads — place automatiquement anchor, vignette, overlay, in-page ads */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5064203547863113", enable_page_level_ads: true});`,
+          }}
+        />
       </head>
       <body className={poppins.className}>
         {children}
