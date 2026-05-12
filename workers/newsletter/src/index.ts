@@ -13,6 +13,26 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Headers": "Content-Type",
 };
 
+// Partenaire affiche dans la newsletter (entre Tests gratuits et Bons plans).
+// Pour changer / desactiver : modifier cette constante puis redeployer le Worker.
+const PARTNER_BANNER: {
+  enabled: boolean;
+  title: string;
+  imageUrl: string;
+  link: string;
+  alt: string;
+  width: number;
+  height: number;
+} = {
+  enabled: true,
+  title: "Notre selection partenaire",
+  imageUrl: "https://bonsplansmania.fr/images/partners/sarenza-728x90.gif",
+  link: "https://action.metaffiliation.com/trk.php?mclic=P512D1157CD2D1B19",
+  alt: "Sarenza - Les Jours Sarenza",
+  width: 728,
+  height: 90,
+};
+
 function jsonResponse(data: unknown, status = 200): Response {
   return new Response(JSON.stringify(data), {
     status,
@@ -508,9 +528,35 @@ function buildSection(title: string, emoji: string, bgColor: string, textColor: 
         </tr>`;
 }
 
+function buildPartnerSection(): string {
+  if (!PARTNER_BANNER.enabled) return "";
+  return `
+        <tr>
+          <td style="padding:24px 24px 0;">
+            <table cellpadding="0" cellspacing="0" border="0" width="100%">
+              <tr>
+                <td style="padding:10px 16px;background:#FEF3C7;border-radius:10px;">
+                  <h2 style="margin:0;font-size:17px;color:#92400E;">${PARTNER_BANNER.title}</h2>
+                </td>
+              </tr>
+            </table>
+            <table cellpadding="0" cellspacing="0" border="0" width="100%" style="margin-top:12px;">
+              <tr>
+                <td align="center" style="padding:4px 0;">
+                  <a href="${PARTNER_BANNER.link}" target="_blank" rel="noopener" style="text-decoration:none;">
+                    <img src="${PARTNER_BANNER.imageUrl}" alt="${PARTNER_BANNER.alt}" width="${PARTNER_BANNER.width}" height="${PARTNER_BANNER.height}" style="max-width:100%;width:100%;height:auto;border:0;display:block;border-radius:8px;" />
+                  </a>
+                </td>
+              </tr>
+            </table>
+          </td>
+        </tr>`;
+}
+
 function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string): string {
   const concoursSection = buildSection("Concours en cours", "🎁", "#DCFCE7", "#166534", categorized.concours, siteUrl);
   const testSection = buildSection("Tests produits gratuits", "🧴", "#F3E8FF", "#7C3AED", categorized.testGratuit, siteUrl);
+  const partnerSection = buildPartnerSection();
   const bonsPlansSection = buildSection("Bons plans du moment", "🔥", "#FEE2E2", "#DC2626", categorized.bonsPlans, siteUrl);
 
   return `<!DOCTYPE html>
@@ -531,6 +577,7 @@ function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string):
 
         ${concoursSection}
         ${testSection}
+        ${partnerSection}
         ${bonsPlansSection}
 
         <!-- CTA -->
