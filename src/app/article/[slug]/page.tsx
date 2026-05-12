@@ -211,7 +211,7 @@ export default async function ArticlePage({ params }: PageProps) {
             <NewsletterInline />
 
             <div className="article-content">
-              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined) }} />
+              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined, article.meta.image) }} />
             </div>
 
             {/* Pub après le contenu */}
@@ -349,8 +349,15 @@ export default async function ArticlePage({ params }: PageProps) {
   );
 }
 
-function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?: string): string {
-  const lines = content.split("\n");
+function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?: string, heroImage?: string): string {
+  // Supprime la 1ère image du MDX si elle correspond à l'image de mise en avant (évite le doublon avec la hero)
+  let cleaned = content;
+  if (heroImage) {
+    const escaped = heroImage.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    const heroImgRegex = new RegExp(`^!\\[[^\\]]*\\]\\(${escaped}\\)\\s*$`, "m");
+    cleaned = cleaned.replace(heroImgRegex, "");
+  }
+  const lines = cleaned.split("\n");
   const out: string[] = [];
   let inTable = false;
   let inProduct = false;
