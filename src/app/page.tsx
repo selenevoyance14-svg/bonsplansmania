@@ -2,7 +2,7 @@ import { getAllArticles, getFeaturedArticles, getDealOfDay } from "@/lib/article
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, type LucideIcon, Search } from "lucide-react";
+import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import DealOfDay from "@/app/components/DealOfDay";
@@ -13,6 +13,13 @@ export default function Home() {
   const featured = getFeaturedArticles().slice(0, 6);
   const latest = allArticles.slice(0, 24);
   const dealOfDay = getDealOfDay();
+
+  // Bons plans actifs : bon-plan/code-promo, non expirés, des 14 derniers jours, max 6
+  const now = Date.now();
+  const FOURTEEN_DAYS = 14 * 24 * 60 * 60 * 1000;
+  const liveDeals = allArticles
+    .filter((a) => (a.meta.category === "bon-plan" || a.meta.category === "code-promo") && !a.meta.expired && now - new Date(a.meta.date).getTime() < FOURTEEN_DAYS)
+    .slice(0, 6);
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -62,6 +69,31 @@ export default function Home() {
           </form>
         </div>
       </section>
+
+      {/* ═══ BONS PLANS ACTIFS (top revenue) ═══ */}
+      {liveDeals.length > 0 && (
+        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%)" }}>
+          <div className="container">
+            <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
+              <div>
+                <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <Flame size={24} color="#E63946" />
+                  Bons plans actifs cette semaine
+                </h2>
+                <p>Les promos et codes en cours sur les grandes marques</p>
+              </div>
+              <a href="/bons-plans-en-cours" className="btn btn-secondary btn-sm">
+                Tout voir →
+              </a>
+            </div>
+            <div className="articles-grid">
+              {liveDeals.map((article, index) => (
+                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ═══ TICKER ═══ */}
       <DealTicker articles={latest} />
