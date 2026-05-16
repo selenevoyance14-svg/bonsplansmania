@@ -10,6 +10,7 @@ import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
 import FlashDeals from "@/app/components/FlashDeals";
+import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -207,6 +208,11 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Pub après l'image hero (desktop principalement) */}
             <AdBlock />
+
+            {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
+                qui ne génèrent pas de revenu direct : on capte le visiteur AVANT qu'il clique
+                "Participer" en lui montrant nos vrais bons plans rémunérateurs (Awin, Igraal, Rakuten). */}
+            {isFreebieCategory && <TopBonsPlansPremium currentSlug={slug} />}
 
             <NewsletterInline />
 
