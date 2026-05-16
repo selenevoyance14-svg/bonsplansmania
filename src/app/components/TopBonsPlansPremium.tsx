@@ -11,7 +11,7 @@ import { getTopPremiumDeals } from "@/lib/articles";
  * bons plans rémunérateurs avant de cliquer "Participer" et quitter le site.
  */
 export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: string }) {
-  const articles = getTopPremiumDeals(currentSlug, 4);
+  const articles = getTopPremiumDeals(currentSlug, 6);
 
   if (articles.length === 0) return null;
 
