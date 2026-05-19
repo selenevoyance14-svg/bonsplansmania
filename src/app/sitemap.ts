@@ -32,6 +32,8 @@ const CATEGORY_SLUGS = [
   "code-promo",
 ];
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
   const articles = getAllArticles();
