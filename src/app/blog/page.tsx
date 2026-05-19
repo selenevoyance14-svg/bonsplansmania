@@ -4,6 +4,7 @@ import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import type { Metadata } from "next";
 import { ChevronRight } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
+import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 
 export const metadata: Metadata = {
@@ -94,6 +95,7 @@ export default function BlogPage() {
           </div>
         </div>
       </footer>
+      <StickyAdMobile />
     </>
   );
 }

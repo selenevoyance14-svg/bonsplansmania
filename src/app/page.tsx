@@ -7,6 +7,7 @@ import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import DealOfDay from "@/app/components/DealOfDay";
 import DealTicker from "@/app/components/DealTicker";
+import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export default function Home() {
   const allArticles = getAllArticles();
@@ -276,6 +277,7 @@ export default function Home() {
           </div>
         </div>
       </footer>
+      <StickyAdMobile />
     </>
   );
 }

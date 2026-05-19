@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { ChevronRight, BadgeCheck, Infinity as InfinityIcon } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
+import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export const metadata: Metadata = {
   title: "Codes promo permanents : les réductions valables toute l'année (2026)",
@@ -286,6 +287,7 @@ export default function CodesPromoPermanentsPage() {
           </div>
         </section>
       </main>
+      <StickyAdMobile />
     </>
   );
 }

@@ -4,6 +4,7 @@ import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import { getAllArticles } from "@/lib/articles";
+import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export const metadata: Metadata = {
   title: "Bons plans en cours cette semaine — BonsPlansMania",
@@ -151,6 +152,7 @@ export default function BonsPlansEnCoursPage() {
           </div>
         </section>
       </main>
+      <StickyAdMobile />
     </>
   );
 }
