@@ -82,31 +82,36 @@ export default async function ArticlePage({ params }: PageProps) {
   };
 
   // Schema Product pour les articles avec prix (rich snippets Google)
+  // IMPORTANT : aggregateRating + review ne sont injectés QUE si on a un rating réel
+  // (article.meta.rating renseigné dans le MDX). Sinon, on omet ces champs pour
+  // éviter le "Spammy structured data" qui peut déclencher une manual action Google.
   const productJsonLd = article.meta.price && affiliateUrl !== "#" ? {
     "@context": "https://schema.org",
     "@type": "Product",
     name: article.meta.title,
     description: article.meta.description,
     image: `https://bonsplansmania.fr${article.meta.image}`,
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: article.meta.rating || 4.5,
-      bestRating: 5,
-      ratingCount: article.meta.rating ? 1 : 12,
-    },
-    review: {
-      "@type": "Review",
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: article.meta.rating || 4.5,
+    ...(article.meta.rating ? {
+      aggregateRating: {
+        "@type": "AggregateRating",
+        ratingValue: article.meta.rating,
         bestRating: 5,
+        ratingCount: 1,
       },
-      author: {
-        "@type": "Organization",
-        name: "BonsPlansMania",
+      review: {
+        "@type": "Review",
+        reviewRating: {
+          "@type": "Rating",
+          ratingValue: article.meta.rating,
+          bestRating: 5,
+        },
+        author: {
+          "@type": "Organization",
+          name: "BonsPlansMania",
+        },
+        reviewBody: article.meta.description,
       },
-      reviewBody: article.meta.description,
-    },
+    } : {}),
     offers: {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
