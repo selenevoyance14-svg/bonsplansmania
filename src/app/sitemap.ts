@@ -52,12 +52,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  const articleEntries: MetadataRoute.Sitemap = articles.map((a) => ({
-    url: `${BASE}/article/${a.meta.slug}`,
-    lastModified: new Date(a.meta.updated || a.meta.date),
-    changeFrequency: a.meta.expired ? "yearly" : "weekly",
-    priority: a.meta.featured ? 0.8 : 0.6,
-  }));
+  // Exclure les articles expirés du sitemap pour économiser le crawl budget Google.
+  // Les articles restent accessibles aux visiteurs (pas dépubliés), mais ne sont plus
+  // recommandés à Google pour re-crawl régulier.
+  const articleEntries: MetadataRoute.Sitemap = articles
+    .filter((a) => !a.meta.expired)
+    .map((a) => ({
+      url: `${BASE}/article/${a.meta.slug}`,
+      lastModified: new Date(a.meta.updated || a.meta.date),
+      changeFrequency: "weekly",
+      priority: a.meta.featured ? 0.8 : 0.6,
+    }));
 
   return [...staticEntries, ...categoryEntries, ...articleEntries];
 }
