@@ -1,4 +1,8 @@
 /ads.txt https://srv.adstxtmanager.com/19390/bonsplansmania.fr 301
+
+# Vieux sitemaps fantômes que Google continue à crawler (cache historique GSC) -> 301 vers le sitemap actuel
+/sitemap_index.xml /sitemap.xml 301
+/category-sitemap.xml /sitemap.xml 301
 /article/adopt-dupe-parfums-guide-complet / 301
 /article/adopt-parfums-homme-dupes-2026 / 301
 /article/dupes-parfums-pas-cher-adopt-action-zara-2026 / 301
