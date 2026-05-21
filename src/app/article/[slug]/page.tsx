@@ -441,7 +441,14 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/\*\*(.+?)\*\*/g, "<strong>$1</strong>");
   html = html.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, "<em>$1</em>");
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure style="margin:24px 0;text-align:center;background:#fff;border-radius:12px;overflow:hidden;padding:12px"><img src="$2" alt="$1" loading="lazy" style="max-width:100%;max-height:500px;height:auto;object-fit:contain;border-radius:8px;margin:0 auto;display:block" /><figcaption style="font-size:0.82rem;color:#6b7280;margin-top:8px">$1</figcaption></figure>');
-  html = html.replace(/\[(.+?)\]\((.+?)\)/g, '<a href="$2" target="_blank" rel="nofollow sponsored noopener">$1</a>');
+  html = html.replace(/\[(.+?)\]\((.+?)\)/g, (_match, text, url) => {
+    // Liens internes (relatifs, ancres, ou bonsplansmania.fr) : suivis par Google, pas de nofollow/sponsored, navigation dans le même onglet
+    const isInternal = /^(\/|#|https?:\/\/(?:www\.)?bonsplansmania\.fr)/i.test(url);
+    if (isInternal) {
+      return `<a href="${url}" rel="noopener">${text}</a>`;
+    }
+    return `<a href="${url}" target="_blank" rel="nofollow sponsored noopener">${text}</a>`;
+  });
   html = html.replace(/^- (.+)$/gm, "<li>$1</li>");
   html = html.replace(/(<li>[\s\S]*?<\/li>\n?)+/g, "<ul>$&</ul>");
   html = "<p>" + html.replace(/\n\n+/g, "</p><p>") + "</p>";
