@@ -3,6 +3,25 @@ import { getAllArticles } from "@/lib/articles";
 
 const BASE = "https://bonsplansmania.fr";
 
+// Slugify identique à src/app/marque/[slug]/page.tsx (pour rester aligné sur les routes générées)
+function slugifyTag(tag: string): string {
+  return tag
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
+
+const MIN_ARTICLES_FOR_MARQUE_PAGE = 3;
+
+const CURATED_BRAND_SLUGS = new Set<string>([
+  "nyx", "maybelline", "loreal", "garnier", "cerave", "la-roche-posay",
+  "neutrogena", "kerastase", "moroccanoil", "nuxe", "weleda", "bioderma",
+  "rimmel", "catrice", "nivea", "glowria", "prescription-lab", "biotyfull",
+  "blissim", "igraal", "ebuyclub", "poulpeo", "sephora", "yves-rocher", "amazon",
+]);
+
 const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   { path: "",                          priority: 1.0, changeFrequency: "daily" },
   { path: "/blog",                     priority: 0.9, changeFrequency: "daily" },
@@ -64,5 +83,28 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: a.meta.featured ? 0.8 : 0.6,
     }));
 
-  return [...staticEntries, ...categoryEntries, ...articleEntries];
+  // Pages marques : générer les mêmes que dans /marque/[slug] generateStaticParams
+  // (marques avec ≥ 3 articles OU dans la liste curated).
+  // Avant : 0 page /marque dans le sitemap → mauvaise découvrabilité Google.
+  const tagCounts = new Map<string, number>();
+  for (const article of articles) {
+    const seen = new Set<string>();
+    for (const tag of article.meta.tags || []) {
+      const slug = slugifyTag(tag);
+      if (slug && !seen.has(slug)) {
+        seen.add(slug);
+        tagCounts.set(slug, (tagCounts.get(slug) || 0) + 1);
+      }
+    }
+  }
+  const marqueEntries: MetadataRoute.Sitemap = Array.from(tagCounts.entries())
+    .filter(([slug, count]) => CURATED_BRAND_SLUGS.has(slug) || count >= MIN_ARTICLES_FOR_MARQUE_PAGE)
+    .map(([slug]) => ({
+      url: `${BASE}/marque/${slug}`,
+      lastModified: now,
+      changeFrequency: "weekly" as const,
+      priority: 0.5,
+    }));
+
+  return [...staticEntries, ...categoryEntries, ...articleEntries, ...marqueEntries];
 }

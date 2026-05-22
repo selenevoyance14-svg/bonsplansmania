@@ -17,9 +17,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   // metadataBase : base URL utilisée pour résoudre toutes les URLs relatives (og:image, twitter:image, etc.)
-  // Sans ça, Next.js prend par défaut http://localhost:3000 en prod → og:image cassée sur tous les partages sociaux
   metadataBase: new URL("https://bonsplansmania.fr"),
-  title: "Bons Plans Mania — Bons plans beauté, tests gratuits et concours",
+  // Title raccourci à 57 chars (avant : 67 chars → tronqué à ~60 chars dans Google SERP)
+  title: "Bons Plans Mania : bons plans, concours et tests gratuits",
   description:
     "Bons Plans Mania : les meilleurs bons plans beauté, tests de produits gratuits, jeux concours et avis sur les box beauté. Économisez sur vos produits préférés.",
   alternates: { canonical: "https://bonsplansmania.fr" },
@@ -31,15 +31,7 @@ export const metadata: Metadata = {
     ],
     apple: "/apple-touch-icon.png",
   },
-  keywords: [
-    "bons plans beauté",
-    "tests produits gratuits",
-    "concours beauté",
-    "box beauté",
-    "réductions cosmétiques",
-    "codes promo beauté",
-    "échantillons gratuits",
-  ],
+  // meta keywords supprimé : ignoré par Google depuis 2009 + signal "ancien" qui révèle la stratégie aux concurrents
   openGraph: {
     title: "Bons Plans Mania — Bons plans beauté & tests gratuits",
     description: "Les meilleurs bons plans beauté, tests gratuits, concours et avis box beauté.",
@@ -49,7 +41,9 @@ export const metadata: Metadata = {
     siteName: "BonsPlansMania",
     images: [
       {
-        url: "https://bonsplansmania.fr/og-image.svg",
+        // PNG au lieu de SVG : Facebook, LinkedIn, Pinterest, WhatsApp ignorent ou rejettent les SVG
+        // → partages cassés sur réseaux sociaux. Le PNG 1200×630 est le standard og:image.
+        url: "https://bonsplansmania.fr/og-image.png",
         width: 1200,
         height: 630,
         alt: "Bons Plans Mania — Bons plans beauté, tests gratuits et concours",
@@ -60,6 +54,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Bons Plans Mania — Bons plans beauté & tests gratuits",
     description: "Les meilleurs bons plans beauté, tests gratuits, concours et avis box beauté.",
+    images: ["https://bonsplansmania.fr/og-image.png"],
   },
 };
 

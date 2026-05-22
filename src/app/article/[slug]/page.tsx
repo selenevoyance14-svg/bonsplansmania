@@ -29,17 +29,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: { canonical: `${BASE_URL}/article/${slug}` },
     openGraph: {
       title: article.meta.title, description: article.meta.description,
-      images: [article.meta.image], type: "article",
+      // Fallback /og-image.png si l'image article est en SVG : Facebook, LinkedIn, Pinterest,
+      // WhatsApp ignorent ou rejettent les SVG → partage cassé. ~1600 vieux articles utilisent
+      // encore .svg comme image, on remplace par le hero PNG du site jusqu'à régénération.
+      images: [article.meta.image.endsWith('.svg') ? '/og-image.png' : article.meta.image],
+      type: "article",
       publishedTime: article.meta.date,
     },
-    // Twitter Cards spécifiques à l'article (sinon le layout root pose des valeurs génériques
-    // qui ne sont jamais surchargées → tous les articles partagés sur X/Twitter affichaient
-    // "Bons Plans Mania — Bons plans beauté & tests gratuits" au lieu du titre de l'article)
     twitter: {
       card: "summary_large_image",
       title: article.meta.title,
       description: article.meta.description,
-      images: [article.meta.image],
+      images: [article.meta.image.endsWith('.svg') ? '/og-image.png' : article.meta.image],
     },
   };
 }
