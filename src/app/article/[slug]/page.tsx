@@ -93,10 +93,13 @@ export default async function ArticlePage({ params }: PageProps) {
   };
 
   // Schema Product pour les articles avec prix (rich snippets Google)
-  // IMPORTANT : aggregateRating + review ne sont injectés QUE si on a un rating réel
-  // (article.meta.rating renseigné dans le MDX). Sinon, on omet ces champs pour
-  // éviter le "Spammy structured data" qui peut déclencher une manual action Google.
-  const productJsonLd = article.meta.price && affiliateUrl !== "#" ? {
+  // IMPORTANT : on extrait le 1er nombre du price (ex: "13€ au lieu de 987€" -> "13").
+  // Si le price ne contient AUCUN chiffre exploitable (ex: "Gratuit", "Sur devis"),
+  // on n'émet PAS le bloc Product du tout — sinon GSC remonte "price manquant dans offers".
+  // aggregateRating + review ne sont injectés QUE si rating réel (sinon "Spammy structured data").
+  const priceMatch = article.meta.price?.match(/[\d]+([.,][\d]+)?/)?.[0];
+  const cleanPrice = priceMatch ? priceMatch.replace(",", ".") : null;
+  const productJsonLd = cleanPrice && affiliateUrl !== "#" ? {
     "@context": "https://schema.org",
     "@type": "Product",
     name: article.meta.title,
@@ -126,10 +129,7 @@ export default async function ArticlePage({ params }: PageProps) {
     offers: {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
-      // Extraire UNIQUEMENT le premier nombre. Avant : .replace(/[^0-9.,]/g, "")
-      // concaténait tous les chiffres -> "190€ au lieu de 375€ (-49%)" devenait "1903754.9"
-      // → JSON-LD spammy data, rich snippets rejetés par Google.
-      price: (article.meta.price.match(/[\d]+([.,][\d]+)?/)?.[0] ?? "").replace(",", "."),
+      price: cleanPrice,
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
     },
