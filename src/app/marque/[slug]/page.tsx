@@ -127,10 +127,23 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!rawTag) return {};
   const display = getDisplayName(slug, rawTag);
   const count = getArticlesByTag(rawTag).length;
+  const title = `${display} : ${count} bons plans et promos`;
+  const description = `Tous les bons plans, promos et tests produits ${display} du moment : ${count} article${count > 1 ? "s" : ""} mis à jour régulièrement sur Bons Plans Mania.`;
   return {
-    title: `${display} : ${count} bons plans et promos — Bons Plans Mania`,
-    description: `Tous les bons plans, promos et tests produits ${display} du moment : ${count} article${count > 1 ? "s" : ""} mis à jour régulièrement sur Bons Plans Mania.`,
+    title,
+    description,
     alternates: { canonical: `https://bonsplansmania.fr/marque/${slug}` },
+    openGraph: {
+      title,
+      description,
+      url: `https://bonsplansmania.fr/marque/${slug}`,
+      type: "website",
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+    },
   };
 }
 

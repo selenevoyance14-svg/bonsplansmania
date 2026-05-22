@@ -32,6 +32,15 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       images: [article.meta.image], type: "article",
       publishedTime: article.meta.date,
     },
+    // Twitter Cards spécifiques à l'article (sinon le layout root pose des valeurs génériques
+    // qui ne sont jamais surchargées → tous les articles partagés sur X/Twitter affichaient
+    // "Bons Plans Mania — Bons plans beauté & tests gratuits" au lieu du titre de l'article)
+    twitter: {
+      card: "summary_large_image",
+      title: article.meta.title,
+      description: article.meta.description,
+      images: [article.meta.image],
+    },
   };
 }
 
@@ -115,7 +124,10 @@ export default async function ArticlePage({ params }: PageProps) {
     offers: {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
-      price: article.meta.price.replace(/[^0-9.,]/g, "").replace(",", "."),
+      // Extraire UNIQUEMENT le premier nombre. Avant : .replace(/[^0-9.,]/g, "")
+      // concaténait tous les chiffres -> "190€ au lieu de 375€ (-49%)" devenait "1903754.9"
+      // → JSON-LD spammy data, rich snippets rejetés par Google.
+      price: (article.meta.price.match(/[\d]+([.,][\d]+)?/)?.[0] ?? "").replace(",", "."),
       priceCurrency: "EUR",
       availability: "https://schema.org/InStock",
     },

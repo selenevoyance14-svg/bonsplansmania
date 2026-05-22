@@ -16,6 +16,9 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
+  // metadataBase : base URL utilisée pour résoudre toutes les URLs relatives (og:image, twitter:image, etc.)
+  // Sans ça, Next.js prend par défaut http://localhost:3000 en prod → og:image cassée sur tous les partages sociaux
+  metadataBase: new URL("https://bonsplansmania.fr"),
   title: "Bons Plans Mania — Bons plans beauté, tests gratuits et concours",
   description:
     "Bons Plans Mania : les meilleurs bons plans beauté, tests de produits gratuits, jeux concours et avis sur les box beauté. Économisez sur vos produits préférés.",
@@ -64,13 +67,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={poppins.variable}>
       <head>
+        {/* AdSense Auto Ads : le script async suffit. Les Auto Ads sont activés depuis le dashboard AdSense.
+            L'inline push avec enable_page_level_ads est deprecated depuis 2022 (redondant avec Auto Ads dashboard)
+            et bloquait brièvement le parseur HTML → retiré. */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113" crossOrigin="anonymous" />
-        {/* AdSense Auto Ads — place automatiquement anchor, vignette, overlay, in-page ads */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5064203547863113", enable_page_level_ads: true});`,
-          }}
-        />
       </head>
       <body className={poppins.className}>
         {children}
