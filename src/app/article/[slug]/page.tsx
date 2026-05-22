@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles, getAllArticles } from "@/lib/articles";
+import { getArticleBySlug, getRelatedArticles, getAllArticles, getPrevNextArticle } from "@/lib/articles";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-react";
@@ -68,6 +68,7 @@ export default async function ArticlePage({ params }: PageProps) {
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
   const relatedArticles = getRelatedArticles(slug, article.meta.category, 3, article.meta.tags);
+  const { prev: prevArticle, next: nextArticle } = getPrevNextArticle(slug, article.meta.category);
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -259,6 +260,24 @@ export default async function ArticlePage({ params }: PageProps) {
 
           {/* Multiplex (recommandations natives AdSense) avant les articles liés — RPM nettement plus haut que display ici */}
           <AdBlock format="multiplex" />
+
+          {/* Navigation séquentielle prev/next dans la même catégorie — renforce le maillage SEO chronologique */}
+          {(prevArticle || nextArticle) && (
+            <nav aria-label="Navigation entre articles" style={{ margin: "32px 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
+              {prevArticle ? (
+                <a href={`/article/${prevArticle.meta.slug}`} style={{ display: "block", padding: "16px", background: "white", border: "1px solid var(--border, #e5e7eb)", borderRadius: "12px", textDecoration: "none", color: "inherit" }}>
+                  <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground, #6b7280)", marginBottom: "6px" }}>← Article précédent</div>
+                  <div style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.4 }}>{prevArticle.meta.title}</div>
+                </a>
+              ) : <div />}
+              {nextArticle ? (
+                <a href={`/article/${nextArticle.meta.slug}`} style={{ display: "block", padding: "16px", background: "white", border: "1px solid var(--border, #e5e7eb)", borderRadius: "12px", textDecoration: "none", color: "inherit", textAlign: "right" }}>
+                  <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground, #6b7280)", marginBottom: "6px" }}>Article suivant →</div>
+                  <div style={{ fontSize: "0.95rem", fontWeight: 600, lineHeight: 1.4 }}>{nextArticle.meta.title}</div>
+                </a>
+              ) : <div />}
+            </nav>
+          )}
 
           {relatedArticles.length > 0 && (
             <section className="related-articles">

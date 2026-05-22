@@ -225,6 +225,22 @@ export function getArticlesByTag(tag: string): Article[] {
 }
 
 /**
+ * Retourne les articles précédent et suivant (chronologiquement) dans la même catégorie.
+ * Utilisé en bas d'article pour offrir une navigation séquentielle aux visiteurs et à Google
+ * (renforce le maillage interne entre articles de la même catégorie).
+ */
+export function getPrevNextArticle(slug: string, category: string): { prev: Article | null; next: Article | null } {
+  const sameCategory = getArticlesByCategory(category);
+  const idx = sameCategory.findIndex((a) => a.meta.slug === slug);
+  if (idx === -1) return { prev: null, next: null };
+  // Articles triés par date desc (getAllArticles) → next = plus récent (idx-1), prev = plus ancien (idx+1)
+  return {
+    next: idx > 0 ? sameCategory[idx - 1] : null,
+    prev: idx < sameCategory.length - 1 ? sameCategory[idx + 1] : null,
+  };
+}
+
+/**
  * Retourne les meilleurs "bons plans premium" : articles affiliés à FORTE commission
  * (Awin, Igraal, Rakuten, Effiliation, etc.) en EXCLUANT Amazon (commission 3% seulement).
  * Utilisé pour le cross-sell premium en tête des articles freebies (concours, test-gratuit)
