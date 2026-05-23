@@ -74,6 +74,11 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Pub mobile above-the-fold home : 70-80% du trafic est mobile, max d'impressions/RPM */}
+      <div className="ad-mobile-only container" style={{ display: "none", paddingTop: "12px" }}>
+        <AdBlock />
+      </div>
+
       {/* ═══ BONS PLANS ACTIFS (top revenue) ═══ */}
       {liveDeals.length > 0 && (
         <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%)" }}>
@@ -197,6 +202,11 @@ export default function Home() {
 
       {/* ═══ NEWSLETTER ═══ */}
       <NewsletterForm />
+
+      {/* Multiplex avant footer : recommandations natives AdSense, RPM nettement plus élevé que display ici */}
+      <section className="container" style={{ paddingTop: "16px", paddingBottom: "24px" }}>
+        <AdBlock format="multiplex" />
+      </section>
       </main>
 
       {/* ═══ FOOTER ═══ */}
