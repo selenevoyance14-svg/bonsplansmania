@@ -4,3 +4,9 @@ out
 .env
 .env.local
 .DS_Store
+
+# Pinterest pins (générés en local, uploadés manuellement à Pinterest)
+public/images/pinterest/
+
+# Script de génération des pins
+scripts/generate-pinterest-pins.sh
