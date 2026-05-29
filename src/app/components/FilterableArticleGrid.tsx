@@ -156,8 +156,24 @@ function parsePrice(raw?: string): { now?: string; was?: string; savings?: strin
 type PriceRange = "all" | "lt30" | "30to100" | "gt100";
 type DiscountFilter = "all" | "20" | "50" | "70";
 type SortBy = "recent" | "oldest" | "discount" | "price-asc" | "price-desc";
+type ConcoursType = "all" | "instant-gagnant" | "tirage" | "test-creatif";
 
-export default function FilterableArticleGrid({ articles }: { articles: ArticleListItem[] }) {
+// Détecte le type de concours à partir du titre / tags
+function detectConcoursType(article: ArticleListItem): ConcoursType | null {
+  const haystack = [article.title.toLowerCase(), ...(article.tags || []).map((t) => t.toLowerCase())].join(" ");
+  if (haystack.includes("instant gagnant") || haystack.includes("instant-gagnant") || haystack.includes("100% gagnant") || haystack.includes("100 pourcent gagnant")) {
+    return "instant-gagnant";
+  }
+  if (haystack.includes("tirage au sort") || haystack.includes("tirage")) {
+    return "tirage";
+  }
+  if (haystack.includes("concours photo") || haystack.includes("concours createur") || haystack.includes("creatif")) {
+    return "test-creatif";
+  }
+  return null;
+}
+
+export default function FilterableArticleGrid({ articles, category }: { articles: ArticleListItem[]; category?: string }) {
   const [visible, setVisible] = useState(PER_PAGE);
   const [filtersOpen, setFiltersOpen] = useState(false);
   const [selectedBrand, setSelectedBrand] = useState<string | null>(null);
@@ -165,6 +181,15 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
   const [discountFilter, setDiscountFilter] = useState<DiscountFilter>("all");
   const [sortBy, setSortBy] = useState<SortBy>("recent");
   const [featuredOnly, setFeaturedOnly] = useState(false);
+  const [concoursType, setConcoursType] = useState<ConcoursType>("all");
+
+  // Visibilité des filtres selon la catégorie
+  // Concours / Tests gratuits : pas de prix ni remise (gratuit par nature)
+  const isConcours = category === "concours";
+  const isTestGratuit = category === "test-gratuit";
+  const showPriceFilter = !isConcours && !isTestGratuit;
+  const showDiscountFilter = !isConcours && !isTestGratuit;
+  const showConcoursTypeFilter = isConcours;
 
   // Pré-calcule les métadonnées de chaque article
   const enriched = useMemo(() => {
@@ -196,7 +221,7 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
     if (selectedBrand) {
       list = list.filter((e) => e.brand === selectedBrand);
     }
-    if (priceRange !== "all" && hasPriceData) {
+    if (showPriceFilter && priceRange !== "all" && hasPriceData) {
       list = list.filter((e) => {
         if (e.nowNum === undefined) return false;
         if (priceRange === "lt30") return e.nowNum < 30;
@@ -205,9 +230,12 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
         return true;
       });
     }
-    if (discountFilter !== "all" && hasDiscountData) {
+    if (showDiscountFilter && discountFilter !== "all" && hasDiscountData) {
       const threshold = parseInt(discountFilter, 10);
       list = list.filter((e) => e.discountPct !== undefined && e.discountPct >= threshold);
+    }
+    if (showConcoursTypeFilter && concoursType !== "all") {
+      list = list.filter((e) => detectConcoursType(e.article) === concoursType);
     }
     if (featuredOnly) {
       list = list.filter((e) => e.article.featured);
@@ -228,12 +256,13 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
     }
 
     return sorted.map((e) => e.article);
-  }, [enriched, selectedBrand, priceRange, discountFilter, sortBy, featuredOnly, hasPriceData, hasDiscountData]);
+  }, [enriched, selectedBrand, priceRange, discountFilter, sortBy, featuredOnly, hasPriceData, hasDiscountData, concoursType, showPriceFilter, showDiscountFilter, showConcoursTypeFilter]);
 
   const activeFilters =
     (selectedBrand ? 1 : 0) +
-    (priceRange !== "all" ? 1 : 0) +
-    (discountFilter !== "all" ? 1 : 0) +
+    (showPriceFilter && priceRange !== "all" ? 1 : 0) +
+    (showDiscountFilter && discountFilter !== "all" ? 1 : 0) +
+    (showConcoursTypeFilter && concoursType !== "all" ? 1 : 0) +
     (featuredOnly ? 1 : 0);
 
   const resetFilters = () => {
@@ -242,6 +271,7 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
     setDiscountFilter("all");
     setSortBy("recent");
     setFeaturedOnly(false);
+    setConcoursType("all");
     setVisible(PER_PAGE);
   };
 
@@ -345,9 +375,9 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
           >
             <option value="recent">📅 Plus récent</option>
             <option value="oldest">⏳ Plus ancien</option>
-            {hasDiscountData && <option value="discount">🔥 Plus grosse remise</option>}
-            {hasPriceData && <option value="price-asc">💰 Prix croissant</option>}
-            {hasPriceData && <option value="price-desc">💎 Prix décroissant</option>}
+            {showDiscountFilter && hasDiscountData && <option value="discount">🔥 Plus grosse remise</option>}
+            {showPriceFilter && hasPriceData && <option value="price-asc">💰 Prix croissant</option>}
+            {showPriceFilter && hasPriceData && <option value="price-desc">💎 Prix décroissant</option>}
           </select>
         </div>
       </div>
@@ -397,7 +427,7 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
           )}
 
           {/* Prix */}
-          {hasPriceData && (
+          {showPriceFilter && hasPriceData && (
             <div>
               <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280", marginBottom: "8px" }}>
                 💰 Prix
@@ -432,7 +462,7 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
           )}
 
           {/* Remise */}
-          {hasDiscountData && (
+          {showDiscountFilter && hasDiscountData && (
             <div>
               <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280", marginBottom: "8px" }}>
                 🔥 Niveau de remise
@@ -453,6 +483,41 @@ export default function FilterableArticleGrid({ articles }: { articles: ArticleL
                       color: discountFilter === opt.value ? "white" : "#1f2937",
                       border: "1px solid",
                       borderColor: discountFilter === opt.value ? "#DC2626" : "#e5e7eb",
+                      borderRadius: "20px",
+                      cursor: "pointer",
+                      fontSize: "0.82rem",
+                      fontWeight: 600,
+                    }}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Type concours (uniquement sur /categorie/concours) */}
+          {showConcoursTypeFilter && (
+            <div>
+              <div style={{ fontSize: "0.8rem", fontWeight: 700, textTransform: "uppercase", letterSpacing: "0.05em", color: "#6b7280", marginBottom: "8px" }}>
+                🎯 Type de concours
+              </div>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
+                {[
+                  { value: "all", label: "Tous" },
+                  { value: "instant-gagnant", label: "⚡ Instant gagnant" },
+                  { value: "tirage", label: "🎲 Tirage au sort" },
+                  { value: "test-creatif", label: "🎨 Créatif / photo" },
+                ].map((opt) => (
+                  <button
+                    key={opt.value}
+                    onClick={() => setConcoursType(opt.value as ConcoursType)}
+                    style={{
+                      padding: "6px 12px",
+                      background: concoursType === opt.value ? "#7C3AED" : "white",
+                      color: concoursType === opt.value ? "white" : "#1f2937",
+                      border: "1px solid",
+                      borderColor: concoursType === opt.value ? "#7C3AED" : "#e5e7eb",
                       borderRadius: "20px",
                       cursor: "pointer",
                       fontSize: "0.82rem",

@@ -210,7 +210,7 @@ export default async function CategoryPage({ params }: PageProps) {
                 Aucun article dans cette catégorie pour le moment.
               </p>
             ) : useFilters ? (
-              <FilterableArticleGrid articles={cards} />
+              <FilterableArticleGrid articles={cards} category={slug} />
             ) : (
               <LoadMoreGrid articles={cards} />
             )}
