@@ -1,6 +1,8 @@
 import { getArticlesByCategory } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
+import BrandFilter from "@/app/components/BrandFilter";
+import { BON_PLAN_BRANDS, BOX_BEAUTE_BRANDS } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -125,8 +127,9 @@ export default async function CategoryPage({ params }: PageProps) {
   });
 
   // Catégories où les filtres sont utiles (avec prix / marques / remises)
-  // Filtres désactivés partout pour le moment — à refaire from scratch
-  const useFilters = false;
+  // Filtres : liste blanche dédiée par catégorie (box-beaute, bon-plan)
+  const useBoxFilter = slug === "box-beaute";
+  const useBonPlanFilter = slug === "bon-plan";
 
   return (
     <>
@@ -208,6 +211,10 @@ export default async function CategoryPage({ params }: PageProps) {
               <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "64px 0" }}>
                 Aucun article dans cette catégorie pour le moment.
               </p>
+            ) : useBoxFilter ? (
+              <BrandFilter articles={cards} brands={BOX_BEAUTE_BRANDS} />
+            ) : useBonPlanFilter ? (
+              <BrandFilter articles={cards} brands={BON_PLAN_BRANDS} />
             ) : (
               <LoadMoreGrid articles={cards} />
             )}

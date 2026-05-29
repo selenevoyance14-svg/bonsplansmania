@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { ChevronRight, Flame, Calendar } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
-import LoadMoreGrid from "@/app/components/LoadMoreGrid";
+import BrandFilter from "@/app/components/BrandFilter";
+import { BON_PLAN_BRANDS } from "@/lib/brand-filters";
 import { getAllArticles } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
@@ -102,7 +103,7 @@ export default function BonsPlansEnCoursPage() {
                 </h2>
                 <p>Publiés ces 14 derniers jours — filtre par marque pour trouver ton plan</p>
               </div>
-              <LoadMoreGrid articles={allCards} />
+              <BrandFilter articles={allCards} brands={BON_PLAN_BRANDS} />
             </div>
           </section>
         )}

@@ -569,8 +569,8 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
           <option value="recent">Plus récent</option>
           <option value="oldest">Plus ancien</option>
           {showDiscountFilter && hasDiscountData && <option value="discount">Plus grosse remise</option>}
-          {showPriceFilter && hasPriceData && <option value="price-asc">Prix croissant</option>}
-          {showPriceFilter && hasPriceData && <option value="price-desc">Prix décroissant</option>}
+          {hasPriceData && <option value="price-asc">Prix croissant</option>}
+          {hasPriceData && <option value="price-desc">Prix décroissant</option>}
         </select>
 
         {/* Coups de cœur (toggle) */}
