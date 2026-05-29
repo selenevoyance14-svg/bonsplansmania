@@ -2,9 +2,15 @@ import type { Metadata } from "next";
 import { ChevronRight, Flame, Calendar } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
-import ArticleCard from "@/app/components/ArticleCard";
+import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import { getAllArticles } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+
+const categoryLabels: Record<string, { label: string; color: string }> = {
+  "bon-plan":         { label: "Bon Plan",   color: "bon-plan" },
+  "bon-plan-beaute":  { label: "Bon Plan",   color: "bon-plan" },
+  "code-promo":       { label: "Code Promo", color: "code-promo" },
+};
 
 export const metadata: Metadata = {
   title: "Bons plans en cours cette semaine — BonsPlansMania",
@@ -34,8 +40,26 @@ export default function BonsPlansEnCoursPage() {
     })
     .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
 
-  const featured = liveDeals.filter((a) => a.meta.featured);
-  const others = liveDeals.filter((a) => !a.meta.featured);
+  // Cards format attendu par FilterableArticleGrid (sert pour le filtre marques)
+  const allCards = liveDeals.map((a) => {
+    const cl = categoryLabels[a.meta.category];
+    return {
+      slug: a.meta.slug,
+      title: a.meta.title,
+      description: a.meta.description,
+      date: a.meta.date,
+      image: a.meta.image,
+      imageAlt: a.meta.imageAlt,
+      category: a.meta.category,
+      categoryLabel: cl?.label ?? a.meta.category,
+      categoryColor: cl?.color ?? a.meta.category,
+      readingTime: a.meta.readingTime,
+      expired: a.meta.expired,
+      featured: a.meta.featured,
+      tags: a.meta.tags,
+      price: a.meta.price,
+    };
+  });
 
   const today = new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
@@ -68,37 +92,17 @@ export default function BonsPlansEnCoursPage() {
           <AdBlock />
         </section>
 
-        {featured.length > 0 && (
+        {liveDeals.length > 0 && (
           <section className="section">
             <div className="container">
-              <div className="section-title">
+              <div className="section-title" style={{ marginBottom: "20px" }}>
                 <h2>
                   <Flame size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#E63946" }} />
-                  Les bons plans à ne pas rater
+                  Tous les bons plans actifs cette semaine
                 </h2>
-                <p>Sélection rédactionnelle de la semaine</p>
+                <p>Publiés ces 14 derniers jours — filtre par marque pour trouver ton plan</p>
               </div>
-              <div className="articles-grid">
-                {featured.map((article, index) => (
-                  <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
-
-        {others.length > 0 && (
-          <section className="section" style={{ background: "var(--muted)" }}>
-            <div className="container">
-              <div className="section-title">
-                <h2>Tous les bons plans actifs</h2>
-                <p>Publiés ces 14 derniers jours, encore valables</p>
-              </div>
-              <div className="articles-grid">
-                {others.map((article) => (
-                  <ArticleCard key={article.meta.slug} article={article} />
-                ))}
-              </div>
+              <LoadMoreGrid articles={allCards} />
             </div>
           </section>
         )}

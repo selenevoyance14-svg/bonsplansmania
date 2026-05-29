@@ -1,7 +1,6 @@
 import { getArticlesByCategory } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
-import FilterableArticleGrid from "@/app/components/FilterableArticleGrid";
 import type { Metadata } from "next";
 import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -126,8 +125,8 @@ export default async function CategoryPage({ params }: PageProps) {
   });
 
   // Catégories où les filtres sont utiles (avec prix / marques / remises)
-  const FILTERABLE_CATEGORIES = new Set(["bon-plan", "code-promo", "concours", "test-gratuit", "test-avis", "box-beaute", "selection", "test-produit"]);
-  const useFilters = FILTERABLE_CATEGORIES.has(slug);
+  // Filtres désactivés partout pour le moment — à refaire from scratch
+  const useFilters = false;
 
   return (
     <>
@@ -209,8 +208,6 @@ export default async function CategoryPage({ params }: PageProps) {
               <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "64px 0" }}>
                 Aucun article dans cette catégorie pour le moment.
               </p>
-            ) : useFilters ? (
-              <FilterableArticleGrid articles={cards} category={slug} />
             ) : (
               <LoadMoreGrid articles={cards} />
             )}
