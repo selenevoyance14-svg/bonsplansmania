@@ -232,8 +232,11 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4>Le site</h4>
+              <h4>Hubs saisonniers</h4>
               <ul className="footer-links" role="list">
+                <li><a href="/ete-2026">☀️ Été 2026</a></li>
+                <li><a href="/fete-des-peres-2026">🎁 Fête des Pères 21 juin</a></li>
+                <li><a href="/noel-2026">🎄 Noël 2026</a></li>
                 <li><a href="/blog">Tous les articles</a></li>
                 <li><a href="/guide-gratuit">Guide gratuit</a></li>
                 <li><a href="/marques">Toutes les marques</a></li>
