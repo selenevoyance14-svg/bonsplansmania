@@ -166,19 +166,16 @@ function getBrandLabel(slug: string): string {
 }
 
 function parseAmount(text: string): number | undefined {
-  // Capture le PREMIER nombre (avec espaces internes "1 800") en évitant les pourcentages.
-  // Stratégie : trouver une séquence "[chiffres et espaces]+ (,|.)? [chiffres]+" suivie d'un €.
-  const cleaned = text.replace(/\s+/g, "");
-  // Match: optional minus, digits, optional decimal (, or .), digits — collé à un € (pour ignorer les "-5%")
-  const m = cleaned.match(/(\d+(?:[.,]\d+)?)\s*€/);
-  if (m) {
-    const n = parseFloat(m[1].replace(",", "."));
-    return Number.isFinite(n) ? n : undefined;
-  }
-  // Fallback : premier nombre trouvé
-  const m2 = cleaned.match(/(\d+(?:[.,]\d+)?)/);
-  if (m2) {
-    const n = parseFloat(m2[1].replace(",", "."));
+  // STRICT : on n'accepte que les chaînes qui COMMENCENT par un prix.
+  // Ça exclut les "1 310 bons d'achat — jusqu'à 100€" où le 100€ est
+  // une valeur de lot, pas le prix payé.
+  const trimmed = text.trim();
+  // Match: début de chaîne, optionnels d'ouverture, puis prix + €
+  // Tolère "1 800,50 €" / "75,90€" / "(75,90 €" / "À partir de 75 €" → non, on rejette les préfixes
+  const strict = trimmed.match(/^[(]?\s*(\d{1,3}(?:[\s ]\d{3})*(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)\s*€/);
+  if (strict) {
+    const cleaned = strict[1].replace(/[\s ]/g, "").replace(",", ".");
+    const n = parseFloat(cleaned);
     return Number.isFinite(n) ? n : undefined;
   }
   return undefined;
@@ -306,14 +303,17 @@ export default function FilterableArticleGrid({ articles, category }: { articles
       .filter(([, n]) => n >= MIN_ARTICLES_PER_BRAND)
       .map(([slug, n]) => ({ slug, label: getBrandLabel(slug), count: n }))
       .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-    // Limite aux 24 marques principales pour ne pas surcharger l'UI
-    return result.slice(0, 24);
+    // Limite à 60 marques (sur bon-plan il y en a beaucoup, mais on évite quand même un mur infini)
+    return result.slice(0, 60);
   }, [enriched]);
 
   // Vérifie quels filtres sont disponibles
   const hasPriceData = useMemo(() => enriched.some((e) => e.nowNum !== undefined), [enriched]);
   const hasDiscountData = useMemo(() => enriched.some((e) => e.discountPct !== undefined), [enriched]);
-  const hasFeatured = useMemo(() => articles.some((a) => a.featured), [articles]);
+  // Coups de cœur : on n'affiche le filtre que s'il y a au moins 3 articles featured,
+  // sinon le filtre est peu utile (renvoyait souvent vide ou très peu d'articles)
+  const featuredCount = useMemo(() => articles.filter((a) => a.featured).length, [articles]);
+  const hasFeatured = featuredCount >= 3;
 
   // Filtre + tri
   const filtered = useMemo(() => {
