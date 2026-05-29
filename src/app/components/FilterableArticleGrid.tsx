@@ -44,41 +44,125 @@ const BADGE_BY_COLOR: Record<string, string> = {
   "code-promo": "Code",
 };
 
-// Marques populaires : on cherche ces mots dans le titre ou les tags pour détecter la marque
-const BRAND_KEYWORDS: Record<string, string[]> = {
-  "Amazon": ["amazon", "amzn"],
-  "Cdiscount": ["cdiscount"],
-  "Sephora": ["sephora"],
-  "Yves Rocher": ["yves rocher", "yves-rocher"],
-  "Lookfantastic": ["lookfantastic", "look fantastic"],
-  "Adopt": ["adopt'"],
-  "Dr Pierre Ricaud": ["dr pierre ricaud", "pierre ricaud", "ricaud"],
-  "Showroom Privé": ["showroom privé", "showroomprivé", "showroomprive"],
-  "Sarenza": ["sarenza"],
-  "Zooplus": ["zooplus"],
-  "Blissim": ["blissim"],
-  "Biotyfull": ["biotyfull"],
-  "Glowria": ["glowria"],
-  "BAÏJA": ["baija", "baïja"],
-  "L'Occitane": ["occitane", "l'occitane"],
-  "Beauty Success": ["beauty success"],
-  "L'Atelier du Sourcil": ["atelier du sourcil"],
-  "MiiN Cosmetics": ["miin"],
-  "YesStyle": ["yesstyle"],
-  "Marionnaud": ["marionnaud"],
-  "Nocibé": ["nocibé", "nocibe"],
-  "Acorelle": ["acorelle"],
-  "Léa Nature": ["lea nature", "léa nature"],
-  "Damart": ["damart"],
-  "Daxon": ["daxon"],
+// Tags génériques à exclure de la détection de marque
+const EXCLUDED_TAG_SLUGS = new Set([
+  // Catégories / types d'article
+  "bon-plan", "bon-plan-beaute", "test-gratuit", "test-gratuit-beaute", "test-avis", "test-produit",
+  "concours", "concours-beaute", "box-beaute", "code-promo", "calendrier-avent",
+  "selection", "beaute", "beautet",
+  "guide", "guide-achat", "comparatif", "avis", "test",
+  // Mécaniques concours
+  "instant-gagnant", "tirage", "tirage-au-sort", "ambassadrice", "ambassadeur",
+  "testeur", "testeuse", "echantillon",
+  // Promo / commerce
+  "promo", "promos", "soldes", "ventes-flash", "deal", "deal-du-jour", "vente-privee",
+  "french-days", "french-week", "black-friday", "cyber-monday",
+  "code", "remise", "reduction", "gratuit",
+  // Qualité produit
+  "bio", "vegan", "cruelty-free", "made-in-france", "fabrique-france", "francais",
+  "naturel", "naturelle", "100-naturel", "100-pourcent-naturel",
+  "yuka-excellent", "ecocert", "cosmos-organic", "cosmebio",
+  "sans-parfum", "sans-paraben", "hypoallergenique",
+  // Saisons / périodes
+  "ete", "ete-2026", "hiver", "hiver-2026", "printemps", "automne", "rentree",
+  "fete-des-meres", "fete-des-peres", "fete-des-grands-meres", "saint-valentin",
+  "paques", "noel", "halloween", "rentree-des-classes",
+  "fin-15-juin-2026", "fin-16-juin-2026", "fin-21-juin-2026", "fin-30-juin-2026",
+  // Sous-catégories produits trop génériques
+  "cosmetique", "cosmetiques", "skincare", "maquillage", "soin", "soin-visage",
+  "soin-corps", "creme", "serum", "parfum", "shampoing", "shampooing", "deodorant",
+  "huile-essentielle", "huiles-essentielles", "aromatherapie",
+  "high-tech", "hightech", "maison", "cuisine", "jardin", "mode", "bebe", "enfant",
+  "famille", "femme", "homme", "ado",
+  // Mois / années
+  "2023", "2024", "2025", "2026", "2027",
+  "janvier", "fevrier", "mars", "avril", "mai", "juin",
+  "juillet", "aout", "septembre", "octobre", "novembre", "decembre",
+  // Génériques
+  "shopping", "cadeau", "cadeaux", "originale", "limite", "limitee", "exclusive",
+  "exclusivite", "premium", "luxe", "deluxe", "edition-limitee",
+  "lot", "pack", "coffret", "trousse", "box", "abonnement",
+]);
+
+// Labels de marque normalisés (pour affichage propre)
+const BRAND_DISPLAY: Record<string, string> = {
+  "amazon": "Amazon",
+  "cdiscount": "Cdiscount",
+  "sephora": "Sephora",
+  "yves-rocher": "Yves Rocher",
+  "lookfantastic": "Lookfantastic",
+  "biotyfull": "Biotyfull Box",
+  "biotyfull-box": "Biotyfull Box",
+  "blissim": "Blissim",
+  "baija": "BAÏJA",
+  "loccitane": "L'Occitane",
+  "occitane": "L'Occitane",
+  "dr-pierre-ricaud": "Dr Pierre Ricaud",
+  "pierre-ricaud": "Dr Pierre Ricaud",
+  "showroom-prive": "Showroom Privé",
+  "showroomprive": "Showroom Privé",
+  "yesstyle": "YesStyle",
+  "beauty-success": "Beauty Success",
+  "adopt": "Adopt'",
+  "adopt-parfums": "Adopt'",
+  "lea-nature": "Léa Nature",
+  "atelier-du-sourcil": "L'Atelier du Sourcil",
+  "miin": "MiiN Cosmetics",
+  "miin-cosmetics": "MiiN Cosmetics",
+  "marionnaud": "Marionnaud",
+  "nocibe": "Nocibé",
+  "yves-saint-laurent": "Yves Saint Laurent",
+  "ysl": "Yves Saint Laurent",
+  "acm": "ACM",
+  "la-roche-posay": "La Roche-Posay",
+  "tectake": "tectake",
+  "loreal": "L'Oréal",
+  "loreal-paris": "L'Oréal Paris",
 };
 
-function detectBrand(article: ArticleListItem): string | null {
-  const haystack = [article.title.toLowerCase(), ...(article.tags || []).map((t) => t.toLowerCase())].join(" ");
-  for (const [brand, keywords] of Object.entries(BRAND_KEYWORDS)) {
-    if (keywords.some((kw) => haystack.includes(kw))) return brand;
+function slugifyTag(tag: string): string {
+  return tag
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[̀-ͯ]/g, "")
+    .replace(/['"]/g, "")
+    .trim()
+    .replace(/\s+/g, "-")
+    .replace(/[^a-z0-9-]/g, "");
+}
+
+function prettifyBrandSlug(slug: string): string {
+  // ex: "dr-pierre-ricaud" → "Dr Pierre Ricaud"
+  return slug
+    .split("-")
+    .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+    .join(" ");
+}
+
+/**
+ * Liste les tags de l'article candidats à être une marque (mot propre, ni générique, ni date).
+ */
+function getBrandCandidates(article: ArticleListItem): string[] {
+  const candidates: string[] = [];
+  for (const tag of article.tags || []) {
+    const slug = slugifyTag(tag);
+    if (!slug) continue;
+    if (slug.length < 3 || slug.length > 40) continue;
+    if (EXCLUDED_TAG_SLUGS.has(slug)) continue;
+    if (/^\d/.test(slug)) continue;
+    // Patterns mois-année
+    if (/^(janvier|fevrier|mars|avril|mai|juin|juillet|aout|septembre|octobre|novembre|decembre)(-\d{4})?$/.test(slug)) continue;
+    // Patterns purement numériques
+    if (/^[0-9-]+$/.test(slug)) continue;
+    // Patterns "fin-XX-mois"
+    if (/^fin-/.test(slug)) continue;
+    candidates.push(slug);
   }
-  return null;
+  return candidates;
+}
+
+function getBrandLabel(slug: string): string {
+  return BRAND_DISPLAY[slug] || prettifyBrandSlug(slug);
 }
 
 function parseAmount(text: string): number | undefined {
@@ -184,29 +268,46 @@ export default function FilterableArticleGrid({ articles, category }: { articles
   const [concoursType, setConcoursType] = useState<ConcoursType>("all");
 
   // Visibilité des filtres selon la catégorie
-  // Concours / Tests gratuits : pas de prix ni remise (gratuit par nature)
+  // Seul bon-plan a des prix structurés exploitables (now + au lieu de + remise)
+  // Code-promo, concours, tests : pas de prix/remise (codes variables, gratuit, ou pas de structure prix)
+  const isBonPlan = category === "bon-plan" || category === "bon-plan-beaute";
   const isConcours = category === "concours";
-  const isTestGratuit = category === "test-gratuit";
-  const showPriceFilter = !isConcours && !isTestGratuit;
-  const showDiscountFilter = !isConcours && !isTestGratuit;
+  const showPriceFilter = isBonPlan;
+  const showDiscountFilter = isBonPlan;
   const showConcoursTypeFilter = isConcours;
 
   // Pré-calcule les métadonnées de chaque article
+  // brandSlugs : tags candidats marque (un article peut avoir plusieurs marques pertinentes)
   const enriched = useMemo(() => {
     return articles.map((a) => {
-      const brand = detectBrand(a);
+      const brandSlugs = getBrandCandidates(a);
       const parsed = parsePrice(a.price);
-      return { article: a, brand, ...parsed };
+      return { article: a, brandSlugs, ...parsed };
     });
   }, [articles]);
 
-  // Liste des marques présentes
+  // Liste des marques présentes : seulement celles avec >= 2 articles dans cette catégorie
+  // pour éviter de proposer un filtre sur une marque qui n'a qu'un seul article
+  // (cas Pierre Ricaud sur /test-gratuit : pas de vrais tests gratuits chez eux)
   const availableBrands = useMemo(() => {
-    const set = new Set<string>();
-    enriched.forEach((e) => {
-      if (e.brand) set.add(e.brand);
-    });
-    return Array.from(set).sort();
+    const counts = new Map<string, number>();
+    for (const e of enriched) {
+      // On compte chaque slug une seule fois par article même s'il apparaît plusieurs fois
+      const seen = new Set<string>();
+      for (const slug of e.brandSlugs) {
+        if (seen.has(slug)) continue;
+        seen.add(slug);
+        counts.set(slug, (counts.get(slug) || 0) + 1);
+      }
+    }
+    // Filtre : marques avec >= 2 articles dans cette catégorie
+    const MIN_ARTICLES_PER_BRAND = 2;
+    const result = Array.from(counts.entries())
+      .filter(([, n]) => n >= MIN_ARTICLES_PER_BRAND)
+      .map(([slug, n]) => ({ slug, label: getBrandLabel(slug), count: n }))
+      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
+    // Limite aux 24 marques principales pour ne pas surcharger l'UI
+    return result.slice(0, 24);
   }, [enriched]);
 
   // Vérifie quels filtres sont disponibles
@@ -219,7 +320,7 @@ export default function FilterableArticleGrid({ articles, category }: { articles
     let list = enriched;
 
     if (selectedBrand) {
-      list = list.filter((e) => e.brand === selectedBrand);
+      list = list.filter((e) => e.brandSlugs.includes(selectedBrand));
     }
     if (showPriceFilter && priceRange !== "all" && hasPriceData) {
       list = list.filter((e) => {
@@ -405,21 +506,23 @@ export default function FilterableArticleGrid({ articles, category }: { articles
               <div style={{ display: "flex", flexWrap: "wrap", gap: "6px" }}>
                 {availableBrands.map((brand) => (
                   <button
-                    key={brand}
-                    onClick={() => setSelectedBrand(selectedBrand === brand ? null : brand)}
+                    key={brand.slug}
+                    onClick={() => setSelectedBrand(selectedBrand === brand.slug ? null : brand.slug)}
                     style={{
                       padding: "6px 12px",
-                      background: selectedBrand === brand ? "#1f2937" : "white",
-                      color: selectedBrand === brand ? "white" : "#1f2937",
+                      background: selectedBrand === brand.slug ? "#1f2937" : "white",
+                      color: selectedBrand === brand.slug ? "white" : "#1f2937",
                       border: "1px solid",
-                      borderColor: selectedBrand === brand ? "#1f2937" : "#e5e7eb",
+                      borderColor: selectedBrand === brand.slug ? "#1f2937" : "#e5e7eb",
                       borderRadius: "20px",
                       cursor: "pointer",
                       fontSize: "0.82rem",
                       fontWeight: 600,
                     }}
+                    title={`${brand.count} article${brand.count > 1 ? "s" : ""}`}
                   >
-                    {brand}
+                    {brand.label}
+                    <span style={{ opacity: 0.6, marginLeft: "4px", fontSize: "0.72rem" }}>({brand.count})</span>
                   </button>
                 ))}
               </div>
