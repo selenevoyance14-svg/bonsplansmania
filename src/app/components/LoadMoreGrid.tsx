@@ -44,20 +44,59 @@ const BADGE_BY_COLOR: Record<string, string> = {
   "code-promo": "Code",
 };
 
+function parseAmount(text: string): number | undefined {
+  const cleaned = text.replace(/\s+/g, "");
+  const m = cleaned.match(/(\d+(?:[.,]\d+)?)\s*€/);
+  if (m) {
+    const n = parseFloat(m[1].replace(",", "."));
+    return Number.isFinite(n) ? n : undefined;
+  }
+  const m2 = cleaned.match(/(\d+(?:[.,]\d+)?)/);
+  if (m2) {
+    const n = parseFloat(m2[1].replace(",", "."));
+    return Number.isFinite(n) ? n : undefined;
+  }
+  return undefined;
+}
+
 function parsePrice(raw?: string): { now?: string; was?: string; savings?: string } {
   if (!raw) return {};
+
+  const explicitPctMatch = raw.match(/-\s*(\d{1,2})\s*%/);
+  let explicitPct: number | undefined;
+  if (explicitPctMatch) {
+    const n = parseInt(explicitPctMatch[1], 10);
+    if (n > 0 && n < 100) explicitPct = n;
+  }
+
   const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
   if (m) {
     const now = m[1].trim();
     const was = m[2].trim();
-    const nowNum = parseFloat(now.replace(/[^\d,.]/g, "").replace(",", "."));
-    const wasNum = parseFloat(was.replace(/[^\d,.]/g, "").replace(",", "."));
+
+    if (explicitPct !== undefined) {
+      return { now, was, savings: `−${explicitPct}%` };
+    }
+
+    const nowNum = parseAmount(now);
+    const wasNum = parseAmount(was);
     let savings: string | undefined;
-    if (Number.isFinite(nowNum) && Number.isFinite(wasNum) && wasNum > nowNum) {
-      const pct = Math.round(((wasNum - nowNum) / wasNum) * 100);
-      savings = `−${pct}%`;
+    if (
+      Number.isFinite(nowNum) &&
+      Number.isFinite(wasNum) &&
+      wasNum! > nowNum! &&
+      nowNum! > 0
+    ) {
+      const pct = Math.round(((wasNum! - nowNum!) / wasNum!) * 100);
+      if (pct > 0 && pct < 95) {
+        savings = `−${pct}%`;
+      }
     }
     return { now, was, savings };
+  }
+
+  if (explicitPct !== undefined) {
+    return { now: raw.trim(), savings: `−${explicitPct}%` };
   }
   return { now: raw.trim() };
 }

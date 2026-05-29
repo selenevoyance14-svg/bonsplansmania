@@ -81,24 +81,76 @@ function detectBrand(article: ArticleListItem): string | null {
   return null;
 }
 
+function parseAmount(text: string): number | undefined {
+  // Capture le PREMIER nombre (avec espaces internes "1 800") en évitant les pourcentages.
+  // Stratégie : trouver une séquence "[chiffres et espaces]+ (,|.)? [chiffres]+" suivie d'un €.
+  const cleaned = text.replace(/\s+/g, "");
+  // Match: optional minus, digits, optional decimal (, or .), digits — collé à un € (pour ignorer les "-5%")
+  const m = cleaned.match(/(\d+(?:[.,]\d+)?)\s*€/);
+  if (m) {
+    const n = parseFloat(m[1].replace(",", "."));
+    return Number.isFinite(n) ? n : undefined;
+  }
+  // Fallback : premier nombre trouvé
+  const m2 = cleaned.match(/(\d+(?:[.,]\d+)?)/);
+  if (m2) {
+    const n = parseFloat(m2[1].replace(",", "."));
+    return Number.isFinite(n) ? n : undefined;
+  }
+  return undefined;
+}
+
 function parsePrice(raw?: string): { now?: string; was?: string; savings?: string; nowNum?: number; discountPct?: number } {
   if (!raw) return {};
+
+  // 1) Lecture du pourcentage explicite si présent : "-X%" ou "(-X %)" — priorité aux info fournies par l'auteur
+  const explicitPctMatch = raw.match(/-\s*(\d{1,2})\s*%/);
+  let explicitPct: number | undefined;
+  if (explicitPctMatch) {
+    const n = parseInt(explicitPctMatch[1], 10);
+    if (n > 0 && n < 100) explicitPct = n;
+  }
+
   const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
   if (m) {
     const now = m[1].trim();
     const was = m[2].trim();
-    const nowNum = parseFloat(now.replace(/[^\d,.]/g, "").replace(",", "."));
-    const wasNum = parseFloat(was.replace(/[^\d,.]/g, "").replace(",", "."));
+    const nowNum = parseAmount(now);
+    const wasNum = parseAmount(was);
+
     let savings: string | undefined;
     let discountPct: number | undefined;
-    if (Number.isFinite(nowNum) && Number.isFinite(wasNum) && wasNum > nowNum) {
-      discountPct = Math.round(((wasNum - nowNum) / wasNum) * 100);
+
+    if (explicitPct !== undefined) {
+      discountPct = explicitPct;
       savings = `−${discountPct}%`;
+    } else if (
+      Number.isFinite(nowNum) &&
+      Number.isFinite(wasNum) &&
+      wasNum! > nowNum! &&
+      nowNum! > 0
+    ) {
+      const pct = Math.round(((wasNum! - nowNum!) / wasNum!) * 100);
+      // Garde-fous : refuse les pourcentages aberrants (>= 95% sur des prix consommateur, c'est suspect)
+      if (pct > 0 && pct < 95) {
+        discountPct = pct;
+        savings = `−${pct}%`;
+      }
     }
-    return { now, was, savings, nowNum: Number.isFinite(nowNum) ? nowNum : undefined, discountPct };
+
+    return { now, was, savings, nowNum, discountPct };
   }
-  const nowNum = parseFloat(raw.replace(/[^\d,.]/g, "").replace(",", "."));
-  return { now: raw.trim(), nowNum: Number.isFinite(nowNum) ? nowNum : undefined };
+
+  // Pas de "au lieu de" : on essaie quand même de lire le prix actuel pour le filtrage
+  const nowNum = parseAmount(raw);
+  // Si le prix contient un "-X%" explicite mais pas "au lieu de", on peut quand même afficher la remise
+  let savings: string | undefined;
+  let discountPct: number | undefined;
+  if (explicitPct !== undefined) {
+    discountPct = explicitPct;
+    savings = `−${explicitPct}%`;
+  }
+  return { now: raw.trim(), nowNum, discountPct, savings };
 }
 
 type PriceRange = "all" | "lt30" | "30to100" | "gt100";
