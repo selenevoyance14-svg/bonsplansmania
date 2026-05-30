@@ -11,19 +11,27 @@ import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export default function Home() {
   const allArticles = getAllArticles();
-  const featured = getFeaturedArticles().slice(0, 6);
   const dealOfDay = getDealOfDay();
+  const dealOfDaySlug = dealOfDay?.meta.slug;
 
   // Bons plans actifs : bon-plan/code-promo, non expirés, des 14 derniers jours, max 6
+  // On exclut le deal du jour pour éviter la duplication avec sa section dédiée
   const now = Date.now();
   const FOURTEEN_DAYS = 14 * 24 * 60 * 60 * 1000;
   const liveDeals = allArticles
-    .filter((a) => (a.meta.category === "bon-plan" || a.meta.category === "code-promo") && !a.meta.expired && now - new Date(a.meta.date).getTime() < FOURTEEN_DAYS)
+    .filter((a) => (a.meta.category === "bon-plan" || a.meta.category === "code-promo") && !a.meta.expired && a.meta.slug !== dealOfDaySlug && now - new Date(a.meta.date).getTime() < FOURTEEN_DAYS)
     .slice(0, 6);
   const liveDealSlugs = new Set(liveDeals.map((a) => a.meta.slug));
 
-  // Dernières offres : on exclut les bons plans déjà affichés au-dessus pour éviter la duplication
-  const latest = allArticles.filter((a) => !liveDealSlugs.has(a.meta.slug)).slice(0, 24);
+  // À la une : articles featured hors bons plans / codes promo (ceux-ci sont déjà au-dessus)
+  // Met en avant concours, tests gratuits, box, guides — du contenu différent
+  const featured = getFeaturedArticles()
+    .filter((a) => a.meta.category !== "bon-plan" && a.meta.category !== "code-promo" && a.meta.slug !== dealOfDaySlug)
+    .slice(0, 6);
+
+  // Dernières offres : on exclut les bons plans, le deal du jour, et la une pour éviter toute duplication
+  const featuredSlugs = new Set(featured.map((a) => a.meta.slug));
+  const latest = allArticles.filter((a) => !liveDealSlugs.has(a.meta.slug) && a.meta.slug !== dealOfDaySlug && !featuredSlugs.has(a.meta.slug)).slice(0, 24);
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
