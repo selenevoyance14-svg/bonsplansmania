@@ -30,6 +30,7 @@ export interface ArticleMeta {
   seoDescription?: string;
   expired?: boolean;
   dealOfDay?: boolean;
+  noindex?: boolean;
 }
 
 export interface Article {

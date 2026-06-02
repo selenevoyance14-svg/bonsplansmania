@@ -42,6 +42,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: article.meta.description,
       images: [article.meta.image.endsWith('.svg') ? '/og-image.png' : article.meta.image],
     },
+    ...(article.meta.noindex && { robots: { index: false, follow: false } }),
   };
 }
 
