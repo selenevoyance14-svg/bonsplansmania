@@ -190,11 +190,11 @@ export default function Partenariats() {
                 marginBottom: "16px",
               }}
             >
-              Ils nous font déjà confiance
+              Marques régulièrement présentes sur le site
             </h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {[
-                "L'Oreal",
+                "L'Oréal",
                 "Weleda",
                 "Nuxe",
                 "Garnier",
@@ -208,7 +208,7 @@ export default function Partenariats() {
                 "Biotyfull",
                 "Greenweez",
                 "YesStyle",
-                "Showroomprivee",
+                "Showroomprivé",
               ].map((m) => (
                 <span
                   key={m}
