@@ -69,7 +69,7 @@ export default async function ArticlePage({ params }: PageProps) {
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
-  const relatedArticles = getRelatedArticles(slug, article.meta.category, 3, article.meta.tags);
+  const relatedArticles = getRelatedArticles(slug, article.meta.category, 4, article.meta.tags);
   const { prev: prevArticle, next: nextArticle } = getPrevNextArticle(slug, article.meta.category);
 
   const jsonLd = {
@@ -247,6 +247,33 @@ export default async function ArticlePage({ params }: PageProps) {
                 (le visiteur doit voir les bons plans avant de quitter le site via "Participer") */}
             {isFreebieCategory && <FlashDeals slug={slug} />}
 
+            {/* Articles connexes AVANT la CTA affilié : si le visiteur ne clique pas sur l'affilié,
+                il doit voir 4 autres articles pertinents avant d'envisager de quitter le site.
+                Position-clé pour réduire le bounce rate (mesuré ~100% au 3 juin 2026). */}
+            {relatedArticles.length > 0 && (
+              <section className="related-articles" style={{ margin: "32px 0" }}>
+                <h2 style={{ fontSize: "1.4rem", marginBottom: "16px" }}>A lire aussi</h2>
+                <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
+                  {relatedArticles.map((related) => {
+                    const relCat = categoryConfig[related.meta.category];
+                    return (
+                      <a key={related.meta.slug} href={`/article/${related.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
+                        <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
+                          <Image src={related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
+                        </div>
+                        <div className="card-body" style={{ padding: "12px" }}>
+                          <span style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                            {relCat?.emoji} {relCat?.label}
+                          </span>
+                          <h3 className="card-title" style={{ fontSize: "0.92rem", lineHeight: 1.3, margin: "6px 0 0" }}>{related.meta.title}</h3>
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
             {affiliateUrl !== "#" && (
               <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", borderRadius: "16px", border: "2px solid #FECDD3" }}>
                 <p style={{ fontWeight: 800, fontSize: "1.2rem", marginBottom: "16px", color: "var(--foreground)" }}>Profiter de cette offre</p>
@@ -281,30 +308,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </nav>
           )}
 
-          {relatedArticles.length > 0 && (
-            <section className="related-articles">
-              <h2>A lire aussi</h2>
-              <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))" }}>
-                {relatedArticles.map((related) => {
-                  const relCat = categoryConfig[related.meta.category];
-                  return (
-                    <a key={related.meta.slug} href={`/article/${related.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
-                      <div style={{ position: "relative", height: "160px", overflow: "hidden" }}>
-                        <Image src={related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="33vw" />
-                      </div>
-                      <div className="card-body">
-                        <span style={{ fontSize: "0.72rem", fontWeight: 600, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                          {relCat?.emoji} {relCat?.label}
-                        </span>
-                        <h3 className="card-title">{related.meta.title}</h3>
-                        <p className="card-excerpt">{related.meta.description}</p>
-                      </div>
-                    </a>
-                  );
-                })}
-              </div>
-            </section>
-          )}
+          {/* Section "A lire aussi" déplacée plus haut (avant la CTA affilié) pour réduire le bounce rate. */}
 
           {/* Navigation par catégorie pour maillage interne */}
           <nav style={{ margin: "40px 0", padding: "24px", background: "var(--muted, #f3f4f6)", borderRadius: "16px" }}>
