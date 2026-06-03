@@ -2012,3 +2012,233 @@ body {
   text-decoration: underline;
 }
 
+/* ════════════════════════════════════════════════
+   BPM Card Horizontale — June 2026
+   Liste dense Dealabs-style pour "Dernières offres".
+   Reuse couleurs catégories existantes (bpm-pill-*).
+   ════════════════════════════════════════════════ */
+
+.bpm-card-h-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.bpm-card-h {
+  display: flex;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1.5px solid var(--border);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.04);
+  overflow: hidden;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+  min-height: 160px;
+  position: relative;
+}
+
+.bpm-card-h:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+.bpm-card-h-expired {
+  opacity: 0.55;
+  filter: grayscale(40%);
+}
+
+.bpm-card-h-image {
+  position: relative;
+  flex-shrink: 0;
+  width: 200px;
+  background: #f2ede9;
+  overflow: hidden;
+}
+
+.bpm-card-h-discount,
+.bpm-card-h-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.02em;
+  padding: 4px 10px;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.18);
+}
+
+.bpm-card-h-discount {
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.bpm-card-h-expired-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  z-index: 2;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+  background: #1a1a1a;
+  color: #fff;
+}
+
+.bpm-card-h-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  padding: 14px 18px 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.bpm-card-h-meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 2px;
+}
+
+.bpm-card-h-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.bpm-card-h-sep {
+  color: var(--muted-foreground);
+  font-weight: 600;
+}
+
+.bpm-card-h-date {
+  font-size: 0.78rem;
+  color: var(--muted-foreground);
+  font-weight: 500;
+}
+
+.bpm-card-h-title {
+  font-size: 1.04rem;
+  font-weight: 800;
+  line-height: 1.3;
+  margin: 0;
+  color: var(--foreground);
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bpm-card-h-excerpt {
+  font-size: 0.85rem;
+  color: var(--muted-foreground);
+  line-height: 1.5;
+  margin: 0;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.bpm-card-h-footer {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  padding-top: 6px;
+}
+
+.bpm-card-h-price {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 0;
+}
+
+.bpm-card-h-price-now {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--primary);
+  line-height: 1;
+}
+
+.bpm-card-h-price-free { color: #166534; }
+
+.bpm-card-h-price-was {
+  font-size: 0.9rem;
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+  font-weight: 500;
+}
+
+.bpm-card-h-chip {
+  background: var(--primary);
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.02em;
+}
+
+.bpm-card-h-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-weight: 700;
+  font-size: 0.88rem;
+  white-space: nowrap;
+  transition: gap 0.15s;
+}
+
+.bpm-card-h:hover .bpm-card-h-cta { gap: 8px; }
+
+/* CTA color per category (reuse footer colors) */
+.bpm-cta-bon-plan { color: var(--primary); }
+.bpm-cta-test-gratuit { color: #C2410C; }
+.bpm-cta-test-avis { color: #6D28D9; }
+.bpm-cta-concours { color: #166534; }
+.bpm-cta-box-beaute { color: #86198F; }
+.bpm-cta-beaute { color: #1D4ED8; }
+.bpm-cta-code-promo { color: #92400E; }
+.bpm-cta-calendrier-avent { color: #15803D; }
+.bpm-cta-calendrier { color: #B45309; }
+
+/* Mobile : image plus petite, header meta compact */
+@media (max-width: 640px) {
+  .bpm-card-h { min-height: 130px; }
+  .bpm-card-h-image { width: 120px; }
+  .bpm-card-h-body { padding: 11px 13px; gap: 4px; }
+  .bpm-card-h-title { font-size: 0.95rem; -webkit-line-clamp: 2; line-clamp: 2; }
+  .bpm-card-h-excerpt {
+    -webkit-line-clamp: 2;
+    line-clamp: 2;
+    font-size: 0.78rem;
+  }
+  .bpm-card-h-meta { gap: 6px; }
+  .bpm-card-h-pill { font-size: 0.62rem; padding: 2px 6px; }
+  .bpm-card-h-date { font-size: 0.72rem; }
+  .bpm-card-h-price-now { font-size: 1.05rem; }
+  .bpm-card-h-price-was { font-size: 0.82rem; }
+  .bpm-card-h-chip { font-size: 0.66rem; padding: 2px 6px; }
+  .bpm-card-h-cta { font-size: 0.8rem; }
+}
+

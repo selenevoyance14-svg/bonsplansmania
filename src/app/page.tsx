@@ -5,6 +5,7 @@ import NewsletterInline from "@/app/components/NewsletterInline";
 import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
+import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
 import DealOfDay from "@/app/components/DealOfDay";
 import DealTicker from "@/app/components/DealTicker";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
@@ -199,9 +200,9 @@ export default function Home() {
               Aucun article pour le moment — revenez bientôt !
             </p>
           ) : (
-            <div className="articles-grid">
+            <div className="bpm-card-h-grid">
               {latest.map((article) => (
-                <ArticleCard key={article.meta.slug} article={article} />
+                <ArticleCardHorizontal key={article.meta.slug} article={article} />
               ))}
             </div>
           )}

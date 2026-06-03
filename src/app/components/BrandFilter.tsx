@@ -254,42 +254,47 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
         </div>
       ) : (
         <>
-          <div className="articles-grid">
+          <div className="bpm-card-h-grid">
             {shown.map((article, index) => {
               const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
+              const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               return (
                 <Fragment key={article.slug}>
-                  <a href={`/article/${article.slug}`} className={`bpm-card bpm-card-${article.categoryColor} ${article.expired ? "bpm-card-expired" : ""}`}>
-                    <div className="bpm-card-image">
-                      <Image src={article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
-                      <span className={`bpm-card-pill bpm-pill-${article.categoryColor}`}>{article.categoryLabel}</span>
-                      {savings ? <span className="bpm-card-discount">{savings}</span> : badge ? <span className={`bpm-card-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
-                      {article.expired && <span className="bpm-card-expired-badge">Terminé</span>}
+                  <a href={`/article/${article.slug}`} className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}>
+                    <div className="bpm-card-h-image">
+                      <Image src={article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
+                      {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
+                      {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
                     </div>
-                    <div className="bpm-card-body">
-                      <h2 className="bpm-card-title">{article.title}</h2>
-                      <p className="bpm-card-excerpt">{article.description}</p>
-                      {now && (
-                        <div className="bpm-card-price">
-                          <span className="bpm-card-price-now">{now}</span>
-                          {was && <span className="bpm-card-price-was">{was}</span>}
+                    <div className="bpm-card-h-body">
+                      <div className="bpm-card-h-meta">
+                        <span className={`bpm-card-h-pill bpm-pill-${article.categoryColor}`}>{article.categoryLabel}</span>
+                        <span className="bpm-card-h-sep" aria-hidden>·</span>
+                        <time className="bpm-card-h-date">
+                          {new Date(article.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" })}
+                        </time>
+                      </div>
+                      <h2 className="bpm-card-h-title">{article.title}</h2>
+                      <p className="bpm-card-h-excerpt">{article.description}</p>
+                      <div className="bpm-card-h-footer">
+                        <div className="bpm-card-h-price">
+                          {now && (
+                            <>
+                              <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>{now}</span>
+                              {was && <span className="bpm-card-h-price-was">{was}</span>}
+                              {savings && <span className="bpm-card-h-chip">{savings}</span>}
+                            </>
+                          )}
                         </div>
-                      )}
-                    </div>
-                    <div className={`bpm-card-footer bpm-footer-${article.categoryColor}`}>
-                      <time className="bpm-card-date">
-                        {new Date(article.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", year: "numeric", timeZone: "Europe/Paris" })}
-                      </time>
-                      <span className="bpm-card-cta">{cta} <ArrowRight size={14} aria-hidden /></span>
+                        <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>{cta} <ArrowRight size={14} aria-hidden /></span>
+                      </div>
                     </div>
                   </a>
                   {showAdAfter && (
-                    <div style={{ gridColumn: "1 / -1" }}>
-                      <AdBlock format={index === 7 ? "in-article" : "display"} />
-                    </div>
+                    <AdBlock format={index === 7 ? "in-article" : "display"} />
                   )}
                 </Fragment>
               );
