@@ -30,7 +30,7 @@ export default function PolitiqueConfidentialite() {
             <ul style={{ paddingLeft: "20px", marginTop: "8px", lineHeight: 1.8 }}>
               <li>Adresse e-mail (si inscription à la newsletter)</li>
               <li>Données de navigation anonymisées (via Google Analytics)</li>
-              <li>Cookies publicitaires (via nos partenaires Ezoic et Google AdSense)</li>
+              <li>Cookies publicitaires (via Google AdSense)</li>
             </ul>
           </section>
 
@@ -47,7 +47,7 @@ export default function PolitiqueConfidentialite() {
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Cookies et technologies publicitaires</h2>
             <p>
               Ce site utilise des cookies pour améliorer votre expérience et afficher des publicités pertinentes.
-              Nos partenaires publicitaires, notamment Ezoic et Google, peuvent utiliser des cookies pour diffuser
+              Notre partenaire publicitaire Google AdSense peut utiliser des cookies pour diffuser
               des annonces basées sur vos visites précédentes sur ce site et sur d&apos;autres sites.
             </p>
             <p style={{ marginTop: "12px" }}>
@@ -80,7 +80,7 @@ export default function PolitiqueConfidentialite() {
 
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Mise à jour</h2>
-            <p>Cette politique peut être mise à jour à tout moment. Dernière mise à jour : avril 2026.</p>
+            <p>Cette politique peut être mise à jour à tout moment. Dernière mise à jour : juin 2026.</p>
           </section>
         </div>
       </main>
