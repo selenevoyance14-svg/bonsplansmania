@@ -48,8 +48,6 @@ const CTA_BY_COLOR: Record<string, string> = {
 };
 
 const BADGE_BY_COLOR: Record<string, string> = {
-  "test-gratuit": "Gratuit",
-  "concours": "À gagner",
   "box-beaute": "Box",
   "code-promo": "Code",
 };
