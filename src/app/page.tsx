@@ -7,7 +7,6 @@ import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
 import DealOfDay from "@/app/components/DealOfDay";
-import DealTicker from "@/app/components/DealTicker";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export default function Home() {
@@ -21,14 +20,14 @@ export default function Home() {
   const FOURTEEN_DAYS = 14 * 24 * 60 * 60 * 1000;
   const liveDeals = allArticles
     .filter((a) => (a.meta.category === "bon-plan" || a.meta.category === "code-promo") && !a.meta.expired && a.meta.slug !== dealOfDaySlug && now - new Date(a.meta.date).getTime() < FOURTEEN_DAYS)
-    .slice(0, 6);
+    .slice(0, 4);
   const liveDealSlugs = new Set(liveDeals.map((a) => a.meta.slug));
 
   // À la une : articles featured hors bons plans / codes promo (ceux-ci sont déjà au-dessus)
   // Met en avant concours, tests gratuits, box, guides — du contenu différent
   const featured = getFeaturedArticles()
     .filter((a) => a.meta.category !== "bon-plan" && a.meta.category !== "code-promo" && a.meta.slug !== dealOfDaySlug)
-    .slice(0, 6);
+    .slice(0, 4);
 
   // Dernières offres : on exclut les bons plans, le deal du jour, et la une pour éviter toute duplication
   const featuredSlugs = new Set(featured.map((a) => a.meta.slug));
@@ -104,7 +103,7 @@ export default function Home() {
                 Tout voir →
               </a>
             </div>
-            <div className="articles-grid">
+            <div className="articles-grid articles-grid-4">
               {liveDeals.map((article, index) => (
                 <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
               ))}
@@ -112,9 +111,6 @@ export default function Home() {
           </div>
         </section>
       )}
-
-      {/* ═══ TICKER ═══ */}
-      <DealTicker articles={latest} />
 
       {/* ═══ CATÉGORIES ═══ */}
       <section className="section-sm" style={{ paddingTop: "56px" }}>
@@ -161,7 +157,7 @@ export default function Home() {
               </h2>
               <p>Nos meilleures offres du moment</p>
             </div>
-            <div className="articles-grid">
+            <div className="articles-grid articles-grid-4">
               {featured.map((article, index) => (
                 <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
               ))}

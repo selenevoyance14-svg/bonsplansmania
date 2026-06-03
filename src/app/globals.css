@@ -2013,6 +2013,34 @@ body {
 }
 
 /* ════════════════════════════════════════════════
+   Grille 4 colonnes — sections vitrine home
+   Force 4 cards par ligne sur desktop (au lieu de 3),
+   2 sur tablette, 1 sur mobile. Cards plus petites.
+   ════════════════════════════════════════════════ */
+.articles-grid.articles-grid-4 {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+@media (max-width: 980px) {
+  .articles-grid.articles-grid-4 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 560px) {
+  .articles-grid.articles-grid-4 {
+    grid-template-columns: 1fr;
+  }
+}
+/* Cards plus compactes dans la grille 4 colonnes */
+.articles-grid.articles-grid-4 .bpm-card-image { height: 150px; }
+.articles-grid.articles-grid-4 .bpm-card-body { padding: 14px 16px 10px; }
+.articles-grid.articles-grid-4 .bpm-card-title { font-size: 0.92rem; }
+.articles-grid.articles-grid-4 .bpm-card-excerpt { font-size: 0.78rem; -webkit-line-clamp: 2; line-clamp: 2; }
+.articles-grid.articles-grid-4 .bpm-card-price-now { font-size: 1.1rem; }
+.articles-grid.articles-grid-4 .bpm-card-footer { padding: 10px 16px 12px; font-size: 0.74rem; }
+.articles-grid.articles-grid-4 .bpm-card-cta { font-size: 0.78rem; }
+
+/* ════════════════════════════════════════════════
    BPM Card Horizontale — June 2026
    Liste dense Dealabs-style pour "Dernières offres".
    Reuse couleurs catégories existantes (bpm-pill-*).
