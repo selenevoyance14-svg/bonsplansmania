@@ -1,4 +1,4 @@
-import { getAllArticles, getFeaturedArticles, getDealOfDay } from "@/lib/articles";
+import { getAllArticles, getDealOfDay } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
@@ -23,10 +23,16 @@ export default function Home() {
     .slice(0, 4);
   const liveDealSlugs = new Set(liveDeals.map((a) => a.meta.slug));
 
-  // À la une : articles featured hors bons plans / codes promo (ceux-ci sont déjà au-dessus)
-  // Met en avant concours, tests gratuits, box, guides — du contenu différent
-  const featured = getFeaturedArticles()
-    .filter((a) => a.meta.category !== "bon-plan" && a.meta.category !== "code-promo" && a.meta.slug !== dealOfDaySlug)
+  // Derniers concours & tests : focus sur les concours gratuits et les missions de
+  // test produit (test-gratuit + test-avis), classés par date (les plus récents en
+  // premier via allArticles déjà trié desc). On exclut le deal du jour pour éviter
+  // la duplication.
+  const featured = allArticles
+    .filter((a) =>
+      (a.meta.category === "concours" || a.meta.category === "test-gratuit" || a.meta.category === "test-avis")
+      && !a.meta.expired
+      && a.meta.slug !== dealOfDaySlug
+    )
     .slice(0, 4);
 
   // Dernières offres : on exclut les bons plans, le deal du jour, et la une pour éviter toute duplication
@@ -146,16 +152,16 @@ export default function Home() {
         </div>
       </section>
 
-      {/* ═══ ARTICLES EN VEDETTE ═══ */}
+      {/* ═══ DERNIERS CONCOURS & TESTS ═══ */}
       {featured.length > 0 && (
         <section className="section" style={{ background: "var(--muted)" }}>
           <div className="container">
             <div className="section-title">
               <h2>
                 <Star size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "var(--accent)" }} />
-                À la une
+                Derniers concours &amp; tests gratuits
               </h2>
-              <p>Nos meilleures offres du moment</p>
+              <p>Cadeaux à gagner et produits à tester gratuitement</p>
             </div>
             <div className="articles-grid articles-grid-4">
               {featured.map((article, index) => (
