@@ -8,6 +8,7 @@ import LikeButton from "@/app/components/LikeButton";
 import NewsletterInline from "@/app/components/NewsletterInline";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import InContentAdsInit from "@/app/components/InContentAdsInit";
 import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
 import FlashDeals from "@/app/components/FlashDeals";
 import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
@@ -239,6 +240,8 @@ export default async function ArticlePage({ params }: PageProps) {
             <div className="article-content">
               <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined, article.meta.image) }} />
             </div>
+            {/* Initialise les blocs AdSense in-article injectés dans le contenu Markdown ci-dessus */}
+            <InContentAdsInit />
 
             {/* Pub après le contenu */}
             <AdBlock />
@@ -473,7 +476,8 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
     let prefix = "";
     if (h2Count % 2 === 0) {
       // Bloc AdSense in-article tous les 2 H2 (format fluid = RPM nettement plus élevé que display sur les contenus longs)
-      prefix = `<ins class="adsbygoogle" style="display:block;text-align:center;margin:32px 0" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5064203547863113" data-ad-slot="9104262184"></ins><script>(adsbygoogle=window.adsbygoogle||[]).push({});</script>`;
+      // Le push est fait côté client par <InContentAdsInit /> car <script> dans innerHTML ne s'exécute pas.
+      prefix = `<ins class="adsbygoogle" style="display:block;text-align:center;margin:32px 0;min-height:250px" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5064203547863113" data-ad-slot="9104262184"></ins>`;
     } else if (affiliateUrl && h2Count % 3 === 0) {
       prefix = `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || "Voir l\u0027offre"} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>`;
     }

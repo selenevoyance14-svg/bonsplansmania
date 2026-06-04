@@ -71,7 +71,7 @@ export default function AdBlock({ className = "", format = "display", slot }: Ad
   }
 
   return (
-    <div className={`ad-container ${className}`} style={{ textAlign: "center", margin: "24px 0", minHeight: "90px", overflow: "hidden" }}>
+    <div className={`ad-container ${className}`} style={{ textAlign: "center", margin: "24px 0", minHeight: "250px", overflow: "hidden" }}>
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}
