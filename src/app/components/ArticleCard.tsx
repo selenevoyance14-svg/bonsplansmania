@@ -18,7 +18,7 @@ export const CATEGORY_CONFIG: Record<string, CardCategoryConfig> = {
     "test-gratuit":     { label: "Test Gratuit", Icon: Gift,       color: "test-gratuit",     cta: "Postuler" },
     "test-avis":        { label: "Test & Avis", Icon: FlaskConical, color: "test-avis",       cta: "Lire le test" },
     "concours":         { label: "Concours",   Icon: Trophy,       color: "concours",         cta: "Participer" },
-    "box-beaute":       { label: "Box Beauté", Icon: ShoppingBag,  color: "box-beaute",       cta: "Voir la box",  badge: "Box" },
+    "box-beaute":       { label: "Box Beauté", Icon: ShoppingBag,  color: "box-beaute",       cta: "Voir la box" },
     "beaute":           { label: "Beauté",     Icon: Sparkles,     color: "beaute",           cta: "Lire l'article" },
     "selection":        { label: "Beauté",     Icon: Sparkles,     color: "beaute",           cta: "Lire l'article" },
     "calendrier":       { label: "Calendrier", Icon: Calendar,     color: "calendrier",       cta: "Découvrir" },
