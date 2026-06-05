@@ -1,4 +1,4 @@
-import { getAllArticles, getDealOfDay } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
@@ -6,38 +6,46 @@ import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type Luci
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
-import DealOfDay from "@/app/components/DealOfDay";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export default function Home() {
   const allArticles = getAllArticles();
-  const dealOfDay = getDealOfDay();
-  const dealOfDaySlug = dealOfDay?.meta.slug;
 
-  // Bons plans actifs : bon-plan/code-promo, non expirés, des 14 derniers jours, max 6
-  // On exclut le deal du jour pour éviter la duplication avec sa section dédiée
-  const now = Date.now();
-  const FOURTEEN_DAYS = 14 * 24 * 60 * 60 * 1000;
-  const liveDeals = allArticles
-    .filter((a) => (a.meta.category === "bon-plan" || a.meta.category === "code-promo") && !a.meta.expired && a.meta.slug !== dealOfDaySlug && now - new Date(a.meta.date).getTime() < FOURTEEN_DAYS)
+  // Nouvelles box beauté à découvrir : 4 dernières box non expirées
+  // (la liste allArticles est déjà triée par max(date, updated) desc + actifs en haut)
+  const latestBoxes = allArticles
+    .filter((a) => a.meta.category === "box-beaute" && !isEffectivelyExpired(a.meta))
     .slice(0, 4);
-  const liveDealSlugs = new Set(liveDeals.map((a) => a.meta.slug));
+  const latestBoxSlugs = new Set(latestBoxes.map((a) => a.meta.slug));
+
+  // 🔥 Les bons plans du moment : 4 derniers bons plans + codes promo non expirés
+  const topDeals = allArticles
+    .filter((a) =>
+      (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
+      && !isEffectivelyExpired(a.meta)
+    )
+    .slice(0, 4);
+  const topDealSlugs = new Set(topDeals.map((a) => a.meta.slug));
 
   // Derniers concours & tests : focus sur les concours gratuits et les missions de
   // test produit (test-gratuit + test-avis), classés par date (les plus récents en
-  // premier via allArticles déjà trié desc). On exclut le deal du jour pour éviter
-  // la duplication.
+  // premier via allArticles déjà trié desc).
   const featured = allArticles
     .filter((a) =>
       (a.meta.category === "concours" || a.meta.category === "test-gratuit" || a.meta.category === "test-avis")
-      && !a.meta.expired
-      && a.meta.slug !== dealOfDaySlug
+      && !isEffectivelyExpired(a.meta)
     )
     .slice(0, 4);
-
-  // Dernières offres : on exclut les bons plans, le deal du jour, et la une pour éviter toute duplication
   const featuredSlugs = new Set(featured.map((a) => a.meta.slug));
-  const latest = allArticles.filter((a) => !liveDealSlugs.has(a.meta.slug) && a.meta.slug !== dealOfDaySlug && !featuredSlugs.has(a.meta.slug)).slice(0, 24);
+
+  // Dernières offres : on exclut tout ce qui est déjà affiché plus haut
+  const latest = allArticles
+    .filter((a) =>
+      !latestBoxSlugs.has(a.meta.slug)
+      && !topDealSlugs.has(a.meta.slug)
+      && !featuredSlugs.has(a.meta.slug)
+    )
+    .slice(0, 24);
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -93,24 +101,24 @@ export default function Home() {
         <AdBlock />
       </div>
 
-      {/* ═══ BONS PLANS ACTIFS (top revenue) ═══ */}
-      {liveDeals.length > 0 && (
-        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%)" }}>
+      {/* ═══ NOUVELLES BOX BEAUTÉ À DÉCOUVRIR ═══ */}
+      {latestBoxes.length > 0 && (
+        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FDF4FF 0%, #FFFFFF 100%)" }}>
           <div className="container">
             <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
               <div>
                 <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <Flame size={24} color="#E63946" />
-                  Bons plans actifs cette semaine
+                  <ShoppingBag size={24} color="#86198F" />
+                  Nouvelles box beauté à découvrir
                 </h2>
-                <p>Les promos et codes en cours sur les grandes marques</p>
+                <p>Les box du mois pour tester de nouveaux produits sans se ruiner</p>
               </div>
-              <a href="/bons-plans-en-cours" className="btn btn-secondary btn-sm">
+              <a href="/categorie/box-beaute" className="btn btn-secondary btn-sm">
                 Tout voir →
               </a>
             </div>
             <div className="articles-grid articles-grid-4">
-              {liveDeals.map((article, index) => (
+              {latestBoxes.map((article, index) => (
                 <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
               ))}
             </div>
@@ -177,8 +185,30 @@ export default function Home() {
         <NewsletterInline />
       </section>
 
-      {/* ═══ DEAL DU JOUR ═══ */}
-      {dealOfDay && <DealOfDay article={dealOfDay} />}
+      {/* ═══ 🔥 LES BONS PLANS DU MOMENT (top revenue) ═══ */}
+      {topDeals.length > 0 && (
+        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%)" }}>
+          <div className="container">
+            <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
+              <div>
+                <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <Flame size={24} color="#E63946" />
+                  🔥 Les bons plans du moment
+                </h2>
+                <p>Les promos et codes en cours sur les grandes marques</p>
+              </div>
+              <a href="/bons-plans-en-cours" className="btn btn-secondary btn-sm">
+                Tout voir →
+              </a>
+            </div>
+            <div className="articles-grid articles-grid-4">
+              {topDeals.map((article, index) => (
+                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ═══ PUB ENTRE VEDETTES ET DERNIERS ═══ */}
       <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
