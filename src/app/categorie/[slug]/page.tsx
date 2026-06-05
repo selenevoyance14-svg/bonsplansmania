@@ -1,4 +1,4 @@
-import { getArticlesByCategory } from "@/lib/articles";
+import { getArticlesByCategory, isEffectivelyExpired, expiresSoon } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import BrandFilter from "@/app/components/BrandFilter";
@@ -119,7 +119,9 @@ export default async function CategoryPage({ params }: PageProps) {
       categoryLabel: cl?.label ?? a.meta.category,
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
-      expired: a.meta.expired,
+      expired: isEffectivelyExpired(a.meta),
+      expiresSoon: expiresSoon(a.meta),
+      endDate: a.meta.endDate,
       featured: a.meta.featured,
       tags: a.meta.tags,
       price: a.meta.price,

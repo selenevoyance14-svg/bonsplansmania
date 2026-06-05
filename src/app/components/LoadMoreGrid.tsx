@@ -18,6 +18,10 @@ interface ArticleListItem {
   categoryColor: string;
   readingTime: string;
   expired?: boolean;
+  /** True si l'article se termine dans les 7 prochains jours */
+  expiresSoon?: boolean;
+  /** Date de fin de l'offre (YYYY-MM-DD), utilisée pour le badge urgence */
+  endDate?: string;
   /** Optional price, e.g. "149,99€" or "13€ au lieu de 987€" */
   price?: string;
 }
@@ -135,6 +139,9 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                     <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span>
                   ) : null}
                   {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
+                  {!article.expired && article.expiresSoon && (
+                    <span className="bpm-card-h-soon-badge">⏰ Bientôt fini</span>
+                  )}
                 </div>
 
                 <div className="bpm-card-h-body">

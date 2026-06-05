@@ -3,7 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronRight, ChevronLeft, type LucideIcon, Tag, FlaskConical, Gift, Trophy, ShoppingBag, Sparkles, TreePine, Calendar, Ticket } from "lucide-react";
 import Header from "@/app/components/Header";
-import { getArticlesByCategory } from "@/lib/articles";
+import { getArticlesByCategory, isEffectivelyExpired } from "@/lib/articles";
 
 const PER_PAGE = 24;
 
@@ -114,7 +114,7 @@ export default async function CategoryPaginatedPage({ params }: PageProps) {
           <div className="container">
             <div className="articles-grid">
               {pageArticles.map((a) => (
-                <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className={`bpm-card bpm-card-${cat.color} ${a.meta.expired ? "bpm-card-expired" : ""}`}>
+                <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className={`bpm-card bpm-card-${cat.color} ${isEffectivelyExpired(a.meta) ? "bpm-card-expired" : ""}`}>
                   <div className="bpm-card-image">
                     <Image src={a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
                   </div>

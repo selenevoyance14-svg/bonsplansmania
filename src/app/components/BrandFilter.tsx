@@ -17,6 +17,8 @@ interface ArticleListItem {
   categoryColor: string;
   readingTime: string;
   expired?: boolean;
+  expiresSoon?: boolean;
+  endDate?: string;
   featured?: boolean;
   tags?: string[];
   price?: string;
@@ -142,14 +144,19 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
       list = list.filter((e) => e.matchedKeys.includes(selectedBrand));
     }
     const sorted = [...list];
+    const expiredFirst = (a: typeof sorted[number], b: typeof sorted[number]) => {
+      const aExp = a.article.expired ? 1 : 0;
+      const bExp = b.article.expired ? 1 : 0;
+      return aExp - bExp;
+    };
     if (sortBy === "recent") {
-      sorted.sort((a, b) => new Date(b.article.date).getTime() - new Date(a.article.date).getTime());
+      sorted.sort((a, b) => expiredFirst(a, b) || (new Date(b.article.date).getTime() - new Date(a.article.date).getTime()));
     } else if (sortBy === "oldest") {
-      sorted.sort((a, b) => new Date(a.article.date).getTime() - new Date(b.article.date).getTime());
+      sorted.sort((a, b) => expiredFirst(a, b) || (new Date(a.article.date).getTime() - new Date(b.article.date).getTime()));
     } else if (sortBy === "price-asc") {
-      sorted.sort((a, b) => (a.nowNum ?? Infinity) - (b.nowNum ?? Infinity));
+      sorted.sort((a, b) => expiredFirst(a, b) || ((a.nowNum ?? Infinity) - (b.nowNum ?? Infinity)));
     } else if (sortBy === "price-desc") {
-      sorted.sort((a, b) => (b.nowNum ?? -Infinity) - (a.nowNum ?? -Infinity));
+      sorted.sort((a, b) => expiredFirst(a, b) || ((b.nowNum ?? -Infinity) - (a.nowNum ?? -Infinity)));
     }
     return sorted.map((e) => e.article);
   }, [enriched, selectedBrand, sortBy]);
@@ -268,6 +275,7 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
                       <Image src={article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
                       {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
                       {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
+                      {!article.expired && article.expiresSoon && <span className="bpm-card-h-soon-badge">⏰ Bientôt fini</span>}
                     </div>
                     <div className="bpm-card-h-body">
                       <div className="bpm-card-h-meta">

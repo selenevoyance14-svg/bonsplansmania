@@ -4,7 +4,7 @@ import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import BrandFilter from "@/app/components/BrandFilter";
 import { BON_PLAN_BRANDS } from "@/lib/brand-filters";
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired, expiresSoon } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -35,7 +35,7 @@ export default function BonsPlansEnCoursPage() {
     .filter((a) => {
       const cat = a.meta.category;
       if (cat !== "bon-plan" && cat !== "code-promo") return false;
-      if (a.meta.expired) return false;
+      if (isEffectivelyExpired(a.meta)) return false;
       const articleDate = new Date(a.meta.date).getTime();
       return now - articleDate < FOURTEEN_DAYS;
     })
@@ -55,7 +55,9 @@ export default function BonsPlansEnCoursPage() {
       categoryLabel: cl?.label ?? a.meta.category,
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
-      expired: a.meta.expired,
+      expired: isEffectivelyExpired(a.meta),
+      expiresSoon: expiresSoon(a.meta),
+      endDate: a.meta.endDate,
       featured: a.meta.featured,
       tags: a.meta.tags,
       price: a.meta.price,

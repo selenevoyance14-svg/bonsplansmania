@@ -29,6 +29,8 @@ export interface ArticleMeta {
   seoTitle?: string;
   seoDescription?: string;
   expired?: boolean;
+  /** Date de fin de l'offre/concours au format YYYY-MM-DD. Si dépassée, l'article est considéré comme expiré. */
+  endDate?: string;
   dealOfDay?: boolean;
   noindex?: boolean;
 }
@@ -93,10 +95,50 @@ export function getArticleBySlug(slug: string): Article | null {
       seoTitle: data.seoTitle,
       seoDescription: data.seoDescription,
       expired: data.expired || false,
+      endDate: data.endDate,
       dealOfDay: data.dealOfDay || false,
     },
     content,
   };
+}
+
+/**
+ * Détermine si un article doit être considéré comme expiré :
+ *   - flag manuel `expired: true` OU
+ *   - date `endDate` dépassée (fin de journée incluse)
+ */
+export function isEffectivelyExpired(meta: Pick<ArticleMeta, "expired" | "endDate">): boolean {
+  if (meta.expired) return true;
+  if (meta.endDate) {
+    const end = new Date(meta.endDate + "T23:59:59");
+    if (end.getTime() < Date.now()) return true;
+  }
+  return false;
+}
+
+/**
+ * Indique si un article se termine prochainement (par défaut dans les 7 prochains jours).
+ * Renvoie false si l'article n'a pas de endDate ou s'il est déjà expiré.
+ */
+export function expiresSoon(meta: Pick<ArticleMeta, "expired" | "endDate">, daysThreshold = 7): boolean {
+  if (!meta.endDate) return false;
+  if (isEffectivelyExpired(meta)) return false;
+  const end = new Date(meta.endDate + "T23:59:59").getTime();
+  const diffDays = (end - Date.now()) / (1000 * 60 * 60 * 24);
+  return diffDays <= daysThreshold;
+}
+
+/**
+ * Date utilisée pour le tri : max(date, updated).
+ * Permet de faire remonter un vieux concours toujours actif en mettant son `updated` à jour.
+ */
+function getEffectiveSortDate(meta: Pick<ArticleMeta, "date" | "updated">): number {
+  const dateTime = new Date(meta.date).getTime();
+  if (meta.updated) {
+    const updatedTime = new Date(meta.updated).getTime();
+    if (Number.isFinite(updatedTime) && updatedTime > dateTime) return updatedTime;
+  }
+  return dateTime;
 }
 
 export function getAllArticles(): Article[] {
@@ -109,7 +151,13 @@ export function getAllArticles(): Article[] {
 }
 
 export function getArticlesByCategory(category: string): Article[] {
-  return getAllArticles().filter((a) => a.meta.category === category);
+  const articles = getAllArticles().filter((a) => a.meta.category === category);
+  return [...articles].sort((a, b) => {
+    const aExp = isEffectivelyExpired(a.meta);
+    const bExp = isEffectivelyExpired(b.meta);
+    if (aExp !== bExp) return aExp ? 1 : -1;
+    return getEffectiveSortDate(b.meta) - getEffectiveSortDate(a.meta);
+  });
 }
 
 export function getFeaturedArticles(): Article[] {
@@ -124,7 +172,7 @@ export function getFeaturedArticles(): Article[] {
  * Returns null if nothing qualifies.
  */
 export function getDealOfDay(): Article | null {
-  const all = getAllArticles().filter((a) => !a.meta.expired);
+  const all = getAllArticles().filter((a) => !isEffectivelyExpired(a.meta));
 
   const manual = all.find((a) => a.meta.dealOfDay);
   if (manual) return manual;
@@ -269,7 +317,7 @@ export function getTopPremiumDeals(currentSlug: string, limit = 4): Article[] {
 
   const candidates = getAllArticles()
     .filter((a) => a.meta.slug !== currentSlug)
-    .filter((a) => !a.meta.expired)
+    .filter((a) => !isEffectivelyExpired(a.meta))
     .filter((a) => isPremium(a.meta.affiliateUrl))
     .filter((a) => a.meta.image && a.meta.image !== "/images/placeholder.svg");
 
