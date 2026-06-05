@@ -2133,6 +2133,51 @@ body {
   box-shadow: 0 2px 6px rgba(220, 38, 38, 0.35);
 }
 
+/* ═══ BOUTON RETOUR EN HAUT ═══ */
+.bpm-back-to-top {
+  position: fixed;
+  bottom: 92px; /* au-dessus de la pub sticky mobile (~60-72px de haut) */
+  right: 16px;
+  z-index: 50;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: #1a1a1a;
+  color: #fff;
+  border: none;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity 0.25s ease, transform 0.25s ease, background-color 0.2s ease;
+}
+.bpm-back-to-top-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+.bpm-back-to-top:hover {
+  background: #000;
+  transform: translateY(-2px);
+}
+.bpm-back-to-top:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 3px;
+}
+/* Sur desktop, pas de pub sticky mobile : on peut le rapprocher du bas */
+@media (min-width: 768px) {
+  .bpm-back-to-top {
+    bottom: 24px;
+    right: 24px;
+    width: 48px;
+    height: 48px;
+  }
+}
+
 .bpm-card-h-body {
   flex: 1 1 auto;
   min-width: 0;
