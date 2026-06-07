@@ -273,16 +273,9 @@ export default function CodesPromoPermanentsPage() {
                   <p style={{ fontSize: "0.82rem", lineHeight: 1.5, color: "var(--muted-foreground)", marginBottom: "14px", flex: 1 }}>
                     {code.conditions}
                   </p>
-                  <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <a href={code.affiliateUrl} target="_blank" rel="nofollow noopener noreferrer" style={{ display: "block", textAlign: "center", padding: "10px 16px", borderRadius: "10px", background: code.color, color: "white", fontWeight: 700, textDecoration: "none", fontSize: "0.92rem" }}>
-                      {code.affiliateLabel} →
-                    </a>
-                    {code.articleSlug && (
-                      <a href={`/article/${code.articleSlug}`} style={{ display: "block", textAlign: "center", padding: "8px 16px", borderRadius: "10px", border: `1px solid ${code.color}33`, color: code.color, fontWeight: 600, textDecoration: "none", fontSize: "0.85rem" }}>
-                        Voir l&apos;article détaillé
-                      </a>
-                    )}
-                  </div>
+                  <a href={code.affiliateUrl} target="_blank" rel="nofollow noopener noreferrer" style={{ display: "block", textAlign: "center", padding: "10px 16px", borderRadius: "10px", background: code.color, color: "white", fontWeight: 700, textDecoration: "none", fontSize: "0.92rem" }}>
+                    {code.affiliateLabel} →
+                  </a>
                 </div>
               ))}
             </div>
