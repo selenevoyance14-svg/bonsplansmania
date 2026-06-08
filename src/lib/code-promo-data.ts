@@ -295,6 +295,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#0F766E",
   },
   {
+    slug: "rakuten",
+    name: "Rakuten",
+    affiliateUrl: "https://fnty.co/c/r-GjssEgPP",
+    affiliateLabel: "Voir les offres Rakuten",
+    matchTags: ["rakuten"],
+    color: "#BF0000",
+  },
+  {
     slug: "sarenza",
     name: "Sarenza",
     affiliateUrl: "https://lk.gt/aPzP3",
