@@ -25,7 +25,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "adopt",
     name: "Adopt",
-    affiliateUrl: "https://c3po.link/QJS94sz7nE",
+    affiliateUrl: "https://www.adopt.com/fr?utm_source=affilae&utm_medium=codes-promos&utm_campaign=bonsplansmania&aecid=6a27ad4b4066ec6c4e0b481a",
     affiliateLabel: "Voir les offres Adopt",
     matchTags: ["adopt"],
     color: "#EC4899",
