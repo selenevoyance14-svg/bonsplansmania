@@ -474,8 +474,9 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/^## (.+)$/gm, (_match, title) => {
     h2Count++;
     let prefix = "";
-    if (h2Count % 2 === 0) {
-      // Bloc AdSense in-article tous les 2 H2 (format fluid = RPM nettement plus élevé que display sur les contenus longs)
+    if (h2Count % 4 === 0) {
+      // Bloc AdSense in-article tous les 4 H2 (réduction depuis "% 2" le 11/06/2026 pour améliorer la lisibilité
+      // et favoriser le CTR vers les liens affiliés Amazon. Format fluid = RPM plus élevé que display sur les contenus longs).
       // Le push est fait côté client par <InContentAdsInit /> car <script> dans innerHTML ne s'exécute pas.
       prefix = `<ins class="adsbygoogle" style="display:block;text-align:center;margin:32px 0;min-height:250px" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5064203547863113" data-ad-slot="9104262184"></ins>`;
     } else if (affiliateUrl && h2Count % 3 === 0) {
