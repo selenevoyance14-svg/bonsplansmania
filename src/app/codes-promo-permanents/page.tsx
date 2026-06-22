@@ -30,6 +30,15 @@ interface PermanentCode {
 
 const CODES: PermanentCode[] = [
   {
+    brand: "Afibel",
+    category: "Mode",
+    offer: "10€ offerts à l'inscription à la newsletter + nouveautés et offres exclusives en avant-première",
+    conditions: "Inscription newsletter gratuite. 10€ utilisables dès la 1ère commande (montant minimum à vérifier).",
+    affiliateUrl: "https://fnty.co/c/r-QlYSYsPC",
+    affiliateLabel: "Voir Afibel",
+    color: "#A21CAF",
+  },
+  {
     brand: "Amazon Prime",
     category: "Multi-catégories",
     offer: "30 jours d'essai gratuit + livraison rapide illimitée + Prime Video + Prime Reading",
