@@ -125,6 +125,15 @@ const CODES: PermanentCode[] = [
     color: "#C026D3",
   },
   {
+    brand: "Léa Nature",
+    category: "Bio & Naturel",
+    offer: "-10% sur la 1ère commande via newsletter (So'Bio Étic, Boho Green, Florame, Jonzac, Jardin Bio…)",
+    conditions: "Inscription newsletter Léa Nature pour recevoir le code par e-mail. Cumulable avec promos en cours.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2F",
+    affiliateLabel: "Voir Léa Nature",
+    color: "#4D7C0F",
+  },
+  {
     brand: "MiiN Cosmetics",
     category: "K-Beauty",
     offer: "-10% sur la 1ère commande via newsletter + Meisani Starter Packs à 20,99€",
