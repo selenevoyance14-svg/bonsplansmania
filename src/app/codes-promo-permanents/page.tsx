@@ -97,6 +97,15 @@ const CODES: PermanentCode[] = [
     color: "#F97316",
   },
   {
+    brand: "Greenweez",
+    category: "Bio & Écologique",
+    offer: "-10% sur la 1ère commande + livraison offerte dès 39€ avec le code BIENVENUE2026",
+    conditions: "Code valable pour les nouveaux clients. Cumulable avec promos en cours. Bio alimentaire, cosmétique, maison écologique.",
+    affiliateUrl: "https://www.greenweez.com/?utm_source=affilae&utm_medium=affiliation&utm_campaign=bonsplansmania&ae=344",
+    affiliateLabel: "Voir Greenweez",
+    color: "#76B82A",
+  },
+  {
     brand: "iGraal",
     category: "Cashback",
     offer: "Cashback de 1 à 20% sur 2000+ boutiques (Sephora, Amazon, Cdiscount, Zalando, etc.) + 3€ de bonus à l'inscription",
