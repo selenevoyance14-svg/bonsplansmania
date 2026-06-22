@@ -173,6 +173,15 @@ const CODES: PermanentCode[] = [
     color: "#6366F1",
   },
   {
+    brand: "Pranarôm",
+    category: "Aromathérapie",
+    offer: "-10% sur la 1ère commande via newsletter (huiles essentielles, aromathérapie scientifique, soins naturels)",
+    conditions: "Inscription newsletter Pranarôm pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://lb.affilae.com/r/?p=6814b22bc71e1ba3064b7ebb&af=978&lp=https%3A%2F%2Fpranarom.fr%2F",
+    affiliateLabel: "Voir Pranarôm",
+    color: "#708B3F",
+  },
+  {
     brand: "Rakuten",
     category: "Cashback",
     offer: "Cashback Club R gratuit toute l'année + Rakuten Points convertibles + opérations boostées Mega Peak Days",
