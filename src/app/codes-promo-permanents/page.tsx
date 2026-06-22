@@ -70,8 +70,8 @@ const CODES: PermanentCode[] = [
   {
     brand: "Cdiscount",
     category: "High-Tech & Maison",
-    offer: "Codes promo mensuels renouvelés (TEL15D99 -15€ téléphonie, GOOGLEDES199 -30€ Chromebook, etc.) + livraison gratuite avec Cdiscount à Volonté",
-    conditions: "Codes valables 1 semaine à 1 mois selon catégorie. Renouvelés régulièrement.",
+    offer: "-10€ dès 50€ d'achat sur la 1ère commande avec le code HELLO10 + livraison gratuite avec Cdiscount à Volonté",
+    conditions: "Code HELLO10 valable pour les nouveaux clients (panier mini 50€). Cumulable avec promos en cours.",
     affiliateUrl: "https://tidd.ly/4dJ6jB6",
     affiliateLabel: "Voir Cdiscount",
     articleSlug: "bon-plan-cdiscount-amenagement-exterieur-fete-meres-codes-promo-mai-2026",
