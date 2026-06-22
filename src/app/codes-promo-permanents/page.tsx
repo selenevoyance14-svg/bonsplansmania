@@ -78,6 +78,15 @@ const CODES: PermanentCode[] = [
     color: "#1D4ED8",
   },
   {
+    brand: "Demain Beauty",
+    category: "Beauté",
+    offer: "-10% sur la 1ère commande via newsletter",
+    conditions: "Inscription newsletter Demain Beauty pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://demainbeauty.com/?ae=115",
+    affiliateLabel: "Voir Demain Beauty",
+    color: "#FB7185",
+  },
+  {
     brand: "Dr Pierre Ricaud",
     category: "Beauté",
     offer: "-50% sur la 1ère commande + cadeau de bienvenue + livraison offerte dès 49€",
