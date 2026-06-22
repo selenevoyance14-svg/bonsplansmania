@@ -203,6 +203,16 @@ const CODES: PermanentCode[] = [
     color: "#EF4444",
   },
   {
+    brand: "Twenty DC",
+    category: "Beauté & Cosmetic Food",
+    offer: "-10% sur la 1ère commande via newsletter (collagène marin Peau Magnifique, Zinc, Oméga 3)",
+    conditions: "Inscription newsletter Twenty DC pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://osu.twentydc.com/?P51399D57CD2D1F1&redir=https%3A%2F%2Ftwentydc.com%2F",
+    affiliateLabel: "Voir Twenty DC",
+    articleSlug: "twentydc-collagene-marin-complement-beaute-france",
+    color: "#F472B6",
+  },
+  {
     brand: "Uriage",
     category: "Dermo-cosmétique",
     offer: "-15% sur la 1ère commande via newsletter + conseils personnalisés (eau thermale, soin visage, corps, bébé)",
