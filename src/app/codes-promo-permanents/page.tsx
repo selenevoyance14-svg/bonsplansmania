@@ -30,6 +30,15 @@ interface PermanentCode {
 
 const CODES: PermanentCode[] = [
   {
+    brand: "Adopt'",
+    category: "Parfumerie",
+    offer: "-20% sur la 1ère commande via inscription newsletter (parfums français accessibles, soin, maquillage)",
+    conditions: "Inscription newsletter Adopt' pour recevoir le code -20%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://lb.affilae.com/r/?p=678fab80242409f9262715e4&af=65&lp=https%3A%2F%2Fwww.adopt.com%2Ffr%3Futm_source%3Daffilae%26utm_medium%3Dcodes-promos%26utm_campaign%3Dbonsplansmania",
+    affiliateLabel: "Voir Adopt'",
+    color: "#EAB308",
+  },
+  {
     brand: "Afibel",
     category: "Mode",
     offer: "10€ offerts à l'inscription à la newsletter + nouveautés et offres exclusives en avant-première",
