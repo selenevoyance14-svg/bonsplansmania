@@ -170,6 +170,15 @@ const CODES: PermanentCode[] = [
     color: "#4D7C0F",
   },
   {
+    brand: "Les Créateurs Bio",
+    category: "Bio & Anti-Gaspi",
+    offer: "-5% sur la 1ère commande via newsletter + jusqu'à -50% en permanence sur la section anti-gaspi",
+    conditions: "Inscription newsletter pour le -5%. Section anti-gaspi accessible toute l'année sans code (produits DLC proche).",
+    affiliateUrl: "https://clk.tradedoubler.com/click?p=351766&a=3421259&url=https%3A%2F%2Fcreateursbio.fr%2F",
+    affiliateLabel: "Voir Les Créateurs Bio",
+    color: "#16A34A",
+  },
+  {
     brand: "Mieux que des fleurs",
     category: "Cadeaux Gourmands",
     offer: "-10% sur la 1ère commande via newsletter (boîtes cadeaux personnalisées, alternatives aux bouquets)",
