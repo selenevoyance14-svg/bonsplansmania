@@ -31,6 +31,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/noel-2026",                priority: 0.8, changeFrequency: "weekly" },
   { path: "/codes-promo-permanents",   priority: 0.8, changeFrequency: "weekly" },
   { path: "/code-promo",               priority: 0.8, changeFrequency: "weekly" },
+  { path: "/bons-plans-beaute",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/bons-plans-bebe",          priority: 0.8, changeFrequency: "weekly" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
   { path: "/recherche",                priority: 0.5, changeFrequency: "monthly" },

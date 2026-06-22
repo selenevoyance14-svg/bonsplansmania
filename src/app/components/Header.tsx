@@ -28,7 +28,7 @@ export default function Header({ activePage }: { activePage?: string }) {
 
   const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent"].some(p => activePage === p);
   const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis"].some(p => activePage === p);
-  const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe"].some(p => activePage === p);
+  const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe", "/bons-plans-beaute"].some(p => activePage === p);
 
   return (
     <header className="header">
@@ -48,11 +48,12 @@ export default function Header({ activePage }: { activePage?: string }) {
               </button>
               {bonsPlansOpen && (
                 <div className="nav-dropdown-menu">
+                  <a href="/bons-plans-beaute">🌸 Coin Beauté</a>
+                  <a href="/bons-plans-bebe">👶 Coin Bébé</a>
                   <a href="/bons-plans-en-cours">🔥 Bons plans en cours</a>
                   <a href="/codes-promo-permanents">♾️ Codes promo permanents</a>
                   <a href="/categorie/bon-plan">Tous les bons plans</a>
                   <a href="/code-promo">Codes promo marques</a>
-                  <a href="/bons-plans-bebe">👶 Coin Bébé</a>
                 </div>
               )}
             </div>
@@ -124,11 +125,12 @@ export default function Header({ activePage }: { activePage?: string }) {
           <a href="/" onClick={() => setMobileOpen(false)}>Accueil</a>
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Bons Plans</span>
+            <a href="/bons-plans-beaute" onClick={() => setMobileOpen(false)}>🌸 Coin Beauté</a>
+            <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
             <a href="/bons-plans-en-cours" onClick={() => setMobileOpen(false)}>🔥 Bons plans en cours</a>
             <a href="/codes-promo-permanents" onClick={() => setMobileOpen(false)}>♾️ Codes promo permanents</a>
             <a href="/categorie/bon-plan" onClick={() => setMobileOpen(false)}>Tous les bons plans</a>
             <a href="/code-promo" onClick={() => setMobileOpen(false)}>Codes promo marques</a>
-            <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
           </div>
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Tests Produits</span>
