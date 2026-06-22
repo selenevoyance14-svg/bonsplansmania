@@ -181,8 +181,8 @@ const CODES: PermanentCode[] = [
   {
     brand: "MiiN Cosmetics",
     category: "K-Beauty",
-    offer: "-10% sur la 1ère commande via newsletter + Meisani Starter Packs à 20,99€",
-    conditions: "Inscription newsletter MiiN. Cumulable avec packs découverte.",
+    offer: "10€ offerts sur la 1ère commande via inscription newsletter",
+    conditions: "Inscription newsletter MiiN gratuite. Cumulable avec promos en cours.",
     affiliateUrl: "https://tidd.ly/3JKQA7H",
     affiliateLabel: "Voir MiiN Cosmetics",
     articleSlug: "code-promo-miin-cosmetics-meisani-starter-pack-coreen-mai-2026",
