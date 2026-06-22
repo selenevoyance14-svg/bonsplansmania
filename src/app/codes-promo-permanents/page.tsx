@@ -78,6 +78,15 @@ const CODES: PermanentCode[] = [
     color: "#1D4ED8",
   },
   {
+    brand: "Daxon",
+    category: "Mode",
+    offer: "15€ offerts sur la 1ère commande via inscription newsletter + avantages exclusifs et bons plans mode",
+    conditions: "Inscription newsletter gratuite. 15€ utilisables dès la 1ère commande (montant minimum à vérifier).",
+    affiliateUrl: "https://fnty.co/c/r-nCqxZeUT",
+    affiliateLabel: "Voir Daxon",
+    color: "#1E3A8A",
+  },
+  {
     brand: "Demain Beauty",
     category: "Beauté",
     offer: "-10% sur la 1ère commande via newsletter",
