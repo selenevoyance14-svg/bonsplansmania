@@ -203,6 +203,15 @@ const CODES: PermanentCode[] = [
     color: "#EF4444",
   },
   {
+    brand: "Uriage",
+    category: "Dermo-cosmétique",
+    offer: "-15% sur la 1ère commande via newsletter + conseils personnalisés (eau thermale, soin visage, corps, bébé)",
+    conditions: "Inscription newsletter Uriage pour recevoir le code -15%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://ntk.uriage.fr/?P511FDB57CD2D131&redir=https%3A%2F%2Fwww.uriage.fr%2F",
+    affiliateLabel: "Voir Uriage",
+    color: "#00A4B8",
+  },
+  {
     brand: "Zooplus",
     category: "Animaux",
     offer: "-10% sur la 1ère commande + programme fidélité zooPoints + parrainage 250 points (~5€)",
