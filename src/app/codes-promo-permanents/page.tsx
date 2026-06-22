@@ -134,6 +134,15 @@ const CODES: PermanentCode[] = [
     color: "#4D7C0F",
   },
   {
+    brand: "Mieux que des fleurs",
+    category: "Cadeaux Gourmands",
+    offer: "-10% sur la 1ère commande via newsletter (boîtes cadeaux personnalisées, alternatives aux bouquets)",
+    conditions: "Inscription newsletter pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://mieuxquedesfleurs.com/?ae=462",
+    affiliateLabel: "Voir Mieux que des fleurs",
+    color: "#F87171",
+  },
+  {
     brand: "MiiN Cosmetics",
     category: "K-Beauty",
     offer: "-10% sur la 1ère commande via newsletter + Meisani Starter Packs à 20,99€",
