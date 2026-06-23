@@ -22,6 +22,7 @@ interface ArticleListItem {
   featured?: boolean;
   tags?: string[];
   price?: string;
+  affiliateUrl?: string;
 }
 
 interface BrandDef {
@@ -267,6 +268,13 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
               const { now, was, savings } = parsePrice(article.price);
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
+              const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
+              const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+                if (!hasExternalAffiliate) return;
+                e.preventDefault();
+                e.stopPropagation();
+                window.open(article.affiliateUrl!, "_blank", "noopener");
+              };
               return (
                 <Fragment key={article.slug}>
                   <a href={`/article/${article.slug}`} className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}>
@@ -296,7 +304,20 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
                             </>
                           )}
                         </div>
-                        <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>{cta} <ArrowRight size={14} aria-hidden /></span>
+                        {hasExternalAffiliate ? (
+                          <a
+                            href={article.affiliateUrl!}
+                            target="_blank"
+                            rel="nofollow noopener sponsored"
+                            onClick={onCtaClick}
+                            className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
+                            aria-label={`${cta} — ${article.title}`}
+                          >
+                            {cta} <ArrowRight size={14} aria-hidden />
+                          </a>
+                        ) : (
+                          <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>{cta} <ArrowRight size={14} aria-hidden /></span>
+                        )}
                       </div>
                     </div>
                   </a>

@@ -1,6 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
-import LoadMoreGrid from "@/app/components/LoadMoreGrid";
+import BrandFilter from "@/app/components/BrandFilter";
+import { BEAUTE_BRANDS } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, Sparkles, Gift, Heart } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -100,6 +101,7 @@ export default async function BonsPlansBeautePage() {
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
+      tags: a.meta.tags,
       price: a.meta.price,
       affiliateUrl: a.meta.affiliateUrl,
     };
@@ -210,7 +212,7 @@ export default async function BonsPlansBeautePage() {
                 Les bons plans beauté seront bientôt disponibles.
               </p>
             ) : (
-              <LoadMoreGrid articles={cards} />
+              <BrandFilter articles={cards} brands={BEAUTE_BRANDS} />
             )}
           </div>
         </section>
