@@ -134,11 +134,8 @@ export default function Home() {
           </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: "10px" }}>
             {[
-              // Catégories (type de contenu)
-              { href: "/categorie/bon-plan",     Icon: Tag,          label: "Bons Plans",        bg: "#FFF0F0", color: "#E63946" },
+              // Catégories iconiques conservées
               { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits",    bg: "#FFF7ED", color: "#C2410C" },
-              { href: "/categorie/concours",     Icon: Trophy,       label: "Concours",          bg: "#F0FDF4", color: "#166534" },
-              { href: "/categorie/code-promo",   Icon: Percent,      label: "Codes Promo",       bg: "#EFF6FF", color: "#1D4ED8" },
               { href: "/categorie/box-beaute",   Icon: ShoppingBag,  label: "Box Beauté",        bg: "#FDF4FF", color: "#86198F" },
               // Hubs / univers (thèmes)
               { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       bg: "#FDF2F8", color: "#DB2777" },
