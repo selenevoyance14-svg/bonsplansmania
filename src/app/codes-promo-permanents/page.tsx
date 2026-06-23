@@ -30,6 +30,15 @@ interface PermanentCode {
 
 const CODES: PermanentCode[] = [
   {
+    brand: "A-demain",
+    category: "Mode",
+    offer: "-10% sur la 1ère commande via inscription newsletter (mode éco-responsable, créateurs)",
+    conditions: "Inscription newsletter A-demain pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://a-demain.shop/?utm_medium=affiliation&utm_support=affilae&utm_source=blog&utm_campaign=bonsplansmania&ae=232",
+    affiliateLabel: "Voir A-demain",
+    color: "#8B5CF6",
+  },
+  {
     brand: "Adopt'",
     category: "Parfumerie",
     offer: "-20% sur la 1ère commande via inscription newsletter (parfums français accessibles, soin, maquillage)",
@@ -55,6 +64,15 @@ const CODES: PermanentCode[] = [
     affiliateUrl: "https://amzn.to/4dMkVTW",
     affiliateLabel: "Tester Amazon Prime",
     color: "#FF9900",
+  },
+  {
+    brand: "Beauty Success",
+    category: "Parfumerie & Beauté",
+    offer: "-20% sur la 1ère commande via inscription newsletter (parfums, soin, maquillage)",
+    conditions: "Inscription newsletter Beauty Success pour recevoir le code -20%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2F",
+    affiliateLabel: "Voir Beauty Success",
+    color: "#E91E63",
   },
   {
     brand: "Belle au Naturel",
@@ -85,6 +103,24 @@ const CODES: PermanentCode[] = [
     affiliateLabel: "Voir Cdiscount",
     articleSlug: "bon-plan-cdiscount-amenagement-exterieur-fete-meres-codes-promo-mai-2026",
     color: "#1D4ED8",
+  },
+  {
+    brand: "Clarins",
+    category: "Beauté Luxe",
+    offer: "-20% sur la 1ère commande via inscription newsletter + cadeaux échantillons",
+    conditions: "Inscription newsletter Clarins pour recevoir le code -20%. Soin visage, corps, maquillage.",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr",
+    affiliateLabel: "Voir Clarins",
+    color: "#D72638",
+  },
+  {
+    brand: "Damart",
+    category: "Mode",
+    offer: "-20€ sur la 1ère commande via inscription newsletter (vêtements femme, homme, enfant, linge de maison)",
+    conditions: "Inscription newsletter Damart pour recevoir le code -20€. Cumulable avec promos en cours.",
+    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
+    affiliateLabel: "Voir Damart",
+    color: "#0F766E",
   },
   {
     brand: "Daxon",
@@ -161,6 +197,15 @@ const CODES: PermanentCode[] = [
     color: "#C026D3",
   },
   {
+    brand: "Le Rouge Français",
+    category: "Beauté Bio",
+    offer: "-15% sur la 1ère commande via inscription newsletter (rouges à lèvres bio naturels made in France)",
+    conditions: "Inscription newsletter Le Rouge Français pour recevoir le code -15%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://tidd.ly/40eZAKO",
+    affiliateLabel: "Voir Le Rouge Français",
+    color: "#DC2626",
+  },
+  {
     brand: "Léa Nature",
     category: "Bio & Naturel",
     offer: "-10% sur la 1ère commande via newsletter (So'Bio Étic, Boho Green, Florame, Jonzac, Jardin Bio…)",
@@ -177,6 +222,15 @@ const CODES: PermanentCode[] = [
     affiliateUrl: "https://clk.tradedoubler.com/click?p=351766&a=3421259&url=https%3A%2F%2Fcreateursbio.fr%2F",
     affiliateLabel: "Voir Les Créateurs Bio",
     color: "#16A34A",
+  },
+  {
+    brand: "Magnifaïk",
+    category: "Beauté",
+    offer: "-10% sur la 1ère commande via inscription newsletter",
+    conditions: "Inscription newsletter Magnifaïk pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://tidd.ly/44n99Jx",
+    affiliateLabel: "Voir Magnifaïk",
+    color: "#7C2D12",
   },
   {
     brand: "Mieux que des fleurs",
@@ -217,6 +271,15 @@ const CODES: PermanentCode[] = [
     color: "#92400E",
   },
   {
+    brand: "Perfumes Club",
+    category: "Parfumerie",
+    offer: "5€ offerts sur la 1ère commande via inscription newsletter (parfums, soin, maquillage marques premium)",
+    conditions: "Inscription newsletter Perfumes Club pour recevoir les 5€. Cumulable avec promos en cours.",
+    affiliateUrl: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2F",
+    affiliateLabel: "Voir Perfumes Club",
+    color: "#C2410C",
+  },
+  {
     brand: "Poulpeo",
     category: "Cashback",
     offer: "Cashback sur 1 600+ marchands + cashbacks boostés permanents + extension Chrome qui détecte le cashback dispo",
@@ -246,6 +309,15 @@ const CODES: PermanentCode[] = [
     color: "#BF0000",
   },
   {
+    brand: "Rougier & Plé",
+    category: "Loisirs Créatifs",
+    offer: "-10% sur la 1ère commande via inscription newsletter (matériel beaux-arts, loisirs créatifs, scrap)",
+    conditions: "Inscription newsletter Rougier & Plé pour recevoir le code -10%. Cumulable avec promos en cours.",
+    affiliateUrl: "https://afi.rougier-ple.fr/?P4826957CD2D1B1&redir=https%3A%2F%2Fwww.rougier-ple.fr%2F",
+    affiliateLabel: "Voir Rougier & Plé",
+    color: "#65A30D",
+  },
+  {
     brand: "Sarenza",
     category: "Chaussures",
     offer: "20€ offerts dès 100€ d'achat sur la 1ère commande + offres anniversaire, réveil (-40%), découverte (-30%)",
@@ -254,6 +326,15 @@ const CODES: PermanentCode[] = [
     affiliateLabel: "Voir Sarenza",
     articleSlug: "bon-plan-sarenza-offre-mars-jusqu-a-50-pourcent-10-supp-mars-2026",
     color: "#F59E0B",
+  },
+  {
+    brand: "Shoes.fr",
+    category: "Mode · Chaussures",
+    offer: "5€ offerts sur la 1ère commande via inscription newsletter (chaussures homme, femme, enfant)",
+    conditions: "Inscription newsletter Shoes.fr pour recevoir les 5€. Cumulable avec promos en cours.",
+    affiliateUrl: "https://vkz.shoes.fr/?P51317957CD2D171&redir=https%3A%2F%2Fwww.shoes.fr%2F",
+    affiliateLabel: "Voir Shoes.fr",
+    color: "#1E40AF",
   },
   {
     brand: "Showroom Privé",
