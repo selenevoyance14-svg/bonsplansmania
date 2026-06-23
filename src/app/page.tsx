@@ -2,7 +2,7 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search, Sparkles, Baby, Smartphone, Home, TreePine, Shirt } from "lucide-react";
+import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
@@ -173,7 +173,7 @@ export default function Home() {
               { href: "/bons-plans-bebe",    Icon: Baby,       label: "Coin Bébé",    desc: "Puériculture, soin, jouets", bg: "#ECFEFF", color: "#0891B2" },
               { href: "/bons-plans-ninja",   Icon: null,       label: "Coin Ninja",   desc: "Airfryer, CREAMi, SLUSHi",   bg: "#FAFAFA", color: "#0F0F0F", ninja: true },
               { href: "/bons-plans-tech",    Icon: Smartphone, label: "Coin Tech",    desc: "Smartphone, PC, audio",      bg: "#EFF6FF", color: "#2563EB" },
-              { href: "/bons-plans-maison",  Icon: Home,       label: "Coin Maison",  desc: "Cuisine, robot, aspi, clim", bg: "#F0FDF4", color: "#16A34A" },
+              { href: "/bons-plans-maison",  Icon: HomeIcon,   label: "Coin Maison",  desc: "Cuisine, robot, aspi, clim", bg: "#F0FDF4", color: "#16A34A" },
               { href: "/bons-plans-jardin",  Icon: TreePine,   label: "Coin Jardin",  desc: "Tondeuse, BBQ, piscine",     bg: "#F7FEE7", color: "#65A30D" },
               { href: "/bons-plans-mode",    Icon: Shirt,      label: "Coin Mode",    desc: "Chaussures, sacs, montres",  bg: "#FAF5FF", color: "#7C3AED" },
             ].map((h) => (
