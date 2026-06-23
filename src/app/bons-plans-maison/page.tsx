@@ -104,6 +104,7 @@ export default async function BonsPlansMaisonPage() {
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
       price: a.meta.price,
+      affiliateUrl: a.meta.affiliateUrl,
     };
   });
 

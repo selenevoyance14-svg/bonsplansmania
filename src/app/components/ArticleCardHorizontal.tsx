@@ -1,3 +1,4 @@
+"use client";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { CATEGORY_CONFIG } from "./ArticleCard";
@@ -13,6 +14,7 @@ type Article = {
         imageAlt: string;
         price?: string;
         expired?: boolean;
+        affiliateUrl?: string;
     };
 };
 
@@ -59,6 +61,13 @@ export default function ArticleCardHorizontal({
     const isExpired = article.meta.expired === true;
     const { now, was, savingsPct, savingsEur } = parsePrice(article.meta.price);
     const isFree = !!now && /gratuit/i.test(now);
+    const hasExternalAffiliate = !!article.meta.affiliateUrl && /^https?:\/\//.test(article.meta.affiliateUrl) && !isExpired;
+    const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+        if (!hasExternalAffiliate) return;
+        e.preventDefault();
+        e.stopPropagation();
+        window.open(article.meta.affiliateUrl!, "_blank", "noopener");
+    };
 
     return (
         <a
@@ -105,9 +114,22 @@ export default function ArticleCardHorizontal({
                             </>
                         )}
                     </div>
-                    <span className={`bpm-card-h-cta bpm-cta-${cat.color}`}>
-                        {cat.cta} <ArrowRight size={14} aria-hidden />
-                    </span>
+                    {hasExternalAffiliate ? (
+                        <a
+                            href={article.meta.affiliateUrl!}
+                            target="_blank"
+                            rel="nofollow noopener sponsored"
+                            onClick={onCtaClick}
+                            className={`bpm-card-h-cta bpm-cta-${cat.color}`}
+                            aria-label={`${cat.cta} — ${article.meta.title}`}
+                        >
+                            {cat.cta} <ArrowRight size={14} aria-hidden />
+                        </a>
+                    ) : (
+                        <span className={`bpm-card-h-cta bpm-cta-${cat.color}`}>
+                            {cat.cta} <ArrowRight size={14} aria-hidden />
+                        </span>
+                    )}
                 </div>
             </div>
         </a>

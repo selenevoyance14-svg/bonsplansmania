@@ -61,6 +61,7 @@ export default function BonsPlansEnCoursPage() {
       featured: a.meta.featured,
       tags: a.meta.tags,
       price: a.meta.price,
+      affiliateUrl: a.meta.affiliateUrl,
     };
   });
 

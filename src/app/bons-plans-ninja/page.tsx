@@ -50,6 +50,7 @@ export default async function BonsPlansNinjaPage() {
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
       price: a.meta.price,
+      affiliateUrl: a.meta.affiliateUrl,
     };
   });
 

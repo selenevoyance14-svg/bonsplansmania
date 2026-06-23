@@ -37,6 +37,7 @@ type Article = {
         imageAlt: string;
         price?: string;
         expired?: boolean;
+        affiliateUrl?: string;
     };
 };
 
@@ -78,51 +79,67 @@ export default function ArticleCard({
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
     const isExpired = article.meta.expired === true;
     const { now, was, savings } = parsePrice(article.meta.price);
+    const articleHref = `/article/${article.meta.slug}`;
+    const affiliateHref = article.meta.affiliateUrl;
+    const hasExternalAffiliate = !!affiliateHref && /^https?:\/\//.test(affiliateHref);
 
     return (
-        <a
-            href={`/article/${article.meta.slug}`}
-            className={`bpm-card bpm-card-${cat.color} ${isExpired ? "bpm-card-expired" : ""}`}
-        >
-            <div className="bpm-card-image">
-                <Image
-                    src={article.meta.image}
-                    alt={article.meta.imageAlt}
-                    fill
-                    style={{ objectFit: "cover" }}
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                    priority={priority}
-                    loading={priority ? undefined : "lazy"}
-                />
-                <span className={`bpm-card-pill bpm-pill-${cat.color}`}>
-                    <cat.Icon size={12} aria-hidden /> {cat.label}
-                </span>
-                {savings ? (
-                    <span className="bpm-card-discount">{savings}</span>
-                ) : cat.badge ? (
-                    <span className={`bpm-card-badge bpm-badge-${cat.color}`}>{cat.badge}</span>
-                ) : null}
-                {isExpired && <span className="bpm-card-expired-badge">Terminé</span>}
-            </div>
+        <article className={`bpm-card bpm-card-${cat.color} ${isExpired ? "bpm-card-expired" : ""}`}>
+            <a href={articleHref} className="bpm-card-inner-link">
+                <div className="bpm-card-image">
+                    <Image
+                        src={article.meta.image}
+                        alt={article.meta.imageAlt}
+                        fill
+                        style={{ objectFit: "cover" }}
+                        sizes="(max-width: 768px) 100vw, 33vw"
+                        priority={priority}
+                        loading={priority ? undefined : "lazy"}
+                    />
+                    <span className={`bpm-card-pill bpm-pill-${cat.color}`}>
+                        <cat.Icon size={12} aria-hidden /> {cat.label}
+                    </span>
+                    {savings ? (
+                        <span className="bpm-card-discount">{savings}</span>
+                    ) : cat.badge ? (
+                        <span className={`bpm-card-badge bpm-badge-${cat.color}`}>{cat.badge}</span>
+                    ) : null}
+                    {isExpired && <span className="bpm-card-expired-badge">Terminé</span>}
+                </div>
 
-            <div className="bpm-card-body">
-                <h3 className="bpm-card-title">{article.meta.title}</h3>
-                <p className="bpm-card-excerpt">{article.meta.description}</p>
+                <div className="bpm-card-body">
+                    <h3 className="bpm-card-title">{article.meta.title}</h3>
+                    <p className="bpm-card-excerpt">{article.meta.description}</p>
 
-                {now && (
-                    <div className="bpm-card-price">
-                        <span className="bpm-card-price-now">{now}</span>
-                        {was && <span className="bpm-card-price-was">{was}</span>}
-                    </div>
-                )}
-            </div>
+                    {now && (
+                        <div className="bpm-card-price">
+                            <span className="bpm-card-price-now">{now}</span>
+                            {was && <span className="bpm-card-price-was">{was}</span>}
+                        </div>
+                    )}
+                </div>
+            </a>
 
-            <div className={`bpm-card-footer bpm-footer-${cat.color}`}>
-                <time className="bpm-card-date">{formatDate(article.meta.date)}</time>
-                <span className="bpm-card-cta">
-                    {cat.cta} <ArrowRight size={14} aria-hidden />
-                </span>
-            </div>
-        </a>
+            {hasExternalAffiliate && !isExpired ? (
+                <a
+                    href={affiliateHref!}
+                    target="_blank"
+                    rel="nofollow noopener sponsored"
+                    className={`bpm-card-footer bpm-footer-${cat.color}`}
+                >
+                    <time className="bpm-card-date">{formatDate(article.meta.date)}</time>
+                    <span className="bpm-card-cta">
+                        {cat.cta} <ArrowRight size={14} aria-hidden />
+                    </span>
+                </a>
+            ) : (
+                <a href={articleHref} className={`bpm-card-footer bpm-footer-${cat.color}`}>
+                    <time className="bpm-card-date">{formatDate(article.meta.date)}</time>
+                    <span className="bpm-card-cta">
+                        {cat.cta} <ArrowRight size={14} aria-hidden />
+                    </span>
+                </a>
+            )}
+        </article>
     );
 }

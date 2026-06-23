@@ -24,6 +24,8 @@ interface ArticleListItem {
   endDate?: string;
   /** Optional price, e.g. "149,99€" or "13€ au lieu de 987€" */
   price?: string;
+  /** Optional affiliate URL — when set, the CTA points directly to the merchant */
+  affiliateUrl?: string;
 }
 
 const PER_PAGE = 24;
@@ -117,10 +119,18 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
           const isFree = !!now && /gratuit/i.test(now);
           // Pub intercalée après les positions 7 et 15 (toutes les 8 cartes) — inchangé
           const showAdAfter = index === 7 || index === 15;
+          const articleHref = `/article/${article.slug}`;
+          const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
+          const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+            if (!hasExternalAffiliate) return;
+            e.preventDefault();
+            e.stopPropagation();
+            window.open(article.affiliateUrl!, "_blank", "noopener");
+          };
           return (
             <Fragment key={article.slug}>
               <a
-                href={`/article/${article.slug}`}
+                href={articleHref}
                 className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}
               >
                 <div className="bpm-card-h-image">
@@ -167,9 +177,22 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                         </>
                       )}
                     </div>
-                    <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>
-                      {cta} <ArrowRight size={14} aria-hidden />
-                    </span>
+                    {hasExternalAffiliate ? (
+                      <a
+                        href={article.affiliateUrl!}
+                        target="_blank"
+                        rel="nofollow noopener sponsored"
+                        onClick={onCtaClick}
+                        className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
+                        aria-label={`${cta} — ${article.title}`}
+                      >
+                        {cta} <ArrowRight size={14} aria-hidden />
+                      </a>
+                    ) : (
+                      <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>
+                        {cta} <ArrowRight size={14} aria-hidden />
+                      </span>
+                    )}
                   </div>
                 </div>
               </a>
