@@ -25,8 +25,8 @@ export const metadata: Metadata = {
 };
 
 const EXACT_TAGS = new Set([
-  // Tondeuses
-  "tondeuse", "robot-tondeuse", "tondeuse-gazon", "tondeuse-electrique",
+  // Tondeuses (gazon uniquement — pas cheveux / barbe / corps)
+  "robot-tondeuse", "tondeuse-gazon", "tondeuse-thermique", "tondeuse-autoportee", "tracteur-tondeuse",
   // Piscine
   "piscine", "robot-piscine", "aspirateur-piscine", "spa", "jacuzzi",
   "entretien-piscine", "chlore-piscine", "pompe-piscine", "filtre-piscine",
@@ -52,7 +52,7 @@ const EXACT_TAGS = new Set([
 ]);
 
 const SLUG_TOKENS = [
-  "-robot-tondeuse-", "-tondeuse-",
+  "-robot-tondeuse-", "-tondeuse-gazon-", "-tondeuse-autoportee-", "-tondeuse-thermique-", "-tracteur-tondeuse-",
   "-robot-piscine-", "-piscine-", "-spa-",
   "-barbecue-", "-bbq-", "-plancha-", "-fumoir-",
   "-mobilier-outdoor-", "-mobilier-jardin-", "-salon-jardin-",
@@ -69,10 +69,20 @@ const BEBE_TOKENS = [
   "couches-", "babymoov",
 ];
 
+// Exclusions pour éviter les faux positifs (tondeuse cheveux/barbe matchait "tondeuse")
+const EXCLUDED_TOKENS = [
+  "-tondeuse-cheveux-", "-tondeuse-barbe-", "-tondeuse-corps-",
+  "-tondeuse-multifonction-", "tondeuse-cheveux", "tondeuse-barbe",
+  "-cheveux-", "-barbe-", "-rasoir-",
+];
+
 function isJardinArticle(meta: { slug?: string; tags?: string[] }) {
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
+  if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  // Exclure par tag les tondeuses cheveux/barbe
+  if (tags.some((t) => t.includes("cheveux") || t.includes("barbe") || t.includes("rasoir"))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   return SLUG_TOKENS.some((k) => slug.includes(k));
 }
