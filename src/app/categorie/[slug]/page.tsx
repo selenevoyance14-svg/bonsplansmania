@@ -133,6 +133,8 @@ export default async function CategoryPage({ params }: PageProps) {
   // Filtres : liste blanche dédiée par catégorie (box-beaute, bon-plan)
   const useBoxFilter = slug === "box-beaute";
   const useBonPlanFilter = slug === "bon-plan";
+  // Tri seul (sans dropdown marques) pour faciliter le nettoyage des vieilles entrées
+  const useSortOnlyFilter = ["concours", "test-produit", "test-gratuit", "test-avis"].includes(slug);
 
   return (
     <>
@@ -218,6 +220,8 @@ export default async function CategoryPage({ params }: PageProps) {
               <BrandFilter articles={cards} brands={BOX_BEAUTE_BRANDS} />
             ) : useBonPlanFilter ? (
               <BrandFilter articles={cards} brands={BON_PLAN_BRANDS} />
+            ) : useSortOnlyFilter ? (
+              <BrandFilter articles={cards} brands={[]} />
             ) : (
               <LoadMoreGrid articles={cards} />
             )}
