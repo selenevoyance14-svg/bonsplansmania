@@ -126,80 +126,55 @@ export default function Home() {
         </section>
       )}
 
-      {/* ═══ CATÉGORIES ═══ */}
-      <section className="section-sm" style={{ paddingTop: "56px" }}>
+      {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
+      <section className="section-sm" style={{ paddingTop: "48px" }}>
         <div className="container">
           <div className="section-title">
-            <h2>Parcourir par catégorie</h2>
+            <h2>Parcourir le site</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(200px, 1fr))", gap: "16px" }}>
-            {([
-              { href: "/categorie/bon-plan", Icon: Tag, label: "Bons Plans", desc: "Réductions & promos", bg: "#FFF0F0", color: "#E63946" },
-              { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits", desc: "Tests gratuits & avis", bg: "#FFF7ED", color: "#C2410C" },
-              { href: "/categorie/concours", Icon: Trophy, label: "Concours", desc: "Jeux & cadeaux à gagner", bg: "#F0FDF4", color: "#166534" },
-              { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", desc: "Tests & avis de box", bg: "#FDF4FF", color: "#86198F" },
-              { href: "/categorie/code-promo", Icon: Percent, label: "Codes Promo", desc: "Réductions actives", bg: "#EFF6FF", color: "#1D4ED8" },
-            ] as { href: string; Icon: LucideIcon; label: string; desc: string; bg: string; color: string }[]).map((cat) => (
-              <a
-                key={cat.href}
-                href={cat.href}
-                style={{
-                  background: cat.bg, borderRadius: "16px",
-                  padding: "24px 20px", textDecoration: "none",
-                  border: `1.5px solid ${cat.color}22`,
-                  transition: "all 0.2s", display: "block",
-                }}
-                className="cat-card"
-              >
-                <div style={{ marginBottom: "10px" }}><cat.Icon size={32} color={cat.color} /></div>
-                <div style={{ fontWeight: 700, color: cat.color, marginBottom: "4px" }}>{cat.label}</div>
-                <div style={{ fontSize: "0.82rem", color: "#4b5563" }}>{cat.desc}</div>
-              </a>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══ EXPLORE PAR UNIVERS (HUBS DEDIES) ═══ */}
-      <section className="section-sm" style={{ paddingTop: "32px", paddingBottom: "0" }}>
-        <div className="container">
-          <div className="section-title">
-            <h2>Explore par univers</h2>
-            <p>Tes bons plans regroupés par thème pour aller droit au but</p>
-          </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "14px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: "10px" }}>
             {[
-              { href: "/bons-plans-beaute",  Icon: Sparkles,   label: "Coin Beauté",  desc: "Soin, maquillage, parfum",   bg: "#FDF2F8", color: "#DB2777" },
-              { href: "/bons-plans-bebe",    Icon: Baby,       label: "Coin Bébé",    desc: "Puériculture, soin, jouets", bg: "#ECFEFF", color: "#0891B2" },
-              { href: "/bons-plans-ninja",   Icon: null,       label: "Coin Ninja",   desc: "Airfryer, CREAMi, SLUSHi",   bg: "#FAFAFA", color: "#0F0F0F", ninja: true },
-              { href: "/bons-plans-tech",    Icon: Smartphone, label: "Coin Tech",    desc: "Smartphone, PC, audio",      bg: "#EFF6FF", color: "#2563EB" },
-              { href: "/bons-plans-maison",  Icon: HomeIcon,   label: "Coin Maison",  desc: "Cuisine, robot, aspi, clim", bg: "#F0FDF4", color: "#16A34A" },
-              { href: "/bons-plans-jardin",  Icon: TreePine,   label: "Jardin & Animaux", desc: "Tondeuse, BBQ, piscine, animalerie", bg: "#F7FEE7", color: "#65A30D" },
-              { href: "/bons-plans-mode",    Icon: Shirt,      label: "Coin Mode",    desc: "Chaussures, sacs, montres",  bg: "#FAF5FF", color: "#7C3AED" },
-            ].map((h) => (
+              // Catégories (type de contenu)
+              { href: "/categorie/bon-plan",     Icon: Tag,          label: "Bons Plans",        bg: "#FFF0F0", color: "#E63946" },
+              { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits",    bg: "#FFF7ED", color: "#C2410C" },
+              { href: "/categorie/concours",     Icon: Trophy,       label: "Concours",          bg: "#F0FDF4", color: "#166534" },
+              { href: "/categorie/code-promo",   Icon: Percent,      label: "Codes Promo",       bg: "#EFF6FF", color: "#1D4ED8" },
+              { href: "/categorie/box-beaute",   Icon: ShoppingBag,  label: "Box Beauté",        bg: "#FDF4FF", color: "#86198F" },
+              // Hubs / univers (thèmes)
+              { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       bg: "#FDF2F8", color: "#DB2777" },
+              { href: "/bons-plans-bebe",        Icon: Baby,         label: "Coin Bébé",         bg: "#ECFEFF", color: "#0891B2" },
+              { href: "/bons-plans-ninja",       Icon: null,         label: "Coin Ninja",        bg: "#FAFAFA", color: "#0F0F0F", ninja: true },
+              { href: "/bons-plans-tech",        Icon: Smartphone,   label: "Coin Tech",         bg: "#EFF6FF", color: "#2563EB" },
+              { href: "/bons-plans-maison",      Icon: HomeIcon,     label: "Coin Maison",       bg: "#F0FDF4", color: "#16A34A" },
+              { href: "/bons-plans-jardin",      Icon: TreePine,     label: "Jardin & Animaux",  bg: "#F7FEE7", color: "#65A30D" },
+              { href: "/bons-plans-mode",        Icon: Shirt,        label: "Coin Mode",         bg: "#FAF5FF", color: "#7C3AED" },
+            ].map((c) => (
               <a
-                key={h.href}
-                href={h.href}
+                key={c.href}
+                href={c.href}
                 style={{
-                  background: h.bg,
-                  borderRadius: "14px",
-                  padding: "18px 16px",
+                  background: c.bg,
+                  borderRadius: "12px",
+                  padding: "14px 8px",
                   textDecoration: "none",
-                  border: `1.5px solid ${h.color}22`,
+                  border: `1.5px solid ${c.color}22`,
                   transition: "all 0.2s",
-                  display: "block",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  gap: "6px",
+                  minHeight: "84px",
                 }}
                 className="cat-card"
               >
-                <div style={{ marginBottom: "8px", height: "28px" }}>
-                  {h.ninja ? (
-                    <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "2px 8px", borderRadius: "4px", fontWeight: 800, fontSize: "1.1rem", lineHeight: "1.2" }}>N</span>
-                  ) : h.Icon ? (
-                    <h.Icon size={26} color={h.color} />
-                  ) : null}
-                </div>
-                <div style={{ fontWeight: 700, color: h.color, marginBottom: "2px", fontSize: "0.95rem" }}>{h.label}</div>
-                <div style={{ fontSize: "0.78rem", color: "#4b5563" }}>{h.desc}</div>
+                {c.ninja ? (
+                  <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "1px 7px", borderRadius: "4px", fontWeight: 800, fontSize: "1rem", lineHeight: "1.2" }}>N</span>
+                ) : c.Icon ? (
+                  <c.Icon size={22} color={c.color} aria-hidden />
+                ) : null}
+                <div style={{ fontWeight: 700, color: c.color, fontSize: "0.78rem", lineHeight: "1.15" }}>{c.label}</div>
               </a>
             ))}
           </div>
