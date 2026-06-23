@@ -132,7 +132,7 @@ export default function Home() {
           <div className="section-title">
             <h2>Parcourir le site</h2>
           </div>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(120px, 1fr))", gap: "10px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(105px, 1fr))", gap: "12px" }}>
             {[
               // Catégories iconiques conservées
               { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits",    bg: "#FFF7ED", color: "#C2410C" },
@@ -151,8 +151,8 @@ export default function Home() {
                 href={c.href}
                 style={{
                   background: c.bg,
-                  borderRadius: "12px",
-                  padding: "14px 8px",
+                  borderRadius: "14px",
+                  padding: "20px 10px",
                   textDecoration: "none",
                   border: `1.5px solid ${c.color}22`,
                   transition: "all 0.2s",
@@ -161,17 +161,17 @@ export default function Home() {
                   alignItems: "center",
                   justifyContent: "center",
                   textAlign: "center",
-                  gap: "6px",
-                  minHeight: "84px",
+                  gap: "8px",
+                  minHeight: "108px",
                 }}
                 className="cat-card"
               >
                 {c.ninja ? (
-                  <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "1px 7px", borderRadius: "4px", fontWeight: 800, fontSize: "1rem", lineHeight: "1.2" }}>N</span>
+                  <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "2px 9px", borderRadius: "4px", fontWeight: 800, fontSize: "1.2rem", lineHeight: "1.2" }}>N</span>
                 ) : c.Icon ? (
-                  <c.Icon size={22} color={c.color} aria-hidden />
+                  <c.Icon size={28} color={c.color} aria-hidden />
                 ) : null}
-                <div style={{ fontWeight: 700, color: c.color, fontSize: "0.78rem", lineHeight: "1.15" }}>{c.label}</div>
+                <div style={{ fontWeight: 700, color: c.color, fontSize: "0.82rem", lineHeight: "1.2" }}>{c.label}</div>
               </a>
             ))}
           </div>
