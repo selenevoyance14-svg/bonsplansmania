@@ -102,11 +102,8 @@ export default function Home() {
       </div>
 
       {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
-      <section className="section-sm" style={{ paddingTop: "32px" }}>
+      <section className="section-sm" style={{ paddingTop: "28px", paddingBottom: "8px" }}>
         <div className="container">
-          <div className="section-title">
-            <h2>Parcourir le site</h2>
-          </div>
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(105px, 1fr))", gap: "12px" }}>
             {[
               // Catégories iconiques conservées
