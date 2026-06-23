@@ -112,7 +112,7 @@ export default function Home() {
               // Hubs / univers (thèmes)
               { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       bg: "#FDF2F8", color: "#DB2777" },
               { href: "/bons-plans-bebe",        Icon: Baby,         label: "Coin Bébé",         bg: "#ECFEFF", color: "#0891B2" },
-              { href: "/bons-plans-ninja",       Icon: null,         label: "Coin Ninja",        bg: "#FAFAFA", color: "#0F0F0F", ninja: true },
+              { href: "/bons-plans-ninja",       Icon: Flame,        label: "Coin Ninja",        bg: "#FEF2F2", color: "#DC2626" },
               { href: "/bons-plans-tech",        Icon: Smartphone,   label: "Coin Tech",         bg: "#EFF6FF", color: "#2563EB" },
               { href: "/bons-plans-maison",      Icon: HomeIcon,     label: "Coin Maison",       bg: "#F0FDF4", color: "#16A34A" },
               { href: "/bons-plans-jardin",      Icon: TreePine,     label: "Jardin & Animaux",  bg: "#F7FEE7", color: "#65A30D" },
@@ -138,11 +138,7 @@ export default function Home() {
                 }}
                 className="cat-card"
               >
-                {c.ninja ? (
-                  <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "2px 9px", borderRadius: "4px", fontWeight: 800, fontSize: "1.2rem", lineHeight: "1.2" }}>N</span>
-                ) : c.Icon ? (
-                  <c.Icon size={28} color={c.color} aria-hidden />
-                ) : null}
+                {c.Icon ? <c.Icon size={28} color={c.color} aria-hidden /> : null}
                 <div style={{ fontWeight: 700, color: c.color, fontSize: "0.82rem", lineHeight: "1.2" }}>{c.label}</div>
               </a>
             ))}
