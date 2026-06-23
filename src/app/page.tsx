@@ -2,7 +2,7 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search } from "lucide-react";
+import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search, Sparkles, Baby, Smartphone, Home, TreePine, Shirt } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
@@ -154,6 +154,52 @@ export default function Home() {
                 <div style={{ marginBottom: "10px" }}><cat.Icon size={32} color={cat.color} /></div>
                 <div style={{ fontWeight: 700, color: cat.color, marginBottom: "4px" }}>{cat.label}</div>
                 <div style={{ fontSize: "0.82rem", color: "#4b5563" }}>{cat.desc}</div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ EXPLORE PAR UNIVERS (HUBS DEDIES) ═══ */}
+      <section className="section-sm" style={{ paddingTop: "32px", paddingBottom: "0" }}>
+        <div className="container">
+          <div className="section-title">
+            <h2>Explore par univers</h2>
+            <p>Tes bons plans regroupés par thème pour aller droit au but</p>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(160px, 1fr))", gap: "14px" }}>
+            {[
+              { href: "/bons-plans-beaute",  Icon: Sparkles,   label: "Coin Beauté",  desc: "Soin, maquillage, parfum",   bg: "#FDF2F8", color: "#DB2777" },
+              { href: "/bons-plans-bebe",    Icon: Baby,       label: "Coin Bébé",    desc: "Puériculture, soin, jouets", bg: "#ECFEFF", color: "#0891B2" },
+              { href: "/bons-plans-ninja",   Icon: null,       label: "Coin Ninja",   desc: "Airfryer, CREAMi, SLUSHi",   bg: "#FAFAFA", color: "#0F0F0F", ninja: true },
+              { href: "/bons-plans-tech",    Icon: Smartphone, label: "Coin Tech",    desc: "Smartphone, PC, audio",      bg: "#EFF6FF", color: "#2563EB" },
+              { href: "/bons-plans-maison",  Icon: Home,       label: "Coin Maison",  desc: "Cuisine, robot, aspi, clim", bg: "#F0FDF4", color: "#16A34A" },
+              { href: "/bons-plans-jardin",  Icon: TreePine,   label: "Coin Jardin",  desc: "Tondeuse, BBQ, piscine",     bg: "#F7FEE7", color: "#65A30D" },
+              { href: "/bons-plans-mode",    Icon: Shirt,      label: "Coin Mode",    desc: "Chaussures, sacs, montres",  bg: "#FAF5FF", color: "#7C3AED" },
+            ].map((h) => (
+              <a
+                key={h.href}
+                href={h.href}
+                style={{
+                  background: h.bg,
+                  borderRadius: "14px",
+                  padding: "18px 16px",
+                  textDecoration: "none",
+                  border: `1.5px solid ${h.color}22`,
+                  transition: "all 0.2s",
+                  display: "block",
+                }}
+                className="cat-card"
+              >
+                <div style={{ marginBottom: "8px", height: "28px" }}>
+                  {h.ninja ? (
+                    <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "2px 8px", borderRadius: "4px", fontWeight: 800, fontSize: "1.1rem", lineHeight: "1.2" }}>N</span>
+                  ) : h.Icon ? (
+                    <h.Icon size={26} color={h.color} />
+                  ) : null}
+                </div>
+                <div style={{ fontWeight: 700, color: h.color, marginBottom: "2px", fontSize: "0.95rem" }}>{h.label}</div>
+                <div style={{ fontSize: "0.78rem", color: "#4b5563" }}>{h.desc}</div>
               </a>
             ))}
           </div>
