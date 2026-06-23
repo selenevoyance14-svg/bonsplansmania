@@ -48,6 +48,14 @@ const EXACT_TAGS = new Set([
   // Autres
   "rouge-a-levres", "fond-de-teint", "fards-paupieres", "mascara",
   "vernis-ongles", "soin-solaire", "auto-bronzant",
+  // Soin homme : tondeuses cheveux/barbe/corps, rasoirs, épilateurs
+  "soin-homme", "barbe", "tondeuse-cheveux", "tondeuse-barbe", "tondeuse-corps",
+  "tondeuse-multifonction", "rasoir", "rasoir-electrique", "epilateur",
+  "huile-barbe", "soin-barbe",
+  // Marques soin/épilation/coiffure
+  "babyliss", "babylissmen", "remington", "andis", "wahl", "moser",
+  "philips-series", "braun", "braun-silk-epil", "gillette", "gillette-labs",
+  "rowenta-beauty", "foreo",
 ]);
 
 const SLUG_TOKENS = [
@@ -63,6 +71,13 @@ const SLUG_TOKENS = [
   "keratine", "argan-", "shampoing", "apres-shampoing", "masque-cheveux",
   "rouge-a-levres", "fond-de-teint", "fards-paupieres", "mascara-",
   "vernis-ongles", "auto-bronzant",
+  // Soin homme : tondeuses, rasoirs, épilateurs
+  "-tondeuse-cheveux-", "-tondeuse-barbe-", "-tondeuse-corps-",
+  "-tondeuse-multifonction-", "-rasoir-", "-rasoir-electrique-",
+  "-epilateur-", "-huile-barbe-", "-soin-barbe-", "-soin-homme-",
+  "babyliss-", "remington-", "andis-", "wahl-",
+  "braun-silk-epil-", "braun-series-", "gillette-",
+  "philips-series-", "foreo-",
 ];
 
 // Slugs à exclure : Coin bébé / puériculture (ne doivent pas remonter en Beauté

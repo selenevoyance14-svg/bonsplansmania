@@ -188,6 +188,14 @@ export const BEAUTE_BRANDS: BrandDef[] = [
   { key: "yves-rocher", label: "Yves Rocher", keywords: ["yves rocher", "yves-rocher", "yvesrocher"] },
   { key: "sephora", label: "Sephora", keywords: ["sephora"] },
   { key: "lookfantastic", label: "Lookfantastic", keywords: ["lookfantastic"] },
+  // Soin homme / tondeuses / rasoirs / épilateurs
+  { key: "babyliss", label: "BaByliss", keywords: ["babyliss", "babylissmen"] },
+  { key: "braun", label: "Braun", keywords: ["braun", "braun-silk-epil", "braun-series"] },
+  { key: "remington", label: "Remington", keywords: ["remington"] },
+  { key: "andis", label: "Andis", keywords: ["andis"] },
+  { key: "wahl", label: "Wahl", keywords: ["wahl"] },
+  { key: "gillette", label: "Gillette", keywords: ["gillette", "gillette-labs"] },
+  { key: "foreo", label: "Foreo", keywords: ["foreo"] },
 ];
 
 // Hub /bons-plans-bebe : sous-ensemble bébé / puériculture
