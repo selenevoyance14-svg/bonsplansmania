@@ -19,8 +19,8 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Jardin : Bons Plans Jardin, Piscine & Extérieur 2026 — Bons Plans Mania",
-  description: "Tous les bons plans jardin du moment : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, nettoyeurs haute pression. Worx, Segway Navimow, AIPER, Wybot.",
+  title: "Coin Jardin & Animaux & Animaux : Bons Plans Jardin, Piscine, Animalerie 2026 — Bons Plans Mania",
+  description: "Tous les bons plans jardin & animaux du moment : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, arbres à chat, litières, croquettes, colliers GPS. Worx, Segway Navimow, Aiper, Feandrea, Tractive, Zooplus.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-jardin" },
 };
 
@@ -49,6 +49,21 @@ const EXACT_TAGS = new Set([
   "black-decker", "bxpw1500pe",
   // Outdoor / camping
   "camping", "outdoor", "glaciere-electrique", "tente-jardin",
+  // Animaux / animalerie (Yann préfère ranger ici)
+  "animaux", "animalerie", "chat", "chien", "chats", "chiens",
+  "arbre a chat", "arbre à chat", "arbre-a-chat", "grattoir-chat",
+  "litiere", "litière", "litiere-chat", "bac-litiere",
+  "maison-toilette-chat", "litiere-autonettoyante",
+  "niche-chien", "niche-chat", "cage-chat", "cage-chien",
+  "gamelle", "gamelle-chat", "gamelle-chien", "distributeur-croquettes",
+  "croquettes", "pate-chat", "pate-chien", "alimentation-animaux",
+  "collier-gps", "collier-chat", "collier-chien", "tracker-animaux",
+  "jouet-chat", "jouet-chien", "harnais-chien", "laisse-chien",
+  "aquarium", "terrarium", "cage-rongeur", "nac",
+  "feandrea", "tractive", "kippy", "zooplus", "edgard-cooper",
+  "gitelsnour", "pawhut", "petkit", "ubpet", "savic", "flamingo",
+  "royal-canin", "purina", "pro-plan", "ultra-premium-direct",
+  "catit", "jummico", "palnests",
 ]);
 
 const SLUG_TOKENS = [
@@ -62,6 +77,15 @@ const SLUG_TOKENS = [
   "-glaciere-electrique-", "-glaciere-",
   "segway-navimow-", "worx-vision-", "aiper-", "wybot-", "medoxa-",
   "ecoflow-wave-",
+  // Animaux / animalerie
+  "-arbre-a-chat-", "-litiere-", "-bac-litiere-", "-niche-chien-", "-niche-chat-",
+  "-gamelle-", "-distributeur-croquettes-", "-croquettes-",
+  "-collier-gps-", "-collier-chat-", "-collier-chien-",
+  "-jouet-chat-", "-jouet-chien-", "-harnais-chien-", "-laisse-chien-",
+  "-aquarium-", "-terrarium-", "-cage-rongeur-",
+  "feandrea-", "tractive-", "kippy-", "zooplus-", "gitelsnour-",
+  "pawhut-", "petkit-", "ubpet-", "savic-", "flamingo-", "catit-",
+  "jummico-", "palnests-", "edgard-cooper-",
 ];
 
 const BEBE_TOKENS = [
@@ -118,8 +142,8 @@ export default async function BonsPlansJardinPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Jardin — Bons Plans Jardin, Piscine & Extérieur 2026",
-          description: "Tous les bons plans jardin : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage.",
+          name: "Coin Jardin & Animaux & Animaux — Bons Plans Jardin, Piscine, Animalerie 2026",
+          description: "Tous les bons plans jardin & animaux : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, arbres à chat, litières, croquettes, colliers GPS animaux.",
           url: "https://bonsplansmania.fr/bons-plans-jardin",
           mainEntity: {
             "@type": "ItemList",
@@ -140,7 +164,7 @@ export default async function BonsPlansJardinPage() {
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Accueil", item: "https://bonsplansmania.fr" },
-            { "@type": "ListItem", position: 2, name: "Coin Jardin" },
+            { "@type": "ListItem", position: 2, name: "Coin Jardin & Animaux & Animaux" },
           ],
         }) }}
       />
@@ -151,11 +175,11 @@ export default async function BonsPlansJardinPage() {
             <nav className="breadcrumbs">
               <a href="/">Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <span><TreePine size={12} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} />Coin Jardin</span>
+              <span><TreePine size={12} style={{ display: "inline", verticalAlign: "middle", marginRight: "4px" }} />Coin Jardin & Animaux</span>
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <TreePine size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#65a30d" }} />
-              Coin Jardin : Bons Plans Jardin, Piscine & Extérieur 2026
+              Coin Jardin & Animaux : Bons Plans Jardin, Piscine & Animalerie 2026
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans jardin, piscine et outdoor</strong> du moment : robots tondeuse, robots piscine, barbecues, mobilier de jardin, outils jardinage, nettoyeurs haute pression. <strong>Worx, Segway Navimow, AIPER, Wybot, Medoxa, EcoFlow, Black+Decker</strong>… {articles.length} articles.
@@ -211,7 +235,7 @@ export default async function BonsPlansJardinPage() {
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "24px", textAlign: "center" }}>
-              Tous les bons plans jardin & extérieur ({articles.length})
+              Tous les bons plans jardin & animaux ({articles.length})
             </h2>
             {articles.length === 0 ? (
               <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "64px 0" }}>

@@ -174,7 +174,7 @@ export default function Home() {
               { href: "/bons-plans-ninja",   Icon: null,       label: "Coin Ninja",   desc: "Airfryer, CREAMi, SLUSHi",   bg: "#FAFAFA", color: "#0F0F0F", ninja: true },
               { href: "/bons-plans-tech",    Icon: Smartphone, label: "Coin Tech",    desc: "Smartphone, PC, audio",      bg: "#EFF6FF", color: "#2563EB" },
               { href: "/bons-plans-maison",  Icon: HomeIcon,   label: "Coin Maison",  desc: "Cuisine, robot, aspi, clim", bg: "#F0FDF4", color: "#16A34A" },
-              { href: "/bons-plans-jardin",  Icon: TreePine,   label: "Coin Jardin",  desc: "Tondeuse, BBQ, piscine",     bg: "#F7FEE7", color: "#65A30D" },
+              { href: "/bons-plans-jardin",  Icon: TreePine,   label: "Jardin & Animaux", desc: "Tondeuse, BBQ, piscine, animalerie", bg: "#F7FEE7", color: "#65A30D" },
               { href: "/bons-plans-mode",    Icon: Shirt,      label: "Coin Mode",    desc: "Chaussures, sacs, montres",  bg: "#FAF5FF", color: "#7C3AED" },
             ].map((h) => (
               <a

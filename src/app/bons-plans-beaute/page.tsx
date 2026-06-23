@@ -65,7 +65,7 @@ const SLUG_TOKENS = [
   "nocibe", "yves-rocher", "kerargan", "biodance", "evoluderm", "boho-green",
   "luxeol", "hairlust", "twentydc", "twenty-dc", "caudalie", "weleda",
   "vichy", "la-roche-posay", "embryolisse",
-  "loreal", "garnier", "nivea", "revlon", "maybelline", "lancome",
+  "loreal-", "garnier-", "-nivea-", "nivea-", "revlon-", "maybelline-", "lancome-",
   "clarins", "yves-saint-laurent", "dior-parfum", "chanel-parfum", "guerlain",
   "armani-parfum", "hugo-boss-parfum", "paco-rabanne",
   "keratine", "argan-", "shampoing", "apres-shampoing", "masque-cheveux",

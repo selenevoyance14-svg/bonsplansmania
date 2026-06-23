@@ -154,6 +154,20 @@ export const JARDIN_BRANDS: BrandDef[] = [
   { key: "beatbot", label: "Beatbot", keywords: ["beatbot"] },
   { key: "wybot", label: "WYBOT", keywords: ["wybot"] },
   { key: "zodiac", label: "Zodiac", keywords: ["zodiac"] },
+  // Animaux / animalerie
+  { key: "feandrea", label: "Feandrea", keywords: ["feandrea"] },
+  { key: "tractive", label: "Tractive", keywords: ["tractive"] },
+  { key: "kippy", label: "Kippy", keywords: ["kippy"] },
+  { key: "zooplus", label: "Zooplus", keywords: ["zooplus"] },
+  { key: "edgard-cooper", label: "Edgard & Cooper", keywords: ["edgard cooper", "edgard-cooper"] },
+  { key: "royal-canin", label: "Royal Canin", keywords: ["royal canin", "royal-canin"] },
+  { key: "purina", label: "Purina", keywords: ["purina", "pro plan", "pro-plan"] },
+  { key: "pawhut", label: "PawHut", keywords: ["pawhut"] },
+  { key: "gitelsnour", label: "Gitelsnour", keywords: ["gitelsnour"] },
+  { key: "petkit", label: "Petkit", keywords: ["petkit"] },
+  { key: "savic", label: "Savic", keywords: ["savic"] },
+  { key: "catit", label: "Catit", keywords: ["catit"] },
+  { key: "flamingo", label: "Flamingo", keywords: ["flamingo"] },
 ];
 
 // Hub /bons-plans-beaute : sous-ensemble beauté de BON_PLAN_BRANDS

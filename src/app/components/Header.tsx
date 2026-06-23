@@ -53,7 +53,7 @@ export default function Header({ activePage }: { activePage?: string }) {
                   <a href="/bons-plans-ninja"><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Coin Ninja</a>
                   <a href="/bons-plans-tech">📱 Coin Tech</a>
                   <a href="/bons-plans-maison">🏠 Coin Maison</a>
-                  <a href="/bons-plans-jardin">🌱 Coin Jardin</a>
+                  <a href="/bons-plans-jardin">🌱 Coin Jardin & Animaux</a>
                   <a href="/bons-plans-mode">👗 Coin Mode</a>
                   <a href="/bons-plans-en-cours">🔥 Bons plans en cours</a>
                   <a href="/codes-promo-permanents">♾️ Codes promo permanents</a>
@@ -134,7 +134,7 @@ export default function Header({ activePage }: { activePage?: string }) {
             <a href="/bons-plans-ninja" onClick={() => setMobileOpen(false)}><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Coin Ninja</a>
             <a href="/bons-plans-tech" onClick={() => setMobileOpen(false)}>📱 Coin Tech</a>
             <a href="/bons-plans-maison" onClick={() => setMobileOpen(false)}>🏠 Coin Maison</a>
-            <a href="/bons-plans-jardin" onClick={() => setMobileOpen(false)}>🌱 Coin Jardin</a>
+            <a href="/bons-plans-jardin" onClick={() => setMobileOpen(false)}>🌱 Coin Jardin & Animaux</a>
             <a href="/bons-plans-mode" onClick={() => setMobileOpen(false)}>👗 Coin Mode</a>
             <a href="/bons-plans-en-cours" onClick={() => setMobileOpen(false)}>🔥 Bons plans en cours</a>
             <a href="/codes-promo-permanents" onClick={() => setMobileOpen(false)}>♾️ Codes promo permanents</a>
