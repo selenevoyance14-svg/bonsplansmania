@@ -50,7 +50,7 @@ export default function Header({ activePage }: { activePage?: string }) {
                 <div className="nav-dropdown-menu">
                   <a href="/bons-plans-beaute">🌸 Coin Beauté</a>
                   <a href="/bons-plans-bebe">👶 Coin Bébé</a>
-                  <a href="/bons-plans-ninja">🥷 Coin Ninja</a>
+                  <a href="/bons-plans-ninja"><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Coin Ninja</a>
                   <a href="/bons-plans-en-cours">🔥 Bons plans en cours</a>
                   <a href="/codes-promo-permanents">♾️ Codes promo permanents</a>
                   <a href="/categorie/bon-plan">Tous les bons plans</a>
@@ -128,7 +128,7 @@ export default function Header({ activePage }: { activePage?: string }) {
             <span className="mobile-menu-title">Bons Plans</span>
             <a href="/bons-plans-beaute" onClick={() => setMobileOpen(false)}>🌸 Coin Beauté</a>
             <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
-            <a href="/bons-plans-ninja" onClick={() => setMobileOpen(false)}>🥷 Coin Ninja</a>
+            <a href="/bons-plans-ninja" onClick={() => setMobileOpen(false)}><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Coin Ninja</a>
             <a href="/bons-plans-en-cours" onClick={() => setMobileOpen(false)}>🔥 Bons plans en cours</a>
             <a href="/codes-promo-permanents" onClick={() => setMobileOpen(false)}>♾️ Codes promo permanents</a>
             <a href="/categorie/bon-plan" onClick={() => setMobileOpen(false)}>Tous les bons plans</a>
