@@ -28,7 +28,7 @@ export default function Header({ activePage }: { activePage?: string }) {
 
   const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent"].some(p => activePage === p);
   const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis"].some(p => activePage === p);
-  const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe", "/bons-plans-beaute", "/bons-plans-ninja", "/bons-plans-tech", "/bons-plans-maison", "/bons-plans-jardin"].some(p => activePage === p);
+  const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe", "/bons-plans-beaute", "/bons-plans-ninja", "/bons-plans-tech", "/bons-plans-maison", "/bons-plans-jardin", "/bons-plans-mode"].some(p => activePage === p);
 
   return (
     <header className="header">
@@ -54,6 +54,7 @@ export default function Header({ activePage }: { activePage?: string }) {
                   <a href="/bons-plans-tech">📱 Coin Tech</a>
                   <a href="/bons-plans-maison">🏠 Coin Maison</a>
                   <a href="/bons-plans-jardin">🌱 Coin Jardin</a>
+                  <a href="/bons-plans-mode">👗 Coin Mode</a>
                   <a href="/bons-plans-en-cours">🔥 Bons plans en cours</a>
                   <a href="/codes-promo-permanents">♾️ Codes promo permanents</a>
                   <a href="/code-promo">Codes promo marques</a>
@@ -134,6 +135,7 @@ export default function Header({ activePage }: { activePage?: string }) {
             <a href="/bons-plans-tech" onClick={() => setMobileOpen(false)}>📱 Coin Tech</a>
             <a href="/bons-plans-maison" onClick={() => setMobileOpen(false)}>🏠 Coin Maison</a>
             <a href="/bons-plans-jardin" onClick={() => setMobileOpen(false)}>🌱 Coin Jardin</a>
+            <a href="/bons-plans-mode" onClick={() => setMobileOpen(false)}>👗 Coin Mode</a>
             <a href="/bons-plans-en-cours" onClick={() => setMobileOpen(false)}>🔥 Bons plans en cours</a>
             <a href="/codes-promo-permanents" onClick={() => setMobileOpen(false)}>♾️ Codes promo permanents</a>
             <a href="/code-promo" onClick={() => setMobileOpen(false)}>Codes promo marques</a>

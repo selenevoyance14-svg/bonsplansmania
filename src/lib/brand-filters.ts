@@ -218,6 +218,51 @@ export const BEBE_BRANDS: BrandDef[] = [
   { key: "puericulture", label: "Puériculture (autre)", keywords: ["puériculture", "puericulture"] },
 ];
 
+// Hub /bons-plans-mode (mode, chaussures, montres analogiques, sacs, accessoires)
+export const MODE_BRANDS: BrandDef[] = [
+  { key: "amazon", label: "Amazon", keywords: ["amazon"] },
+  // Sport / sneakers
+  { key: "nike", label: "Nike", keywords: ["nike", "jordan", "nike-jordan"] },
+  { key: "adidas", label: "Adidas", keywords: ["adidas"] },
+  { key: "puma", label: "Puma", keywords: ["puma"] },
+  { key: "reebok", label: "Reebok", keywords: ["reebok"] },
+  { key: "asics", label: "Asics", keywords: ["asics"] },
+  { key: "hoka", label: "Hoka", keywords: ["hoka", "hoka-one-one"] },
+  { key: "salomon", label: "Salomon", keywords: ["salomon"] },
+  { key: "new-balance", label: "New Balance", keywords: ["new-balance", "new balance"] },
+  { key: "converse", label: "Converse", keywords: ["converse"] },
+  { key: "vans", label: "Vans", keywords: ["vans"] },
+  // Mode premium / casual
+  { key: "lacoste", label: "Lacoste", keywords: ["lacoste"] },
+  { key: "tommy-hilfiger", label: "Tommy Hilfiger", keywords: ["tommy-hilfiger", "tommy hilfiger", "tommy"] },
+  { key: "calvin-klein", label: "Calvin Klein", keywords: ["calvin-klein", "calvin klein"] },
+  { key: "levis", label: "Levi's", keywords: ["levis", "levi's", "levi-s"] },
+  { key: "jott", label: "Jott", keywords: ["jott"] },
+  { key: "quiksilver", label: "Quiksilver", keywords: ["quiksilver"] },
+  // Chaussures
+  { key: "bata", label: "Bata", keywords: ["bata"] },
+  { key: "birkenstock", label: "Birkenstock", keywords: ["birkenstock"] },
+  { key: "crocs", label: "Crocs", keywords: ["crocs"] },
+  { key: "chaussea", label: "Chaussea", keywords: ["chaussea"] },
+  // Bagagerie / sacs
+  { key: "eastpak", label: "Eastpak", keywords: ["eastpak"] },
+  { key: "delsey", label: "Delsey", keywords: ["delsey"] },
+  { key: "samsonite", label: "Samsonite", keywords: ["samsonite"] },
+  // Lunettes
+  { key: "ray-ban", label: "Ray-Ban", keywords: ["ray-ban", "ray ban", "rayban"] },
+  // Enseignes mode FR
+  { key: "la-halle", label: "La Halle", keywords: ["la halle", "la-halle"] },
+  { key: "gemo", label: "Gémo", keywords: ["gémo", "gemo"] },
+  { key: "showroom-prive", label: "Showroom Privé", keywords: ["showroom prive", "showroom privé", "showroomprive", "showroom-prive"] },
+  { key: "le-slip-francais", label: "Le Slip Français", keywords: ["le slip français", "le slip francais", "le-slip-francais", "slip-francais"] },
+  { key: "monsieur-tshirt", label: "Monsieur Tshirt", keywords: ["monsieur tshirt", "monsieur-tshirt"] },
+  { key: "blanche-porte", label: "Blanche Porte", keywords: ["blanche porte", "blanche-porte", "blancheporte"] },
+  { key: "afibel", label: "Afibel", keywords: ["afibel"] },
+  { key: "damart", label: "Damart", keywords: ["damart"] },
+  { key: "daxon", label: "Daxon", keywords: ["daxon"] },
+  { key: "private-sport-shop", label: "Private Sport Shop", keywords: ["private sport shop", "private-sport-shop"] },
+];
+
 // Liste manuelle des box beauté présentes sur le site
 export const BOX_BEAUTE_BRANDS: BrandDef[] = [
   { key: "biotyfull", label: "Biotyfull Box", keywords: ["biotyfull", "biotyfull-box", "biotyfull box"] },
