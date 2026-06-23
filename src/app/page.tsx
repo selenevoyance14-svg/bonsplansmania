@@ -101,33 +101,8 @@ export default function Home() {
         <AdBlock />
       </div>
 
-      {/* ═══ NOUVELLES BOX BEAUTÉ À DÉCOUVRIR ═══ */}
-      {latestBoxes.length > 0 && (
-        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FDF4FF 0%, #FFFFFF 100%)" }}>
-          <div className="container">
-            <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
-              <div>
-                <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <ShoppingBag size={24} color="#86198F" />
-                  Nouvelles box beauté à découvrir
-                </h2>
-                <p>Les box du mois pour tester de nouveaux produits sans se ruiner</p>
-              </div>
-              <a href="/categorie/box-beaute" className="btn btn-secondary btn-sm">
-                Tout voir →
-              </a>
-            </div>
-            <div className="articles-grid articles-grid-4">
-              {latestBoxes.map((article, index) => (
-                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
-      <section className="section-sm" style={{ paddingTop: "48px" }}>
+      <section className="section-sm" style={{ paddingTop: "32px" }}>
         <div className="container">
           <div className="section-title">
             <h2>Parcourir le site</h2>
@@ -177,6 +152,31 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* ═══ NOUVELLES BOX BEAUTÉ À DÉCOUVRIR ═══ */}
+      {latestBoxes.length > 0 && (
+        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FDF4FF 0%, #FFFFFF 100%)" }}>
+          <div className="container">
+            <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
+              <div>
+                <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
+                  <ShoppingBag size={24} color="#86198F" />
+                  Nouvelles box beauté à découvrir
+                </h2>
+                <p>Les box du mois pour tester de nouveaux produits sans se ruiner</p>
+              </div>
+              <a href="/categorie/box-beaute" className="btn btn-secondary btn-sm">
+                Tout voir →
+              </a>
+            </div>
+            <div className="articles-grid articles-grid-4">
+              {latestBoxes.map((article, index) => (
+                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ═══ DERNIERS CONCOURS & TESTS ═══ */}
       {featured.length > 0 && (

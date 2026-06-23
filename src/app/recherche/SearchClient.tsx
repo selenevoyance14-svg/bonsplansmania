@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 
 interface ArticleData {
@@ -29,8 +30,17 @@ const categoryLabels: Record<string, string> = {
 };
 
 export default function SearchClient({ articles }: { articles: ArticleData[] }) {
-  const [query, setQuery] = useState("");
+  const searchParams = useSearchParams();
+  const initialQ = searchParams?.get("q") ?? "";
+  const [query, setQuery] = useState(initialQ);
   const q = query.trim().toLowerCase();
+
+  // Si l'URL change (navigation client), on synchronise le champ
+  useEffect(() => {
+    const urlQ = searchParams?.get("q") ?? "";
+    if (urlQ && urlQ !== query) setQuery(urlQ);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [searchParams]);
 
   const results = q
     ? articles.filter((a) =>

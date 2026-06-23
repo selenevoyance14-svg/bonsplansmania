@@ -1,3 +1,4 @@
+import { Suspense } from "react";
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import SearchClient from "./SearchClient";
@@ -23,7 +24,9 @@ export default function RecherchePage() {
   return (
     <>
       <Header activePage="/recherche" />
-      <SearchClient articles={articlesData} />
+      <Suspense fallback={null}>
+        <SearchClient articles={articlesData} />
+      </Suspense>
     </>
   );
 }
