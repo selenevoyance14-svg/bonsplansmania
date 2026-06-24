@@ -240,6 +240,39 @@ export const BEBE_BRANDS: BrandDef[] = [
   { key: "puericulture", label: "Puériculture (autre)", keywords: ["puériculture", "puericulture"] },
 ];
 
+// Hub /bons-plans-jouets (LEGO, Playmobil, jeux de société, peluches, poupées, jouets éducatifs)
+export const JOUETS_BRANDS: BrandDef[] = [
+  { key: "amazon", label: "Amazon", keywords: ["amazon"] },
+  { key: "lego", label: "LEGO", keywords: ["lego"] },
+  { key: "playmobil", label: "Playmobil", keywords: ["playmobil"] },
+  { key: "mattel", label: "Mattel", keywords: ["mattel"] },
+  { key: "barbie", label: "Barbie", keywords: ["barbie"] },
+  { key: "hot-wheels", label: "Hot Wheels", keywords: ["hot wheels", "hot-wheels"] },
+  { key: "hasbro", label: "Hasbro", keywords: ["hasbro"] },
+  { key: "monopoly", label: "Monopoly", keywords: ["monopoly"] },
+  { key: "nerf", label: "Nerf", keywords: ["nerf"] },
+  { key: "ravensburger", label: "Ravensburger", keywords: ["ravensburger"] },
+  { key: "asmodee", label: "Asmodee", keywords: ["asmodee"] },
+  { key: "djeco", label: "Djeco", keywords: ["djeco"] },
+  { key: "haba", label: "Haba", keywords: ["haba"] },
+  { key: "vtech", label: "Vtech", keywords: ["vtech", "v-tech"] },
+  { key: "fisher-price", label: "Fisher-Price", keywords: ["fisher-price", "fisher price"] },
+  { key: "schleich", label: "Schleich", keywords: ["schleich"] },
+  { key: "sylvanian-families", label: "Sylvanian Families", keywords: ["sylvanian families", "sylvanian-families"] },
+  { key: "funko-pop", label: "Funko Pop", keywords: ["funko", "funko-pop"] },
+  { key: "squishmallows", label: "Squishmallows", keywords: ["squishmallows"] },
+  { key: "pokemon", label: "Pokémon", keywords: ["pokemon", "pokémon"] },
+  { key: "disney", label: "Disney", keywords: ["disney"] },
+  { key: "marvel", label: "Marvel", keywords: ["marvel"] },
+  { key: "star-wars", label: "Star Wars", keywords: ["star wars", "star-wars"] },
+  { key: "crayola", label: "Crayola", keywords: ["crayola"] },
+  { key: "smoby", label: "Smoby", keywords: ["smoby"] },
+  { key: "play-doh", label: "Play-Doh", keywords: ["play-doh", "play doh"] },
+  { key: "bandai", label: "Bandai", keywords: ["bandai"] },
+  { key: "tiptoi", label: "Tiptoi", keywords: ["tiptoi"] },
+  { key: "barbie-extra", label: "Barbie Extra", keywords: ["barbie extra"] },
+];
+
 // Hub /bons-plans-mode (mode, chaussures, montres analogiques, sacs, accessoires)
 export const MODE_BRANDS: BrandDef[] = [
   { key: "amazon", label: "Amazon", keywords: ["amazon"] },

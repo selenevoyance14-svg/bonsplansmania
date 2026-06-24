@@ -2,7 +2,7 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt } from "lucide-react";
+import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
@@ -107,7 +107,7 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(105px, 1fr))", gap: "12px" }}>
             {[
               // Catégories iconiques conservées
-              { href: "/categorie/test-produit", Icon: FlaskConical, label: "Tests Produits",    bg: "#FFF7ED", color: "#C2410C" },
+              { href: "/bons-plans-jouets",      Icon: ToyBrick,     label: "Coin Jouets",       bg: "#FFFBEB", color: "#F59E0B" },
               { href: "/categorie/box-beaute",   Icon: ShoppingBag,  label: "Box Beauté",        bg: "#FDF4FF", color: "#86198F" },
               // Hubs / univers (thèmes)
               { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       bg: "#FDF2F8", color: "#DB2777" },

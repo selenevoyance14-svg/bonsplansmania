@@ -38,6 +38,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/bons-plans-maison",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/bons-plans-jardin",        priority: 0.8, changeFrequency: "weekly" },
   { path: "/bons-plans-mode",          priority: 0.9, changeFrequency: "weekly" },
+  { path: "/bons-plans-jouets",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
   { path: "/recherche",                priority: 0.5, changeFrequency: "monthly" },
   { path: "/partenariats",             priority: 0.4, changeFrequency: "monthly" },
