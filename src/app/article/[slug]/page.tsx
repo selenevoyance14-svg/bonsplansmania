@@ -101,10 +101,12 @@ export default async function ArticlePage({ params }: PageProps) {
   // aggregateRating + review ne sont injectés QUE si rating réel (sinon "Spammy structured data").
   const priceMatch = article.meta.price?.match(/[\d]+([.,][\d]+)?/)?.[0];
   const cleanPrice = priceMatch ? priceMatch.replace(",", ".") : null;
+  // Google Merchant impose name ≤ ~150 chars. On préfère seoTitle (court) au title (verbeux).
+  const productName = (article.meta.seoTitle ?? article.meta.title).slice(0, 150);
   const productJsonLd = cleanPrice && affiliateUrl !== "#" ? {
     "@context": "https://schema.org",
     "@type": "Product",
-    name: article.meta.title,
+    name: productName,
     description: article.meta.description,
     image: `https://bonsplansmania.fr${article.meta.image}`,
     ...(article.meta.rating ? {
