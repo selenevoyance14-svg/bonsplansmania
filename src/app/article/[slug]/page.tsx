@@ -70,6 +70,23 @@ export default async function ArticlePage({ params }: PageProps) {
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
+
+  // Bandeau "post de + de 3 semaines" sur les catégories où le deal peut expirer (prix, fin de jeu, mission close).
+  // Référence = updated > date, donc une simple remontée fait disparaître le bandeau automatiquement.
+  // "Maintenant" = date du build Cloudflare (le site est statique).
+  const STALE_MESSAGES: Record<string, { title: string; cta: { label: string; href: string } }> = {
+    "bon-plan":     { title: "Ce post a plus de 3 semaines — le bon plan n'est peut-être plus disponible", cta: { label: "bons plans du moment", href: "/categorie/bon-plan" } },
+    "concours":     { title: "Ce concours a plus de 3 semaines — il est peut-être terminé",                cta: { label: "concours en cours",      href: "/categorie/concours" } },
+    "test-gratuit": { title: "Ce test gratuit a plus de 3 semaines — la mission est peut-être close",      cta: { label: "tests gratuits du moment", href: "/categorie/test-gratuit" } },
+  };
+  const STALE_DAYS = 21;
+  const referenceDateStr = article.meta.updated || article.meta.date;
+  const referenceMs = new Date(referenceDateStr + "T12:00:00").getTime();
+  const staleMessage = STALE_MESSAGES[article.meta.category];
+  const isStale = !article.meta.expired
+    && staleMessage
+    && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
+
   const relatedArticles = getRelatedArticles(slug, article.meta.category, 4, article.meta.tags);
   const { prev: prevArticle, next: nextArticle } = getPrevNextArticle(slug, article.meta.category);
 
@@ -174,6 +191,16 @@ export default async function ArticlePage({ params }: PageProps) {
                 </p>
                 <p style={{ margin: "6px 0 0", fontSize: "0.88rem", color: "#DC2626" }}>
                   Cette offre n'est plus disponible. Découvrez nos <a href="/categorie/concours" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>concours en cours</a>.
+                </p>
+              </div>
+            )}
+            {isStale && staleMessage && (
+              <div style={{ background: "#FEF3C7", border: "2px solid #F59E0B", borderRadius: "12px", padding: "14px 20px", marginBottom: "20px", textAlign: "center" }}>
+                <p style={{ margin: 0, fontWeight: 700, fontSize: "1rem", color: "#92400E" }}>
+                  ⚠️ {staleMessage.title}
+                </p>
+                <p style={{ margin: "6px 0 0", fontSize: "0.85rem", color: "#B45309" }}>
+                  Retrouve nos <a href={staleMessage.cta.href} style={{ color: "#92400E", textDecoration: "underline", fontWeight: 600 }}>{staleMessage.cta.label}</a>.
                 </p>
               </div>
             )}
