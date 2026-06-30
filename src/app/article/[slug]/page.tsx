@@ -79,6 +79,16 @@ export default async function ArticlePage({ params }: PageProps) {
     "concours":     { title: "Ce concours a plus de 3 semaines — il est peut-être terminé",                cta: { label: "concours en cours",      href: "/categorie/concours" } },
     "test-gratuit": { title: "Ce test gratuit a plus de 3 semaines — la mission est peut-être close",      cta: { label: "tests gratuits du moment", href: "/categorie/test-gratuit" } },
   };
+
+  // Bandeau rouge "expired: true" — texte adapté à la catégorie (sinon générique "offre terminée").
+  const EXPIRED_MESSAGES: Record<string, { title: string; cta: { label: string; href: string } }> = {
+    "bon-plan":     { title: "Ce bon plan est terminé",     cta: { label: "bons plans en cours",     href: "/categorie/bon-plan" } },
+    "code-promo":   { title: "Ce code promo est terminé",   cta: { label: "codes promo en cours",    href: "/categorie/code-promo" } },
+    "concours":     { title: "Ce concours est terminé",     cta: { label: "concours en cours",       href: "/categorie/concours" } },
+    "test-gratuit": { title: "Ce test gratuit est terminé", cta: { label: "tests gratuits en cours", href: "/categorie/test-gratuit" } },
+    "box-beaute":   { title: "Cette box est terminée",      cta: { label: "box du moment",           href: "/categorie/box-beaute" } },
+  };
+  const expiredMessage = EXPIRED_MESSAGES[article.meta.category] ?? { title: "Cette offre est terminée", cta: { label: "offres en cours", href: "/" } };
   const STALE_DAYS = 21;
   const referenceDateStr = article.meta.updated || article.meta.date;
   const referenceMs = new Date(referenceDateStr + "T12:00:00").getTime();
@@ -187,10 +197,10 @@ export default async function ArticlePage({ params }: PageProps) {
             {article.meta.expired && (
               <div style={{ background: "#FEE2E2", border: "2px solid #F87171", borderRadius: "12px", padding: "16px 20px", marginBottom: "20px", textAlign: "center" }}>
                 <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem", color: "#B91C1C" }}>
-                  Ce concours est terminé
+                  {expiredMessage.title}
                 </p>
                 <p style={{ margin: "6px 0 0", fontSize: "0.88rem", color: "#DC2626" }}>
-                  Cette offre n'est plus disponible. Découvrez nos <a href="/categorie/concours" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>concours en cours</a>.
+                  Cette offre n'est plus disponible. Découvrez nos <a href={expiredMessage.cta.href} style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>{expiredMessage.cta.label}</a>.
                 </p>
               </div>
             )}
