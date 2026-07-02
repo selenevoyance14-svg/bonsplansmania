@@ -88,7 +88,10 @@ const BEBE_TOKENS = [
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
 ];
 
-function isBeauteArticle(meta: { slug?: string; tags?: string[] }) {
+const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
+
+function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+  if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   // Exclure d'office si c'est un article bébé/puériculture
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;

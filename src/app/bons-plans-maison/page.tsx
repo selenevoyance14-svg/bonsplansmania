@@ -76,12 +76,18 @@ const BEBE_TOKENS = [
   "couches-", "babymoov", "babyphone", "tetine", "chaise-haute",
 ];
 
-function isMaisonArticle(meta: { slug?: string; tags?: string[] }) {
+const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
+
+const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
+
+function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+  if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
   // Exclure jardin / piscine
   if (slug.includes("robot-tondeuse") || slug.includes("robot-piscine") || slug.includes("-piscine-") || slug.includes("-jardin-") || slug.includes("-tondeuse-") || slug.includes("-barbecue-") || slug.includes("-bbq-")) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   return SLUG_TOKENS.some((k) => slug.includes(k));
 }

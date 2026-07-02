@@ -38,7 +38,10 @@ const SLUG_TOKENS = [
   "vertbaudet-bebe",
 ];
 
-function isBebeArticle(meta: { slug?: string; tags?: string[] }) {
+const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
+
+function isBebeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+  if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   const slug = (meta.slug || "").toLowerCase();

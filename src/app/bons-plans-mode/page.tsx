@@ -112,12 +112,23 @@ const EXCLUDED_TOKENS = [
   "fitbit", "garmin", "pixel-watch", "apple-watch", "galaxy-watch",
   "-parfum-", "parfum-", "eau-de-parfum", "eau-de-toilette",
   "collier-gps", "gps-chien", "gps-chat", "tracker-sante",
+  // Jouets - un "-robe-" dans un slug Barbie/poupée = jouet, pas mode
+  "-barbie-", "barbie-", "-poupee-", "poupee-", "-playmobil-", "playmobil-",
+  "-figurine-", "figurine-", "-peluche-", "peluche-",
+  "-pat-patrouille-", "pat-patrouille-", "-unicorn-academy-", "unicorn-academy-",
+  "-disney-princesse-", "disney-princesse-",
 ];
 
-function isModeArticle(meta: { slug?: string; tags?: string[] }) {
+const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
+
+const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
+
+function isModeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+  if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
   // Exclure aussi par tag les montres connectées / fitness trackers
   if (tags.some((t) => t === "montre-connectee" || t === "smartwatch" || t === "bracelet-activite" || t === "bracelet-connecte")) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;

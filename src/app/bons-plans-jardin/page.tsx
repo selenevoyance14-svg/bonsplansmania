@@ -100,11 +100,17 @@ const EXCLUDED_TOKENS = [
   "-cheveux-", "-barbe-", "-rasoir-",
 ];
 
-function isJardinArticle(meta: { slug?: string; tags?: string[] }) {
+const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
+
+const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
+
+function isJardinArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+  if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
   if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
   // Exclure par tag les tondeuses cheveux/barbe
   if (tags.some((t) => t.includes("cheveux") || t.includes("barbe") || t.includes("rasoir"))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
