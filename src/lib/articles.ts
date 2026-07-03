@@ -29,6 +29,8 @@ export interface ArticleMeta {
   seoTitle?: string;
   seoDescription?: string;
   expired?: boolean;
+  /** Bon plan permanent (cashback, parrainage, plateforme durable). Désactive le bandeau "post >3 semaines". */
+  evergreen?: boolean;
   /** Date de fin de l'offre/concours au format YYYY-MM-DD. Si dépassée, l'article est considéré comme expiré. */
   endDate?: string;
   dealOfDay?: boolean;

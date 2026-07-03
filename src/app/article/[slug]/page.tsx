@@ -94,6 +94,7 @@ export default async function ArticlePage({ params }: PageProps) {
   const referenceMs = new Date(referenceDateStr + "T12:00:00").getTime();
   const staleMessage = STALE_MESSAGES[article.meta.category];
   const isStale = !article.meta.expired
+    && !article.meta.evergreen
     && staleMessage
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
 
