@@ -34,8 +34,14 @@ const EXACT_TAGS = new Set([
   "skincare", "skincare-fridge", "anti-age", "anti-rides", "anti-acne",
   // Box beauté
   "box-beaute", "biotyfull", "glowria", "blissim", "prescription-lab",
-  // Enseignes
+  // Enseignes / parapharmacies
   "sephora", "marionnaud", "nocibe", "yves-rocher", "parfumerie",
+  "beauty-success", "beautysuccess", "lookfantastic", "notino",
+  "perfumes-club", "perfumesclub", "origines-parfums", "originesparfums",
+  "parfums-moins-chers", "greenweez", "mademoiselle-bio",
+  "cocooncenter", "easypara", "easyparapharmacie",
+  // Plateformes K-beauty
+  "yesstyle", "stylevana",
   // Marques (top 30)
   "loreal", "l-oreal", "loreal-paris", "garnier", "nivea", "revlon",
   "maybelline", "kerargan", "caudalie", "vichy", "la-roche-posay",
@@ -43,11 +49,59 @@ const EXACT_TAGS = new Set([
   "luxeol", "hairlust", "twentydc", "twenty-dc", "lancome", "clarins",
   "estee-lauder", "yves-saint-laurent", "dior", "chanel", "guerlain",
   "armani", "hugo-boss", "paco-rabanne",
+  // Marques classiques additionnelles
+  "cerave", "biotherm", "clinique", "dove", "nuxe", "erborian",
+  "kerastase", "kérastase", "olaplex", "mixa", "kiehls", "kiehl-s",
+  "elizabeth-arden", "kiko", "kiko-milano", "lierac", "topicrem",
+  "the-ordinary", "ordinary", "aveda", "schwarzkopf", "gliss",
+  "herbal-essences", "head-shoulders", "franck-provost", "mugler",
+  "thierry-mugler", "hermes-parfum", "oulac", "nyx", "makeup-revolution",
+  "revitalash", "poderm", "coco-eve", "cocunat", "melvita",
+  "jeanne-en-provence", "bioderma", "avene", "avène", "eucerin",
+  "uriage", "sanoflore", "cattier", "sisley", "filorga", "sanogyl",
+  // Marques K-beauty
+  "cosrx", "medicube", "beauty-of-joseon", "anua", "laneige", "isntree",
+  "numbuzin", "skin1004", "round-lab", "torriden", "banila-co",
+  "innisfree", "missha", "tocobo", "iunik", "purito", "mizon",
+  "dalba", "heimish", "etude", "mary-may", "marymay", "axis-y",
+  "derma-b", "centellian24", "beplain", "bring-green", "mixsoon",
+  "scinic", "vt-cica", "some-by-mi", "sulwhasoo",
+  "kbeauty", "k-beauty", "coreen", "coréen", "skincare-coreen",
+  // Marques bio FR
+  "lea-nature", "léa-nature", "so-bio-etic", "so'bio", "sobio",
+  "jonzac", "bioregena", "belle-au-naturel", "huygens", "baija",
+  "patyka", "algologie", "acorelle", "arista", "garancia", "nubiance",
+  "ixage", "marilou-bio", "florame", "solinotes", "aroma-zone",
+  "loccitane", "l-occitane", "rituals", "phyt-s", "phyts", "endro",
+  "centifolia", "dr-hauschka", "hauschka", "pranarom",
+  // Actifs / concepts K-beauty
+  "pdrn", "snail-mucin", "snail", "centella", "cica", "hanbang", "riz-fermente",
+  "niacinamide", "retinol", "rétinol", "peptides", "collagene", "collagène",
+  "acide-hyaluronique", "acide-salicylique", "acide-glycolique",
+  "acide-tranexamique", "bakuchiol",
+  "toner", "essence-visage", "essence-coreenne", "sheet-mask",
   // Cheveux / kératine
   "keratine", "argan", "shampoing", "apres-shampoing", "masque-cheveux",
+  // Coiffure / hair styling
+  "seche-cheveux", "sèche-cheveux", "lisseur", "boucleur",
+  "brosse-chauffante", "brushing", "dyson", "dyson-airwrap",
+  "dyson-corrale", "ghd", "ukliss", "cecotec-bamba", "aowoka",
+  "haokoo", "bopcal",
   // Autres
   "rouge-a-levres", "fond-de-teint", "fards-paupieres", "mascara",
   "vernis-ongles", "soin-solaire", "auto-bronzant",
+  // Hygiène / dentifrice / dépilation
+  "dentifrice", "dentifrice-solide", "hygiene-dentaire",
+  "deodorant", "déodorant", "deodorant-naturel",
+  "epilation", "épilation", "coloration", "teinture-cheveux",
+  "manucure", "pedicure", "nail-art", "vernis-gel",
+  "colgate", "signal", "oral-b", "veet",
+  // Formes / types produit
+  "eau-micellaire", "eau-thermale", "eau-de-rose", "brume-parfumee",
+  "fluide-visage", "lait-corps", "lait-demaquillant",
+  "demaquillant", "démaquillant", "tonique", "peeling",
+  "creme-solaire", "cremes-solaires", "protection-solaire",
+  "aftersun", "after-sun", "spf",
   // Soin homme : tondeuses cheveux/barbe/corps, rasoirs, épilateurs
   "soin-homme", "barbe", "tondeuse-cheveux", "tondeuse-barbe", "tondeuse-corps",
   "tondeuse-multifonction", "rasoir", "rasoir-electrique", "epilateur",
@@ -65,12 +119,75 @@ const SLUG_TOKENS = [
   "nocibe", "yves-rocher", "kerargan", "biodance", "evoluderm", "boho-green",
   "luxeol", "hairlust", "twentydc", "twenty-dc", "caudalie", "weleda",
   "vichy", "la-roche-posay", "embryolisse",
+  // Enseignes / parapharmacies
+  "beauty-success-", "beautysuccess-", "lookfantastic-", "notino-",
+  "perfumes-club-", "perfumesclub-", "origines-parfums-", "originesparfums-",
+  "parfums-moins-chers-", "greenweez-", "mademoiselle-bio-",
+  "cocooncenter-", "easypara-", "easyparapharmacie-",
+  // Plateformes K-beauty
+  "yesstyle-", "-yesstyle-", "stylevana-",
   "loreal-", "garnier-", "-nivea-", "nivea-", "revlon-", "maybelline-", "lancome-",
   "clarins", "yves-saint-laurent", "dior-parfum", "chanel-parfum", "guerlain",
   "armani-parfum", "hugo-boss-parfum", "paco-rabanne",
+  // Marques classiques additionnelles
+  "cerave-", "-cerave-", "biotherm-", "-biotherm-", "clinique-", "-clinique-",
+  "dove-", "-dove-", "nuxe-", "-nuxe-", "erborian-", "-erborian-",
+  "kerastase-", "-kerastase-", "olaplex-", "mixa-", "-mixa-",
+  "kiehls-", "kiehl-s-", "elizabeth-arden-", "kiko-", "lierac-",
+  "topicrem-", "the-ordinary-", "-ordinary-", "aveda-",
+  "schwarzkopf-", "gliss-", "herbal-essences-", "head-shoulders-",
+  "franck-provost-", "mugler-", "thierry-mugler-", "terre-hermes-",
+  "oulac-", "nyx-", "makeup-revolution-", "revitalash-", "poderm-",
+  "coco-eve-", "cocunat-", "melvita-", "-melvita-",
+  "jeanne-en-provence-", "bioderma-", "-bioderma-", "avene-", "-avene-",
+  "eucerin-", "uriage-", "sanoflore-", "cattier-",
+  "sisley-", "filorga-", "sanogyl-",
+  // Marques K-beauty
+  "cosrx-", "-cosrx-", "medicube-", "-medicube-",
+  "beauty-of-joseon-", "anua-", "-anua-", "laneige-", "-laneige-",
+  "isntree-", "-isntree-", "numbuzin-", "skin1004-",
+  "round-lab-", "torriden-", "banila-co-", "innisfree-", "missha-",
+  "tocobo-", "iunik-", "purito-", "mizon-", "dalba-", "heimish-",
+  "etude-", "mary-may-", "marymay-", "axis-y-", "derma-b-", "centellian24-",
+  "beplain-", "bring-green-", "mixsoon-", "scinic-", "vt-cica-", "some-by-mi-",
+  "sulwhasoo-",
+  "-kbeauty-", "kbeauty-", "-k-beauty-",
+  // Marques bio FR
+  "lea-nature-", "so-bio-etic-", "sobio-", "jonzac-", "-jonzac-",
+  "bioregena-", "belle-au-naturel-", "huygens-", "baija-", "-baija-", "patyka-",
+  "algologie-", "acorelle-", "arista-", "garancia-", "nubiance-", "ixage-",
+  "marilou-bio-", "florame-", "solinotes-", "aroma-zone-",
+  "loccitane-", "l-occitane-", "rituals-",
+  "endro-", "centifolia-", "dr-hauschka-", "hauschka-", "pranarom-",
+  // Actifs / concepts K-beauty
+  "-pdrn-", "pdrn-", "-snail-", "snail-", "-centella-", "centella-",
+  "-cica-", "cica-", "hanbang-",
+  "-niacinamide-", "-retinol-", "retinol-",
+  "-peptides-", "-collagene-", "collagene-",
+  "-acide-hyaluronique-", "acide-hyaluronique-",
+  "-acide-salicylique-", "acide-salicylique-",
+  "-bakuchiol-", "bakuchiol-",
+  "-toner-", "toner-", "-essence-visage-", "-sheet-mask-",
   "keratine", "argan-", "shampoing", "apres-shampoing", "masque-cheveux",
+  // Coiffure / hair styling
+  "-seche-cheveux-", "seche-cheveux-", "-lisseur-", "lisseur-",
+  "-boucleur-", "boucleur-", "-brosse-chauffante-", "-brushing-",
+  "dyson-", "-dyson-", "-airwrap-", "dyson-airwrap-",
+  "dyson-corrale-", "ghd-", "-ghd-", "ukliss-",
+  "cecotec-bamba-", "aowoka-", "haokoo-", "bopcal-",
   "rouge-a-levres", "fond-de-teint", "fards-paupieres", "mascara-",
   "vernis-ongles", "auto-bronzant",
+  // Hygiène / dentifrice / dépilation
+  "-dentifrice-", "dentifrice-", "-deodorant-", "deodorant-",
+  "-epilation-", "-coloration-", "coloration-", "-teinture-",
+  "-manucure-", "manucure-", "-nail-art-", "vernis-gel-",
+  "colgate-", "signal-", "oral-b-", "veet-",
+  // Formes / types produit
+  "eau-micellaire-", "eau-thermale-", "eau-de-rose-",
+  "brume-parfumee-", "-fluide-", "lait-corps-", "lait-demaquillant-",
+  "demaquillant-", "-tonique-", "-peeling-",
+  "creme-solaire-", "-cremes-solaires-", "protection-solaire-",
+  "-aftersun-", "after-sun-", "-spf-", "spf-",
   // Soin homme : tondeuses, rasoirs, épilateurs
   "-tondeuse-cheveux-", "-tondeuse-barbe-", "-tondeuse-corps-",
   "-tondeuse-multifonction-", "-rasoir-", "-rasoir-electrique-",
@@ -88,7 +205,10 @@ const BEBE_TOKENS = [
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
 ];
 
-const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
+// Policy 2026-07 : plus d'exclusion par catégorie — la page Coin Beauté
+// annonce dans sa copy "Tests gratuits beauté" et "Box beauté mensuelles".
+// Le filtre tags/slug est assez strict pour ne remonter que du vrai beauté.
+const EXCLUDED_CATEGORIES = new Set<string>([]);
 
 function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
