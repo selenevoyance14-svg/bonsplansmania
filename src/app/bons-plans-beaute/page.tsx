@@ -205,10 +205,16 @@ const BEBE_TOKENS = [
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
 ];
 
-// Policy 2026-07 : plus d'exclusion par catégorie — la page Coin Beauté
-// annonce dans sa copy "Tests gratuits beauté" et "Box beauté mensuelles".
-// Le filtre tags/slug est assez strict pour ne remonter que du vrai beauté.
-const EXCLUDED_CATEGORIES = new Set<string>([]);
+// Policy 2026-07 : le Coin Beauté agrège les bons plans purs.
+// On exclut toutes les catégories qui ont leur propre page dédiée
+// (test-gratuit → /categorie/test-gratuit, concours → /categorie/concours,
+// box-beaute → /categorie/box-beaute, test-avis → /categorie/test-avis,
+// calendrier-avent → /categorie/calendrier-avent, code-promo → /categorie/code-promo).
+// Restent : bon-plan (cœur), beaute (conseils/tests), selection (hubs).
+const EXCLUDED_CATEGORIES = new Set<string>([
+  "test-gratuit", "concours", "box-beaute", "test-avis",
+  "calendrier-avent", "code-promo",
+]);
 
 function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
