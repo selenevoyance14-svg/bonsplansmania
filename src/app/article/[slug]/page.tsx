@@ -452,6 +452,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   const out: string[] = [];
   let inTable = false;
   let inProduct = false;
+  let inBlockquote = false;
   let productData: Record<string, string> = {};
   let h2Count = 0;
 
@@ -505,9 +506,25 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
       continue;
     }
     if (inTable) { out.push("</tbody></table></div>"); inTable = false; }
+
+    // Blockquote block: consecutive lines starting with "> ". Used for customer reviews boxes.
+    if (line.startsWith(">")) {
+      if (!inBlockquote) {
+        out.push('<blockquote class="reviews-box" style="background:#fff7ed;border-left:4px solid #f97316;border-radius:8px;padding:18px 22px;margin:28px 0;color:#374151;font-style:normal">');
+        inBlockquote = true;
+      }
+      const quoteContent = line.replace(/^>\s?/, "").trim();
+      if (quoteContent) {
+        out.push(`<p style="margin:0 0 12px;line-height:1.6">${quoteContent}</p>`);
+      }
+      continue;
+    }
+    if (inBlockquote) { out.push("</blockquote>"); inBlockquote = false; }
+
     out.push(line);
   }
   if (inTable) out.push("</tbody></table></div>");
+  if (inBlockquote) out.push("</blockquote>");
 
   let html = out.join("\n");
   html = html.replace(/^### (.+)$/gm, "<h3>$1</h3>");
@@ -544,6 +561,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/<p>(<hr>)<\/p>/g, "$1");
   html = html.replace(/<p>(<div class="table-wrapper">)/g, "$1").replace(/(<\/div>)<\/p>/g, "$1");
   html = html.replace(/<p>(<div class="product-card">)/g, "$1");
+  html = html.replace(/<p>(<blockquote)/g, "$1").replace(/(<\/blockquote>)<\/p>/g, "$1");
   html = html.replace(/<p>\s*<\/p>/g, "");
   return html;
 }
