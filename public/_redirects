@@ -1,5 +1,9 @@
 /ads.txt https://srv.adstxtmanager.com/19390/bonsplansmania.fr 301
 
+# DREO humidificateur bébé 3L — consolidation 10/07/2026 (nettoyage doublons vers les 2 modèles juillet)
+/article/dreo-humidificateur-bebe-silencieux-promo-amazon-mars-2026 /article/bon-plan-amazon-dreo-humidificateur-bebe-3l-silencieux-26db-juillet-2026 301
+/article/bon-plan-amazon-dreo-humidificateur-bebe-3l-silencieux-26db-36-euros-mai-2026 /article/bon-plan-amazon-dreo-humidificateur-bebe-3l-veilleuse-juillet-2026 301
+
 # Vieux sitemaps fantômes que Google continue à crawler (cache historique GSC) -> 301 vers le sitemap actuel
 /sitemap_index.xml /sitemap.xml 301
 /category-sitemap.xml /sitemap.xml 301
