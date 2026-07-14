@@ -205,6 +205,13 @@ const BEBE_TOKENS = [
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
 ];
 
+// Slugs à exclure : accessoires plage/jardin qui ne sont PAS de la beauté
+// (isotoner matche toner- par erreur, parasol-plage n'est pas un soin solaire)
+const NON_BEAUTE_TOKENS = [
+  "isotoner", "parasol-plage", "-parasol-", "parasol-jardin",
+  "tente-plage", "tente-jardin", "-hamac-", "hamac-",
+];
+
 // Policy 2026-07 : le Coin Beauté agrège les bons plans purs.
 // On exclut toutes les catégories qui ont leur propre page dédiée
 // (test-gratuit → /categorie/test-gratuit, concours → /categorie/concours,
@@ -221,6 +228,8 @@ function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: stri
   const slug = (meta.slug || "").toLowerCase();
   // Exclure d'office si c'est un article bébé/puériculture
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
+  // Exclure les accessoires plage/jardin (faux positifs comme isotoner→toner)
+  if (NON_BEAUTE_TOKENS.some((k) => slug.includes(k))) return false;
 
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
