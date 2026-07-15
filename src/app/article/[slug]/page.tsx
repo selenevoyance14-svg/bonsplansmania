@@ -108,7 +108,7 @@ export default async function ArticlePage({ params }: PageProps) {
     description: article.meta.description,
     datePublished: article.meta.date,
     dateModified: article.meta.updated || article.meta.date,
-    image: `https://bonsplansmania.fr${article.meta.image}`,
+    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.meta.image}`,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://bonsplansmania.fr/article/${slug}`,
@@ -136,7 +136,7 @@ export default async function ArticlePage({ params }: PageProps) {
     "@type": "Product",
     name: productName,
     description: article.meta.description,
-    image: `https://bonsplansmania.fr${article.meta.image}`,
+    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.meta.image}`,
     ...(article.meta.rating ? {
       aggregateRating: {
         "@type": "AggregateRating",
@@ -264,7 +264,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
 
             <div className="article-hero-image" style={{ background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
-              <Image src={article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
+              <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
             </div>
 
             {/* Pub après l'image hero (desktop principalement) */}
@@ -302,7 +302,7 @@ export default async function ArticlePage({ params }: PageProps) {
                     return (
                       <a key={related.meta.slug} href={`/article/${related.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
                         <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
-                          <Image src={related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
+                          <Image src={related.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
                         </div>
                         <div className="card-body" style={{ padding: "12px" }}>
                           <span style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.5px" }}>

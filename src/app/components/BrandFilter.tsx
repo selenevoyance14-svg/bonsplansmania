@@ -279,7 +279,7 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
                 <Fragment key={article.slug}>
                   <a href={`/article/${article.slug}`} className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}>
                     <div className="bpm-card-h-image">
-                      <Image src={article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
+                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
                       {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
                       {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
                       {!article.expired && article.expiresSoon && <span className="bpm-card-h-soon-badge">⏰ Bientôt fini</span>}

@@ -115,7 +115,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
                 {results.map((article) => (
                   <a key={article.slug} href={`/article/${article.slug}`} className="card" style={{ textDecoration: "none" }}>
                     <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-                      <Image src={article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
+                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
                     </div>
                     <div className="card-body">
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>

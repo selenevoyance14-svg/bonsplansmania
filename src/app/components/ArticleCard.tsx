@@ -82,13 +82,15 @@ export default function ArticleCard({
     const articleHref = `/article/${article.meta.slug}`;
     const affiliateHref = article.meta.affiliateUrl;
     const hasExternalAffiliate = !!affiliateHref && /^https?:\/\//.test(affiliateHref);
+    const rawImage = article.meta.image ?? "";
+    const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : rawImage;
 
     return (
         <article className={`bpm-card bpm-card-${cat.color} ${isExpired ? "bpm-card-expired" : ""}`}>
             <a href={articleHref} className="bpm-card-inner-link">
                 <div className="bpm-card-image">
                     <Image
-                        src={article.meta.image}
+                        src={displayImage}
                         alt={article.meta.imageAlt}
                         fill
                         style={{ objectFit: "cover" }}

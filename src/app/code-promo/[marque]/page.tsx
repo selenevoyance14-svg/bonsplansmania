@@ -96,7 +96,7 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
                 {active.map((a) => (
                   <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
                     <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-                      <Image src={a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
+                      <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
                     </div>
                     <div className="card-body">
                       <h3 className="card-title">{a.meta.title}</h3>
@@ -121,7 +121,7 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
                     <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className="card" style={{ textDecoration: "none", opacity: 0.55, filter: "grayscale(40%)" }}>
                       <div style={{ position: "absolute", top: "10px", right: "10px", zIndex: 2, background: "#DC2626", color: "white", padding: "3px 10px", borderRadius: "999px", fontSize: "0.7rem", fontWeight: 700 }}>Terminé</div>
                       <div style={{ position: "relative", height: "160px", overflow: "hidden" }}>
-                        <Image src={a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="33vw" loading="lazy" />
+                        <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="33vw" loading="lazy" />
                       </div>
                       <div className="card-body">
                         <h3 className="card-title">{a.meta.title}</h3>
