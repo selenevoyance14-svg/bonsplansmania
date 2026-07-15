@@ -205,11 +205,23 @@ const BEBE_TOKENS = [
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
 ];
 
-// Slugs à exclure : accessoires plage/jardin qui ne sont PAS de la beauté
-// (isotoner matche toner- par erreur, parasol-plage n'est pas un soin solaire)
+// Slugs à exclure : catégories qui matchent par erreur des tokens beauté
+// - isotoner matche "toner-" (K-beauty toner)
+// - calor-easygliss matche "gliss-" (marque cheveux Gliss)
+// - jouets Barbie/Monster High/Rainbow High : univers jouet, pas beauté
+// - électroménager (fer à repasser, aspirateur, etc.)
 const NON_BEAUTE_TOKENS = [
+  // Accessoires plage/jardin
   "isotoner", "parasol-plage", "-parasol-", "parasol-jardin",
   "tente-plage", "tente-jardin", "-hamac-", "hamac-",
+  // Jouets
+  "-barbie-", "barbie-", "monster-high-", "rainbow-high-",
+  "-poupee-", "poupee-", "-jouet-", "jouet-",
+  // Électroménager
+  "fer-repasser", "fer-a-repasser", "easygliss", "aspirateur",
+  "lave-linge", "lave-vaisselle", "refrigerateur", "congelateur",
+  "micro-ondes", "cuisiniere", "hotte-", "-hotte-",
+  "climatiseur", "ventilateur-",
 ];
 
 // Policy 2026-07 : le Coin Beauté agrège les bons plans purs.
