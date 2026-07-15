@@ -222,6 +222,8 @@ const NON_BEAUTE_TOKENS = [
   "lave-linge", "lave-vaisselle", "refrigerateur", "congelateur",
   "micro-ondes", "cuisiniere", "hotte-", "-hotte-",
   "climatiseur", "ventilateur-",
+  // Déco maison (parfum d'ambiance ≠ parfum beauté)
+  "diffuseur-parfum", "diffuseur-de-parfum", "parfum-ambiance", "parfum-d-ambiance",
 ];
 
 // Policy 2026-07 : le Coin Beauté agrège les bons plans purs.
