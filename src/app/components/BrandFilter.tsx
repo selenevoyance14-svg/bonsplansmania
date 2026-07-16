@@ -100,7 +100,7 @@ function parsePrice(raw?: string): { now?: string; was?: string; savings?: strin
 
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
 
-export default function BrandFilter({ articles, brands }: { articles: ArticleListItem[]; brands: BrandDef[] }) {
+export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }: { articles: ArticleListItem[]; brands: BrandDef[]; sortBrandsBy?: "count" | "alpha" }) {
   const [visible, setVisible] = useState(PER_PAGE);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortBy>("recent");
@@ -133,8 +133,11 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
     return brands
       .filter((b) => (counts.get(b.key) || 0) > 0)
       .map((b) => ({ ...b, count: counts.get(b.key) || 0 }))
-      .sort((a, b) => b.count - a.count || a.label.localeCompare(b.label));
-  }, [enriched, brands]);
+      .sort((a, b) => {
+        if (sortBrandsBy === "alpha") return a.label.localeCompare(b.label);
+        return b.count - a.count || a.label.localeCompare(b.label);
+      });
+  }, [enriched, brands, sortBrandsBy]);
 
   const hasPriceData = useMemo(() => enriched.some((e) => e.nowNum !== undefined), [enriched]);
 

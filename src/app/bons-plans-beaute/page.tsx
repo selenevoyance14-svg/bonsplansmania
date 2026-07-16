@@ -379,7 +379,7 @@ export default async function BonsPlansBeautePage() {
                 Les bons plans beauté seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={BEAUTE_BRANDS} />
+              <BrandFilter articles={cards} brands={BEAUTE_BRANDS} sortBrandsBy="alpha" />
             )}
           </div>
         </section>
