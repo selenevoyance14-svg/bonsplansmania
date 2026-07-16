@@ -148,7 +148,12 @@ export function getAllArticles(): Article[] {
   _allArticlesCache = getArticleSlugs()
     .map((slug) => getArticleBySlug(slug))
     .filter((a): a is Article => a !== null && a.meta.published)
-    .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
+    .sort((a, b) => {
+      const aExp = isEffectivelyExpired(a.meta);
+      const bExp = isEffectivelyExpired(b.meta);
+      if (aExp !== bExp) return aExp ? 1 : -1;
+      return getEffectiveSortDate(b.meta) - getEffectiveSortDate(a.meta);
+    });
   return _allArticlesCache;
 }
 
