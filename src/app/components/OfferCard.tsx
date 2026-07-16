@@ -39,6 +39,15 @@ export default function OfferCard({ offer }: Props) {
   const affiliateUrl = getOfferAffiliateUrl(offer);
   const expiryLabel = formatDate(offer.expires);
   const typeColor = offerTypeColor(offer.type);
+
+  // Font-size adaptative pour la value : les longs libellés (GRATUITE, CASHBACK,
+  // FIDÉLITÉ, CLUB R…) doivent tenir dans les 130 px de la colonne gauche.
+  const vLen = offer.value.replace(/\s/g, "").length;
+  const valueFontSize =
+    vLen <= 4 ? "clamp(1.5rem, 4vw, 2rem)"
+    : vLen <= 6 ? "clamp(1.2rem, 3.2vw, 1.55rem)"
+    : vLen <= 8 ? "clamp(0.95rem, 2.5vw, 1.2rem)"
+    : "clamp(0.82rem, 2.2vw, 1rem)";
   const typeLabel = offerTypeLabel(offer.type);
   const ctaLabel = offerCtaLabel(offer);
   const isCode = offer.type === "code" && !!offer.code;
@@ -68,7 +77,7 @@ export default function OfferCard({ offer }: Props) {
       <div className="offer-card">
         {/* Colonne gauche : valeur */}
         <div className="offer-card-value" style={{ background: `${typeColor}0d`, borderRight: `2px dashed ${typeColor}33` }}>
-          <div className="offer-card-value-main" style={{ color: typeColor }}>
+          <div className="offer-card-value-main" style={{ color: typeColor, fontSize: valueFontSize }}>
             {offer.value}
           </div>
           {offer.valueLabel && (
@@ -205,7 +214,6 @@ export default function OfferCard({ offer }: Props) {
         }
         .offer-card-value-main {
           font-weight: 900;
-          font-size: clamp(1.5rem, 4vw, 2rem);
           line-height: 1;
           letter-spacing: -0.02em;
         }
