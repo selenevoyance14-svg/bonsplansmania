@@ -6,7 +6,7 @@ import path from "node:path";
 import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
-const CODES_PAGE = path.join(process.cwd(), "src", "app", "codes-promo-permanents", "page.tsx");
+const PERMANENTS_DATA = path.join(process.cwd(), "src", "lib", "codes-permanents-data.ts");
 const OUT_FILE = path.join(process.cwd(), "functions", "data", "affiliate-mapping.json");
 
 type Row = { url: string; label?: string };
@@ -30,26 +30,20 @@ function collectMdx(mapping: Record<string, Row>): number {
   return count;
 }
 
-// Parse la page codes-promo-permanents pour extraire brand + affiliateUrl.
-// Le brand → slug côté featured est fait en kebab-case pour matcher le teaser homepage.
+// Parse src/lib/codes-permanents-data.ts pour extraire brandSlug + affiliateUrl
+// de chaque offre permanente. Les slugs sont utilisés côté featured teaser
+// (permanent-codes-featured.ts) via /go/permanent-<brandSlug>.
 function collectPermanentCodes(mapping: Record<string, Row>): number {
-  if (!fs.existsSync(CODES_PAGE)) return 0;
-  const src = fs.readFileSync(CODES_PAGE, "utf8");
-  // Match chaque bloc { ... } contenant brand: "..." et affiliateUrl: "..."
-  const blockRegex = /brand:\s*"([^"]+)"[\s\S]*?affiliateUrl:\s*"([^"]+)"/g;
+  if (!fs.existsSync(PERMANENTS_DATA)) return 0;
+  const src = fs.readFileSync(PERMANENTS_DATA, "utf8");
+  // Match chaque bloc contenant brandSlug: "..." et affiliateUrl: "..."
+  const blockRegex = /brandSlug:\s*"([^"]+)"[\s\S]*?affiliateUrl:\s*"([^"]+)"/g;
   let count = 0;
   let m: RegExpExecArray | null;
   while ((m = blockRegex.exec(src)) !== null) {
-    const brand = m[1];
+    const slug = m[1];
     const url = m[2];
     if (!/^https?:\/\//i.test(url)) continue;
-    const slug = brand
-      .toLowerCase()
-      .normalize("NFD")
-      .replace(/[̀-ͯ]/g, "")
-      .replace(/'/g, "")
-      .replace(/[^a-z0-9]+/g, "-")
-      .replace(/^-+|-+$/g, "");
     if (!slug) continue;
     mapping[`permanent-${slug}`] = { url };
     count++;

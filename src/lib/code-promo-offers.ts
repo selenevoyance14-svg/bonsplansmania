@@ -12,7 +12,8 @@ export type OfferType = "code" | "offre" | "soldes" | "cashback" | "livraison" |
 
 export interface CodePromoOffer {
   id: string;                    // unique
-  brandSlug: string;             // référence à CODE_PROMO_BRANDS
+  brandSlug: string;             // référence à CODE_PROMO_BRANDS (sinon utilise brandName)
+  brandName?: string;            // override du nom marque si brandSlug n'est pas dans CODE_PROMO_BRANDS
   type: OfferType;
   value: string;                 // gros label à gauche : "-70 %", "10 €", "1=2"
   valueLabel?: string;           // sous-ligne petite : "SOLDES", "OFFERTS", etc.
@@ -20,6 +21,7 @@ export interface CodePromoOffer {
   code?: string;                 // révélé au clic (uniquement si type === "code")
   affiliateUrl?: string;         // override du brand affiliateUrl
   expires?: string;              // ISO YYYY-MM-DD ; absent = permanent
+  permanent?: boolean;           // affiche badge "♾️ Permanent" (à utiliser pour /codes-promo-permanents)
   conditions?: string;           // texte accordion
   featured?: boolean;            // remonte en tête de liste
 }

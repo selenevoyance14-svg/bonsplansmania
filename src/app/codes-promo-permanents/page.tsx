@@ -3,6 +3,8 @@ import { ChevronRight, BadgeCheck, Infinity as InfinityIcon } from "lucide-react
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import OfferGrid from "@/app/components/OfferGrid";
+import { CODES_PERMANENTS_OFFERS } from "@/lib/codes-permanents-data";
 
 export const metadata: Metadata = {
   title: "Codes promo permanents : les réductions valables toute l'année (2026)",
@@ -16,366 +18,6 @@ export const metadata: Metadata = {
     url: "https://bonsplansmania.fr/codes-promo-permanents",
   },
 };
-
-interface PermanentCode {
-  brand: string;
-  category: string;
-  offer: string;
-  conditions: string;
-  affiliateUrl: string;
-  affiliateLabel: string;
-  articleSlug?: string;
-  color: string;
-}
-
-const CODES: PermanentCode[] = [
-  {
-    brand: "A-demain",
-    category: "Mode",
-    offer: "-10% sur la 1ère commande via inscription newsletter (mode éco-responsable, créateurs)",
-    conditions: "Inscription newsletter A-demain pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://a-demain.shop/?utm_medium=affiliation&utm_support=affilae&utm_source=blog&utm_campaign=bonsplansmania&ae=232",
-    affiliateLabel: "Voir A-demain",
-    color: "#8B5CF6",
-  },
-  {
-    brand: "Adopt'",
-    category: "Parfumerie",
-    offer: "-20% sur la 1ère commande via inscription newsletter (parfums français accessibles, soin, maquillage)",
-    conditions: "Inscription newsletter Adopt' pour recevoir le code -20%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://lb.affilae.com/r/?p=678fab80242409f9262715e4&af=65&lp=https%3A%2F%2Fwww.adopt.com%2Ffr%3Futm_source%3Daffilae%26utm_medium%3Dcodes-promos%26utm_campaign%3Dbonsplansmania",
-    affiliateLabel: "Voir Adopt'",
-    color: "#EAB308",
-  },
-  {
-    brand: "Afibel",
-    category: "Mode",
-    offer: "10€ offerts à l'inscription à la newsletter + nouveautés et offres exclusives en avant-première",
-    conditions: "Inscription newsletter gratuite. 10€ utilisables dès la 1ère commande (montant minimum à vérifier).",
-    affiliateUrl: "https://fnty.co/c/r-QlYSYsPC",
-    affiliateLabel: "Voir Afibel",
-    color: "#A21CAF",
-  },
-  {
-    brand: "Amazon Prime",
-    category: "Multi-catégories",
-    offer: "30 jours d'essai gratuit + livraison rapide illimitée + Prime Video + Prime Reading",
-    conditions: "Essai 30 jours, puis 6,99€/mois ou 69,90€/an. Annulable à tout moment.",
-    affiliateUrl: "https://amzn.to/4dMkVTW",
-    affiliateLabel: "Tester Amazon Prime",
-    color: "#FF9900",
-  },
-  {
-    brand: "Beauty Success",
-    category: "Parfumerie & Beauté",
-    offer: "-20% sur la 1ère commande via inscription newsletter (parfums, soin, maquillage)",
-    conditions: "Inscription newsletter Beauty Success pour recevoir le code -20%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2F",
-    affiliateLabel: "Voir Beauty Success",
-    color: "#E91E63",
-  },
-  {
-    brand: "Belle au Naturel",
-    category: "Box Beauté Bio",
-    offer: "Box bio à -50% sur la 1ère commande + 5€ offerts via parrainage + livraison incluse",
-    conditions: "Parrainage : l'inviteur reçoit 5€ une fois la 1ère box validée. Sans engagement.",
-    affiliateUrl: "https://www.belleaunaturel.fr/code-parrainage?code=NL3P62NT",
-    affiliateLabel: "Voir Belle au Naturel",
-    articleSlug: "belle-au-naturel-box-beaute-bio-parrainage-2026",
-    color: "#84CC16",
-  },
-  {
-    brand: "BZB / Bizzbee",
-    category: "Mode",
-    offer: "Programme Pass fidélité gratuit : bons d'achat à chaque commande, -25% anniversaire, loteries mensuelles",
-    conditions: "Inscription Pass gratuite en magasin ou en ligne. Cumul automatique des points sur chaque achat.",
-    affiliateUrl: "https://www.b-z-b.com/programme-de-fidelite.html",
-    affiliateLabel: "Voir BZB / Bizzbee",
-    articleSlug: "bon-plan-bzb-bizzbee-programme-fidelite-pass-2026",
-    color: "#DB2777",
-  },
-  {
-    brand: "Cdiscount",
-    category: "High-Tech & Maison",
-    offer: "-10€ dès 50€ d'achat sur la 1ère commande avec le code HELLO10 + livraison gratuite avec Cdiscount à Volonté",
-    conditions: "Code HELLO10 valable pour les nouveaux clients (panier mini 50€). Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/4dJ6jB6",
-    affiliateLabel: "Voir Cdiscount",
-    articleSlug: "bon-plan-cdiscount-amenagement-exterieur-fete-meres-codes-promo-mai-2026",
-    color: "#1D4ED8",
-  },
-  {
-    brand: "Clarins",
-    category: "Beauté Luxe",
-    offer: "-20% sur la 1ère commande via inscription newsletter + cadeaux échantillons",
-    conditions: "Inscription newsletter Clarins pour recevoir le code -20%. Soin visage, corps, maquillage.",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr",
-    affiliateLabel: "Voir Clarins",
-    color: "#D72638",
-  },
-  {
-    brand: "Damart",
-    category: "Mode",
-    offer: "-20€ sur la 1ère commande via inscription newsletter (vêtements femme, homme, enfant, linge de maison)",
-    conditions: "Inscription newsletter Damart pour recevoir le code -20€. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
-    affiliateLabel: "Voir Damart",
-    color: "#0F766E",
-  },
-  {
-    brand: "Daxon",
-    category: "Mode",
-    offer: "15€ offerts sur la 1ère commande via inscription newsletter + avantages exclusifs et bons plans mode",
-    conditions: "Inscription newsletter gratuite. 15€ utilisables dès la 1ère commande (montant minimum à vérifier).",
-    affiliateUrl: "https://fnty.co/c/r-nCqxZeUT",
-    affiliateLabel: "Voir Daxon",
-    color: "#1E3A8A",
-  },
-  {
-    brand: "Demain Beauty",
-    category: "Beauté",
-    offer: "-10% sur la 1ère commande via newsletter",
-    conditions: "Inscription newsletter Demain Beauty pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://demainbeauty.com/?ae=115",
-    affiliateLabel: "Voir Demain Beauty",
-    color: "#FB7185",
-  },
-  {
-    brand: "Dr Pierre Ricaud",
-    category: "Beauté",
-    offer: "-50% sur la 1ère commande + cadeau de bienvenue + livraison offerte dès 49€",
-    conditions: "Offre nouvelle cliente. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/3UFSiN5",
-    affiliateLabel: "Voir Dr Pierre Ricaud",
-    color: "#7C3AED",
-  },
-  {
-    brand: "eBuyclub",
-    category: "Cashback",
-    offer: "Cashback sur 2 500+ marchands + 3€ offerts à l'inscription + coupons remboursés jusqu'à 60% sur les courses",
-    conditions: "Inscription gratuite. Bonus 3€ crédité après la 1ère commande validée.",
-    affiliateUrl: "https://www.ebuyclub.com/",
-    affiliateLabel: "Voir eBuyclub",
-    articleSlug: "bon-plan-ebuyclub-cashback-2500-marchands-3-euros-offerts-2026",
-    color: "#2563EB",
-  },
-  {
-    brand: "E.Leclerc",
-    category: "High-Tech & Bricolage",
-    offer: "Codes promo permanents sur les rayons high-tech (-100€ sur PC portables, -50€ électroménager) + 10% remboursés en bons d'achat",
-    conditions: "Carte de fidélité E.Leclerc nécessaire pour les bons d'achat (gratuite).",
-    affiliateUrl: "https://tidd.ly/4denv32",
-    affiliateLabel: "Voir E.Leclerc",
-    color: "#F97316",
-  },
-  {
-    brand: "Greenweez",
-    category: "Bio & Écologique",
-    offer: "-10% sur la 1ère commande + livraison offerte dès 39€ avec le code BIENVENUE2026",
-    conditions: "Code valable pour les nouveaux clients. Cumulable avec promos en cours. Bio alimentaire, cosmétique, maison écologique.",
-    affiliateUrl: "https://www.greenweez.com/?utm_source=affilae&utm_medium=affiliation&utm_campaign=bonsplansmania&ae=344",
-    affiliateLabel: "Voir Greenweez",
-    color: "#76B82A",
-  },
-  {
-    brand: "iGraal",
-    category: "Cashback",
-    offer: "Cashback de 1 à 20% sur 2000+ boutiques (Sephora, Amazon, Cdiscount, Zalando, etc.) + 3€ de bonus à l'inscription",
-    conditions: "Inscription gratuite. Cumulable avec tous les codes promo des marques.",
-    affiliateUrl: "https://www.igraal.com/?parrain_id=instantgagnantduweb",
-    affiliateLabel: "Voir iGraal",
-    color: "#10B981",
-  },
-  {
-    brand: "L'Atelier du Sourcil",
-    category: "Beauté",
-    offer: "-10% sur la 1ère commande via newsletter + livraison offerte dès 50€",
-    conditions: "Code reçu par e-mail après inscription. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/43vh4Wd",
-    affiliateLabel: "Voir L'Atelier du Sourcil",
-    articleSlug: "code-promo-atelier-du-sourcil-revitalash-revitabrow-soin-cils-sourcils-mai-2026",
-    color: "#C026D3",
-  },
-  {
-    brand: "Le Rouge Français",
-    category: "Beauté Bio",
-    offer: "-15% sur la 1ère commande via inscription newsletter (rouges à lèvres bio naturels made in France)",
-    conditions: "Inscription newsletter Le Rouge Français pour recevoir le code -15%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/40eZAKO",
-    affiliateLabel: "Voir Le Rouge Français",
-    color: "#DC2626",
-  },
-  {
-    brand: "Léa Nature",
-    category: "Bio & Naturel",
-    offer: "-10% sur la 1ère commande via newsletter (So'Bio Étic, Boho Green, Florame, Jonzac, Jardin Bio…)",
-    conditions: "Inscription newsletter Léa Nature pour recevoir le code par e-mail. Cumulable avec promos en cours.",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2F",
-    affiliateLabel: "Voir Léa Nature",
-    color: "#4D7C0F",
-  },
-  {
-    brand: "Les Créateurs Bio",
-    category: "Bio & Anti-Gaspi",
-    offer: "-5% sur la 1ère commande via newsletter + jusqu'à -50% en permanence sur la section anti-gaspi",
-    conditions: "Inscription newsletter pour le -5%. Section anti-gaspi accessible toute l'année sans code (produits DLC proche).",
-    affiliateUrl: "https://clk.tradedoubler.com/click?p=351766&a=3421259&url=https%3A%2F%2Fcreateursbio.fr%2F",
-    affiliateLabel: "Voir Les Créateurs Bio",
-    color: "#16A34A",
-  },
-  {
-    brand: "Magnifaïk",
-    category: "Beauté",
-    offer: "-10% sur la 1ère commande via inscription newsletter",
-    conditions: "Inscription newsletter Magnifaïk pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/44n99Jx",
-    affiliateLabel: "Voir Magnifaïk",
-    color: "#7C2D12",
-  },
-  {
-    brand: "Mieux que des fleurs",
-    category: "Cadeaux Gourmands",
-    offer: "-10% sur la 1ère commande via newsletter (boîtes cadeaux personnalisées, alternatives aux bouquets)",
-    conditions: "Inscription newsletter pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://mieuxquedesfleurs.com/?ae=462",
-    affiliateLabel: "Voir Mieux que des fleurs",
-    color: "#F87171",
-  },
-  {
-    brand: "MiiN Cosmetics",
-    category: "K-Beauty",
-    offer: "10€ offerts sur la 1ère commande via inscription newsletter",
-    conditions: "Inscription newsletter MiiN gratuite. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/3JKQA7H",
-    affiliateLabel: "Voir MiiN Cosmetics",
-    articleSlug: "code-promo-miin-cosmetics-meisani-starter-pack-coreen-mai-2026",
-    color: "#EC4899",
-  },
-  {
-    brand: "News Parfums",
-    category: "Parfums",
-    offer: "Parfums de marque jusqu'à -70% toute l'année + livraison offerte dès 60€",
-    conditions: "Sélection rotative de 500+ parfums. Originaux et flacons éco (sans boîte).",
-    affiliateUrl: "https://fnty.co/c/r-XPuhDdkO",
-    affiliateLabel: "Voir News Parfums",
-    color: "#BE185D",
-  },
-  {
-    brand: "Nubiance",
-    category: "Beauté",
-    offer: "Programme fidélité + parrainage : réductions cumulées sur les soins peaux noires & métissées",
-    conditions: "Inscription newsletter pour code de bienvenue. Points fidélité cumulés à chaque commande.",
-    affiliateUrl: "https://nubiance.fr/pages/programme-de-fidelite-parrainage",
-    affiliateLabel: "Voir Nubiance",
-    articleSlug: "nubiance-programme-fidelite-soin-peau-noire",
-    color: "#92400E",
-  },
-  {
-    brand: "Perfumes Club",
-    category: "Parfumerie",
-    offer: "5€ offerts sur la 1ère commande via inscription newsletter (parfums, soin, maquillage marques premium)",
-    conditions: "Inscription newsletter Perfumes Club pour recevoir les 5€. Cumulable avec promos en cours.",
-    affiliateUrl: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2F",
-    affiliateLabel: "Voir Perfumes Club",
-    color: "#C2410C",
-  },
-  {
-    brand: "Poulpeo",
-    category: "Cashback",
-    offer: "Cashback sur 1 600+ marchands + cashbacks boostés permanents + extension Chrome qui détecte le cashback dispo",
-    conditions: "Inscription gratuite. Cashback validé sous 2-3 mois. Cumulable avec codes promo.",
-    affiliateUrl: "https://www.poulpeo.com/p/UaLtab",
-    affiliateLabel: "Voir Poulpeo",
-    articleSlug: "bon-plan-poulpeo-cashback-boostes-michael-kors-expedia-huawei-mars-2026",
-    color: "#6366F1",
-  },
-  {
-    brand: "Pranarôm",
-    category: "Aromathérapie",
-    offer: "-10% sur la 1ère commande via newsletter (huiles essentielles, aromathérapie scientifique, soins naturels)",
-    conditions: "Inscription newsletter Pranarôm pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://lb.affilae.com/r/?p=6814b22bc71e1ba3064b7ebb&af=978&lp=https%3A%2F%2Fpranarom.fr%2F",
-    affiliateLabel: "Voir Pranarôm",
-    color: "#708B3F",
-  },
-  {
-    brand: "Rakuten",
-    category: "Cashback",
-    offer: "Cashback Club R gratuit toute l'année + Rakuten Points convertibles + opérations boostées Mega Peak Days",
-    conditions: "Inscription gratuite au Club R. Cashback crédité après validation de la commande. Cumulable avec codes promo.",
-    affiliateUrl: "https://fnty.co/c/r-GjssEgPP",
-    affiliateLabel: "Voir Rakuten",
-    articleSlug: "cashback-rakuten-guide-rakuten-points-club-r-gagner-argent-achats-2026",
-    color: "#BF0000",
-  },
-  {
-    brand: "Rougier & Plé",
-    category: "Loisirs Créatifs",
-    offer: "-10% sur la 1ère commande via inscription newsletter (matériel beaux-arts, loisirs créatifs, scrap)",
-    conditions: "Inscription newsletter Rougier & Plé pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://afi.rougier-ple.fr/?P4826957CD2D1B1&redir=https%3A%2F%2Fwww.rougier-ple.fr%2F",
-    affiliateLabel: "Voir Rougier & Plé",
-    color: "#65A30D",
-  },
-  {
-    brand: "Sarenza",
-    category: "Chaussures",
-    offer: "20€ offerts dès 100€ d'achat sur la 1ère commande + offres anniversaire, réveil (-40%), découverte (-30%)",
-    conditions: "Inscription newsletter pour le code bienvenue. Articles expédiés par Sarenza uniquement.",
-    affiliateUrl: "https://lk.gt/aXh1b",
-    affiliateLabel: "Voir Sarenza",
-    articleSlug: "bon-plan-sarenza-offre-mars-jusqu-a-50-pourcent-10-supp-mars-2026",
-    color: "#F59E0B",
-  },
-  {
-    brand: "Shoes.fr",
-    category: "Mode · Chaussures",
-    offer: "5€ offerts sur la 1ère commande via inscription newsletter (chaussures homme, femme, enfant)",
-    conditions: "Inscription newsletter Shoes.fr pour recevoir les 5€. Cumulable avec promos en cours.",
-    affiliateUrl: "https://vkz.shoes.fr/?P51317957CD2D171&redir=https%3A%2F%2Fwww.shoes.fr%2F",
-    affiliateLabel: "Voir Shoes.fr",
-    color: "#1E40AF",
-  },
-  {
-    brand: "Showroom Privé",
-    category: "Mode & Lifestyle",
-    offer: "Ventes privées quotidiennes -30% à -70% sur 200+ marques. Inscription gratuite, accès illimité.",
-    conditions: "Inscription obligatoire (gratuite). Stocks limités, ventes 3 à 7 jours.",
-    affiliateUrl: "https://lk.gt/aGiih",
-    affiliateLabel: "Voir Showroom Privé",
-    articleSlug: "bon-plan-showroomprive-ventes-jour-boss-asics-jimmy-choo-nivea-kinderkraft-mai-2026",
-    color: "#EF4444",
-  },
-  {
-    brand: "Twenty DC",
-    category: "Beauté & Cosmetic Food",
-    offer: "-10% sur la 1ère commande via newsletter (collagène marin Peau Magnifique, Zinc, Oméga 3)",
-    conditions: "Inscription newsletter Twenty DC pour recevoir le code -10%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://osu.twentydc.com/?P51399D57CD2D1F1&redir=https%3A%2F%2Ftwentydc.com%2F",
-    affiliateLabel: "Voir Twenty DC",
-    articleSlug: "twentydc-collagene-marin-complement-beaute-france",
-    color: "#F472B6",
-  },
-  {
-    brand: "Uriage",
-    category: "Dermo-cosmétique",
-    offer: "-15% sur la 1ère commande via newsletter + conseils personnalisés (eau thermale, soin visage, corps, bébé)",
-    conditions: "Inscription newsletter Uriage pour recevoir le code -15%. Cumulable avec promos en cours.",
-    affiliateUrl: "https://ntk.uriage.fr/?P511FDB57CD2D131&redir=https%3A%2F%2Fwww.uriage.fr%2F",
-    affiliateLabel: "Voir Uriage",
-    color: "#00A4B8",
-  },
-  {
-    brand: "Zooplus",
-    category: "Animaux",
-    offer: "-10% sur la 1ère commande + programme fidélité zooPoints + parrainage 250 points (~5€)",
-    conditions: "Inscription newsletter pour le -10%. zooPoints cumulables sur chaque commande (1€ = 1 point, paliers à 200/500/2000 points).",
-    affiliateUrl: "https://tidd.ly/4bvX2g9",
-    affiliateLabel: "Voir Zooplus",
-    articleSlug: "code-promo-zooplus-mars-2026",
-    color: "#0EA5E9",
-  },
-];
 
 const FIDELITE_PROGRAMS = [
   {
@@ -405,61 +47,34 @@ export default function CodesPromoPermanentsPage() {
     <>
       <Header />
       <main>
-        <section style={{ background: "linear-gradient(135deg, #EFF6FF 0%, #F0FDFA 100%)", padding: "40px 0 28px", borderBottom: "2px solid #BAE6FD" }}>
+        <section
+          style={{
+            background: "linear-gradient(135deg, #0EA5A9 0%, #059669 100%)",
+            padding: "44px 0 30px",
+            color: "white",
+          }}
+        >
           <div className="container">
-            <nav className="breadcrumbs">
-              <a href="/">Accueil</a>
+            <nav className="breadcrumbs" style={{ color: "rgba(255,255,255,0.85)" }}>
+              <a href="/" style={{ color: "rgba(255,255,255,0.85)" }}>Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
               <span>Codes promo permanents</span>
             </nav>
-            <h1 style={{ fontSize: "clamp(1.7rem, 4vw, 2.3rem)", fontWeight: 800, marginBottom: "10px", display: "flex", alignItems: "center", gap: "12px" }}>
-              <InfinityIcon size={28} color="#1D4ED8" />
+            <h1 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.5rem)", fontWeight: 900, marginBottom: "10px", letterSpacing: "-0.02em", display: "flex", alignItems: "center", gap: "12px" }}>
+              <InfinityIcon size={30} aria-hidden />
               Codes promo permanents 2026
             </h1>
-            <p style={{ color: "var(--muted-foreground)", fontSize: "1.05rem", maxWidth: "780px" }}>
-              Les <strong>codes promo et offres valables toute l&apos;année</strong> : parrainages, programmes fidélité, réductions de bienvenue, livraisons offertes. À garder sous le coude pour économiser à chaque commande, peu importe la saison.
+            <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", lineHeight: 1.5 }}>
+              <strong>{CODES_PERMANENTS_OFFERS.length} offres valables toute l'année</strong> : parrainages, programmes fidélité, réductions de bienvenue, livraisons offertes.
+              À garder sous le coude pour économiser à chaque commande, peu importe la saison.
             </p>
           </div>
         </section>
 
-        <section className="container" style={{ padding: 0 }}>
-          <AdBlock />
-        </section>
-
-        <section className="section">
+        {/* Mur d'offres permanentes */}
+        <section className="section" style={{ paddingTop: "32px" }}>
           <div className="container">
-            <div className="section-title">
-              <h2>
-                <BadgeCheck size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#1D4ED8" }} />
-                Les réductions valables toute l&apos;année
-              </h2>
-              <p>{CODES.length} marques avec un code permanent ou un programme actif en continu</p>
-            </div>
-
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: "20px" }}>
-              {CODES.map((code) => (
-                <div key={code.brand} style={{ background: "white", border: "1px solid var(--border)", borderRadius: "16px", padding: "22px", display: "flex", flexDirection: "column" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "10px", marginBottom: "10px" }}>
-                    <div style={{ width: "40px", height: "40px", borderRadius: "10px", background: code.color, display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 800, fontSize: "1.2rem" }}>
-                      {code.brand.charAt(0)}
-                    </div>
-                    <div>
-                      <div style={{ fontWeight: 800, fontSize: "1.1rem" }}>{code.brand}</div>
-                      <div style={{ fontSize: "0.78rem", color: "var(--muted-foreground)", textTransform: "uppercase", letterSpacing: "0.04em" }}>{code.category}</div>
-                    </div>
-                  </div>
-                  <p style={{ fontSize: "0.95rem", lineHeight: 1.55, marginBottom: "8px", color: "#1f2937" }}>
-                    <strong>{code.offer}</strong>
-                  </p>
-                  <p style={{ fontSize: "0.82rem", lineHeight: 1.5, color: "var(--muted-foreground)", marginBottom: "14px", flex: 1 }}>
-                    {code.conditions}
-                  </p>
-                  <a href={code.affiliateUrl} target="_blank" rel="nofollow noopener noreferrer" style={{ display: "block", textAlign: "center", padding: "10px 16px", borderRadius: "10px", background: code.color, color: "white", fontWeight: 700, textDecoration: "none", fontSize: "0.92rem" }}>
-                    {code.affiliateLabel} →
-                  </a>
-                </div>
-              ))}
-            </div>
+            <OfferGrid offers={CODES_PERMANENTS_OFFERS} />
           </div>
         </section>
 
@@ -470,7 +85,10 @@ export default function CodesPromoPermanentsPage() {
         <section className="section" style={{ background: "var(--muted)" }}>
           <div className="container">
             <div className="section-title">
-              <h2>Programmes fidélité à connaître</h2>
+              <h2>
+                <BadgeCheck size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#0EA5A9" }} />
+                Programmes fidélité à connaître
+              </h2>
               <p>Gratuit dans tous les cas, cumulable avec les codes promo</p>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "16px", maxWidth: "1100px", margin: "0 auto" }}>

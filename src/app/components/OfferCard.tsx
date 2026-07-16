@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { BadgeCheck, ChevronDown, Copy, Check, ExternalLink, X } from "lucide-react";
+import { BadgeCheck, ChevronDown, Copy, Check, ExternalLink, X, Infinity as InfinityIcon } from "lucide-react";
 import {
   type CodePromoOffer,
   offerCtaLabel,
@@ -35,6 +35,7 @@ export default function OfferCard({ offer }: Props) {
   const [copied, setCopied] = useState(false);
 
   const brand = getOfferBrand(offer);
+  const brandDisplayName = offer.brandName ?? brand?.name;
   const affiliateUrl = getOfferAffiliateUrl(offer);
   const expiryLabel = formatDate(offer.expires);
   const typeColor = offerTypeColor(offer.type);
@@ -84,8 +85,13 @@ export default function OfferCard({ offer }: Props) {
               <BadgeCheck size={13} aria-hidden />
               <span>{typeLabel}</span>
             </div>
-            {brand && <span className="offer-card-brand">{brand.name}</span>}
-            {expiryLabel && (
+            {brandDisplayName && <span className="offer-card-brand">{brandDisplayName}</span>}
+            {offer.permanent && (
+              <span className="offer-card-permanent" title="Valable toute l'année">
+                <InfinityIcon size={11} aria-hidden /> Permanent
+              </span>
+            )}
+            {!offer.permanent && expiryLabel && (
               <span
                 className="offer-card-expiry"
                 style={{
@@ -146,7 +152,7 @@ export default function OfferCard({ offer }: Props) {
               <X size={18} />
             </button>
             <div className="offer-modal-brand" style={{ color: typeColor }}>
-              {brand?.name}
+              {brandDisplayName}
             </div>
             <h4 className="offer-modal-title">{offer.title}</h4>
             <p className="offer-modal-instruction">Copie le code, puis clique sur le bouton pour aller sur le site :</p>
@@ -240,6 +246,21 @@ export default function OfferCard({ offer }: Props) {
         }
         .offer-card-expiry {
           font-size: 0.72rem;
+          margin-left: auto;
+        }
+        .offer-card-permanent {
+          display: inline-flex;
+          align-items: center;
+          gap: 3px;
+          padding: 3px 9px;
+          border-radius: 999px;
+          background: #ECFDF5;
+          color: #059669;
+          font-weight: 800;
+          font-size: 0.66rem;
+          letter-spacing: 0.05em;
+          text-transform: uppercase;
+          border: 1px solid #A7F3D0;
           margin-left: auto;
         }
         .offer-card-title {
