@@ -191,6 +191,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#D97706",
   },
   {
+    slug: "francoise-saget",
+    name: "Françoise Saget",
+    affiliateUrl: "https://aye.francoisesaget.com/?P51279357CD2D191&redir=https%3A%2F%2Fwww.francoisesaget.com%2Ffr-fr%2F",
+    affiliateLabel: "Voir les offres Françoise Saget",
+    matchTags: ["francoise-saget", "francoise saget", "françoise saget"],
+    color: "#1F3A8A",
+  },
+  {
     slug: "glowria",
     name: "Glowria",
     affiliateUrl: "https://c3po.link/QJcVKJrpze",
