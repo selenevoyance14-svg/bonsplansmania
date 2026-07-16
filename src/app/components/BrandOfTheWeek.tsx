@@ -3,9 +3,10 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import ArticleCard from "@/app/components/ArticleCard";
 import { Star, ArrowRight } from "lucide-react";
 
-// Cherche les 4 derniers deals actifs de la marque du moment
-// via le slug (nom présent dans le titre ou dans les tags) — pas de tri complexe,
-// juste une correspondance case-insensitive stable.
+// Cherche les 4 derniers deals actifs de la marque du moment.
+// Matching resserré : la marque doit apparaître dans le TITRE (les tags secondaires
+// suffiraient à faire matcher un multi-marques type "top shampoings" qui mentionne 8 marques,
+// on veut les articles VRAIMENT dédiés à la marque).
 function findBrandArticles(slug: string, name: string, limit = 4) {
   const needle = slug.toLowerCase();
   const needleName = name.toLowerCase();
@@ -14,8 +15,8 @@ function findBrandArticles(slug: string, name: string, limit = 4) {
     .filter((a) => {
       if (isEffectivelyExpired(a.meta)) return false;
       if (a.meta.category !== "bon-plan" && a.meta.category !== "code-promo") return false;
-      const hay = `${a.meta.title} ${(a.meta.tags ?? []).join(" ")}`.toLowerCase();
-      return hay.includes(needle) || hay.includes(needleName);
+      const title = (a.meta.title ?? "").toLowerCase();
+      return title.includes(needle) || title.includes(needleName);
     })
     .slice(0, limit);
 }
