@@ -507,7 +507,7 @@ export default function CodesPromoPermanentsPage() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
-                { href: "/bons-plans-en-cours", label: "Bons plans en cours", desc: "Ventes actives cette semaine", color: "#E63946" },
+                { href: "/bons-plans-en-cours", label: "Bons plans en cours", desc: "Ventes actives cette semaine", color: "#0EA5A9" },
                 { href: "/code-promo", label: "Codes promo par marque", desc: "Toutes nos pages marques", color: "#1D4ED8" },
                 { href: "/categorie/bon-plan", label: "Tous les bons plans", desc: "Archives + actuel", color: "#C2410C" },
                 { href: "/categorie/box-beaute", label: "Box beauté en promo", desc: "Comparatif et codes", color: "#86198F" },

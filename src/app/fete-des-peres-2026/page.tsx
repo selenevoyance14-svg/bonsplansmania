@@ -274,7 +274,7 @@ export default function FeteDesPeres2026Page() {
                 { href: "/categorie/box-beaute", label: "📦 Box beauté & lifestyle", desc: "Toutes nos box du moment", color: "#86198F" },
                 { href: "/categorie/concours", label: "🎁 Tous les concours", desc: "Jeux gratuits actuels", color: "#7C3AED" },
                 { href: "/categorie/code-promo", label: "🏷️ Codes promo", desc: "Réductions actives", color: "#1D4ED8" },
-                { href: "/categorie/bon-plan", label: "🛍️ Tous les bons plans", desc: "Toutes catégories", color: "#E63946" },
+                { href: "/categorie/bon-plan", label: "🛍️ Tous les bons plans", desc: "Toutes catégories", color: "#0EA5A9" },
               ].map((c) => (
                 <a
                   key={c.href}

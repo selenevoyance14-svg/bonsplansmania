@@ -20,7 +20,7 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
       style={{
         margin: "20px 0 28px",
         padding: "18px 18px 20px",
-        background: "linear-gradient(135deg, #FFF7ED 0%, #FFF0F0 100%)",
+        background: "linear-gradient(135deg, #FFF7ED 0%, #ECFEFF 100%)",
         borderRadius: "14px",
         border: "1px solid #FED7AA",
       }}

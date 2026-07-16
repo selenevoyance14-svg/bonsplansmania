@@ -71,7 +71,7 @@ export default function BonsPlansEnCoursPage() {
     <>
       <Header />
       <main>
-        <section style={{ background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", padding: "40px 0 28px", borderBottom: "2px solid #FECDD3" }}>
+        <section style={{ background: "linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)", padding: "40px 0 28px", borderBottom: "2px solid #A5F3FC" }}>
           <div className="container">
             <nav className="breadcrumbs">
               <a href="/">Accueil</a>
@@ -79,13 +79,13 @@ export default function BonsPlansEnCoursPage() {
               <span>Bons plans en cours</span>
             </nav>
             <h1 style={{ fontSize: "clamp(1.7rem, 4vw, 2.3rem)", fontWeight: 800, marginBottom: "10px", display: "flex", alignItems: "center", gap: "12px" }}>
-              <Flame size={28} color="#E63946" />
+              <Flame size={28} color="#0EA5A9" />
               Bons plans en cours cette semaine
             </h1>
             <p style={{ color: "var(--muted-foreground)", fontSize: "1.05rem", maxWidth: "780px", marginBottom: "12px" }}>
               Tous les bons plans, ventes privées et codes promo actifs en ce moment. Cdiscount, Showroom Privé, Sarenza, Amazon, Zooplus, L&apos;Atelier du Sourcil, MiiN Cosmetics et plus. Page mise à jour quotidiennement.
             </p>
-            <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "0.85rem", color: "#6b7280", background: "white", padding: "6px 12px", borderRadius: "20px", border: "1px solid #FECDD3" }}>
+            <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", fontSize: "0.85rem", color: "#6b7280", background: "white", padding: "6px 12px", borderRadius: "20px", border: "1px solid #A5F3FC" }}>
               <Calendar size={14} />
               <span>Mise à jour : {today}</span>
             </div>
@@ -101,7 +101,7 @@ export default function BonsPlansEnCoursPage() {
             <div className="container">
               <div className="section-title" style={{ marginBottom: "20px" }}>
                 <h2>
-                  <Flame size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#E63946" }} />
+                  <Flame size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#0EA5A9" }} />
                   Tous les bons plans actifs cette semaine
                 </h2>
                 <p>Publiés ces 14 derniers jours — filtre par marque pour trouver ton plan</p>
@@ -130,7 +130,7 @@ export default function BonsPlansEnCoursPage() {
                 Chaque jour, on déniche les <strong>meilleurs bons plans, codes promo et ventes privées</strong> du moment. On ne publie que les offres qu&apos;on a vérifiées : <strong>conditions transparentes, prix vraiment réduits, marques fiables</strong>.
               </p>
               <p style={{ marginBottom: "12px", lineHeight: 1.7 }}>
-                Cette page liste <strong>uniquement les bons plans actifs</strong> publiés ces 14 derniers jours. Au-delà, on archive ou on met à jour. Pour les codes promo qui marchent toute l&apos;année, voir notre <a href="/codes-promo-permanents" style={{ color: "#E63946", fontWeight: 700 }}>page Codes promo permanents</a>.
+                Cette page liste <strong>uniquement les bons plans actifs</strong> publiés ces 14 derniers jours. Au-delà, on archive ou on met à jour. Pour les codes promo qui marchent toute l&apos;année, voir notre <a href="/codes-promo-permanents" style={{ color: "#0EA5A9", fontWeight: 700 }}>page Codes promo permanents</a>.
               </p>
               <p style={{ lineHeight: 1.7, marginBottom: 0 }}>
                 <strong>Marques partenaires régulières</strong> : Amazon, Cdiscount, E.Leclerc, Showroom Privé, Sarenza, Zooplus, MiiN Cosmetics, L&apos;Atelier du Sourcil, Dr Pierre Ricaud, News Parfums, Yves Rocher.
@@ -147,7 +147,7 @@ export default function BonsPlansEnCoursPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
                 { href: "/codes-promo-permanents", label: "Codes promo permanents", desc: "Réductions valables toute l'année", color: "#1D4ED8" },
-                { href: "/categorie/bon-plan", label: "Tous les bons plans", desc: "Archives + actuel", color: "#E63946" },
+                { href: "/categorie/bon-plan", label: "Tous les bons plans", desc: "Archives + actuel", color: "#0EA5A9" },
                 { href: "/code-promo", label: "Codes promo par marque", desc: "Sephora, Lookfantastic, YesStyle…", color: "#C2410C" },
                 { href: "/categorie/box-beaute", label: "Box beauté en promo", desc: "My Little Box, Blissim, Biotyfull…", color: "#86198F" },
               ].map((c) => (

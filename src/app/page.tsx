@@ -161,7 +161,7 @@ export default function Home() {
               title="Les bons plans du jour"
               titleEmoji="🔥"
               subtitle="Les promos, réductions et codes actifs — vérifiés à la main."
-              color="#E63946"
+              color="#0EA5A9"
               href="/bons-plans-en-cours"
             />
             <div className="articles-grid articles-grid-4">

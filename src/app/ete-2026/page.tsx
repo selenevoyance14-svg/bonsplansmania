@@ -280,7 +280,7 @@ export default function Ete2026Page() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
                 { href: "/fete-des-peres-2026", label: "🎁 Fête des Pères 2026", desc: "Idées cadeaux 21 juin", color: "#1D4ED8" },
-                { href: "/categorie/bon-plan", label: "🛍️ Tous les bons plans", desc: "Toutes catégories confondues", color: "#E63946" },
+                { href: "/categorie/bon-plan", label: "🛍️ Tous les bons plans", desc: "Toutes catégories confondues", color: "#0EA5A9" },
                 { href: "/categorie/concours", label: "🎁 Concours en cours", desc: "Jeux gratuits, instants gagnants", color: "#7C3AED" },
                 { href: "/categorie/test-gratuit", label: "🆓 Tests gratuits", desc: "Campagnes ambassadrice", color: "#16A34A" },
                 { href: "/categorie/box-beaute", label: "📦 Box beauté", desc: "Blissim, Glowria, Biotyfull…", color: "#86198F" },

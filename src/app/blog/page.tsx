@@ -61,7 +61,7 @@ export default function BlogPage() {
       />
       <Header activePage="/blog" />
       <main>
-        <section style={{ padding: "48px 0 32px", background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)" }}>
+        <section style={{ padding: "48px 0 32px", background: "linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)" }}>
           <div className="container">
             <nav className="breadcrumbs">
               <a href="/">Accueil</a>

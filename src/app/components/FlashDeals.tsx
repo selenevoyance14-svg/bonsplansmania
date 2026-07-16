@@ -19,7 +19,7 @@ export default function FlashDeals({ slug }: { slug: string }) {
         padding: "20px 18px 22px",
         background: "linear-gradient(135deg, #FFF5F5 0%, #FFFAF5 100%)",
         borderRadius: "14px",
-        border: "1px solid #FECDD3",
+        border: "1px solid #A5F3FC",
       }}
     >
       <h2

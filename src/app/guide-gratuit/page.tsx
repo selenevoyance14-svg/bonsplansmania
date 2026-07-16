@@ -114,7 +114,7 @@ export default function GuideGratuit() {
 
           {/* Download form */}
           <div style={{
-            background: "linear-gradient(135deg, #E63946, #C1121F)",
+            background: "linear-gradient(135deg, #0EA5A9, #0B8A8E)",
             borderRadius: "var(--radius-lg)", padding: "40px 32px",
             color: "white", textAlign: "center"
           }}>

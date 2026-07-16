@@ -321,7 +321,7 @@ export default async function ArticlePage({ params }: PageProps) {
             )}
 
             {affiliateUrl !== "#" && (
-              <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", borderRadius: "16px", border: "2px solid #FECDD3" }}>
+              <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)", borderRadius: "16px", border: "2px solid #A5F3FC" }}>
                 <p style={{ fontWeight: 800, fontSize: "1.2rem", marginBottom: "16px", color: "var(--foreground)" }}>Profiter de cette offre</p>
                 <a href={affiliateUrl} className="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" style={{ padding: "14px 32px", fontSize: "1rem" }}>
                   {affiliateLabel} <ExternalLink size={15} />
