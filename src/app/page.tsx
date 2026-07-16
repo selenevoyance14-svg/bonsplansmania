@@ -156,7 +156,7 @@ export default function Home() {
         <section className="section-sm" style={{ paddingTop: "56px", paddingBottom: "12px", background: "linear-gradient(180deg, #FFF6EE 0%, #FFFFFF 100%)" }}>
           <div className="container">
             <SectionHeader
-              badge="Chauds du moment"
+              badge="Notre sélection"
               badgeIcon={<Flame size={12} aria-hidden />}
               title="Les bons plans du jour"
               titleEmoji="🔥"
