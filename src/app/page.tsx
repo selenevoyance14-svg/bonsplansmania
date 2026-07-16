@@ -90,39 +90,39 @@ export default function Home() {
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(105px, 1fr))", gap: "12px" }}>
             {[
               // Catégories iconiques conservées
-              { href: "/bons-plans-jouets",      Icon: ToyBrick,     label: "Coin Jouets",       bg: "#FFFBEB", color: "#F59E0B" },
-              { href: "/categorie/box-beaute",   Icon: ShoppingBag,  label: "Box Beauté",        bg: "#FDF4FF", color: "#86198F" },
+              { href: "/bons-plans-jouets",      Icon: ToyBrick,     label: "Coin Jouets",       color: "#F59E0B" },
+              { href: "/categorie/box-beaute",   Icon: ShoppingBag,  label: "Box Beauté",        color: "#86198F" },
               // Hubs / univers (thèmes)
-              { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       bg: "#FDF2F8", color: "#DB2777" },
-              { href: "/bons-plans-bebe",        Icon: Baby,         label: "Coin Bébé",         bg: "#ECFEFF", color: "#0891B2" },
-              { href: "/bons-plans-ninja",       Icon: Flame,        label: "Coin Ninja",        bg: "#FEF2F2", color: "#DC2626" },
-              { href: "/bons-plans-tech",        Icon: Smartphone,   label: "Coin Tech",         bg: "#EFF6FF", color: "#2563EB" },
-              { href: "/bons-plans-maison",      Icon: HomeIcon,     label: "Coin Maison",       bg: "#F0FDF4", color: "#16A34A" },
-              { href: "/bons-plans-jardin",      Icon: TreePine,     label: "Jardin & Animaux",  bg: "#F7FEE7", color: "#65A30D" },
-              { href: "/bons-plans-mode",        Icon: Shirt,        label: "Coin Mode",         bg: "#FAF5FF", color: "#7C3AED" },
+              { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       color: "#DB2777" },
+              { href: "/bons-plans-bebe",        Icon: Baby,         label: "Coin Bébé",         color: "#0891B2" },
+              { href: "/bons-plans-ninja",       Icon: Flame,        label: "Coin Ninja",        color: "#DC2626" },
+              { href: "/bons-plans-tech",        Icon: Smartphone,   label: "Coin Tech",         color: "#2563EB" },
+              { href: "/bons-plans-maison",      Icon: HomeIcon,     label: "Coin Maison",       color: "#16A34A" },
+              { href: "/bons-plans-jardin",      Icon: TreePine,     label: "Jardin & Animaux",  color: "#65A30D" },
+              { href: "/bons-plans-mode",        Icon: Shirt,        label: "Coin Mode",         color: "#7C3AED" },
             ].map((c) => (
               <a
                 key={c.href}
                 href={c.href}
                 style={{
-                  background: c.bg,
+                  background: "#FFFFFF",
                   borderRadius: "14px",
                   padding: "20px 10px",
                   textDecoration: "none",
-                  border: `1.5px solid ${c.color}22`,
+                  border: "1px solid var(--border)",
                   transition: "all 0.2s",
                   display: "flex",
                   flexDirection: "column",
                   alignItems: "center",
                   justifyContent: "center",
                   textAlign: "center",
-                  gap: "8px",
+                  gap: "10px",
                   minHeight: "108px",
                 }}
                 className="cat-card"
               >
-                {c.Icon ? <c.Icon size={28} color={c.color} aria-hidden /> : null}
-                <div style={{ fontWeight: 700, color: c.color, fontSize: "0.82rem", lineHeight: "1.2" }}>{c.label}</div>
+                {c.Icon ? <c.Icon size={30} color={c.color} aria-hidden /> : null}
+                <div style={{ fontWeight: 700, color: "var(--foreground)", fontSize: "0.85rem", lineHeight: "1.2" }}>{c.label}</div>
               </a>
             ))}
           </div>
@@ -153,7 +153,7 @@ export default function Home() {
 
       {/* ═══ 🔥 LES BONS PLANS DU MOMENT (top revenue — remonté en 2e position) ═══ */}
       {topDeals.length > 0 && (
-        <section className="section-sm" style={{ paddingTop: "56px", paddingBottom: "12px", background: "linear-gradient(180deg, #FFF6EE 0%, #FFFFFF 100%)" }}>
+        <section className="section-sm" style={{ paddingTop: "56px", paddingBottom: "12px", background: "linear-gradient(180deg, #ECFEFF 0%, #FFFFFF 100%)" }}>
           <div className="container">
             <SectionHeader
               badge="Notre sélection"
