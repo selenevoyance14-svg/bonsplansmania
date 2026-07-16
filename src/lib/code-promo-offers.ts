@@ -269,6 +269,23 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     expires: "2026-07-19",
     conditions: "Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 359 €.",
   },
+  // ============================================================
+  // CDISCOUNT — code Philips exclusif juillet 2026
+  // ============================================================
+  {
+    id: "cdiscount-15d89philips",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-15 €",
+    valueLabel: "PHILIPS",
+    title: "-15 € dès 89 € de produits Philips sur Cdiscount (cumulable)",
+    code: "15D89PHILIPS",
+    expires: "2026-07-31",
+    featured: true,
+    conditions: "Code exclusif produits Philips. Cumulable avec les remises produits déjà appliquées. Palier mini 89 € Philips. Vérifie la date d'expiration en caisse.",
+    affiliateUrl: "https://tidd.ly/4dJ6jB6",
+  },
+
   {
     id: "aliexpress-frvs60",
     brandSlug: "aliexpress",
