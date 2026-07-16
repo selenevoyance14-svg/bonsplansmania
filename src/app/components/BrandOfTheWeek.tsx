@@ -3,17 +3,23 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import ArticleCard from "@/app/components/ArticleCard";
 import { Sparkles, ArrowRight } from "lucide-react";
 
-// Matching resserré : la marque doit apparaître dans le TITRE.
+// Matching resserré : la marque doit apparaître dans le SLUG (l'URL) — les articles
+// vraiment dédiés à une marque ont son nom dans leur slug. Les articles multi-marques
+// (ex : "Avis Beauté Privée : Clarins, Nuxe, L'Occitane…") ne matchent pas car leur
+// slug ne contient pas "nuxe" isolé.
 function findBrandArticles(slug: string, name: string, limit = 4) {
-  const needle = slug.toLowerCase();
-  const needleName = name.toLowerCase();
+  const needleSlug = slug.toLowerCase();
+  const needleName = name.toLowerCase().replace(/'/g, "");
   const all = getAllArticles();
   return all
     .filter((a) => {
       if (isEffectivelyExpired(a.meta)) return false;
       if (a.meta.category !== "bon-plan" && a.meta.category !== "code-promo") return false;
-      const title = (a.meta.title ?? "").toLowerCase();
-      return title.includes(needle) || title.includes(needleName);
+      const articleSlug = (a.meta.slug ?? "").toLowerCase();
+      // Le slug doit contenir la marque comme "mot" séparé par des tirets
+      // (ex "meilleurs-bons-plans-nuxe-2026" ✅ / "beaute-privee-…" ❌).
+      const re = new RegExp(`(^|-)(${needleSlug}|${needleName})(-|$)`);
+      return re.test(articleSlug);
     })
     .slice(0, limit);
 }
