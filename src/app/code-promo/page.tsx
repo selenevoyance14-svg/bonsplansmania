@@ -1,57 +1,109 @@
 import type { Metadata } from "next";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, Tag } from "lucide-react";
 import Header from "@/app/components/Header";
-import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
 import AdBlock from "@/app/components/AdBlock";
+import OfferGrid from "@/app/components/OfferGrid";
+import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
+import { getActiveOffers } from "@/lib/code-promo-offers";
 
 export const metadata: Metadata = {
-  title: "Codes promo et bons plans : toutes les marques — BonsPlansMania",
-  description: "Tous les codes promo, bons plans et réductions des grandes marques beauté, mode et lifestyle : Sephora, Yves Rocher, Lookfantastic, YesStyle, Blissim et plus.",
+  title: "Codes promo et bons plans du moment | BonsPlansMania",
+  description: "Tous les codes promo, offres, ventes privées et cashback des grandes marques beauté, mode et lifestyle. Mis à jour chaque jour.",
   alternates: { canonical: "https://bonsplansmania.fr/code-promo" },
 };
 
 export default function CodePromoIndexPage() {
+  const activeOffers = getActiveOffers();
+
   return (
     <>
       <Header />
       <main>
-        <section style={{ background: "linear-gradient(135deg, #FFF0F0 0%, #FFF8F0 100%)", padding: "40px 0 28px", borderBottom: "2px solid #FECDD3" }}>
+        {/* Hero */}
+        <section
+          style={{
+            background: "linear-gradient(135deg, #0EA5A9 0%, #0891A5 100%)",
+            padding: "44px 0 30px",
+            color: "white",
+          }}
+        >
           <div className="container">
-            <nav className="breadcrumbs">
-              <a href="/">Accueil</a>
+            <nav className="breadcrumbs" style={{ color: "rgba(255,255,255,0.85)" }}>
+              <a href="/" style={{ color: "rgba(255,255,255,0.85)" }}>Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
               <span>Codes promo</span>
             </nav>
-            <h1 style={{ fontSize: "clamp(1.7rem, 4vw, 2.3rem)", fontWeight: 800, marginBottom: "10px" }}>
-              Codes promo et bons plans toutes marques
+            <h1 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.5rem)", fontWeight: 900, marginBottom: "10px", letterSpacing: "-0.02em" }}>
+              Codes promo et bons plans du moment
             </h1>
-            <p style={{ color: "var(--muted-foreground)", fontSize: "1.05rem", maxWidth: "780px" }}>
-              Sélection de codes promo actualisés, ventes privées et bons plans des grandes marques beauté, mode et lifestyle. Mis à jour régulièrement.
+            <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", lineHeight: 1.5 }}>
+              <strong>{activeOffers.length} offres actives</strong> triées et vérifiées : soldes, codes promo, cashback, livraison offerte, ventes privées.
+              Mis à jour chaque jour par notre équipe.
             </p>
           </div>
         </section>
 
-        <section className="container" style={{ padding: 0 }}>
+        {/* Mur d'offres */}
+        <section className="section" style={{ paddingTop: "32px" }}>
+          <div className="container">
+            <OfferGrid offers={activeOffers} />
+          </div>
+        </section>
+
+        <section className="container" style={{ padding: "0" }}>
           <AdBlock />
         </section>
 
-        <section className="section">
+        {/* Grid marques : découvrir toutes les marques */}
+        <section className="section-sm" style={{ background: "#FAFAFA", borderTop: "1px solid var(--border)", marginTop: "20px" }}>
           <div className="container">
-            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: "20px" }}>
+            <div style={{ marginBottom: "22px" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#0EA5A911", color: "#0EA5A9", padding: "5px 12px", borderRadius: "999px", fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "10px" }}>
+                <Tag size={12} aria-hidden /> Toutes les marques
+              </div>
+              <h2 style={{ margin: 0, fontSize: "clamp(1.4rem, 3.5vw, 1.8rem)", fontWeight: 800, letterSpacing: "-0.01em" }}>
+                Explore {CODE_PROMO_BRANDS.length} marques partenaires
+              </h2>
+              <p style={{ margin: "6px 0 0", color: "var(--muted-foreground)", fontSize: "0.95rem" }}>
+                Clique sur une marque pour voir tous ses bons plans, tests et articles.
+              </p>
+            </div>
+
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "10px" }}>
               {CODE_PROMO_BRANDS.map((brand) => (
-                <a key={brand.slug} href={`/code-promo/${brand.slug}`} style={{ textDecoration: "none", background: "white", border: "1px solid var(--border)", borderRadius: "16px", padding: "24px", transition: "transform 0.15s, box-shadow 0.15s", display: "block" }}>
-                  <div style={{ width: "44px", height: "44px", borderRadius: "12px", background: brand.color, marginBottom: "14px", display: "flex", alignItems: "center", justifyContent: "center", color: "white", fontWeight: 800, fontSize: "1.3rem" }}>
+                <a
+                  key={brand.slug}
+                  href={`/code-promo/${brand.slug}`}
+                  style={{
+                    textDecoration: "none",
+                    background: "white",
+                    border: "1px solid var(--border)",
+                    borderRadius: "10px",
+                    padding: "14px 14px",
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "12px",
+                    transition: "border-color 0.15s, transform 0.15s",
+                  }}
+                >
+                  <span
+                    style={{
+                      width: "34px",
+                      height: "34px",
+                      borderRadius: "8px",
+                      background: brand.color,
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      color: "white",
+                      fontWeight: 800,
+                      fontSize: "1rem",
+                      flexShrink: 0,
+                    }}
+                  >
                     {brand.name.charAt(0)}
-                  </div>
-                  <div style={{ fontWeight: 800, fontSize: "1.1rem", marginBottom: "6px", color: "var(--foreground)" }}>
-                    Code promo {brand.name}
-                  </div>
-                  <div style={{ fontSize: "0.88rem", color: "var(--muted-foreground)", marginBottom: "12px", lineHeight: 1.5 }}>
-                    Voir tous nos articles {brand.name}
-                  </div>
-                  <span style={{ color: brand.color, fontWeight: 700, fontSize: "0.85rem" }}>
-                    Voir les offres →
                   </span>
+                  <span style={{ color: "var(--foreground)", fontWeight: 700, fontSize: "0.92rem" }}>{brand.name}</span>
                 </a>
               ))}
             </div>
