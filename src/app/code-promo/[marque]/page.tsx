@@ -60,22 +60,39 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
       <Header />
 
       <main>
-        <section style={{ background: `linear-gradient(135deg, ${brand.color}22 0%, ${brand.color}11 100%)`, padding: "40px 0 32px", borderBottom: `2px solid ${brand.color}33` }}>
+        <section style={{ background: "linear-gradient(135deg, #0EA5A9 0%, #0891A5 100%)", padding: "44px 0 30px", color: "white" }}>
           <div className="container">
-            <nav className="breadcrumbs">
-              <a href="/">Accueil</a>
+            <nav className="breadcrumbs" style={{ color: "rgba(255,255,255,0.85)" }}>
+              <a href="/" style={{ color: "rgba(255,255,255,0.85)" }}>Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <a href="/code-promo">Codes promo</a>
+              <a href="/code-promo" style={{ color: "rgba(255,255,255,0.85)" }}>Codes promo</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
               <span>{brand.name}</span>
             </nav>
-            <h1 style={{ fontSize: "clamp(1.6rem, 4vw, 2.2rem)", fontWeight: 800, marginBottom: "10px" }}>
+            <h1 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.5rem)", fontWeight: 900, marginBottom: "10px", letterSpacing: "-0.02em" }}>
               Bons plans et codes promo {brand.name}
             </h1>
-            <p style={{ color: "var(--muted-foreground)", fontSize: "1rem", maxWidth: "780px", marginBottom: "20px" }}>
-              {active.length} bon{active.length > 1 ? "s" : ""} plan{active.length > 1 ? "s" : ""} en cours, mis à jour régulièrement.
+            <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", marginBottom: "20px", lineHeight: 1.5 }}>
+              <strong>{active.length} bon{active.length > 1 ? "s" : ""} plan{active.length > 1 ? "s" : ""}</strong> en cours, mis à jour régulièrement.
             </p>
-            <a href={brand.affiliateUrl} target="_blank" rel="nofollow sponsored noopener" className="btn btn-primary" style={{ padding: "12px 26px", fontSize: "1rem" }}>
+            <a
+              href={brand.affiliateUrl}
+              target="_blank"
+              rel="nofollow sponsored noopener"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "6px",
+                background: "white",
+                color: "#0EA5A9",
+                padding: "12px 26px",
+                borderRadius: "999px",
+                fontWeight: 800,
+                fontSize: "1rem",
+                textDecoration: "none",
+                boxShadow: "0 8px 18px -6px rgba(0,0,0,0.2)",
+              }}
+            >
               {brand.affiliateLabel} <ExternalLink size={15} />
             </a>
           </div>
@@ -146,7 +163,7 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
 
         <NewsletterInline />
 
-        <section className="section-sm" style={{ background: `linear-gradient(135deg, ${brand.color}22 0%, ${brand.color}11 100%)`, padding: "32px 0", marginTop: "32px" }}>
+        <section className="section-sm" style={{ background: "linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)", padding: "32px 0", marginTop: "32px" }}>
           <div className="container" style={{ textAlign: "center" }}>
             <a href={brand.affiliateUrl} target="_blank" rel="nofollow sponsored noopener" className="btn btn-primary" style={{ padding: "14px 30px", fontSize: "1rem" }}>
               {brand.affiliateLabel} <ExternalLink size={15} />
