@@ -77,6 +77,7 @@ export default function Header({ activePage }: { activePage?: string }) {
                 </div>
               )}
             </div>
+            <a href="/code-promo" className={activePage === "/code-promo" ? "active" : ""}>🏷️ Codes promo</a>
             <a href="/categorie/concours" className={activePage === "/concours" ? "active" : ""}>Concours</a>
             <div className="nav-dropdown" ref={dropdownRef}>
               <button
@@ -148,6 +149,7 @@ export default function Header({ activePage }: { activePage?: string }) {
             <a href="/categorie/test-gratuit" onClick={() => setMobileOpen(false)}>Tests Gratuits</a>
             <a href="/categorie/test-avis" onClick={() => setMobileOpen(false)}>Tests & Avis</a>
           </div>
+          <a href="/code-promo" onClick={() => setMobileOpen(false)}>🏷️ Codes promo</a>
           <a href="/categorie/concours" onClick={() => setMobileOpen(false)}>Concours</a>
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Beauté</span>
