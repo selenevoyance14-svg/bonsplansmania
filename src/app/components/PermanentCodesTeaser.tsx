@@ -81,7 +81,7 @@ export default function PermanentCodesTeaser() {
           }}
         >
           {codes.map((code) => {
-            const dark = shade(code.color, -30);
+            const dark = shade(code.color, -18);
             const highlight = extractHighlight(code.offer);
             return (
               <a
