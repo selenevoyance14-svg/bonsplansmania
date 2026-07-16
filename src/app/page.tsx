@@ -2,11 +2,14 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { Star, Tag, FlaskConical, Trophy, ShoppingBag, Percent, Flame, type LucideIcon, Search, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick } from "lucide-react";
+import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import HeroSearchBar from "@/app/components/HeroSearchBar";
+import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
+import PermanentCodesTeaser from "@/app/components/PermanentCodesTeaser";
 
 export default function Home() {
   const allArticles = getAllArticles();
@@ -27,23 +30,11 @@ export default function Home() {
     .slice(0, 4);
   const topDealSlugs = new Set(topDeals.map((a) => a.meta.slug));
 
-  // Derniers concours & tests : focus sur les concours gratuits et les missions de
-  // test produit (test-gratuit + test-avis), classés par date (les plus récents en
-  // premier via allArticles déjà trié desc).
-  const featured = allArticles
-    .filter((a) =>
-      (a.meta.category === "concours" || a.meta.category === "test-gratuit" || a.meta.category === "test-avis")
-      && !isEffectivelyExpired(a.meta)
-    )
-    .slice(0, 4);
-  const featuredSlugs = new Set(featured.map((a) => a.meta.slug));
-
   // Dernières offres : on exclut tout ce qui est déjà affiché plus haut
   const latest = allArticles
     .filter((a) =>
       !latestBoxSlugs.has(a.meta.slug)
       && !topDealSlugs.has(a.meta.slug)
-      && !featuredSlugs.has(a.meta.slug)
     )
     .slice(0, 24);
 
@@ -78,21 +69,11 @@ export default function Home() {
         <div className="container">
           <h1>Les meilleurs bons plans du moment.</h1>
           <p className="bpm-hero-sub">
-            Chaque jour, on déniche pour vous : échantillons gratuits,
-            réductions, jeux concours et tests de produits beauté.
+            Chaque jour, les codes promo, réductions et cashback
+            à ne pas louper — beauté, mode, tech, maison.
           </p>
 
-          <form action="/recherche" method="get" className="bpm-hero-search" role="search">
-            <input
-              type="search"
-              name="q"
-              placeholder="Une marque, un produit, un mot-clé…"
-              aria-label="Rechercher un bon plan, un test, un concours"
-            />
-            <button type="submit">
-              <Search size={16} aria-hidden /> Chercher
-            </button>
-          </form>
+          <HeroSearchBar />
         </div>
       </section>
 
@@ -171,32 +152,7 @@ export default function Home() {
         </section>
       )}
 
-      {/* ═══ DERNIERS CONCOURS & TESTS ═══ */}
-      {featured.length > 0 && (
-        <section className="section" style={{ background: "var(--muted)" }}>
-          <div className="container">
-            <div className="section-title">
-              <h2>
-                <Star size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "var(--accent)" }} />
-                Derniers concours &amp; tests gratuits
-              </h2>
-              <p>Cadeaux à gagner et produits à tester gratuitement</p>
-            </div>
-            <div className="articles-grid articles-grid-4">
-              {featured.map((article, index) => (
-                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ═══ NEWSLETTER MILIEU ═══ */}
-      <section className="container" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
-        <NewsletterInline />
-      </section>
-
-      {/* ═══ 🔥 LES BONS PLANS DU MOMENT (top revenue) ═══ */}
+      {/* ═══ 🔥 LES BONS PLANS DU MOMENT (top revenue — remonté en 2e position) ═══ */}
       {topDeals.length > 0 && (
         <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%)" }}>
           <div className="container">
@@ -220,6 +176,17 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      {/* ═══ 🌟 MARQUE À L'HONNEUR CETTE SEMAINE ═══ */}
+      <BrandOfTheWeek />
+
+      {/* ═══ NEWSLETTER MILIEU ═══ */}
+      <section className="container" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
+        <NewsletterInline />
+      </section>
+
+      {/* ═══ ♾️ CODES PROMO PERMANENTS (teaser 6 codes) ═══ */}
+      <PermanentCodesTeaser />
 
       {/* ═══ PUB ENTRE VEDETTES ET DERNIERS ═══ */}
       <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
@@ -284,14 +251,12 @@ export default function Home() {
               </ul>
             </div>
             <div>
-              <h4>Hubs saisonniers</h4>
+              <h4>Explorer</h4>
               <ul className="footer-links" role="list">
                 <li><a href="/ete-2026">☀️ Été 2026</a></li>
-                <li><a href="/fete-des-peres-2026">🎁 Fête des Pères 21 juin</a></li>
                 <li><a href="/noel-2026">🎄 Noël 2026</a></li>
-                <li><a href="/blog">Tous les articles</a></li>
-                <li><a href="/guide-gratuit">Guide gratuit</a></li>
                 <li><a href="/marques">Toutes les marques</a></li>
+                <li><a href="/blog">Tous les articles</a></li>
               </ul>
             </div>
             <div>
