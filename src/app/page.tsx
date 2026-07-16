@@ -10,6 +10,8 @@ import StickyAdMobile from "@/app/components/StickyAdMobile";
 import HeroSearchBar from "@/app/components/HeroSearchBar";
 import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
 import PermanentCodesTeaser from "@/app/components/PermanentCodesTeaser";
+import SectionHeader from "@/app/components/SectionHeader";
+import { Newspaper } from "lucide-react";
 
 export default function Home() {
   const allArticles = getAllArticles();
@@ -129,20 +131,17 @@ export default function Home() {
 
       {/* ═══ NOUVELLES BOX BEAUTÉ À DÉCOUVRIR ═══ */}
       {latestBoxes.length > 0 && (
-        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FDF4FF 0%, #FFFFFF 100%)" }}>
+        <section className="section-sm" style={{ paddingTop: "56px", paddingBottom: "12px", background: "linear-gradient(180deg, #FDF4FF 0%, #FFFFFF 100%)" }}>
           <div className="container">
-            <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
-              <div>
-                <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <ShoppingBag size={24} color="#86198F" />
-                  Nouvelles box beauté à découvrir
-                </h2>
-                <p>Les box du mois pour tester de nouveaux produits sans se ruiner</p>
-              </div>
-              <a href="/categorie/box-beaute" className="btn btn-secondary btn-sm">
-                Tout voir →
-              </a>
-            </div>
+            <SectionHeader
+              badge="Nouveautés du mois"
+              badgeIcon={<ShoppingBag size={12} aria-hidden />}
+              title="Box beauté à découvrir"
+              titleEmoji="💄"
+              subtitle="Tester des marques premium sans exploser ton budget."
+              color="#86198F"
+              href="/categorie/box-beaute"
+            />
             <div className="articles-grid articles-grid-4">
               {latestBoxes.map((article, index) => (
                 <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
@@ -154,20 +153,17 @@ export default function Home() {
 
       {/* ═══ 🔥 LES BONS PLANS DU MOMENT (top revenue — remonté en 2e position) ═══ */}
       {topDeals.length > 0 && (
-        <section className="section-sm" style={{ paddingTop: "40px", paddingBottom: "8px", background: "linear-gradient(180deg, #FFF8F0 0%, #FFFFFF 100%)" }}>
+        <section className="section-sm" style={{ paddingTop: "56px", paddingBottom: "12px", background: "linear-gradient(180deg, #FFF6EE 0%, #FFFFFF 100%)" }}>
           <div className="container">
-            <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "12px" }}>
-              <div>
-                <h2 style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                  <Flame size={24} color="#E63946" />
-                  🔥 Les bons plans du moment
-                </h2>
-                <p>Les promos et codes en cours sur les grandes marques</p>
-              </div>
-              <a href="/bons-plans-en-cours" className="btn btn-secondary btn-sm">
-                Tout voir →
-              </a>
-            </div>
+            <SectionHeader
+              badge="Chauds du moment"
+              badgeIcon={<Flame size={12} aria-hidden />}
+              title="Les bons plans du jour"
+              titleEmoji="🔥"
+              subtitle="Les promos, réductions et codes actifs — vérifiés à la main."
+              color="#E63946"
+              href="/bons-plans-en-cours"
+            />
             <div className="articles-grid articles-grid-4">
               {topDeals.map((article, index) => (
                 <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
@@ -194,17 +190,16 @@ export default function Home() {
       </section>
 
       {/* ═══ DERNIERS ARTICLES ═══ */}
-      <section className="section">
+      <section className="section" style={{ paddingTop: "40px" }}>
         <div className="container">
-          <div className="section-title" style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
-            <div>
-              <h2>Dernières offres</h2>
-              <p>Toutes nos publications récentes</p>
-            </div>
-            <a href="/blog" className="btn btn-secondary btn-sm">
-              Tout voir →
-            </a>
-          </div>
+          <SectionHeader
+            badge="Fil actualités"
+            badgeIcon={<Newspaper size={12} aria-hidden />}
+            title="Dernières offres"
+            subtitle="Toutes nos publications récentes, mises à jour au fil de l'eau."
+            color="#334155"
+            href="/blog"
+          />
           {latest.length === 0 ? (
             <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "48px 0" }}>
               Aucun article pour le moment — revenez bientôt !
