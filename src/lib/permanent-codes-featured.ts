@@ -55,4 +55,18 @@ export const FEATURED_PERMANENT_CODES: FeaturedPermanentCode[] = [
     slug: "miin-cosmetics",
     color: "#7C3AED",
   },
+  {
+    brand: "Poulpeo",
+    category: "Cashback",
+    offer: "10 € offerts à l'inscription + cashback boostés sur 3 000 marchands (Sephora, Cdiscount, Fnac).",
+    slug: "poulpeo",
+    color: "#0EA5E9",
+  },
+  {
+    brand: "Clarins",
+    category: "Cosmétique",
+    offer: "Livraison offerte dès 50 € + échantillons gratuits à chaque commande via le site officiel.",
+    slug: "clarins",
+    color: "#DC2626",
+  },
 ];
