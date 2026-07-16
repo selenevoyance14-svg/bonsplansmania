@@ -65,7 +65,10 @@ export default async function ArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const cat = categoryConfig[article.meta.category];
-  const affiliateUrl = article.meta.affiliateUrl || "#";
+  // Le vrai lien affilié n'est PAS injecté dans le HTML : on renvoie /go/<slug>
+  // et Cloudflare Function (functions/go/[slug].ts) fait le 302 vers la vraie destination.
+  const rawAffiliate = article.meta.affiliateUrl || "";
+  const affiliateUrl = /^https?:\/\//i.test(rawAffiliate) ? `/go/${slug}` : "#";
   const affiliateLabel = article.meta.affiliateLabel || "Voir l'offre";
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic

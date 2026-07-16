@@ -269,11 +269,13 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
+              // Le vrai lien affilié reste côté serveur (Cloudflare Function /go/[slug])
+              const affiliateHref = hasExternalAffiliate ? `/go/${article.slug}` : "#";
               const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
                 if (!hasExternalAffiliate) return;
                 e.preventDefault();
                 e.stopPropagation();
-                window.open(article.affiliateUrl!, "_blank", "noopener");
+                window.open(affiliateHref, "_blank", "noopener");
               };
               return (
                 <Fragment key={article.slug}>
@@ -306,7 +308,7 @@ export default function BrandFilter({ articles, brands }: { articles: ArticleLis
                         </div>
                         {hasExternalAffiliate ? (
                           <a
-                            href={article.affiliateUrl!}
+                            href={affiliateHref}
                             target="_blank"
                             rel="nofollow noopener sponsored"
                             onClick={onCtaClick}

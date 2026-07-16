@@ -80,8 +80,10 @@ export default function ArticleCard({
     const isExpired = article.meta.expired === true;
     const { now, was, savings } = parsePrice(article.meta.price);
     const articleHref = `/article/${article.meta.slug}`;
-    const affiliateHref = article.meta.affiliateUrl;
-    const hasExternalAffiliate = !!affiliateHref && /^https?:\/\//.test(affiliateHref);
+    const rawAffiliate = article.meta.affiliateUrl;
+    const hasExternalAffiliate = !!rawAffiliate && /^https?:\/\//.test(rawAffiliate);
+    // On ne laisse JAMAIS le vrai lien affilié dans le HTML : /go/<slug> côté Cloudflare Function fait le 302
+    const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : rawAffiliate;
     const rawImage = article.meta.image ?? "";
     const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : rawImage;
 
