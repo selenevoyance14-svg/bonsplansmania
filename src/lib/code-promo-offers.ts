@@ -708,6 +708,49 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // CARTE NOIRE — soldes d'été café + livraison
+  // ============================================================
+  {
+    id: "carte-noire-cafe30",
+    brandSlug: "carte-noire",
+    type: "code",
+    value: "-30 %",
+    valueLabel: "CAFÉS",
+    title: "-30 % sur tous les cafés Carte Noire avec le code CAFE30",
+    code: "CAFE30",
+    conditions: "-30 % sur la sélection cafés Carte Noire (grains, moulus, capsules) avec le code CAFE30 à saisir au panier.",
+    featured: true,
+  },
+  {
+    id: "carte-noire-accessoires-30",
+    brandSlug: "carte-noire",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "ACCESSOIRES",
+    title: "-30 % sur les accessoires café Carte Noire (tasses, machines, mugs…)",
+    conditions: "-30 % sur la sélection accessoires Carte Noire (tasses, mugs, machines à café, bocaux, plateaux…) directement appliquée en prix, sans code.",
+    featured: true,
+  },
+  {
+    id: "carte-noire-coffrets-gros-formats",
+    brandSlug: "carte-noire",
+    type: "offre",
+    value: "COFFRETS",
+    valueLabel: "GROS FORMATS",
+    title: "Coffrets dégustation et gros formats Carte Noire (grains + capsules)",
+    conditions: "Assortiments avantageux Carte Noire : coffrets dégustation, best sellers et gros formats sur les cafés en grains et en capsules. Offres permanentes disponibles sur cartenoire.fr.",
+  },
+  {
+    id: "carte-noire-livraison-50",
+    brandSlug: "carte-noire",
+    type: "livraison",
+    value: "OFFERTE",
+    valueLabel: "DÈS 50 €",
+    title: "Livraison offerte dès 50 € d'achat (sinon 4,99 €)",
+    conditions: "Livraison Carte Noire : 4,99 € en dessous de 50 € d'achat, offerte à partir de 50 € d'achat. Offre permanente en France métropolitaine.",
+  },
+
+  // ============================================================
   // GREENWEEZ — service permanent
   // ============================================================
   {
@@ -752,7 +795,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "11,90 €",
     valueLabel: "DÈS",
     title: "Sélection de l'été Dr Pierre Ricaud dès 11,90 €",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6373&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Foffres-speciales.htm",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Foffres-speciales.htm",
     expires: "2026-08-24",
     conditions: "Sélection de l'été Dr Pierre Ricaud : produits soin et maquillage à partir de 11,90 €. Offre valable du 29/07/2026 au 24/08/2026 sur ricaud.com.",
     featured: true,
@@ -764,7 +807,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "-45 %",
     valueLabel: "TROUSSES ÉTÉ",
     title: "Trousses d'été Dr Pierre Ricaud jusqu'à -45 %",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6373&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Fessentiels-ete.htm",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Fessentiels-ete.htm",
     expires: "2026-08-24",
     conditions: "Offre flash trousses d'été Dr Pierre Ricaud : jusqu'à -45 % sur la sélection essentiels été. Valable du 29/07/2026 au 24/08/2026 sur ricaud.com.",
     featured: true,
@@ -906,6 +949,49 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
     conditions: "Code exclusif produits Philips. Cumulable avec les remises produits déjà appliquées. Palier mini 89 € Philips. Vérifie la date d'expiration en caisse.",
     affiliateUrl: "https://tidd.ly/4dJ6jB6",
+  },
+  {
+    id: "cdiscount-ventes-a-perte-60",
+    brandSlug: "cdiscount",
+    type: "soldes",
+    value: "-60 %",
+    valueLabel: "VENTES À PERTE",
+    title: "Ventes à perte Cdiscount : jusqu'à -60 % sur tous les rayons",
+    conditions: "Ventes à Perte Cdiscount : décote par magasin — Literie -60 %, Meuble & Déco -59 %, Mode -50 %, Sport -50 %, Jardin -45 %, Jeux Jouet -40 %, Bébé -40 %, Image & Son -30 %, Bricolage -30 %, PGC -30 %, PEM -30 %, Animalerie -30 %, Canapé -28 %, Auto -25 %, Cave -25 %, Info -23 %, Electro -20 %, Téléphonie -20 %, Jeux Vidéo -20 %, GEM -20 %.",
+    featured: true,
+  },
+  {
+    id: "cdiscount-hello10",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "10 €",
+    valueLabel: "1ʳᵉ CDE",
+    title: "10 € offerts dès 50 € d'achat pour ta 1ʳᵉ commande (code HELLO10)",
+    code: "HELLO10",
+    conditions: "Code de bienvenue Cdiscount : 10 € offerts dès 50 € d'achat pour toute première commande. Non cumulable avec d'autres offres spécifiques marque.",
+    featured: true,
+  },
+  {
+    id: "cdiscount-vacancelego-50",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-50 %",
+    valueLabel: "2ᵉ LEGO",
+    title: "2ᵉ jeu LEGO à -50 % avec le code VACANCELEGO",
+    code: "VACANCELEGO",
+    conditions: "Opération LEGO Cdiscount : le 2ᵉ jeu LEGO acheté à -50 % avec le code VACANCELEGO. La remise s'applique sur le moins cher des deux. Sélection LEGO éligible sur la landing Cdiscount.",
+    featured: true,
+  },
+  {
+    id: "cdiscount-15des129",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-15 €",
+    valueLabel: "DÈS 129 €",
+    title: "15 € offerts dès 129 € d'achat avec le code 15DES129 (dernier jour)",
+    code: "15DES129",
+    expires: "2026-07-17",
+    conditions: "Code 15DES129 : 15 € offerts dès 129 € d'achat sur Cdiscount. Offre courte : se termine ce soir 17/07/2026 à minuit.",
   },
 
   {
