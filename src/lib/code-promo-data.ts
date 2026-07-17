@@ -17,7 +17,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "a-demain",
     name: "A Demain",
-    affiliateUrl: "https://c3po.link/QhQZDwUZWM",
+    affiliateUrl: "https://a-demain.shop/?utm_medium=affiliation&utm_support=affilae&utm_source=blog&utm_campaign=bonsplansmania&ae=232",
     affiliateLabel: "Voir les offres A Demain",
     matchTags: ["a-demain", "a demain"],
     color: "#1F2937",
@@ -135,6 +135,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#C9302C",
   },
   {
+    slug: "cosmechic",
+    name: "Cosmé'Chic",
+    affiliateUrl: "https://cosmechic.fr/fr/?utm_source=bonsplansmania&utm_medium=affiliation&utm_campaign=comparatif_beaute_2026&utm_content=code-promo",
+    affiliateLabel: "Voir les offres Cosmé'Chic",
+    matchTags: ["cosmechic", "cosme-chic", "cosmé-chic"],
+    color: "#E91E63",
+  },
+  {
     slug: "covigneron",
     name: "Covigneron",
     affiliateUrl: "https://c3po.link/QVWRujassz",
@@ -157,6 +165,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Damart",
     matchTags: ["damart", "thermolactyl"],
     color: "#1E3A8A",
+  },
+  {
+    slug: "darty",
+    name: "Darty",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2F",
+    affiliateLabel: "Voir les offres Darty",
+    matchTags: ["darty"],
+    color: "#E60000",
   },
   {
     slug: "daxon",
