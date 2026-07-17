@@ -217,10 +217,10 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "glowria",
     name: "Glowria",
-    affiliateUrl: "https://c3po.link/QJcVKJrpze",
+    affiliateUrl: "https://glowria.com/?ae=487",
     affiliateLabel: "Voir les offres Glowria",
     matchTags: ["glowria"],
-    color: "#EC4899",
+    color: "#F97316",
   },
   {
     slug: "greenweez",
@@ -341,6 +341,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Seasonly",
     matchTags: ["seasonly"],
     color: "#F59E0B",
+  },
+  {
+    slug: "sensilab",
+    name: "Sensilab",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=24206&awinaffid=990397&ued=https%3A%2F%2Fwww.sensilab.fr%2F",
+    affiliateLabel: "Voir les offres Sensilab",
+    matchTags: ["sensilab"],
+    color: "#059669",
   },
   {
     slug: "sephora",
