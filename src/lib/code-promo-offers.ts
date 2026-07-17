@@ -751,6 +751,49 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // CHAUSSEA — soldes + newsletter + click&collect + e-réservation
+  // ============================================================
+  {
+    id: "chaussea-soldes-ete",
+    brandSlug: "chaussea",
+    type: "soldes",
+    value: "SOLDES",
+    valueLabel: "JUSQU'AU 28/07",
+    title: "Soldes d'été Chaussea sur une sélection en magasin et sur chaussea.com",
+    expires: "2026-07-28",
+    conditions: "Soldes d'été 2026 Chaussea valables du 24/06/2026 au 28/07/2026 inclus, dans les magasins Chaussea et sur chaussea.com, dans la limite des stocks disponibles. Réductions calculées sur le prix de référence conforme à la réglementation. Non cumulables avec toute autre promotion.",
+    featured: true,
+  },
+  {
+    id: "chaussea-newsletter-10",
+    brandSlug: "chaussea",
+    type: "newsletter",
+    value: "-10 %",
+    valueLabel: "DÈS 50 €",
+    title: "-10 % de bienvenue dès 50 € d'achat en s'inscrivant à la newsletter",
+    conditions: "Offre de bienvenue Chaussea : -10 % sur toute commande dès 50 € TTC d'achat sur chaussea.com. Code de réduction reçu par mail après inscription à la newsletter, valable 14 jours à compter de la réception de l'email. Non cumulable avec d'autres codes ou promotions.",
+    featured: true,
+  },
+  {
+    id: "chaussea-click-collect-10",
+    brandSlug: "chaussea",
+    type: "offre",
+    value: "-10 %",
+    valueLabel: "CLICK & COLLECT",
+    title: "-10 % sur ton panier en choisissant le Click & Collect en magasin",
+    conditions: "Remise de 10 % sur le panier avec le Click & Collect Chaussea (récupération magasin). Service disponible uniquement dans certains magasins participants (voir la page magasins). Non cumulable avec les offres en cours. Produit doit être en stock dans le magasin choisi.",
+  },
+  {
+    id: "chaussea-e-reservation-10",
+    brandSlug: "chaussea",
+    type: "offre",
+    value: "-10 %",
+    valueLabel: "E-RÉSERVATION",
+    title: "-10 % sur ta commande en choisissant la E-réservation (payable en magasin)",
+    conditions: "Remise de 10 % avec la E-réservation Chaussea (paiement en magasin). Option proposée sur la fiche produit. Non cumulable avec les offres en cours. Produit doit être en stock dans le magasin choisi.",
+  },
+
+  // ============================================================
   // GREENWEEZ — service permanent
   // ============================================================
   {
