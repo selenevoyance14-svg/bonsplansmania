@@ -24,7 +24,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!article) return {};
   const BASE_URL = "https://bonsplansmania.fr";
   return {
-    title: article.meta.seoTitle || `${article.meta.title} | Bons Plans Mania`,
+    title: article.meta.seoTitle || article.meta.title,
     description: article.meta.seoDescription || article.meta.description,
     alternates: { canonical: `${BASE_URL}/article/${slug}` },
     openGraph: {
