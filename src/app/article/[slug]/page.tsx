@@ -4,7 +4,6 @@ import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-react";
 import Header from "@/app/components/Header";
-import LikeButton from "@/app/components/LikeButton";
 import NewsletterInline from "@/app/components/NewsletterInline";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
@@ -379,7 +378,6 @@ export default async function ArticlePage({ params }: PageProps) {
           {/* Éléments secondaires : like, partage, disclaimer, tags */}
           <div style={{ maxWidth: "780px", margin: "0 auto" }}>
             <div style={{ display: "flex", alignItems: "center", gap: "12px", flexWrap: "wrap", margin: "32px 0 16px" }}>
-              <LikeButton slug={slug} />
               <span style={{ fontSize: "0.85rem", color: "var(--text-muted, #6b7280)" }}>Partager :</span>
               {[
                 { href: `https://wa.me/?text=${encodeURIComponent(article.meta.title + " - https://bonsplansmania.fr/article/" + slug)}`, label: "WhatsApp", bg: "#25d366", color: "white" },
