@@ -356,3 +356,26 @@ export const BOX_BEAUTE_BRANDS: BrandDef[] = [
   { key: "mademoiselle-confettis", label: "Mademoiselle Confettis", keywords: ["mademoiselle confettis", "mademoiselle-confettis"] },
   { key: "nuoo", label: "Nuoo", keywords: ["nuoo"] },
 ];
+
+// Hub /bons-plans-rentree : fournitures scolaires + cartables + agendas + coloriage éducatif
+export const RENTREE_BRANDS: BrandDef[] = [
+  { key: "amazon", label: "Amazon", keywords: ["amazon"] },
+  { key: "bic", label: "BIC", keywords: ["bic", "bic-kids"] },
+  { key: "maped", label: "Maped", keywords: ["maped", "color-peps"] },
+  { key: "stabilo", label: "STABILO", keywords: ["stabilo", "stabilo-boss"] },
+  { key: "clairefontaine", label: "Clairefontaine", keywords: ["clairefontaine"] },
+  { key: "oxford", label: "Oxford", keywords: ["oxford"] },
+  { key: "faber-castell", label: "Faber-Castell", keywords: ["faber-castell", "faber castell"] },
+  { key: "staedtler", label: "Staedtler", keywords: ["staedtler"] },
+  { key: "pilot", label: "Pilot", keywords: ["pilot", "pilot-frixion", "frixion"] },
+  { key: "paper-mate", label: "Paper Mate", keywords: ["paper mate", "paper-mate"] },
+  { key: "sharpie", label: "Sharpie", keywords: ["sharpie"] },
+  { key: "scotch", label: "Scotch", keywords: ["scotch"] },
+  { key: "posca", label: "Posca", keywords: ["posca"] },
+  { key: "canson", label: "Canson", keywords: ["canson"] },
+  { key: "crayola", label: "Crayola", keywords: ["crayola"] },
+  { key: "minecraft", label: "Minecraft", keywords: ["minecraft"] },
+  { key: "roblox", label: "Roblox", keywords: ["roblox"] },
+  { key: "casio", label: "Casio", keywords: ["casio"] },
+  { key: "texas-instruments", label: "Texas Instruments", keywords: ["texas instruments", "texas-instruments"] },
+];
