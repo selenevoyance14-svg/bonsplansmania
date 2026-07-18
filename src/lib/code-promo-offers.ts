@@ -28,8 +28,20 @@ export interface CodePromoOffer {
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
-  // FRANÇOISE SAGET — 7 offres cumulables été 2026
+  // FRANÇOISE SAGET — 8 offres cumulables été 2026
   // ============================================================
+  {
+    id: "fs-soldes10-code",
+    brandSlug: "francoise-saget",
+    type: "code",
+    value: "-10 %",
+    valueLabel: "SUPPLÉMENTAIRES",
+    title: "-10 % supplémentaires sur tout le site, cumulable avec les soldes -70 %",
+    code: "SOLDES10",
+    expires: "2026-07-21",
+    conditions: "Code -10 % supplémentaires sur tout le site (soldes compris) à partir de 15 € d'achat. Valable jusqu'au 21/07/2026.",
+    featured: true,
+  },
   {
     id: "fs-soldes-70",
     brandSlug: "francoise-saget",
