@@ -438,6 +438,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     matchTags: ["zooplus", "animalerie"],
     color: "#FFA726",
   },
+  {
+    slug: "baija",
+    name: "Baïja",
+    affiliateUrl: "https://lk.gt/aSNSY",
+    affiliateLabel: "Voir les offres Baïja",
+    matchTags: ["baija", "baïja"],
+    color: "#E8A87C",
+  },
 ];
 
 export function getBrandBySlug(slug: string): CodePromoBrand | undefined {

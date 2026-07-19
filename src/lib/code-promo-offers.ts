@@ -1257,6 +1257,21 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     permanent: true,
     conditions: "10 € de réduction sur la 1ʳᵉ commande sur fr.shopping.rakuten.com dans les 90 jours suivant l'émission du code parrain, dès 49 € d'achat. 1 seule utilisation par personne, hors produits exclus (iPhone 16/17/Air, iPhone 14 128 Go noir minuit, AirPods 4 ANC, Samsung Galaxy Tab A9+, Sennheiser Momentum 4, casque Logitech Pro X). Non cumulable avec un autre coupon.",
   },
+
+  // ============================================================
+  // BAÏJA — offre newsletter permanente
+  // ============================================================
+  {
+    id: "baija-newsletter-10",
+    brandSlug: "baija",
+    type: "newsletter",
+    value: "-10 %",
+    valueLabel: "1ʳᵉ CDE",
+    title: "-10 % sur la 1ʳᵉ commande en s'inscrivant à la newsletter Baïja",
+    permanent: true,
+    conditions: "Offre permanente pour toute 1ʳᵉ commande sur baija.com. Inscription à la newsletter requise, code de réduction reçu par mail après validation.",
+    featured: true,
+  },
 ];
 
 export function getOffersByBrand(brandSlug: string): CodePromoOffer[] {
