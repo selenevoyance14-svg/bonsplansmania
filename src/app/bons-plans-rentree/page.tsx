@@ -31,7 +31,9 @@ const EXACT_TAGS = new Set([
   "ecole", "école", "college", "collège", "lycee", "lycée", "primaire", "maternelle",
   "kit-rentree", "liste-fournitures",
   // Fournitures : écrire
-  "crayon", "crayons", "crayon-couleur", "crayons-couleur", "crayon-graphite",
+  // Pas "crayon" seul (matche crayon sourcils/yeux/lèvres maquillage)
+  "crayon-couleur", "crayons-couleur", "crayon-graphite", "crayons-graphite",
+  "crayon-papier", "crayons-papier", "crayon-a-papier", "crayons-de-couleur",
   "feutre", "feutres", "feutre-coloriage", "surligneur", "surligneurs",
   "stylo", "stylos", "stylo-bille", "stylo-plume", "stylo-effacable",
   "porte-mine", "porte-mines", "roller", "gel-pen",
@@ -53,7 +55,8 @@ const EXACT_TAGS = new Set([
   "casio", "casio-fx", "texas-instruments", "ti-nspire",
   // Contenants : sacs / trousses
   "cartable", "cartables", "sac-a-dos", "sac-a-dos-ecole", "sac-dos",
-  "trousse", "trousses", "trousse-scolaire", "plumier",
+  // Pas "trousse" seul (matche trousse maquillage/rasage/soin/parfum)
+  "trousse-scolaire", "trousses-scolaires", "trousse-a-crayons", "trousse-rentree", "trousse-ecole", "plumier",
   "sac-piscine", "sac-sport-ecole",
   // Colles / scotch
   "colle", "colles", "baton-colle", "batons-de-colle", "scotch", "adhesif",
@@ -67,15 +70,26 @@ const EXACT_TAGS = new Set([
   "minecraft-ecole", "roblox-ecole", "disney-ecole",
 ]);
 
+// SLUG_TOKENS : slugs qui garantissent contexte scolaire.
+// PAS de "-trousse-" ni "-crayon-" seuls (trop greedy — matchent trousse maquillage,
+// trousse rasage, crayon sourcils, crayon yeux, crayon lèvres…).
+// Versions spécifiquement scolaires uniquement.
 const SLUG_TOKENS = [
   "-rentree-", "rentree-", "-rentrée-", "rentrée-",
   "-fournitures-", "fournitures-", "-fournitures-scolaires-",
-  "-crayon-", "-crayons-", "crayon-couleur", "crayons-couleur",
+  // Crayons : versions strictement scolaires
+  "-crayon-couleur-", "-crayons-couleur-", "crayon-couleur",
+  "-crayon-graphite-", "-crayons-graphite-",
+  "-crayon-papier-", "-crayons-papier-", "-crayon-a-papier-",
+  "-crayons-de-couleur-",
   "-feutre-", "-feutres-", "feutre-coloriage",
   "-stylo-", "-stylos-", "-surligneur-", "-surligneurs-",
   "-coloriage-", "coloriage-",
   "-cahier-", "-cahiers-", "-carnet-", "-agenda-", "-agendas-",
-  "-trousse-", "-trousses-", "-cartable-", "-cartables-",
+  // Trousses : versions strictement scolaires
+  "-trousse-scolaire-", "-trousses-scolaires-",
+  "-trousse-a-crayons-", "-trousse-rentree-", "-trousse-ecole-",
+  "-cartable-", "-cartables-",
   "-classeur-", "-classeurs-", "-trieur-", "-trieurs-",
   "-compas-", "-regle-", "-règle-", "-equerre-", "-équerre-",
   "-calculatrice-", "-calculatrices-",
@@ -91,6 +105,7 @@ const SLUG_TOKENS = [
 ];
 
 // Exclusions : jouets purs (LEGO, Playmobil, poupées, jeux de société) restent en /bons-plans-jouets
+// + maquillage sourcils/yeux/lèvres (crayon-sourcils, crayon-yeux, crayon-levres) n'est PAS scolaire
 const EXCLUDED_TOKENS = [
   "-lego-", "lego-", "-playmobil-", "playmobil-",
   "-barbie-", "barbie-", "-poupee-", "poupee-",
@@ -99,6 +114,15 @@ const EXCLUDED_TOKENS = [
   "-peluche-", "peluches-", "-doudou-",
   "-figurine-", "figurines-",
   "-funko-", "funko-", "-squishmallows-",
+  // Maquillage — les "crayons" beauté ne sont pas des crayons scolaires
+  "-atelier-du-sourcil-", "atelier-du-sourcil-",
+  "-sourcil-", "-sourcils-",
+  "-crayon-sourcils-", "-crayon-yeux-", "-crayon-levres-", "-crayon-contour-",
+  "-mascara-", "-eyeliner-", "-fard-", "-fard-a-paupieres-",
+  "-blush-", "-highlighter-", "-enlumineur-",
+  "-rouge-a-levres-", "-baume-a-levres-", "-huile-a-levres-",
+  "-vernis-a-ongles-", "-vernis-", "-fond-de-teint-",
+  "-palette-maquillage-", "-palette-fards-",
 ];
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
