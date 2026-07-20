@@ -20,11 +20,11 @@ export type HighlightBrand = {
 };
 
 export const BRAND_OF_THE_WEEK: HighlightBrand = {
-  slug: "nuxe",
-  name: "Nuxe",
-  tagline: "Huile Prodigieuse, Rêve de Miel, Merveillance : les cultes Nuxe à -30 % pendant les soldes.",
-  hubUrl: "/article/meilleurs-bons-plans-nuxe-2026-selection-huile-prodigieuse-reve-de-miel-merveillance",
-  bg: "#FEF3E9",
-  color: "#B8580E",
-  emoji: "🌰",
+  slug: "sol-de-janeiro",
+  name: "Sol de Janeiro",
+  tagline: "Bum Bum Cream, Cheirosa 62, brumes cultes : jusqu'à -40 % + trousse cadeau offerte chez LookFantastic.",
+  hubUrl: "/article/marque-semaine-sol-de-janeiro-lookfantastic-jusqu-a-40-pourcent-cadeau-offert-juillet-2026",
+  bg: "#FEF0F5",
+  color: "#D6336C",
+  emoji: "🇧🇷",
 };
