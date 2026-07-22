@@ -30,6 +30,7 @@ const CTA_BY_COLOR: Record<string, string> = {
   "bon-plan-beaute": "Voir l'offre",
   "test-gratuit": "Postuler",
   "test-avis": "Lire le test",
+  "comparatif": "Lire le comparatif",
   "concours": "Participer",
   "box-beaute": "Voir la box",
   "code-promo": "Voir le code",

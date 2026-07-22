@@ -27,7 +27,7 @@ export default function Header({ activePage }: { activePage?: string }) {
   }, []);
 
   const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent"].some(p => activePage === p);
-  const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis"].some(p => activePage === p);
+  const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis", "/comparatif"].some(p => activePage === p);
   const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe", "/bons-plans-beaute", "/bons-plans-ninja", "/bons-plans-tech", "/bons-plans-maison", "/bons-plans-jardin", "/bons-plans-mode", "/bons-plans-jouets", "/bons-plans-rentree"].some(p => activePage === p);
 
   return (
@@ -75,6 +75,7 @@ export default function Header({ activePage }: { activePage?: string }) {
                   <a href="/categorie/test-produit">Tous les tests</a>
                   <a href="/categorie/test-gratuit">Tests Gratuits</a>
                   <a href="/categorie/test-avis">Tests & Avis</a>
+                  <a href="/categorie/comparatif">Comparatifs</a>
                 </div>
               )}
             </div>
@@ -150,6 +151,7 @@ export default function Header({ activePage }: { activePage?: string }) {
             <a href="/categorie/test-produit" onClick={() => setMobileOpen(false)}>Tous les tests</a>
             <a href="/categorie/test-gratuit" onClick={() => setMobileOpen(false)}>Tests Gratuits</a>
             <a href="/categorie/test-avis" onClick={() => setMobileOpen(false)}>Tests & Avis</a>
+            <a href="/categorie/comparatif" onClick={() => setMobileOpen(false)}>Comparatifs</a>
           </div>
           <a href="/code-promo" onClick={() => setMobileOpen(false)}>Codes promo</a>
           <a href="/categorie/concours" onClick={() => setMobileOpen(false)}>Concours</a>

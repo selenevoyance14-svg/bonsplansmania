@@ -54,6 +54,7 @@ const CATEGORY_SLUGS = [
   "test-gratuit",
   "test-avis",
   "test-produit",
+  "comparatif",
   "concours",
   "box-beaute",
   "beaute",

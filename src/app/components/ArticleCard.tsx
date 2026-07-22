@@ -17,6 +17,7 @@ export const CATEGORY_CONFIG: Record<string, CardCategoryConfig> = {
     "bon-plan-beaute":  { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
     "test-gratuit":     { label: "Test Gratuit", Icon: Gift,       color: "test-gratuit",     cta: "Postuler" },
     "test-avis":        { label: "Test & Avis", Icon: FlaskConical, color: "test-avis",       cta: "Lire le test" },
+    "comparatif":       { label: "Comparatif",  Icon: FlaskConical, color: "test-avis",       cta: "Lire le comparatif" },
     "concours":         { label: "Concours",   Icon: Trophy,       color: "concours",         cta: "Participer" },
     "box-beaute":       { label: "Box Beauté", Icon: ShoppingBag,  color: "box-beaute",       cta: "Voir la box" },
     "beaute":           { label: "Beauté",     Icon: Sparkles,     color: "beaute",           cta: "Lire l'article" },
