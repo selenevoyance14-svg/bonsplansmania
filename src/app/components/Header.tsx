@@ -90,7 +90,7 @@ export default function Header({ activePage }: { activePage?: string }) {
               </button>
               {beautyOpen && (
                 <div className="nav-dropdown-menu">
-                  <a href="/categorie/beaute">Conseils & Tests</a>
+                  <a href="/categorie/beaute">Guides Beauté</a>
                   <a href="/categorie/box-beaute">Box Beauté</a>
                   <a href="/categorie/calendrier-avent">Calendrier de l'Avent</a>
                 </div>
@@ -157,7 +157,7 @@ export default function Header({ activePage }: { activePage?: string }) {
           <a href="/categorie/concours" onClick={() => setMobileOpen(false)}>Concours</a>
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Beauté</span>
-            <a href="/categorie/beaute" onClick={() => setMobileOpen(false)}>Conseils & Tests</a>
+            <a href="/categorie/beaute" onClick={() => setMobileOpen(false)}>Guides Beauté</a>
             <a href="/categorie/box-beaute" onClick={() => setMobileOpen(false)}>Box Beauté</a>
             <a href="/categorie/calendrier-avent" onClick={() => setMobileOpen(false)}>Calendrier de l&apos;Avent</a>
           </div>
