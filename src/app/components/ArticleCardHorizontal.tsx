@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { CATEGORY_CONFIG } from "./ArticleCard";
+import { CATEGORY_CONFIG, DEAL_FIRST_CATEGORIES } from "./ArticleCard";
 
 type Article = {
     meta: {
@@ -61,7 +61,9 @@ export default function ArticleCardHorizontal({
     const isExpired = article.meta.expired === true;
     const { now, was, savingsPct, savingsEur } = parsePrice(article.meta.price);
     const isFree = !!now && /gratuit/i.test(now);
-    const hasExternalAffiliate = !!article.meta.affiliateUrl && /^https?:\/\//.test(article.meta.affiliateUrl) && !isExpired;
+    const isDealFirst = DEAL_FIRST_CATEGORIES.has(article.meta.category);
+    // "content-first" (test-avis, comparatif, beaute…) : le CTA reste sur l'article, pas d'ouverture affiliée
+    const hasExternalAffiliate = isDealFirst && !!article.meta.affiliateUrl && /^https?:\/\//.test(article.meta.affiliateUrl) && !isExpired;
     const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
         if (!hasExternalAffiliate) return;
         e.preventDefault();

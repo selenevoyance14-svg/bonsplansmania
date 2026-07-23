@@ -12,6 +12,24 @@ export type CardCategoryConfig = {
     badge?: string;
 };
 
+/**
+ * Catégories "deal-first" — le CTA de la carte pointe directement vers l'URL affilié
+ * (bon plan Amazon, box à commander, code promo à saisir, mission test-gratuit, participation concours).
+ *
+ * Les autres catégories (test-avis, comparatif, beaute, selection) sont "content-first" :
+ * le CTA ouvre l'article pour que la lectrice lise le contenu éditorial avant de sortir.
+ */
+export const DEAL_FIRST_CATEGORIES = new Set([
+    "bon-plan",
+    "bon-plan-beaute",
+    "box-beaute",
+    "code-promo",
+    "calendrier-avent",
+    "calendrier",
+    "test-gratuit",
+    "concours",
+]);
+
 export const CATEGORY_CONFIG: Record<string, CardCategoryConfig> = {
     "bon-plan":         { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
     "bon-plan-beaute":  { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
@@ -82,7 +100,9 @@ export default function ArticleCard({
     const { now, was, savings } = parsePrice(article.meta.price);
     const articleHref = `/article/${article.meta.slug}`;
     const rawAffiliate = article.meta.affiliateUrl;
-    const hasExternalAffiliate = !!rawAffiliate && /^https?:\/\//.test(rawAffiliate);
+    const isDealFirst = DEAL_FIRST_CATEGORIES.has(article.meta.category);
+    // "content-first" (test-avis, comparatif, beaute…) : le footer reste sur l'article même si affiliateUrl existe.
+    const hasExternalAffiliate = isDealFirst && !!rawAffiliate && /^https?:\/\//.test(rawAffiliate);
     // On ne laisse JAMAIS le vrai lien affilié dans le HTML : /go/<slug> côté Cloudflare Function fait le 302
     const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : rawAffiliate;
     const rawImage = article.meta.image ?? "";
