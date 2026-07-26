@@ -69,6 +69,68 @@ const articles = getAllArticles();
 fs.writeFileSync(OUTPUT_PATH, JSON.stringify(articles, null, 0));
 console.log(`Generated articles.json with ${articles.length} articles`);
 
+// --- Audit cohérence prix imageAlt ↔ frontmatter (avertissements non bloquants) ---
+// Le schema Product JSON-LD et le H1 sont générés à partir de frontmatter.price.
+// Si imageAlt (visible aux crawlers Google Images + accessibility scanners) contient un prix
+// qui n'est nulle part dans le frontmatter (price + title + description), c'est une contradiction
+// probable (cas Blissim Double-Box : imageAlt "37,80 euros" alors que frontmatter dit "27,00 €").
+// On tolère : tout prix cité dans price/title/description = source-de-vérité étendue.
+// Non bloquant : le build reste live.
+function auditImageAltPriceConsistency(): void {
+  const files = fs.readdirSync(CONTENT_DIR).filter((f) => f.endsWith(".mdx"));
+  const warnings: string[] = [];
+  const priceTokens = (s: string): Set<string> => {
+    // Extrait tous les nombres (avec ou sans décimales, avec ou sans € accolé) — sert de whitelist
+    const set = new Set<string>();
+    const re = /(\d{1,5})(?:[.,](\d{1,2}))?/g;
+    let m: RegExpExecArray | null;
+    while ((m = re.exec(s)) !== null) {
+      set.add(m[1]); // int seul
+      if (m[2]) set.add(`${m[1]},${m[2]}`); // avec décimales
+    }
+    return set;
+  };
+
+  for (const file of files) {
+    const raw = fs.readFileSync(path.join(CONTENT_DIR, file), "utf-8");
+    const { data } = matter(raw);
+    if (data.published === false) continue;
+    if (!data.price || typeof data.price !== "string") continue;
+    if (!data.imageAlt || typeof data.imageAlt !== "string") continue;
+
+    // Whitelist = tous les nombres présents dans price + title + description + seoTitle + seoDescription
+    const sources = [data.price, data.title, data.description, data.seoTitle, data.seoDescription]
+      .filter((v): v is string => typeof v === "string")
+      .join(" ");
+    const whitelist = priceTokens(sources);
+
+    // Cherche les prix "N €" / "N,XX €" / "N euros" dans imageAlt
+    const priceRegex = /(\d{1,5})(?:[.,](\d{1,2}))?\s*(?:€|euros?\b)/gi;
+    const found = new Set<string>();
+    let m: RegExpExecArray | null;
+    while ((m = priceRegex.exec(data.imageAlt)) !== null) {
+      const intStr = m[1];
+      const fullStr = m[2] ? `${m[1]},${m[2]}` : m[1];
+      // Accepter si le nombre exact OU sa forme entière est dans la whitelist
+      if (whitelist.has(fullStr) || whitelist.has(intStr)) continue;
+      found.add(m[2] ? `${m[1]},${m[2]}` : m[1]);
+    }
+
+    if (found.size > 0) {
+      warnings.push(`  ⚠️  ${file}\n     imageAlt prix orphelin(s): ${[...found].join(", ")} €  (absent de price/title/description)`);
+    }
+  }
+
+  if (warnings.length > 0) {
+    console.log(`\n⚠️  Audit imageAlt : ${warnings.length} article(s) avec prix orphelin dans imageAlt :`);
+    warnings.slice(0, 15).forEach((w) => console.log(w));
+    if (warnings.length > 15) console.log(`  ... et ${warnings.length - 15} autre(s)`);
+    console.log(`\n   Un prix cité dans imageAlt SANS être dans price/title/description = contradiction`);
+    console.log(`   visible aux crawlers Google Images. Corriger l'imageAlt pour aligner sur le prix effectif.\n`);
+  }
+}
+auditImageAltPriceConsistency();
+
 // --- Génération RSS ---
 const RSS_PATH = path.join(process.cwd(), "public", "rss.xml");
 const SITE_URL = "https://bonsplansmania.fr";
