@@ -6,7 +6,8 @@ import { Flame } from "lucide-react";
 export default function NewsletterInline() {
   const [email, setEmail] = useState("");
   const [hidden, setHidden] = useState(false);
-  const [status, setStatus] = useState<"idle" | "loading" | "done">("idle");
+  const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
+  const [message, setMessage] = useState("");
 
   useEffect(() => {
     if (localStorage.getItem("bpm_subscribed")) setHidden(true);
@@ -18,18 +19,30 @@ export default function NewsletterInline() {
     setStatus("loading");
 
     try {
-      await fetch("https://bonsplansmania-newsletter.selenevoyance14.workers.dev/subscribe", {
+      const response = await fetch("https://bonsplansmania-newsletter.selenevoyance14.workers.dev/subscribe", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email }),
       });
-    } catch {
-      // Meme en cas d'erreur reseau, on enregistre localement
-    }
+      const data = await response.json().catch(() => null);
 
-    localStorage.setItem("bpm_newsletter_email", email);
-    localStorage.setItem("bpm_subscribed", "true");
-    setStatus("done");
+      if (!response.ok) {
+        setStatus("error");
+        setMessage(data?.error || "L'inscription a échoué. Réessayez dans un instant.");
+        return;
+      }
+
+      localStorage.setItem("bpm_newsletter_email", email);
+      localStorage.setItem("bpm_subscribed", "true");
+      window.gtag?.("event", "newsletter_signup", {
+        form_location: "article_inline",
+        page_path: window.location.pathname,
+      });
+      setStatus("done");
+    } catch {
+      setStatus("error");
+      setMessage("Impossible de joindre le service d'inscription. Réessayez dans un instant.");
+    }
   }
 
   if (hidden) return null;
@@ -60,6 +73,11 @@ export default function NewsletterInline() {
           {status === "loading" ? "..." : "OK"}
         </button>
       </form>
+      {status === "error" ? (
+        <p role="alert" style={{ color: "#B91C1C", fontSize: "0.82rem", marginTop: "10px" }}>
+          {message}
+        </p>
+      ) : null}
     </div>
   );
 }

@@ -44,6 +44,11 @@ export default function NewsletterPopup() {
         setMessage(isAlready ? "Vous etes deja inscrit !" : "Vous etes inscrit !");
         localStorage.setItem("bpm_subscribed", "true");
         localStorage.setItem(STORAGE_KEY, Date.now().toString());
+        window.gtag?.("event", "newsletter_signup", {
+          form_location: "popup",
+          page_path: window.location.pathname,
+          subscriber_status: isAlready ? "existing" : "new",
+        });
         setTimeout(() => setShow(false), 2500);
       } else {
         setStatus("error");
