@@ -3,7 +3,7 @@ import { ChevronRight, Sun, Calendar, Umbrella, Sparkles, Wind, Baby, Heart } fr
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export const metadata: Metadata = {
@@ -58,7 +58,7 @@ export default function Ete2026Page() {
   const all = getAllArticles();
 
   const summer = all
-    .filter((a) => !a.meta.expired && matchesSummer(a))
+    .filter((a) => !isEffectivelyExpired(a.meta) && matchesSummer(a))
     .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
 
   const byTag = (kw: string | string[]) => {

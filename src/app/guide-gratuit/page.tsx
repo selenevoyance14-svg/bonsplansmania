@@ -27,6 +27,12 @@ export default function GuideGratuit() {
         setStatus("success");
         setMessage(data.message);
         setDownloadUrl(data.downloadUrl);
+        localStorage.setItem("bpm_subscribed", "true");
+        window.gtag?.("event", "newsletter_signup", {
+          form_location: "free_guide",
+          page_path: window.location.pathname,
+          subscriber_status: data.already === true ? "existing" : "new",
+        });
         setEmail("");
       } else {
         setStatus("error");

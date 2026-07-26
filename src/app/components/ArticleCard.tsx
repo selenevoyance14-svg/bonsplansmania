@@ -4,6 +4,7 @@ import {
     FlaskConical, Percent, ArrowRight, type LucideIcon,
 } from "lucide-react";
 import { parsePrice } from "@/lib/price";
+import { DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 
 export type CardCategoryConfig = {
     label: string;
@@ -20,14 +21,7 @@ export type CardCategoryConfig = {
  * Les contenus gratuits (concours, test-gratuit) et éditoriaux sont "content-first" :
  * le CTA ouvre l'article pour que la lectrice lise le contenu éditorial avant de sortir.
  */
-export const DEAL_FIRST_CATEGORIES = new Set([
-    "bon-plan",
-    "bon-plan-beaute",
-    "box-beaute",
-    "code-promo",
-    "calendrier-avent",
-    "calendrier",
-]);
+export const DEAL_FIRST_CATEGORIES = DIRECT_DEAL_CATEGORIES;
 
 export const CATEGORY_CONFIG: Record<string, CardCategoryConfig> = {
     "bon-plan":         { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
@@ -55,6 +49,7 @@ type Article = {
         imageAlt: string;
         price?: string;
         expired?: boolean;
+        endDate?: string;
         affiliateUrl?: string;
     };
 };
@@ -73,13 +68,17 @@ export default function ArticleCard({
     priority?: boolean;
 }) {
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
-    const isExpired = article.meta.expired === true;
+    const isExpired = isOfferExpired(article.meta);
     const { now, was, savings } = parsePrice(article.meta.price);
     const articleHref = `/article/${article.meta.slug}`;
     const rawAffiliate = article.meta.affiliateUrl;
-    const isDealFirst = DEAL_FIRST_CATEGORIES.has(article.meta.category);
     // "content-first" (test-avis, comparatif, beaute…) : le footer reste sur l'article même si affiliateUrl existe.
-    const hasExternalAffiliate = isDealFirst && !!rawAffiliate && /^https?:\/\//.test(rawAffiliate);
+    const hasExternalAffiliate = hasDirectMerchantCta({
+        category: article.meta.category,
+        affiliateUrl: rawAffiliate,
+        expired: isExpired,
+        endDate: article.meta.endDate,
+    });
     // On ne laisse JAMAIS le vrai lien affilié dans le HTML : /go/<slug> côté Cloudflare Function fait le 302
     const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : rawAffiliate;
     const rawImage = article.meta.image ?? "";

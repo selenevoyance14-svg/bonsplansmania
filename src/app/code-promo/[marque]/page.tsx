@@ -6,7 +6,7 @@ import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import NewsletterInline from "@/app/components/NewsletterInline";
 import { CODE_PROMO_BRANDS, getBrandBySlug } from "@/lib/code-promo-data";
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 
 interface PageProps { params: Promise<{ marque: string }>; }
 
@@ -36,8 +36,8 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
   if (!brand) notFound();
 
   const allMatching = getAllArticles().filter((a) => matchesBrand(a.meta.tags, brand.matchTags));
-  const active = allMatching.filter((a) => !a.meta.expired);
-  const expired = allMatching.filter((a) => a.meta.expired);
+  const active = allMatching.filter((a) => !isEffectivelyExpired(a.meta));
+  const expired = allMatching.filter((a) => isEffectivelyExpired(a.meta));
 
   const jsonLd = {
     "@context": "https://schema.org",

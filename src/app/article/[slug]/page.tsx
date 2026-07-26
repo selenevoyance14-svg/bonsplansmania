@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles, getAllArticles, getPrevNextArticle } from "@/lib/articles";
+import { getArticleBySlug, getRelatedArticles, getAllArticles, getPrevNextArticle, isEffectivelyExpired } from "@/lib/articles";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-react";
@@ -173,11 +173,12 @@ export default async function ArticlePage({ params }: PageProps) {
     "box-beaute":   { title: "Cette box est terminée",      cta: { label: "box du moment",           href: "/categorie/box-beaute" } },
   };
   const expiredMessage = EXPIRED_MESSAGES[article.meta.category] ?? { title: "Cette offre est terminée", cta: { label: "offres en cours", href: "/" } };
+  const isExpired = isEffectivelyExpired(article.meta);
   const STALE_DAYS = 21;
   const referenceDateStr = article.meta.updated || article.meta.date;
   const referenceMs = new Date(referenceDateStr + "T12:00:00").getTime();
   const staleMessage = STALE_MESSAGES[article.meta.category];
-  const isStale = !article.meta.expired
+  const isStale = !isExpired
     && !article.meta.evergreen
     && staleMessage
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
@@ -279,7 +280,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </nav>
 
           <article className="article">
-            {article.meta.expired && (
+            {isExpired && (
               <div style={{ background: "#FEE2E2", border: "2px solid #F87171", borderRadius: "12px", padding: "16px 20px", marginBottom: "20px", textAlign: "center" }}>
                 <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem", color: "#B91C1C" }}>
                   {expiredMessage.title}

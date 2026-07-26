@@ -8,7 +8,8 @@
     "build": "next build && npx tsx scripts/clean-rsc-txt.ts",
     "start": "next start",
     "lint": "eslint",
-    "sync-amazon": "node scripts/build-amazon-catalog.mjs"
+    "sync-amazon": "node scripts/build-amazon-catalog.mjs",
+    "audit:revenue": "npx tsx scripts/audit-revenue-readiness.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.1",

@@ -42,6 +42,7 @@ export default function BlogPage() {
       categoryColor: cat?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
+      endDate: a.meta.endDate,
       price: a.meta.price,
     };
   });

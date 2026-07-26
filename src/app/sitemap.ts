@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 
 const BASE = "https://bonsplansmania.fr";
 
@@ -87,7 +87,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // Les articles restent accessibles aux visiteurs (pas dépubliés), mais ne sont plus
   // recommandés à Google pour re-crawl régulier.
   const articleEntries: MetadataRoute.Sitemap = articles
-    .filter((a) => !a.meta.expired && !a.meta.noindex)
+    .filter((a) => !isEffectivelyExpired(a.meta) && !a.meta.noindex)
     .map((a) => ({
       url: `${BASE}/article/${a.meta.slug}`,
       lastModified: new Date(a.meta.updated || a.meta.date),

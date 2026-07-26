@@ -129,6 +129,7 @@ export default async function BrandPage({ params }: PageProps) {
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
+      endDate: a.meta.endDate,
       price: a.meta.price,
       affiliateUrl: a.meta.affiliateUrl,
     };

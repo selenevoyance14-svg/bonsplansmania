@@ -3,7 +3,7 @@ import { ChevronRight, TreePine, Calendar, Gift, Sparkles, Trophy, Heart } from 
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export const metadata: Metadata = {
@@ -54,7 +54,7 @@ export default function Noel2026Page() {
   const all = getAllArticles();
 
   const articles = all
-    .filter((a) => !a.meta.expired && matches(a))
+    .filter((a) => !isEffectivelyExpired(a.meta) && matches(a))
     .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
 
   const calendriers = articles.filter((a) => {

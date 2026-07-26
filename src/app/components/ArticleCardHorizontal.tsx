@@ -1,8 +1,9 @@
 "use client";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import { CATEGORY_CONFIG, DEAL_FIRST_CATEGORIES } from "./ArticleCard";
+import { CATEGORY_CONFIG } from "./ArticleCard";
 import { parsePrice } from "@/lib/price";
+import { hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 
 type Article = {
     meta: {
@@ -15,6 +16,7 @@ type Article = {
         imageAlt: string;
         price?: string;
         expired?: boolean;
+        endDate?: string;
         affiliateUrl?: string;
     };
 };
@@ -38,13 +40,17 @@ export default function ArticleCardHorizontal({
     priority?: boolean;
 }) {
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
-    const isExpired = article.meta.expired === true;
+    const isExpired = isOfferExpired(article.meta);
     const { now, was, savings: savingsPct, savingsEur } = parsePrice(article.meta.price);
     const isFree = !!now && /gratuit/i.test(now);
-    const isDealFirst = DEAL_FIRST_CATEGORIES.has(article.meta.category);
     // "content-first" (concours, test-gratuit, test-avis, comparatif, beaute…) :
     // le CTA reste sur l'article, pas d'ouverture affiliée.
-    const hasExternalAffiliate = isDealFirst && !!article.meta.affiliateUrl && /^https?:\/\//.test(article.meta.affiliateUrl) && !isExpired;
+    const hasExternalAffiliate = hasDirectMerchantCta({
+        category: article.meta.category,
+        affiliateUrl: article.meta.affiliateUrl,
+        expired: isExpired,
+        endDate: article.meta.endDate,
+    });
     const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : undefined;
     return (
         <article

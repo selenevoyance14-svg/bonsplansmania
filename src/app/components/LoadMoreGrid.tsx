@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
+import { hasDirectMerchantCta } from "@/lib/article-commerce";
 
 interface ArticleListItem {
   slug: string;
@@ -34,10 +35,10 @@ const PER_PAGE = 24;
 const CTA_BY_COLOR: Record<string, string> = {
   "bon-plan": "Voir l'offre",
   "bon-plan-beaute": "Voir l'offre",
-  "test-gratuit": "Postuler",
+  "test-gratuit": "Voir les détails",
   "test-avis": "Lire le test",
   "comparatif": "Lire le comparatif",
-  "concours": "Participer",
+  "concours": "Voir le concours",
   "box-beaute": "Voir la box",
   "code-promo": "Voir le code",
   "beaute": "Lire l'article",
@@ -65,7 +66,13 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
           // Pub intercalée après les positions 7 et 15 (toutes les 8 cartes) — inchangé
           const showAdAfter = index === 7 || index === 15;
           const articleHref = `/article/${article.slug}`;
-          const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
+          const hasExternalAffiliate = hasDirectMerchantCta({
+            category: article.category,
+            affiliateUrl: article.affiliateUrl,
+            expired: article.expired,
+            endDate: article.endDate,
+          });
+          const affiliateHref = hasExternalAffiliate ? `/go/${article.slug}` : articleHref;
           return (
             <Fragment key={article.slug}>
               <article
@@ -122,7 +129,7 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                     </div>
                     {hasExternalAffiliate ? (
                       <a
-                        href={article.affiliateUrl!}
+                        href={affiliateHref}
                         target="_blank"
                         rel="nofollow noopener sponsored"
                         className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}

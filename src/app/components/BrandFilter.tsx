@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
+import { hasDirectMerchantCta } from "@/lib/article-commerce";
 
 interface ArticleListItem {
   slug: string;
@@ -41,10 +42,10 @@ const PER_PAGE = 24;
 const CTA_BY_COLOR: Record<string, string> = {
   "bon-plan": "Voir l'offre",
   "bon-plan-beaute": "Voir l'offre",
-  "test-gratuit": "Postuler",
+  "test-gratuit": "Voir les détails",
   "test-avis": "Lire le test",
   "comparatif": "Lire le comparatif",
-  "concours": "Participer",
+  "concours": "Voir le concours",
   "box-beaute": "Voir la box",
   "code-promo": "Voir le code",
   "beaute": "Lire l'article",
@@ -233,7 +234,12 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
               const { now, was, savings } = parsePrice(article.price);
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
-              const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
+              const hasExternalAffiliate = hasDirectMerchantCta({
+                category: article.category,
+                affiliateUrl: article.affiliateUrl,
+                expired: article.expired,
+                endDate: article.endDate,
+              });
               // Le vrai lien affilié reste côté serveur (Cloudflare Function /go/[slug])
               const affiliateHref = hasExternalAffiliate ? `/go/${article.slug}` : "#";
               return (

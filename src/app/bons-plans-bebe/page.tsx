@@ -67,6 +67,7 @@ export default async function BonsPlansBebePage() {
       categoryColor: cl?.color ?? a.meta.category,
       readingTime: a.meta.readingTime,
       expired: a.meta.expired,
+      endDate: a.meta.endDate,
       tags: a.meta.tags,
       price: a.meta.price,
       affiliateUrl: a.meta.affiliateUrl,
