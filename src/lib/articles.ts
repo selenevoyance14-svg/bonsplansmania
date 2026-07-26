@@ -348,24 +348,34 @@ export function getPrevNextArticle(slug: string, category: string): { prev: Arti
 }
 
 /**
- * Retourne les meilleurs "bons plans premium" : articles affiliés à FORTE commission
- * (Awin, Igraal, Rakuten, Effiliation, etc.) en EXCLUANT Amazon (commission 3% seulement).
+ * Retourne des offres multi-affiliation hors Amazon
+ * (Awin, Affilae, Effiliation, Tradedoubler, TimeOne, etc.).
  * Utilisé pour le cross-sell premium en tête des articles freebies (concours, test-gratuit)
  * qui ne génèrent pas de revenu direct.
  *
- * Tri : récents en premier, non expirés, avec image, prix de préférence.
+ * Priorité : proximité thématique avec l'article courant, offre active, prix renseigné,
+ * mise en avant éditoriale et fraîcheur. Le but est d'éviter une sélection commerciale
+ * aléatoire qui ferait baisser le taux de clic.
  */
 export function getTopPremiumDeals(currentSlug: string, limit = 4): Article[] {
   const PREMIUM_DOMAINS = [
-    "tidd.ly",          // Awin (Cdiscount, Showroom, Atelier Sourcil, Zooplus, Dr Pierre Ricaud...)
-    "lk.gt",            // Igraal / Skimlinks (Biotyfull...)
-    "c3po.link",        // Affilae / autres
-    "fnty.co",          // Rakuten (Fnac, Darty, News Parfums)
+    "awin1.com",
+    "tidd.ly",
+    "lb.affilae.com",
+    "c3po.link",
     "tracking.publicidees.com",
     "track.effiliation.com",
+    "clk.tradedoubler.com",
+    "action.metaffiliation.com",
     "a.time1.me",
+    "fnty.co",
+    "lk.gt",
     "fr.igraal.com",
-    "ystyle.co",        // YesStyle (5-10% commission, mid-tier)
+    "ebuyclub.com",
+    "poulpeo.com",
+    "ystyle.co",
+    "ryt.leanature.com",
+    "nwq.atida.fr",
   ];
 
   const isPremium = (url?: string) => {
@@ -373,24 +383,62 @@ export function getTopPremiumDeals(currentSlug: string, limit = 4): Article[] {
     return PREMIUM_DOMAINS.some((d) => url.includes(d));
   };
 
+  const currentArticle = getArticleBySlug(currentSlug);
+  const genericTag = /^(202[0-9]|bon plan|bons plans|concours|test gratuit|test-gratuit|promo|promotion|amazon|argent|juillet-2026|juin-2026|mai-2026)$/i;
+  const currentTags = new Set(
+    (currentArticle?.meta.tags ?? [])
+      .map((tag) => tag.trim().toLocaleLowerCase("fr"))
+      .filter((tag) => tag && !genericTag.test(tag)),
+  );
+
   const candidates = getAllArticles()
     .filter((a) => a.meta.slug !== currentSlug)
     .filter((a) => !isEffectivelyExpired(a.meta))
     .filter((a) => isPremium(a.meta.affiliateUrl))
     .filter((a) => a.meta.image && a.meta.image !== "/images/placeholder.svg");
 
-  // Tri : articles AVEC prix d'abord, puis par date décroissante
+  const now = Date.now();
+  const sharedTagCount = (article: Article) =>
+    article.meta.tags.reduce((count, tag) => {
+      const normalized = tag.trim().toLocaleLowerCase("fr");
+      return count + (currentTags.has(normalized) ? 1 : 0);
+    }, 0);
+
+  const score = (article: Article) => {
+    const sharedTags = sharedTagCount(article);
+    const ageDays = Math.max(
+      0,
+      (now - new Date(`${article.meta.date}T12:00:00`).getTime()) /
+        (1000 * 60 * 60 * 24),
+    );
+    const freshness = ageDays <= 7 ? 3 : ageDays <= 30 ? 2 : ageDays <= 90 ? 1 : 0;
+
+    return (
+      sharedTags * 5 +
+      (article.meta.price ? 2 : 0) +
+      (article.meta.featured ? 1 : 0) +
+      freshness
+    );
+  };
+
   candidates.sort((a, b) => {
-    const aHasPrice = a.meta.price ? 1 : 0;
-    const bHasPrice = b.meta.price ? 1 : 0;
-    if (aHasPrice !== bHasPrice) return bHasPrice - aHasPrice;
+    const scoreDifference = score(b) - score(a);
+    if (scoreDifference !== 0) return scoreDifference;
     return new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime();
   });
+
+  const relevantCandidates = candidates.filter(
+    (article) => sharedTagCount(article) > 0,
+  );
+  const selectedCandidates =
+    relevantCandidates.length > 0
+      ? relevantCandidates
+      : candidates.slice(0, Math.min(2, limit));
 
   // Diversifier par catégorie : max 2 articles de la même catégorie dans le top
   const result: Article[] = [];
   const catCount = new Map<string, number>();
-  for (const a of candidates) {
+  for (const a of selectedCandidates) {
     if (result.length >= limit) break;
     const c = catCount.get(a.meta.category) || 0;
     if (c >= 2) continue;
@@ -401,7 +449,7 @@ export function getTopPremiumDeals(currentSlug: string, limit = 4): Article[] {
   // Fallback si pas assez d'articles diversifiés
   if (result.length < limit) {
     const seen = new Set(result.map((a) => a.meta.slug));
-    for (const a of candidates) {
+    for (const a of selectedCandidates) {
       if (result.length >= limit) break;
       if (!seen.has(a.meta.slug)) result.push(a);
     }
