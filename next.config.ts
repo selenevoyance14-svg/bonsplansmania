@@ -78,6 +78,9 @@ if (process.env.NODE_ENV === "production" || process.argv.some((a) => a.includes
 
 const nextConfig: NextConfig = {
   output: "export",
+  turbopack: {
+    root: process.cwd(),
+  },
   images: {
     unoptimized: true,
   },

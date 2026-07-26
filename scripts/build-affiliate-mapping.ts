@@ -8,8 +8,26 @@ import matter from "gray-matter";
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const PERMANENTS_DATA = path.join(process.cwd(), "src", "lib", "codes-permanents-data.ts");
 const OUT_FILE = path.join(process.cwd(), "functions", "data", "affiliate-mapping.json");
+const AMAZON_PARTNER_TAG = "lebrunnathali-21";
 
 type Row = { url: string; label?: string };
+
+function secureAmazonAffiliateUrl(value: string): string {
+  try {
+    const url = new URL(value);
+    if (
+      url.hostname === "amazon.fr" ||
+      url.hostname.endsWith(".amazon.fr")
+    ) {
+      url.searchParams.set("tag", AMAZON_PARTNER_TAG);
+      return url.toString();
+    }
+  } catch {
+    return value;
+  }
+
+  return value;
+}
 
 function collectMdx(mapping: Record<string, Row>): number {
   if (!fs.existsSync(CONTENT_DIR)) return 0;
@@ -22,7 +40,7 @@ function collectMdx(mapping: Record<string, Row>): number {
     const url = typeof data.affiliateUrl === "string" ? data.affiliateUrl.trim() : "";
     if (!url || !/^https?:\/\//i.test(url)) continue;
     mapping[slug] = {
-      url,
+      url: secureAmazonAffiliateUrl(url),
       ...(typeof data.affiliateLabel === "string" ? { label: data.affiliateLabel } : {}),
     };
     count++;
