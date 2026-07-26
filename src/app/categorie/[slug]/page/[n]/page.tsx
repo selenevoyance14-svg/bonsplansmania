@@ -10,7 +10,7 @@ const PER_PAGE = 24;
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
-  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "concours", "box-beaute", "beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
+  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
   const params: { slug: string; n: string }[] = [];
   for (const slug of slugs) {
     const articles = slug === "test-produit"
@@ -32,6 +32,7 @@ const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: st
   "test-produit":     { label: "Tests Produits",        Icon: FlaskConical, desc: "Tests gratuits et avis détaillés sur les produits beauté", color: "test-gratuit" },
   "test-gratuit":     { label: "Tests Gratuits",        Icon: Gift,         desc: "Des produits à tester gratuitement avant tout le monde", color: "test-gratuit" },
   "test-avis":        { label: "Tests & Avis",          Icon: FlaskConical, desc: "Nos tests et avis détaillés sur les produits beauté", color: "test-avis" },
+  "comparatif":       { label: "Comparatifs",           Icon: FlaskConical, desc: "Nos comparatifs pour choisir les meilleurs produits au meilleur prix", color: "test-avis" },
   "concours":         { label: "Concours",              Icon: Trophy,       desc: "Les meilleurs jeux concours avec des lots à gagner", color: "concours" },
   "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  desc: "Tests et avis complets sur les box beauté du moment", color: "box-beaute" },
   "beaute":           { label: "Beauté",                Icon: Sparkles,     desc: "Tutos, guides, comparatifs et avis sur les produits beauté", color: "beaute" },

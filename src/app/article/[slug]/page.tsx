@@ -11,11 +11,91 @@ import InContentAdsInit from "@/app/components/InContentAdsInit";
 import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
 import FlashDeals from "@/app/components/FlashDeals";
 import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
+import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
 export async function generateStaticParams() {
   return getAllArticles().map((a) => ({ slug: a.meta.slug }));
+}
+
+const staticTagSlugs = getStaticTagSlugs(
+  getAllArticles().map((article) => article.meta.tags || [])
+);
+const articleSlugs = new Set(getAllArticles().map((article) => article.meta.slug));
+const validCategorySlugs = new Set([
+  "bon-plan",
+  "test-gratuit",
+  "test-avis",
+  "test-produit",
+  "comparatif",
+  "concours",
+  "box-beaute",
+  "beaute",
+  "selection",
+  "calendrier",
+  "calendrier-avent",
+  "code-promo",
+]);
+
+function normalizeContentInternalUrl(value: string): string | null {
+  let url = value;
+
+  if (/^https?:\/\/(?:www\.)?bonsplansmania\.fr/i.test(url)) {
+    try {
+      const parsed = new URL(url);
+      url = `${parsed.pathname}${parsed.search}${parsed.hash}`;
+    } catch {
+      return null;
+    }
+  }
+
+  const pathname = url.split(/[?#]/, 1)[0];
+  const suffix = url.slice(pathname.length);
+
+  const articleMatch = pathname.match(/^\/(?:article|blog)\/([^/]+)\/?$/);
+  if (articleMatch) {
+    return articleSlugs.has(articleMatch[1])
+      ? `/article/${articleMatch[1]}${suffix}`
+      : null;
+  }
+
+  const tagMatch = pathname.match(/^\/(?:tag|marque)\/([^/]+)\/?$/);
+  if (tagMatch) {
+    const tagSlug = slugifyTag(tagMatch[1]);
+    return staticTagSlugs.has(tagSlug) ? `/marque/${tagSlug}${suffix}` : null;
+  }
+
+  const categoryMatch = pathname.match(/^\/categorie\/([^/]+)\/?$/);
+  if (categoryMatch) {
+    const aliases: Record<string, string> = {
+      "bon-plan-beaute": "/bons-plans-beaute",
+      box: "/categorie/box-beaute",
+    };
+    if (aliases[categoryMatch[1]]) return `${aliases[categoryMatch[1]]}${suffix}`;
+    return validCategorySlugs.has(categoryMatch[1]) ? url : null;
+  }
+
+  const legacyAliases: Record<string, string> = {
+    "/concours": "/categorie/concours",
+    "/box-beaute": "/categorie/box-beaute",
+    "/test-gratuit": "/categorie/test-gratuit",
+    "/bons-plans-animalerie": "/categorie/bon-plan",
+    "/bons-plans-auto": "/categorie/bon-plan",
+    "/bons-plans-beaute-homme": "/bons-plans-beaute",
+    "/bons-plans-camping": "/categorie/bon-plan",
+    "/bons-plans-bureau": "/categorie/bon-plan",
+    "/bons-plans-loisirs": "/categorie/bon-plan",
+    "/bons-plans-mode-enfant": "/bons-plans-mode",
+    "/bons-plans-mode-homme": "/bons-plans-mode",
+    "/bons-plans-puericulture": "/bons-plans-bebe",
+    "/bons-plans-sport": "/categorie/bon-plan",
+    "/bons-plans-vetements": "/bons-plans-mode",
+    "/bons-plans-voyage": "/categorie/bon-plan",
+  };
+  if (legacyAliases[pathname]) return `${legacyAliases[pathname]}${suffix}`;
+
+  return url;
 }
 
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
@@ -64,6 +144,8 @@ export default async function ArticlePage({ params }: PageProps) {
   if (!article) notFound();
 
   const cat = categoryConfig[article.meta.category];
+  const categoryHref =
+    normalizeContentInternalUrl(`/categorie/${article.meta.category}`) || "/";
   // Le vrai lien affilié n'est PAS injecté dans le HTML : on renvoie /go/<slug>
   // et Cloudflare Function (functions/go/[slug].ts) fait le 302 vers la vraie destination.
   const rawAffiliate = article.meta.affiliateUrl || "";
@@ -174,7 +256,7 @@ export default async function ArticlePage({ params }: PageProps) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Accueil", item: "https://bonsplansmania.fr" },
-      { "@type": "ListItem", position: 2, name: cat?.label ?? article.meta.category, item: `https://bonsplansmania.fr/categorie/${article.meta.category}` },
+      { "@type": "ListItem", position: 2, name: cat?.label ?? article.meta.category, item: `https://bonsplansmania.fr${categoryHref}` },
       { "@type": "ListItem", position: 3, name: article.meta.title },
     ],
   };
@@ -191,7 +273,7 @@ export default async function ArticlePage({ params }: PageProps) {
           <nav className="breadcrumbs">
             <a href="/">Accueil</a>
             <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-            <a href={`/categorie/${article.meta.category}`}>{cat?.emoji} {cat?.label ?? article.meta.category}</a>
+            <a href={categoryHref}>{cat?.emoji} {cat?.label ?? article.meta.category}</a>
             <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
             <span>{article.meta.title}</span>
           </nav>
@@ -406,12 +488,15 @@ export default async function ArticlePage({ params }: PageProps) {
             {article.meta.tags.length > 0 && (
               <div style={{ margin: "24px 0", display: "flex", flexWrap: "wrap", gap: "8px", alignItems: "center" }}>
                 <span style={{ fontSize: "0.82rem", color: "var(--text-muted, #6b7280)", fontWeight: 600 }}>Tags :</span>
-                {article.meta.tags.map((tag) => (
-                  <a key={tag} href={`/marque/${tag.toLowerCase().replace(/\s+/g, "-").replace(/[^a-z0-9-]/g, "")}`}
-                    style={{ padding: "4px 12px", borderRadius: "999px", background: "var(--muted, #f3f4f6)", fontSize: "0.78rem", color: "var(--text, #374151)", textDecoration: "none", fontWeight: 500 }}>
-                    {tag}
-                  </a>
-                ))}
+                {article.meta.tags.map((tag) => {
+                  const tagSlug = slugifyTag(tag);
+                  const style = { padding: "4px 12px", borderRadius: "999px", background: "var(--muted, #f3f4f6)", fontSize: "0.78rem", color: "var(--text, #374151)", textDecoration: "none", fontWeight: 500 };
+                  return staticTagSlugs.has(tagSlug) ? (
+                    <a key={tag} href={`/marque/${tagSlug}`} style={style}>{tag}</a>
+                  ) : (
+                    <span key={tag} style={style}>{tag}</span>
+                  );
+                })}
               </div>
             )}
           </div>
@@ -550,7 +635,10 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
     // Liens internes (relatifs, ancres, ou bonsplansmania.fr) : suivis par Google, pas de nofollow/sponsored, navigation dans le même onglet
     const isInternal = /^(\/|#|https?:\/\/(?:www\.)?bonsplansmania\.fr)/i.test(url);
     if (isInternal) {
-      return `<a href="${url}" rel="noopener">${text}</a>`;
+      const normalizedUrl = normalizeContentInternalUrl(url);
+      return normalizedUrl
+        ? `<a href="${normalizedUrl}" rel="noopener">${text}</a>`
+        : text;
     }
     return `<a href="${url}" target="_blank" rel="nofollow sponsored noopener">${text}</a>`;
   });
