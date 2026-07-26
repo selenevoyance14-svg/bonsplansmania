@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { ChevronRight, TreePine, Calendar, Gift, Sparkles, ShoppingBag, Trophy, Heart } from "lucide-react";
+import { ChevronRight, TreePine, Calendar, Gift, Sparkles, Trophy, Heart } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";

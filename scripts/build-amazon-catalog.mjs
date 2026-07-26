@@ -190,6 +190,13 @@ async function main() {
 
   products.sort((a, b) => (b.rating || 0) - (a.rating || 0));
 
+  if (products.length === 0) {
+    console.warn(
+      "\n⚠ Aucun produit récupéré : le dernier catalogue valide est conservé.\n"
+    );
+    return;
+  }
+
   fs.writeFileSync(OUT_FILE, JSON.stringify({
     generated_at: new Date().toISOString(),
     count: products.length,

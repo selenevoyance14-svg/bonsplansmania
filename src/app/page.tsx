@@ -110,11 +110,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Pub mobile above-the-fold home : 70-80% du trafic est mobile, max d'impressions/RPM */}
-      <div className="ad-mobile-only container" style={{ display: "none", paddingTop: "12px" }}>
-        <AdBlock />
-      </div>
-
       {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
       <section className="section-sm" style={{ paddingTop: "28px", paddingBottom: "8px" }}>
         <div className="container">
@@ -175,7 +170,7 @@ export default function Home() {
             />
             <div className="articles-grid articles-grid-4">
               {latestBoxes.map((article, index) => (
-                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
+                <ArticleCard key={article.meta.slug} article={article} priority={index === 0} />
               ))}
             </div>
           </div>
@@ -196,13 +191,18 @@ export default function Home() {
               href="/bons-plans-en-cours"
             />
             <div className="articles-grid articles-grid-4">
-              {topDeals.map((article, index) => (
-                <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
+              {topDeals.map((article) => (
+                <ArticleCard key={article.meta.slug} article={article} />
               ))}
             </div>
           </div>
         </section>
       )}
+
+      {/* Sur mobile, garder au moins une sélection d'offres visible avant la première publicité. */}
+      <div className="ad-mobile-only container" style={{ display: "none", paddingTop: "12px" }}>
+        <AdBlock />
+      </div>
 
       {/* ═══ 🌟 MARQUE À L'HONNEUR CETTE SEMAINE ═══ */}
       <BrandOfTheWeek />

@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { Zap, ArrowRight } from "lucide-react";
 import { CATEGORY_CONFIG } from "@/app/components/ArticleCard";
+import { parsePrice } from "@/lib/price";
 
 type Article = {
     meta: {
@@ -14,24 +15,6 @@ type Article = {
         price?: string;
     };
 };
-
-function parsePrice(raw?: string): { now?: string; was?: string; savings?: string } {
-    if (!raw) return {};
-    const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-    if (m) {
-        const now = m[1].trim();
-        const was = m[2].trim();
-        const nowNum = parseFloat(now.replace(/[^\d,.]/g, "").replace(",", "."));
-        const wasNum = parseFloat(was.replace(/[^\d,.]/g, "").replace(",", "."));
-        let savings: string | undefined;
-        if (Number.isFinite(nowNum) && Number.isFinite(wasNum) && wasNum > nowNum) {
-            const pct = Math.round(((wasNum - nowNum) / wasNum) * 100);
-            savings = `−${pct}%`;
-        }
-        return { now, was, savings };
-    }
-    return { now: raw.trim() };
-}
 
 function formatDate(iso: string): string {
     return new Date(iso + "T12:00:00").toLocaleDateString("fr-FR", {

@@ -4,6 +4,7 @@ import { Fragment, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
+import { parsePrice } from "@/lib/price";
 
 interface ArticleListItem {
   slug: string;
@@ -59,46 +60,6 @@ function normalize(s: string): string {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
-function parseAmount(text: string): number | undefined {
-  const trimmed = text.trim();
-  const strict = trimmed.match(/^[(]?\s*(\d{1,3}(?:[\s ]\d{3})*(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)\s*€/);
-  if (strict) {
-    const cleaned = strict[1].replace(/[\s ]/g, "").replace(",", ".");
-    const n = parseFloat(cleaned);
-    return Number.isFinite(n) ? n : undefined;
-  }
-  return undefined;
-}
-
-function parsePrice(raw?: string): { now?: string; was?: string; savings?: string; nowNum?: number } {
-  if (!raw) return {};
-  const explicitPctMatch = raw.match(/-\s*(\d{1,2})\s*%/);
-  let explicitPct: number | undefined;
-  if (explicitPctMatch) {
-    const n = parseInt(explicitPctMatch[1], 10);
-    if (n > 0 && n < 100) explicitPct = n;
-  }
-  const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-  if (m) {
-    const now = m[1].trim();
-    const was = m[2].trim();
-    const nowNum = parseAmount(now);
-    const wasNum = parseAmount(was);
-    let savings: string | undefined;
-    if (explicitPct !== undefined) {
-      savings = `−${explicitPct}%`;
-    } else if (Number.isFinite(nowNum) && Number.isFinite(wasNum) && wasNum! > nowNum! && nowNum! > 0) {
-      const pct = Math.round(((wasNum! - nowNum!) / wasNum!) * 100);
-      if (pct > 0 && pct < 95) savings = `−${pct}%`;
-    }
-    return { now, was, savings, nowNum };
-  }
-  const nowNum = parseAmount(raw);
-  let savings: string | undefined;
-  if (explicitPct !== undefined) savings = `−${explicitPct}%`;
-  return { now: raw.trim(), nowNum, savings };
-}
-
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
 
 export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }: { articles: ArticleListItem[]; brands: BrandDef[]; sortBrandsBy?: "count" | "alpha" }) {
@@ -119,7 +80,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
         if (matches) matchedKeys.push(brand.key);
       }
       const parsed = parsePrice(a.price);
-      return { article: a, matchedKeys, ...parsed };
+      return { article: a, matchedKeys, ...parsed, nowNum: parsed.nowAmount };
     });
   }, [articles, brands]);
 
@@ -275,15 +236,14 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
               const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
               // Le vrai lien affilié reste côté serveur (Cloudflare Function /go/[slug])
               const affiliateHref = hasExternalAffiliate ? `/go/${article.slug}` : "#";
-              const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                if (!hasExternalAffiliate) return;
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(affiliateHref, "_blank", "noopener");
-              };
               return (
                 <Fragment key={article.slug}>
-                  <a href={`/article/${article.slug}`} className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}>
+                  <article className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}>
+                    <a
+                      href={`/article/${article.slug}`}
+                      className="bpm-card-h-main-link"
+                      aria-label={article.title}
+                    />
                     <div className="bpm-card-h-image">
                       <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
                       {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
@@ -315,7 +275,6 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                             href={affiliateHref}
                             target="_blank"
                             rel="nofollow noopener sponsored"
-                            onClick={onCtaClick}
                             className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
                             aria-label={`${cta} — ${article.title}`}
                           >
@@ -326,7 +285,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                         )}
                       </div>
                     </div>
-                  </a>
+                  </article>
                   {showAdAfter && (
                     <AdBlock format={index === 7 ? "in-article" : "display"} />
                   )}

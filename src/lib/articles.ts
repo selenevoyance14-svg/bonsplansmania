@@ -2,8 +2,55 @@ import fs from "fs";
 import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
+import { parsePrice } from "@/lib/price";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
+const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania.png";
+const ARTICLE_IMAGES_DIR = path.join(
+  process.cwd(),
+  "public",
+  "images",
+  "articles"
+);
+const ARTICLE_IMAGE_FILENAMES = new Set(
+  fs.existsSync(ARTICLE_IMAGES_DIR) ? fs.readdirSync(ARTICLE_IMAGES_DIR) : []
+);
+const AMAZON_PARTNER_TAG = "lebrunnathali-21";
+
+function secureAmazonAffiliateUrl(url: unknown): string | undefined {
+  if (typeof url !== "string" || !url.trim()) return undefined;
+
+  const value = url.trim();
+
+  try {
+    const parsed = new URL(value);
+    if (
+      parsed.hostname === "amazon.fr" ||
+      parsed.hostname.endsWith(".amazon.fr")
+    ) {
+      parsed.searchParams.set("tag", AMAZON_PARTNER_TAG);
+      return parsed.toString();
+    }
+  } catch {
+    return value;
+  }
+
+  return value;
+}
+
+function resolveArticleImage(image: unknown): string {
+  const value =
+    typeof image === "string" && image.trim()
+      ? image.trim()
+      : FALLBACK_ARTICLE_IMAGE;
+
+  if (!value.startsWith("/images/articles/")) return value;
+
+  const filename = value.slice("/images/articles/".length);
+  return ARTICLE_IMAGE_FILENAMES.has(filename)
+    ? value
+    : FALLBACK_ARTICLE_IMAGE;
+}
 
 // Cache mémoire pour éviter de relire 1105 fichiers à chaque appel
 let _fileMapCache: Map<string, string> | null = null;
@@ -85,11 +132,11 @@ export function getArticleBySlug(slug: string): Article | null {
       updated: data.updated,
       category: data.category || "bon-plan",
       tags: data.tags || [],
-      image: data.image || "/images/placeholder.svg",
+      image: resolveArticleImage(data.image),
       imageAlt: data.imageAlt || data.title || "",
       rating: data.rating,
       price: data.price,
-      affiliateUrl: data.affiliateUrl,
+      affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,
       readingTime: stats.text.replace("min read", "min"),
       published: data.published !== false,
@@ -97,8 +144,10 @@ export function getArticleBySlug(slug: string): Article | null {
       seoTitle: data.seoTitle,
       seoDescription: data.seoDescription,
       expired: data.expired || false,
+      evergreen: data.evergreen || false,
       endDate: data.endDate,
       dealOfDay: data.dealOfDay || false,
+      noindex: data.noindex || false,
     },
     content,
   };
@@ -190,12 +239,14 @@ export function getDealOfDay(): Article | null {
     const t = new Date(a.meta.date + "T12:00:00").getTime();
     if (t < sevenDaysAgo) continue;
     if (!a.meta.price) continue;
-    const m = a.meta.price.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-    if (!m) continue;
-    const now = parseFloat(m[1].replace(/[^\d,.]/g, "").replace(",", "."));
-    const was = parseFloat(m[2].replace(/[^\d,.]/g, "").replace(",", "."));
-    if (!Number.isFinite(now) || !Number.isFinite(was) || was <= now) continue;
-    const pct = ((was - now) / was) * 100;
+    const { nowAmount, wasAmount, discountPct } = parsePrice(a.meta.price);
+    if (
+      nowAmount === undefined ||
+      wasAmount === undefined ||
+      wasAmount <= nowAmount
+    ) continue;
+    const pct =
+      discountPct ?? ((wasAmount - nowAmount) / wasAmount) * 100;
     if (!best || pct > best.pct) best = { article: a, pct };
   }
   return best?.article ?? null;

@@ -4,6 +4,7 @@ import { Fragment, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Filter, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
+import { parsePrice } from "@/lib/price";
 
 interface ArticleListItem {
   slug: string;
@@ -237,75 +238,6 @@ function getBrandLabel(slug: string, original?: string): string {
   return prettifyBrandSlug(slug);
 }
 
-function parseAmount(text: string): number | undefined {
-  // STRICT : on n'accepte que les chaînes qui COMMENCENT par un prix.
-  // Ça exclut les "1 310 bons d'achat — jusqu'à 100€" où le 100€ est
-  // une valeur de lot, pas le prix payé.
-  const trimmed = text.trim();
-  // Match: début de chaîne, optionnels d'ouverture, puis prix + €
-  // Tolère "1 800,50 €" / "75,90€" / "(75,90 €" / "À partir de 75 €" → non, on rejette les préfixes
-  const strict = trimmed.match(/^[(]?\s*(\d{1,3}(?:[\s ]\d{3})*(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)\s*€/);
-  if (strict) {
-    const cleaned = strict[1].replace(/[\s ]/g, "").replace(",", ".");
-    const n = parseFloat(cleaned);
-    return Number.isFinite(n) ? n : undefined;
-  }
-  return undefined;
-}
-
-function parsePrice(raw?: string): { now?: string; was?: string; savings?: string; nowNum?: number; discountPct?: number } {
-  if (!raw) return {};
-
-  // 1) Lecture du pourcentage explicite si présent : "-X%" ou "(-X %)" — priorité aux info fournies par l'auteur
-  const explicitPctMatch = raw.match(/-\s*(\d{1,2})\s*%/);
-  let explicitPct: number | undefined;
-  if (explicitPctMatch) {
-    const n = parseInt(explicitPctMatch[1], 10);
-    if (n > 0 && n < 100) explicitPct = n;
-  }
-
-  const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-  if (m) {
-    const now = m[1].trim();
-    const was = m[2].trim();
-    const nowNum = parseAmount(now);
-    const wasNum = parseAmount(was);
-
-    let savings: string | undefined;
-    let discountPct: number | undefined;
-
-    if (explicitPct !== undefined) {
-      discountPct = explicitPct;
-      savings = `−${discountPct}%`;
-    } else if (
-      Number.isFinite(nowNum) &&
-      Number.isFinite(wasNum) &&
-      wasNum! > nowNum! &&
-      nowNum! > 0
-    ) {
-      const pct = Math.round(((wasNum! - nowNum!) / wasNum!) * 100);
-      // Garde-fous : refuse les pourcentages aberrants (>= 95% sur des prix consommateur, c'est suspect)
-      if (pct > 0 && pct < 95) {
-        discountPct = pct;
-        savings = `−${pct}%`;
-      }
-    }
-
-    return { now, was, savings, nowNum, discountPct };
-  }
-
-  // Pas de "au lieu de" : on essaie quand même de lire le prix actuel pour le filtrage
-  const nowNum = parseAmount(raw);
-  // Si le prix contient un "-X%" explicite mais pas "au lieu de", on peut quand même afficher la remise
-  let savings: string | undefined;
-  let discountPct: number | undefined;
-  if (explicitPct !== undefined) {
-    discountPct = explicitPct;
-    savings = `−${explicitPct}%`;
-  }
-  return { now: raw.trim(), nowNum, discountPct, savings };
-}
-
 type PriceRange = "all" | "lt30" | "30to100" | "gt100";
 type DiscountFilter = "all" | "20" | "50" | "70";
 type SortBy = "recent" | "oldest" | "discount" | "price-asc" | "price-desc";
@@ -353,7 +285,7 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
       const brandCandidates = getBrandCandidates(a);
       const brandSlugs = brandCandidates.map((c) => c.slug);
       const parsed = parsePrice(a.price);
-      return { article: a, brandCandidates, brandSlugs, ...parsed };
+      return { article: a, brandCandidates, brandSlugs, ...parsed, nowNum: parsed.nowAmount };
     });
   }, [articles]);
 
@@ -649,18 +581,16 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
-              const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-                if (!hasExternalAffiliate) return;
-                e.preventDefault();
-                e.stopPropagation();
-                window.open(article.affiliateUrl!, "_blank", "noopener");
-              };
               return (
                 <Fragment key={article.slug}>
-                  <a
-                    href={`/article/${article.slug}`}
+                  <article
                     className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}
                   >
+                    <a
+                      href={`/article/${article.slug}`}
+                      className="bpm-card-h-main-link"
+                      aria-label={article.title}
+                    />
                     <div className="bpm-card-h-image">
                       <Image
                         src={article.image}
@@ -709,7 +639,6 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                             href={article.affiliateUrl!}
                             target="_blank"
                             rel="nofollow noopener sponsored"
-                            onClick={onCtaClick}
                             className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
                             aria-label={`${cta} — ${article.title}`}
                           >
@@ -722,7 +651,7 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                         )}
                       </div>
                     </div>
-                  </a>
+                  </article>
                   {showAdAfter && (
                     <AdBlock format={index === 7 ? "in-article" : "display"} />
                   )}

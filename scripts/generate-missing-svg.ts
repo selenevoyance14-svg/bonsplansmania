@@ -159,7 +159,7 @@ function generateSvg(data: {
   const badgeText = discount || "PROMO";
   const badgeWidth = discount ? 100 : 140;
 
-  let titleY = 250;
+  const titleY = 250;
   const titleLines = nameLines.map((line, i) => {
     const y = titleY + i * 70;
     return `  <text x="80" y="${y}" font-family="Georgia, serif" font-size="52" fill="${textColor}" font-weight="700">${escapeXml(line)}</text>`;

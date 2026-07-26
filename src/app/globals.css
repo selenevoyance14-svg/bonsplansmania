@@ -2071,6 +2071,23 @@ body {
   position: relative;
 }
 
+.bpm-card-h-main-link {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  border-radius: inherit;
+}
+
+.bpm-card-h-main-link:focus-visible {
+  outline: 3px solid var(--primary);
+  outline-offset: -3px;
+}
+
+.bpm-card-h-cta {
+  position: relative;
+  z-index: 2;
+}
+
 .bpm-card-h:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
@@ -2335,4 +2352,3 @@ body {
   .bpm-card-h-chip { font-size: 0.66rem; padding: 2px 6px; }
   .bpm-card-h-cta { font-size: 0.8rem; }
 }
-

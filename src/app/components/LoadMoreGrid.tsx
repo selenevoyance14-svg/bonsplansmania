@@ -4,6 +4,7 @@ import { Fragment, useState } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
+import { parsePrice } from "@/lib/price";
 
 interface ArticleListItem {
   slug: string;
@@ -48,63 +49,6 @@ const BADGE_BY_COLOR: Record<string, string> = {
   "code-promo": "Code",
 };
 
-function parseAmount(text: string): number | undefined {
-  const cleaned = text.replace(/\s+/g, "");
-  const m = cleaned.match(/(\d+(?:[.,]\d+)?)\s*€/);
-  if (m) {
-    const n = parseFloat(m[1].replace(",", "."));
-    return Number.isFinite(n) ? n : undefined;
-  }
-  const m2 = cleaned.match(/(\d+(?:[.,]\d+)?)/);
-  if (m2) {
-    const n = parseFloat(m2[1].replace(",", "."));
-    return Number.isFinite(n) ? n : undefined;
-  }
-  return undefined;
-}
-
-function parsePrice(raw?: string): { now?: string; was?: string; savings?: string } {
-  if (!raw) return {};
-
-  const explicitPctMatch = raw.match(/-\s*(\d{1,2})\s*%/);
-  let explicitPct: number | undefined;
-  if (explicitPctMatch) {
-    const n = parseInt(explicitPctMatch[1], 10);
-    if (n > 0 && n < 100) explicitPct = n;
-  }
-
-  const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-  if (m) {
-    const now = m[1].trim();
-    const was = m[2].trim();
-
-    if (explicitPct !== undefined) {
-      return { now, was, savings: `−${explicitPct}%` };
-    }
-
-    const nowNum = parseAmount(now);
-    const wasNum = parseAmount(was);
-    let savings: string | undefined;
-    if (
-      Number.isFinite(nowNum) &&
-      Number.isFinite(wasNum) &&
-      wasNum! > nowNum! &&
-      nowNum! > 0
-    ) {
-      const pct = Math.round(((wasNum! - nowNum!) / wasNum!) * 100);
-      if (pct > 0 && pct < 95) {
-        savings = `−${pct}%`;
-      }
-    }
-    return { now, was, savings };
-  }
-
-  if (explicitPct !== undefined) {
-    return { now: raw.trim(), savings: `−${explicitPct}%` };
-  }
-  return { now: raw.trim() };
-}
-
 export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[] }) {
   const [visible, setVisible] = useState(PER_PAGE);
   const shown = articles.slice(0, visible);
@@ -122,18 +66,16 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
           const showAdAfter = index === 7 || index === 15;
           const articleHref = `/article/${article.slug}`;
           const hasExternalAffiliate = !!article.affiliateUrl && /^https?:\/\//.test(article.affiliateUrl) && !article.expired;
-          const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-            if (!hasExternalAffiliate) return;
-            e.preventDefault();
-            e.stopPropagation();
-            window.open(article.affiliateUrl!, "_blank", "noopener");
-          };
           return (
             <Fragment key={article.slug}>
-              <a
-                href={articleHref}
+              <article
                 className={`bpm-card-h bpm-card-h-${article.categoryColor} ${article.expired ? "bpm-card-h-expired" : ""}`}
               >
+                <a
+                  href={articleHref}
+                  className="bpm-card-h-main-link"
+                  aria-label={article.title}
+                />
                 <div className="bpm-card-h-image">
                   <Image
                     src={article.image}
@@ -183,7 +125,6 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                         href={article.affiliateUrl!}
                         target="_blank"
                         rel="nofollow noopener sponsored"
-                        onClick={onCtaClick}
                         className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
                         aria-label={`${cta} — ${article.title}`}
                       >
@@ -196,7 +137,7 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                     )}
                   </div>
                 </div>
-              </a>
+              </article>
               {showAdAfter && (
                 <AdBlock format={index === 7 ? "in-article" : "display"} />
               )}

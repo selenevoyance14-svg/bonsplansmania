@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { CATEGORY_CONFIG, DEAL_FIRST_CATEGORIES } from "./ArticleCard";
+import { parsePrice } from "@/lib/price";
 
 type Article = {
     meta: {
@@ -17,27 +18,6 @@ type Article = {
         affiliateUrl?: string;
     };
 };
-
-function parsePrice(raw?: string): { now?: string; was?: string; savingsPct?: string; savingsEur?: string } {
-    if (!raw) return {};
-    const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-    if (m) {
-        const now = m[1].trim();
-        const was = m[2].trim();
-        const nowNum = parseFloat(now.replace(/[^\d,.]/g, "").replace(",", "."));
-        const wasNum = parseFloat(was.replace(/[^\d,.]/g, "").replace(",", "."));
-        let savingsPct: string | undefined;
-        let savingsEur: string | undefined;
-        if (Number.isFinite(nowNum) && Number.isFinite(wasNum) && wasNum > nowNum) {
-            const pct = Math.round(((wasNum - nowNum) / wasNum) * 100);
-            const eur = (wasNum - nowNum).toFixed(2).replace(".", ",");
-            savingsPct = `−${pct}%`;
-            savingsEur = `−${eur}€`;
-        }
-        return { now, was, savingsPct, savingsEur };
-    }
-    return { now: raw.trim() };
-}
 
 function formatRelativeDate(iso: string): string {
     const d = new Date(iso + "T12:00:00");
@@ -59,23 +39,20 @@ export default function ArticleCardHorizontal({
 }) {
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
     const isExpired = article.meta.expired === true;
-    const { now, was, savingsPct, savingsEur } = parsePrice(article.meta.price);
+    const { now, was, savings: savingsPct, savingsEur } = parsePrice(article.meta.price);
     const isFree = !!now && /gratuit/i.test(now);
     const isDealFirst = DEAL_FIRST_CATEGORIES.has(article.meta.category);
     // "content-first" (test-avis, comparatif, beaute…) : le CTA reste sur l'article, pas d'ouverture affiliée
     const hasExternalAffiliate = isDealFirst && !!article.meta.affiliateUrl && /^https?:\/\//.test(article.meta.affiliateUrl) && !isExpired;
-    const onCtaClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-        if (!hasExternalAffiliate) return;
-        e.preventDefault();
-        e.stopPropagation();
-        window.open(article.meta.affiliateUrl!, "_blank", "noopener");
-    };
-
     return (
-        <a
-            href={`/article/${article.meta.slug}`}
+        <article
             className={`bpm-card-h bpm-card-h-${cat.color} ${isExpired ? "bpm-card-h-expired" : ""}`}
         >
+            <a
+                href={`/article/${article.meta.slug}`}
+                className="bpm-card-h-main-link"
+                aria-label={article.meta.title}
+            />
             <div className="bpm-card-h-image">
                 <Image
                     src={article.meta.image}
@@ -121,7 +98,6 @@ export default function ArticleCardHorizontal({
                             href={article.meta.affiliateUrl!}
                             target="_blank"
                             rel="nofollow noopener sponsored"
-                            onClick={onCtaClick}
                             className={`bpm-card-h-cta bpm-cta-${cat.color}`}
                             aria-label={`${cat.cta} — ${article.meta.title}`}
                         >
@@ -134,6 +110,6 @@ export default function ArticleCardHorizontal({
                     )}
                 </div>
             </div>
-        </a>
+        </article>
     );
 }

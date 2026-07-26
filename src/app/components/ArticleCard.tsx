@@ -3,6 +3,7 @@ import {
     Tag, Gift, Trophy, ShoppingBag, Sparkles, Calendar, TreePine,
     FlaskConical, Percent, ArrowRight, type LucideIcon,
 } from "lucide-react";
+import { parsePrice } from "@/lib/price";
 
 export type CardCategoryConfig = {
     label: string;
@@ -59,28 +60,6 @@ type Article = {
         affiliateUrl?: string;
     };
 };
-
-/**
- * Parse a price string. Returns { now, was, savings } when both prices
- * present, or { now } if only one. Recognises "X au lieu de Y".
- */
-function parsePrice(raw?: string): { now?: string; was?: string; savings?: string } {
-    if (!raw) return {};
-    const m = raw.match(/^(.+?)\s*au lieu de\s*(.+?)$/i);
-    if (m) {
-        const now = m[1].trim();
-        const was = m[2].trim();
-        const nowNum = parseFloat(now.replace(/[^\d,.]/g, "").replace(",", "."));
-        const wasNum = parseFloat(was.replace(/[^\d,.]/g, "").replace(",", "."));
-        let savings: string | undefined;
-        if (Number.isFinite(nowNum) && Number.isFinite(wasNum) && wasNum > nowNum) {
-            const pct = Math.round(((wasNum - nowNum) / wasNum) * 100);
-            savings = `−${pct}%`;
-        }
-        return { now, was, savings };
-    }
-    return { now: raw.trim() };
-}
 
 function formatDate(iso: string): string {
     return new Date(iso + "T12:00:00").toLocaleDateString("fr-FR", {

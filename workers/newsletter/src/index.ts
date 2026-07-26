@@ -40,7 +40,7 @@ function jsonResponse(data: unknown, status = 200): Response {
   });
 }
 
-export default {
+const newsletterWorker = {
   async fetch(request: Request, env: Env): Promise<Response> {
     if (request.method === "OPTIONS") {
       return new Response(null, { status: 204, headers: CORS_HEADERS });
@@ -66,7 +66,7 @@ export default {
         return await handleGuide(request, env);
       }
       return jsonResponse({ error: "Not found" }, 404);
-    } catch (err) {
+    } catch {
       return jsonResponse({ error: "Internal error" }, 500);
     }
   },
@@ -82,6 +82,8 @@ export default {
     }
   },
 };
+
+export default newsletterWorker;
 
 // --- DRIP SEQUENCE pour les inscrits guide PDF ---
 // Lance chaque jour, identifie les inscrits dont c'est le jour J+2/J+5/J+9/J+14/J+21

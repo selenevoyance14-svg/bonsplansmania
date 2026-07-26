@@ -27,7 +27,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/blog",                     priority: 0.9, changeFrequency: "daily" },
   { path: "/bons-plans-en-cours",      priority: 0.9, changeFrequency: "daily" },
   { path: "/ete-2026",                 priority: 0.9, changeFrequency: "daily" },
-  { path: "/fete-des-peres-2026",      priority: 0.9, changeFrequency: "daily" },
+  { path: "/fete-des-peres-2026",      priority: 0.3, changeFrequency: "yearly" },
   { path: "/noel-2026",                priority: 0.8, changeFrequency: "weekly" },
   { path: "/codes-promo-permanents",   priority: 0.8, changeFrequency: "weekly" },
   { path: "/code-promo",               priority: 0.8, changeFrequency: "weekly" },
