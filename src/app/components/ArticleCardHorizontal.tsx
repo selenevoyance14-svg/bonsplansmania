@@ -42,8 +42,10 @@ export default function ArticleCardHorizontal({
     const { now, was, savings: savingsPct, savingsEur } = parsePrice(article.meta.price);
     const isFree = !!now && /gratuit/i.test(now);
     const isDealFirst = DEAL_FIRST_CATEGORIES.has(article.meta.category);
-    // "content-first" (test-avis, comparatif, beaute…) : le CTA reste sur l'article, pas d'ouverture affiliée
+    // "content-first" (concours, test-gratuit, test-avis, comparatif, beaute…) :
+    // le CTA reste sur l'article, pas d'ouverture affiliée.
     const hasExternalAffiliate = isDealFirst && !!article.meta.affiliateUrl && /^https?:\/\//.test(article.meta.affiliateUrl) && !isExpired;
+    const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : undefined;
     return (
         <article
             className={`bpm-card-h bpm-card-h-${cat.color} ${isExpired ? "bpm-card-h-expired" : ""}`}
@@ -95,7 +97,7 @@ export default function ArticleCardHorizontal({
                     </div>
                     {hasExternalAffiliate ? (
                         <a
-                            href={article.meta.affiliateUrl!}
+                            href={affiliateHref!}
                             target="_blank"
                             rel="nofollow noopener sponsored"
                             className={`bpm-card-h-cta bpm-cta-${cat.color}`}

@@ -36,6 +36,23 @@ export default function ThirdPartyScripts() {
       return "other";
     }
 
+    function isKnownAffiliateHost(hostname: string): boolean {
+      return [
+        "amazon.fr",
+        "amzn.to",
+        "awin1.com",
+        "tidd.ly",
+        "ystyle.co",
+        "affilae.com",
+        "effiliation.com",
+        "tradedoubler.com",
+        "publicidees.com",
+        "fnty.co",
+        "c3po.link",
+        "lk.gt",
+      ].some((domain) => hostname === domain || hostname.endsWith(`.${domain}`));
+    }
+
     function trackClick(event: MouseEvent) {
       const target = event.target;
       if (!(target instanceof Element)) return;
@@ -44,7 +61,6 @@ export default function ThirdPartyScripts() {
       if (!(anchor instanceof HTMLAnchorElement)) return;
 
       const url = new URL(anchor.href, window.location.origin);
-      if (url.origin !== window.location.origin) return;
 
       const commonParams = {
         page_path: window.location.pathname,
@@ -57,6 +73,21 @@ export default function ThirdPartyScripts() {
         window.gtag("event", "affiliate_click", {
           ...commonParams,
           affiliate_slug: decodeURIComponent(url.pathname.slice(4)),
+        });
+        return;
+      }
+
+      if (url.origin !== window.location.origin) {
+        load();
+        const eventName = isKnownAffiliateHost(url.hostname)
+          ? "affiliate_click"
+          : "outbound_click";
+        window.gtag("event", eventName, {
+          ...commonParams,
+          destination_hostname: url.hostname,
+          source_slug: window.location.pathname.startsWith("/article/")
+            ? decodeURIComponent(window.location.pathname.slice(9))
+            : "",
         });
         return;
       }

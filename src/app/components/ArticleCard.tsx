@@ -15,9 +15,9 @@ export type CardCategoryConfig = {
 
 /**
  * Catégories "deal-first" — le CTA de la carte pointe directement vers l'URL affilié
- * (bon plan Amazon, box à commander, code promo à saisir, mission test-gratuit, participation concours).
+ * (bon plan Amazon, box à commander, code promo à saisir).
  *
- * Les autres catégories (test-avis, comparatif, beaute, selection) sont "content-first" :
+ * Les contenus gratuits (concours, test-gratuit) et éditoriaux sont "content-first" :
  * le CTA ouvre l'article pour que la lectrice lise le contenu éditorial avant de sortir.
  */
 export const DEAL_FIRST_CATEGORIES = new Set([
@@ -27,17 +27,15 @@ export const DEAL_FIRST_CATEGORIES = new Set([
     "code-promo",
     "calendrier-avent",
     "calendrier",
-    "test-gratuit",
-    "concours",
 ]);
 
 export const CATEGORY_CONFIG: Record<string, CardCategoryConfig> = {
     "bon-plan":         { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
     "bon-plan-beaute":  { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
-    "test-gratuit":     { label: "Test Gratuit", Icon: Gift,       color: "test-gratuit",     cta: "Postuler" },
+    "test-gratuit":     { label: "Test Gratuit", Icon: Gift,       color: "test-gratuit",     cta: "Voir les détails" },
     "test-avis":        { label: "Test & Avis", Icon: FlaskConical, color: "test-avis",       cta: "Lire le test" },
     "comparatif":       { label: "Comparatif",  Icon: FlaskConical, color: "test-avis",       cta: "Lire le comparatif" },
-    "concours":         { label: "Concours",   Icon: Trophy,       color: "concours",         cta: "Participer" },
+    "concours":         { label: "Concours",   Icon: Trophy,       color: "concours",         cta: "Voir le concours" },
     "box-beaute":       { label: "Box Beauté", Icon: ShoppingBag,  color: "box-beaute",       cta: "Voir la box" },
     "beaute":           { label: "Beauté",     Icon: Sparkles,     color: "beaute",           cta: "Lire l'article" },
     "selection":        { label: "Beauté",     Icon: Sparkles,     color: "beaute",           cta: "Lire l'article" },
