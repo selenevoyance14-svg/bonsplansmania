@@ -50,7 +50,7 @@ export default function Header({ activePage }: { activePage?: string }) {
                 <div className="nav-dropdown-menu">
                   <a href="/bons-plans-beaute">🌸 Coin Beauté</a>
                   <a href="/bons-plans-bebe">👶 Coin Bébé</a>
-                  <a href="/bons-plans-ninja"><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Coin Ninja</a>
+                  <a href="/bons-plans-ninja"><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Air Fryer &amp; Ninja</a>
                   <a href="/bons-plans-tech">📱 Coin Tech</a>
                   <a href="/bons-plans-maison">🏠 Coin Maison</a>
                   <a href="/bons-plans-jardin">🌱 Coin Jardin & Animaux</a>
@@ -135,7 +135,7 @@ export default function Header({ activePage }: { activePage?: string }) {
             <span className="mobile-menu-title">Bons Plans</span>
             <a href="/bons-plans-beaute" onClick={() => setMobileOpen(false)}>🌸 Coin Beauté</a>
             <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
-            <a href="/bons-plans-ninja" onClick={() => setMobileOpen(false)}><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Coin Ninja</a>
+            <a href="/bons-plans-ninja" onClick={() => setMobileOpen(false)}><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Air Fryer &amp; Ninja</a>
             <a href="/bons-plans-tech" onClick={() => setMobileOpen(false)}>📱 Coin Tech</a>
             <a href="/bons-plans-maison" onClick={() => setMobileOpen(false)}>🏠 Coin Maison</a>
             <a href="/bons-plans-jardin" onClick={() => setMobileOpen(false)}>🌱 Coin Jardin & Animaux</a>
