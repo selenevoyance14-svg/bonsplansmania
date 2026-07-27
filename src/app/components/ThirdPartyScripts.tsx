@@ -9,23 +9,6 @@ export default function ThirdPartyScripts() {
       window.dataLayer.push(args);
     };
 
-    let loaded = false;
-    function load() {
-      if (loaded) return;
-      loaded = true;
-
-      // Google Analytics
-      const gaScript = document.createElement("script");
-      gaScript.src = "https://www.googletagmanager.com/gtag/js?id=G-HH3TT98TED";
-      gaScript.async = true;
-      document.head.appendChild(gaScript);
-
-      window.gtag("js", new Date());
-      window.gtag("config", "G-HH3TT98TED");
-
-      // AdSense is loaded via layout.tsx head
-    }
-
     function getClickLocation(anchor: HTMLAnchorElement): string {
       if (anchor.closest(".bpm-card")) return "article_card";
       if (anchor.closest(".article-rating-bar")) return "article_header";
@@ -69,7 +52,6 @@ export default function ThirdPartyScripts() {
       };
 
       if (url.pathname.startsWith("/go/")) {
-        load();
         window.gtag("event", "affiliate_click", {
           ...commonParams,
           affiliate_slug: decodeURIComponent(url.pathname.slice(4)),
@@ -78,7 +60,6 @@ export default function ThirdPartyScripts() {
       }
 
       if (url.origin !== window.location.origin) {
-        load();
         const eventName = isKnownAffiliateHost(url.hostname)
           ? "affiliate_click"
           : "outbound_click";
@@ -96,7 +77,6 @@ export default function ThirdPartyScripts() {
         window.location.pathname.startsWith("/article/") &&
         url.pathname.startsWith("/article/")
       ) {
-        load();
         window.gtag("event", "internal_article_click", {
           ...commonParams,
           destination_slug: decodeURIComponent(url.pathname.slice(9)),
@@ -104,23 +84,9 @@ export default function ThirdPartyScripts() {
       }
     }
 
-    // Load on first user interaction or after 5s max
-    const events = ["scroll", "click", "touchstart", "keydown"];
-    const handler = () => {
-      load();
-      events.forEach((e) => window.removeEventListener(e, handler));
-    };
-    events.forEach((e) => window.addEventListener(e, handler, { once: true, passive: true }));
     document.addEventListener("click", trackClick, { capture: true });
 
-    const timer = setTimeout(() => {
-      load();
-      events.forEach((e) => window.removeEventListener(e, handler));
-    }, 5000);
-
     return () => {
-      clearTimeout(timer);
-      events.forEach((e) => window.removeEventListener(e, handler));
       document.removeEventListener("click", trackClick, { capture: true });
     };
   }, []);
