@@ -86,12 +86,24 @@ export default function Home() {
     )
     .slice(0, 24);
 
-  const freeOpportunities = allArticles
+  // Garder les tests produits visibles sur l'accueil même lorsque plusieurs concours
+  // sont publiés le même jour : 2 derniers tests + 2 derniers concours, tous actifs.
+  // Ici on trie volontairement sur `date` uniquement : une simple correction d'un
+  // ancien article ne doit pas le faire passer devant un test fraîchement publié.
+  const latestProductTests = allArticles
     .filter((a) =>
-      (a.meta.category === "concours" || a.meta.category === "test-gratuit")
+      (a.meta.category === "test-gratuit" || a.meta.category === "test-produit")
       && !isEffectivelyExpired(a.meta)
     )
-    .slice(0, 4);
+    .toSorted((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
+    .slice(0, 2);
+  const latestContests = allArticles
+    .filter((a) =>
+      a.meta.category === "concours" && !isEffectivelyExpired(a.meta)
+    )
+    .toSorted((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
+    .slice(0, 2);
+  const freeOpportunities = [...latestProductTests, ...latestContests];
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -304,7 +316,7 @@ export default function Home() {
               badge="100 % gratuit"
               badgeIcon={<Gift size={12} aria-hidden />}
               title="Concours et tests produits"
-              subtitle="À consulter après les bons plans : ces opportunités sont gratuites, sans promesse de gain."
+              subtitle="Les 2 derniers tests produits et les 2 derniers concours encore ouverts."
               color="#7C3AED"
               href="/categorie/concours"
             />
