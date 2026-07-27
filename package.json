@@ -4,12 +4,14 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/build-amazon-catalog.mjs || true && npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts && npx tsx scripts/build-affiliate-mapping.ts",
+    "prebuild": "npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts && npx tsx scripts/build-affiliate-mapping.ts",
     "build": "next build && npx tsx scripts/clean-rsc-txt.ts",
     "start": "next start",
     "lint": "eslint",
     "sync-amazon": "node scripts/build-amazon-catalog.mjs",
-    "audit:revenue": "npx tsx scripts/audit-revenue-readiness.ts"
+    "audit:revenue": "npx tsx scripts/audit-revenue-readiness.ts",
+    "cockpit:revenue": "npx tsx scripts/build-revenue-cockpit.ts",
+    "audit:content": "npx tsx scripts/audit-content-integrity.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.1",
