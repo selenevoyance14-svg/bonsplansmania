@@ -10,6 +10,7 @@ export default function ThirdPartyScripts() {
     };
 
     function getClickLocation(anchor: HTMLAnchorElement): string {
+      if (anchor.dataset.affiliatePosition) return anchor.dataset.affiliatePosition;
       if (anchor.closest(".bpm-card")) return "article_card";
       if (anchor.closest(".article-rating-bar")) return "article_header";
       if (anchor.closest(".cta-inline")) return "article_inline";
@@ -85,6 +86,10 @@ export default function ThirdPartyScripts() {
         page_path: window.location.pathname,
         link_text: anchor.textContent?.trim().slice(0, 100) || "",
         click_location: getClickLocation(anchor),
+        merchant: anchor.dataset.affiliateMerchant || "",
+        offer_name: anchor.dataset.affiliateOffer || "",
+        button_position:
+          anchor.dataset.affiliatePosition || getClickLocation(anchor),
       };
 
       if (url.pathname.startsWith("/go/")) {
@@ -99,7 +104,8 @@ export default function ThirdPartyScripts() {
       }
 
       if (url.origin !== window.location.origin) {
-        const isAffiliate = isKnownAffiliateUrl(url);
+        const isAffiliate =
+          Boolean(anchor.dataset.affiliateMerchant) || isKnownAffiliateUrl(url);
         const eventName = isAffiliate
           ? "affiliate_click"
           : "outbound_click";

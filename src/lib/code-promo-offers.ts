@@ -28,6 +28,52 @@ export interface CodePromoOffer {
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
+  // C-MONETIQUETTE — rentrée 2026
+  // ============================================================
+  {
+    id: "c-mon-etiquette-rhef-20",
+    brandSlug: "c-mon-etiquette",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "SANS MINIMUM",
+    title: "-20 % sur le panier avec le code RHEF",
+    code: "RHEF",
+    expires: "2026-08-25",
+    conditions: "Code annoncé sans minimum d'achat jusqu'au 25/08/2026. Vérifier l'application de la remise dans le panier avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "c-mon-etiquette-packs-37",
+    brandSlug: "c-mon-etiquette",
+    type: "offre",
+    value: "-37 %",
+    valueLabel: "PACKS",
+    title: "Jusqu'à -37 % sur les packs d'étiquettes personnalisées",
+    expires: "2026-09-12",
+    conditions: "Réduction appliquée sur une sélection de packs, dans la limite des produits et stocks disponibles.",
+    featured: true,
+  },
+  {
+    id: "c-mon-etiquette-mini-prix-50",
+    brandSlug: "c-mon-etiquette",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "MINI PRIX",
+    title: "Jusqu'à -50 % sur la sélection mini prix",
+    expires: "2026-12-31",
+    conditions: "Prix remisés sur une sélection variable. Vérifier les produits concernés et le prix final sur C-MonEtiquette.",
+  },
+  {
+    id: "c-mon-etiquette-livraison",
+    brandSlug: "c-mon-etiquette",
+    type: "livraison",
+    value: "OFFERTE",
+    valueLabel: "ÉTIQUETTES",
+    title: "Livraison offerte sur les étiquettes selon les conditions affichées",
+    conditions: "Les modalités dépendent du type de produit et du panier. Vérifier le mode et le montant de livraison avant validation.",
+  },
+
+  // ============================================================
   // FRANÇOISE SAGET — 8 offres cumulables été 2026
   // ============================================================
   {
@@ -499,6 +545,90 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
+  // Offres vérifiées le 27/07/2026
+  // ============================================================
+  {
+    id: "lea-nature-soleil20",
+    brandSlug: "lea-nature",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "SÉLECTION",
+    title: "-20 % sur une sélection avec le code SOLEIL20",
+    code: "SOLEIL20",
+    expires: "2026-07-31",
+    conditions: "Offre du 01/07 au 31/07/2026 sur une sélection. Non cumulable avec une autre promotion, hors direct usine, kits et routines.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-lift-grenade",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "LIFT'GRENADE",
+    title: "-30 % sur la gamme Lift'Grenade SO'BiO étic",
+    expires: "2026-08-31",
+    conditions: "Remise automatique valable dans la limite des stocks. Non cumulable avec une autre promotion.",
+  },
+  {
+    id: "pin-up-secret-coffrets",
+    brandSlug: "pin-up-secret",
+    type: "offre",
+    value: "-60 %",
+    valueLabel: "COFFRETS",
+    title: "Jusqu'à -60 % sur une sélection de coffrets Pin Up Secret",
+    conditions: "Prix barrés affichés sur le site officiel le 27/07/2026, dans la limite des stocks. Vérifier le prix final dans le panier.",
+    featured: true,
+  },
+  {
+    id: "pin-up-secret-livraison",
+    brandSlug: "pin-up-secret",
+    type: "livraison",
+    value: "OFFERTE",
+    valueLabel: "DÈS 49 €",
+    title: "Livraison offerte dès 49 € d'achat",
+    conditions: "Seuil affiché par Pin Up Secret le 27/07/2026. Vérifier le mode de livraison éligible dans le panier.",
+  },
+  {
+    id: "twenty-dc-routines",
+    brandSlug: "twenty-dc",
+    type: "offre",
+    value: "-15 %",
+    valueLabel: "ROUTINES",
+    title: "Jusqu'à -15 % sur les routines Twenty DC",
+    conditions: "Remise annoncée sur une sélection de packs. Vérifier la composition, le prix et la disponibilité le jour de l'achat.",
+  },
+  {
+    id: "twenty-dc-livraison",
+    brandSlug: "twenty-dc",
+    type: "livraison",
+    value: "OFFERTE",
+    valueLabel: "DÈS 49 €",
+    title: "Livraison offerte dès 49 €",
+    conditions: "Seuil affiché sur Twenty DC le 27/07/2026.",
+  },
+  {
+    id: "uriage-bariesun-2026",
+    brandSlug: "uriage",
+    type: "code",
+    value: "3ᵉ OFFERT",
+    valueLabel: "SOLAIRES",
+    title: "Dès 3 solaires achetés, le moins cher est offert",
+    code: "BARIESUN",
+    conditions: "Le solaire le moins cher du panier est offert. Vérifier l'éligibilité des références et l'application du code au panier.",
+    featured: true,
+  },
+  {
+    id: "uriage-livraison-49",
+    brandSlug: "uriage",
+    type: "livraison",
+    value: "OFFERTE",
+    valueLabel: "PLUS DE 49 €",
+    title: "Livraison offerte pour toute commande supérieure à 49 €",
+    conditions: "Seuil affiché par Uriage le 27/07/2026. Vérifier les modalités de livraison au panier.",
+  },
+
+  // ============================================================
   // SARENZA — service permanent
   // ============================================================
   {
@@ -795,16 +925,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // GREENWEEZ — service permanent
+  // GREENWEEZ — offre vérifiée le 27/07/2026
   // ============================================================
   {
-    id: "greenweez-livraison",
+    id: "greenweez-bienvenue-2026",
     brandSlug: "greenweez",
-    type: "livraison",
-    value: "GRATUITE",
-    valueLabel: "LIVRAISON",
-    title: "Livraison gratuite dès 49 € d'achat sur Greenweez",
-    conditions: "Leader européen bio alimentation et cosmétique. Livraison offerte dès 49 € en France métropolitaine.",
+    type: "code",
+    value: "-10 %",
+    valueLabel: "NOUVEAU CLIENT",
+    title: "-10 % et livraison offerte dès 39 €",
+    code: "BIENVENUE2026",
+    conditions: "Offre affichée par Greenweez pour une première commande dès 39 € d'achats. Vérifier l'éligibilité, les exclusions et l'application de la remise au panier.",
+    featured: true,
   },
 
   // ============================================================
@@ -861,11 +993,11 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     brandSlug: "yesstyle",
     type: "code",
     value: "-12 %",
-    valueLabel: "DÈS 40 $US",
-    title: "-12 % dès 40 $US d'achat (≈ 36,40 €) — code longue durée",
+    valueLabel: "DÈS ENV. 35 €",
+    title: "-12 % dès environ 35 € d'achat",
     code: "LQQICLVXTO",
     expires: "2026-08-31",
-    conditions: "Code LQQICLVXTO : -12 % sur toute la boutique YesStyle dès 40 $US (≈ 36,40 €). Valable jusqu'au 31/08/2026. Ne se cumule PAS avec les codes flash KGLOW26 / KGLAM26 / BTSVIP15 (les codes flash sont plus avantageux sur la période).",
+    conditions: "Code LQQICLVXTO : -12 % dès environ 35 € (seuil officiel de 40 $US). Valable jusqu'au 31/08/2026. Ne se cumule pas avec les codes flash KGLOW26, KGLAM26 ou BTSVIP15.",
   },
   {
     id: "yesstyle-livraison",
@@ -873,21 +1005,57 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     type: "livraison",
     value: "GRATUITE",
     valueLabel: "LIVRAISON",
-    title: "Livraison gratuite dès 39 € d'achat + douanes prises en charge",
-    conditions: "Livraison offerte dès 39 €. Taxes de douane prises en charge par YesStyle. K-beauty et J-beauty à prix directs.",
+    title: "Livraison standard gratuite dès environ 31 €",
+    conditions: "Équivalent indicatif du seuil officiel de 35 $US affiché sur YesStyle le 27/07/2026. Le montant en euros varie avec le taux de change, la destination et la devise du panier.",
   },
 
   // ============================================================
-  // DR PIERRE RICAUD — service permanent
+  // L'OCCITANE — soldes vérifiées le 27/07/2026
   // ============================================================
   {
-    id: "dpr-satisfait-100j",
+    id: "loccitane-soldes-ete-2026",
+    brandSlug: "loccitane",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "SÉLECTION",
+    title: "Deuxième démarque : jusqu'à -30 % sur une sélection",
+    affiliateUrl: "https://fr.loccitane.com/soldes?eaf-publisher=affilae&eaf-name=affilae-fil_rouge&eaf-creative=all&eaf-creativetype=all&utm_source=affilae&utm_medium=roiAffiliate&utm_campaign=affilae-fil_rouge&utm_term=bonsplansmania&eseg-name=bonsplansmania&eseg-item=474&ae=474",
+    conditions: "Deuxième démarque L'Occitane : réductions de -20 % à -30 % sur une sélection, avec quelques références davantage remisées. Dans la limite des stocks.",
+    featured: true,
+  },
+  {
+    id: "loccitane-livraison-soldes",
+    brandSlug: "loccitane",
+    type: "livraison",
+    value: "OFFERTE",
+    valueLabel: "SOLDES",
+    title: "Livraison offerte pendant l'opération soldes",
+    affiliateUrl: "https://fr.loccitane.com/soldes?eaf-publisher=affilae&eaf-name=affilae-fil_rouge&eaf-creative=all&eaf-creativetype=all&utm_source=affilae&utm_medium=roiAffiliate&utm_campaign=affilae-fil_rouge&utm_term=bonsplansmania&eseg-name=bonsplansmania&eseg-item=474&ae=474",
+    conditions: "Livraison offerte annoncée dans le bandeau de la page soldes L'Occitane. Vérifier les éventuelles conditions dans le panier.",
+  },
+
+  // ============================================================
+  // DR PIERRE RICAUD — offres et services vérifiés
+  // ============================================================
+  {
+    id: "dpr-livraison-35",
     brandSlug: "dr-pierre-ricaud",
     type: "livraison",
-    value: "100 j",
-    valueLabel: "SATISFAIT",
-    title: "Satisfait ou remboursé 100 jours + échantillons offerts",
-    conditions: "100 jours pour être satisfait ou remboursé sur toute la boutique. Échantillons offerts à chaque commande.",
+    value: "35 €",
+    valueLabel: "LIVRAISON",
+    title: "Livraison offerte dès 35 € d'achat",
+    conditions: "Livraison offerte à partir de 35 € d'achat selon les conditions affichées sur ricaud.com. Offre vérifiée le 27/07/2026.",
+  },
+  {
+    id: "dpr-newsletter-15",
+    brandSlug: "dr-pierre-ricaud",
+    type: "offre",
+    value: "-15 %",
+    valueLabel: "DÈS 60 €",
+    title: "-15 % dès 60 € à l'inscription newsletter",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
+    conditions: "Offre de bienvenue affichée par Ricaud pour toute inscription à la newsletter : -15 % dès 60 € d'achat. Le code est communiqué par la marque après inscription.",
+    featured: true,
   },
   {
     id: "dpr-selection-ete-1190",

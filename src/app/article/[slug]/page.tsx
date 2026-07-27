@@ -12,6 +12,7 @@ import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
 import FlashDeals from "@/app/components/FlashDeals";
 import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
+import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -154,6 +155,12 @@ export default async function ArticlePage({ params }: PageProps) {
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
+  const boxComparisonMarker = "<!-- BOX_BEAUTY_COMPARISON -->";
+  const hasBoxComparison = slug === "meilleures-box-beaute-2026-comparatif-complet-avis-codes-promo"
+    && article.content.includes(boxComparisonMarker);
+  const [articleBeforeComparison, articleAfterComparison = ""] = hasBoxComparison
+    ? article.content.split(boxComparisonMarker, 2)
+    : [article.content, ""];
 
   // Bandeau "post de + de 3 semaines" sur les catégories où le deal peut expirer (prix, fin de jeu, mission close).
   // Référence = updated > date, donc une simple remontée fait disparaître le bandeau automatiquement.
@@ -211,44 +218,32 @@ export default async function ArticlePage({ params }: PageProps) {
   // IMPORTANT : on extrait le 1er nombre du price (ex: "13€ au lieu de 987€" -> "13").
   // Si le price ne contient AUCUN chiffre exploitable (ex: "Gratuit", "Sur devis"),
   // on n'émet PAS le bloc Product du tout — sinon GSC remonte "price manquant dans offers".
-  // aggregateRating + review ne sont injectés QUE si rating réel (sinon "Spammy structured data").
+  //
+  // aggregateRating + review : PAS émis. Le frontmatter.rating vient de scrapes (avis Amazon),
+  // pas d'un vrai review BonsPlansMania → "Spammy structured data" côté Google (audit SEO 26/07/2026).
+  // Si on veut réintroduire des reviews, il faudra un vrai système de notes rédactionnelles
+  // (champ dédié userReview + ratingCount réel > 1 basé sur des sources vérifiables).
+  //
+  // availability : bascule OutOfStock si expired ou catégorie expirée. Sinon Google flag "misleading"
+  // quand un deal terminé est encore annoncé InStock.
   const priceMatch = article.meta.price?.match(/[\d]+([.,][\d]+)?/)?.[0];
   const cleanPrice = priceMatch ? priceMatch.replace(",", ".") : null;
-  // Google Merchant impose name ≤ ~150 chars. On préfère seoTitle (court) au title (verbeux).
   const productName = (article.meta.seoTitle ?? article.meta.title).slice(0, 150);
+  const productAvailability = (isExpired || isStale)
+    ? "https://schema.org/OutOfStock"
+    : "https://schema.org/InStock";
   const productJsonLd = cleanPrice && affiliateUrl !== "#" ? {
     "@context": "https://schema.org",
     "@type": "Product",
     name: productName,
     description: article.meta.description,
     image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.meta.image}`,
-    ...(article.meta.rating ? {
-      aggregateRating: {
-        "@type": "AggregateRating",
-        ratingValue: article.meta.rating,
-        bestRating: 5,
-        ratingCount: 1,
-      },
-      review: {
-        "@type": "Review",
-        reviewRating: {
-          "@type": "Rating",
-          ratingValue: article.meta.rating,
-          bestRating: 5,
-        },
-        author: {
-          "@type": "Organization",
-          name: "BonsPlansMania",
-        },
-        reviewBody: article.meta.description,
-      },
-    } : {}),
     offers: {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
       price: cleanPrice,
       priceCurrency: "EUR",
-      availability: "https://schema.org/InStock",
+      availability: productAvailability,
     },
   } : null;
 
@@ -363,7 +358,11 @@ export default async function ArticlePage({ params }: PageProps) {
             <NewsletterInline />
 
             <div className="article-content">
-              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(article.content, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined, article.meta.image) }} />
+              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleBeforeComparison, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined, article.meta.image) }} />
+              {hasBoxComparison && <BoxBeautyComparison />}
+              {hasBoxComparison && (
+                <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleAfterComparison, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined) }} />
+              )}
             </div>
             {/* Initialise les blocs AdSense in-article injectés dans le contenu Markdown ci-dessus */}
             <InContentAdsInit />

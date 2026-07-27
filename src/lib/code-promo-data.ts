@@ -215,6 +215,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#1F3A8A",
   },
   {
+    slug: "dplantes",
+    name: "D.Plantes",
+    affiliateUrl: "https://lk.gt/aEa78",
+    affiliateLabel: "Voir les offres D.Plantes",
+    matchTags: ["dplantes", "d.plantes"],
+    color: "#4F772D",
+  },
+  {
     slug: "glowria",
     name: "Glowria",
     affiliateUrl: "https://glowria.com/?ae=487",
@@ -271,6 +279,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#000000",
   },
   {
+    slug: "loccitane",
+    name: "L'Occitane",
+    affiliateUrl: "https://fr.loccitane.com/?eaf-publisher=affilae&eaf-name=affilae-fil_rouge&eaf-creative=all&eaf-creativetype=all&utm_source=affilae&utm_medium=roiAffiliate&utm_campaign=affilae-fil_rouge&utm_term=bonsplansmania&eseg-name=bonsplansmania&eseg-item=474&ae=474",
+    affiliateLabel: "Voir les offres L'Occitane",
+    matchTags: ["loccitane", "l-occitane", "l'occitane"],
+    color: "#1F4A3D",
+  },
+  {
     slug: "magnifaik",
     name: "Magnifaik",
     affiliateUrl: "https://tidd.ly/4uiyHDw",
@@ -285,6 +301,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Marionnaud",
     matchTags: ["marionnaud"],
     color: "#C9302C",
+  },
+  {
+    slug: "manomano",
+    name: "ManoMano",
+    affiliateUrl: "https://tidd.ly/4pF5waa",
+    affiliateLabel: "Voir les offres ManoMano",
+    matchTags: ["manomano", "mano mano"],
+    color: "#00B2A9",
   },
   {
     slug: "miin-cosmetics",
@@ -389,6 +413,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Thalgo",
     matchTags: ["thalgo", "soins-marins"],
     color: "#0EA5E9",
+  },
+  {
+    slug: "pin-up-secret",
+    name: "Pin Up Secret",
+    affiliateUrl: "https://a.time1.me/r?promoid=243139&progid=8054&partid=61992",
+    affiliateLabel: "Voir les offres Pin Up Secret",
+    matchTags: ["pin-up-secret", "pin up secret"],
+    color: "#D9467A",
   },
   {
     slug: "twenty-dc",

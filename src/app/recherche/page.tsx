@@ -6,6 +6,7 @@ import SearchClient from "./SearchClient";
 export const metadata = {
   title: "Rechercher un bon plan | BonsPlansMania",
   description: "Recherchez parmi tous les bons plans, tests gratuits, concours et box beauté de BonsPlansMania.",
+  robots: { index: false, follow: true },
 };
 
 export default function RecherchePage() {
