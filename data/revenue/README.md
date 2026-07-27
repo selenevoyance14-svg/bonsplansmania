@@ -9,8 +9,8 @@ rapport avec les clics et les commissions réellement observés.
 Export GA4 de l’événement `affiliate_click`, avec ces colonnes :
 
 ```csv
-date,page_path,affiliate_slug,click_location,clicks
-2026-07-27,/,amazon-exemple-produit,article_card,12
+date,page_path,affiliate_slug,source_slug,click_location,affiliate_network,destination_hostname,clicks
+2026-07-27,/article/amazon-exemple-produit,amazon-exemple-produit,amazon-exemple-produit,article_inline,amazon,amazon.fr,12
 ```
 
 Dimensions GA4 à utiliser :
@@ -18,7 +18,10 @@ Dimensions GA4 à utiliser :
 - Date
 - Chemin de la page
 - `affiliate_slug`
+- `source_slug`
 - `click_location`
+- `affiliate_network`
+- `destination_hostname`
 
 Métrique : nombre d’événements.
 

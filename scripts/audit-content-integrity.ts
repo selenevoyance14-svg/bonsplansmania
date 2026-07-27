@@ -9,10 +9,16 @@ type Article = {
   title: string;
   seoTitle: string;
   description: string;
+  category: string;
+  date: string;
+  updated: string;
+  endDate: string;
   price: string;
   affiliateUrl: string;
+  affiliateLabel: string;
   content: string;
   published: boolean;
+  expired: boolean;
 };
 
 const ROOT = process.cwd();
@@ -37,10 +43,16 @@ function readArticles(): Article[] {
       title: String(data.title || ""),
       seoTitle: String(data.seoTitle || ""),
       description: String(data.description || ""),
+      category: String(data.category || ""),
+      date: String(data.date || ""),
+      updated: String(data.updated || ""),
+      endDate: String(data.endDate || ""),
       price: String(data.price || ""),
       affiliateUrl: String(data.affiliateUrl || ""),
+      affiliateLabel: String(data.affiliateLabel || ""),
       content,
       published: data.published !== false,
+      expired: data.expired === true,
     };
   });
 }
@@ -107,6 +119,45 @@ function amazonAsin(url: string): string | undefined {
   return url.match(/\/(?:dp|gp\/product)\/([A-Z0-9]{10})(?:[/?]|$)/i)?.[1]?.toUpperCase();
 }
 
+function ageInDays(article: Article): number | undefined {
+  const value = article.updated || article.date;
+  if (!value) return undefined;
+  const timestamp = new Date(`${value}T12:00:00Z`).getTime();
+  if (!Number.isFinite(timestamp)) return undefined;
+  return Math.floor((Date.now() - timestamp) / 86_400_000);
+}
+
+function csvCell(value: unknown): string {
+  const text = String(value ?? "");
+  return /[",\n]/.test(text) ? `"${text.replaceAll('"', '""')}"` : text;
+}
+
+const PROMOTIONAL_TEXT =
+  /\b(?:promo|promotion|bon plan|vente flash|soldes|remise|coupon|code promo|prix actuel|offre limitée|stock limité)\b/i;
+const PRICE_TEXT = /\b\d[\d\s]*(?:[.,]\d{1,2})?\s*€|\b-\s*\d{1,3}\s*%/;
+const SENSITIVE_CLAIMS: Array<{ key: string; pattern: RegExp; label: string }> = [
+  {
+    key: "first_hand_test",
+    pattern: /\b(?:on a|nous avons)\s+(?:reçu|testé|essayé|utilisé)\b|\baprès\s+\d+\s+(?:jours|semaines|mois)\s+d['’]utilisation\b/i,
+    label: "Expérience personnelle ou test physique à justifier",
+  },
+  {
+    key: "absolute_safety",
+    pattern: /\b(?:sans danger|zéro risque|aucun risque|impossible de se brûler|100\s*%\s*(?:sûr|safe))\b/i,
+    label: "Promesse absolue de sécurité",
+  },
+  {
+    key: "guaranteed_result",
+    pattern: /\b(?:résultats? garantis?|efficacité garantie|à coup sûr|guérit?|élimine définitivement|détruit le follicule)\b/i,
+    label: "Résultat garanti ou allégation médicale forte",
+  },
+  {
+    key: "unqualified_superlative",
+    pattern: /\b(?:prix imbattable|meilleur prix jamais vu|numéro 1 mondial|n°\s*1 mondial|le plus bas du marché)\b/i,
+    label: "Superlatif commercial à sourcer ou dater",
+  },
+];
+
 const articles = readArticles().filter((article) => article.published);
 const exactTitles = groupDuplicates(articles, (article) => normalizedText(article.title), 12);
 const exactSeoTitles = groupDuplicates(articles, (article) => normalizedText(article.seoTitle), 12);
@@ -129,6 +180,124 @@ const destinationDuplicates = groupDuplicates(
 const discountErrors = articles
   .map(discountError)
   .filter((error): error is NonNullable<typeof error> => error !== null);
+const staleCommercialPages = articles
+  .filter((article) => ["bon-plan", "code-promo"].includes(article.category))
+  .map((article) => {
+    const ageDays = ageInDays(article);
+    const combined = `${article.title}\n${article.description}\n${article.price}\n${article.content}`;
+    const looksTimeSensitive = PROMOTIONAL_TEXT.test(combined) || PRICE_TEXT.test(combined);
+    if (
+      article.expired ||
+      article.endDate ||
+      !looksTimeSensitive ||
+      ageDays === undefined ||
+      ageDays <= 30
+    ) {
+      return null;
+    }
+    return {
+      file: article.file,
+      slug: article.slug,
+      title: article.title,
+      category: article.category,
+      ageDays,
+      price: article.price,
+      affiliateUrl: article.affiliateUrl,
+      reason: "Promotion ou prix ancien sans endDate ni expired",
+    };
+  })
+  .filter((row): row is NonNullable<typeof row> => row !== null)
+  .sort((a, b) => b.ageDays - a.ageDays);
+const overdueFreeTrafficPages = articles
+  .filter((article) => ["concours", "test-gratuit"].includes(article.category))
+  .filter((article) => {
+    const ageDays = ageInDays(article);
+    return !article.expired && !article.endDate && ageDays !== undefined && ageDays > 120;
+  })
+  .map((article) => ({
+    file: article.file,
+    slug: article.slug,
+    title: article.title,
+    category: article.category,
+    ageDays: ageInDays(article),
+    affiliateUrl: article.affiliateUrl,
+    reason: "Concours ou test ancien sans date de fin",
+  }));
+const sensitiveClaims = articles.flatMap((article) => {
+  const combined = `${article.title}\n${article.description}\n${article.content}`;
+  return SENSITIVE_CLAIMS.flatMap((claim) =>
+    claim.pattern.test(combined)
+      ? [{
+          file: article.file,
+          slug: article.slug,
+          title: article.title,
+          category: article.category,
+          claim: claim.key,
+          reason: claim.label,
+        }]
+      : [],
+  );
+});
+const articleBySlug = new Map(articles.map((article) => [article.slug, article]));
+const unmonetizedFreeTrafficPages = articles
+  .filter((article) => ["concours", "test-gratuit"].includes(article.category))
+  .filter((article) => !article.expired)
+  .map((article) => {
+    const internalSlugs = [...article.content.matchAll(/\]\(\/article\/([^)#?]+)[^)]*\)/g)]
+      .map((match) => decodeURIComponent(match[1]));
+    const commercialTargets = internalSlugs
+      .map((slug) => articleBySlug.get(slug))
+      .filter((target): target is Article => Boolean(
+        target &&
+        target.affiliateUrl &&
+        !["concours", "test-gratuit"].includes(target.category),
+      ));
+    if (commercialTargets.length > 0) return null;
+    return {
+      file: article.file,
+      slug: article.slug,
+      title: article.title,
+      category: article.category,
+      ageDays: ageInDays(article),
+      internalArticleLinks: internalSlugs.length,
+      reason: "Aucun lien interne vers un article commercial affilié",
+    };
+  })
+  .filter((row): row is NonNullable<typeof row> => row !== null);
+
+const controlRows = articles
+  .map((article) => {
+    const staleCommercial = staleCommercialPages.some((row) => row.slug === article.slug);
+    const overdueFreeTraffic = overdueFreeTrafficPages.some((row) => row.slug === article.slug);
+    const claimCount = sensitiveClaims.filter((row) => row.slug === article.slug).length;
+    const unmonetizedFreeTraffic = unmonetizedFreeTrafficPages.some((row) => row.slug === article.slug);
+    const ageDays = ageInDays(article);
+    const priorityScore =
+      (staleCommercial ? 5 : 0) +
+      (overdueFreeTraffic ? 5 : 0) +
+      (unmonetizedFreeTraffic ? 3 : 0) +
+      Math.min(claimCount, 3) * 2 +
+      (article.affiliateUrl ? 1 : 0);
+    return {
+      priorityScore,
+      slug: article.slug,
+      title: article.title,
+      category: article.category,
+      date: article.date,
+      updated: article.updated,
+      ageDays: ageDays ?? "",
+      endDate: article.endDate,
+      expired: article.expired,
+      hasAffiliate: Boolean(article.affiliateUrl),
+      hasPrice: Boolean(article.price),
+      staleCommercial,
+      overdueFreeTraffic,
+      unmonetizedFreeTraffic,
+      sensitiveClaimCount: claimCount,
+      file: article.file,
+    };
+  })
+  .sort((a, b) => b.priorityScore - a.priorityScore || Number(b.ageDays || 0) - Number(a.ageDays || 0));
 
 const report = {
   generatedAt: new Date().toISOString(),
@@ -140,6 +309,10 @@ const report = {
     normalizedBodyDuplicates: bodyDuplicates,
     identicalDestinations: destinationDuplicates,
     discountErrors,
+    staleCommercialPages,
+    overdueFreeTrafficPages,
+    sensitiveClaims,
+    unmonetizedFreeTrafficPages,
   },
 };
 
@@ -147,6 +320,31 @@ fs.mkdirSync(REPORT_DIR, { recursive: true });
 fs.writeFileSync(
   path.join(REPORT_DIR, "integrity-audit.json"),
   `${JSON.stringify(report, null, 2)}\n`,
+);
+const controlColumns = [
+  "priorityScore",
+  "slug",
+  "title",
+  "category",
+  "date",
+  "updated",
+  "ageDays",
+  "endDate",
+  "expired",
+  "hasAffiliate",
+  "hasPrice",
+  "staleCommercial",
+  "overdueFreeTraffic",
+  "unmonetizedFreeTraffic",
+  "sensitiveClaimCount",
+  "file",
+] as const;
+fs.writeFileSync(
+  path.join(REPORT_DIR, "content-control.csv"),
+  [
+    controlColumns.join(","),
+    ...controlRows.map((row) => controlColumns.map((column) => csvCell(row[column])).join(",")),
+  ].join("\n") + "\n",
 );
 
 console.log("Audit intégrité éditoriale — Bons Plans Mania");
@@ -157,4 +355,9 @@ console.log(`  ${exactDescriptions.length} groupes de descriptions identiques`);
 console.log(`  ${bodyDuplicates.length} groupes de corps d’article quasi identiques`);
 console.log(`  ${destinationDuplicates.length} destinations utilisées plusieurs fois`);
 console.log(`  ${discountErrors.length} remises arithmétiquement incohérentes`);
+console.log(`  ${staleCommercialPages.length} pages commerciales anciennes sans date de fin`);
+console.log(`  ${overdueFreeTrafficPages.length} concours/tests anciens sans date de fin`);
+console.log(`  ${sensitiveClaims.length} affirmations sensibles à contrôler`);
+console.log(`  ${unmonetizedFreeTrafficPages.length} concours/tests sans passerelle commerciale`);
 console.log("  reports/content/integrity-audit.json");
+console.log("  reports/content/content-control.csv");

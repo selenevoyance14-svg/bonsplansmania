@@ -1,1 +1,1 @@
-date,page_path,affiliate_slug,click_location,clicks
+date,page_path,affiliate_slug,source_slug,click_location,affiliate_network,destination_hostname,clicks

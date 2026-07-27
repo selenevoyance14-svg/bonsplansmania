@@ -6,7 +6,10 @@ type ClickRow = {
   date: string;
   page_path: string;
   affiliate_slug: string;
+  source_slug: string;
   click_location: string;
+  affiliate_network: string;
+  destination_hostname: string;
   clicks: string;
 };
 
@@ -132,7 +135,7 @@ const commissions = parseCsv<CommissionRow>(path.join(DATA_DIR, "affiliate-commi
 const clickTotals = new Map<string, { total: number; card: number; inline: number; header: number }>();
 
 for (const click of clicks) {
-  const slug = click.affiliate_slug.trim();
+  const slug = (click.source_slug || click.affiliate_slug).trim();
   if (!slug) continue;
   const count = Number(click.clicks) || 0;
   const current = clickTotals.get(slug) || { total: 0, card: 0, inline: 0, header: 0 };
