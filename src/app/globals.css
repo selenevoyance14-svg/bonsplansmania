@@ -396,13 +396,35 @@ body {
   }
 
   .home-categories-more {
-    display: inline-flex;
-    align-items: center;
-    gap: 5px;
+    display: block;
     margin-top: 14px;
     color: var(--primary);
     font-weight: 750;
     font-size: 0.9rem;
+  }
+
+  .home-categories-more summary {
+    cursor: pointer;
+    width: fit-content;
+  }
+
+  .home-categories-extra-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 14px;
+  }
+
+  .home-categories-extra-grid .home-category-card {
+    min-height: 94px;
+    padding: 16px 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-align: center;
+    color: var(--foreground);
     text-decoration: none;
   }
 }

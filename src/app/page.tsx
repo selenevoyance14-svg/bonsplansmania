@@ -2,7 +2,7 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, Check, ArrowRight, Gift } from "lucide-react";
+import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, Check, ArrowRight, Gift, Percent } from "lucide-react";
 import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
@@ -15,14 +15,15 @@ import SectionHeader from "@/app/components/SectionHeader";
 import { Newspaper } from "lucide-react";
 
 const HOME_CATEGORIES = [
-  { href: "/bons-plans-jouets", Icon: ToyBrick, label: "Coin Jouets", color: "#F59E0B" },
-  { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", color: "#86198F" },
-  { href: "/bons-plans-beaute", Icon: Sparkles, label: "Coin Beauté", color: "#DB2777" },
+  { href: "/bons-plans-beaute", Icon: Sparkles, label: "Bons plans Beauté", color: "#DB2777" },
+  { href: "/bons-plans-maison", Icon: HomeIcon, label: "Maison & Cuisine", color: "#16A34A" },
   { href: "/bons-plans-tech", Icon: Smartphone, label: "Coin Tech", color: "#2563EB" },
-  { href: "/bons-plans-maison", Icon: HomeIcon, label: "Coin Maison", color: "#16A34A" },
-  { href: "/bons-plans-bebe", Icon: Baby, label: "Coin Bébé", color: "#0891B2" },
-  { href: "/bons-plans-ninja", Icon: Flame, label: "Coin Ninja", color: "#DC2626" },
-  { href: "/bons-plans-jardin", Icon: TreePine, label: "Jardin & Animaux", color: "#65A30D" },
+  { href: "/code-promo", Icon: Percent, label: "Codes promo", color: "#0F766E" },
+  { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", color: "#86198F" },
+  { href: "/bons-plans-bebe", Icon: Baby, label: "Bébé & Famille", color: "#0891B2" },
+  { href: "/bons-plans-ninja", Icon: Flame, label: "Air Fryer & Ninja", color: "#DC2626" },
+  { href: "/bons-plans-jardin", Icon: TreePine, label: "Jardin", color: "#65A30D" },
+  { href: "/bons-plans-jouets", Icon: ToyBrick, label: "Jouets", color: "#F59E0B" },
   { href: "/bons-plans-mode", Icon: Shirt, label: "Coin Mode", color: "#7C3AED" },
 ];
 
@@ -214,9 +215,17 @@ export default function Home() {
               </a>
             ))}
           </div>
-          <a href="/recherche" className="home-categories-more">
-            Voir tous les univers <ArrowRight size={15} aria-hidden />
-          </a>
+          <details className="home-categories-more">
+            <summary>Voir tous les univers</summary>
+            <div className="home-categories-extra-grid">
+              {HOME_CATEGORIES.slice(5).map((c) => (
+                <a key={`mobile-${c.href}`} href={c.href} className="cat-card home-category-card">
+                  <c.Icon size={25} color={c.color} aria-hidden />
+                  <span>{c.label}</span>
+                </a>
+              ))}
+            </div>
+          </details>
         </div>
       </section>
 
