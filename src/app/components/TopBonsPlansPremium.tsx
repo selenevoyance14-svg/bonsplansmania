@@ -17,6 +17,9 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
 
   return (
     <section
+      className="monetization-bridge"
+      data-monetization-bridge="contextual-premium-deals"
+      aria-labelledby="monetization-bridge-title"
       style={{
         margin: "20px 0 28px",
         padding: "18px 18px 20px",
@@ -36,6 +39,7 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
       >
         <Flame size={20} style={{ color: "#EA580C" }} />
         <h2
+          id="monetization-bridge-title"
           style={{
             fontSize: "1.15rem",
             fontWeight: 800,
@@ -44,7 +48,7 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
             textAlign: "center",
           }}
         >
-          Nos bons plans du moment à ne pas rater
+          Des bons plans liés à votre recherche
         </h2>
       </div>
 
@@ -59,6 +63,7 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
           <a
             key={a.meta.slug}
             href={`/article/${a.meta.slug}`}
+            data-commercial-destination={a.meta.slug}
             style={{
               display: "flex",
               flexDirection: "column",

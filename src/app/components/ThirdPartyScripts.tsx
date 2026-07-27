@@ -13,6 +13,7 @@ export default function ThirdPartyScripts() {
       if (anchor.closest(".bpm-card")) return "article_card";
       if (anchor.closest(".article-rating-bar")) return "article_header";
       if (anchor.closest(".cta-inline")) return "article_inline";
+      if (anchor.closest(".monetization-bridge")) return "contextual_monetization_bridge";
       if (anchor.closest(".related-articles")) return "related_articles";
       if (anchor.closest("nav")) return "navigation";
       if (anchor.closest("footer")) return "footer";

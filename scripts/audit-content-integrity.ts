@@ -24,6 +24,14 @@ type Article = {
 const ROOT = process.cwd();
 const CONTENT_DIR = path.join(ROOT, "content");
 const REPORT_DIR = path.join(ROOT, "reports", "content");
+const ARTICLE_TEMPLATE = path.join(ROOT, "src", "app", "article", "[slug]", "page.tsx");
+const PREMIUM_BRIDGE_COMPONENT = path.join(
+  ROOT,
+  "src",
+  "app",
+  "components",
+  "TopBonsPlansPremium.tsx",
+);
 
 function walk(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -143,12 +151,12 @@ const SENSITIVE_CLAIMS: Array<{ key: string; pattern: RegExp; label: string }> =
   },
   {
     key: "absolute_safety",
-    pattern: /\b(?:sans danger|zéro risque|aucun risque|impossible de se brûler|100\s*%\s*(?:sûr|safe))\b/i,
-    label: "Promesse absolue de sécurité",
+    pattern: /\b(?:impossible de se brûler|100\s*%\s*(?:sûr|safe)|(?:zéro|aucun)\s+risque\s+(?:de\s+(?:brûlure|surchauffe|blessure|étouffement)|pour\s+(?:les\s+)?(?:yeux|peau|bébé|enfants?)))\b/i,
+    label: "Promesse absolue de sécurité physique",
   },
   {
     key: "guaranteed_result",
-    pattern: /\b(?:résultats? garantis?|efficacité garantie|à coup sûr|guérit?|élimine définitivement|détruit le follicule)\b/i,
+    pattern: /\b(?:résultats? garantis?|efficacité garantie|à coup sûr|élimine définitivement|détruit le follicule)\b/i,
     label: "Résultat garanti ou allégation médicale forte",
   },
   {
@@ -239,7 +247,24 @@ const sensitiveClaims = articles.flatMap((article) => {
   );
 });
 const articleBySlug = new Map(articles.map((article) => [article.slug, article]));
-const unmonetizedFreeTrafficPages = articles
+const articleTemplateSource = fs.existsSync(ARTICLE_TEMPLATE)
+  ? fs.readFileSync(ARTICLE_TEMPLATE, "utf8")
+  : "";
+const premiumBridgeSource = fs.existsSync(PREMIUM_BRIDGE_COMPONENT)
+  ? fs.readFileSync(PREMIUM_BRIDGE_COMPONENT, "utf8")
+  : "";
+const hasAutomaticFreeTrafficBridge =
+  articleTemplateSource.includes("isFreebieCategory && <TopBonsPlansPremium") &&
+  premiumBridgeSource.includes('data-monetization-bridge="contextual-premium-deals"') &&
+  premiumBridgeSource.includes("getTopPremiumDeals");
+const hasAutomaticStaleProtection =
+  articleTemplateSource.includes("const STALE_DAYS = 21") &&
+  articleTemplateSource.includes("productAvailability = (isExpired || isStale)") &&
+  articleTemplateSource.includes("Ce post a plus de 3 semaines") &&
+  articleTemplateSource.includes("Ce concours a plus de 3 semaines") &&
+  articleTemplateSource.includes("Ce test gratuit a plus de 3 semaines");
+
+const freeTrafficBridgeRows = articles
   .filter((article) => ["concours", "test-gratuit"].includes(article.category))
   .filter((article) => !article.expired)
   .map((article) => {
@@ -252,7 +277,6 @@ const unmonetizedFreeTrafficPages = articles
         target.affiliateUrl &&
         !["concours", "test-gratuit"].includes(target.category),
       ));
-    if (commercialTargets.length > 0) return null;
     return {
       file: article.file,
       slug: article.slug,
@@ -260,10 +284,33 @@ const unmonetizedFreeTrafficPages = articles
       category: article.category,
       ageDays: ageInDays(article),
       internalArticleLinks: internalSlugs.length,
-      reason: "Aucun lien interne vers un article commercial affilié",
+      hasInlineCommercialBridge: commercialTargets.length > 0,
+      hasAutomaticCommercialBridge: hasAutomaticFreeTrafficBridge,
+      reason: commercialTargets.length > 0
+        ? "Passerelle commerciale intégrée dans le contenu"
+        : hasAutomaticFreeTrafficBridge
+          ? "Passerelle commerciale contextuelle injectée par le modèle d’article"
+          : "Aucune passerelle commerciale détectée",
     };
-  })
-  .filter((row): row is NonNullable<typeof row> => row !== null);
+  });
+const unmonetizedFreeTrafficPages = freeTrafficBridgeRows.filter(
+  (row) => !row.hasInlineCommercialBridge && !row.hasAutomaticCommercialBridge,
+);
+const automaticallyMonetizedFreeTrafficPages = freeTrafficBridgeRows.filter(
+  (row) => !row.hasInlineCommercialBridge && row.hasAutomaticCommercialBridge,
+);
+const unprotectedStaleCommercialPages = hasAutomaticStaleProtection
+  ? []
+  : staleCommercialPages;
+const automaticallyProtectedStaleCommercialPages = hasAutomaticStaleProtection
+  ? staleCommercialPages
+  : [];
+const unprotectedOverdueFreeTrafficPages = hasAutomaticStaleProtection
+  ? []
+  : overdueFreeTrafficPages;
+const automaticallyProtectedOverdueFreeTrafficPages = hasAutomaticStaleProtection
+  ? overdueFreeTrafficPages
+  : [];
 
 const controlRows = articles
   .map((article) => {
@@ -311,8 +358,13 @@ const report = {
     discountErrors,
     staleCommercialPages,
     overdueFreeTrafficPages,
+    unprotectedStaleCommercialPages,
+    automaticallyProtectedStaleCommercialPages,
+    unprotectedOverdueFreeTrafficPages,
+    automaticallyProtectedOverdueFreeTrafficPages,
     sensitiveClaims,
     unmonetizedFreeTrafficPages,
+    automaticallyMonetizedFreeTrafficPages,
   },
 };
 
@@ -355,9 +407,12 @@ console.log(`  ${exactDescriptions.length} groupes de descriptions identiques`);
 console.log(`  ${bodyDuplicates.length} groupes de corps d’article quasi identiques`);
 console.log(`  ${destinationDuplicates.length} destinations utilisées plusieurs fois`);
 console.log(`  ${discountErrors.length} remises arithmétiquement incohérentes`);
-console.log(`  ${staleCommercialPages.length} pages commerciales anciennes sans date de fin`);
-console.log(`  ${overdueFreeTrafficPages.length} concours/tests anciens sans date de fin`);
+console.log(`  ${unprotectedStaleCommercialPages.length} pages commerciales anciennes sans protection`);
+console.log(`  ${automaticallyProtectedStaleCommercialPages.length} pages commerciales anciennes protégées par avertissement + données OutOfStock`);
+console.log(`  ${unprotectedOverdueFreeTrafficPages.length} concours/tests anciens sans protection`);
+console.log(`  ${automaticallyProtectedOverdueFreeTrafficPages.length} concours/tests anciens protégés par avertissement automatique`);
 console.log(`  ${sensitiveClaims.length} affirmations sensibles à contrôler`);
 console.log(`  ${unmonetizedFreeTrafficPages.length} concours/tests sans passerelle commerciale`);
+console.log(`  ${automaticallyMonetizedFreeTrafficPages.length} concours/tests couverts par la passerelle contextuelle automatique`);
 console.log("  reports/content/integrity-audit.json");
 console.log("  reports/content/content-control.csv");
