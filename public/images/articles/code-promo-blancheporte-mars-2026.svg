@@ -11,12 +11,12 @@
   <rect x="80" y="60" width="220" height="44" rx="22" fill="white" fill-opacity="0.2" />
   <text x="190" y="88" font-family="Georgia, serif" font-size="18" fill="white" text-anchor="middle" font-weight="600">BonsPlansMania.fr</text>
   <rect x="80" y="128" width="140" height="36" rx="18" fill="white" fill-opacity="0.25" />
-  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#0D47A1" text-anchor="middle" font-weight="700">PROMO</text>
-  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Code Promo</text>
-  <text x="80" y="320" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Blancheporte Mars 2026</text>
-  <text x="80" y="390" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">:</text>
+  <text x="150" y="152" font-family="Arial, sans-serif" font-size="16" fill="#0D47A1" text-anchor="middle" font-weight="700">CODE VÉRIFIÉ</text>
+  <text x="80" y="250" font-family="Georgia, serif" font-size="52" fill="white" font-weight="700">Code promo Blancheporte</text>
+  <text x="80" y="330" font-family="Arial, sans-serif" font-size="72" fill="white" font-weight="800">-50 % dès 2 articles</text>
+  <text x="80" y="390" font-family="Arial, sans-serif" font-size="34" fill="white" font-weight="700">CODE 899013</text>
   <rect x="80" y="415" width="100" height="3" rx="2" fill="white" fill-opacity="0.4" />
-  <text x="80" y="470" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Tous les codes promo Blancheporte valables en mars 2...</text>
+  <text x="80" y="470" font-family="Arial, sans-serif" font-size="24" fill="rgba(255,255,255,0.9)">Valable jusqu'au 9 août 2026 • conditions dans l'article</text>
 
   <text x="80" y="590" font-family="Arial, sans-serif" font-size="18" fill="rgba(255,255,255,0.7)">bonsplansmania.fr - 2026</text>
 </svg>

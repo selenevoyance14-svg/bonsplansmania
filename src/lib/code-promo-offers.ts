@@ -672,40 +672,29 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // BLANCHE PORTE — offre newsletter courante
+  // BLANCHE PORTE — offres vérifiées le 27/07/2026
   // ============================================================
   {
-    id: "blancheporte-soldes-80",
+    id: "blancheporte-code-899013",
+    brandSlug: "blanche-porte",
+    type: "code",
+    value: "-50 %",
+    valueLabel: "DÈS 2 ART.",
+    title: "-50 % sur toute la commande dès 2 articles éligibles avec le code 899013",
+    code: "899013",
+    expires: "2026-08-09",
+    conditions: "Offre Blancheporte valable du 22/07/2026 au 09/08/2026 dès 2 articles commandés, hors articles signalés par un astérisque et hors frais d'envoi. Non cumulable avec une autre offre promotionnelle.",
+    featured: true,
+  },
+  {
+    id: "blancheporte-soldes-80-prolongation",
     brandSlug: "blanche-porte",
     type: "soldes",
     value: "-80 %",
     valueLabel: "SOLDES",
-    title: "Soldes d'été Blancheporte jusqu'à -80 % sur les articles pastillés",
-    expires: "2026-07-21",
-    conditions: "Soldes d'été 2026 du 24/06/2026 au 21/07/2026 sur les articles signalés « Soldes » selon taille et coloris et dans la limite du stock disponible.",
-    featured: true,
-  },
-  {
-    id: "blancheporte-promos-ete-70",
-    brandSlug: "blanche-porte",
-    type: "offre",
-    value: "-70 %",
-    valueLabel: "PROMOS ÉTÉ",
-    title: "Promotions d'été Blancheporte jusqu'à -70 %",
-    expires: "2026-07-21",
-    conditions: "Promotions d'été 2026 du 24/06/2026 au 21/07/2026, baisse des prix avec des réductions pouvant aller jusqu'à -70 % dans la limite des stocks disponibles. Non cumulable avec une autre offre promotionnelle.",
-    featured: true,
-  },
-  {
-    id: "blancheporte-10-supp-2-articles",
-    brandSlug: "blanche-porte",
-    type: "offre",
-    value: "-10 %",
-    valueLabel: "DÈS 2 ART.",
-    title: "-10 % supplémentaires sur toute la commande dès 2 articles achetés",
-    expires: "2026-07-21",
-    conditions: "Offre valable du 15/07/2026 au 21/07/2026, hors frais d'envoi. -10 % supplémentaires sur toute la commande dès 2 articles. Non cumulable avec une autre offre promotionnelle.",
-    featured: true,
+    title: "Prolongation des soldes Blancheporte jusqu'à -80 % sur les articles signalés",
+    expires: "2026-07-28",
+    conditions: "Prolongation du 22/07/2026 au 28/07/2026 sur les articles marqués « Soldes », selon tailles et coloris et dans la limite des stocks disponibles.",
   },
   {
     id: "blancheporte-newsletter",

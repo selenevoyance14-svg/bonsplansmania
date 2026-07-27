@@ -81,8 +81,8 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "blanche-porte",
     name: "Blancheporte",
-    affiliateUrl: "https://fnty.co/c/r-DQZuaCMy",
-    affiliateLabel: "Voir les offres Blancheporte",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247216&url=https%3A%2F%2Fwww.blancheporte.fr%2F",
+    affiliateLabel: "Activer le code Blancheporte",
     matchTags: ["blanche-porte", "blancheporte"],
     color: "#1E3A8A",
   },
