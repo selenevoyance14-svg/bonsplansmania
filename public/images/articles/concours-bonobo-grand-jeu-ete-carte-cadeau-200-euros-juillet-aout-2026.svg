@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Grand Jeu de l'été Bonobo 2026</title>
+  <desc id="desc">Illustration estivale annonçant jusqu'à 200 euros en carte cadeau Bonobo</desc>
+  <defs>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDEAF0"/>
+      <stop offset="1" stop-color="#3B7C91"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#E6D5AC"/>
+      <stop offset="1" stop-color="#C7A978"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="#F7F0CF"/>
+  <rect width="1200" height="300" fill="url(#sea)"/>
+  <circle cx="1030" cy="105" r="62" fill="#F7D46A"/>
+  <path d="M0 280 C180 235 360 345 560 285 C770 220 940 330 1200 260 L1200 630 L0 630 Z" fill="url(#sand)"/>
+  <path d="M505 630 L590 338 L654 338 L735 630 Z" fill="#8A6545"/>
+  <path d="M533 540 L705 540 M545 495 L692 495 M557 450 L680 450 M570 405 L668 405 M580 365 L658 365" stroke="#C6A47B" stroke-width="15"/>
+  <rect x="120" y="70" width="960" height="420" rx="26" fill="#FFF9D9" stroke="#D3BE7B" stroke-width="6"/>
+  <text x="600" y="145" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="800" fill="#24557D" letter-spacing="3">BONOBO • GRAND JEU DE L'ÉTÉ</text>
+  <text x="600" y="220" text-anchor="middle" font-family="Arial, sans-serif" font-size="34" font-weight="700" fill="#23384B">TENTEZ DE GAGNER JUSQU'À</text>
+  <text x="600" y="350" text-anchor="middle" font-family="Arial, sans-serif" font-size="132" font-weight="900" fill="#24557D">200 €</text>
+  <text x="600" y="410" text-anchor="middle" font-family="Arial, sans-serif" font-size="42" font-weight="900" fill="#24557D">EN CARTE CADEAU</text>
+  <rect x="352" y="447" width="496" height="58" rx="29" fill="#24557D"/>
+  <text x="600" y="486" text-anchor="middle" font-family="Arial, sans-serif" font-size="25" font-weight="800" fill="#FFFFFF">DU 20 JUILLET AU 2 AOÛT 2026</text>
+  <text x="600" y="590" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#FFFFFF">bonsplansmania.fr • vérifiez les conditions sur la page officielle</text>
+</svg>
