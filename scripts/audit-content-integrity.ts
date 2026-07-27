@@ -146,7 +146,7 @@ const PRICE_TEXT = /\b\d[\d\s]*(?:[.,]\d{1,2})?\s*€|\b-\s*\d{1,3}\s*%/;
 const SENSITIVE_CLAIMS: Array<{ key: string; pattern: RegExp; label: string }> = [
   {
     key: "first_hand_test",
-    pattern: /\b(?:on a|nous avons)\s+(?:reçu|testé|essayé|utilisé)\b|\baprès\s+\d+\s+(?:jours|semaines|mois)\s+d['’]utilisation\b/i,
+    pattern: /\b(?:on a|nous avons)\s+(?:reçu|testé|essayé|utilisé)\b/i,
     label: "Expérience personnelle ou test physique à justifier",
   },
   {
@@ -231,6 +231,7 @@ const overdueFreeTrafficPages = articles
     affiliateUrl: article.affiliateUrl,
     reason: "Concours ou test ancien sans date de fin",
   }));
+const articleBySlug = new Map(articles.map((article) => [article.slug, article]));
 const sensitiveClaims = articles.flatMap((article) => {
   const combined = `${article.title}\n${article.description}\n${article.content}`;
   return SENSITIVE_CLAIMS.flatMap((claim) =>
@@ -246,7 +247,16 @@ const sensitiveClaims = articles.flatMap((article) => {
       : [],
   );
 });
-const articleBySlug = new Map(articles.map((article) => [article.slug, article]));
+const documentedFirstHandClaims = sensitiveClaims.filter(
+  (row) =>
+    row.claim === "first_hand_test" &&
+    /\b(?:reçu|reçue|offert|fournie?|envoyé)\s+(?:gratuitement\s+)?(?:de|par)\b/i.test(
+      articleBySlug.get(row.slug)?.content || "",
+    ),
+);
+const unresolvedSensitiveClaims = sensitiveClaims.filter(
+  (row) => !documentedFirstHandClaims.includes(row),
+);
 const articleTemplateSource = fs.existsSync(ARTICLE_TEMPLATE)
   ? fs.readFileSync(ARTICLE_TEMPLATE, "utf8")
   : "";
@@ -316,7 +326,7 @@ const controlRows = articles
   .map((article) => {
     const staleCommercial = staleCommercialPages.some((row) => row.slug === article.slug);
     const overdueFreeTraffic = overdueFreeTrafficPages.some((row) => row.slug === article.slug);
-    const claimCount = sensitiveClaims.filter((row) => row.slug === article.slug).length;
+    const claimCount = unresolvedSensitiveClaims.filter((row) => row.slug === article.slug).length;
     const unmonetizedFreeTraffic = unmonetizedFreeTrafficPages.some((row) => row.slug === article.slug);
     const ageDays = ageInDays(article);
     const priorityScore =
@@ -362,7 +372,8 @@ const report = {
     automaticallyProtectedStaleCommercialPages,
     unprotectedOverdueFreeTrafficPages,
     automaticallyProtectedOverdueFreeTrafficPages,
-    sensitiveClaims,
+    sensitiveClaims: unresolvedSensitiveClaims,
+    documentedFirstHandClaims,
     unmonetizedFreeTrafficPages,
     automaticallyMonetizedFreeTrafficPages,
   },
@@ -411,7 +422,8 @@ console.log(`  ${unprotectedStaleCommercialPages.length} pages commerciales anci
 console.log(`  ${automaticallyProtectedStaleCommercialPages.length} pages commerciales anciennes protégées par avertissement + données OutOfStock`);
 console.log(`  ${unprotectedOverdueFreeTrafficPages.length} concours/tests anciens sans protection`);
 console.log(`  ${automaticallyProtectedOverdueFreeTrafficPages.length} concours/tests anciens protégés par avertissement automatique`);
-console.log(`  ${sensitiveClaims.length} affirmations sensibles à contrôler`);
+console.log(`  ${unresolvedSensitiveClaims.length} affirmations sensibles à contrôler`);
+console.log(`  ${documentedFirstHandClaims.length} test(s) personnel(s) avec réception explicitement documentée`);
 console.log(`  ${unmonetizedFreeTrafficPages.length} concours/tests sans passerelle commerciale`);
 console.log(`  ${automaticallyMonetizedFreeTrafficPages.length} concours/tests couverts par la passerelle contextuelle automatique`);
 console.log("  reports/content/integrity-audit.json");
