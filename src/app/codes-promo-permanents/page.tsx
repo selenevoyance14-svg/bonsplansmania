@@ -7,11 +7,11 @@ import OfferGrid from "@/app/components/OfferGrid";
 import { CODES_PERMANENTS_OFFERS } from "@/lib/codes-permanents-data";
 
 export const metadata: Metadata = {
-  title: "Codes promo permanents : les réductions valables toute l'année (2026)",
+  title: "Réductions valables toute l'année | BonsPlansMania",
   description: "Liste complète des codes promo qui marchent toute l'année : Zooplus -10%, Sarenza -20€ bienvenue, L'Atelier du Sourcil -10%, MiiN Cosmetics, Dr Pierre Ricaud, parrainages et programmes fidélité.",
   alternates: { canonical: "https://bonsplansmania.fr/codes-promo-permanents" },
   openGraph: {
-    title: "Codes promo permanents 2026 — Valables toute l'année",
+    title: "Réductions valables toute l'année en 2026",
     description: "Tous les codes promo, parrainages et programmes fidélité valables toute l'année.",
     type: "website",
     locale: "fr_FR",
@@ -45,7 +45,7 @@ const FIDELITE_PROGRAMS = [
 export default function CodesPromoPermanentsPage() {
   return (
     <>
-      <Header />
+      <Header activePage="/codes-promo-permanents" />
       <main>
         <section
           style={{
@@ -58,11 +58,11 @@ export default function CodesPromoPermanentsPage() {
             <nav className="breadcrumbs" style={{ color: "rgba(255,255,255,0.85)" }}>
               <a href="/" style={{ color: "rgba(255,255,255,0.85)" }}>Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <span>Codes promo permanents</span>
+              <span>Réductions toute l&apos;année</span>
             </nav>
             <h1 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.5rem)", fontWeight: 900, marginBottom: "10px", letterSpacing: "-0.02em", display: "flex", alignItems: "center", gap: "12px" }}>
               <InfinityIcon size={30} aria-hidden />
-              Codes promo permanents 2026
+              Réductions valables toute l&apos;année
             </h1>
             <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", lineHeight: 1.5 }}>
               <strong>{CODES_PERMANENTS_OFFERS.length} offres valables toute l'année</strong> : parrainages, programmes fidélité, réductions de bienvenue, livraisons offertes.
@@ -126,7 +126,7 @@ export default function CodesPromoPermanentsPage() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
                 { href: "/bons-plans-en-cours", label: "Bons plans en cours", desc: "Ventes actives cette semaine", color: "#0EA5A9" },
-                { href: "/code-promo", label: "Codes promo par marque", desc: "Toutes nos pages marques", color: "#1D4ED8" },
+                { href: "/code-promo#marques", label: "Trouver un code par marque", desc: "Codes et offres classés par enseigne", color: "#1D4ED8" },
                 { href: "/categorie/bon-plan", label: "Tous les bons plans", desc: "Archives + actuel", color: "#C2410C" },
                 { href: "/categorie/box-beaute", label: "Box beauté en promo", desc: "Comparatif et codes", color: "#86198F" },
               ].map((c) => (

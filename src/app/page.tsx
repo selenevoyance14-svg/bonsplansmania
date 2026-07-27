@@ -18,7 +18,7 @@ const HOME_CATEGORIES = [
   { href: "/bons-plans-beaute", Icon: Sparkles, label: "Bons plans Beauté", color: "#DB2777" },
   { href: "/bons-plans-maison", Icon: HomeIcon, label: "Maison & Cuisine", color: "#16A34A" },
   { href: "/bons-plans-tech", Icon: Smartphone, label: "Coin Tech", color: "#2563EB" },
-  { href: "/code-promo", Icon: Percent, label: "Codes promo", color: "#0F766E" },
+  { href: "/code-promo", Icon: Percent, label: "Codes promo du moment", color: "#0F766E" },
   { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", color: "#86198F" },
   { href: "/bons-plans-bebe", Icon: Baby, label: "Bébé & Famille", color: "#0891B2" },
   { href: "/bons-plans-ninja", Icon: Flame, label: "Air Fryer & Ninja", color: "#DC2626" },
@@ -354,7 +354,7 @@ export default function Home() {
               <ul className="footer-links" role="list">
                 <li><a href="/bons-plans-en-cours">🔥 Bons plans en cours</a></li>
                 <li><a href="/code-promo">🏷️ Codes promo du moment</a></li>
-                <li><a href="/codes-promo-permanents">♾️ Codes promo permanents</a></li>
+                <li><a href="/codes-promo-permanents">♾️ Réductions toute l&apos;année</a></li>
                 <li><a href="/categorie/bon-plan">Tous les bons plans</a></li>
                 <li><a href="/categorie/test-produit">Tests Produits</a></li>
                 <li><a href="/categorie/concours">Concours</a></li>

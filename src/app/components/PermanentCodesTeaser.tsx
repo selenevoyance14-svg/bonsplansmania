@@ -16,8 +16,16 @@ function extractHighlight(offer: string): string | null {
   return m ? m[0].replace(/\s+/g, " ").trim() : null;
 }
 
+function actionLabel(category: string): string {
+  const normalized = category.toLowerCase();
+  if (normalized.includes("cashback")) return "Activer le cashback";
+  if (normalized.includes("newsletter") || normalized.includes("bienvenue")) return "Obtenir l'offre";
+  if (normalized.includes("livraison")) return "Voir les conditions";
+  return "Voir l'offre";
+}
+
 export default function PermanentCodesTeaser() {
-  const codes = FEATURED_PERMANENT_CODES;
+  const codes = FEATURED_PERMANENT_CODES.slice(0, 4);
   if (codes.length === 0) return null;
 
   return (
@@ -62,14 +70,14 @@ export default function PermanentCodesTeaser() {
               <InfinityIcon size={12} aria-hidden /> Valables toute l&apos;année
             </div>
             <h2 style={{ margin: 0, fontSize: "clamp(1.6rem, 3.5vw, 2rem)", fontWeight: 800 }}>
-              Codes promo & cashback permanents
+              Réductions valables toute l&apos;année
             </h2>
             <p style={{ marginTop: "6px", color: "#4b5563" }}>
-              Parrainages, programmes fidélité, cashback — les réductions qui ne bougent pas.
+              Bienvenue, cashback et avantages récurrents — vérifie les conditions avant chaque achat.
             </p>
           </div>
           <a href="/codes-promo-permanents" className="btn btn-secondary btn-sm">
-            Tous les codes <ArrowRight size={14} aria-hidden style={{ verticalAlign: "middle", marginLeft: "4px" }} />
+            Toutes les réductions <ArrowRight size={14} aria-hidden style={{ verticalAlign: "middle", marginLeft: "4px" }} />
           </a>
         </div>
 
@@ -200,7 +208,7 @@ export default function PermanentCodesTeaser() {
                       gap: "6px",
                     }}
                   >
-                    J&apos;en profite <ArrowRight size={14} aria-hidden />
+                    {actionLabel(code.category)} <ArrowRight size={14} aria-hidden />
                   </span>
                   {highlight && (
                     <span
