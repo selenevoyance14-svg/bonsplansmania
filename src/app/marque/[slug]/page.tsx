@@ -6,7 +6,7 @@ import { ChevronRight, ExternalLink, Info, Tag } from "lucide-react";
 import { notFound } from "next/navigation";
 import AdBlock from "@/app/components/AdBlock";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
-import { BRAND_EDITORIAL_PAGES } from "@/lib/brand-editorial-data";
+import { BRAND_EDITORIAL_PAGES, getCurrentBrandOffers } from "@/lib/brand-editorial-data";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
@@ -127,6 +127,7 @@ export default async function BrandPage({ params }: PageProps) {
   const display = getDisplayName(slug, rawTag);
   const articles = getBrandArticles(slug, rawTag);
   const editorialPage = BRAND_EDITORIAL_PAGES[slug];
+  const activeOffers = editorialPage ? getCurrentBrandOffers(editorialPage) : [];
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];
@@ -216,14 +217,14 @@ export default async function BrandPage({ params }: PageProps) {
                     fontWeight: 700,
                   }}
                 >
-                  Collaboration commerciale avec Carrefour
+                  Collaboration commerciale avec {display}
                 </div>
               )}
 
               <div style={{ padding: "24px", border: "1px solid var(--border)", borderRadius: "16px", background: "white" }}>
                 <p style={{ marginTop: 0 }}>{editorialPage.introduction}</p>
 
-                <h2 style={{ marginTop: "28px" }}>Services Carrefour vérifiés</h2>
+                <h2 style={{ marginTop: "28px" }}>Services {display} vérifiés</h2>
                 <div className="grid grid-2" style={{ gap: "14px" }}>
                   {editorialPage.services.map((service) => (
                     <article key={service.name} style={{ padding: "16px", border: "1px solid var(--border)", borderRadius: "12px" }}>
@@ -236,15 +237,15 @@ export default async function BrandPage({ params }: PageProps) {
                   ))}
                 </div>
 
-                <h2 style={{ marginTop: "28px" }}>Offres Carrefour vérifiées</h2>
-                {editorialPage.activeOffers.length === 0 ? (
+                <h2 style={{ marginTop: "28px" }}>Offres {display} vérifiées</h2>
+                {activeOffers.length === 0 ? (
                   <p style={{ padding: "14px", borderRadius: "10px", background: "#F8FAFC" }}>
                     <Info size={16} aria-hidden style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
                     Aucune offre commerciale n’est publiée ici tant que ses conditions et sa validité n’ont pas été vérifiées sur une source officielle.
                   </p>
                 ) : (
                   <div>
-                    {editorialPage.activeOffers.map((offer) => {
+                    {activeOffers.map((offer) => {
                       const href = offer.commercialUrl || offer.officialUrl;
                       const isCommercial = Boolean(offer.commercialUrl);
                       return (
@@ -291,7 +292,7 @@ export default async function BrandPage({ params }: PageProps) {
                   </time>
                   {" · "}
                   <a href={editorialPage.officialSourceUrl} target="_blank" rel="noopener">
-                    source officielle Carrefour
+                    source officielle {display}
                   </a>
                 </p>
               </div>

@@ -23,6 +23,40 @@ export type BrandEditorialPage = {
   commercialPartnershipActive: boolean;
 };
 
+function isInternalCommercialRoute(url: string): boolean {
+  return url.startsWith("/go/");
+}
+
+function validateBrandEditorialPages(
+  pages: Record<string, BrandEditorialPage>
+): void {
+  for (const [slug, page] of Object.entries(pages)) {
+    for (const offer of page.activeOffers) {
+      if (offer.commercialUrl && !page.commercialPartnershipActive) {
+        throw new Error(
+          `[brand-editorial] ${slug}: commercialUrl interdite lorsque commercialPartnershipActive est false.`
+        );
+      }
+
+      if (offer.commercialUrl && !isInternalCommercialRoute(offer.commercialUrl)) {
+        throw new Error(
+          `[brand-editorial] ${slug}: commercialUrl doit commencer par /go/.`
+        );
+      }
+    }
+  }
+}
+
+export function getCurrentBrandOffers(
+  page: BrandEditorialPage,
+  referenceDate = new Date()
+): VerifiedBrandOffer[] {
+  const currentDate = referenceDate.toISOString().slice(0, 10);
+  return page.activeOffers.filter(
+    (offer) => !offer.endDate || offer.endDate >= currentDate
+  );
+}
+
 /**
  * Contenu éditorial permanent et factuel des pages marques.
  *
@@ -104,3 +138,5 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
     commercialPartnershipActive: false,
   },
 };
+
+validateBrandEditorialPages(BRAND_EDITORIAL_PAGES);
