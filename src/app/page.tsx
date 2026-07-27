@@ -42,6 +42,15 @@ function commercialScore(article: ReturnType<typeof getAllArticles>[number]): nu
   );
 }
 
+function isCommerciallyFresh(article: ReturnType<typeof getAllArticles>[number]): boolean {
+  const effectiveDate = new Date(
+    `${article.meta.updated || article.meta.date}T12:00:00`,
+  ).getTime();
+  if (!Number.isFinite(effectiveDate)) return false;
+  const ageInDays = (Date.now() - effectiveDate) / 86_400_000;
+  return ageInDays >= 0 && ageInDays <= 21;
+}
+
 export default function Home() {
   const allArticles = getAllArticles();
   // Preuve sociale : compteurs arrondis pour le bandeau hero
@@ -60,6 +69,7 @@ export default function Home() {
     .filter((a) =>
       (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
       && !isEffectivelyExpired(a.meta)
+      && isCommerciallyFresh(a)
     )
     .toSorted((a, b) => commercialScore(b) - commercialScore(a))
     .slice(0, 4);
