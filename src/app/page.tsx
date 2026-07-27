@@ -2,7 +2,7 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, Check } from "lucide-react";
+import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, Check, ArrowRight, Gift } from "lucide-react";
 import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
@@ -13,6 +13,34 @@ import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
 import PermanentCodesTeaser from "@/app/components/PermanentCodesTeaser";
 import SectionHeader from "@/app/components/SectionHeader";
 import { Newspaper } from "lucide-react";
+
+const HOME_CATEGORIES = [
+  { href: "/bons-plans-jouets", Icon: ToyBrick, label: "Coin Jouets", color: "#F59E0B" },
+  { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", color: "#86198F" },
+  { href: "/bons-plans-beaute", Icon: Sparkles, label: "Coin Beauté", color: "#DB2777" },
+  { href: "/bons-plans-tech", Icon: Smartphone, label: "Coin Tech", color: "#2563EB" },
+  { href: "/bons-plans-maison", Icon: HomeIcon, label: "Coin Maison", color: "#16A34A" },
+  { href: "/bons-plans-bebe", Icon: Baby, label: "Coin Bébé", color: "#0891B2" },
+  { href: "/bons-plans-ninja", Icon: Flame, label: "Coin Ninja", color: "#DC2626" },
+  { href: "/bons-plans-jardin", Icon: TreePine, label: "Jardin & Animaux", color: "#65A30D" },
+  { href: "/bons-plans-mode", Icon: Shirt, label: "Coin Mode", color: "#7C3AED" },
+];
+
+function commercialScore(article: ReturnType<typeof getAllArticles>[number]): number {
+  const ageInDays = Math.max(
+    0,
+    (Date.now() - new Date(`${article.meta.updated || article.meta.date}T12:00:00`).getTime()) /
+      86_400_000,
+  );
+  return (
+    (article.meta.dealOfDay ? 100 : 0) +
+    (article.meta.featured ? 35 : 0) +
+    (article.meta.affiliateUrl ? 30 : 0) +
+    (article.meta.price ? 18 : 0) +
+    (article.meta.category === "code-promo" ? 12 : 0) +
+    Math.max(0, 20 - ageInDays)
+  );
+}
 
 export default function Home() {
   const allArticles = getAllArticles();
@@ -27,12 +55,13 @@ export default function Home() {
     .slice(0, 4);
   const latestBoxSlugs = new Set(latestBoxes.map((a) => a.meta.slug));
 
-  // 🔥 Les bons plans du moment : 4 derniers bons plans + codes promo non expirés
+  // 🔥 Les bons plans du moment : priorité au potentiel commercial, puis à la fraîcheur.
   const topDeals = allArticles
     .filter((a) =>
       (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
       && !isEffectivelyExpired(a.meta)
     )
+    .toSorted((a, b) => commercialScore(b) - commercialScore(a))
     .slice(0, 4);
   const topDealSlugs = new Set(topDeals.map((a) => a.meta.slug));
 
@@ -41,8 +70,17 @@ export default function Home() {
     .filter((a) =>
       !latestBoxSlugs.has(a.meta.slug)
       && !topDealSlugs.has(a.meta.slug)
+      && a.meta.category !== "concours"
+      && a.meta.category !== "test-gratuit"
     )
     .slice(0, 24);
+
+  const freeOpportunities = allArticles
+    .filter((a) =>
+      (a.meta.category === "concours" || a.meta.category === "test-gratuit")
+      && !isEffectivelyExpired(a.meta)
+    )
+    .slice(0, 4);
 
   const websiteJsonLd = {
     "@context": "https://schema.org",
@@ -75,9 +113,13 @@ export default function Home() {
         <div className="container">
           <h1>Les meilleurs bons plans du moment.</h1>
           <p className="bpm-hero-sub">
-            Chaque jour, les codes promo, réductions et cashback
-            à ne pas louper — beauté, mode, tech, maison.
+            Économisez sur vos achats avec les codes promo, réductions et cashback
+            repérés chaque jour — beauté, mode, tech et maison.
           </p>
+
+          <a href="#offres-du-jour" className="bpm-hero-primary-cta">
+            Voir les meilleures offres du jour <ArrowRight size={18} aria-hidden />
+          </a>
 
           <HeroSearchBar />
 
@@ -110,26 +152,37 @@ export default function Home() {
         </div>
       </section>
 
+      {/* ═══ 🔥 LES BONS PLANS DU MOMENT — priorité conversion ═══ */}
+      {topDeals.length > 0 && (
+        <section id="offres-du-jour" className="section-sm home-top-deals">
+          <div className="container">
+            <SectionHeader
+              badge="Notre sélection"
+              badgeIcon={<Flame size={12} aria-hidden />}
+              title="Les bons plans du jour"
+              titleEmoji="🔥"
+              subtitle="Les offres actives au meilleur potentiel, sélectionnées parmi nos partenaires."
+              color="#0EA5A9"
+              href="/bons-plans-en-cours"
+            />
+            <div className="articles-grid articles-grid-4">
+              {topDeals.map((article, index) => (
+                <ArticleCard key={article.meta.slug} article={article} priority={index === 0} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
       <section className="section-sm" style={{ paddingTop: "28px", paddingBottom: "8px" }}>
         <div className="container">
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(105px, 1fr))", gap: "12px" }}>
-            {[
-              // Catégories iconiques conservées
-              { href: "/bons-plans-jouets",      Icon: ToyBrick,     label: "Coin Jouets",       color: "#F59E0B" },
-              { href: "/categorie/box-beaute",   Icon: ShoppingBag,  label: "Box Beauté",        color: "#86198F" },
-              // Hubs / univers (thèmes)
-              { href: "/bons-plans-beaute",      Icon: Sparkles,     label: "Coin Beauté",       color: "#DB2777" },
-              { href: "/bons-plans-bebe",        Icon: Baby,         label: "Coin Bébé",         color: "#0891B2" },
-              { href: "/bons-plans-ninja",       Icon: Flame,        label: "Coin Ninja",        color: "#DC2626" },
-              { href: "/bons-plans-tech",        Icon: Smartphone,   label: "Coin Tech",         color: "#2563EB" },
-              { href: "/bons-plans-maison",      Icon: HomeIcon,     label: "Coin Maison",       color: "#16A34A" },
-              { href: "/bons-plans-jardin",      Icon: TreePine,     label: "Jardin & Animaux",  color: "#65A30D" },
-              { href: "/bons-plans-mode",        Icon: Shirt,        label: "Coin Mode",         color: "#7C3AED" },
-            ].map((c) => (
+          <div className="home-categories-grid">
+            {HOME_CATEGORIES.map((c, index) => (
               <a
                 key={c.href}
                 href={c.href}
+                className={`cat-card home-category-card ${index >= 5 ? "home-category-secondary" : ""}`}
                 style={{
                   background: "#FFFFFF",
                   borderRadius: "14px",
@@ -145,13 +198,15 @@ export default function Home() {
                   gap: "10px",
                   minHeight: "108px",
                 }}
-                className="cat-card"
               >
                 {c.Icon ? <c.Icon size={30} color={c.color} aria-hidden /> : null}
                 <div style={{ fontWeight: 700, color: "var(--foreground)", fontSize: "0.85rem", lineHeight: "1.2" }}>{c.label}</div>
               </a>
             ))}
           </div>
+          <a href="/recherche" className="home-categories-more">
+            Voir tous les univers <ArrowRight size={15} aria-hidden />
+          </a>
         </div>
       </section>
 
@@ -171,28 +226,6 @@ export default function Home() {
             <div className="articles-grid articles-grid-4">
               {latestBoxes.map((article, index) => (
                 <ArticleCard key={article.meta.slug} article={article} priority={index === 0} />
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
-      {/* ═══ 🔥 LES BONS PLANS DU MOMENT (top revenue — remonté en 2e position) ═══ */}
-      {topDeals.length > 0 && (
-        <section className="section-sm" style={{ paddingTop: "56px", paddingBottom: "12px", background: "linear-gradient(180deg, #ECFEFF 0%, #FFFFFF 100%)" }}>
-          <div className="container">
-            <SectionHeader
-              badge="Notre sélection"
-              badgeIcon={<Flame size={12} aria-hidden />}
-              title="Les bons plans du jour"
-              titleEmoji="🔥"
-              subtitle="Les promos, réductions et codes actifs — vérifiés à la main."
-              color="#0EA5A9"
-              href="/bons-plans-en-cours"
-            />
-            <div className="articles-grid articles-grid-4">
-              {topDeals.map((article) => (
-                <ArticleCard key={article.meta.slug} article={article} />
               ))}
             </div>
           </div>
@@ -244,6 +277,26 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {freeOpportunities.length > 0 && (
+        <section className="section-sm home-free-opportunities">
+          <div className="container">
+            <SectionHeader
+              badge="100 % gratuit"
+              badgeIcon={<Gift size={12} aria-hidden />}
+              title="Concours et tests produits"
+              subtitle="À consulter après les bons plans : ces opportunités sont gratuites, sans promesse de gain."
+              color="#7C3AED"
+              href="/categorie/concours"
+            />
+            <div className="articles-grid articles-grid-4">
+              {freeOpportunities.map((article) => (
+                <ArticleCard key={article.meta.slug} article={article} />
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* ═══ NEWSLETTER ═══ */}
       <NewsletterForm />

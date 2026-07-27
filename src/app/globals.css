@@ -336,6 +336,77 @@ body {
   box-shadow: 0 8px 20px -8px rgba(14, 165, 169, 0.25);
 }
 
+.bpm-hero-primary-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 22px auto 18px;
+  padding: 13px 20px;
+  border-radius: 12px;
+  background: var(--primary);
+  color: #fff;
+  font-weight: 800;
+  text-decoration: none;
+  box-shadow: 0 10px 24px color-mix(in srgb, var(--primary) 24%, transparent);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.bpm-hero-primary-cta:hover {
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px color-mix(in srgb, var(--primary) 30%, transparent);
+}
+
+.home-top-deals {
+  scroll-margin-top: 86px;
+  padding-top: 44px;
+  padding-bottom: 20px;
+  background: linear-gradient(180deg, #ecfeff 0%, #fff 100%);
+}
+
+.home-categories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(105px, 1fr));
+  gap: 12px;
+}
+
+.home-categories-more {
+  display: none;
+}
+
+.home-free-opportunities {
+  padding-top: 36px;
+  padding-bottom: 18px;
+  background: linear-gradient(180deg, #faf5ff 0%, #fff 100%);
+}
+
+@media (max-width: 640px) {
+  .bpm-hero-primary-cta {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .home-categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .home-category-secondary {
+    display: none !important;
+  }
+
+  .home-categories-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 14px;
+    color: var(--primary);
+    font-weight: 750;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+}
+
 /* ── CATEGORY PILLS ── */
 .categories-bar {
   display: flex;
