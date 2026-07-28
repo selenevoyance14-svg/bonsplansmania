@@ -112,9 +112,13 @@ export default function ArticleCardHorizontal({
                             {cat.cta} <ArrowRight size={14} aria-hidden />
                         </a>
                     ) : (
-                        <span className={`bpm-card-h-cta bpm-cta-${cat.color}`}>
+                        <a
+                            href={`/article/${article.meta.slug}`}
+                            className={`bpm-card-h-cta bpm-cta-${cat.color}`}
+                            aria-label={`${cat.cta} — ${article.meta.title}`}
+                        >
                             {cat.cta} <ArrowRight size={14} aria-hidden />
-                        </span>
+                        </a>
                     )}
                 </div>
             </div>

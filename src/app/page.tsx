@@ -140,8 +140,8 @@ export default function Home() {
             repérés chaque jour — beauté, mode, tech et maison.
           </p>
 
-          <a href="#offres-du-jour" className="bpm-hero-primary-cta">
-            Voir les meilleures offres du jour <ArrowRight size={18} aria-hidden />
+          <a href="/bons-plans-en-cours" className="bpm-hero-primary-cta">
+            Voir tous les bons plans en cours <ArrowRight size={18} aria-hidden />
           </a>
 
           <HeroSearchBar />
