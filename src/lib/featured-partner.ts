@@ -33,7 +33,7 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   brandName: "Beauty Success",
   merchant: "beauty-success",
   badge: "PARTENAIRE À LA UNE",
-  title: "Beauty Success à la une",
+  title: "Beauty Success",
   description:
     "Profitez de −25 % sur votre parfum préféré avec le code BSPARF25, valable jusqu’au 30 août 2026.",
   imageSrc: "/images/featured-partner-beauty-success.png",
