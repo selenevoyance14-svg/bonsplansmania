@@ -96,10 +96,6 @@ export default function Header({ activePage }: { activePage?: string }) {
                 </div>
               )}
             </div>
-            <a href="/blog" className={`nav-cta ${activePage === "/blog" ? "active" : ""}`}>Tous les articles</a>
-            <a href="/recherche" className="search-btn" aria-label="Rechercher" title="Rechercher" style={{ display: "flex", alignItems: "center", justifyContent: "center", width: "36px", height: "36px", borderRadius: "50%", background: "rgba(255,255,255,0.1)", color: "inherit", transition: "background 0.2s" }}>
-              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-            </a>
           </nav>
 
           {/* Burger button : visible uniquement sur mobile via CSS */}
@@ -161,8 +157,6 @@ export default function Header({ activePage }: { activePage?: string }) {
             <a href="/categorie/box-beaute" onClick={() => setMobileOpen(false)}>Box Beauté</a>
             <a href="/categorie/calendrier-avent" onClick={() => setMobileOpen(false)}>Calendrier de l&apos;Avent</a>
           </div>
-          <a href="/blog" onClick={() => setMobileOpen(false)}>Tous les articles</a>
-          <a href="/recherche" onClick={() => setMobileOpen(false)}>🔍 Rechercher</a>
         </div>
       )}
     </header>
