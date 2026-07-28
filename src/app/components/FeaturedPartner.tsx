@@ -1,14 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useState, type CSSProperties } from "react";
-import {
-  Check,
-  Clipboard,
-  Gem,
-  MoveRight,
-  Sparkles,
-  SprayCan,
-} from "lucide-react";
+import { Check, Clipboard, MoveRight, Sparkles } from "lucide-react";
 import {
   isFeaturedPartnerActive,
   type FeaturedPartnerConfig,
@@ -105,7 +99,6 @@ export default function FeaturedPartner({
               <Sparkles size={13} aria-hidden />
               {partner.badge}
             </span>
-            <p className="featured-partner__disclosure">{partner.disclosure}</p>
             <h2
               id={`featured-partner-${partner.id}-title`}
               className="featured-partner__title"
@@ -172,27 +165,14 @@ export default function FeaturedPartner({
             </a>
           </div>
 
-          <div className="featured-partner__visual" aria-hidden="true">
-            <span className="featured-partner__visual-name">
-              {partner.brandName}
-            </span>
-            <div className="featured-partner__beauty-scene">
-              <div className="featured-partner__bottle">
-                <SprayCan size={48} strokeWidth={1.5} />
-              </div>
-              <div className="featured-partner__lipstick" />
-              <div className="featured-partner__jar">
-                <Gem size={34} strokeWidth={1.5} />
-              </div>
-              <Sparkles
-                className="featured-partner__sparkle featured-partner__sparkle--one"
-                size={28}
-              />
-              <Sparkles
-                className="featured-partner__sparkle featured-partner__sparkle--two"
-                size={18}
-              />
-            </div>
+          <div className="featured-partner__visual">
+            <Image
+              src={partner.imageSrc}
+              alt={partner.imageAlt}
+              fill
+              sizes="(max-width: 720px) 100vw, 36vw"
+              className="featured-partner__image"
+            />
           </div>
         </div>
       </div>
