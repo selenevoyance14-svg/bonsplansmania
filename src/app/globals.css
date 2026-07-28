@@ -107,15 +107,21 @@ body {
 .nav {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   gap: 8px;
 }
 
 .nav a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--muted-foreground);
   text-decoration: none;
   padding: 6px 12px;
+  line-height: 1.2;
+  white-space: nowrap;
   border-radius: var(--radius-pill);
   transition: all 0.15s;
 }
@@ -144,6 +150,9 @@ body {
 }
 
 .nav-dropdown-toggle {
+  display: inline-flex;
+  align-items: center;
+  min-height: 36px;
   font-size: 0.88rem;
   font-weight: 600;
   color: var(--muted-foreground);
@@ -151,6 +160,8 @@ body {
   border: none;
   cursor: pointer;
   padding: 6px 12px;
+  line-height: 1.2;
+  white-space: nowrap;
   border-radius: var(--radius-pill);
   transition: all 0.15s;
   font-family: inherit;
