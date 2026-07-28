@@ -7,9 +7,9 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export const metadata: Metadata = {
-  title: "Noël 2026 : calendriers de l'Avent beauté, idées cadeaux, bons plans et concours — BonsPlansMania",
+  title: "Bons plans Noël 2026 : calendriers de l'Avent et cadeaux — BonsPlansMania",
   description:
-    "Hub Noël 2026 : tous les calendriers de l'Avent beauté, idées cadeaux, sélections coffrets, bons plans Black Friday, concours et codes promo de fin d'année. Mise à jour quotidienne.",
+    "Retrouvez les bons plans Noël 2026 : calendriers de l'Avent, coffrets cadeaux, offres Black Friday, concours et codes promo de fin d'année.",
   alternates: { canonical: "https://bonsplansmania.fr/noel-2026" },
   openGraph: {
     title: "Noël 2026 — Calendriers Avent, cadeaux, bons plans",
@@ -113,10 +113,12 @@ export default function Noel2026Page() {
               }}
             >
               <TreePine size={36} color="#FBBF24" />
-              Noël 2026 sur BonsPlansMania
+              Les bons plans de Noël 2026
             </h1>
             <p style={{ color: "white", fontSize: "1.1rem", maxWidth: "820px", marginBottom: "16px", lineHeight: 1.6, opacity: 0.95 }}>
-              On prépare déjà <strong>Noël 2026</strong> : <strong>calendriers de l&apos;Avent beauté</strong>, idées cadeaux pour elle / lui / les enfants, <strong>bons plans Black Friday</strong>, coffrets et concours. Cette page s&apos;enrichit jusqu&apos;au 25 décembre.
+              Retrouvez les <strong>calendriers de l&apos;Avent</strong>, les idées cadeaux,
+              les coffrets, les offres du <strong>Black Friday</strong> et les concours de
+              fin d&apos;année. Les offres terminées sont retirées automatiquement.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
               <div
@@ -236,42 +238,15 @@ export default function Noel2026Page() {
           </section>
         )}
 
-        <section className="section">
-          <div className="container">
-            <div
-              style={{
-                background: "white",
-                border: "1px solid var(--border)",
-                borderRadius: "16px",
-                padding: "28px",
-                maxWidth: "820px",
-                margin: "0 auto",
-              }}
-            >
-              <h2 style={{ fontSize: "1.3rem", marginBottom: "12px" }}>Notre calendrier Noël 2026</h2>
-              <p style={{ marginBottom: "12px", lineHeight: 1.7 }}>
-                <strong>Pourquoi anticiper dès maintenant ?</strong> Les <strong>calendriers de l&apos;Avent beauté</strong> sont mis en vente dès septembre — les meilleurs (Sephora, Lookfantastic, Liberty, Marionnaud) <strong>partent en rupture en octobre</strong>. Idem pour les <strong>jouets phares de Noël</strong> (LEGO grosses sets, Nintendo Switch, robots éducatifs).
-              </p>
-              <p style={{ marginBottom: "12px", lineHeight: 1.7 }}>
-                Le <strong>Black Friday 2026</strong> tombera le <strong>vendredi 27 novembre</strong> avec le Cyber Monday le 30 novembre. C&apos;est <strong>le meilleur moment de l&apos;année</strong> pour le high-tech (TV, PC, smartphones), l&apos;électroménager et beaucoup de cosmétiques premium.
-              </p>
-              <p style={{ lineHeight: 1.7, marginBottom: 0 }}>
-                <strong>Notre conseil</strong> : épingle cette page dès maintenant et reviens régulièrement, on l&apos;enrichit chaque semaine à partir de septembre.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Related hubs */}
         <section className="section" style={{ background: "var(--muted)" }}>
           <div className="container">
             <div className="section-title">
-              <h2>Autres hubs saisonniers</h2>
+              <h2>À découvrir aussi</h2>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
                 { href: "/ete-2026", label: "☀️ Été 2026", desc: "Solaires, vacances, anti-canicule", color: "#F59E0B" },
-                { href: "/fete-des-peres-2026", label: "🎁 Fête des Pères 21 juin", desc: "Idées cadeaux papa", color: "#1D4ED8" },
                 { href: "/categorie/calendrier-avent", label: "🎄 Tous les calendriers Avent", desc: "Archives + actuels", color: "#16A34A" },
                 { href: "/categorie/box-beaute", label: "📦 Box beauté", desc: "Blissim, Glowria, Biotyfull…", color: "#86198F" },
                 { href: "/categorie/concours", label: "🎁 Concours en cours", desc: "Jeux gratuits", color: "#7C3AED" },

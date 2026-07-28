@@ -7,12 +7,12 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 export const metadata: Metadata = {
-  title: "Été 2026 : tous les bons plans, sélections beauté solaire, vacances & anti-canicule — BonsPlansMania",
+  title: "Bons plans été 2026 : solaires, vacances et fraîcheur — BonsPlansMania",
   description:
-    "Hub Été 2026 : crèmes solaires bio, autobronzants, parasols, ventilateurs, climatiseurs, maillots bébé UPF 50+, box d'été, cadeaux Fête des Pères et bons plans vacances. Sélection mise à jour quotidiennement.",
+    "Retrouvez les bons plans été 2026 : protections solaires, autobronzants, ventilateurs, vacances, plage et produits adaptés aux bébés.",
   alternates: { canonical: "https://bonsplansmania.fr/ete-2026" },
   openGraph: {
-    title: "Été 2026 — Bons plans solaires, vacances, anti-canicule",
+    title: "Bons plans été 2026 — Solaires, vacances et fraîcheur",
     description:
       "Toutes nos sélections, bons plans et concours pour l'été 2026 : solaires bio, autobronzants, parasols, ventilateurs, maillots, box beauté été.",
     type: "website",
@@ -119,10 +119,12 @@ export default function Ete2026Page() {
               }}
             >
               <Sun size={36} color="#F59E0B" />
-              Été 2026 sur BonsPlansMania
+              Les bons plans de l&apos;été 2026
             </h1>
             <p style={{ color: "#7C2D12", fontSize: "1.1rem", maxWidth: "820px", marginBottom: "16px", lineHeight: 1.6 }}>
-              Toute notre sélection pour <strong>survivre à l&apos;été 2026</strong> avec style : crèmes solaires bio, autobronzants, parasols, ventilateurs anti-canicule, maillots bébé UPF 50+, box beauté d&apos;été, cadeaux Fête des Pères et bons plans vacances. Mise à jour quotidienne.
+              Retrouvez nos sélections saisonnières : protections solaires, autobronzants,
+              ventilateurs, équipements pour la plage et les vacances, produits adaptés aux
+              bébés et box beauté d&apos;été. Les offres terminées sont retirées automatiquement.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
               <div
@@ -244,47 +246,18 @@ export default function Ete2026Page() {
           </section>
         )}
 
-        {/* Why this hub */}
-        <section className="section">
-          <div className="container">
-            <div
-              style={{
-                background: "white",
-                border: "1px solid var(--border)",
-                borderRadius: "16px",
-                padding: "28px",
-                maxWidth: "820px",
-                margin: "0 auto",
-              }}
-            >
-              <h2 style={{ fontSize: "1.3rem", marginBottom: "12px" }}>Pourquoi un hub Été 2026 ?</h2>
-              <p style={{ marginBottom: "12px", lineHeight: 1.7 }}>
-                L&apos;été 2026 s&apos;annonce <strong>caniculaire</strong> et les besoins sont nombreux : protéger sa peau du soleil avec des <strong>crèmes solaires bio efficaces</strong>, garder bébé au frais avec des <strong>maillots UPF 50+</strong>, équiper son intérieur avec un <strong>ventilateur silencieux ou un climatiseur mobile</strong>, sans oublier les <strong>cadeaux Fête des Pères</strong> (21 juin 2026).
-              </p>
-              <p style={{ marginBottom: "12px", lineHeight: 1.7 }}>
-                Cette page rassemble <strong>tous nos articles, bons plans et sélections d&apos;été</strong> en un seul endroit. On la met à jour <strong>quotidiennement</strong> avec les nouveaux deals que l&apos;on déniche sur Amazon, Cdiscount, Beauty Success, BAÏJA, Acorelle, Dr Pierre Ricaud, L&apos;Occitane et plus.
-              </p>
-              <p style={{ lineHeight: 1.7, marginBottom: 0 }}>
-                <strong>Astuce</strong> : épingle cette page dans tes favoris ou abonne-toi à notre newsletter — tu seras alerté(e) dès qu&apos;un nouveau bon plan été arrive.
-              </p>
-            </div>
-          </div>
-        </section>
-
         {/* Related hubs */}
         <section className="section" style={{ background: "var(--muted)" }}>
           <div className="container">
             <div className="section-title">
-              <h2>Tu aimes l&apos;été ? Explore aussi…</h2>
+              <h2>À découvrir aussi</h2>
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
-                { href: "/fete-des-peres-2026", label: "🎁 Fête des Pères 2026", desc: "Idées cadeaux 21 juin", color: "#1D4ED8" },
                 { href: "/categorie/bon-plan", label: "🛍️ Tous les bons plans", desc: "Toutes catégories confondues", color: "#0EA5A9" },
                 { href: "/categorie/concours", label: "🎁 Concours en cours", desc: "Jeux gratuits, instants gagnants", color: "#7C3AED" },
                 { href: "/categorie/test-gratuit", label: "🆓 Tests gratuits", desc: "Campagnes ambassadrice", color: "#16A34A" },
                 { href: "/categorie/box-beaute", label: "📦 Box beauté", desc: "Blissim, Glowria, Biotyfull…", color: "#86198F" },
-                { href: "/noel-2026", label: "🎄 Noël 2026 (à venir)", desc: "Anticipe les calendriers Avent", color: "#DC2626" },
               ].map((c) => (
                 <a
                   key={c.href}
