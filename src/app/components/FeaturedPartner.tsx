@@ -150,7 +150,7 @@ export default function FeaturedPartner({
               {copyStatus === "copied"
                 ? "Code copié"
                 : copyStatus === "error"
-                  ? "Copie impossible. Sélectionnez le code BPM10."
+                  ? `Copie impossible. Sélectionnez le code ${partner.promoCode}.`
                   : ""}
             </p>
 

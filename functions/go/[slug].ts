@@ -28,7 +28,7 @@ const MAP: Record<string, MappingRecord> = {
   ...campaignMap,
 };
 
-function isEntryActive(entry: MappingRecord, referenceDate: Date): boolean {
+export function isEntryActive(entry: MappingRecord, referenceDate: Date): boolean {
   const referenceTime = referenceDate.getTime();
   const startTime = entry.startsAt ? Date.parse(entry.startsAt) : null;
   const endTime = entry.endsAt ? Date.parse(entry.endsAt) : null;
@@ -42,6 +42,15 @@ function isEntryActive(entry: MappingRecord, referenceDate: Date): boolean {
   return true;
 }
 
+export function getEntryDestination(
+  entry: MappingRecord,
+  referenceDate: Date,
+): string {
+  return isEntryActive(entry, referenceDate)
+    ? entry.url
+    : "https://bonsplansmania.fr/";
+}
+
 export const onRequest: PagesFunction = async ({ params }) => {
   const slug = String(params.slug || "").trim();
   const entry = MAP[slug];
@@ -53,16 +62,17 @@ export const onRequest: PagesFunction = async ({ params }) => {
     return Response.redirect(new URL(fallback, "https://bonsplansmania.fr").toString(), 302);
   }
 
-  const destination = isEntryActive(entry, new Date())
-    ? entry.url
-    : "https://bonsplansmania.fr/";
+  const destination = getEntryDestination(entry, new Date());
+  const isScheduled = Boolean(entry.startsAt || entry.endsAt);
 
   // Cache court côté CDN : la destination peut changer sans purge lourde
   return new Response(null, {
     status: 302,
     headers: {
       Location: destination,
-      "Cache-Control": "public, max-age=300",
+      "Cache-Control": isScheduled
+        ? "no-store, max-age=0"
+        : "public, max-age=300",
       "Referrer-Policy": "no-referrer-when-downgrade",
       "X-Robots-Tag": "noindex, nofollow",
     },
