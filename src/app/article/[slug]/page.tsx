@@ -329,7 +329,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   {article.meta.price && (
                     <span style={{ fontWeight: 700, color: "var(--primary)", fontSize: "1.05rem" }}>{article.meta.price}</span>
                   )}
-                  {affiliateUrl !== "#" && !isFreebieCategory && (
+                  {affiliateUrl !== "#" && !isFreebieCategory && !isExpired && (
                     <a href={affiliateUrl} className="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">
                       {affiliateLabel} <ExternalLink size={13} />
                     </a>
@@ -358,10 +358,10 @@ export default async function ArticlePage({ params }: PageProps) {
             <NewsletterInline />
 
             <div className="article-content">
-              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleBeforeComparison, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined, article.meta.image) }} />
+              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleBeforeComparison, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image) }} />
               {hasBoxComparison && <BoxBeautyComparison />}
               {hasBoxComparison && (
-                <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleAfterComparison, affiliateUrl !== "#" && !isFreebieCategory ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory ? affiliateLabel : undefined) }} />
+                <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleAfterComparison, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined) }} />
               )}
             </div>
             {/* Initialise les blocs AdSense in-article injectés dans le contenu Markdown ci-dessus */}
@@ -401,7 +401,7 @@ export default async function ArticlePage({ params }: PageProps) {
               </section>
             )}
 
-            {affiliateUrl !== "#" && (
+            {affiliateUrl !== "#" && !isExpired && (
               <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)", borderRadius: "16px", border: "2px solid #A5F3FC" }}>
                 <p style={{ fontWeight: 800, fontSize: "1.2rem", marginBottom: "16px", color: "var(--foreground)" }}>Profiter de cette offre</p>
                 <a href={affiliateUrl} className="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" style={{ padding: "14px 32px", fontSize: "1rem" }}>
@@ -504,7 +504,7 @@ export default async function ArticlePage({ params }: PageProps) {
       </main>
 
       {/* CTA sticky mobile (priorité au CTA affilié quand il existe) */}
-      {affiliateUrl !== "#" ? (
+      {affiliateUrl !== "#" && !isExpired ? (
         <div className="sticky-cta-mobile">
           <a href={affiliateUrl} className="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" style={{ width: "100%", justifyContent: "center", padding: "14px 24px", fontSize: "1rem" }}>
             {affiliateLabel} <ExternalLink size={15} />
