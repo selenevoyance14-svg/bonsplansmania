@@ -1,11 +1,12 @@
-import { getAllArticles, getArticlesByTag } from "@/lib/articles";
+import { getAllArticles, getArticlesByTag, getArticlesByTagSlug } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import type { Metadata } from "next";
-import { ChevronRight, Tag } from "lucide-react";
+import { ChevronRight, ExternalLink, Info, Tag } from "lucide-react";
 import { notFound } from "next/navigation";
 import AdBlock from "@/app/components/AdBlock";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
+import { BRAND_EDITORIAL_PAGES, getCurrentBrandOffers } from "@/lib/brand-editorial-data";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
@@ -79,13 +80,24 @@ export async function generateStaticParams() {
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
+/**
+ * La normalisation est volontairement limitée à Carrefour pour cette migration.
+ * Les autres pages marques conservent leur comportement historique jusqu'à ce
+ * qu'un audit dédié confirme que le regroupement de leurs variantes est souhaité.
+ */
+function getBrandArticles(slug: string, rawTag: string) {
+  return slug === "carrefour"
+    ? getArticlesByTagSlug(slug)
+    : getArticlesByTag(rawTag);
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const map = getTagSlugMap();
   const rawTag = map.get(slug);
   if (!rawTag) return {};
   const display = getDisplayName(slug, rawTag);
-  const count = getArticlesByTag(rawTag).length;
+  const count = getBrandArticles(slug, rawTag).length;
   const title = `${display} : ${count} bons plans et promos`;
   const description = `Tous les bons plans, promos et tests produits ${display} du moment : ${count} article${count > 1 ? "s" : ""} mis à jour régulièrement sur Bons Plans Mania.`;
   return {
@@ -113,7 +125,9 @@ export default async function BrandPage({ params }: PageProps) {
   if (!rawTag) notFound();
 
   const display = getDisplayName(slug, rawTag);
-  const articles = getArticlesByTag(rawTag);
+  const articles = getBrandArticles(slug, rawTag);
+  const editorialPage = BRAND_EDITORIAL_PAGES[slug];
+  const activeOffers = editorialPage ? getCurrentBrandOffers(editorialPage) : [];
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];
@@ -186,6 +200,105 @@ export default async function BrandPage({ params }: PageProps) {
             </p>
           </div>
         </section>
+
+        {editorialPage && (
+          <section className="section-sm">
+            <div className="container">
+              {editorialPage.commercialPartnershipActive && (
+                <div
+                  role="note"
+                  style={{
+                    padding: "14px 18px",
+                    marginBottom: "18px",
+                    border: "2px solid #1D4ED8",
+                    borderRadius: "12px",
+                    background: "#EFF6FF",
+                    color: "#1E3A8A",
+                    fontWeight: 700,
+                  }}
+                >
+                  Collaboration commerciale avec {display}
+                </div>
+              )}
+
+              <div style={{ padding: "24px", border: "1px solid var(--border)", borderRadius: "16px", background: "white" }}>
+                <p style={{ marginTop: 0 }}>{editorialPage.introduction}</p>
+
+                <h2 style={{ marginTop: "28px" }}>Services {display} vérifiés</h2>
+                <div className="grid grid-2" style={{ gap: "14px" }}>
+                  {editorialPage.services.map((service) => (
+                    <article key={service.name} style={{ padding: "16px", border: "1px solid var(--border)", borderRadius: "12px" }}>
+                      <h3 style={{ marginTop: 0, marginBottom: "8px", fontSize: "1.05rem" }}>{service.name}</h3>
+                      <p style={{ margin: "0 0 10px" }}>{service.description}</p>
+                      <a href={service.officialUrl} target="_blank" rel="noopener">
+                        Source officielle <ExternalLink size={13} aria-hidden style={{ display: "inline", verticalAlign: "middle" }} />
+                      </a>
+                    </article>
+                  ))}
+                </div>
+
+                <h2 style={{ marginTop: "28px" }}>Offres {display} vérifiées</h2>
+                {activeOffers.length === 0 ? (
+                  <p style={{ padding: "14px", borderRadius: "10px", background: "#F8FAFC" }}>
+                    <Info size={16} aria-hidden style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
+                    Aucune offre commerciale n’est publiée ici tant que ses conditions et sa validité n’ont pas été vérifiées sur une source officielle.
+                  </p>
+                ) : (
+                  <div>
+                    {activeOffers.map((offer) => {
+                      const href = offer.commercialUrl || offer.officialUrl;
+                      const isCommercial = Boolean(offer.commercialUrl);
+                      return (
+                        <article key={offer.title}>
+                          <h3>{offer.title}</h3>
+                          <p>{offer.conditions}</p>
+                          <a
+                            href={href}
+                            target="_blank"
+                            rel={isCommercial ? "nofollow sponsored noopener" : "noopener"}
+                          >
+                            Consulter l’offre <ExternalLink size={13} aria-hidden />
+                          </a>
+                        </article>
+                      );
+                    })}
+                  </div>
+                )}
+
+                <h2 style={{ marginTop: "28px" }}>Questions fréquentes</h2>
+                {editorialPage.faq.map((item) => (
+                  <details key={item.question} style={{ padding: "12px 0", borderBottom: "1px solid var(--border)" }}>
+                    <summary style={{ cursor: "pointer", fontWeight: 700 }}>{item.question}</summary>
+                    <p style={{ marginBottom: 0 }}>{item.answer}</p>
+                  </details>
+                ))}
+
+                <h2 style={{ marginTop: "28px" }}>À consulter aussi</h2>
+                <ul>
+                  {editorialPage.internalLinks.map((link) => (
+                    <li key={link.href}><a href={link.href}>{link.label}</a></li>
+                  ))}
+                </ul>
+
+                <p style={{ marginBottom: 0, color: "var(--muted-foreground)", fontSize: "0.88rem" }}>
+                  Dernière vérification :{" "}
+                  <time dateTime={editorialPage.verifiedAt}>
+                    {new Date(`${editorialPage.verifiedAt}T12:00:00`).toLocaleDateString("fr-FR", {
+                      day: "numeric",
+                      month: "long",
+                      year: "numeric",
+                      timeZone: "Europe/Paris",
+                    })}
+                  </time>
+                  {" · "}
+                  <a href={editorialPage.officialSourceUrl} target="_blank" rel="noopener">
+                    source officielle {display}
+                  </a>
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
 
         <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
           <AdBlock />

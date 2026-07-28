@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import readingTime from "reading-time";
 import { parsePrice } from "@/lib/price";
+import { slugifyTag } from "@/lib/tag-pages";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania.png";
@@ -329,6 +330,21 @@ export function getRelatedArticles(slug: string, category: string, limit = 3, ta
 
 export function getArticlesByTag(tag: string): Article[] {
   return getAllArticles().filter((a) => a.meta.tags.includes(tag));
+}
+
+/**
+ * Retourne les articles dont un tag correspond exactement au slug demandé
+ * après normalisation. Contrairement à une recherche textuelle, cette fonction
+ * ne rapproche jamais une marque d'un article qui la cite seulement dans son
+ * titre, son contenu ou son URL.
+ *
+ * Exemple : les tags "Carrefour" et "carrefour" alimentent tous les deux
+ * /marque/carrefour, sans inclure Greenweez ni "carrefour market" par erreur.
+ */
+export function getArticlesByTagSlug(tagSlug: string): Article[] {
+  return getAllArticles().filter((article) =>
+    article.meta.tags.some((tag) => slugifyTag(tag) === tagSlug)
+  );
 }
 
 /**
