@@ -375,7 +375,7 @@ body {
 
 .featured-partner {
   display: grid;
-  grid-template-columns: minmax(0, 1.45fr) minmax(240px, 0.55fr);
+  grid-template-columns: minmax(0, 1.25fr) minmax(320px, 0.75fr);
   align-items: stretch;
   overflow: hidden;
   border: 1.5px solid var(--featured-partner-border);
@@ -520,7 +520,7 @@ body {
 }
 
 .featured-partner__image {
-  object-fit: cover;
+  object-fit: contain;
   object-position: center;
 }
 
