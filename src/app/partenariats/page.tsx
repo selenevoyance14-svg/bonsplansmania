@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Partenariats — Bons Plans Mania",
   description:
-    "Vous êtes une marque ou une agence ? Découvrez comment collaborer avec BonsPlansMania.fr : articles dédiés, codes promo exclusifs, affiliation.",
+    "Marques et agences : découvrez les formats de collaboration proposés par Bons Plans Mania, du contenu éditorial à la mise en avant sur l'accueil.",
 };
 
 export default function Partenariats() {
@@ -34,7 +34,9 @@ export default function Partenariats() {
             }}
           >
             Vous représentez une marque, une agence ou une plateforme
-            d'affiliation ? Découvrez comment travailler avec Bons Plans Mania.
+            d&apos;affiliation ? Je propose des collaborations adaptées à votre
+            campagne, à votre offre et aux centres d&apos;intérêt des lecteurs de
+            Bons Plans Mania.
           </p>
 
           {/* Stats */}
@@ -57,9 +59,9 @@ export default function Partenariats() {
             >
               {[
                 { value: `${totalArticles}+`, label: "articles publiés" },
-                { value: "SEO", label: "1ère page Google sur plusieurs requêtes" },
-                { value: "Quotidien", label: "nouveau contenu chaque jour" },
-                { value: "6+", label: "catégories couvertes" },
+                { value: "Depuis 2020", label: "un site consacré aux économies" },
+                { value: "Depuis 2024", label: "une activité à plein temps" },
+                { value: "Accès gratuit", label: "pour tous les lecteurs" },
               ].map((stat) => (
                 <div
                   key={stat.label}
@@ -96,7 +98,7 @@ export default function Partenariats() {
                 marginBottom: "16px",
               }}
             >
-              Nos thématiques
+              Les principales thématiques
             </h2>
             <div
               style={{
@@ -114,6 +116,8 @@ export default function Partenariats() {
                 "Mode et accessoires",
                 "Maison et bien-être",
                 "Épicerie et alimentation",
+                "Courses et budget familial",
+                "Jeux concours et tests gratuits",
               ].map((t) => (
                 <span
                   key={t}
@@ -145,20 +149,24 @@ export default function Partenariats() {
             <div style={{ display: "grid", gap: "20px" }}>
               {[
                 {
+                  title: "Partenaire à la une",
+                  desc: "Un emplacement temporaire et visible sur la page d'accueil, avec votre visuel, une présentation validée et un bouton intégrant votre lien de suivi officiel.",
+                },
+                {
                   title: "Article dédié",
-                  desc: "Un article complet et optimisé SEO autour de votre marque, vos produits ou votre offre en cours. Rédigé avec un ton authentique et publié dans la catégorie adaptée.",
+                  desc: "Un contenu éditorial consacré à votre marque, à un service ou à une offre vérifiée, publié dans la catégorie adaptée. Aucun positionnement dans les moteurs de recherche ou les assistants IA ne peut être garanti.",
                 },
                 {
                   title: "Code promo exclusif",
-                  desc: "Un code promo réservé à notre audience, mis en avant dans un article dédié et référencé sur Google. Idéal pour générer du trafic qualifié et mesurer les conversions.",
+                  desc: "Un code réservé aux lecteurs de Bons Plans Mania, accompagné de ses dates, conditions et exclusions, avec un lien de suivi fourni par la marque ou son réseau.",
                 },
                 {
                   title: "Affiliation",
-                  desc: "Intégration de vos produits dans nos sélections, comparatifs et bons plans avec un suivi des performances via votre programme d'affiliation.",
+                  desc: "Intégration pertinente dans des bons plans, guides ou comparatifs, avec un suivi des clics et des conversions selon les données disponibles dans votre programme.",
                 },
                 {
                   title: "Test produit",
-                  desc: "Présentation détaillée d'un produit avec un avis honnête, des photos et un lien direct vers votre site. Un format qui génère de la confiance auprès des lecteurs.",
+                  desc: "Lorsqu'un produit est réellement reçu et testé, publication d'un retour d'expérience identifié comme tel, avec des photos et un avis éditorial indépendant.",
                 },
               ].map((format) => (
                 <div
@@ -190,8 +198,12 @@ export default function Partenariats() {
                 marginBottom: "16px",
               }}
             >
-              Marques régulièrement présentes sur le site
+              Quelques marques citées sur le site
             </h2>
+            <p style={{ color: "#6B7280", lineHeight: 1.6, marginBottom: "16px" }}>
+              La présence d&apos;une marque dans un article ne signifie pas nécessairement
+              qu&apos;une collaboration commerciale existe avec elle.
+            </p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
               {[
                 "L'Oréal",
@@ -227,6 +239,27 @@ export default function Partenariats() {
             </div>
           </section>
 
+          <section style={{ marginBottom: "48px" }}>
+            <h2
+              style={{
+                fontSize: "1.3rem",
+                fontWeight: 700,
+                marginBottom: "16px",
+              }}
+            >
+              Une collaboration clairement identifiée
+            </h2>
+            <p style={{ color: "#4B5563", lineHeight: 1.7, marginBottom: "12px" }}>
+              Les contenus rémunérés sont signalés comme collaborations commerciales.
+              Les liens affiliés utilisent les paramètres de suivi officiels et les
+              informations commerciales sont publiées uniquement après vérification.
+            </p>
+            <p style={{ color: "#4B5563", lineHeight: 1.7, margin: 0 }}>
+              Je conserve ma liberté éditoriale : aucun faux témoignage, faux test,
+              prix inventé ou promesse de résultat SEO ne sera publié.
+            </p>
+          </section>
+
           {/* Contact */}
           <section
             style={{
@@ -241,7 +274,7 @@ export default function Partenariats() {
               Travaillons ensemble
             </h2>
             <p style={{ fontSize: "1rem", marginBottom: "24px", opacity: 0.9 }}>
-              Contactez-nous pour discuter d'un partenariat adapté à vos objectifs.
+              Contactez-moi pour discuter d&apos;un partenariat adapté à vos objectifs.
             </p>
             <a
               href="mailto:bonsplansmania@gmail.com?subject=Partenariat%20BonsPlansMania"
