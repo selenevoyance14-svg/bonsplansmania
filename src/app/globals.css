@@ -402,15 +402,8 @@ body {
   letter-spacing: 0.07em;
 }
 
-.featured-partner__disclosure {
-  margin: 14px 0 6px;
-  color: #831843;
-  font-size: 0.84rem;
-  font-weight: 750;
-}
-
 .featured-partner__title {
-  margin: 0;
+  margin: 14px 0 0;
   color: var(--featured-partner-text);
   font-size: clamp(1.8rem, 4vw, 2.65rem);
   font-weight: 900;
@@ -520,113 +513,15 @@ body {
 
 .featured-partner__visual {
   position: relative;
-  display: flex;
   min-height: 300px;
-  align-items: center;
-  justify-content: center;
   overflow: hidden;
   border-left: 1px solid rgba(236, 72, 153, 0.35);
-  background:
-    radial-gradient(circle at 70% 18%, rgba(255,255,255,0.95) 0 8%, transparent 9%),
-    linear-gradient(145deg, #fbcfe8 0%, #fce7f3 45%, #fff1f7 100%);
+  background: #fce7f3;
 }
 
-.featured-partner__visual::before,
-.featured-partner__visual::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.55);
-}
-
-.featured-partner__visual::before {
-  width: 180px;
-  height: 180px;
-  right: -65px;
-  top: -70px;
-}
-
-.featured-partner__visual::after {
-  width: 120px;
-  height: 120px;
-  left: -35px;
-  bottom: -40px;
-}
-
-.featured-partner__visual-name {
-  position: absolute;
-  top: 28px;
-  left: 50%;
-  z-index: 2;
-  transform: translateX(-50%);
-  color: #831843;
-  font-size: 1.05rem;
-  font-weight: 900;
-  white-space: nowrap;
-}
-
-.featured-partner__beauty-scene {
-  position: relative;
-  width: 230px;
-  height: 170px;
-  margin-top: 32px;
-}
-
-.featured-partner__bottle,
-.featured-partner__jar,
-.featured-partner__lipstick {
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: #9d174d;
-  box-shadow: 0 18px 25px -20px rgba(131, 24, 67, 0.65);
-}
-
-.featured-partner__bottle {
-  left: 18px;
-  bottom: 5px;
-  width: 80px;
-  height: 125px;
-  border: 2px solid #be185d;
-  border-radius: 26px 26px 18px 18px;
-  background: linear-gradient(180deg, #fff 0%, #fbcfe8 100%);
-}
-
-.featured-partner__lipstick {
-  left: 108px;
-  bottom: 8px;
-  width: 38px;
-  height: 100px;
-  border: 2px solid #831843;
-  border-radius: 10px 10px 7px 7px;
-  background: linear-gradient(180deg, #be185d 0 42%, #111827 43% 100%);
-  transform: rotate(-6deg);
-}
-
-.featured-partner__jar {
-  right: 4px;
-  bottom: 3px;
-  width: 78px;
-  height: 72px;
-  border: 2px solid #db2777;
-  border-radius: 20px;
-  background: rgba(255,255,255,0.9);
-}
-
-.featured-partner__sparkle {
-  position: absolute;
-  color: #be185d;
-}
-
-.featured-partner__sparkle--one {
-  right: 28px;
-  top: 16px;
-}
-
-.featured-partner__sparkle--two {
-  left: 112px;
-  top: 12px;
+.featured-partner__image {
+  object-fit: cover;
+  object-position: center;
 }
 
 @media (max-width: 720px) {
@@ -661,14 +556,6 @@ body {
     border-left: 0;
   }
 
-  .featured-partner__beauty-scene {
-    transform: scale(0.78);
-    margin-top: 34px;
-  }
-
-  .featured-partner__visual-name {
-    top: 18px;
-  }
 }
 
 .home-categories-grid {
