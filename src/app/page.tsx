@@ -12,6 +12,11 @@ import HeroSearchBar from "@/app/components/HeroSearchBar";
 import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
 import PermanentCodesTeaser from "@/app/components/PermanentCodesTeaser";
 import SectionHeader from "@/app/components/SectionHeader";
+import FeaturedPartner from "@/app/components/FeaturedPartner";
+import {
+  FEATURED_PARTNER,
+  isFeaturedPartnerActive,
+} from "@/lib/featured-partner";
 import { Newspaper } from "lucide-react";
 
 const HOME_CATEGORIES = [
@@ -54,6 +59,10 @@ function isCommerciallyFresh(article: ReturnType<typeof getAllArticles>[number])
 
 export default function Home() {
   const allArticles = getAllArticles();
+  const featuredPartnerInitiallyActive = isFeaturedPartnerActive(
+    FEATURED_PARTNER,
+    new Date(),
+  );
   // Preuve sociale : compteurs arrondis pour le bandeau hero
   const totalArticles = Math.floor(allArticles.length / 100) * 100; // arrondi à la centaine inférieure
   const totalBrands = Math.floor(CODE_PROMO_BRANDS.length / 10) * 10; // arrondi à la dizaine inférieure
@@ -196,6 +205,11 @@ export default function Home() {
           </div>
         </section>
       )}
+
+      <FeaturedPartner
+        partner={FEATURED_PARTNER}
+        initiallyActive={featuredPartnerInitiallyActive}
+      />
 
       {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
       <section className="section-sm" style={{ paddingTop: "28px", paddingBottom: "8px" }}>
