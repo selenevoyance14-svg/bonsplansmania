@@ -35,11 +35,10 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   badge: "PARTENAIRE À LA UNE",
   title: "Cosmé’Chic à la une",
   description:
-    "Découvrez Cosmé’Chic et profitez du code promo BPM10, valable jusqu’au 20 octobre 2026.",
-  imageSrc:
-    "/images/articles/code-promo-cosmechic-bpm10-10-pourcent-maquillage-parfums-2026.png",
+    "Découvrez Cosmé’Chic et profitez de -10% code promo BPM10, valable jusqu’au 20 octobre 2026.",
+  imageSrc: "/images/featured-partner-cosmechic-v2.png",
   imageAlt:
-    "Sélection de maquillage Cosmé’Chic avec rouges à lèvres, highlighter, crayon, poudre et vernis",
+    "Sélection de maquillage avec poudre, rouge à lèvres, vernis, pinceau et crayon",
   promoCode: "BPM10",
   promoValidityText: "Valable jusqu’au 20 octobre 2026",
   conditionsText: "Conditions applicables sur le site Cosmé’Chic.",
