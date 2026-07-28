@@ -1,4 +1,5 @@
-import { getArticlesByTag } from "@/lib/articles";
+import { getAllArticles } from "@/lib/articles";
+import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
 import Header from "@/app/components/Header";
 import type { Metadata } from "next";
 import { Tag, ChevronRight } from "lucide-react";
@@ -57,11 +58,49 @@ interface BrandData {
   articles: { slug: string; title: string; date: string; category: string }[];
 }
 
+function normalizeBrandTag(value: string): string {
+  return value
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+}
+
 export default function MarquesPage() {
-  // Build brand data with articles
-  const brands: BrandData[] = Object.entries(BRAND_NAMES)
-    .map(([slug, name]) => {
-      const articles = getArticlesByTag(slug);
+  const allArticles = getAllArticles();
+
+  // Réunit les marques historiques et les marques partenaires, sans doublon
+  // d'affichage. Les matchTags existants permettent de retrouver les variantes
+  // telles que "Beauty Success" / "beauty-success".
+  const brandDefinitions = new Map<
+    string,
+    { slug: string; name: string; matchTags: string[] }
+  >();
+
+  for (const brand of CODE_PROMO_BRANDS) {
+    brandDefinitions.set(normalizeBrandTag(brand.name), {
+      slug: brand.slug,
+      name: brand.name,
+      matchTags: brand.matchTags,
+    });
+  }
+
+  for (const [slug, name] of Object.entries(BRAND_NAMES)) {
+    const key = normalizeBrandTag(name);
+    if (!brandDefinitions.has(key)) {
+      brandDefinitions.set(key, { slug, name, matchTags: [slug] });
+    }
+  }
+
+  const brands: BrandData[] = Array.from(brandDefinitions.values())
+    .map(({ slug, name, matchTags }) => {
+      const normalizedTags = new Set(matchTags.map(normalizeBrandTag));
+      const articles = allArticles.filter((article) =>
+        article.meta.tags.some((tag) =>
+          normalizedTags.has(normalizeBrandTag(tag)),
+        ),
+      );
       return {
         slug,
         name,
@@ -75,7 +114,12 @@ export default function MarquesPage() {
       };
     })
     .filter((b) => b.count > 0)
-    .sort((a, b) => b.count - a.count);
+    .sort((a, b) =>
+      a.name.localeCompare(b.name, "fr", {
+        sensitivity: "base",
+        ignorePunctuation: true,
+      }),
+    );
 
   const totalArticles = brands.reduce((sum, b) => sum + b.count, 0);
 
