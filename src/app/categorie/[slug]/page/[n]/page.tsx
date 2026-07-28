@@ -10,7 +10,7 @@ const PER_PAGE = 24;
 export const dynamic = "force-static";
 
 export function generateStaticParams() {
-  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
+  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
   const params: { slug: string; n: string }[] = [];
   for (const slug of slugs) {
     const articles = slug === "test-produit"

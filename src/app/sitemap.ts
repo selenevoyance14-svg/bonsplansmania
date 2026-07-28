@@ -57,7 +57,6 @@ const CATEGORY_SLUGS = [
   "comparatif",
   "concours",
   "box-beaute",
-  "beaute",
   "selection",
   "calendrier-avent",
   "code-promo",
