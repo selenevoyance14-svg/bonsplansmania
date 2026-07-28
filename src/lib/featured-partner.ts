@@ -30,21 +30,21 @@ export type FeaturedPartnerConfig = {
 export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   active: true,
   id: "cosmechic",
-  brandName: "Cosmé’Chic",
+  brandName: "Cosmechic",
   merchant: "cosmechic",
   badge: "PARTENAIRE À LA UNE",
-  title: "Cosmé’Chic à la une",
+  title: "Cosmechic à la une",
   description:
-    "Découvrez Cosmé’Chic et profitez de −10 % avec le code promo BPM10, valable jusqu’au 20 octobre 2026.",
+    "Découvrez Cosmechic et profitez de −10 % avec le code promo BPM10, valable jusqu’au 20 octobre 2026.",
   imageSrc: "/images/featured-partner-cosmechic-v2.png",
   imageAlt:
     "Sélection de maquillage avec poudre, rouge à lèvres, vernis, pinceau et crayon",
   promoCode: "BPM10",
   promoValidityText: "Valable jusqu’au 20 octobre 2026",
-  conditionsText: "Conditions applicables sur le site Cosmé’Chic.",
+  conditionsText: "Conditions applicables sur le site Cosmechic.",
   startsAt: "2026-07-28T00:00:00+02:00",
   endsAt: "2026-10-20T23:59:59+02:00",
-  primaryCtaLabel: "Découvrir Cosmé’Chic",
+  primaryCtaLabel: "Découvrir Cosmechic",
   primaryCtaHref: "/go/cosmechic-accueil",
   copyButtonLabel: "Copier BPM10",
   theme: {
