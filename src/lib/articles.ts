@@ -7,6 +7,11 @@ import { slugifyTag } from "@/lib/tag-pages";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania.png";
+const ARCHIVE_ARTICLE_IMAGES = {
+  concours: "/images/articles/_archive-concours-termine.png",
+  "test-gratuit": "/images/articles/_archive-test-produit-termine.png",
+  default: "/images/articles/_archive-offre-expiree.png",
+} as const;
 const ARTICLE_IMAGES_DIR = path.join(
   process.cwd(),
   "public",
@@ -51,6 +56,25 @@ function resolveArticleImage(image: unknown): string {
   return ARTICLE_IMAGE_FILENAMES.has(filename)
     ? value
     : FALLBACK_ARTICLE_IMAGE;
+}
+
+/**
+ * Les archives utilisent un visuel explicite sans écraser l'image d'origine
+ * enregistrée dans le frontmatter. Un retrait accidentel du statut `expired`
+ * restaure donc automatiquement le véritable visuel de l'article.
+ */
+export function getArchiveArticleImage(category: string): string {
+  if (category === "concours") return ARCHIVE_ARTICLE_IMAGES.concours;
+  if (category === "test-gratuit") {
+    return ARCHIVE_ARTICLE_IMAGES["test-gratuit"];
+  }
+  return ARCHIVE_ARTICLE_IMAGES.default;
+}
+
+function getArchiveArticleImageAlt(category: string): string {
+  if (category === "concours") return "Concours terminé";
+  if (category === "test-gratuit") return "Test produit terminé";
+  return "Offre expirée";
 }
 
 // Cache mémoire pour éviter de relire 1105 fichiers à chaque appel
@@ -124,6 +148,10 @@ export function getArticleBySlug(slug: string): Article | null {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
   const stats = readingTime(content);
+  const category = data.category || "bon-plan";
+  const expired = data.expired === true;
+  const endDate = data.endDate;
+  const isExpired = isEffectivelyExpired({ expired, endDate });
   return {
     meta: {
       slug,
@@ -131,10 +159,14 @@ export function getArticleBySlug(slug: string): Article | null {
       description: data.description || "",
       date: data.date || new Date().toISOString(),
       updated: data.updated,
-      category: data.category || "bon-plan",
+      category,
       tags: data.tags || [],
-      image: resolveArticleImage(data.image),
-      imageAlt: data.imageAlt || data.title || "",
+      image: isExpired
+        ? getArchiveArticleImage(category)
+        : resolveArticleImage(data.image),
+      imageAlt: isExpired
+        ? getArchiveArticleImageAlt(category)
+        : data.imageAlt || data.title || "",
       rating: data.rating,
       price: data.price,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
@@ -144,9 +176,9 @@ export function getArticleBySlug(slug: string): Article | null {
       featured: data.featured || false,
       seoTitle: data.seoTitle,
       seoDescription: data.seoDescription,
-      expired: data.expired || false,
+      expired,
       evergreen: data.evergreen || false,
-      endDate: data.endDate,
+      endDate,
       dealOfDay: data.dealOfDay || false,
       noindex: data.noindex || false,
     },
