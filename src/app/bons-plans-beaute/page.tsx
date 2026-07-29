@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { BEAUTE_BRANDS } from "@/lib/brand-filters";
@@ -21,7 +21,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 
 export const metadata: Metadata = {
   title: "Coin Beauté : Bons Plans Beauté 2026 — Bons Plans Mania",
-  description: "Tous les bons plans beauté du moment : soin visage, maquillage, parfum, cheveux. Sephora, Marionnaud, L'Oréal, Garnier, Caudalie, Vichy, Kerargan, Biotyfull, Glowria. Box beauté et tests gratuits.",
+  description: "Les bons plans beauté publiés sur Bons Plans Mania : soins du visage, maquillage, parfums et cheveux. Prix datés, offres affiliées et filtres par marque.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-beaute" },
 };
 
@@ -252,7 +252,9 @@ function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: stri
 
 export default async function BonsPlansBeautePage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isBeauteArticle(a.meta));
+  const articles = all.filter(
+    (a) => !isEffectivelyExpired(a.meta) && isBeauteArticle(a.meta)
+  );
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];
@@ -283,7 +285,7 @@ export default async function BonsPlansBeautePage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Coin Beauté — Bons Plans Beauté 2026",
-          description: "Tous les bons plans, promos, box, tests gratuits et avis sur les produits de beauté, soin et maquillage.",
+          description: "Les bons plans beauté publiés sur Bons Plans Mania : soins, maquillage, parfums et cheveux.",
           url: "https://bonsplansmania.fr/bons-plans-beaute",
           mainEntity: {
             "@type": "ItemList",
@@ -322,7 +324,9 @@ export default async function BonsPlansBeautePage() {
               Coin Beauté : Bons Plans Beauté 2026
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
-              Toutes les <strong>promos, box, tests gratuits et avis beauté</strong> du moment : soin visage, maquillage, parfum, cheveux. Sephora, Marionnaud, L&apos;Oréal, Garnier, Caudalie, Vichy, La Roche-Posay, Kerargan, Hairlust… Et les <strong>box mensuelles</strong> (Biotyfull, Glowria, Blissim, Prescription Lab) pour découvrir de nouvelles marques. {articles.length} articles.
+              Retrouvez les <strong>bons plans beauté publiés sur Bons Plans Mania</strong> :
+              soins du visage, maquillage, parfums, cheveux et appareils beauté.
+              Les offres terminées sont retirées de cette sélection. {articles.length} articles sont actuellement référencés.
             </p>
           </div>
         </section>
@@ -338,7 +342,9 @@ export default async function BonsPlansBeautePage() {
               Où trouver les meilleurs bons plans beauté ?
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              La <strong>beauté</strong> est l&apos;un des budgets les plus élastiques : entre les soins visage, le maquillage, le parfum et les cheveux, on peut vite y laisser plusieurs centaines d&apos;euros par mois. La bonne nouvelle : de nombreux <strong>bons plans récurrents</strong> existent sur Amazon (top des ventes L&apos;Oréal, Garnier, Maybelline), chez Sephora et Marionnaud (jours VIP), via les <strong>box beauté mensuelles</strong> (Biotyfull, Glowria, Blissim) et sur des sites comme ParfumsMoinsChers (parfums luxe -75 %).
+              Les prix varient souvent selon la teinte, le format, le vendeur et la durée de la promotion.
+              Chaque article indique la date de vérification disponible ; vérifiez toujours le montant final
+              et les conditions de livraison sur le site marchand avant de commander.
             </p>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>Les marques à suivre en beauté</h2>
             <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
@@ -355,17 +361,21 @@ export default async function BonsPlansBeautePage() {
             </ul>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               <Gift size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Box beauté mensuelles : la stratégie maligne
+              Box beauté : comparez avant de vous abonner
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              Pour <strong>~ 15-30 € par mois</strong>, les box beauté permettent de recevoir <strong>5 à 10 produits</strong> (souvent en formats généreux) d&apos;une valeur 3 à 5× supérieure au prix payé. <strong>Biotyfull Box</strong> reste la référence française la plus complète. <strong>Glowria</strong> mise sur le luxe accessible. <strong>Blissim</strong> change chaque mois. <strong>Prescription Lab</strong> propose des box thématiques exigeantes. Toutes accessibles sans engagement.
+              Le contenu, le prix et l&apos;engagement diffèrent selon les box. Consultez notre
+              {" "}<a href="/categorie/box-beaute">catégorie Box Beauté</a> pour comparer les sélections
+              publiées, puis contrôlez les conditions d&apos;abonnement et de résiliation sur le site de la marque.
             </p>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               <Gift size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
               Tests gratuits beauté à saisir
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              Plusieurs plateformes proposent régulièrement des <strong>produits beauté à tester gratuitement</strong> : Sampleo, Trnd, Beauty Trial, Le Club Léa Nature, testerdesproduits.fr. Tu reçois le produit chez toi en échange d&apos;un avis sincère. C&apos;est un excellent moyen de découvrir des marques bio et indépendantes (Hairlust, Cattier, Algologie, Ixage…) sans débourser un centime.
+              Des marques et communautés recrutent ponctuellement des testeurs. La sélection n&apos;est
+              jamais garantie et les modalités varient selon chaque campagne. Retrouvez uniquement les
+              campagnes publiées dans la <a href="/categorie/test-gratuit">catégorie Tests produits gratuits</a>.
             </p>
           </div>
         </section>
