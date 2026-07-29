@@ -113,7 +113,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "cdiscount",
     name: "Cdiscount",
-    affiliateUrl: "https://www.cdiscount.com/",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
     affiliateLabel: "Voir les offres Cdiscount",
     matchTags: ["cdiscount"],
     color: "#0A4FA1",

@@ -15,20 +15,23 @@ import os
 import re
 import sys
 import json
+import csv
 import subprocess
 import argparse
 from pathlib import Path
 from datetime import date
 from dotenv import load_dotenv
-from amazon_paapi import AmazonApi
+from amazon_creatorsapi import AmazonCreatorsApi, Country
 
 ROOT = Path(__file__).resolve().parent.parent
 load_dotenv(ROOT / ".env")
 
-ACCESS_KEY = os.getenv("AMAZON_ACCESS_KEY")
-SECRET_KEY = os.getenv("AMAZON_SECRET_KEY")
+CREATOR_CREDENTIAL_ID = os.getenv("AMAZON_CREATOR_CREDENTIAL_ID")
+CREATOR_CREDENTIAL_SECRET = os.getenv("AMAZON_CREATOR_CREDENTIAL_SECRET")
+CREATOR_CREDENTIAL_VERSION = os.getenv("AMAZON_CREATOR_CREDENTIAL_VERSION")
 PARTNER_TAG = os.getenv("AMAZON_PARTNER_TAG", "lebrunnathali-21")
 COUNTRY = "FR"
+LOCAL_CREDENTIALS = ROOT / ".amazon-creators-credentials.csv"
 
 IMAGES_DIR = ROOT / "public" / "images" / "articles"
 CONTENT_DIR = ROOT / "content"
@@ -83,9 +86,42 @@ def safe_dict(d, *keys):
     return d
 
 
+def creators_credentials() -> tuple[str, str, str]:
+    """Charge les identifiants depuis .env ou le CSV local non versionné."""
+    if all((CREATOR_CREDENTIAL_ID, CREATOR_CREDENTIAL_SECRET, CREATOR_CREDENTIAL_VERSION)):
+        return (
+            CREATOR_CREDENTIAL_ID,
+            CREATOR_CREDENTIAL_SECRET,
+            CREATOR_CREDENTIAL_VERSION,
+        )
+
+    if LOCAL_CREDENTIALS.exists():
+        with LOCAL_CREDENTIALS.open(newline="", encoding="utf-8-sig") as handle:
+            row = next(csv.DictReader(handle), None)
+        if row:
+            credential_id = row.get("Credential Id")
+            credential_secret = row.get("Secret")
+            version = row.get("Version")
+            if all((credential_id, credential_secret, version)):
+                return credential_id, credential_secret, version
+
+    raise RuntimeError(
+        "Identifiants Amazon Creators API absents. Renseignez "
+        "AMAZON_CREATOR_CREDENTIAL_ID, AMAZON_CREATOR_CREDENTIAL_SECRET et "
+        "AMAZON_CREATOR_CREDENTIAL_VERSION dans .env."
+    )
+
+
 def fetch(asin: str) -> dict:
-    api = AmazonApi(ACCESS_KEY, SECRET_KEY, PARTNER_TAG, COUNTRY)
-    items = api.get_items(asin, include_unavailable=True)
+    credential_id, credential_secret, version = creators_credentials()
+    api = AmazonCreatorsApi(
+        credential_id,
+        credential_secret,
+        version,
+        PARTNER_TAG,
+        country=Country.FR,
+    )
+    items = api.get_items(asin)
     if not items:
         return {}
     item = items[0]

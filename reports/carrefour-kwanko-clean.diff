@@ -1,0 +1,603 @@
+# Diff Carrefour propre — branche feat/carrefour-kwanko
+# Exclut volontairement le comparatif des drives, son image et les fichiers générés.
+
+diff --git a/content/concours-carrefour-he-amsterdam-fours-pizza-imprimantes-juillet-2026.mdx b/content/concours-carrefour-he-amsterdam-fours-pizza-imprimantes-juillet-2026.mdx
+index fb712a9d..20f6dc80 100644
+--- a/content/concours-carrefour-he-amsterdam-fours-pizza-imprimantes-juillet-2026.mdx
++++ b/content/concours-carrefour-he-amsterdam-fours-pizza-imprimantes-juillet-2026.mdx
+@@ -2,34 +2,36 @@
+ title: "Concours HE Carrefour : Amsterdam, fours à pizza, imprimantes"
+ description: "Concours gratuit HE x Carrefour, Carrefour Market et Carrefour Proxi : 79 lots (3 city trips Amsterdam, 16 fours à pizza, 60 imprimantes photo). Instant gagnant jusqu'au 12 juillet 2026."
+ date: "2026-06-30"
+ updated: "2026-06-30"
+ category: "concours"
+ tags: ["concours", "carrefour", "carrefour market", "carrefour proxi", "instant gagnant", "amsterdam", "voyage", "four a pizza", "juillet 2026", "gratuit"]
+ image: "/images/articles/concours-carrefour-he-amsterdam-fours-pizza-imprimantes-juillet-2026.png"
+ imageAlt: "Concours HE Carrefour Carrefour Market Proxi 3 séjours Amsterdam 60 imprimantes photos portable 16 fours à pizza été 2026"
+-affiliateUrl: "https://jeu-he-2026.fr/fr_FR/promotions/details/52200/"
+-affiliateLabel: "Je joue sur jeu-he-2026.fr"
+ published: true
+ featured: true
+ price: "Gratuit"
++expired: true
++endDate: "2026-07-12"
+ seoTitle: "Concours HE Carrefour : Amsterdam, fours à pizza"
+ seoDescription: "Concours gratuit HE x Carrefour, Carrefour Market et Carrefour Proxi : 79 lots à gagner (3 city trips Amsterdam, 16 fours à pizza, 60 imprimantes). Jusqu'au 12 juillet 2026."
+ ---
+ 
+ ![Concours HE Carrefour Carrefour Market Proxi 3 séjours Amsterdam 60 imprimantes photos portable 16 fours à pizza été 2026](/images/articles/concours-carrefour-he-amsterdam-fours-pizza-imprimantes-juillet-2026.png)
+ 
++> **Concours terminé le 12 juillet 2026.** Cette page reste disponible à titre d’archive ; il n’est plus possible de participer.
++
+ ## 🎰 Concours HE x Carrefour : 79 lots à gagner par instant gagnant
+ 
+-**HE** s'associe à **Carrefour**, **Carrefour Market** et **Carrefour Proxi** pour un grand jeu **instant gagnant** sans obligation d'achat. **79 lots** à gagner — du **city trip à Amsterdam** au **four à pizza** en passant par les **imprimantes photo portables**. **Participation 100 % gratuite**.
++**HE** s’est associée à **Carrefour**, **Carrefour Market** et **Carrefour Proxi** pour un jeu **instant gagnant** sans obligation d'achat. **79 lots** étaient annoncés — du **city trip à Amsterdam** au **four à pizza** en passant par les **imprimantes photo portables**. La participation était gratuite.
+ 
+-⏰ Concours ouvert **du 15 juin au 12 juillet 2026 (23h59)**.
++Le concours était ouvert **du 15 juin au 12 juillet 2026 à 23h59**.
+ 
+-[**🎁 Je joue sur jeu-he-2026.fr →**](https://jeu-he-2026.fr/fr_FR/promotions/details/52200/)
++**Concours terminé — participation fermée.**
+ 
+ ---
+ 
+ ## 🎁 Les 79 lots à gagner
+ 
+ | Lot | Quantité | Valeur unitaire |
+ |---|---|---|
+ | ✈️ **City trip Amsterdam** (week-end 2 pers, train depuis Paris) | **3** | **1 000 €** |
+@@ -43,38 +45,38 @@ seoDescription: "Concours gratuit HE x Carrefour, Carrefour Market et Carrefour
+ 
+ | | |
+ |---|---|
+ | **Mécanique** | 🎰 Instant gagnant (résultat immédiat) |
+ | **Système** | Instants gagnants **ouverts** : le 1ᵉʳ participant après l'horaire d'un instant gagnant remporte le lot |
+ | **Participation** | **1 seule par personne / foyer** (nom + adresse + e-mail + téléphone) |
+ | **Tirage** | Pas de tirage différé — résultat à la validation du formulaire |
+ 
+-> 💡 **Astuce** : les **instants gagnants** sont répartis aléatoirement sur la durée du concours. **Joue à des horaires variés** pour maximiser tes chances de tomber sur un instant gagnant non encore débloqué.
++> **Information archivée :** les instants gagnants étaient répartis sur la durée du concours.
+ 
+ ---
+ 
+ ## ⏰ Les dates clés
+ 
+ | | |
+ |---|---|
+ | **Début du concours** | 15 juin 2026 — 00h01 |
+ | **Fin du concours** | **12 juillet 2026 — 23h59** |
+ | **Participation** | **Gratuite, sans obligation d'achat** |
+ | **Réception des lots** | 6 à 8 semaines après la participation |
+ 
+ ---
+ 
+-## 🎯 Comment participer
++## 🎯 Comment la participation fonctionnait
+ 
+-1. 🔗 Rends-toi sur [jeu-he-2026.fr](https://jeu-he-2026.fr/fr_FR/promotions/details/52200/)
+-2. 📝 Remplis le formulaire : civilité, âge, nom, prénom, adresse, e-mail, téléphone
+-3. ✅ Valide ton inscription
+-4. 🎰 Clique sur **"JOUER"** pour **découvrir immédiatement ton résultat**
+-5. 📧 Si tu gagnes : la marque te recontacte pour les modalités d'envoi
++1. Le participant accédait à la page de l’opération `jeu-he-2026.fr`.
++2. Il remplissait le formulaire demandé.
++3. Il validait son inscription.
++4. Il lançait l’instant gagnant pour connaître immédiatement le résultat.
++5. La marque devait ensuite contacter les gagnants.
+ 
+ ⚠️ **1 seule participation par personne** sur toute la durée du concours.
+ 
+ ---
+ 
+ ## ✈️ Le city trip Amsterdam en détail
+ 
+ Le lot principal est un **week-end pour 2 personnes à Amsterdam** :
+@@ -92,26 +94,26 @@ Le lot principal est un **week-end pour 2 personnes à Amsterdam** :
+ - 👤 Majeur (18 ans minimum)
+ - 🇫🇷 Résider en **France métropolitaine** (Corse incluse)
+ - 💻 Adresse e-mail + téléphone valides
+ - 🚫 Hors personnel HE et personnes ayant participé à l'organisation du jeu
+ - ✋ **1 seul gain par foyer** (même nom / adresse / téléphone / e-mail)
+ 
+ ---
+ 
+-## 💡 Pourquoi participer
++## 💡 Pourquoi ce concours avait été relayé
+ 
+ - 🆓 **100 % gratuit, sans obligation d'achat**
+ - ⚡ **Instant gagnant** : tu sais immédiatement si tu as gagné
+ - 🎯 **79 lots** = bonnes chances vs concours classique
+ - ✈️ **Lot principal voyage** : 3 city trips Amsterdam — déconnexion garantie
+ - 🍕 **Fours à pizza** = produit tendance à 350 €
+ - 📸 **60 imprimantes photo** = belles chances sur les petits lots
+ 
+-[**🎁 Je joue sur jeu-he-2026.fr →**](https://jeu-he-2026.fr/fr_FR/promotions/details/52200/)
++**Concours terminé — participation fermée.**
+ 
+ ---
+ 
+ ## 🔗 Autres concours et tests gratuits
+ 
+ - 💰 [Concours Scotch 3M Instants Parfaits : 1 000 € par mois à gagner](/article/concours-scotch-3m-instants-parfaits-1000-euros-aout-2026)
+ - 🎰 [Concours AS Monaco Roue 100% gagnante : maillots, VIP, Mizuno](/article/concours-as-monaco-roue-100-gagnante-juillet-2026)
+ - 🪅 [Concours BienManger Piñata : Coffret Gastronomie Ibérique](/article/concours-bienmanger-pinata-coffret-espagne-juillet-2026)
+diff --git a/content/concours-vico-carrefour-juin-2026-170-lots-foot-videoprojecteurs.mdx b/content/concours-vico-carrefour-juin-2026-170-lots-foot-videoprojecteurs.mdx
+index 4a3e188b..45cd1f13 100644
+--- a/content/concours-vico-carrefour-juin-2026-170-lots-foot-videoprojecteurs.mdx
++++ b/content/concours-vico-carrefour-juin-2026-170-lots-foot-videoprojecteurs.mdx
+@@ -1,44 +1,45 @@
+ ---
+ title: "Concours Vico x Carrefour Juin 2026 : 170 Lots à Gagner"
+ description: "Concours Vico x Carrefour « Vibrez cet été » du 1er au 29 juin 2026 : 170 lots à gagner par tirage au sort (50 vidéoprojecteurs, 100 bons d'achat 30€ magasin de sport, 20 maillots de foot personnalisés). Obligation d'achat de 2 produits Vico chez Carrefour."
+ date: "2026-06-01"
+ updated: "2026-06-01"
+ category: "concours"
+-tags: ["concours vico", "concours carrefour", "vico x carrefour", "vibrez cet ete", "tirage au sort", "concours juin 2026", "videoprojecteur a gagner", "maillot foot personnalise", "bon achat sport", "intersnack", "concours avec obligation achat", "juin 2026", "2026"]
++tags: ["concours vico", "concours carrefour", "vico x carrefour", "carrefour", "vibrez cet ete", "tirage au sort", "concours juin 2026", "videoprojecteur a gagner", "maillot foot personnalise", "bon achat sport", "intersnack", "concours avec obligation achat", "juin 2026", "2026"]
+ image: "/images/articles/concours-vico-carrefour-juin-2026-170-lots-foot-videoprojecteurs.png"
+ imageAlt: "Concours Vico x Carrefour 2026 Vibrez cet été 50 vidéoprojecteurs 100 bons sport 20 maillots foot personnalisés terrain"
+-affiliateUrl: "https://mesinstantsvico.fr/fr_FR/catalog/details/52291/"
+-affiliateLabel: "Participer au concours Vico"
+ price: "170 lots (50 vidéoprojecteurs + 100 bons 30€ + 20 maillots foot)"
+ published: true
+ featured: false
+-expired: false
++expired: true
++endDate: "2026-06-29"
+ seoTitle: "Concours Vico x Carrefour 2026 : 170 Lots à Gagner"
+ seoDescription: "Concours Vico x Carrefour 1er au 29 juin 2026 : 50 vidéoprojecteurs, 100 bons sport 30€, 20 maillots foot. 170 lots à gagner."
+ ---
+ 
+-**Vico et Carrefour lancent leur grand concours de juin 2026 : « Vibrez cet été »** ⚽📽️. Du **1er au 29 juin 2026**, **170 lots** à gagner par **tirage au sort** : **50 vidéoprojecteurs**, **100 bons d'achat de 30€ dans un magasin de sport** (e-cartes), et **20 maillots de foot personnalisés**. Format **tirage au sort le 3 juillet 2026**. **Obligation d'achat** : 2 produits Vico simultanément chez Carrefour.
++**Vico et Carrefour ont organisé le concours « Vibrez cet été » en juin 2026.** Du **1er au 29 juin 2026**, **170 lots** étaient annoncés par tirage au sort : **50 vidéoprojecteurs**, **100 bons d'achat de 30€ dans un magasin de sport** et **20 maillots de foot personnalisés**. Le tirage était annoncé le **3 juillet 2026** et la participation nécessitait l’achat simultané de deux produits Vico chez Carrefour.
+ 
+ ![Concours Vico x Carrefour 2026 Vibrez cet été 170 lots vidéoprojecteur maillots foot bons d'achat magasin sport](/images/articles/concours-vico-carrefour-juin-2026-170-lots-foot-videoprojecteurs.png)
+ 
++> **Concours terminé le 29 juin 2026.** Cette page reste disponible à titre d’archive ; il n’est plus possible de participer.
++
+ ## L'essentiel en un coup d'œil
+ 
+ | Élément | Détail |
+ |---------|--------|
+ | Organisateurs | **Vico** (Intersnack) x **Carrefour** |
+ | Dates | **1er → 29 juin 2026** (4 semaines) |
+ | Format | Tirage au sort (170 gagnants + 170 suppléants) |
+ | Date du tirage | **3 juillet 2026** |
+ | Total lots | **170 lots** |
+ | Obligation d'achat | **Oui** (2 produits Vico chez Carrefour) |
+ | Conditions | 18+, France métropolitaine + Corse + Monaco |
+ 
+-[**Participer au concours Vico →**](https://mesinstantsvico.fr/fr_FR/catalog/details/52291/)
++**Concours terminé — participation fermée.**
+ 
+ ---
+ 
+ ## 🎁 Les 170 lots à gagner
+ 
+ ### 📽️ 50 vidéoprojecteurs
+ Idéal pour transformer **un mur en écran de cinéma** ou **regarder les matchs en grand format** entre amis. Pas de marque ou modèle précisé dans le règlement, mais valeur estimée **80 à 250€** selon le modèle Vico/Carrefour.
+ 
+@@ -51,30 +52,30 @@ Idéal pour transformer **un mur en écran de cinéma** ou **regarder les matchs
+ 
+ ### 👕 20 maillots de foot personnalisés
+ **20 maillots de football personnalisés** au nom du gagnant (sublime pour les fans de foot, idéal pour la Coupe du Monde 2026 qui se rapproche). Pas de précision sur l'équipe / personnalisation, mais c'est un **lot collector**.
+ 
+ **Valeur totale estimée du concours :** ~6 000 à 12 000€ de lots.
+ 
+ ---
+ 
+-## Comment participer en 5 étapes
++## Comment la participation fonctionnait
+ 
+ ### 1. 🛒 Acheter 2 produits Vico simultanément chez Carrefour
+ 
+ **Obligation d'achat** : tu dois acheter **2 produits Vico** :
+ - En **un seul ticket de caisse** (achat simultané)
+ - Chez **Carrefour** (toutes enseignes : hypermarchés, market, city, drive)
+ - Entre le **1er juin et le 29 juin 2026** inclus
+ 
+ **Garde ton ticket de caisse** : il faudra l'uploader.
+ 
+-### 2. 🌐 Aller sur le site mesinstantsvico.fr
++### 2. 🌐 Accéder au site de l’opération
+ 
+-Le concours est sur **[mesinstantsvico.fr](https://mesinstantsvico.fr/fr_FR/catalog/details/52291/)**.
++Le concours était hébergé sur `mesinstantsvico.fr`.
+ 
+ ### 3. 👤 Créer un compte (ou se connecter)
+ 
+ - **Première visite** : créer un compte (formulaire + email OU connexion Facebook/Google)
+ - **Déjà inscrit** : connexion via le bandeau rouge en haut
+ 
+ ### 4. 📝 Compléter le formulaire
+ 
+@@ -180,25 +181,25 @@ Pas précisé dans le règlement. Estimation **80-250€** selon le modèle (Vic
+ **Et si ma preuve d'achat n'est pas conforme ?**
+ Vico te contactera **par email** pour **régulariser sous 72h**. Passé ce délai, gain perdu.
+ 
+ **Puis-je gagner si j'ai déjà gagné un autre concours Vico ?**
+ **Oui** — la règle "1 gain par foyer" s'applique uniquement **à ce jeu spécifique** (juin 2026), pas aux concours antérieurs.
+ 
+ ---
+ 
+-## Récap : pourquoi tenter
++## Récapitulatif archivé
+ 
+ | Critère | Détail |
+ |---------|--------|
+ | Concours | Vico x Carrefour « Vibrez cet été » ⚽📽️ |
+ | Dates | 1er → 29 juin 2026 |
+ | Lots | **170** (50 vidéoprojecteurs + 100 bons sport 30€ + 20 maillots foot) |
+ | Format | Tirage au sort le 3 juillet 2026 |
+ | Effort | 2 produits Vico Carrefour + 3 min formulaire |
+ | Obligation d'achat | **Oui** (~3-8€) |
+-| Site officiel | [mesinstantsvico.fr](https://mesinstantsvico.fr/fr_FR/catalog/details/52291/) |
++| Ancien site de l’opération | `mesinstantsvico.fr` |
+ 
+-Si tu **fais déjà tes courses chez Carrefour** et que tu **consommes parfois des chips**, c'est un concours **quasi-gratuit** (l'achat aurait eu lieu de toute façon). 170 lots à gagner = des chances honnêtes. Tu peux multiplier les participations avec plusieurs tickets de caisse.
++Cette opération est terminée. Les modalités ci-dessus sont conservées uniquement pour documenter son fonctionnement passé.
+ 
+-[**Participer au Concours Vico x Carrefour →**](https://mesinstantsvico.fr/fr_FR/catalog/details/52291/)
++**Concours terminé — participation fermée.**
+ 
+ *Article publié le 1er juin 2026, jour d'ouverture du concours. Concours valable jusqu'au 29 juin 2026 inclus. Tirage au sort le 3 juillet 2026.*
+diff --git a/src/app/marque/[slug]/page.tsx b/src/app/marque/[slug]/page.tsx
+index 19d969c4..1f291fb3 100644
+--- a/src/app/marque/[slug]/page.tsx
++++ b/src/app/marque/[slug]/page.tsx
+@@ -1,16 +1,17 @@
+-import { getAllArticles, getArticlesByTag } from "@/lib/articles";
++import { getAllArticles, getArticlesByTag, getArticlesByTagSlug } from "@/lib/articles";
+ import Header from "@/app/components/Header";
+ import LoadMoreGrid from "@/app/components/LoadMoreGrid";
+ import type { Metadata } from "next";
+-import { ChevronRight, Tag } from "lucide-react";
++import { ChevronRight, ExternalLink, Info, Tag } from "lucide-react";
+ import { notFound } from "next/navigation";
+ import AdBlock from "@/app/components/AdBlock";
+ import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
++import { BRAND_EDITORIAL_PAGES } from "@/lib/brand-editorial-data";
+ 
+ const categoryLabels: Record<string, { label: string; color: string }> = {
+   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
+   "bon-plan-beaute":  { label: "Bon Plan",              color: "bon-plan" },
+   "test-gratuit":     { label: "Test Gratuit",          color: "test-gratuit" },
+   "test-avis":        { label: "Test & Avis",           color: "test-avis" },
+   "concours":         { label: "Concours",              color: "concours" },
+   "box-beaute":       { label: "Box Beauté",            color: "box-beaute" },
+@@ -74,23 +75,34 @@ export async function generateStaticParams() {
+   const staticSlugs = getStaticTagSlugs(
+     getAllArticles().map((article) => article.meta.tags || [])
+   );
+   return [...staticSlugs].map((slug) => ({ slug }));
+ }
+ 
+ interface PageProps { params: Promise<{ slug: string }>; }
+ 
++/**
++ * La normalisation est volontairement limitée à Carrefour pour cette migration.
++ * Les autres pages marques conservent leur comportement historique jusqu'à ce
++ * qu'un audit dédié confirme que le regroupement de leurs variantes est souhaité.
++ */
++function getBrandArticles(slug: string, rawTag: string) {
++  return slug === "carrefour"
++    ? getArticlesByTagSlug(slug)
++    : getArticlesByTag(rawTag);
++}
++
+ export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
+   const { slug } = await params;
+   const map = getTagSlugMap();
+   const rawTag = map.get(slug);
+   if (!rawTag) return {};
+   const display = getDisplayName(slug, rawTag);
+-  const count = getArticlesByTag(rawTag).length;
++  const count = getBrandArticles(slug, rawTag).length;
+   const title = `${display} : ${count} bons plans et promos`;
+   const description = `Tous les bons plans, promos et tests produits ${display} du moment : ${count} article${count > 1 ? "s" : ""} mis à jour régulièrement sur Bons Plans Mania.`;
+   return {
+     title,
+     description,
+     alternates: { canonical: `https://bonsplansmania.fr/marque/${slug}` },
+     openGraph: {
+       title,
+@@ -108,17 +120,18 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
+ 
+ export default async function BrandPage({ params }: PageProps) {
+   const { slug } = await params;
+   const map = getTagSlugMap();
+   const rawTag = map.get(slug);
+   if (!rawTag) notFound();
+ 
+   const display = getDisplayName(slug, rawTag);
+-  const articles = getArticlesByTag(rawTag);
++  const articles = getBrandArticles(slug, rawTag);
++  const editorialPage = BRAND_EDITORIAL_PAGES[slug];
+ 
+   const cards = articles.map((a) => {
+     const cl = categoryLabels[a.meta.category];
+     return {
+       slug: a.meta.slug,
+       title: a.meta.title,
+       description: a.meta.description,
+       date: a.meta.date,
+@@ -182,16 +195,115 @@ export default async function BrandPage({ params }: PageProps) {
+               <Tag size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px" }} />{display}
+             </h1>
+             <p style={{ color: "var(--muted-foreground)" }}>
+               Tous les bons plans, promos et tests {display} — {articles.length} article{articles.length > 1 ? "s" : ""}
+             </p>
+           </div>
+         </section>
+ 
++        {editorialPage && (
++          <section className="section-sm">
++            <div className="container">
++              {editorialPage.commercialPartnershipActive && (
++                <div
++                  role="note"
++                  style={{
++                    padding: "14px 18px",
++                    marginBottom: "18px",
++                    border: "2px solid #1D4ED8",
++                    borderRadius: "12px",
++                    background: "#EFF6FF",
++                    color: "#1E3A8A",
++                    fontWeight: 700,
++                  }}
++                >
++                  Collaboration commerciale avec Carrefour
++                </div>
++              )}
++
++              <div style={{ padding: "24px", border: "1px solid var(--border)", borderRadius: "16px", background: "white" }}>
++                <p style={{ marginTop: 0 }}>{editorialPage.introduction}</p>
++
++                <h2 style={{ marginTop: "28px" }}>Services Carrefour vérifiés</h2>
++                <div className="grid grid-2" style={{ gap: "14px" }}>
++                  {editorialPage.services.map((service) => (
++                    <article key={service.name} style={{ padding: "16px", border: "1px solid var(--border)", borderRadius: "12px" }}>
++                      <h3 style={{ marginTop: 0, marginBottom: "8px", fontSize: "1.05rem" }}>{service.name}</h3>
++                      <p style={{ margin: "0 0 10px" }}>{service.description}</p>
++                      <a href={service.officialUrl} target="_blank" rel="noopener">
++                        Source officielle <ExternalLink size={13} aria-hidden style={{ display: "inline", verticalAlign: "middle" }} />
++                      </a>
++                    </article>
++                  ))}
++                </div>
++
++                <h2 style={{ marginTop: "28px" }}>Offres Carrefour vérifiées</h2>
++                {editorialPage.activeOffers.length === 0 ? (
++                  <p style={{ padding: "14px", borderRadius: "10px", background: "#F8FAFC" }}>
++                    <Info size={16} aria-hidden style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
++                    Aucune offre commerciale n’est publiée ici tant que ses conditions et sa validité n’ont pas été vérifiées sur une source officielle.
++                  </p>
++                ) : (
++                  <div>
++                    {editorialPage.activeOffers.map((offer) => {
++                      const href = offer.commercialUrl || offer.officialUrl;
++                      const isCommercial = Boolean(offer.commercialUrl);
++                      return (
++                        <article key={offer.title}>
++                          <h3>{offer.title}</h3>
++                          <p>{offer.conditions}</p>
++                          <a
++                            href={href}
++                            target="_blank"
++                            rel={isCommercial ? "nofollow sponsored noopener" : "noopener"}
++                          >
++                            Consulter l’offre <ExternalLink size={13} aria-hidden />
++                          </a>
++                        </article>
++                      );
++                    })}
++                  </div>
++                )}
++
++                <h2 style={{ marginTop: "28px" }}>Questions fréquentes</h2>
++                {editorialPage.faq.map((item) => (
++                  <details key={item.question} style={{ padding: "12px 0", borderBottom: "1px solid var(--border)" }}>
++                    <summary style={{ cursor: "pointer", fontWeight: 700 }}>{item.question}</summary>
++                    <p style={{ marginBottom: 0 }}>{item.answer}</p>
++                  </details>
++                ))}
++
++                <h2 style={{ marginTop: "28px" }}>À consulter aussi</h2>
++                <ul>
++                  {editorialPage.internalLinks.map((link) => (
++                    <li key={link.href}><a href={link.href}>{link.label}</a></li>
++                  ))}
++                </ul>
++
++                <p style={{ marginBottom: 0, color: "var(--muted-foreground)", fontSize: "0.88rem" }}>
++                  Dernière vérification :{" "}
++                  <time dateTime={editorialPage.verifiedAt}>
++                    {new Date(`${editorialPage.verifiedAt}T12:00:00`).toLocaleDateString("fr-FR", {
++                      day: "numeric",
++                      month: "long",
++                      year: "numeric",
++                      timeZone: "Europe/Paris",
++                    })}
++                  </time>
++                  {" · "}
++                  <a href={editorialPage.officialSourceUrl} target="_blank" rel="noopener">
++                    source officielle Carrefour
++                  </a>
++                </p>
++              </div>
++            </div>
++          </section>
++        )}
++
+         <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
+           <AdBlock />
+         </section>
+ 
+         <section className="section">
+           <div className="container">
+             {articles.length === 0 ? (
+               <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "64px 0" }}>
+diff --git a/src/lib/articles.ts b/src/lib/articles.ts
+index 526e83f0..c1e71dc9 100644
+--- a/src/lib/articles.ts
++++ b/src/lib/articles.ts
+@@ -1,13 +1,14 @@
+ import fs from "fs";
+ import path from "path";
+ import matter from "gray-matter";
+ import readingTime from "reading-time";
+ import { parsePrice } from "@/lib/price";
++import { slugifyTag } from "@/lib/tag-pages";
+ 
+ const CONTENT_DIR = path.join(process.cwd(), "content");
+ const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania.png";
+ const ARTICLE_IMAGES_DIR = path.join(
+   process.cwd(),
+   "public",
+   "images",
+   "articles"
+@@ -326,16 +327,31 @@ export function getRelatedArticles(slug: string, category: string, limit = 3, ta
+ 
+   return matched;
+ }
+ 
+ export function getArticlesByTag(tag: string): Article[] {
+   return getAllArticles().filter((a) => a.meta.tags.includes(tag));
+ }
+ 
++/**
++ * Retourne les articles dont un tag correspond exactement au slug demandé
++ * après normalisation. Contrairement à une recherche textuelle, cette fonction
++ * ne rapproche jamais une marque d'un article qui la cite seulement dans son
++ * titre, son contenu ou son URL.
++ *
++ * Exemple : les tags "Carrefour" et "carrefour" alimentent tous les deux
++ * /marque/carrefour, sans inclure Greenweez ni "carrefour market" par erreur.
++ */
++export function getArticlesByTagSlug(tagSlug: string): Article[] {
++  return getAllArticles().filter((article) =>
++    article.meta.tags.some((tag) => slugifyTag(tag) === tagSlug)
++  );
++}
++
+ /**
+  * Retourne les articles précédent et suivant (chronologiquement) dans la même catégorie.
+  * Utilisé en bas d'article pour offrir une navigation séquentielle aux visiteurs et à Google
+  * (renforce le maillage interne entre articles de la même catégorie).
+  */
+ export function getPrevNextArticle(slug: string, category: string): { prev: Article | null; next: Article | null } {
+   const sameCategory = getArticlesByCategory(category);
+   const idx = sameCategory.findIndex((a) => a.meta.slug === slug);
+diff --git a/src/lib/brand-editorial-data.ts b/src/lib/brand-editorial-data.ts
+new file mode 100644
+index 00000000..29f30e48
+--- /dev/null
++++ b/src/lib/brand-editorial-data.ts
+@@ -0,0 +1,106 @@
++export type VerifiedBrandService = {
++  name: string;
++  description: string;
++  officialUrl: string;
++};
++
++export type VerifiedBrandOffer = {
++  title: string;
++  conditions: string;
++  endDate?: string;
++  officialUrl: string;
++  commercialUrl?: string;
++};
++
++export type BrandEditorialPage = {
++  introduction: string;
++  verifiedAt: string;
++  officialSourceUrl: string;
++  services: VerifiedBrandService[];
++  activeOffers: VerifiedBrandOffer[];
++  faq: Array<{ question: string; answer: string }>;
++  internalLinks: Array<{ href: string; label: string }>;
++  commercialPartnershipActive: boolean;
++};
++
++/**
++ * Contenu éditorial permanent et factuel des pages marques.
++ *
++ * Règles Carrefour x Kwanko :
++ * - aucune offre n'est ajoutée sans source officielle vérifiée ;
++ * - commercialUrl reste absent tant qu'un lien Kwanko valide n'est pas fourni ;
++ * - la mention commerciale ne s'affiche qu'après activation explicite.
++ */
++export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
++  carrefour: {
++    introduction:
++      "Cette page rassemble les articles Bons Plans Mania liés à Carrefour ainsi que les principaux services vérifiés sur les pages officielles de l’enseigne. Les prix, promotions et disponibilités peuvent varier selon le magasin et la zone de livraison.",
++    verifiedAt: "2026-07-27",
++    officialSourceUrl: "https://www.carrefour.fr/services",
++    services: [
++      {
++        name: "Carrefour Drive",
++        description:
++          "Commande de courses en ligne avec retrait dans un point Drive. Carrefour indique que le retrait en magasin est gratuit.",
++        officialUrl: "https://www.carrefour.fr/services/drive",
++      },
++      {
++        name: "Drive Piéton",
++        description:
++          "Commande en ligne avec retrait dans un point de proximité participant.",
++        officialUrl: "https://www.carrefour.fr/services/courses-en-ligne",
++      },
++      {
++        name: "Livraison à domicile",
++        description:
++          "Livraison de courses proposée selon l’adresse et les créneaux disponibles.",
++        officialUrl: "https://www.carrefour.fr/services/courses-en-ligne",
++      },
++      {
++        name: "Club Carrefour",
++        description:
++          "Programme de fidélité donnant accès à des avantages sur certains produits dans les magasins et services participants.",
++        officialUrl: "https://www.carrefour.fr/conditions-generales-carte-carrefour",
++      },
++    ],
++    // À renseigner seulement après vérification d'une offre officielle encore active.
++    activeOffers: [],
++    faq: [
++      {
++        question: "Les prix Carrefour sont-ils identiques partout ?",
++        answer:
++          "Non. Les prix, promotions, catalogues et disponibilités peuvent dépendre du magasin, du format de l’enseigne et de la zone de livraison.",
++      },
++      {
++        question: "Le retrait Carrefour Drive est-il payant ?",
++        answer:
++          "La page officielle Carrefour Drive indique que les frais de préparation et le retrait en magasin sont offerts. Les conditions affichées au moment de la commande restent prioritaires.",
++      },
++      {
++        question: "Les avantages du Club Carrefour fonctionnent-ils en ligne ?",
++        answer:
++          "Les conditions du programme indiquent que certains avantages sont utilisables sur les sites participants, notamment Carrefour.fr, le Drive et certains services de livraison.",
++      },
++      {
++        question: "Les liens Carrefour de cette page sont-ils commerciaux ?",
++        answer:
++          "Les liens vers les sources officielles ne sont pas affiliés. Si une collaboration commerciale est activée, elle sera signalée visiblement et les liens concernés seront identifiés comme sponsorisés.",
++      },
++    ],
++    internalLinks: [
++      {
++        href: "/article/guide-comparatif-drives-carrefour-leclerc-auchan-intermarche-2026",
++        label: "Comparer Carrefour Drive aux autres enseignes",
++      },
++      {
++        href: "/categorie/bon-plan",
++        label: "Voir tous les bons plans",
++      },
++      {
++        href: "/categorie/concours",
++        label: "Voir les concours en cours",
++      },
++    ],
++    commercialPartnershipActive: false,
++  },
++};
