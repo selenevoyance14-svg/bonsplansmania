@@ -3,6 +3,7 @@ node_modules
 out
 .env
 .env.local
+.amazon-creators-credentials.csv
 .DS_Store
 
 # Pinterest pins (générés en local, uploadés manuellement à Pinterest)
