@@ -65,15 +65,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={poppins.variable}>
       <head>
-        {/* AdSense Auto Ads — push réactivé après corrélation avec baisse de revenus 22/05/2026.
-            Même si "deprecated" sur les docs Google, il continuait visiblement à activer les Auto Ads
-            (anchor, vignette, in-page) qui se sont arrêtés au retrait. */}
         <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113" crossOrigin="anonymous" />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `(adsbygoogle = window.adsbygoogle || []).push({google_ad_client: "ca-pub-5064203547863113", enable_page_level_ads: true});`,
-          }}
-        />
       </head>
       <body className={poppins.className}>
         {children}
