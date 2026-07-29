@@ -29,12 +29,12 @@ const EXACT_TAGS = new Set([
   "mode", "mode-femme", "mode-homme", "mode-enfant", "vetement", "vetements",
   // Chaussures
   "chaussures", "chaussure", "baskets", "sneakers", "sandales", "bottes", "bottines",
-  "tongs", "espadrilles", "mocassins", "derbies", "boots", "tennis", "running",
+  "tongs", "espadrilles", "mocassins", "derbies", "boots", "tennis",
   // Montres analogiques (PAS connectees → c'est tech)
   "montre", "montre-homme", "montre-femme", "montre-quartz", "montre-analogique",
   "montre-automatique", "montre-mecanique", "montre-acier",
   // Sacs / bagagerie
-  "sac", "sac-a-dos", "sac-a-main", "sac-cabine", "sac-voyage", "sac-isotherme",
+  "sac-a-dos", "sac-a-main", "sac-cabine", "sac-voyage",
   "valise", "valise-cabine", "bagage", "bagagerie",
   // Lunettes
   "lunettes", "lunettes-soleil", "lunettes-vue", "ray-ban", "rayban",
@@ -48,20 +48,6 @@ const EXACT_TAGS = new Set([
   "casquette", "chapeau", "ceinture", "portefeuille", "echarpe", "gants",
   // Bijoux
   "bracelet", "bracelet-cuir", "bague", "collier", "boucles-oreilles", "bijou", "bijoux",
-  // Marques sport / sneakers
-  "nike", "adidas", "puma", "reebok", "asics", "hoka", "salomon",
-  "new-balance", "converse", "vans", "jordan", "nike-jordan",
-  // Marques mode
-  "lacoste", "tommy-hilfiger", "calvin-klein", "levis", "levi-s",
-  "jott", "quiksilver", "ralph-lauren", "hugo-boss", "ugg",
-  // Chaussures (marques)
-  "bata", "birkenstock", "crocs", "chaussea", "besson",
-  // Bagagerie (marques)
-  "eastpak", "delsey", "samsonite",
-  // Enseignes FR
-  "la-halle", "gemo", "showroom-prive", "showroomprive", "le-slip-francais",
-  "monsieur-tshirt", "blanche-porte", "afibel", "damart", "daxon",
-  "private-sport-shop",
 ]);
 
 const SLUG_TOKENS = [
@@ -84,20 +70,6 @@ const SLUG_TOKENS = [
   "-maillot-bain-", "-maillot-de-bain-", "-boxer-",
   // Accessoires
   "-casquette-", "-bracelet-", "-bague-", "-collier-", "-ceinture-",
-  // Marques (chaussures)
-  "-nike-", "-adidas-", "-puma-", "-reebok-", "-asics-", "-hoka-",
-  "-new-balance-", "-converse-", "-vans-", "-bata-", "-birkenstock-",
-  "-jordan-",
-  // Marques mode
-  "-lacoste-", "-tommy-", "-calvin-klein-", "-levis-", "-jott-",
-  "-quiksilver-", "-ugg-",
-  // Bagagerie marques
-  "-eastpak-", "-delsey-",
-  // Enseignes
-  "-la-halle-", "-gemo-", "-showroomprive-", "-showroom-prive-",
-  "-le-slip-francais-", "-monsieur-tshirt-", "-blanche-porte-",
-  "-afibel-", "-damart-", "-daxon-", "-chaussea-", "-besson-",
-  "-private-sport-shop-",
 ];
 
 // Exclusions : tout ce qui doit rester ailleurs
@@ -111,6 +83,10 @@ const EXCLUDED_TOKENS = [
   "montre-connectee", "smartwatch", "bracelet-activite", "bracelet-connecte",
   "fitbit", "garmin", "pixel-watch", "apple-watch", "galaxy-watch",
   "-parfum-", "parfum-", "eau-de-parfum", "eau-de-toilette",
+  "parfums-", "-parfums-", "-beaute-", "beaute-", "-cosmetique-",
+  "-maquillage-", "-soin-visage-", "-soins-visage-", "-soin-cheveux-",
+  "-glaciere-", "glaciere-", "-sac-isotherme-", "-lunch-box-",
+  "-incontinence-", "incontinence-", "-change-ceinture-",
   "collier-gps", "gps-chien", "gps-chat", "tracker-sante",
   // Jouets - un "-robe-" dans un slug Barbie/poupée = jouet, pas mode
   "-barbie-", "barbie-", "-poupee-", "poupee-", "-playmobil-", "playmobil-",
@@ -123,12 +99,22 @@ const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-la
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
 
-function isModeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+const BEAUTY_TAGS = new Set([
+  "beaute", "kit beaute", "cosmetique", "cosmetiques", "maquillage",
+  "soin-visage", "soins-visage", "soin-cheveux", "coiffure", "cheveux",
+  "parfum", "parfum femme", "parfum homme", "parfum ete", "eau de parfum",
+  "eau de toilette", "skincare", "solaire", "protection solaire",
+  "incontinence", "parapharmacie", "glaciere", "glaciere-electrique",
+  "sac-isotherme", "isotherme", "lunch-bag",
+]);
+
+export function isModeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
+  if (tags.some((t) => BEAUTY_TAGS.has(t))) return false;
   // Exclure aussi par tag les montres connectées / fitness trackers
   if (tags.some((t) => t === "montre-connectee" || t === "smartwatch" || t === "bracelet-activite" || t === "bracelet-connecte")) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;

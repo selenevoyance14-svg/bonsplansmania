@@ -50,13 +50,11 @@ const EXACT_TAGS = new Set([
   "fer-repasser", "centrale-vapeur",
   // Linge & déco
   "linge-de-maison", "drap", "couette", "oreiller", "decoration",
-  // Marques
-  "ninja", "ninja-foodi", "ninja-creami", "ninja-slushi", "ninja-crispi",
-  "tefal", "tefal-ingenio", "tefal-duetto", "delonghi", "krups", "kenwood", "moulinex",
-  "rowenta", "bosch", "philips", "ecovacs", "deebot-t50", "roborock", "dyson",
-  "tineco", "bissell", "russell-hobbs", "cocosolis-creme", "samsung",
-  "midea", "mobicool", "voltman", "kesser", "euhomy", "create",
-  "narwal", "jimmy", "jigoo", "hydrofast", "matrix-i9", "matrix-s9",
+  // Gammes exclusivement maison (les marques multi-univers comme Dyson,
+  // Philips ou Samsung ne suffisent jamais seules à classer un article).
+  "ninja-foodi", "ninja-creami", "ninja-slushi", "ninja-crispi",
+  "tefal-ingenio", "tefal-duetto", "deebot-t50",
+  "hydrofast", "matrix-i9", "matrix-s9",
 ]);
 
 const SLUG_TOKENS = [
@@ -67,8 +65,7 @@ const SLUG_TOKENS = [
   "-purificateur-", "-humidificateur-", "-deshumidificateur-",
   "-shampouineuse-", "-nettoyeur-sols-", "-nettoyeur-vapeur-",
   "-robot-laveur-", "-robot-aspirateur-", "-aspirateur-laveur-",
-  "ninja-", "tefal-", "delonghi-", "philips-", "ecovacs-", "tineco-",
-  "bissell-", "russell-hobbs-",
+  "-foodi-", "-creami-", "-slushi-", "-crispi-", "-ingenio-", "-duetto-",
 ];
 
 const BEBE_TOKENS = [
@@ -80,14 +77,29 @@ const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-la
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
 
-function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+const BEAUTY_TAGS = new Set([
+  "beaute", "coiffure", "cheveux", "soin-cheveux", "seche-cheveux",
+  "lisseur", "boucleur", "multistyler", "airwrap", "barbe", "soin-barbe",
+  "tondeuse-barbe", "tondeuse-cheveux", "rasage", "epilation", "maquillage",
+  "soin-visage", "visage", "parfum", "parfum-femme", "parfum-homme",
+]);
+
+const BEAUTY_SLUG_TOKENS = [
+  "-airwrap-", "-corrale-", "-lisseur-", "-boucleur-", "-seche-cheveux-",
+  "-coiffure-", "-cheveux-", "-barbe-", "-rasoir-", "-epilateur-",
+  "-maquillage-", "-parfum-", "-soin-visage-", "-soins-visage-",
+];
+
+export function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
+  if (BEAUTY_SLUG_TOKENS.some((k) => slug.includes(k))) return false;
   // Exclure jardin / piscine
   if (slug.includes("robot-tondeuse") || slug.includes("robot-piscine") || slug.includes("-piscine-") || slug.includes("-jardin-") || slug.includes("-tondeuse-") || slug.includes("-barbecue-") || slug.includes("-bbq-")) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
+  if (tags.some((t) => BEAUTY_TAGS.has(t))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   return SLUG_TOKENS.some((k) => slug.includes(k));
 }
