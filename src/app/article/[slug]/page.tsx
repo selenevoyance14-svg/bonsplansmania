@@ -162,13 +162,13 @@ export default async function ArticlePage({ params }: PageProps) {
     ? article.content.split(boxComparisonMarker, 2)
     : [article.content, ""];
 
-  // Bandeau "post de + de 3 semaines" sur les catégories où le deal peut expirer (prix, fin de jeu, mission close).
+  // Bandeau "post de + de 3 semaines" réservé aux bons plans, dont le prix
+  // ou la disponibilité peuvent changer rapidement. Les concours et tests
+  // reposent uniquement sur `endDate` ou `expired`, jamais sur leur ancienneté.
   // Référence = updated > date, donc une simple remontée fait disparaître le bandeau automatiquement.
   // "Maintenant" = date du build Cloudflare (le site est statique).
   const STALE_MESSAGES: Record<string, { title: string; cta: { label: string; href: string } }> = {
     "bon-plan":     { title: "Ce post a plus de 3 semaines — le bon plan n'est peut-être plus disponible", cta: { label: "bons plans du moment", href: "/categorie/bon-plan" } },
-    "concours":     { title: "Ce concours a plus de 3 semaines — il est peut-être terminé",                cta: { label: "concours en cours",      href: "/categorie/concours" } },
-    "test-gratuit": { title: "Ce test gratuit a plus de 3 semaines — la mission est peut-être close",      cta: { label: "tests gratuits du moment", href: "/categorie/test-gratuit" } },
   };
 
   // Bandeau rouge "expired: true" — texte adapté à la catégorie (sinon générique "offre terminée").

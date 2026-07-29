@@ -22,7 +22,6 @@ const ARTICLE_IMAGE_FILENAMES = new Set(
   fs.existsSync(ARTICLE_IMAGES_DIR) ? fs.readdirSync(ARTICLE_IMAGES_DIR) : []
 );
 const AMAZON_PARTNER_TAG = "lebrunnathali-21";
-const STALE_SENSITIVE_CONTENT_DAYS = 21;
 
 function secureAmazonAffiliateUrl(url: unknown): string | undefined {
   if (typeof url !== "string" || !url.trim()) return undefined;
@@ -76,32 +75,6 @@ function getArchiveArticleImageAlt(category: string): string {
   if (category === "concours") return "Concours terminé";
   if (category === "test-gratuit") return "Test produit terminé";
   return "Offre expirée";
-}
-
-/**
- * Les concours et tests produits sont considérés comme archivés après
- * trois semaines sans mise à jour. Une remontée (`updated`) restaure
- * automatiquement l'image d'origine. Les guides permanents sont exclus.
- */
-function isStaleSensitiveContent(data: {
-  category: string;
-  date?: string;
-  updated?: string;
-  evergreen?: boolean;
-}): boolean {
-  if (data.evergreen) return false;
-  if (data.category !== "concours" && data.category !== "test-gratuit") {
-    return false;
-  }
-
-  const referenceDate = data.updated || data.date;
-  if (!referenceDate) return false;
-
-  const timestamp = new Date(`${referenceDate}T12:00:00`).getTime();
-  if (!Number.isFinite(timestamp)) return false;
-
-  const ageInDays = (Date.now() - timestamp) / (1000 * 60 * 60 * 24);
-  return ageInDays > STALE_SENSITIVE_CONTENT_DAYS;
 }
 
 // Cache mémoire pour éviter de relire 1105 fichiers à chaque appel
@@ -179,14 +152,6 @@ export function getArticleBySlug(slug: string): Article | null {
   const expired = data.expired === true;
   const endDate = data.endDate;
   const isExpired = isEffectivelyExpired({ expired, endDate });
-  const usesArchiveImage =
-    isExpired ||
-    isStaleSensitiveContent({
-      category,
-      date: data.date,
-      updated: data.updated,
-      evergreen: data.evergreen === true,
-    });
   return {
     meta: {
       slug,
@@ -196,10 +161,10 @@ export function getArticleBySlug(slug: string): Article | null {
       updated: data.updated,
       category,
       tags: data.tags || [],
-      image: usesArchiveImage
+      image: isExpired
         ? getArchiveArticleImage(category)
         : resolveArticleImage(data.image),
-      imageAlt: usesArchiveImage
+      imageAlt: isExpired
         ? getArchiveArticleImageAlt(category)
         : data.imageAlt || data.title || "",
       rating: data.rating,
