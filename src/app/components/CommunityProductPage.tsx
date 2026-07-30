@@ -3,6 +3,7 @@ import { ChevronRight, ShieldCheck, Star } from "lucide-react";
 import Header from "@/app/components/Header";
 import ProductFavoriteButton from "@/app/components/ProductFavoriteButton";
 import ProductReviewForm from "@/app/components/ProductReviewForm";
+import HelpfulButton from "@/app/components/HelpfulButton";
 
 type MerchantOffer = {
   merchant: string;
@@ -125,6 +126,10 @@ export default function CommunityProductPage({
             <div className="community-trust-note">
               <ShieldCheck size={20} />
               <p>Les notes des marchands ne sont jamais mélangées avec les avis de la communauté Bons Plans Mania.</p>
+            </div>
+            <div className="helpful-row">
+              <span>Cette fiche vous a aidé ?</span>
+              <HelpfulButton id={`product:${slug}`} />
             </div>
             <ProductReviewForm productSlug={slug} productName={`${name} — ${brand}`} />
           </div>

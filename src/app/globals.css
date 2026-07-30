@@ -2098,6 +2098,46 @@ body {
   color: #b91c1c;
 }
 
+.helpful-row {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 17px;
+  color: var(--muted-foreground);
+  font-size: .9rem;
+  font-weight: 600;
+}
+
+.helpful-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #e6cbd6;
+  border-radius: 999px;
+  background: #fff;
+  color: #9d174d;
+  font: inherit;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.helpful-button:hover:not(:disabled),
+.helpful-button.is-voted {
+  border-color: #f9a8d4;
+  background: #fce7f3;
+}
+
+.helpful-button:disabled {
+  cursor: default;
+}
+
+.helpful-button span {
+  color: #6b5060;
+  font-weight: 600;
+}
+
 .beauty-community-pilot {
   display: flex;
   align-items: center;

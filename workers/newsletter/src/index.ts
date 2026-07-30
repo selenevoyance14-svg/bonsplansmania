@@ -68,6 +68,12 @@ const newsletterWorker = {
       if (path === "/review" && request.method === "POST") {
         return await handleReview(request, env);
       }
+      if (path === "/helpful" && request.method === "GET") {
+        return await handleHelpfulCount(url, env);
+      }
+      if (path === "/helpful" && request.method === "POST") {
+        return await handleHelpfulVote(request, env);
+      }
       return jsonResponse({ error: "Not found" }, 404);
     } catch {
       return jsonResponse({ error: "Internal error" }, 500);
@@ -108,7 +114,7 @@ async function handleReview(request: Request, env: Env): Promise<Response> {
   const productSlug = body.productSlug?.trim().slice(0, 120);
   const productName = body.productName?.trim().slice(0, 160);
   const nickname = body.nickname?.trim().slice(0, 40);
-  const email = body.email?.trim().toLowerCase().slice(0, 120);
+  const email = body.email?.trim().toLowerCase().slice(0, 120) || "";
   const title = body.title?.trim().slice(0, 80);
   const comment = body.comment?.trim().slice(0, 1500);
   const rating = Number(body.rating);
@@ -118,8 +124,7 @@ async function handleReview(request: Request, env: Env): Promise<Response> {
     !productName ||
     !nickname ||
     nickname.length < 2 ||
-    !email ||
-    !email.includes("@") ||
+    (email !== "" && !email.includes("@")) ||
     !title ||
     title.length < 3 ||
     !comment ||
@@ -187,6 +192,31 @@ function escapeHtml(value: string): string {
         character
       ] || character,
   );
+}
+
+// --- VOTES « UTILE » ---
+async function handleHelpfulCount(url: URL, env: Env): Promise<Response> {
+  const id = normalizeHelpfulId(url.searchParams.get("id"));
+  if (!id) return jsonResponse({ error: "Identifiant invalide" }, 400);
+
+  const count = Number(await env.SUBSCRIBERS.get(`helpful:${id}`)) || 0;
+  return jsonResponse({ count });
+}
+
+async function handleHelpfulVote(request: Request, env: Env): Promise<Response> {
+  const body = await request.json<{ id?: string }>();
+  const id = normalizeHelpfulId(body.id);
+  if (!id) return jsonResponse({ error: "Identifiant invalide" }, 400);
+
+  const key = `helpful:${id}`;
+  const count = (Number(await env.SUBSCRIBERS.get(key)) || 0) + 1;
+  await env.SUBSCRIBERS.put(key, String(count));
+  return jsonResponse({ count });
+}
+
+function normalizeHelpfulId(value: string | null | undefined): string | null {
+  const id = value?.trim().toLowerCase();
+  return id && /^[a-z0-9:_-]{3,180}$/.test(id) ? id : null;
 }
 
 // --- DRIP SEQUENCE pour les inscrits guide PDF ---
