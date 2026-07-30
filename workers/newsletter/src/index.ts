@@ -8,7 +8,9 @@ export interface Env {
 }
 
 const CORS_HEADERS = {
-  "Access-Control-Allow-Origin": "https://bonsplansmania.fr",
+  // API publique sans cookie : autorise le domaine principal, www et les URL
+  // temporaires de déploiement sans bloquer le navigateur.
+  "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
   "Access-Control-Allow-Headers": "Content-Type",
 };

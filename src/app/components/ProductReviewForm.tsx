@@ -14,14 +14,17 @@ export default function ProductReviewForm({
 }) {
   const [rating, setRating] = useState(0);
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [errorMessage, setErrorMessage] = useState("");
 
   async function submitReview(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     if (!rating) {
+      setErrorMessage("Choisissez une note de 1 à 5 étoiles.");
       setStatus("error");
       return;
     }
 
+    setErrorMessage("");
     setStatus("sending");
     const form = new FormData(event.currentTarget);
 
@@ -41,11 +44,19 @@ export default function ProductReviewForm({
         }),
       });
 
-      if (!response.ok) throw new Error("review");
+      if (!response.ok) {
+        const data = (await response.json().catch(() => null)) as { error?: string } | null;
+        throw new Error(data?.error || `Erreur d’envoi (${response.status})`);
+      }
       event.currentTarget.reset();
       setRating(0);
       setStatus("success");
-    } catch {
+    } catch (error) {
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : "L’envoi n’a pas fonctionné. Réessayez dans un instant.",
+      );
       setStatus("error");
     }
   }
@@ -131,9 +142,7 @@ export default function ProductReviewForm({
       )}
       {status === "error" && (
         <p className="review-form-message is-error" role="alert">
-          {rating
-            ? "L’envoi n’a pas fonctionné. Réessayez dans un instant."
-            : "Choisissez une note de 1 à 5 étoiles."}
+          {errorMessage || "L’envoi n’a pas fonctionné. Réessayez dans un instant."}
         </p>
       )}
     </form>
