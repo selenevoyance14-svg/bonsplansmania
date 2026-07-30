@@ -215,12 +215,31 @@ export default async function CategoryPage({ params }: PageProps) {
                     les avis de la communauté.
                   </p>
                 </div>
-                <a
-                  className="btn btn-primary"
-                  href="/produit/opium-eau-de-parfum-yves-saint-laurent"
-                >
-                  Découvrir la fiche <ChevronRight size={16} />
-                </a>
+              </div>
+              <div className="beauty-community-products">
+                {[
+                  {
+                    brand: "Yves Saint Laurent",
+                    name: "Opium",
+                    href: "/produit/opium-eau-de-parfum-yves-saint-laurent",
+                  },
+                  {
+                    brand: "Yves Saint Laurent",
+                    name: "Libre",
+                    href: "/produit/libre-eau-de-parfum-yves-saint-laurent",
+                  },
+                  {
+                    brand: "Lancôme",
+                    name: "La Vie Est Belle",
+                    href: "/produit/la-vie-est-belle-eau-de-parfum-lancome",
+                  },
+                ].map((product) => (
+                  <a className="beauty-community-product-link" href={product.href} key={product.href}>
+                    <span>{product.brand}</span>
+                    <strong>{product.name}</strong>
+                    <small>Prix et avis <ChevronRight size={14} /></small>
+                  </a>
+                ))}
               </div>
             </div>
           </section>

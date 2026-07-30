@@ -2118,6 +2118,50 @@ body {
   color: var(--muted-foreground);
 }
 
+.beauty-community-products {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 18px;
+}
+
+.beauty-community-product-link {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 17px 18px;
+  border: 1px solid #f1d7e2;
+  border-radius: 15px;
+  background: #fff;
+  color: var(--foreground);
+  text-decoration: none;
+  transition: transform .18s ease, box-shadow .18s ease;
+}
+
+.beauty-community-product-link:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(94, 39, 63, .09);
+}
+
+.beauty-community-product-link > span {
+  color: #be185d;
+  font-size: .75rem;
+  font-weight: 700;
+}
+
+.beauty-community-product-link > strong {
+  font-size: 1.05rem;
+}
+
+.beauty-community-product-link > small {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  margin-top: 7px;
+  color: #9d174d;
+  font-weight: 700;
+}
+
 @media (max-width: 760px) {
   .community-product-grid {
     grid-template-columns: 1fr;
@@ -2140,6 +2184,10 @@ body {
   .beauty-community-pilot {
     align-items: flex-start;
     flex-direction: column;
+  }
+
+  .beauty-community-products {
+    grid-template-columns: 1fr;
   }
 
   .review-form-grid {
