@@ -201,6 +201,31 @@ export default async function CategoryPage({ params }: PageProps) {
           </div>
         </section>
 
+        {slug === "test-avis" && (
+          <section className="section" style={{ paddingTop: "28px", paddingBottom: "18px" }}>
+            <div className="container">
+              <div className="beauty-community-pilot">
+                <div>
+                  <span className="pilot-label">
+                    <Sparkles size={15} /> Avis et prix beauté
+                  </span>
+                  <h2>Les produits testés par la communauté</h2>
+                  <p>
+                    Consultez les fiches produits, comparez les prix et retrouvez
+                    les avis de la communauté.
+                  </p>
+                </div>
+                <a
+                  className="btn btn-primary"
+                  href="/produit/opium-eau-de-parfum-yves-saint-laurent"
+                >
+                  Découvrir la fiche <ChevronRight size={16} />
+                </a>
+              </div>
+            </div>
+          </section>
+        )}
+
         {categoryIntros[slug] && (
           <section className="container" style={{ paddingTop: "20px", paddingBottom: "0" }}>
             <div

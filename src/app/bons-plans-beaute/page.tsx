@@ -335,29 +335,6 @@ export default async function BonsPlansBeautePage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "28px", paddingBottom: "18px" }}>
-          <div className="container">
-            <div className="beauty-community-pilot">
-              <div>
-                <span className="pilot-label">
-                  <Sparkles size={15} /> Avis et prix beauté
-                </span>
-                <h2>Les produits testés par la communauté</h2>
-                <p>
-                  Consultez les fiches produits, comparez les prix et retrouvez
-                  les avis de la communauté.
-                </p>
-              </div>
-              <a
-                className="btn btn-primary"
-                href="/produit/opium-eau-de-parfum-yves-saint-laurent"
-              >
-                Découvrir la fiche <ChevronRight size={16} />
-              </a>
-            </div>
-          </div>
-        </section>
-
         <section className="section" style={{ paddingTop: "16px" }}>
           <div className="container" style={{ maxWidth: "820px" }}>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
