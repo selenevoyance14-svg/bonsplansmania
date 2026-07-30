@@ -186,6 +186,13 @@ async function handleReview(request: Request, env: Env): Promise<Response> {
           <p><strong>Pseudo :</strong> ${escapeHtml(nickname)}</p>
           <p><strong>Titre :</strong> ${escapeHtml(title)}</p>
           <p>${escapeHtml(comment).replace(/\n/g, "<br>")}</p>
+          <p style="margin:24px 0">
+            <a href="${env.SITE_URL}/administration/avis"
+               style="display:inline-block;background:#E63946;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">
+              Ouvrir la modération
+            </a>
+          </p>
+          <p><small>La clé privée de modération sera demandée sur la page.</small></p>
           <p><small>Identifiant : ${reviewId}</small></p>`,
       }),
     });
