@@ -2,6 +2,7 @@ export interface Env {
   SUBSCRIBERS: KVNamespace;
   RESEND_API_KEY: string;
   CRON_SECRET: string;
+  REVIEW_ADMIN_TOKEN: string;
   SITE_URL: string;
   FROM_EMAIL: string;
   FROM_NAME: string;
@@ -12,7 +13,7 @@ const CORS_HEADERS = {
   // temporaires de déploiement sans bloquer le navigateur.
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type",
+  "Access-Control-Allow-Headers": "Content-Type, Authorization",
 };
 
 // Partenaire affiche dans la newsletter (entre Tests gratuits et Bons plans).
@@ -75,6 +76,15 @@ const newsletterWorker = {
       }
       if (path === "/helpful" && request.method === "POST") {
         return await handleHelpfulVote(request, env);
+      }
+      if (path === "/reviews/public" && request.method === "GET") {
+        return await handlePublicReviews(url, env);
+      }
+      if (path === "/reviews/pending" && request.method === "GET") {
+        return await handlePendingReviews(request, env);
+      }
+      if (path === "/reviews/moderate" && request.method === "POST") {
+        return await handleModerateReview(request, env);
       }
       return jsonResponse({ error: "Not found" }, 404);
     } catch {
@@ -168,7 +178,7 @@ async function handleReview(request: Request, env: Env): Promise<Response> {
       },
       body: JSON.stringify({
         from: `${env.FROM_NAME} <${env.FROM_EMAIL}>`,
-        to: ["contact@bonsplansmania.fr"],
+        to: ["bonsplansmania@gmail.com"],
         subject: `Nouvel avis à valider — ${productName}`,
         html: `<h2>Nouvel avis produit</h2>
           <p><strong>Produit :</strong> ${escapeHtml(productName)}</p>
@@ -219,6 +229,116 @@ async function handleHelpfulVote(request: Request, env: Env): Promise<Response> 
 function normalizeHelpfulId(value: string | null | undefined): string | null {
   const id = value?.trim().toLowerCase();
   return id && /^[a-z0-9:_-]{3,180}$/.test(id) ? id : null;
+}
+
+// --- MODÉRATION ET PUBLICATION DES AVIS ---
+type StoredReview = {
+  id: string;
+  status: "pending" | "published";
+  productSlug: string;
+  productName: string;
+  rating: number;
+  nickname: string;
+  email?: string;
+  title: string;
+  comment: string;
+  submittedAt: string;
+  publishedAt?: string;
+};
+
+function isReviewAdmin(request: Request, env: Env): boolean {
+  const authorization = request.headers.get("Authorization");
+  return Boolean(
+    env.REVIEW_ADMIN_TOKEN &&
+      authorization === `Bearer ${env.REVIEW_ADMIN_TOKEN}`,
+  );
+}
+
+async function listReviews(
+  env: Env,
+  prefix: string,
+  includeEmail: boolean,
+): Promise<StoredReview[]> {
+  const reviews: StoredReview[] = [];
+  let cursor: string | undefined;
+
+  do {
+    const page = await env.SUBSCRIBERS.list({ prefix, cursor });
+    for (const key of page.keys) {
+      const raw = await env.SUBSCRIBERS.get(key.name);
+      if (!raw) continue;
+      try {
+        const review = JSON.parse(raw) as StoredReview;
+        if (!includeEmail) delete review.email;
+        reviews.push(review);
+      } catch {
+        // Ignore les anciennes valeurs invalides.
+      }
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  return reviews.sort(
+    (a, b) =>
+      new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime(),
+  );
+}
+
+async function handlePublicReviews(url: URL, env: Env): Promise<Response> {
+  const productSlug = url.searchParams.get("productSlug")?.trim().toLowerCase();
+  if (!productSlug || !/^[a-z0-9-]{3,120}$/.test(productSlug)) {
+    return jsonResponse({ error: "Produit invalide" }, 400);
+  }
+
+  const reviews = await listReviews(
+    env,
+    `review:published:${productSlug}:`,
+    false,
+  );
+  return jsonResponse({ reviews });
+}
+
+async function handlePendingReviews(request: Request, env: Env): Promise<Response> {
+  if (!isReviewAdmin(request, env)) {
+    return jsonResponse({ error: "Accès refusé" }, 401);
+  }
+  const reviews = await listReviews(env, "review:pending:", true);
+  return jsonResponse({ reviews });
+}
+
+async function handleModerateReview(request: Request, env: Env): Promise<Response> {
+  if (!isReviewAdmin(request, env)) {
+    return jsonResponse({ error: "Accès refusé" }, 401);
+  }
+
+  const body = await request.json<{ id?: string; action?: "publish" | "reject" }>();
+  if (!body.id || !["publish", "reject"].includes(body.action || "")) {
+    return jsonResponse({ error: "Action invalide" }, 400);
+  }
+
+  const page = await env.SUBSCRIBERS.list({ prefix: "review:pending:" });
+  const pendingKey = page.keys.find((key) => key.name.endsWith(`:${body.id}`))?.name;
+  if (!pendingKey) return jsonResponse({ error: "Avis introuvable" }, 404);
+
+  const raw = await env.SUBSCRIBERS.get(pendingKey);
+  if (!raw) return jsonResponse({ error: "Avis introuvable" }, 404);
+  const review = JSON.parse(raw) as StoredReview;
+
+  if (body.action === "publish") {
+    const publishedAt = new Date().toISOString();
+    const publishedReview: StoredReview = {
+      ...review,
+      status: "published",
+      publishedAt,
+    };
+    await env.SUBSCRIBERS.put(
+      `review:published:${review.productSlug}:${review.submittedAt}:${review.id}`,
+      JSON.stringify(publishedReview),
+    );
+  }
+
+  await env.SUBSCRIBERS.delete(pendingKey);
+  return jsonResponse({ success: true });
 }
 
 // --- DRIP SEQUENCE pour les inscrits guide PDF ---
