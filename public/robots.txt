@@ -2,4 +2,16 @@ User-agent: *
 Allow: /
 Disallow: /api/
 
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
 Sitemap: https://bonsplansmania.fr/sitemap.xml

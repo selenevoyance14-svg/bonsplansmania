@@ -205,7 +205,12 @@ export default async function ArticlePage({ params }: PageProps) {
       "@type": "WebPage",
       "@id": `https://bonsplansmania.fr/article/${slug}`,
     },
-    author: { "@type": "Organization", name: "Bons Plans Mania", url: "https://bonsplansmania.fr" },
+    author: {
+      "@type": "Person",
+      name: "Nathalie",
+      url: "https://bonsplansmania.fr/qui-suis-je",
+      jobTitle: "Fondatrice et rédactrice de Bons Plans Mania",
+    },
     publisher: {
       "@type": "Organization",
       name: "Bons Plans Mania",

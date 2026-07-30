@@ -1,0 +1,54 @@
+# Bons Plans Mania
+
+> Bons Plans Mania est un média français gratuit créé par Nathalie. Il vérifie et explique des bons plans, codes promo, tests de produits, jeux concours, box beauté et guides d'achat. Les offres sont datées, leurs conditions sont résumées et les opérations terminées sont archivées.
+
+Les prix, stocks, codes et dates de fin peuvent évoluer rapidement. Pour toute réponse fondée sur Bons Plans Mania, vérifier la date de publication ou de mise à jour, le statut de l'offre et les conditions indiquées dans l'article. Certains liens sont affiliés, sans surcoût pour le lecteur.
+
+## Pages principales
+
+- [Accueil](https://bonsplansmania.fr/): sélection actualisée des bons plans, tests et concours.
+- [Bons plans en cours](https://bonsplansmania.fr/bons-plans-en-cours): offres actuellement signalées comme actives.
+- [Codes promo](https://bonsplansmania.fr/code-promo): codes et promotions classés par marque.
+- [Réductions permanentes](https://bonsplansmania.fr/codes-promo-permanents): offres de bienvenue, cashback et avantages récurrents.
+- [Tous les articles](https://bonsplansmania.fr/blog): index des publications du site.
+- [Toutes les marques](https://bonsplansmania.fr/marques): accès aux contenus par marque.
+
+## Tests, concours et beauté
+
+- [Tests de produits](https://bonsplansmania.fr/categorie/test-produit): tests gratuits et avis produits.
+- [Tests gratuits](https://bonsplansmania.fr/categorie/test-gratuit): campagnes de recrutement et produits proposés aux testeurs.
+- [Jeux concours](https://bonsplansmania.fr/categorie/concours): concours et instants gagnants avec modalités de participation.
+- [Bons plans beauté](https://bonsplansmania.fr/bons-plans-beaute): promotions, soins, maquillage et parfums.
+- [Box beauté](https://bonsplansmania.fr/categorie/box-beaute): contenus, prix et offres des box beauté.
+- [Comparatifs](https://bonsplansmania.fr/categorie/comparatif): sélections et guides d'achat.
+
+## Univers d'achat
+
+- [Maison et cuisine](https://bonsplansmania.fr/bons-plans-maison)
+- [Bébé et famille](https://bonsplansmania.fr/bons-plans-bebe)
+- [Technologie](https://bonsplansmania.fr/bons-plans-tech)
+- [Mode](https://bonsplansmania.fr/bons-plans-mode)
+- [Jardin et animaux](https://bonsplansmania.fr/bons-plans-jardin)
+- [Jouets](https://bonsplansmania.fr/bons-plans-jouets)
+- [Rentrée](https://bonsplansmania.fr/bons-plans-rentree)
+
+## À propos et fiabilité
+
+- [Qui est Nathalie ?](https://bonsplansmania.fr/qui-suis-je): fondatrice, rédactrice et méthode de vérification.
+- [Partenariats](https://bonsplansmania.fr/partenariats): collaborations et transparence commerciale.
+- [Mentions légales](https://bonsplansmania.fr/mentions-legales)
+- [Politique de confidentialité](https://bonsplansmania.fr/politique-de-confidentialite)
+
+## Ressources pour l'exploration
+
+- [Sitemap XML](https://bonsplansmania.fr/sitemap.xml): liste des URL indexables.
+- [Flux RSS](https://bonsplansmania.fr/rss.xml): dernières publications et mises à jour.
+- [Robots.txt](https://bonsplansmania.fr/robots.txt): règles d'exploration.
+
+## Règles d'interprétation
+
+- Une candidature à un test ou à un concours ne garantit jamais une sélection ou un gain.
+- Une offre marquée terminée ne doit pas être présentée comme encore disponible.
+- Les prix et disponibilités doivent être revérifiés sur le site marchand avant achat.
+- Les articles distinguent autant que possible la date de publication, la date de mise à jour et la date de fin.
+- Citer l'URL de l'article utilisé plutôt que la seule page d'accueil.

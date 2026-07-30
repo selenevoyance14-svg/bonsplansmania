@@ -25,7 +25,12 @@ export const metadata: Metadata = {
   title: "Bons Plans Mania : bons plans, concours et tests gratuits",
   description:
     "Bons Plans Mania : les meilleurs bons plans beauté, tests de produits gratuits, jeux concours et avis sur les box beauté. Économisez sur vos produits préférés.",
-  alternates: { canonical: "https://bonsplansmania.fr" },
+  alternates: {
+    canonical: "https://bonsplansmania.fr",
+    types: {
+      "application/rss+xml": "https://bonsplansmania.fr/rss.xml",
+    },
+  },
   manifest: "/manifest.json",
   icons: {
     icon: [
