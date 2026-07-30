@@ -340,19 +340,19 @@ export default async function BonsPlansBeautePage() {
             <div className="beauty-community-pilot">
               <div>
                 <span className="pilot-label">
-                  <Sparkles size={15} /> Nouveauté en préparation
+                  <Sparkles size={15} /> Avis et prix beauté
                 </span>
                 <h2>Les produits testés par la communauté</h2>
                 <p>
-                  Découvrez notre première fiche pilote avec favoris sans compte,
-                  prix partenaire et futurs avis vérifiés par email.
+                  Consultez les fiches produits, comparez les prix et retrouvez
+                  les avis de la communauté.
                 </p>
               </div>
               <a
                 className="btn btn-primary"
                 href="/produit/opium-eau-de-parfum-yves-saint-laurent"
               >
-                Voir la fiche pilote <ChevronRight size={16} />
+                Découvrir la fiche <ChevronRight size={16} />
               </a>
             </div>
           </div>

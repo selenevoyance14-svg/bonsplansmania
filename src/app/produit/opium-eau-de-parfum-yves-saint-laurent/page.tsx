@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, ShieldCheck, Sparkles, Star } from "lucide-react";
+import { ChevronRight, ShieldCheck, Star } from "lucide-react";
 import Header from "@/app/components/Header";
 import ProductFavoriteButton from "@/app/components/ProductFavoriteButton";
 
@@ -24,7 +24,7 @@ const merchantOffers = [
     merchant: "Beauty Success",
     price: "144,00 €",
     note: "50 ml — livraison standard offerte",
-    href: "https://fnty.co/c/r-ivVWRyPB",
+    href: "https://www.beautysuccess.fr/parfum-yves-saint-laurent-opium-eau-de-parfum-femme-c000806",
   },
 ];
 
@@ -33,10 +33,10 @@ export const metadata: Metadata = {
   description:
     "Découvrez Opium Eau de Parfum d’Yves Saint Laurent, comparez le prix disponible et partagez votre expérience avec la communauté Bons Plans Mania.",
   alternates: { canonical },
-  robots: { index: false, follow: true },
+  robots: { index: true, follow: true },
 };
 
-export default function OpiumProductPilotPage() {
+export default function OpiumProductPage() {
   return (
     <>
       <Header />
@@ -50,10 +50,6 @@ export default function OpiumProductPilotPage() {
               <ChevronRight size={12} />
               <span>Opium Eau de Parfum</span>
             </nav>
-
-            <div className="pilot-label">
-              <Sparkles size={15} /> Fiche communautaire pilote
-            </div>
 
             <div className="community-product-grid">
               <div className="community-product-visual">
@@ -146,8 +142,8 @@ export default function OpiumProductPilotPage() {
               <div>
                 <h3>Aucun avis publié pour le moment</h3>
                 <p>
-                  La collecte d’avis sera ouverte après validation de cette
-                  première fiche et de la modération par email.
+                  Soyez parmi les premières personnes à partager votre
+                  expérience avec la communauté.
                 </p>
               </div>
             </div>
