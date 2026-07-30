@@ -82,7 +82,7 @@ export default function ProductReviewForm({
           <input name="nickname" required minLength={2} maxLength={40} />
         </label>
         <label>
-          E-mail (facultatif et jamais publié)
+          E-mail — facultatif (jamais publié)
           <input name="email" type="email" maxLength={120} />
         </label>
       </div>
