@@ -13,6 +13,7 @@ import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
 import PermanentCodesTeaser from "@/app/components/PermanentCodesTeaser";
 import SectionHeader from "@/app/components/SectionHeader";
 import FeaturedPartner from "@/app/components/FeaturedPartner";
+import DailyTopDeals from "@/app/components/DailyTopDeals";
 import {
   FEATURED_PARTNER,
   isFeaturedPartnerActive,
@@ -75,15 +76,16 @@ export default function Home() {
   const latestBoxSlugs = new Set(latestBoxes.map((a) => a.meta.slug));
 
   // 🔥 Les bons plans du moment : priorité au potentiel commercial, puis à la fraîcheur.
-  const topDeals = allArticles
+  const topDealCandidates = allArticles
     .filter((a) =>
       (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
       && !isEffectivelyExpired(a.meta)
       && isCommerciallyFresh(a)
     )
     .toSorted((a, b) => commercialScore(b) - commercialScore(a))
-    .slice(0, 4);
-  const topDealSlugs = new Set(topDeals.map((a) => a.meta.slug));
+    .slice(0, 12)
+    .map(({ meta }) => ({ meta }));
+  const topDealSlugs = new Set(topDealCandidates.map((a) => a.meta.slug));
 
   // Dernières offres : on exclut tout ce qui est déjà affiché plus haut
   const latest = allArticles
@@ -185,7 +187,7 @@ export default function Home() {
       </section>
 
       {/* ═══ 🔥 LES BONS PLANS DU MOMENT — priorité conversion ═══ */}
-      {topDeals.length > 0 && (
+      {topDealCandidates.length > 0 && (
         <section id="offres-du-jour" className="section-sm home-top-deals">
           <div className="container">
             <SectionHeader
@@ -197,11 +199,7 @@ export default function Home() {
               color="#0EA5A9"
               href="/bons-plans-en-cours"
             />
-            <div className="articles-grid articles-grid-4">
-              {topDeals.map((article, index) => (
-                <ArticleCard key={article.meta.slug} article={article} priority={index === 0} />
-              ))}
-            </div>
+            <DailyTopDeals candidates={topDealCandidates} />
           </div>
         </section>
       )}
