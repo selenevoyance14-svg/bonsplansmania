@@ -3,6 +3,7 @@ import Link from "next/link";
 import { ChevronRight, ShieldCheck, Star } from "lucide-react";
 import Header from "@/app/components/Header";
 import ProductFavoriteButton from "@/app/components/ProductFavoriteButton";
+import ProductReviewForm from "@/app/components/ProductReviewForm";
 
 const canonical =
   "https://bonsplansmania.fr/produit/opium-eau-de-parfum-yves-saint-laurent";
@@ -80,8 +81,8 @@ export default function OpiumProductPage() {
                 </div>
 
                 <div className="community-product-actions">
-                  <a href="#prix" className="btn btn-primary">
-                    Comparer les prix
+                  <a href="#donner-avis" className="btn btn-primary">
+                    Donner mon avis
                   </a>
                   <ProductFavoriteButton productSlug="opium-eau-de-parfum-yves-saint-laurent" />
                 </div>
@@ -154,6 +155,10 @@ export default function OpiumProductPage() {
                 communauté Bons Plans Mania.
               </p>
             </div>
+            <ProductReviewForm
+              productSlug="opium-eau-de-parfum-yves-saint-laurent"
+              productName="Opium Eau de Parfum — Yves Saint Laurent"
+            />
           </div>
         </section>
       </main>

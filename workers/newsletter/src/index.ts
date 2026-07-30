@@ -65,6 +65,9 @@ const newsletterWorker = {
       if (path === "/guide" && request.method === "POST") {
         return await handleGuide(request, env);
       }
+      if (path === "/review" && request.method === "POST") {
+        return await handleReview(request, env);
+      }
       return jsonResponse({ error: "Not found" }, 404);
     } catch {
       return jsonResponse({ error: "Internal error" }, 500);
@@ -84,6 +87,107 @@ const newsletterWorker = {
 };
 
 export default newsletterWorker;
+
+// --- AVIS PRODUITS ---
+// Les avis restent en attente dans KV jusqu'à leur validation manuelle.
+async function handleReview(request: Request, env: Env): Promise<Response> {
+  const body = await request.json<{
+    productSlug?: string;
+    productName?: string;
+    rating?: number;
+    nickname?: string;
+    email?: string;
+    title?: string;
+    comment?: string;
+    website?: string;
+  }>();
+
+  // Champ invisible rempli uniquement par les robots.
+  if (body.website) return jsonResponse({ success: true });
+
+  const productSlug = body.productSlug?.trim().slice(0, 120);
+  const productName = body.productName?.trim().slice(0, 160);
+  const nickname = body.nickname?.trim().slice(0, 40);
+  const email = body.email?.trim().toLowerCase().slice(0, 120);
+  const title = body.title?.trim().slice(0, 80);
+  const comment = body.comment?.trim().slice(0, 1500);
+  const rating = Number(body.rating);
+
+  if (
+    !productSlug ||
+    !productName ||
+    !nickname ||
+    nickname.length < 2 ||
+    !email ||
+    !email.includes("@") ||
+    !title ||
+    title.length < 3 ||
+    !comment ||
+    comment.length < 30 ||
+    !Number.isInteger(rating) ||
+    rating < 1 ||
+    rating > 5
+  ) {
+    return jsonResponse({ error: "Avis incomplet ou invalide" }, 400);
+  }
+
+  const submittedAt = new Date().toISOString();
+  const reviewId = crypto.randomUUID();
+  const review = {
+    id: reviewId,
+    status: "pending",
+    productSlug,
+    productName,
+    rating,
+    nickname,
+    email,
+    title,
+    comment,
+    submittedAt,
+  };
+
+  await env.SUBSCRIBERS.put(
+    `review:pending:${submittedAt}:${reviewId}`,
+    JSON.stringify(review),
+  );
+
+  // Alerte de modération : l'avis reste bien enregistré si l'e-mail échoue.
+  try {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `${env.FROM_NAME} <${env.FROM_EMAIL}>`,
+        to: ["contact@bonsplansmania.fr"],
+        subject: `Nouvel avis à valider — ${productName}`,
+        html: `<h2>Nouvel avis produit</h2>
+          <p><strong>Produit :</strong> ${escapeHtml(productName)}</p>
+          <p><strong>Note :</strong> ${rating}/5</p>
+          <p><strong>Pseudo :</strong> ${escapeHtml(nickname)}</p>
+          <p><strong>Titre :</strong> ${escapeHtml(title)}</p>
+          <p>${escapeHtml(comment).replace(/\n/g, "<br>")}</p>
+          <p><small>Identifiant : ${reviewId}</small></p>`,
+      }),
+    });
+  } catch {
+    // L'avis est déjà sauvegardé dans KV.
+  }
+
+  return jsonResponse({ success: true, message: "Avis en attente de validation" }, 201);
+}
+
+function escapeHtml(value: string): string {
+  return value.replace(
+    /[&<>"']/g,
+    (character) =>
+      ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#039;" })[
+        character
+      ] || character,
+  );
+}
 
 // --- DRIP SEQUENCE pour les inscrits guide PDF ---
 // Lance chaque jour, identifie les inscrits dont c'est le jour J+2/J+5/J+9/J+14/J+21
