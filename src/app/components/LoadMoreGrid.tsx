@@ -138,9 +138,13 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                         {cta} <ArrowRight size={14} aria-hidden />
                       </a>
                     ) : (
-                      <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>
+                      <a
+                        href={articleHref}
+                        className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
+                        aria-label={`${cta} — ${article.title}`}
+                      >
                         {cta} <ArrowRight size={14} aria-hidden />
-                      </span>
+                      </a>
                     )}
                   </div>
                 </div>

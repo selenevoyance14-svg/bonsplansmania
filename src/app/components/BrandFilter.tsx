@@ -287,7 +287,13 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                             {cta} <ArrowRight size={14} aria-hidden />
                           </a>
                         ) : (
-                          <span className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}>{cta} <ArrowRight size={14} aria-hidden /></span>
+                          <a
+                            href={`/article/${article.slug}`}
+                            className={`bpm-card-h-cta bpm-cta-${article.categoryColor}`}
+                            aria-label={`${cta} — ${article.title}`}
+                          >
+                            {cta} <ArrowRight size={14} aria-hidden />
+                          </a>
                         )}
                       </div>
                     </div>
