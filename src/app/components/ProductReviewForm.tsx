@@ -18,6 +18,7 @@ export default function ProductReviewForm({
 
   async function submitReview(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
+    const formElement = event.currentTarget;
     if (!rating) {
       setErrorMessage("Choisissez une note de 1 à 5 étoiles.");
       setStatus("error");
@@ -26,7 +27,7 @@ export default function ProductReviewForm({
 
     setErrorMessage("");
     setStatus("sending");
-    const form = new FormData(event.currentTarget);
+    const form = new FormData(formElement);
 
     try {
       const response = await fetch(REVIEW_ENDPOINT, {
@@ -48,7 +49,7 @@ export default function ProductReviewForm({
         const data = (await response.json().catch(() => null)) as { error?: string } | null;
         throw new Error(data?.error || `Erreur d’envoi (${response.status})`);
       }
-      event.currentTarget.reset();
+      formElement.reset();
       setRating(0);
       setStatus("success");
     } catch (error) {
