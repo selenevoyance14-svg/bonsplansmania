@@ -18,7 +18,7 @@ export default function LibreProductPage() {
       slug={slug}
       brand="Yves Saint Laurent"
       name="Libre Eau de Parfum"
-      image="https://www.beautysuccess.fr/media/catalog/product/cache/02280392440d22bedc5c4ce4592badc4/8/1/814135853a-yves-saint-laurent-libre-50ml-visuel_1.webp"
+      image="/images/products/ysl-libre-eau-de-parfum-50ml-officiel.png"
       imageAlt="Flacon Libre Eau de Parfum 50 ml d’Yves Saint Laurent"
       lead="Une lavande florale moderne où la fraîcheur aromatique rencontre la sensualité de la fleur d’oranger. Une signature affirmée, lumineuse et chaleureuse."
       offers={[
