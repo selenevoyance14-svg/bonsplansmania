@@ -136,6 +136,17 @@ def main():
     parser.add_argument("--start-date", help="Date de la 1re publication FB (défaut demain)")
     parser.add_argument("--posts-per-day", type=int, default=18, help="Nb de posts FB par jour (défaut 18)")
     parser.add_argument("--output", help="Chemin CSV output personnalisé")
+    # Filtres de catégorie : les concours sont le contenu le plus partagé sur
+    # Facebook (meilleur CTR du site), mais ils sont noyés dans la masse des
+    # bons plans remontés. Ces deux options permettent de cibler.
+    parser.add_argument(
+        "--category",
+        help="Ne garder que ces catégories, séparées par des virgules (ex: concours,test-gratuit)",
+    )
+    parser.add_argument(
+        "--exclude-category",
+        help="Exclure ces catégories, séparées par des virgules",
+    )
     args = parser.parse_args()
 
     if args.since:
@@ -154,6 +165,14 @@ def main():
         sys.exit(1)
 
     articles = load_articles(cutoff)
+
+    if args.category:
+        keep = {c.strip() for c in args.category.split(",") if c.strip()}
+        articles = [a for a in articles if a["category"] in keep]
+    if args.exclude_category:
+        drop = {c.strip() for c in args.exclude_category.split(",") if c.strip()}
+        articles = [a for a in articles if a["category"] not in drop]
+
     if not articles:
         print(f"❌ Aucun article éligible depuis {cutoff.isoformat()}.", file=sys.stderr)
         sys.exit(1)
