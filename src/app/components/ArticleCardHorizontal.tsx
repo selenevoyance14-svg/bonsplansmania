@@ -21,15 +21,22 @@ type Article = {
     };
 };
 
-function formatRelativeDate(iso: string): string {
+/**
+ * Date absolue, jamais relative.
+ *
+ * Le frontmatter ne stocke qu'un JOUR (`date: "2026-07-31"`), pas une heure.
+ * L'ancien libellé « il y a Xh » devait donc inventer une heure — il prenait
+ * midi — et affichait « il y a 9h » à 21 h sur un article publié le soir même.
+ * Une précision que la donnée n'a pas. On affiche donc la date, point.
+ */
+function formatArticleDate(iso: string): string {
     const d = new Date(iso + "T12:00:00");
-    const diffMs = Date.now() - d.getTime();
-    const diffH = Math.floor(diffMs / (1000 * 60 * 60));
-    const diffD = Math.floor(diffH / 24);
-    if (diffH < 1) return "à l'instant";
-    if (diffH < 24) return `il y a ${diffH}h`;
-    if (diffD < 7) return `il y a ${diffD}j`;
-    return d.toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" });
+    if (Number.isNaN(d.getTime())) return "";
+    return d.toLocaleDateString("fr-FR", {
+        day: "numeric",
+        month: "short",
+        timeZone: "Europe/Paris",
+    });
 }
 
 export default function ArticleCardHorizontal({
@@ -85,7 +92,9 @@ export default function ArticleCardHorizontal({
                         <cat.Icon size={11} aria-hidden /> {cat.label}
                     </span>
                     <span className="bpm-card-h-sep" aria-hidden>·</span>
-                    <time className="bpm-card-h-date">{formatRelativeDate(article.meta.date)}</time>
+                    <time className="bpm-card-h-date" dateTime={article.meta.date}>
+                        {formatArticleDate(article.meta.date)}
+                    </time>
                 </div>
 
                 <h3 className="bpm-card-h-title">{article.meta.title}</h3>
