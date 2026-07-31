@@ -55,7 +55,11 @@ function isCommerciallyFresh(article: ReturnType<typeof getAllArticles>[number])
   ).getTime();
   if (!Number.isFinite(effectiveDate)) return false;
   const ageInDays = (Date.now() - effectiveDate) / 86_400_000;
-  return ageInDays >= 0 && ageInDays <= 21;
+  // La date effective est ancrée à 12:00. Un article publié le jour même a donc
+  // un âge négatif jusqu'à midi (-0,5 j à minuit) : le borner à 0 l'excluait de
+  // la home toute la matinée. On tolère la journée en cours (>= -1) tout en
+  // continuant d'écarter les articles réellement datés dans le futur.
+  return ageInDays >= -1 && ageInDays <= 21;
 }
 
 export default function Home() {

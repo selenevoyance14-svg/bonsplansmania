@@ -6,6 +6,7 @@ import ProductFavoriteButton from "@/app/components/ProductFavoriteButton";
 import ProductReviewForm from "@/app/components/ProductReviewForm";
 import HelpfulButton from "@/app/components/HelpfulButton";
 import ProductPublishedReviews from "@/app/components/ProductPublishedReviews";
+import ProductRatingSummary from "@/app/components/ProductRatingSummary";
 
 const canonical =
   "https://bonsplansmania.fr/produit/opium-eau-de-parfum-yves-saint-laurent";
@@ -74,13 +75,7 @@ export default function OpiumProductPage() {
                   les bons plans actifs et les offres de nos partenaires.
                 </p>
 
-                <div className="empty-community-rating">
-                  <span className="empty-stars" aria-hidden="true">
-                    ☆☆☆☆☆
-                  </span>
-                  <strong>Nouveau sur Bons Plans Mania</strong>
-                  <small>Soyez parmi les premières personnes à donner votre avis.</small>
-                </div>
+                <ProductRatingSummary productSlug="opium-eau-de-parfum-yves-saint-laurent" />
 
                 <div className="community-product-actions">
                   <a href="#donner-avis" className="btn btn-primary">

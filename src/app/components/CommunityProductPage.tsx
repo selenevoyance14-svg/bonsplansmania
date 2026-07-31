@@ -5,6 +5,7 @@ import ProductFavoriteButton from "@/app/components/ProductFavoriteButton";
 import ProductReviewForm from "@/app/components/ProductReviewForm";
 import HelpfulButton from "@/app/components/HelpfulButton";
 import ProductPublishedReviews from "@/app/components/ProductPublishedReviews";
+import ProductRatingSummary from "@/app/components/ProductRatingSummary";
 
 type MerchantOffer = {
   merchant: string;
@@ -58,11 +59,7 @@ export default function CommunityProductPage({
                 <p className="product-brand">{brand}</p>
                 <h1>{name}</h1>
                 <p className="product-lead">{lead}</p>
-                <div className="empty-community-rating">
-                  <span className="empty-stars" aria-hidden="true">☆☆☆☆☆</span>
-                  <strong>Nouveau sur Bons Plans Mania</strong>
-                  <small>Soyez parmi les premières personnes à donner votre avis.</small>
-                </div>
+                <ProductRatingSummary productSlug={slug} />
                 <div className="community-product-actions">
                   <a href="#donner-avis" className="btn btn-primary">Donner mon avis</a>
                   <ProductFavoriteButton productSlug={slug} />
