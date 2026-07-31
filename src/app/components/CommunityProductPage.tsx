@@ -7,10 +7,17 @@ import HelpfulButton from "@/app/components/HelpfulButton";
 import ProductPublishedReviews from "@/app/components/ProductPublishedReviews";
 import ProductRatingSummary from "@/app/components/ProductRatingSummary";
 
+/**
+ * Un marchand chez qui le produit est disponible.
+ *
+ * Volontairement SANS prix : les tarifs saisis à la main devenaient faux en
+ * quelques jours (31/07/2026 — un flacon affiché 134,99 € n'était même plus
+ * vendu). Tant qu'un prix n'est pas tiré d'une API, on n'en affiche aucun et
+ * on laisse la lectrice le lire chez le marchand.
+ */
 type MerchantOffer = {
   merchant: string;
-  price: string;
-  note: string;
+  note?: string;
   href: string;
 };
 
@@ -29,7 +36,7 @@ export default function CommunityProductPage({
   image: string;
   imageAlt: string;
   lead: string;
-  offers: MerchantOffer[];
+  offers?: MerchantOffer[];
 }) {
   return (
     <>
@@ -69,46 +76,41 @@ export default function CommunityProductPage({
           </div>
         </section>
 
-        <section className="community-product-section" id="prix">
-          <div className="container community-product-narrow">
-            <span className="community-section-kicker">Où l’acheter</span>
-            <h2>Comparer chez trois marchands</h2>
-            <p className="community-section-intro">
-              Prix relevés le 30 juillet 2026 pour le même flacon de 50 ml.
-              Le tarif affiché chez le marchand au moment de la commande reste celui qui fait foi.
-            </p>
-            <div className="merchant-comparison" role="list">
-              {offers.map((offer, index) => (
-                <article
-                  className={`merchant-offer${index === 0 ? " is-featured" : ""}`}
-                  role="listitem"
-                  key={offer.merchant}
-                >
-                  <div className="merchant-rank">{index + 1}</div>
-                  <div className="merchant-info">
-                    <strong>{offer.merchant}</strong>
-                    <span>{offer.note}</span>
-                  </div>
-                  <div className="merchant-price">
-                    <small>Prix relevé</small>
-                    <strong>{offer.price}</strong>
-                  </div>
-                  <a
-                    className="btn btn-primary"
-                    href={offer.href}
-                    target="_blank"
-                    rel="sponsored nofollow noopener"
-                  >
-                    Voir l’offre
-                  </a>
-                </article>
-              ))}
+        {offers && offers.length > 0 && (
+          <section className="community-product-section" id="prix">
+            <div className="container community-product-narrow">
+              <span className="community-section-kicker">Où l’acheter</span>
+              <h2>Voir le produit chez nos partenaires</h2>
+              <p className="community-section-intro">
+                Les prix des parfums bougent souvent. Plutôt que d’afficher un
+                tarif qui serait faux dès le lendemain, on vous envoie
+                directement chez le marchand : le prix affiché au moment de la
+                commande est le seul qui fait foi.
+              </p>
+              <div className="merchant-comparison" role="list">
+                {offers.map((offer) => (
+                  <article className="merchant-offer" role="listitem" key={offer.merchant}>
+                    <div className="merchant-info">
+                      <strong>{offer.merchant}</strong>
+                      {offer.note && <span>{offer.note}</span>}
+                    </div>
+                    <a
+                      className="btn btn-primary"
+                      href={offer.href}
+                      target="_blank"
+                      rel="sponsored nofollow noopener"
+                    >
+                      Voir le produit
+                    </a>
+                  </article>
+                ))}
+              </div>
+              <p className="affiliate-disclaimer">
+                Liens affiliés : Bons Plans Mania peut recevoir une commission sans coût supplémentaire annoncé pour vous.
+              </p>
             </div>
-            <p className="affiliate-disclaimer">
-              Liens affiliés : Bons Plans Mania peut recevoir une commission sans coût supplémentaire annoncé pour vous.
-            </p>
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="community-product-section community-opinion-section">
           <div className="container community-product-narrow">

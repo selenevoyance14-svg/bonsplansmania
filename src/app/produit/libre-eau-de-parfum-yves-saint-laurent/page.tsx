@@ -5,9 +5,9 @@ const slug = "libre-eau-de-parfum-yves-saint-laurent";
 const canonical = `https://bonsplansmania.fr/produit/${slug}`;
 
 export const metadata: Metadata = {
-  title: "Libre Yves Saint Laurent : prix et avis",
+  title: "Libre Yves Saint Laurent : avis et où l’acheter",
   description:
-    "Comparez le prix de Libre Eau de Parfum 50 ml d’Yves Saint Laurent et partagez votre avis avec la communauté Bons Plans Mania.",
+    "Libre Eau de Parfum 50 ml d’Yves Saint Laurent : notre présentation, les avis de la communauté Bons Plans Mania et où trouver le flacon.",
   alternates: { canonical },
   robots: { index: true, follow: true },
 };
@@ -24,21 +24,8 @@ export default function LibreProductPage() {
       offers={[
         {
           merchant: "Perfume’s Club",
-          price: "69,91 €",
-          note: "50 ml — hors éventuels frais de livraison",
+          note: "Flacon 50 ml",
           href: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2Ffr%2Fyves-saint-laurent%2Flibre-eau-de-parfum-vaporisateur%2Fp_48401%2F",
-        },
-        {
-          merchant: "Beauty Success",
-          price: "121,90 €",
-          note: "50 ml — livraison standard offerte",
-          href: "https://www.beautysuccess.fr/parfum-yves-saint-laurent-libre-eau-de-parfum-femme-c060061",
-        },
-        {
-          merchant: "YSL Beauté",
-          price: "125,00 €",
-          note: "50 ml — boutique officielle",
-          href: "https://www.yslbeauty.fr/parfums/parfum-femme/libre/libre-eau-de-parfum/WW-50424YSL.html",
         },
       ]}
     />

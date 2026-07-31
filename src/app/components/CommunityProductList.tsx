@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ChevronRight, Store } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 import ProductReviewStat from "@/app/components/ProductReviewStat";
 
@@ -150,7 +150,7 @@ export default function CommunityProductList() {
             <span>{product.brand}</span>
             <strong>{product.name}</strong>
             <small>
-              Prix et avis <ChevronRight size={14} />
+              Voir la fiche <ChevronRight size={14} />
             </small>
           </Link>
         ))}
@@ -199,10 +199,6 @@ export default function CommunityProductList() {
                   marginTop: "2px",
                 }}
               >
-                <span>dès {product.fromPrice}</span>
-                <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                  <Store size={13} /> {product.merchantCount} marchands comparés
-                </span>
                 <ProductReviewStat productSlug={product.slug} />
               </span>
             </span>

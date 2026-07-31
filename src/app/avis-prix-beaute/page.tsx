@@ -56,9 +56,16 @@ export default function AvisPrixBeautePage() {
           >
             <p>
               Une <strong>fiche produit</strong> réunit au même endroit ce qu&apos;on a de
-              plus utile sur un produit beauté : le <strong>prix relevé chez plusieurs
-              marchands</strong>, une description honnête, et les{" "}
-              <strong>avis laissés par la communauté</strong>.
+              plus utile sur un produit beauté : une description honnête, les{" "}
+              <strong>avis laissés par la communauté</strong>, et un lien direct
+              vers les marchands qui le vendent.
+            </p>
+            <p>
+              On n&apos;affiche volontairement <strong>aucun prix figé</strong> :
+              en beauté les tarifs bougent d&apos;un jour à l&apos;autre, et un
+              prix recopié à la main serait faux avant même que vous le lisiez.
+              Le seul prix qui compte est celui affiché chez le marchand au
+              moment de votre commande.
             </p>
             <p>
               Contrairement à un article de bon plan, qui photographie une offre à un

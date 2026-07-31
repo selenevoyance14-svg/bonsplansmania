@@ -5,9 +5,9 @@ const slug = "la-vie-est-belle-eau-de-parfum-lancome";
 const canonical = `https://bonsplansmania.fr/produit/${slug}`;
 
 export const metadata: Metadata = {
-  title: "La Vie Est Belle Lancôme : prix et avis",
+  title: "La Vie Est Belle Lancôme : avis et où l’acheter",
   description:
-    "Comparez le prix de La Vie Est Belle Eau de Parfum 50 ml de Lancôme et partagez votre avis avec la communauté Bons Plans Mania.",
+    "La Vie Est Belle Eau de Parfum 50 ml de Lancôme : notre présentation, les avis de la communauté Bons Plans Mania et où trouver le flacon.",
   alternates: { canonical },
   robots: { index: true, follow: true },
 };
@@ -24,21 +24,8 @@ export default function LaVieEstBelleProductPage() {
       offers={[
         {
           merchant: "Perfume’s Club",
-          price: "57,61 €",
-          note: "50 ml — hors éventuels frais de livraison",
+          note: "Flacon 50 ml",
           href: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2Ffr%2Flancome%2Fla-vie-est-belle-eau-de-parfum-vaporisateur%2Fp_35520%2F",
-        },
-        {
-          merchant: "Beauty Success",
-          price: "109,90 €",
-          note: "50 ml — livraison standard offerte",
-          href: "https://www.beautysuccess.fr/parfum-lancome-la-vie-est-belle-eau-de-parfum-femme-c002321",
-        },
-        {
-          merchant: "Lancôme",
-          price: "110,00 €",
-          note: "50 ml — boutique officielle",
-          href: "https://www.lancome.fr/parfum/parfum-femme/la-vie-est-belle/la-vie-est-belle/3614273694797.html",
         },
       ]}
     />

@@ -17,10 +17,6 @@ export interface CommunityProduct {
   imageAlt: string;
   /** Description courte affichée sur la page rubrique */
   teaser: string;
-  /** Prix le plus bas relevé parmi les marchands de la fiche */
-  fromPrice: string;
-  /** Nombre de marchands comparés sur la fiche */
-  merchantCount: number;
   /** Date d'ajout de la fiche au site (ISO), sert au tri récent / ancien */
   addedAt: string;
 }
@@ -36,8 +32,6 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     imageAlt: "Flacon La Vie Est Belle Eau de Parfum 50 ml de Lancôme",
     teaser:
       "Un iris gourmand devenu iconique, adouci par la poire et réchauffé par la vanille, le praliné et le patchouli.",
-    fromPrice: "57,61 €",
-    merchantCount: 3,
   },
   {
     slug: "opium-eau-de-parfum-yves-saint-laurent",
@@ -49,8 +43,6 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     imageAlt: "Flacon Opium Eau de Parfum 50 ml d’Yves Saint Laurent",
     teaser:
       "Un oriental au caractère chaleureux et épicé, l’un des sillages les plus reconnaissables de la parfumerie.",
-    fromPrice: "64,94 €",
-    merchantCount: 3,
   },
   {
     slug: "libre-eau-de-parfum-yves-saint-laurent",
@@ -61,7 +53,5 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     imageAlt: "Flacon Libre Eau de Parfum 50 ml d’Yves Saint Laurent",
     teaser:
       "Une lavande florale moderne où la fraîcheur aromatique rencontre la sensualité de la fleur d’oranger.",
-    fromPrice: "69,91 €",
-    merchantCount: 3,
   },
 ];
