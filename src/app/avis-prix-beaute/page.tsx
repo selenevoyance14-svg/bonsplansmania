@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Sparkles, Store, MessageSquare } from "lucide-react";
+import { ChevronRight, Sparkles, Store } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
+import ProductReviewStat from "@/app/components/ProductReviewStat";
 
 const canonical = "https://bonsplansmania.fr/avis-prix-beaute";
 
@@ -130,9 +131,7 @@ export default function AvisPrixBeautePage() {
                       <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
                         <Store size={13} /> {product.merchantCount} marchands comparés
                       </span>
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                        <MessageSquare size={13} /> Avis communauté
-                      </span>
+                      <ProductReviewStat productSlug={product.slug} />
                     </span>
                   </span>
                 </Link>
