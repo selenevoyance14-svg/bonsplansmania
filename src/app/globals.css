@@ -1902,11 +1902,14 @@ body {
   background: #fff;
 }
 
+/* Une ligne marchand = le nom à gauche, le bouton à droite.
+   Plus de colonne prix ni de rang depuis le 31/07/2026 : on n'affiche plus
+   de tarif saisi à la main, donc plus rien à classer. */
 .merchant-offer {
-  display: grid;
-  grid-template-columns: 38px 1fr 130px auto;
-  gap: 16px;
+  display: flex;
   align-items: center;
+  justify-content: space-between;
+  gap: 20px;
   padding: 18px;
   border-top: 1px solid #f1e7eb;
 }
@@ -1915,31 +1918,25 @@ body {
   border-top: 0;
 }
 
-.merchant-offer.is-featured {
-  background: #fff9fb;
-}
-
-.merchant-rank {
-  width: 32px;
-  height: 32px;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  background: #fce7f3;
-  color: #9d174d;
-  font-weight: 800;
-}
-
-.merchant-info,
-.merchant-price {
+.merchant-info {
   display: flex;
   flex-direction: column;
+  gap: 2px;
+  min-width: 0;
 }
 
-.merchant-info span,
-.merchant-price small {
+.merchant-info strong {
+  font-size: 1.05rem;
+}
+
+.merchant-info span {
   color: var(--muted-foreground);
   font-size: .78rem;
+}
+
+.merchant-offer .btn {
+  flex: 0 0 auto;
+  white-space: nowrap;
 }
 
 .community-empty-state,
@@ -2351,13 +2348,17 @@ body {
     min-height: 340px;
   }
 
+  /* Sur mobile la ligne passe en colonne : le nom au-dessus, le bouton
+     en pleine largeur dessous. */
   .merchant-offer {
-    grid-template-columns: 34px 1fr;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 14px;
   }
 
-  .merchant-price,
   .merchant-offer .btn {
-    grid-column: 2;
+    width: 100%;
+    justify-content: center;
   }
 
   .beauty-community-pilot {
