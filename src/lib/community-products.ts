@@ -21,11 +21,14 @@ export interface CommunityProduct {
   fromPrice: string;
   /** Nombre de marchands comparés sur la fiche */
   merchantCount: number;
+  /** Date d'ajout de la fiche au site (ISO), sert au tri récent / ancien */
+  addedAt: string;
 }
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "la-vie-est-belle-eau-de-parfum-lancome",
+    addedAt: "2026-07-30T18:51:00",
     brand: "Lancôme",
     name: "La Vie Est Belle Eau de Parfum",
     image:
@@ -38,6 +41,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "opium-eau-de-parfum-yves-saint-laurent",
+    addedAt: "2026-07-30T15:11:00",
     brand: "Yves Saint Laurent",
     name: "Opium Eau de Parfum",
     image:
@@ -50,6 +54,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "libre-eau-de-parfum-yves-saint-laurent",
+    addedAt: "2026-07-30T18:51:00",
     brand: "Yves Saint Laurent",
     name: "Libre Eau de Parfum",
     image: "/images/products/ysl-libre-eau-de-parfum-50ml-officiel.png",

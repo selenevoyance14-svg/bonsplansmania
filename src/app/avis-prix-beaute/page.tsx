@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Sparkles, Store } from "lucide-react";
+import { ChevronRight, Sparkles } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
-import ProductReviewStat from "@/app/components/ProductReviewStat";
+import MyFavoriteProducts from "@/app/components/MyFavoriteProducts";
+import CommunityProductList from "@/app/components/CommunityProductList";
 
 const canonical = "https://bonsplansmania.fr/avis-prix-beaute";
 
@@ -39,6 +40,8 @@ export default function AvisPrixBeautePage() {
           </div>
         </section>
 
+        <MyFavoriteProducts />
+
         <section className="container" style={{ paddingTop: "20px", paddingBottom: "0" }}>
           <div
             style={{
@@ -68,75 +71,7 @@ export default function AvisPrixBeautePage() {
 
         <section className="section">
           <div className="container">
-            <div className="beauty-community-products">
-              {COMMUNITY_PRODUCTS.map((product) => (
-                <Link
-                  className="beauty-community-product-link"
-                  href={`/produit/${product.slug}`}
-                  key={product.slug}
-                >
-                  <span>{product.brand}</span>
-                  <strong>{product.name}</strong>
-                  <small>
-                    Prix et avis <ChevronRight size={14} />
-                  </small>
-                </Link>
-              ))}
-            </div>
-
-            <div style={{ display: "grid", gap: "16px", marginTop: "28px" }}>
-              {COMMUNITY_PRODUCTS.map((product) => (
-                <Link
-                  key={`detail-${product.slug}`}
-                  href={`/produit/${product.slug}`}
-                  style={{
-                    display: "flex",
-                    gap: "18px",
-                    alignItems: "center",
-                    background: "white",
-                    border: "1px solid var(--border, #e5e7eb)",
-                    borderRadius: "16px",
-                    padding: "16px 18px",
-                    textDecoration: "none",
-                    color: "inherit",
-                  }}
-                >
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src={product.image}
-                    alt={product.imageAlt}
-                    width={96}
-                    height={96}
-                    loading="lazy"
-                    style={{ width: "96px", height: "96px", objectFit: "contain", flexShrink: 0 }}
-                  />
-                  <span style={{ display: "flex", flexDirection: "column", gap: "4px" }}>
-                    <span style={{ fontSize: "0.82rem", color: "var(--muted-foreground)" }}>
-                      {product.brand}
-                    </span>
-                    <strong style={{ fontSize: "1.05rem" }}>{product.name}</strong>
-                    <span style={{ fontSize: "0.92rem", color: "#4b5563" }}>{product.teaser}</span>
-                    <span
-                      style={{
-                        display: "flex",
-                        gap: "14px",
-                        flexWrap: "wrap",
-                        fontSize: "0.85rem",
-                        color: "#6D28D9",
-                        fontWeight: 600,
-                        marginTop: "2px",
-                      }}
-                    >
-                      <span>dès {product.fromPrice}</span>
-                      <span style={{ display: "inline-flex", alignItems: "center", gap: "4px" }}>
-                        <Store size={13} /> {product.merchantCount} marchands comparés
-                      </span>
-                      <ProductReviewStat productSlug={product.slug} />
-                    </span>
-                  </span>
-                </Link>
-              ))}
-            </div>
+            <CommunityProductList />
           </div>
         </section>
 

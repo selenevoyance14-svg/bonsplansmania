@@ -35,14 +35,32 @@ export default function ProductFavoriteButton({
   }
 
   return (
-    <button
-      type="button"
-      className={`product-favorite-button${favorite ? " is-favorite" : ""}`}
-      aria-pressed={favorite}
-      onClick={toggleFavorite}
-    >
-      <Heart size={18} fill={favorite ? "currentColor" : "none"} />
-      {favorite ? "Dans mes favoris" : "Ajouter aux favoris"}
-    </button>
+    <>
+      <button
+        type="button"
+        className={`product-favorite-button${favorite ? " is-favorite" : ""}`}
+        aria-pressed={favorite}
+        onClick={toggleFavorite}
+      >
+        <Heart size={18} fill={favorite ? "currentColor" : "none"} />
+        {favorite ? "Dans mes favoris" : "Ajouter aux favoris"}
+      </button>
+      {/* Sans ce lien, on pouvait mettre un produit en favori sans jamais
+          pouvoir le retrouver : rien n'indiquait où la liste est consultable. */}
+      {favorite && (
+        <a
+          href="/avis-prix-beaute"
+          style={{
+            fontSize: "0.85rem",
+            color: "#6D28D9",
+            fontWeight: 600,
+            textDecoration: "underline",
+            alignSelf: "center",
+          }}
+        >
+          Voir mes favoris
+        </a>
+      )}
+    </>
   );
 }
