@@ -165,13 +165,18 @@ export default async function ArticlePage({ params }: PageProps) {
     ? article.content.split(boxComparisonMarker, 2)
     : [article.content, ""];
 
-  // Bandeau "post de + de 3 semaines" réservé aux bons plans, dont le prix
-  // ou la disponibilité peuvent changer rapidement. Les concours et tests
-  // reposent uniquement sur `endDate` ou `expired`, jamais sur leur ancienneté.
+  // Bandeau "post de + de 3 semaines" pour les contenus dont le prix ou la
+  // disponibilité changent vite : bons plans, codes promo, box et calendriers.
+  // Les concours et tests gratuits en sont volontairement exclus : leur durée
+  // est fixée par le règlement, pas par leur ancienneté — ils reposent donc
+  // uniquement sur `endDate` ou `expired`.
   // Référence = updated > date, donc une simple remontée fait disparaître le bandeau automatiquement.
   // "Maintenant" = date du build Cloudflare (le site est statique).
   const STALE_MESSAGES: Record<string, { title: string; cta: { label: string; href: string } }> = {
-    "bon-plan":     { title: "Ce post a plus de 3 semaines — le bon plan n'est peut-être plus disponible", cta: { label: "bons plans du moment", href: "/categorie/bon-plan" } },
+    "bon-plan":         { title: "Ce post a plus de 3 semaines — le bon plan n'est peut-être plus disponible", cta: { label: "bons plans du moment", href: "/categorie/bon-plan" } },
+    "code-promo":       { title: "Ce post a plus de 3 semaines — le code promo n'est peut-être plus valable", cta: { label: "codes promo en cours", href: "/categorie/code-promo" } },
+    "box-beaute":       { title: "Ce post a plus de 3 semaines — cette box n'est peut-être plus proposée",     cta: { label: "box du moment",         href: "/categorie/box-beaute" } },
+    "calendrier-avent": { title: "Ce post a plus de 3 semaines — ce calendrier n'est peut-être plus en vente", cta: { label: "calendriers du moment",  href: "/categorie/calendrier-avent" } },
   };
 
   // Bandeau rouge "expired: true" — texte adapté à la catégorie (sinon générique "offre terminée").
