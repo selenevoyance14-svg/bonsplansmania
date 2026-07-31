@@ -25,7 +25,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 
 
 export async function generateStaticParams() {
-  return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "selection", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
+  return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "concours", "box-beaute", "selection", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
 }
 
 interface PageProps { params: Promise<{ slug: string }>; }
@@ -200,50 +200,6 @@ export default async function CategoryPage({ params }: PageProps) {
             )}
           </div>
         </section>
-
-        {slug === "test-avis" && (
-          <section className="section" style={{ paddingTop: "28px", paddingBottom: "18px" }}>
-            <div className="container">
-              <div className="beauty-community-pilot">
-                <div>
-                  <span className="pilot-label">
-                    <Sparkles size={15} /> Avis et prix beauté
-                  </span>
-                  <h2>Les produits testés par la communauté</h2>
-                  <p>
-                    Consultez les fiches produits, comparez les prix et retrouvez
-                    les avis de la communauté.
-                  </p>
-                </div>
-              </div>
-              <div className="beauty-community-products">
-                {[
-                  {
-                    brand: "Yves Saint Laurent",
-                    name: "Opium",
-                    href: "/produit/opium-eau-de-parfum-yves-saint-laurent",
-                  },
-                  {
-                    brand: "Yves Saint Laurent",
-                    name: "Libre",
-                    href: "/produit/libre-eau-de-parfum-yves-saint-laurent",
-                  },
-                  {
-                    brand: "Lancôme",
-                    name: "La Vie Est Belle",
-                    href: "/produit/la-vie-est-belle-eau-de-parfum-lancome",
-                  },
-                ].map((product) => (
-                  <a className="beauty-community-product-link" href={product.href} key={product.href}>
-                    <span>{product.brand}</span>
-                    <strong>{product.name}</strong>
-                    <small>Prix et avis <ChevronRight size={14} /></small>
-                  </a>
-                ))}
-              </div>
-            </div>
-          </section>
-        )}
 
         {categoryIntros[slug] && (
           <section className="container" style={{ paddingTop: "20px", paddingBottom: "0" }}>

@@ -26,7 +26,7 @@ export default function Header({ activePage }: { activePage?: string }) {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent"].some(p => activePage === p);
+  const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent", "/avis-prix-beaute"].some(p => activePage === p);
   const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis", "/comparatif"].some(p => activePage === p);
   const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe", "/bons-plans-beaute", "/bons-plans-ninja", "/bons-plans-tech", "/bons-plans-maison", "/bons-plans-jardin", "/bons-plans-mode", "/bons-plans-jouets", "/bons-plans-rentree", "/codes-promo-permanents"].some(p => activePage === p);
 
@@ -90,7 +90,8 @@ export default function Header({ activePage }: { activePage?: string }) {
               </button>
               {beautyOpen && (
                 <div className="nav-dropdown-menu">
-                  <a href="/categorie/comparatif">Guides & Tests</a>
+                  <a href="/categorie/beaute">Guides & Tests</a>
+                  <a href="/avis-prix-beaute">Avis et prix beauté</a>
                   <a href="/categorie/box-beaute">Box Beauté</a>
                   <a href="/categorie/calendrier-avent">Calendrier de l'Avent</a>
                 </div>
@@ -153,7 +154,8 @@ export default function Header({ activePage }: { activePage?: string }) {
           <a href="/categorie/concours" onClick={() => setMobileOpen(false)}>Concours</a>
           <div className="mobile-menu-section">
             <span className="mobile-menu-title">Beauté</span>
-            <a href="/categorie/comparatif" onClick={() => setMobileOpen(false)}>Guides & Tests</a>
+            <a href="/categorie/beaute" onClick={() => setMobileOpen(false)}>Guides & Tests</a>
+            <a href="/avis-prix-beaute" onClick={() => setMobileOpen(false)}>Avis et prix beauté</a>
             <a href="/categorie/box-beaute" onClick={() => setMobileOpen(false)}>Box Beauté</a>
             <a href="/categorie/calendrier-avent" onClick={() => setMobileOpen(false)}>Calendrier de l&apos;Avent</a>
           </div>
