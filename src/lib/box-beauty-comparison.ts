@@ -35,7 +35,7 @@ export const BOX_BEAUTY_COMPARISON: BoxBeautyComparisonItem[] = [
   {
     name: "Blissim",
     merchant: "Blissim",
-    price: "15 €",
+    price: "18,90 €",
     engagement: "Sans engagement",
     formats: "Miniatures + full-size",
     idealFor: "Petit budget et débutantes",
@@ -49,7 +49,7 @@ export const BOX_BEAUTY_COMPARISON: BoxBeautyComparisonItem[] = [
   {
     name: "Glowria",
     merchant: "Glowria",
-    price: "24,90 €",
+    price: "Dès 16,50 €",
     engagement: "Avec ou sans engagement",
     formats: "Formats vente majoritaires",
     idealFor: "Skincare et marques tendance",
@@ -105,16 +105,16 @@ export const BOX_BEAUTY_COMPARISON: BoxBeautyComparisonItem[] = [
   {
     name: "My Beauty Factory",
     merchant: "My Beauty Factory",
-    price: "19,90 à 34,90 €",
+    price: "39,90 €",
     engagement: "Achat ponctuel",
-    formats: "Selon l'édition",
+    formats: "8 produits + 1 accessoire",
     idealFor: "Box magazines sans abonnement",
-    offerName: "Offre actuelle My Beauty Factory",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249991&url=https%3A%2F%2Fwww.mybeautyfactory.fr",
-    advantages: ["Achat ponctuel", "Éditions limitées", "Sélections de magazines"],
+    offerName: "Box Beauté Solaire Marie Claire",
+    affiliateUrl: "https://fnty.co/c/r-kwGfHbPg",
+    advantages: ["Achat ponctuel", "Édition limitée", "Sélection estivale vérifiée le 31 juillet 2026"],
     disadvantages: ["Disponibilité variable selon les éditions"],
     profile: "Pour acheter une box occasionnellement sans gérer d'abonnement.",
-    verdict: "Le choix le plus flexible pour une box one-shot.",
+    verdict: "Le choix le plus flexible pour une box ponctuelle sans abonnement.",
   },
   {
     name: "Belle au Naturel",
@@ -131,4 +131,3 @@ export const BOX_BEAUTY_COMPARISON: BoxBeautyComparisonItem[] = [
     verdict: "La meilleure alternative naturelle sans engagement.",
   },
 ];
-

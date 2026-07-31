@@ -156,8 +156,11 @@ export default async function ArticlePage({ params }: PageProps) {
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
   const boxComparisonMarker = "<!-- BOX_BEAUTY_COMPARISON -->";
-  const hasBoxComparison = slug === "meilleures-box-beaute-2026-comparatif-complet-avis-codes-promo"
-    && article.content.includes(boxComparisonMarker);
+  const boxComparisonSlugs = new Set([
+    "meilleures-box-beaute-2026-comparatif-complet-avis-codes-promo",
+    "meilleures-box-beaute-juin-2026-comparatif-biotyfull-glowria-prescription-lab-blissim-avantages",
+  ]);
+  const hasBoxComparison = boxComparisonSlugs.has(slug) && article.content.includes(boxComparisonMarker);
   const [articleBeforeComparison, articleAfterComparison = ""] = hasBoxComparison
     ? article.content.split(boxComparisonMarker, 2)
     : [article.content, ""];

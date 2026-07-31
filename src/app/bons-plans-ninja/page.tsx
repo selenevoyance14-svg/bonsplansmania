@@ -20,7 +20,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 
 export const metadata: Metadata = {
   title: "Bons Plans Ninja : Airfryer, CREAMi, SLUSHi, Foodi — Bons Plans Mania",
-  description: "Tous les bons plans Ninja du moment : airfryers Foodi, sorbetières CREAMi, machines à granités SLUSHi, friteuses CRISPi. La marque culte 2026 du petit électroménager cuisine.",
+  description: "Bons plans Ninja actuellement publiés : Airfryer Foodi, CREAMi, SLUSHi, CRISPi et blenders. Comparez les modèles, capacités et offres avant de commander.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-ninja" },
 };
 
@@ -110,7 +110,7 @@ export default async function BonsPlansNinjaPage() {
               Bons Plans Ninja : Airfryer, CREAMi, SLUSHi, Foodi
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
-              Tous les <strong>bons plans Ninja</strong> du moment, la marque culte 2026 du petit électroménager cuisine. <strong>Airfryers Foodi</strong> (Dual Zone, FlexDrawer), <strong>sorbetières CREAMi</strong> (Scoop and Swirl, Deluxe), <strong>machines à granités SLUSHi</strong>, <strong>friteuses sans huile CRISPi</strong>. {articles.length} articles.
+              Retrouvez les <strong>bons plans Ninja actuellement publiés</strong> sur les <strong>Airfryers Foodi</strong> (Dual Zone, FlexDrawer), les machines à desserts glacés <strong>CREAMi</strong>, les machines à boissons glacées <strong>SLUSHi</strong>, les appareils <strong>CRISPi</strong> et les blenders. {articles.length} articles.
             </p>
           </div>
         </section>
@@ -123,28 +123,49 @@ export default async function BonsPlansNinjaPage() {
           <div className="container" style={{ maxWidth: "820px" }}>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
               <Star size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Pourquoi Ninja cartonne en 2026
+              Pourquoi les appareils Ninja sont-ils autant recherchés ?
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              <strong>Ninja</strong> est devenue en quelques années la marque favorite des passionnés de cuisine maison. Chaque gamme a un produit star : <strong>Foodi</strong> pour les airfryers familiaux, <strong>CREAMi</strong> pour les glaces maison, <strong>SLUSHi</strong> pour les granités d&apos;été, <strong>CRISPi</strong> pour la friteuse sans huile en verre. La marque combine <strong>design soigné</strong>, <strong>fonctionnalités innovantes</strong> et <strong>prix accessibles</strong> vs les marques premium type Vitamix ou KitchenAid.
+              <strong>Ninja</strong> propose plusieurs gammes consacrées à des usages précis : cuisson avec peu ou sans ajout d&apos;huile, desserts glacés, boissons fraîches et mixage. Cette diversité explique la présence de nombreux modèles, mais elle peut aussi compliquer le choix. Avant d&apos;acheter, il est important de comparer la <strong>capacité</strong>, le nombre de compartiments, les programmes, les dimensions et les accessoires réellement inclus.
             </p>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               <Award size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
               Quel Ninja choisir selon ton usage
             </h2>
             <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>Ninja Foodi (airfryer)</strong> : pour la cuisson saine du quotidien, viande, légumes, frites sans huile. Modèles Dual Zone (2 tiroirs) = top famille.</li>
-              <li><strong>Ninja CRISPi</strong> : la version verre de l&apos;airfryer, visibilité de la cuisson + nettoyage facile.</li>
-              <li><strong>Ninja CREAMi</strong> : glaces, sorbets, gelatos, milkshakes maison. Le must si vous avez des enfants ou des invités gourmands.</li>
-              <li><strong>Ninja SLUSHi</strong> : machines à granités et boissons glacées. Indispensable pour l&apos;été et les fêtes des enfants.</li>
-              <li><strong>Ninja Blast / Mixer</strong> : blenders portables et personnels pour smoothies et shakes.</li>
+              <li><strong>Ninja Foodi Dual Zone</strong> : deux compartiments pour préparer simultanément deux aliments avec des réglages distincts.</li>
+              <li><strong>Ninja Foodi FlexDrawer</strong> : un grand tiroir modulable, intéressant pour cuisiner des quantités plus importantes.</li>
+              <li><strong>Ninja CRISPi</strong> : des récipients en verre permettant de surveiller la cuisson et de servir ou conserver plus facilement les préparations.</li>
+              <li><strong>Ninja CREAMi</strong> : pour réaliser des glaces, sorbets, crèmes glacées et autres desserts froids à partir de préparations congelées.</li>
+              <li><strong>Ninja SLUSHi</strong> : conçue pour les boissons glacées, granités et cocktails sans devoir ajouter de glace dans la cuve.</li>
+              <li><strong>Ninja Blast</strong> : un blender personnel et transportable destiné notamment aux smoothies et aux boissons mixées.</li>
             </ul>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               <Flame size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
               Où trouver les meilleurs prix Ninja
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              Les <strong>prix Ninja varient beaucoup sur Amazon</strong> : un airfryer Foodi peut passer de 250 € à 165 € selon les périodes. Les <strong>Prime Days (juillet)</strong> et le <strong>Black Friday (novembre)</strong> sont les meilleurs moments pour craquer. Suivre cette page = recevoir directement les baisses de prix dès qu&apos;elles tombent. Côté garantie Amazon : <strong>retour 30 jours offert</strong>, livraison Prime souvent gratuite.
+              Les prix des appareils Ninja varient selon le <strong>modèle</strong>, le vendeur et les opérations commerciales. Bons Plans Mania rassemble sur cette page les offres publiées concernant les Airfryers Foodi, les CREAMi, les SLUSHi, les CRISPi et les blenders Ninja.
+            </p>
+            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
+              Avant de commander, compare le prix avec les autres vendeurs et vérifie la <strong>référence exacte</strong>, la capacité, les accessoires inclus ainsi que les conditions de livraison. Les soldes, le Black Friday ou les opérations Prime Day peuvent proposer des réductions, mais ces périodes ne garantissent pas automatiquement le prix le plus bas.
+            </p>
+            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
+              Les conditions de retour, de garantie et de livraison dépendent du produit et du vendeur sélectionné. Elles doivent être contrôlées directement sur la fiche de l&apos;offre avant l&apos;achat.
+            </p>
+
+            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
+              Comment repérer une offre Ninja intéressante ?
+            </h2>
+            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
+              <li>Compare la référence complète : deux appareils visuellement proches peuvent avoir des capacités ou accessoires différents.</li>
+              <li>Vérifie le prix au moment de la commande : une promotion peut évoluer ou se terminer rapidement.</li>
+              <li>Choisis la capacité selon le nombre de personnes et la place disponible dans la cuisine.</li>
+              <li>Ne paie pas pour des fonctions ou accessoires que tu n&apos;utiliseras pas réellement.</li>
+              <li>Contrôle l&apos;identité du vendeur, les délais de livraison et les conditions de retour.</li>
+            </ul>
+            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
+              Certains liens présents dans les articles sont affiliés. Bons Plans Mania peut recevoir une commission en cas d&apos;achat, sans coût supplémentaire pour toi.
             </p>
           </div>
         </section>

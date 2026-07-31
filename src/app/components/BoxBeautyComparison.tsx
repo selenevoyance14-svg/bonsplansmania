@@ -70,7 +70,7 @@ export function ProsAndCons({ box }: { box: BoxBeautyComparisonItem }) {
 
 export function FinalVerdict() {
   const choices = [
-    ["Petit budget", "Blissim"],
+    ["Petit budget", "Glowria avec engagement ou Blissim sans engagement"],
     ["Produits en format vente", "Biotyfull Box"],
     ["Beauté naturelle ou bio", "Belle au Naturel ou Biotyfull Box"],
     ["Découverte de marques", "Lookfantastic ou Glowria"],
@@ -91,7 +91,7 @@ export function FinalVerdict() {
 export default function BoxBeautyComparison() {
   return (
     <div className="box-conversion-suite">
-      <p className="box-verified-date">Comparatif mis à jour le 27 juillet 2026.</p>
+      <p className="box-verified-date">Comparatif mis à jour le 31 juillet 2026.</p>
       <RecommendedOffer />
       <ComparisonTable />
       <section aria-labelledby="box-details-title">
