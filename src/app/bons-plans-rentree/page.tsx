@@ -156,8 +156,9 @@ const EXCLUDED_TAGS = new Set([
   "mode", "mode-homme", "mode-femme", "mode-enfant", "chemise-homme",
   "vetement", "vêtement", "vetements", "vetements-enfants", "vetements-enfant",
   "chaussures", "chaussure", "bottines", "bottines-enfant", "baskets",
-  // Bagagerie adulte
-  "valise", "bagage", "bagage-cabine", "voyage",
+  // Bagagerie de voyage. Pas "voyage" seul : un sac à dos d'école le porte
+  // souvent aussi (l'Eastpak Padded Pak'R est tagué école ET voyage).
+  "valise", "bagage", "bagage-main", "bagage-cabine", "sac-cabine",
   // Maison / finances / high-tech
   "budget", "budget-familial", "liseuse", "jardin", "terrasse",
 ]);
