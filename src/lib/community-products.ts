@@ -23,6 +23,16 @@ export interface CommunityProduct {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "burberry-goddess-eau-de-parfum",
+    addedAt: "2026-08-01T17:45:00",
+    brand: "Burberry",
+    name: "Goddess Eau de Parfum",
+    image: "/images/products/burberry-goddess-eau-de-parfum.png",
+    imageAlt: "Flacon doré Burberry Goddess Eau de Parfum",
+    teaser:
+      "Une vanille en trois textures — infusée, crémeuse et brûlée — relevée par la lavande et le cacao.",
+  },
+  {
     slug: "mugler-alien-eau-de-parfum",
     addedAt: "2026-08-01T17:20:00",
     brand: "Mugler",
