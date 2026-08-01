@@ -23,6 +23,106 @@ export interface CommunityProduct {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "terre-d-hermes-eau-de-toilette",
+    addedAt: "2026-08-01T19:16:00",
+    brand: "Hermès",
+    name: "Terre d’Hermès Eau de Toilette",
+    image: "/images/products/terre-d-hermes-eau-de-toilette.png",
+    imageAlt: "Flacon Hermès Terre d’Hermès Eau de Toilette",
+    teaser:
+      "Orange et pamplemousse sur une note minérale de silex, un fond de vétiver et de cèdre.",
+  },
+  {
+    slug: "viktor-rolf-spicebomb-eau-de-toilette",
+    addedAt: "2026-08-01T19:12:00",
+    brand: "Viktor & Rolf",
+    name: "Spicebomb Eau de Toilette",
+    image: "/images/products/viktor-rolf-spicebomb-eau-de-toilette.png",
+    imageAlt: "Flacon grenade Viktor & Rolf Spicebomb Eau de Toilette",
+    teaser:
+      "Poivre rose et bergamote, un cœur de piment et de safran, puis tabac et cuir. Taillé pour l’hiver.",
+  },
+  {
+    slug: "azzaro-the-most-wanted-eau-de-parfum-intense",
+    addedAt: "2026-08-01T19:08:00",
+    brand: "Azzaro",
+    name: "The Most Wanted Eau de Parfum Intense",
+    image: "/images/products/azzaro-the-most-wanted-eau-de-parfum-intense.png",
+    imageAlt: "Flacon noir cranté Azzaro The Most Wanted Eau de Parfum Intense",
+    teaser:
+      "Cardamome et gingembre, liqueur de bourbon et bois ambrés, vanille en fond. Un gourmand du soir.",
+  },
+  {
+    slug: "hugo-boss-bottled-eau-de-toilette",
+    addedAt: "2026-08-01T19:04:00",
+    brand: "Hugo Boss",
+    name: "Boss Bottled Eau de Toilette",
+    image: "/images/products/hugo-boss-bottled-eau-de-toilette.png",
+    imageAlt: "Flacon Hugo Boss Boss Bottled Eau de Toilette",
+    teaser:
+      "Pomme et bergamote, cannelle et œillet, santal et vétiver. Le boisé épicé passe-partout.",
+  },
+  {
+    slug: "armani-acqua-di-gio-eau-de-toilette",
+    addedAt: "2026-08-01T19:00:00",
+    brand: "Giorgio Armani",
+    name: "Acqua di Giò Eau de Toilette",
+    image: "/images/products/armani-acqua-di-gio-eau-de-toilette.png",
+    imageAlt: "Flacon Giorgio Armani Acqua di Giò Eau de Toilette",
+    teaser:
+      "Le fondateur des parfums marins : notes iodées, bergamote et néroli, patchouli et musc blanc.",
+  },
+  {
+    slug: "rabanne-1-million-eau-de-toilette",
+    addedAt: "2026-08-01T18:56:00",
+    brand: "Rabanne",
+    name: "1 Million Eau de Toilette",
+    image: "/images/products/rabanne-1-million-eau-de-toilette.png",
+    imageAlt: "Flacon lingot doré Rabanne 1 Million Eau de Toilette",
+    teaser:
+      "Pamplemousse et menthe, un cœur de rose et de cannelle, puis cuir et ambre. Il ne cherche pas la discrétion.",
+  },
+  {
+    slug: "yves-saint-laurent-y-eau-de-parfum",
+    addedAt: "2026-08-01T18:52:00",
+    brand: "Yves Saint Laurent",
+    name: "Y Eau de Parfum",
+    image: "/images/products/yves-saint-laurent-y-eau-de-parfum.png",
+    imageAlt: "Flacon dégradé bleu Yves Saint Laurent Y Eau de Parfum",
+    teaser:
+      "Bergamote et gingembre, sauge sclarée et genévrier, fève tonka et cèdre en fond.",
+  },
+  {
+    slug: "jean-paul-gaultier-le-male-eau-de-toilette",
+    addedAt: "2026-08-01T18:48:00",
+    brand: "Jean Paul Gaultier",
+    name: "Le Male Eau de Toilette",
+    image: "/images/products/jean-paul-gaultier-le-male-eau-de-toilette.png",
+    imageAlt: "Flacon buste à la marinière Jean Paul Gaultier Le Male Eau de Toilette",
+    teaser:
+      "Menthe et lavande, cannelle et fleur d’oranger, vanille et fève tonka. Le masculin sucré fondateur.",
+  },
+  {
+    slug: "dior-sauvage-eau-de-toilette",
+    addedAt: "2026-08-01T18:44:00",
+    brand: "Dior",
+    name: "Sauvage Eau de Toilette",
+    image: "/images/products/dior-sauvage-eau-de-toilette.png",
+    imageAlt: "Flacon Dior Sauvage Eau de Toilette",
+    teaser:
+      "Bergamote de Calabre et poivre de Sichuan, puis l’ambroxan qui a fait sa réputation.",
+  },
+  {
+    slug: "bleu-de-chanel-eau-de-parfum",
+    addedAt: "2026-08-01T18:40:00",
+    brand: "Chanel",
+    name: "Bleu de Chanel Eau de Parfum",
+    image: "/images/products/bleu-de-chanel-eau-de-parfum.png",
+    imageAlt: "Flacon bleu nuit Chanel Bleu de Chanel Eau de Parfum",
+    teaser:
+      "Un boisé aromatique tenu : citron et menthe, gingembre et muscade, santal et encens en fond.",
+  },
+  {
     slug: "nuxe-prodigieux-le-parfum",
     addedAt: "2026-08-01T18:12:00",
     brand: "Nuxe",
