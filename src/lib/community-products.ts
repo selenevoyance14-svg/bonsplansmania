@@ -129,8 +129,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     addedAt: "2026-07-30T18:51:00",
     brand: "Lancôme",
     name: "La Vie Est Belle Eau de Parfum",
-    image:
-      "https://www.beautysuccess.fr/media/catalog/product/cache/4fea07e277c82ab4be7d759dcf561c32/c/0/c002321-lancome-la-vie-est-belle-visuel_1.webp",
+    image: "/images/products/la-vie-est-belle-eau-de-parfum-lancome.png",
     imageAlt: "Flacon La Vie Est Belle Eau de Parfum 50 ml de Lancôme",
     teaser:
       "Un iris gourmand devenu iconique, adouci par la poire et réchauffé par la vanille, le praliné et le patchouli.",
@@ -140,8 +139,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     addedAt: "2026-07-30T15:11:00",
     brand: "Yves Saint Laurent",
     name: "Opium Eau de Parfum",
-    image:
-      "https://www.beautysuccess.fr/media/catalog/product/cache/1da98f12ce9c143a9bd146af7dfed3c9/8/1/8141393225-yves-saint-laurent-opium-vaporisateur-50ml-visuel_1.webp",
+    image: "/images/products/opium-eau-de-parfum-yves-saint-laurent.png",
     imageAlt: "Flacon Opium Eau de Parfum 50 ml d’Yves Saint Laurent",
     teaser:
       "Un oriental au caractère chaleureux et épicé, l’un des sillages les plus reconnaissables de la parfumerie.",

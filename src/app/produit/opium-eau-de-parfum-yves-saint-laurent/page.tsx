@@ -18,7 +18,7 @@ export default function OpiumProductPage() {
       slug={slug}
       brand="Yves Saint Laurent"
       name="Opium Eau de Parfum"
-      image="https://www.beautysuccess.fr/media/catalog/product/cache/1da98f12ce9c143a9bd146af7dfed3c9/8/1/8141393225-yves-saint-laurent-opium-vaporisateur-50ml-visuel_1.webp"
+      image="/images/products/opium-eau-de-parfum-yves-saint-laurent.png"
       imageAlt="Flacon Opium Eau de Parfum 50 ml d’Yves Saint Laurent"
       lead="Un parfum oriental au caractère chaleureux et épicé, l’un des sillages les plus reconnaissables de la parfumerie. Cette fiche réunit les expériences de la communauté et les bons plans actifs."
       offers={[

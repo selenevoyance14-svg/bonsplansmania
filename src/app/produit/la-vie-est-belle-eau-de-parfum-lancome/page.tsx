@@ -18,7 +18,7 @@ export default function LaVieEstBelleProductPage() {
       slug={slug}
       brand="Lancôme"
       name="La Vie Est Belle Eau de Parfum"
-      image="https://www.beautysuccess.fr/media/catalog/product/cache/4fea07e277c82ab4be7d759dcf561c32/c/0/c002321-lancome-la-vie-est-belle-visuel_1.webp"
+      image="/images/products/la-vie-est-belle-eau-de-parfum-lancome.png"
       imageAlt="Flacon La Vie Est Belle Eau de Parfum 50 ml de Lancôme"
       lead="Un iris gourmand devenu iconique, adouci par la poire et réchauffé par la vanille, le praliné et le patchouli. Un parfum généreux au sillage doux et enveloppant."
       offers={[
