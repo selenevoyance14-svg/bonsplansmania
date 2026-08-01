@@ -163,10 +163,18 @@ const EXCLUDED_TAGS = new Set([
   "budget", "budget-familial", "liseuse", "jardin", "terrasse",
 ]);
 
+/**
+ * Faux positifs de EXCLUDED_TOKENS : ces produits sont bien scolaires malgré
+ * un mot d'exclusion dans leur slug. « BIC Highlighter Grip » est un surligneur,
+ * pas un enlumineur de maquillage — mais les deux s'appellent highlighter.
+ */
+const EXCLUSION_EXCEPTIONS = ["bic-highlighter"];
+
 function isRentreeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
-  if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
+  const exempt = EXCLUSION_EXCEPTIONS.some((k) => slug.includes(k));
+  if (!exempt && EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXCLUDED_TAGS.has(t))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
