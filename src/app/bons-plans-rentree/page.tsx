@@ -36,7 +36,8 @@ const EXACT_TAGS = new Set([
   "crayon-papier", "crayons-papier", "crayon-a-papier", "crayons-de-couleur",
   "feutre", "feutres", "feutre-coloriage", "surligneur", "surligneurs",
   "stylo", "stylos", "stylo-bille", "stylo-plume", "stylo-effacable",
-  "porte-mine", "porte-mines", "roller", "gel-pen",
+  // Pas "roller" seul : c'est aussi un roll-on de soin ou d'huile essentielle.
+  "porte-mine", "porte-mines", "stylo-roller", "gel-pen",
   "gomme", "gommes", "taille-crayon", "taille-crayons",
   // Fournitures : peindre / coloriage
   "coloriage", "peinture", "gouache", "aquarelle", "pinceau", "pinceaux",
@@ -44,9 +45,12 @@ const EXACT_TAGS = new Set([
   "craie", "craies", "craie-wax",
   // Fournitures : cahiers / papeterie
   "cahier", "cahiers", "cahier-clairefontaine", "carnet", "agenda", "agendas",
-  "trieur", "trieurs", "classeur", "classeurs", "chemise", "chemises",
-  "protege-cahier", "protège-cahier", "feuilles", "papier",
-  "pochette", "pochettes", "sous-main",
+  "trieur", "trieurs", "classeur", "classeurs",
+  // Pas "chemise" ni "pochette" seuls : une chemise c'est aussi un vêtement,
+  // une pochette c'est aussi une poche de glace ou un sac à main.
+  "chemise-cartonnee", "chemises-cartonnees", "chemise-a-elastique",
+  "pochette-plastique", "pochettes-plastique", "pochette-transparente",
+  "protege-cahier", "protège-cahier", "feuilles", "papier", "sous-main",
   // Fournitures : géométrie
   "regle", "règle", "equerre", "équerre", "compas", "rapporteur",
   "geometrie", "géométrie", "kit-geometrie", "kit-géométrie",
@@ -83,7 +87,9 @@ const SLUG_TOKENS = [
   "-crayon-papier-", "-crayons-papier-", "-crayon-a-papier-",
   "-crayons-de-couleur-",
   "-feutre-", "-feutres-", "feutre-coloriage",
-  "-stylo-", "-stylos-", "-surligneur-", "-surligneurs-",
+  // "-stylo-" seul attrapait le stylo de microneedling : versions écriture only.
+  "-stylos-", "-stylo-bille-", "-stylo-plume-", "-stylo-effacable-", "-stylo-gel-",
+  "-surligneur-", "-surligneurs-",
   "-coloriage-", "coloriage-",
   "-cahier-", "-cahiers-", "-carnet-", "-agenda-", "-agendas-",
   // Trousses : versions strictement scolaires
@@ -99,7 +105,8 @@ const SLUG_TOKENS = [
   "bic-kids-", "-bic-kids-", "maped-", "-maped-",
   "stabilo-", "-stabilo-",
   "clairefontaine-", "-clairefontaine-",
-  "oxford-", "faber-castell-", "staedtler-",
+  // Pas "oxford-" seul : la toile Oxford est un tissu, pas la marque de cahiers.
+  "faber-castell-", "staedtler-",
   "pilot-", "paper-mate-", "sharpie-",
   "posca-", "canson-", "crayola-",
 ];
@@ -127,11 +134,40 @@ const EXCLUDED_TOKENS = [
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
 
+/**
+ * Veto par thème : un article porteur d'un de ces tags n'est pas scolaire,
+ * quel que soit le mot qui l'aurait fait entrer.
+ *
+ * Sans ce garde-fou, un seul mot ambigu suffisait à faire basculer un article
+ * dans le coin rentrée : le tag `bic` amenait un comparatif de rasoirs jetables,
+ * `classeur` un guide de budget familial, `sac-a-dos` une valise cabine Ryanair,
+ * et le tag `rentree` posé sur une liseuse ou un shopping beauté suffisait seul.
+ */
+const EXCLUDED_TAGS = new Set([
+  // Beauté / soin
+  "beaute", "beauté", "maquillage", "cosmetique", "cosmétique", "parfum",
+  "soin-visage", "soin-corps", "soin-cheveux", "creme", "crème",
+  "rasoir", "rasoirs", "rasage", "epilation", "épilation",
+  "aromatherapie", "aromathérapie", "huile-essentielle", "huiles-essentielles",
+  "anti-moustiques", "microneedling",
+  // Mode et chaussures — la rentrée ici, ce sont les fournitures, pas la
+  // garde-robe : le tag `rentree` posé sur des bottines ou un code promo
+  // vêtements suffisait à les faire entrer.
+  "mode", "mode-homme", "mode-femme", "mode-enfant", "chemise-homme",
+  "vetement", "vêtement", "vetements", "vetements-enfants", "vetements-enfant",
+  "chaussures", "chaussure", "bottines", "bottines-enfant", "baskets",
+  // Bagagerie adulte
+  "valise", "bagage", "bagage-cabine", "voyage",
+  // Maison / finances / high-tech
+  "budget", "budget-familial", "liseuse", "jardin", "terrasse",
+]);
+
 function isRentreeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  if (tags.some((t) => EXCLUDED_TAGS.has(t))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   return SLUG_TOKENS.some((k) => slug.includes(k));
 }
