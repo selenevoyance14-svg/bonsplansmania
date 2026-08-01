@@ -8,29 +8,47 @@ import ProductReviewStat from "@/app/components/ProductReviewStat";
 const ALL = "__all__";
 
 /**
- * Liste des fiches produits de /avis-prix-beaute, avec filtre par marque.
+ * Liste des fiches produits de /avis-prix-beaute, avec filtres rayon et marque.
  *
- * Les marques sont déduites du registre, il n'y a rien à tenir à jour ici.
+ * Les marques et les compteurs sont déduits du registre : rien à tenir à jour
+ * ici quand une fiche est ajoutée.
  */
 type SortKey = "recent" | "ancien";
+type Gender = typeof ALL | "femme" | "homme";
+
+const GENDERS: { key: Gender; label: string }[] = [
+  { key: ALL, label: "Tout" },
+  { key: "femme", label: "Femme" },
+  { key: "homme", label: "Homme" },
+];
 
 export default function CommunityProductList() {
+  const [gender, setGender] = useState<Gender>(ALL);
   const [brand, setBrand] = useState<string>(ALL);
   const [sort, setSort] = useState<SortKey>("recent");
 
+  // Le rayon commande la suite : la liste des marques et leurs compteurs ne
+  // portent que sur le rayon affiché, sinon on proposerait « Chloé (1) » dans
+  // le rayon homme et le filtre renverrait une page vide.
+  const scoped = useMemo(
+    () =>
+      gender === ALL
+        ? COMMUNITY_PRODUCTS
+        : COMMUNITY_PRODUCTS.filter((p) => p.gender === gender),
+    [gender],
+  );
+
   const brands = useMemo(
     () =>
-      Array.from(new Set(COMMUNITY_PRODUCTS.map((p) => p.brand))).sort((a, b) =>
+      Array.from(new Set(scoped.map((p) => p.brand))).sort((a, b) =>
         a.localeCompare(b, "fr"),
       ),
-    [],
+    [scoped],
   );
 
   const products = useMemo(() => {
     const filtered =
-      brand === ALL
-        ? [...COMMUNITY_PRODUCTS]
-        : COMMUNITY_PRODUCTS.filter((p) => p.brand === brand);
+      brand === ALL ? [...scoped] : scoped.filter((p) => p.brand === brand);
     return filtered.sort((a, b) => {
       const diff =
         new Date(b.addedAt).getTime() - new Date(a.addedAt).getTime();
@@ -38,12 +56,20 @@ export default function CommunityProductList() {
       if (diff !== 0) return sort === "recent" ? diff : -diff;
       return a.name.localeCompare(b.name, "fr");
     });
-  }, [brand, sort]);
+  }, [scoped, brand, sort]);
 
   const countByBrand = useMemo(() => {
     const map = new Map<string, number>();
-    for (const p of COMMUNITY_PRODUCTS) {
+    for (const p of scoped) {
       map.set(p.brand, (map.get(p.brand) || 0) + 1);
+    }
+    return map;
+  }, [scoped]);
+
+  const countByGender = useMemo(() => {
+    const map = new Map<Gender, number>([[ALL, COMMUNITY_PRODUCTS.length]]);
+    for (const p of COMMUNITY_PRODUCTS) {
+      map.set(p.gender, (map.get(p.gender) || 0) + 1);
     }
     return map;
   }, []);
@@ -59,6 +85,41 @@ export default function CommunityProductList() {
           marginBottom: "20px",
         }}
       >
+        <div
+          role="group"
+          aria-label="Filtrer par rayon"
+          style={{ display: "flex", gap: "6px", marginRight: "6px" }}
+        >
+          {GENDERS.map(({ key, label }) => {
+            const active = gender === key;
+            return (
+              <button
+                key={key}
+                type="button"
+                aria-pressed={active}
+                onClick={() => {
+                  setGender(key);
+                  // La marque choisie peut ne pas exister dans le nouveau
+                  // rayon : on repart de « toutes les marques ».
+                  setBrand(ALL);
+                }}
+                style={{
+                  padding: "9px 16px",
+                  borderRadius: "999px",
+                  border: `1.5px solid ${active ? "#6D28D9" : "var(--border, #e5e7eb)"}`,
+                  background: active ? "#6D28D9" : "white",
+                  color: active ? "white" : "#1f2937",
+                  fontSize: "0.92rem",
+                  fontWeight: 600,
+                  cursor: "pointer",
+                }}
+              >
+                {label} ({countByGender.get(key) || 0})
+              </button>
+            );
+          })}
+        </div>
+
         <label
           htmlFor="brand-filter"
           style={{ fontWeight: 600, fontSize: "0.92rem" }}
@@ -81,9 +142,7 @@ export default function CommunityProductList() {
             minWidth: "220px",
           }}
         >
-          <option value={ALL}>
-            Toutes les marques ({COMMUNITY_PRODUCTS.length})
-          </option>
+          <option value={ALL}>Toutes les marques ({scoped.length})</option>
           {brands.map((name) => (
             <option key={name} value={name}>
               {name} ({countByBrand.get(name)})
@@ -115,10 +174,11 @@ export default function CommunityProductList() {
           <option value="ancien">Plus ancien d&apos;abord</option>
         </select>
 
-        {(brand !== ALL || sort !== "recent") && (
+        {(gender !== ALL || brand !== ALL || sort !== "recent") && (
           <button
             type="button"
             onClick={() => {
+              setGender(ALL);
               setBrand(ALL);
               setSort("recent");
             }}

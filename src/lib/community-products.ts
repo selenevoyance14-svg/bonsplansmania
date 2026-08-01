@@ -15,6 +15,8 @@ export interface CommunityProduct {
   name: string;
   image: string;
   imageAlt: string;
+  /** Rayon du parfum, sert au filtre femme / homme de /avis-prix-beaute */
+  gender: "femme" | "homme";
   /** Description courte affichée sur la page rubrique */
   teaser: string;
   /** Date d'ajout de la fiche au site (ISO), sert au tri récent / ancien */
@@ -24,6 +26,7 @@ export interface CommunityProduct {
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "terre-d-hermes-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T19:16:00",
     brand: "Hermès",
     name: "Terre d’Hermès Eau de Toilette",
@@ -34,6 +37,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "viktor-rolf-spicebomb-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T19:12:00",
     brand: "Viktor & Rolf",
     name: "Spicebomb Eau de Toilette",
@@ -44,6 +48,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "azzaro-the-most-wanted-eau-de-parfum-intense",
+    gender: "homme",
     addedAt: "2026-08-01T19:08:00",
     brand: "Azzaro",
     name: "The Most Wanted Eau de Parfum Intense",
@@ -54,6 +59,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "hugo-boss-bottled-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T19:04:00",
     brand: "Hugo Boss",
     name: "Boss Bottled Eau de Toilette",
@@ -64,6 +70,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "armani-acqua-di-gio-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T19:00:00",
     brand: "Giorgio Armani",
     name: "Acqua di Giò Eau de Toilette",
@@ -74,6 +81,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "rabanne-1-million-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T18:56:00",
     brand: "Rabanne",
     name: "1 Million Eau de Toilette",
@@ -84,6 +92,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "yves-saint-laurent-y-eau-de-parfum",
+    gender: "homme",
     addedAt: "2026-08-01T18:52:00",
     brand: "Yves Saint Laurent",
     name: "Y Eau de Parfum",
@@ -94,6 +103,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "jean-paul-gaultier-le-male-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T18:48:00",
     brand: "Jean Paul Gaultier",
     name: "Le Male Eau de Toilette",
@@ -104,6 +114,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "dior-sauvage-eau-de-toilette",
+    gender: "homme",
     addedAt: "2026-08-01T18:44:00",
     brand: "Dior",
     name: "Sauvage Eau de Toilette",
@@ -114,6 +125,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "bleu-de-chanel-eau-de-parfum",
+    gender: "homme",
     addedAt: "2026-08-01T18:40:00",
     brand: "Chanel",
     name: "Bleu de Chanel Eau de Parfum",
@@ -124,6 +136,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "nuxe-prodigieux-le-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T18:12:00",
     brand: "Nuxe",
     name: "Prodigieux Le Parfum",
@@ -134,6 +147,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "guerlain-la-petite-robe-noire-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T18:06:00",
     brand: "Guerlain",
     name: "La Petite Robe Noire Eau de Parfum",
@@ -145,6 +159,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "chloe-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T17:58:00",
     brand: "Chloé",
     name: "Chloé Eau de Parfum",
@@ -155,6 +170,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "burberry-goddess-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T17:45:00",
     brand: "Burberry",
     name: "Goddess Eau de Parfum",
@@ -165,6 +181,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "mugler-alien-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T17:20:00",
     brand: "Mugler",
     name: "Alien Eau de Parfum",
@@ -175,6 +192,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "rabanne-lady-million-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T17:14:00",
     brand: "Rabanne",
     name: "Lady Million Eau de Parfum",
@@ -185,6 +203,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "valentino-born-in-roma-donna-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T17:08:00",
     brand: "Valentino",
     name: "Donna Born in Roma Eau de Parfum",
@@ -195,6 +214,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "prada-paradoxe-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T16:58:00",
     brand: "Prada",
     name: "Paradoxe Eau de Parfum",
@@ -205,6 +225,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "jean-paul-gaultier-la-belle-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T16:54:00",
     brand: "Jean Paul Gaultier",
     name: "La Belle Eau de Parfum",
@@ -215,6 +236,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "carolina-herrera-good-girl-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T16:48:00",
     brand: "Carolina Herrera",
     name: "Good Girl Eau de Parfum",
@@ -225,6 +247,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "dior-miss-dior-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T16:42:00",
     brand: "Dior",
     name: "Miss Dior Eau de Parfum",
@@ -236,6 +259,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "chanel-coco-mademoiselle-eau-de-parfum",
+    gender: "femme",
     addedAt: "2026-08-01T16:30:00",
     brand: "Chanel",
     name: "Coco Mademoiselle Eau de Parfum",
@@ -246,6 +270,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "sol-de-janeiro-cheirosa-62-perfume-mist-90ml",
+    gender: "femme",
     addedAt: "2026-08-01T16:05:00",
     brand: "Sol de Janeiro",
     name: "Cheirosa 62 Brume Parfumée 90 ml",
@@ -256,6 +281,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "kayali-yum-boujee-marshmallow-81",
+    gender: "femme",
     addedAt: "2026-08-01T15:40:00",
     brand: "Kayali",
     name: "Yum Boujee Marshmallow 81 Eau de Parfum Intense",
@@ -267,6 +293,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "la-vie-est-belle-eau-de-parfum-lancome",
+    gender: "femme",
     addedAt: "2026-07-30T18:51:00",
     brand: "Lancôme",
     name: "La Vie Est Belle Eau de Parfum",
@@ -277,6 +304,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "opium-eau-de-parfum-yves-saint-laurent",
+    gender: "femme",
     addedAt: "2026-07-30T15:11:00",
     brand: "Yves Saint Laurent",
     name: "Opium Eau de Parfum",
@@ -287,6 +315,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   },
   {
     slug: "libre-eau-de-parfum-yves-saint-laurent",
+    gender: "femme",
     addedAt: "2026-07-30T18:51:00",
     brand: "Yves Saint Laurent",
     name: "Libre Eau de Parfum",
