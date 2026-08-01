@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 01 Aug 2026 19:03:27 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 01 Aug 2026 19:18:32 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>BIC Highlighter Grip : blister de 12 surligneurs à 11,99 €</title>
@@ -123,6 +123,15 @@
       <description>Tann's — cartable 35 cm Les Signatures modèle Camille coloris bleu marine. Format CP-CE1, marque française iconique. 49,91 € sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-tanns-cartable-35cm-signatures-camille-bleu-marine-juin-2026.png" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Vexilar Cleanova X7 Aspirateur Laveur Sans Fil à 169,99€ au lieu de 299,99€ (-43%)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-amazon-vexilar-cleanova-x7-aspirateur-laveur-sans-fil-170-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-vexilar-cleanova-x7-aspirateur-laveur-sans-fil-170-euros-2026</guid>
+      <pubDate>Sat, 01 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Bon plan Amazon : aspirateur laveur sans fil Vexilar Cleanova X7 à 169,99€ (-43%). Design plat 180°, sec et humide, auto-nettoyage, 40 min d'autonomie. 4,9/5.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-vexilar-cleanova-x7-aspirateur-laveur-sans-fil-170-euros-2026.png" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>Efimeso : 12 feutres acryliques à 11,11 €</title>
@@ -447,15 +456,6 @@
       <description>Payot ouvre une nouvelle campagne ambassadrice via son Club des Testeuses : inscris-toi et complète ton profil beauté pour tenter de recevoir une miniature 5 ml de la Crème Yeux Jeunesse. Inscription gratuite, sans engagement, tirage au sort.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-payot-creme-yeux-jeunesse-5ml-club-testeuses-juillet-2026.png" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Test gratuit Peggy Sage : vernis LED Green LAK Coquelicot</title>
-      <link>https://bonsplansmania.fr/article/test-gratuit-peggy-sage-vernis-led-green-lak-coquelicot-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-gratuit-peggy-sage-vernis-led-green-lak-coquelicot-aout-2026</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Deviens testeur Peggy Sage et reçois gratuitement le vernis à ongles LED Green LAK teinte Coquelicot, formulé à base d'ingrédients d'origine naturelle pour une manucure rapide à faire soi-même. Candidature jusqu'au 12 août 2026.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-peggy-sage-vernis-led-green-lak-coquelicot-aout-2026.png" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
