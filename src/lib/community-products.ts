@@ -23,6 +23,87 @@ export interface CommunityProduct {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "mugler-alien-eau-de-parfum",
+    addedAt: "2026-08-01T17:20:00",
+    brand: "Mugler",
+    name: "Alien Eau de Parfum",
+    image: "/images/products/mugler-alien-eau-de-parfum.png",
+    imageAlt: "Flacon violet et or Mugler Alien Eau de Parfum",
+    teaser:
+      "Jasmin sambac, bois de cachemire et ambre blanc : l’un des sillages les plus tenaces du rayon.",
+  },
+  {
+    slug: "rabanne-lady-million-eau-de-parfum",
+    addedAt: "2026-08-01T17:14:00",
+    brand: "Rabanne",
+    name: "Lady Million Eau de Parfum",
+    image: "/images/products/rabanne-lady-million-eau-de-parfum.png",
+    imageAlt: "Flacon diamant doré Rabanne Lady Million Eau de Parfum",
+    teaser:
+      "Un floral chypré solaire : néroli et framboise, fleur d’oranger et jasmin, patchouli et miel en fond.",
+  },
+  {
+    slug: "valentino-born-in-roma-donna-eau-de-parfum",
+    addedAt: "2026-08-01T17:08:00",
+    brand: "Valentino",
+    name: "Donna Born in Roma Eau de Parfum",
+    image: "/images/products/valentino-born-in-roma-donna-eau-de-parfum.png",
+    imageAlt: "Flacon clouté Valentino Donna Born in Roma Eau de Parfum",
+    teaser:
+      "Jasmin sambac et bourgeon de cassis en tête, vanille bourbon et bois de cèdre en fond.",
+  },
+  {
+    slug: "prada-paradoxe-eau-de-parfum",
+    addedAt: "2026-08-01T16:58:00",
+    brand: "Prada",
+    name: "Paradoxe Eau de Parfum",
+    image: "/images/products/prada-paradoxe-eau-de-parfum.png",
+    imageAlt: "Flacon triangle Prada Paradoxe Eau de Parfum",
+    teaser:
+      "Un floral ambré autour du néroli et du jasmin, dans le flacon triangle rechargeable de la maison.",
+  },
+  {
+    slug: "jean-paul-gaultier-la-belle-eau-de-parfum",
+    addedAt: "2026-08-01T16:54:00",
+    brand: "Jean Paul Gaultier",
+    name: "La Belle Eau de Parfum",
+    image: "/images/products/jean-paul-gaultier-la-belle-eau-de-parfum.png",
+    imageAlt: "Flacon buste Jean Paul Gaultier La Belle Eau de Parfum",
+    teaser:
+      "Trois notes, pas une de plus : poire juteuse, vanille et bois de santal, pour un sillage sucré et lumineux.",
+  },
+  {
+    slug: "carolina-herrera-good-girl-eau-de-parfum",
+    addedAt: "2026-08-01T16:48:00",
+    brand: "Carolina Herrera",
+    name: "Good Girl Eau de Parfum",
+    image: "/images/products/carolina-herrera-good-girl-eau-de-parfum.png",
+    imageAlt: "Flacon escarpin Carolina Herrera Good Girl Eau de Parfum",
+    teaser:
+      "Jasmin sambac et tubéreuse en pleine lumière, cacao et fève tonka dans l’ombre. Un parfum du soir très tenace.",
+  },
+  {
+    slug: "dior-miss-dior-eau-de-parfum",
+    addedAt: "2026-08-01T16:42:00",
+    brand: "Dior",
+    name: "Miss Dior Eau de Parfum",
+    image: "/images/products/dior-miss-dior-eau-de-parfum.png",
+    imageAlt:
+      "Flacon Dior Miss Dior Eau de Parfum et son nœud couture argenté",
+    teaser:
+      "Un bouquet de roses de Grasse porté par la pivoine et l’iris, adouci par le bois de santal et le musc blanc.",
+  },
+  {
+    slug: "chanel-coco-mademoiselle-eau-de-parfum",
+    addedAt: "2026-08-01T16:30:00",
+    brand: "Chanel",
+    name: "Coco Mademoiselle Eau de Parfum",
+    image: "/images/products/chanel-coco-mademoiselle-eau-de-parfum.png",
+    imageAlt: "Flacon Chanel Coco Mademoiselle Eau de Parfum vaporisateur",
+    teaser:
+      "L’oriental frais de Chanel : orange et bergamote, un cœur de rose et de jasmin, un fond de patchouli et de vétiver.",
+  },
+  {
     slug: "sol-de-janeiro-cheirosa-62-perfume-mist-90ml",
     addedAt: "2026-08-01T16:05:00",
     brand: "Sol de Janeiro",
