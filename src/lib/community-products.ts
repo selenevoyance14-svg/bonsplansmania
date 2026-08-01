@@ -23,6 +23,37 @@ export interface CommunityProduct {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "nuxe-prodigieux-le-parfum",
+    addedAt: "2026-08-01T18:12:00",
+    brand: "Nuxe",
+    name: "Prodigieux Le Parfum",
+    image: "/images/products/nuxe-prodigieux-le-parfum.png",
+    imageAlt: "Flacon Nuxe Prodigieux Le Parfum au dégradé orangé",
+    teaser:
+      "L’odeur de l’Huile Prodigieuse en parfum : fleur d’oranger, magnolia et vanille sur un fond de bois de coco.",
+  },
+  {
+    slug: "guerlain-la-petite-robe-noire-eau-de-parfum",
+    addedAt: "2026-08-01T18:06:00",
+    brand: "Guerlain",
+    name: "La Petite Robe Noire Eau de Parfum",
+    image: "/images/products/guerlain-la-petite-robe-noire-eau-de-parfum.png",
+    imageAlt:
+      "Flacon Guerlain La Petite Robe Noire Eau de Parfum au bouchon cœur",
+    teaser:
+      "Une cerise noire gourmande adossée à la rose et à l’amande, sur un fond de patchouli et de fève tonka.",
+  },
+  {
+    slug: "chloe-eau-de-parfum",
+    addedAt: "2026-08-01T17:58:00",
+    brand: "Chloé",
+    name: "Chloé Eau de Parfum",
+    image: "/images/products/chloe-eau-de-parfum.png",
+    imageAlt: "Flacon Chloé Eau de Parfum et son ruban beige",
+    teaser:
+      "La rose sans la lourdeur : pivoine et litchi, un cœur de rose fraîche, un fond d’ambre et de cèdre.",
+  },
+  {
     slug: "burberry-goddess-eau-de-parfum",
     addedAt: "2026-08-01T17:45:00",
     brand: "Burberry",

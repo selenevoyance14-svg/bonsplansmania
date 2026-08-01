@@ -2,7 +2,6 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { ChevronRight } from "lucide-react";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 import ProductReviewStat from "@/app/components/ProductReviewStat";
 
@@ -11,8 +10,6 @@ const ALL = "__all__";
 /**
  * Liste des fiches produits de /avis-prix-beaute, avec filtre par marque.
  *
- * Le filtre s'applique aux deux affichages de la page (grille compacte et
- * cartes détaillées) pour éviter qu'une moitié de page réagisse et pas l'autre.
  * Les marques sont déduites du registre, il n'y a rien à tenir à jour ici.
  */
 type SortKey = "recent" | "ancien";
@@ -140,26 +137,17 @@ export default function CommunityProductList() {
         )}
       </div>
 
-      <div className="beauty-community-products">
+      {/*
+        La page n'affiche plus qu'UNE liste.
+        Elle en montrait deux : une grille de petites vignettes sans image,
+        puis les mêmes fiches en cartes détaillées juste en dessous. Passé une
+        dizaine de fiches, la grille devenait un mur de liens qui répétait la
+        suite de la page sans rien apporter (31/07/2026).
+      */}
+      <div style={{ display: "grid", gap: "16px" }}>
         {products.map((product) => (
           <Link
-            className="beauty-community-product-link"
-            href={`/produit/${product.slug}`}
             key={product.slug}
-          >
-            <span>{product.brand}</span>
-            <strong>{product.name}</strong>
-            <small>
-              Voir la fiche <ChevronRight size={14} />
-            </small>
-          </Link>
-        ))}
-      </div>
-
-      <div style={{ display: "grid", gap: "16px", marginTop: "28px" }}>
-        {products.map((product) => (
-          <Link
-            key={`detail-${product.slug}`}
             href={`/produit/${product.slug}`}
             style={{
               display: "flex",
