@@ -23,6 +23,16 @@ export interface CommunityProduct {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "sol-de-janeiro-cheirosa-62-perfume-mist-90ml",
+    addedAt: "2026-08-01T16:05:00",
+    brand: "Sol de Janeiro",
+    name: "Cheirosa 62 Brume Parfumée 90 ml",
+    image: "/images/products/sol-de-janeiro-cheirosa-62-perfume-mist-90ml.png",
+    imageAlt: "Flacon Sol de Janeiro Cheirosa 62 Brume Parfumée 90 ml",
+    teaser:
+      "L’odeur qui a rendu la marque brésilienne célèbre : pistache et caramel salé sur un fond de vanille et d’héliotrope.",
+  },
+  {
     slug: "kayali-yum-boujee-marshmallow-81",
     addedAt: "2026-08-01T15:40:00",
     brand: "Kayali",
