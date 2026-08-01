@@ -23,6 +23,17 @@ export interface CommunityProduct {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "kayali-yum-boujee-marshmallow-81",
+    addedAt: "2026-08-01T15:40:00",
+    brand: "Kayali",
+    name: "Yum Boujee Marshmallow 81 Eau de Parfum Intense",
+    image: "/images/products/kayali-yum-boujee-marshmallow-81.png",
+    imageAlt:
+      "Flacon Kayali Yum Boujee Marshmallow 81 Eau de Parfum Intense 10 ml",
+    teaser:
+      "Le gourmand assumé de Mona Kattan : guimauve rose et vanille fouettée sur un départ fruité de pomme et de citron.",
+  },
+  {
     slug: "la-vie-est-belle-eau-de-parfum-lancome",
     addedAt: "2026-07-30T18:51:00",
     brand: "Lancôme",
