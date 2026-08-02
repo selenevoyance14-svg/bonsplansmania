@@ -19,7 +19,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Bons Plans Ninja : Airfryer, CREAMi, SLUSHi, Foodi — Bons Plans Mania",
+  title: "Bons plans Ninja : Airfryer, Foodi, CREAMi — Bons Plans Mania",
   description: "Bons plans Ninja actuellement publiés : Airfryer Foodi, CREAMi, SLUSHi, CRISPi et blenders. Comparez les modèles, capacités et offres avant de commander.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-ninja" },
 };

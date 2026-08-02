@@ -19,7 +19,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Jouets : Bons Plans Jouets Enfants 2026 — Bons Plans Mania",
+  title: "Coin Jouets : Bons Plans Jouets Enfants — Bons Plans Mania",
   description: "Tous les bons plans jouets du moment : LEGO, Playmobil, Barbie, jeux de société, peluches, poupées, jouets éducatifs. Idées cadeaux à prix doux toute l'année.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-jouets" },
 };
@@ -118,7 +118,7 @@ export default async function BonsPlansJouetsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Jouets — Bons Plans Jouets Enfants 2026",
+          name: "Coin Jouets — Bons Plans Jouets Enfants",
           description: "Tous les bons plans jouets : LEGO, Playmobil, Barbie, jeux de société, peluches, poupées, jouets éducatifs.",
           url: "https://bonsplansmania.fr/bons-plans-jouets",
           mainEntity: {
@@ -155,7 +155,7 @@ export default async function BonsPlansJouetsPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <ToyBrick size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#F59E0B" }} />
-              Coin Jouets : Bons Plans Jouets Enfants 2026
+              Coin Jouets : Bons Plans Jouets Enfants
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans jouets</strong> du moment : LEGO, Playmobil, Barbie, jeux de société, peluches, poupées, jouets éducatifs, kits créatifs. <strong>Cadeaux d&apos;anniversaire, Noël, fêtes</strong> ou simple petit plaisir. {articles.length} articles.

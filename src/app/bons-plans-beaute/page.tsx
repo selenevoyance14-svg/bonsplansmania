@@ -20,7 +20,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Beauté : Bons Plans Beauté 2026 — Bons Plans Mania",
+  title: "Coin Beauté : Bons Plans Beauté — Bons Plans Mania",
   description: "Les bons plans beauté publiés sur Bons Plans Mania : soins du visage, maquillage, parfums et cheveux. Prix datés, offres affiliées et filtres par marque.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-beaute" },
 };
@@ -285,7 +285,7 @@ export default async function BonsPlansBeautePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Beauté — Bons Plans Beauté 2026",
+          name: "Coin Beauté — Bons Plans Beauté",
           description: "Les bons plans beauté publiés sur Bons Plans Mania : soins, maquillage, parfums et cheveux.",
           url: "https://bonsplansmania.fr/bons-plans-beaute",
           mainEntity: {
@@ -322,7 +322,7 @@ export default async function BonsPlansBeautePage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Sparkles size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#ec4899" }} />
-              Coin Beauté : Bons Plans Beauté 2026
+              Coin Beauté : Bons Plans Beauté
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Retrouvez les <strong>bons plans beauté publiés sur Bons Plans Mania</strong> :

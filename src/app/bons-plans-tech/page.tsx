@@ -19,7 +19,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Tech : Bons Plans Tech & High-Tech 2026 — Bons Plans Mania",
+  title: "Coin Tech : Bons Plans Tech & High-Tech — Bons Plans Mania",
   description: "Tous les bons plans tech du moment : smartphones, ordinateurs, écouteurs, montres connectées, écrans PC, caméras, liseuses. Apple, Samsung, Google, Xiaomi, Sony, JBL, LG.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-tech" },
 };
@@ -105,7 +105,7 @@ export default async function BonsPlansTechPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Tech — Bons Plans Tech & High-Tech 2026",
+          name: "Coin Tech — Bons Plans Tech & High-Tech",
           description: "Tous les bons plans tech : smartphones, ordinateurs, écouteurs, montres connectées, écrans PC, caméras, liseuses.",
           url: "https://bonsplansmania.fr/bons-plans-tech",
           mainEntity: {
@@ -142,7 +142,7 @@ export default async function BonsPlansTechPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Smartphone size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#2563eb" }} />
-              Coin Tech : Bons Plans Tech & High-Tech 2026
+              Coin Tech : Bons Plans Tech & High-Tech
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans tech & high-tech</strong> du moment : smartphones, ordinateurs portables, tablettes, écouteurs Bluetooth, montres connectées, écrans PC, caméras, consoles, liseuses. <strong>Apple, Samsung, Google, Xiaomi, Sony, JBL, LG, Microsoft</strong>… {articles.length} articles.

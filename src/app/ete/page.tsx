@@ -5,19 +5,20 @@ import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import { matchesSeasonalKeywords } from "@/lib/seasonal-match";
 
 export const metadata: Metadata = {
-  title: "Bons plans été 2026 : solaires, vacances et fraîcheur — BonsPlansMania",
+  title: "Bons plans été : solaires et vacances — BonsPlansMania",
   description:
-    "Retrouvez les bons plans été 2026 : protections solaires, autobronzants, ventilateurs, vacances, plage et produits adaptés aux bébés.",
-  alternates: { canonical: "https://bonsplansmania.fr/ete-2026" },
+    "Retrouvez les bons plans de l'été : protections solaires, autobronzants, ventilateurs, vacances, plage et produits adaptés aux bébés.",
+  alternates: { canonical: "https://bonsplansmania.fr/ete" },
   openGraph: {
-    title: "Bons plans été 2026 — Solaires, vacances et fraîcheur",
+    title: "Bons plans été — Solaires, vacances et fraîcheur",
     description:
-      "Toutes nos sélections, bons plans et concours pour l'été 2026 : solaires bio, autobronzants, parasols, ventilateurs, maillots, box beauté été.",
+      "Toutes nos sélections, bons plans et concours pour l'été : solaires bio, autobronzants, parasols, ventilateurs, maillots, box beauté été.",
     type: "website",
     locale: "fr_FR",
-    url: "https://bonsplansmania.fr/ete-2026",
+    url: "https://bonsplansmania.fr/ete",
   },
 };
 
@@ -51,7 +52,7 @@ function matchesSummer(article: ArticleType): boolean {
     article.meta.description.toLowerCase(),
     ...(article.meta.tags || []).map((t) => t.toLowerCase()),
   ].join(" ");
-  return SUMMER_KEYWORDS.some((kw) => haystack.includes(kw));
+  return matchesSeasonalKeywords(haystack, SUMMER_KEYWORDS);
 }
 
 export default function Ete2026Page() {
@@ -69,7 +70,7 @@ export default function Ete2026Page() {
         a.meta.description.toLowerCase(),
         ...(a.meta.tags || []).map((t) => t.toLowerCase()),
       ].join(" ");
-      return kws.some((k) => haystack.includes(k));
+      return matchesSeasonalKeywords(haystack, kws);
     });
   };
 
@@ -105,7 +106,7 @@ export default function Ete2026Page() {
             <nav className="breadcrumbs">
               <a href="/">Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <span>Été 2026</span>
+              <span>Été</span>
             </nav>
             <h1
               style={{
@@ -119,7 +120,7 @@ export default function Ete2026Page() {
               }}
             >
               <Sun size={36} color="#F59E0B" />
-              Les bons plans de l&apos;été 2026
+              Les bons plans de l&apos;été
             </h1>
             <p style={{ color: "#7C2D12", fontSize: "1.1rem", maxWidth: "820px", marginBottom: "16px", lineHeight: 1.6 }}>
               Retrouvez nos sélections saisonnières : protections solaires, autobronzants,

@@ -19,7 +19,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Rentrée : Bons Plans Fournitures Scolaires 2026 — Bons Plans Mania",
+  title: "Bons plans fournitures scolaires — Bons Plans Mania",
   description: "Tous les bons plans rentrée scolaire du moment : cartables, trousses, crayons, feutres, cahiers, agendas, calculatrices. BIC, Maped, STABILO, Clairefontaine, Faber-Castell. Économiser sur la liste de fournitures.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-rentree" },
 };
@@ -213,7 +213,7 @@ export default async function BonsPlansRentreePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Rentrée — Bons Plans Fournitures Scolaires 2026",
+          name: "Coin Rentrée — Bons Plans Fournitures Scolaires",
           description: "Tous les bons plans rentrée : cartables, trousses, crayons, feutres, cahiers, agendas, calculatrices. BIC, Maped, STABILO, Clairefontaine.",
           url: "https://bonsplansmania.fr/bons-plans-rentree",
           mainEntity: {
@@ -250,7 +250,7 @@ export default async function BonsPlansRentreePage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <GraduationCap size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#0EA5A9" }} />
-              Coin Rentrée : Bons Plans Fournitures Scolaires 2026
+              Coin Rentrée : Bons Plans Fournitures Scolaires
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans rentrée scolaire</strong> du moment : <strong>cartables, trousses, crayons, feutres, cahiers, agendas, calculatrices</strong>. Marques françaises et internationales : <strong>BIC, Maped, STABILO, Clairefontaine, Faber-Castell, Casio</strong>. Réduire la facture de la liste de fournitures. {articles.length} articles.

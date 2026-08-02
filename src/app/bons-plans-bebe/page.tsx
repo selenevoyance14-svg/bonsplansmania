@@ -20,7 +20,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Bébé : Bons Plans Puériculture 2026 — Bons Plans Mania",
+  title: "Coin Bébé : Bons Plans Puériculture — Bons Plans Mania",
   description: "Les meilleurs bons plans bébé et puériculture : biberons, poussettes, sièges auto, cododo, soins bébé, tests gratuits. Philips Avent, MAM, Chicco, Thermobaby, Biolane.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-bebe" },
 };
@@ -81,7 +81,7 @@ export default async function BonsPlansBebePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Bébé — Bons Plans Puériculture 2026",
+          name: "Coin Bébé — Bons Plans Puériculture",
           description: "Tous les bons plans, promos et tests gratuits sur la puériculture et les produits bébé.",
           url: "https://bonsplansmania.fr/bons-plans-bebe",
           mainEntity: {
@@ -118,7 +118,7 @@ export default async function BonsPlansBebePage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Baby size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#0ea5e9" }} />
-              Coin Bébé : Bons Plans Puériculture 2026
+              Coin Bébé : Bons Plans Puériculture
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Toutes les <strong>promos et tests bébé</strong> du moment : biberons Philips Avent et MAM, poussettes, sièges auto, cododo, soins Biolane, couches, vêtements Vertbaudet, ventes privées Bebeboutik. Et les <strong>tests gratuits</strong> pour recevoir des produits bébé à domicile. {articles.length} articles.

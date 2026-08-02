@@ -19,7 +19,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Maison : Bons Plans Maison & Cuisine 2026 — Bons Plans Mania",
+  title: "Coin Maison : Bons Plans Maison & Cuisine — Bons Plans Mania",
   description: "Tous les bons plans maison et cuisine du moment : aspirateurs, robots, airfryers, machines à café, ventilateurs, climatiseurs, purificateurs d'air, électroménager. Ninja, Tefal, De'Longhi, Philips, Ecovacs.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-maison" },
 };
@@ -136,7 +136,7 @@ export default async function BonsPlansMaisonPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Maison — Bons Plans Maison & Cuisine 2026",
+          name: "Coin Maison — Bons Plans Maison & Cuisine",
           description: "Tous les bons plans maison et cuisine : aspirateurs, robots, airfryers, machines à café, ventilateurs, climatiseurs, purificateurs.",
           url: "https://bonsplansmania.fr/bons-plans-maison",
           mainEntity: {
@@ -173,7 +173,7 @@ export default async function BonsPlansMaisonPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Home size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#16a34a" }} />
-              Coin Maison : Bons Plans Maison & Cuisine 2026
+              Coin Maison : Bons Plans Maison & Cuisine
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans maison & cuisine</strong> du moment : aspirateurs, robots aspirateurs/laveurs, airfryers, machines à café, sorbetières, batteries de cuisine, ventilateurs, climatiseurs mobiles, purificateurs d&apos;air, électroménager. <strong>Ninja, Tefal, De&apos;Longhi, Philips, Ecovacs, Roborock, Tineco</strong>… {articles.length} articles.
@@ -189,16 +189,16 @@ export default async function BonsPlansMaisonPage() {
           <div className="container" style={{ maxWidth: "820px" }}>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
               <ChefHat size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Cuisine : les tendances 2026 à suivre
+              Cuisine : les tendances à suivre
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              La cuisine vit une révolution avec l&apos;<strong>airfryer</strong> (Ninja, Tefal, Philips), la <strong>sorbetière maison</strong> (Ninja CREAMi cartonne en 2026) et la <strong>machine à granités</strong> (Ninja SLUSHi parfait pour l&apos;été). Les <strong>machines à café automatiques</strong> avec broyeur (De&apos;Longhi Magnifica) deviennent l&apos;équipement standard. Côté petit électroménager, <strong>Russell Hobbs</strong> et <strong>Bosch</strong> offrent les meilleurs rapports qualité/prix.
+              La cuisine vit une révolution avec l&apos;<strong>airfryer</strong> (Ninja, Tefal, Philips), la <strong>sorbetière maison</strong> (le Ninja CREAMi cartonne) et la <strong>machine à granités</strong> (Ninja SLUSHi parfait pour l&apos;été). Les <strong>machines à café automatiques</strong> avec broyeur (De&apos;Longhi Magnifica) deviennent l&apos;équipement standard. Côté petit électroménager, <strong>Russell Hobbs</strong> et <strong>Bosch</strong> offrent les meilleurs rapports qualité/prix.
             </p>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               🤖 Robots aspirateurs : l&apos;essentiel à savoir
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>robots aspirateurs avec station Omni</strong> (vidage + lavage serpillère automatique) sont devenus le standard 2026. <strong>Ecovacs T50 Omni</strong>, <strong>Roborock QV 35A</strong>, <strong>Narwal Freo S</strong>… Le prix d&apos;entrée a chuté à ~250-300 € pour des modèles très complets. Pour les sols mixtes (parquet + tapis), choisir un modèle avec <strong>serpillère rotative</strong> et <strong>relevable</strong>. Pour les animaux, viser un modèle <strong>ZeroTangle</strong> (anti-cheveux).
+              Les <strong>robots aspirateurs avec station Omni</strong> (vidage + lavage serpillère automatique) sont devenus le standard. <strong>Ecovacs T50 Omni</strong>, <strong>Roborock QV 35A</strong>, <strong>Narwal Freo S</strong>… Le prix d&apos;entrée a chuté à ~250-300 € pour des modèles très complets. Pour les sols mixtes (parquet + tapis), choisir un modèle avec <strong>serpillère rotative</strong> et <strong>relevable</strong>. Pour les animaux, viser un modèle <strong>ZeroTangle</strong> (anti-cheveux).
             </p>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               <Wind size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
@@ -215,7 +215,7 @@ export default async function BonsPlansMaisonPage() {
               Les marques à suivre en maison & cuisine
             </h2>
             <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>Ninja</strong> (airfryer Foodi, CREAMi, SLUSHi) — la marque 2026 → <a href="/bons-plans-ninja">voir le Coin Ninja</a></li>
+              <li><strong>Ninja</strong> (airfryer Foodi, CREAMi, SLUSHi) — la marque à suivre → <a href="/bons-plans-ninja">voir le Coin Ninja</a></li>
               <li><strong>Tefal</strong> : Ingenio batterie amovible, airfryers</li>
               <li><strong>De&apos;Longhi</strong> : machines café Magnifica</li>
               <li><strong>Philips</strong> : purificateurs d&apos;air, airfryers, batterie de cuisine</li>

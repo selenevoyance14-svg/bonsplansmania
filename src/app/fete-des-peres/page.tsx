@@ -5,19 +5,24 @@ import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import { matchesSeasonalKeywords } from "@/lib/seasonal-match";
 
 export const metadata: Metadata = {
-  title: "Fête des Pères 2026 (21 juin) : idées cadeaux papa, bons plans, concours — BonsPlansMania",
+  // La fête des pères 2026 avait lieu le 21 juin : la page est périmée depuis.
+  // 133 impressions pour 3 clics en position 17,9. Sortie de l'index jusqu'à
+  // l'édition suivante.
+  robots: { index: false, follow: true },
+  title: "Fête des Pères : idées cadeaux papa — BonsPlansMania",
   description:
-    "Hub Fête des Pères 2026 (dimanche 21 juin) : idées cadeaux papa originales et accessibles, bons plans grooming, parfum, high-tech, montres connectées, box homme, concours dédiés. Mise à jour quotidienne.",
-  alternates: { canonical: "https://bonsplansmania.fr/fete-des-peres-2026" },
+    "Hub Fête des Pères (dimanche 21 juin) : idées cadeaux papa originales et accessibles, bons plans grooming, parfum, high-tech, montres connectées, box homme, concours dédiés. Mise à jour quotidienne.",
+  alternates: { canonical: "https://bonsplansmania.fr/fete-des-peres" },
   openGraph: {
-    title: "Fête des Pères 2026 — Idées cadeaux & bons plans papa",
+    title: "Fête des Pères — Idées cadeaux & bons plans papa",
     description:
       "Toutes nos sélections cadeaux et bons plans Fête des Pères 21 juin 2026 : grooming, parfum, high-tech, montres, box homme.",
     type: "website",
     locale: "fr_FR",
-    url: "https://bonsplansmania.fr/fete-des-peres-2026",
+    url: "https://bonsplansmania.fr/fete-des-peres",
   },
 };
 
@@ -48,7 +53,7 @@ function matches(article: ArticleType): boolean {
     article.meta.description.toLowerCase(),
     ...(article.meta.tags || []).map((t) => t.toLowerCase()),
   ].join(" ");
-  return KEYWORDS.some((kw) => haystack.includes(kw));
+  return matchesSeasonalKeywords(haystack, KEYWORDS);
 }
 
 export default function FeteDesPeres2026Page() {
@@ -66,7 +71,7 @@ export default function FeteDesPeres2026Page() {
         a.meta.description.toLowerCase(),
         ...(a.meta.tags || []).map((t) => t.toLowerCase()),
       ].join(" ");
-      return kws.some((k) => haystack.includes(k));
+      return matchesSeasonalKeywords(haystack, kws);
     });
   };
 
@@ -100,7 +105,7 @@ export default function FeteDesPeres2026Page() {
             <nav className="breadcrumbs">
               <a href="/">Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
-              <span>Fête des Pères 2026</span>
+              <span>Fête des Pères</span>
             </nav>
             <h1
               style={{
@@ -114,7 +119,7 @@ export default function FeteDesPeres2026Page() {
               }}
             >
               <Gift size={36} color="#2563EB" />
-              Fête des Pères 2026 — dimanche 21 juin
+              Fête des Pères — dimanche 21 juin
             </h1>
             <p style={{ color: "#1E3A8A", fontSize: "1.1rem", maxWidth: "820px", marginBottom: "16px", lineHeight: 1.6 }}>
               Toutes nos sélections, <strong>idées cadeaux papa</strong>, bons plans et concours pour la <strong>Fête des Pères du 21 juin 2026</strong>. Grooming, parfums, high-tech, montres connectées, box homme : on a couvert tous les budgets, tous les styles de papa.
@@ -229,7 +234,7 @@ export default function FeteDesPeres2026Page() {
         {articles.length === 0 && (
           <section className="section">
             <div className="container" style={{ textAlign: "center", padding: "48px 0", color: "var(--muted-foreground)" }}>
-              <p>On enrichit cette page avec nos idées cadeaux Fête des Pères 2026, reviens vite !</p>
+              <p>On enrichit cette page avec nos idées cadeaux Fête des Pères, reviens vite !</p>
               <a href="/categorie/bon-plan" className="btn btn-primary" style={{ marginTop: "16px", display: "inline-block" }}>
                 Voir tous les bons plans →
               </a>
@@ -250,7 +255,7 @@ export default function FeteDesPeres2026Page() {
                 margin: "0 auto",
               }}
             >
-              <h2 style={{ fontSize: "1.3rem", marginBottom: "12px" }}>Notre sélection Fête des Pères 2026</h2>
+              <h2 style={{ fontSize: "1.3rem", marginBottom: "12px" }}>Notre sélection Fête des Pères</h2>
               <p style={{ marginBottom: "12px", lineHeight: 1.7 }}>
                 Cette année, la <strong>Fête des Pères tombe le dimanche 21 juin 2026</strong>. Pour t&apos;aider à trouver le cadeau parfait, on a sélectionné <strong>les meilleurs bons plans et idées</strong> par catégorie : <strong>grooming & rasage</strong> (Box Monsieur, baumes barbe), <strong>parfums</strong> (codes promo, coffrets), <strong>high-tech</strong> (montres connectées Garmin, Fitbit, Xiaomi), et <strong>concours</strong> à participer pour gagner un cadeau original.
               </p>
@@ -269,8 +274,8 @@ export default function FeteDesPeres2026Page() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
-                { href: "/ete-2026", label: "☀️ Été 2026", desc: "Solaires, vacances, anti-canicule", color: "#F59E0B" },
-                { href: "/noel-2026", label: "🎄 Noël 2026 (à venir)", desc: "Calendriers Avent + cadeaux", color: "#DC2626" },
+                { href: "/ete", label: "☀️ Été", desc: "Solaires, vacances, anti-canicule", color: "#F59E0B" },
+                { href: "/noel", label: "🎄 Noël (à venir)", desc: "Calendriers Avent + cadeaux", color: "#DC2626" },
                 { href: "/categorie/box-beaute", label: "📦 Box beauté & lifestyle", desc: "Toutes nos box du moment", color: "#86198F" },
                 { href: "/categorie/concours", label: "🎁 Tous les concours", desc: "Jeux gratuits actuels", color: "#7C3AED" },
                 { href: "/categorie/code-promo", label: "🏷️ Codes promo", desc: "Réductions actives", color: "#1D4ED8" },

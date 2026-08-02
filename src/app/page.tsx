@@ -2,15 +2,13 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
 import NewsletterInline from "@/app/components/NewsletterInline";
-import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, Check, ArrowRight, Gift, Percent } from "lucide-react";
-import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
+import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, ArrowRight, Gift, Percent } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import HeroSearchBar from "@/app/components/HeroSearchBar";
 import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
-import PermanentCodesTeaser from "@/app/components/PermanentCodesTeaser";
 import SectionHeader from "@/app/components/SectionHeader";
 import FeaturedPartner from "@/app/components/FeaturedPartner";
 import DailyTopDeals from "@/app/components/DailyTopDeals";
@@ -33,21 +31,10 @@ const HOME_CATEGORIES = [
   { href: "/bons-plans-mode", Icon: Shirt, label: "Coin Mode", color: "#7C3AED" },
 ];
 
-function commercialScore(article: ReturnType<typeof getAllArticles>[number]): number {
-  const ageInDays = Math.max(
-    0,
-    (Date.now() - new Date(`${article.meta.updated || article.meta.date}T12:00:00`).getTime()) /
-      86_400_000,
-  );
-  return (
-    (article.meta.dealOfDay ? 100 : 0) +
-    (article.meta.featured ? 35 : 0) +
-    (article.meta.affiliateUrl ? 30 : 0) +
-    (article.meta.price ? 18 : 0) +
-    (article.meta.category === "code-promo" ? 12 : 0) +
-    Math.max(0, 20 - ageInDays)
-  );
-}
+// Graine du tirage des bons plans du jour. Évaluée une seule fois, au build :
+// figée pour un déploiement donné, différente au suivant. La calculer pendant
+// le rendu déclenchait l'erreur React « Cannot call impure function ».
+const BUILD_SEED = String(Date.now());
 
 function isCommerciallyFresh(article: ReturnType<typeof getAllArticles>[number]): boolean {
   const effectiveDate = new Date(
@@ -68,9 +55,6 @@ export default function Home() {
     FEATURED_PARTNER,
     new Date(),
   );
-  // Preuve sociale : compteurs arrondis pour le bandeau hero
-  const totalArticles = Math.floor(allArticles.length / 100) * 100; // arrondi à la centaine inférieure
-  const totalBrands = Math.floor(CODE_PROMO_BRANDS.length / 10) * 10; // arrondi à la dizaine inférieure
 
   // Nouvelles box beauté à découvrir : 4 dernières box non expirées
   // (la liste allArticles est déjà triée par max(date, updated) desc + actifs en haut)
@@ -96,8 +80,6 @@ export default function Home() {
     )
     .slice(0, 8)
     .map(({ meta }) => ({ meta }));
-  // Graine du tirage : figée pour un déploiement donné, différente au suivant.
-  const topDealSeed = String(Date.now());
   const topDealSlugs = new Set(topDealCandidates.map((a) => a.meta.slug));
 
   // Dernières offres : on exclut tout ce qui est déjà affiché plus haut
@@ -170,32 +152,11 @@ export default function Home() {
 
           <HeroSearchBar />
 
-          {/* Bandeau preuve sociale */}
-          <div
-            style={{
-              marginTop: "24px",
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "22px",
-              fontSize: "0.85rem",
-              color: "var(--muted-foreground)",
-              fontWeight: 600,
-            }}
-          >
-            <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <Check size={15} strokeWidth={3} style={{ color: "var(--primary)" }} aria-hidden />
-              <strong style={{ color: "var(--foreground)" }}>{totalArticles.toLocaleString("fr-FR")}+</strong> articles vérifiés
-            </span>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <Check size={15} strokeWidth={3} style={{ color: "var(--primary)" }} aria-hidden />
-              <strong style={{ color: "var(--foreground)" }}>{totalBrands}+</strong> marques partenaires
-            </span>
-            <span style={{ display: "inline-flex", alignItems: "center", gap: "5px" }}>
-              <Check size={15} strokeWidth={3} style={{ color: "var(--primary)" }} aria-hidden />
-              Mis à jour <strong style={{ color: "var(--foreground)" }}>chaque jour</strong>
-            </span>
-          </div>
+          {/* Bandeau de preuve sociale retiré le 02/08/2026.
+              Il annonçait « 4 700+ articles vérifiés » et « Mis à jour chaque
+              jour », deux promesses qu'aucune relecture réelle du catalogue ne
+              soutenait, et « 50+ marques partenaires » compté depuis une liste
+              de marques suivies, sans contrat de partenariat derrière. */}
         </div>
       </section>
 
@@ -212,7 +173,7 @@ export default function Home() {
               color="#0EA5A9"
               href="/bons-plans-en-cours"
             />
-            <DailyTopDeals candidates={topDealCandidates} seed={topDealSeed} />
+            <DailyTopDeals candidates={topDealCandidates} seed={BUILD_SEED} />
           </div>
         </section>
       )}
@@ -301,8 +262,9 @@ export default function Home() {
         <NewsletterInline />
       </section>
 
-      {/* ═══ ♾️ CODES PROMO PERMANENTS (teaser 6 codes) ═══ */}
-      <PermanentCodesTeaser />
+      {/* Bloc « Réductions valables toute l'année » retiré de l'accueil le
+          02/08/2026. La page /codes-promo-permanents reste en ligne et
+          accessible depuis le menu Bons plans. */}
 
       {/* ═══ PUB ENTRE VEDETTES ET DERNIERS ═══ */}
       <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>

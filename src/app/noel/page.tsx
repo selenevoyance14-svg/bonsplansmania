@@ -5,19 +5,20 @@ import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import { matchesSeasonalKeywords } from "@/lib/seasonal-match";
 
 export const metadata: Metadata = {
-  title: "Bons plans Noël 2026 : calendriers de l'Avent et cadeaux — BonsPlansMania",
+  title: "Bons plans Noël : calendriers de l'Avent — BonsPlansMania",
   description:
-    "Retrouvez les bons plans Noël 2026 : calendriers de l'Avent, coffrets cadeaux, offres Black Friday, concours et codes promo de fin d'année.",
-  alternates: { canonical: "https://bonsplansmania.fr/noel-2026" },
+    "Retrouvez les bons plans Noël : calendriers de l'Avent, coffrets cadeaux, offres Black Friday, concours et codes promo de fin d'année.",
+  alternates: { canonical: "https://bonsplansmania.fr/noel" },
   openGraph: {
-    title: "Noël 2026 — Calendriers Avent, cadeaux, bons plans",
+    title: "Noël — Calendriers de l'Avent, cadeaux, bons plans",
     description:
-      "Toutes nos sélections, calendriers de l'Avent et idées cadeaux Noël 2026. Box beauté, coffrets, jouets, high-tech, concours.",
+      "Toutes nos sélections, calendriers de l'Avent et idées cadeaux Noël. Box beauté, coffrets, jouets, high-tech, concours.",
     type: "website",
     locale: "fr_FR",
-    url: "https://bonsplansmania.fr/noel-2026",
+    url: "https://bonsplansmania.fr/noel",
   },
 };
 
@@ -47,7 +48,7 @@ function matches(article: ArticleType): boolean {
     article.meta.description.toLowerCase(),
     ...(article.meta.tags || []).map((t) => t.toLowerCase()),
   ].join(" ");
-  return KEYWORDS.some((kw) => haystack.includes(kw));
+  return matchesSeasonalKeywords(haystack, KEYWORDS);
 }
 
 export default function Noel2026Page() {
@@ -59,17 +60,17 @@ export default function Noel2026Page() {
 
   const calendriers = articles.filter((a) => {
     const haystack = [a.meta.title.toLowerCase(), ...(a.meta.tags || []).map((t) => t.toLowerCase())].join(" ");
-    return haystack.includes("calendrier") || haystack.includes("avent");
+    return matchesSeasonalKeywords(haystack, ["calendrier", "avent"]);
   }).slice(0, 6);
 
   const blackFriday = articles.filter((a) => {
     const haystack = [a.meta.title.toLowerCase(), ...(a.meta.tags || []).map((t) => t.toLowerCase())].join(" ");
-    return haystack.includes("black friday") || haystack.includes("black-friday") || haystack.includes("cyber-monday");
+    return matchesSeasonalKeywords(haystack, ["black friday", "black-friday", "cyber-monday"]);
   }).slice(0, 6);
 
   const coffrets = articles.filter((a) => {
     const haystack = [a.meta.title.toLowerCase(), ...(a.meta.tags || []).map((t) => t.toLowerCase())].join(" ");
-    return haystack.includes("coffret") || haystack.includes("cadeau");
+    return matchesSeasonalKeywords(haystack, ["coffret", "cadeau"]);
   }).slice(0, 6);
 
   const concoursNoel = articles.filter((a) => a.meta.category === "concours").slice(0, 6);
@@ -78,7 +79,7 @@ export default function Noel2026Page() {
   const today = new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
   const sections: { id: string; title: string; desc: string; Icon: typeof Gift; color: string; articles: ArticleType[] }[] = [
-    { id: "calendriers", title: "🎄 Calendriers de l'Avent 2026", desc: "Beauté, gourmandise, enfants — toutes les box", Icon: TreePine, color: "#16A34A", articles: calendriers },
+    { id: "calendriers", title: "🎄 Calendriers de l'Avent", desc: "Beauté, gourmandise, enfants — toutes les box", Icon: TreePine, color: "#16A34A", articles: calendriers },
     { id: "black-friday", title: "🔥 Black Friday & Cyber Monday", desc: "Les meilleurs deals novembre-décembre", Icon: Sparkles, color: "#000000", articles: blackFriday },
     { id: "coffrets", title: "🎁 Coffrets cadeaux & idées Noël", desc: "Pour elle, pour lui, pour les enfants", Icon: Gift, color: "#DC2626", articles: coffrets },
     { id: "concours-noel", title: "🏆 Concours Noël & fin d'année", desc: "Jeux gratuits pour gagner des cadeaux", Icon: Trophy, color: "#7C3AED", articles: concoursNoel },
@@ -99,7 +100,7 @@ export default function Noel2026Page() {
             <nav className="breadcrumbs" style={{ color: "white" }}>
               <a href="/" style={{ color: "white" }}>Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.7 }} />
-              <span style={{ color: "white" }}>Noël 2026</span>
+              <span style={{ color: "white" }}>Noël</span>
             </nav>
             <h1
               style={{
@@ -113,7 +114,7 @@ export default function Noel2026Page() {
               }}
             >
               <TreePine size={36} color="#FBBF24" />
-              Les bons plans de Noël 2026
+              Les bons plans de Noël
             </h1>
             <p style={{ color: "white", fontSize: "1.1rem", maxWidth: "820px", marginBottom: "16px", lineHeight: 1.6, opacity: 0.95 }}>
               Retrouvez les <strong>calendriers de l&apos;Avent</strong>, les idées cadeaux,
@@ -230,7 +231,7 @@ export default function Noel2026Page() {
         {articles.length === 0 && (
           <section className="section">
             <div className="container" style={{ textAlign: "center", padding: "48px 0", color: "var(--muted-foreground)" }}>
-              <p>On prépare la sélection Noël 2026, reviens en septembre pour les premiers calendriers de l&apos;Avent !</p>
+              <p>On prépare la sélection Noël, reviens en septembre pour les premiers calendriers de l&apos;Avent !</p>
               <a href="/categorie/calendrier-avent" className="btn btn-primary" style={{ marginTop: "16px", display: "inline-block" }}>
                 Voir l&apos;archive Calendriers Avent →
               </a>
@@ -246,7 +247,7 @@ export default function Noel2026Page() {
             </div>
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
-                { href: "/ete-2026", label: "☀️ Été 2026", desc: "Solaires, vacances, anti-canicule", color: "#F59E0B" },
+                { href: "/ete", label: "☀️ Été", desc: "Solaires, vacances, anti-canicule", color: "#F59E0B" },
                 { href: "/categorie/calendrier-avent", label: "🎄 Tous les calendriers Avent", desc: "Archives + actuels", color: "#16A34A" },
                 { href: "/categorie/box-beaute", label: "📦 Box beauté", desc: "Blissim, Glowria, Biotyfull…", color: "#86198F" },
                 { href: "/categorie/concours", label: "🎁 Concours en cours", desc: "Jeux gratuits", color: "#7C3AED" },

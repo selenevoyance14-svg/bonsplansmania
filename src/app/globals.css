@@ -2635,11 +2635,18 @@ body {
 }
 
 .bpm-hero h1 {
-  font-size: clamp(2rem, 5vw, 3.2rem);
+  /* Le titre grossissait à 5vw pour un maximum de 3.2rem, donc plus vite que le
+     conteneur ne s'élargit : entre 768 et 1024 px — tablette paysage et petits
+     portables — il atteignait 986 px pour 984 px disponibles et semblait coupé
+     au bord (constaté le 02/08/2026). 4vw plafonné à 2.9rem laisse de la marge
+     à toutes les largeurs. `text-wrap: balance` répartit les lignes à peu près
+     également si le titre venait malgré tout à passer sur deux lignes. */
+  font-size: clamp(1.9rem, 4vw, 2.9rem);
   font-weight: 800;
   line-height: 1.15;
   margin-bottom: 16px;
   color: var(--foreground);
+  text-wrap: balance;
 }
 
 .bpm-hero-sub {

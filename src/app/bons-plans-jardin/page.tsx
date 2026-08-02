@@ -19,7 +19,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Jardin & Animaux & Animaux : Bons Plans Jardin, Piscine, Animalerie 2026 — Bons Plans Mania",
+  title: "Bons plans jardin, piscine & animalerie — Bons Plans Mania",
   description: "Tous les bons plans jardin & animaux du moment : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, arbres à chat, litières, croquettes, colliers GPS. Worx, Segway Navimow, Aiper, Feandrea, Tractive, Zooplus.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-jardin" },
 };
@@ -149,7 +149,7 @@ export default async function BonsPlansJardinPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Jardin & Animaux & Animaux — Bons Plans Jardin, Piscine, Animalerie 2026",
+          name: "Coin Jardin & Animaux — Bons Plans Jardin, Piscine, Animalerie",
           description: "Tous les bons plans jardin & animaux : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, arbres à chat, litières, croquettes, colliers GPS animaux.",
           url: "https://bonsplansmania.fr/bons-plans-jardin",
           mainEntity: {
@@ -171,7 +171,7 @@ export default async function BonsPlansJardinPage() {
           "@type": "BreadcrumbList",
           itemListElement: [
             { "@type": "ListItem", position: 1, name: "Accueil", item: "https://bonsplansmania.fr" },
-            { "@type": "ListItem", position: 2, name: "Coin Jardin & Animaux & Animaux" },
+            { "@type": "ListItem", position: 2, name: "Coin Jardin & Animaux" },
           ],
         }) }}
       />
@@ -186,7 +186,7 @@ export default async function BonsPlansJardinPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <TreePine size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#65a30d" }} />
-              Coin Jardin & Animaux : Bons Plans Jardin, Piscine & Animalerie 2026
+              Coin Jardin & Animaux : Bons Plans Jardin, Piscine & Animalerie
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans jardin, piscine et outdoor</strong> du moment : robots tondeuse, robots piscine, barbecues, mobilier de jardin, outils jardinage, nettoyeurs haute pression. <strong>Worx, Segway Navimow, AIPER, Wybot, Medoxa, EcoFlow, Black+Decker</strong>… {articles.length} articles.
@@ -201,10 +201,10 @@ export default async function BonsPlansJardinPage() {
         <section className="section" style={{ paddingTop: "16px" }}>
           <div className="container" style={{ maxWidth: "820px" }}>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              🌱 Robots tondeuse : la révolution 2026
+              🌱 Robots tondeuse : la fin du fil périmétrique
             </h2>
             <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>robots tondeuse sans fil périmétrique</strong> sont devenus accessibles en 2026 grâce aux technologies <strong>RTK + VSLAM + LiDAR</strong>. <strong>Segway Navimow</strong> (i210 LiDAR Pro, X420), <strong>Worx Vision Cloud</strong>, <strong>Husqvarna Automower</strong> couvrent tous les besoins. Plus besoin d&apos;enterrer un fil dans le jardin. Pour les terrains pentus (jusqu&apos;à 80%), choisir un modèle <strong>4 roues motrices</strong>.
+              Les <strong>robots tondeuse sans fil périmétrique</strong> sont devenus accessibles grâce aux technologies <strong>RTK + VSLAM + LiDAR</strong>. <strong>Segway Navimow</strong> (i210 LiDAR Pro, X420), <strong>Worx Vision Cloud</strong>, <strong>Husqvarna Automower</strong> couvrent tous les besoins. Plus besoin d&apos;enterrer un fil dans le jardin. Pour les terrains pentus (jusqu&apos;à 80%), choisir un modèle <strong>4 roues motrices</strong>.
             </p>
             <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
               <Waves size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
