@@ -80,6 +80,8 @@ export default function Home() {
   const latestBoxSlugs = new Set(latestBoxes.map((a) => a.meta.slug));
 
   // 🔥 Les bons plans du moment : priorité au potentiel commercial, puis à la fraîcheur.
+  // Le vivier est volontairement plus large que les 4 places affichées : le tirage
+  // au build (voir DailyTopDeals) y pioche, donc la home change à chaque déploiement.
   const topDealCandidates = allArticles
     .filter((a) =>
       (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
@@ -87,8 +89,10 @@ export default function Home() {
       && isCommerciallyFresh(a)
     )
     .toSorted((a, b) => commercialScore(b) - commercialScore(a))
-    .slice(0, 12)
+    .slice(0, 24)
     .map(({ meta }) => ({ meta }));
+  // Graine du tirage : figée pour un déploiement donné, différente au suivant.
+  const topDealSeed = String(Date.now());
   const topDealSlugs = new Set(topDealCandidates.map((a) => a.meta.slug));
 
   // Dernières offres : on exclut tout ce qui est déjà affiché plus haut
@@ -203,7 +207,7 @@ export default function Home() {
               color="#0EA5A9"
               href="/bons-plans-en-cours"
             />
-            <DailyTopDeals candidates={topDealCandidates} />
+            <DailyTopDeals candidates={topDealCandidates} seed={topDealSeed} />
           </div>
         </section>
       )}
