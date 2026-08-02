@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 02 Aug 2026 06:36:42 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 06:49:52 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>85 € de soins pour 20 € : la box beauté d'août LOOKFANTASTIC</title>
@@ -15,6 +15,15 @@
       <description>La box beauté d'août LOOKFANTASTIC : 6 produits Spectrum, Rituals, Rodial, Ultrasun, Arkive et Philip Kingsley plus un échantillon Valentino Born in Roma, pour 20 €. Valeur détaillée 85 €. Attention, l'abonnement se reconduit tout seul.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun.png" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Test gratuit : 25 boîtes de feuilles de lessive à recevoir</title>
+      <link>https://bonsplansmania.fr/article/opinagora-test-gratuit-feuilles-de-lessive-septembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/opinagora-test-gratuit-feuilles-de-lessive-septembre-2026</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Opinagora recrute 25 testeuses pour des feuilles de lessive MomRemedy : 60 feuilles pré-dosées, jusqu'à 120 lavages, enzymes végétales, sans sulfate, zéro plastique. Candidature gratuite jusqu'au 1er septembre 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/opinagora-test-gratuit-feuilles-de-lessive-septembre-2026.png" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>BIC Highlighter Grip : blister de 12 surligneurs à 11,99 €</title>
@@ -447,15 +456,6 @@
       <description>Test gratuit ACM Laboratoire : crème minérale teintée Medisun+ SPF 50+. Filtres 100 % minéraux, protection UVB, UVA, lumière visible et infrarouge, non parfumée, pour peaux sensibles et intolérantes aux filtres chimiques. Candidature ambassadeur jusqu'au 12 août 2026.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-acm-medisun-plus-creme-minerale-teintee-ambassadeur-aout-2026.png" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Test gratuit Kiabi : 2 ensembles assortis papa &amp; bébé offerts</title>
-      <link>https://bonsplansmania.fr/article/test-gratuit-kiabi-community-ensembles-assortis-papa-baby-boy-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-gratuit-kiabi-community-ensembles-assortis-papa-baby-boy-aout-2026</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Test gratuit Kiabi Community : reçois deux ensembles assortis papa et bébé garçon, chemise rayée et bermuda beige pour l'un, chemise à motifs vélos et short pour l'autre. Tu testes, tu donnes ton avis, et tu gardes les deux tenues.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-kiabi-community-ensembles-assortis-papa-baby-boy-aout-2026.png" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
