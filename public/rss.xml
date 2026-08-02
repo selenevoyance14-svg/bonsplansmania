@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 02 Aug 2026 06:21:11 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 06:36:42 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>85 € de soins pour 20 € : la box beauté d'août LOOKFANTASTIC</title>
+      <link>https://bonsplansmania.fr/article/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun</link>
+      <guid>https://bonsplansmania.fr/article/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <description>La box beauté d'août LOOKFANTASTIC : 6 produits Spectrum, Rituals, Rodial, Ultrasun, Arkive et Philip Kingsley plus un échantillon Valentino Born in Roma, pour 20 €. Valeur détaillée 85 €. Attention, l'abonnement se reconduit tout seul.</description>
+      <category>box-beaute</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun.png" type="image/svg+xml" length="0"/>
+    </item>
     <item>
       <title>BIC Highlighter Grip : blister de 12 surligneurs à 11,99 €</title>
       <link>https://bonsplansmania.fr/article/bic-highlighter-grip-blister-12-surligneurs-11-euros</link>
@@ -447,15 +456,6 @@
       <description>Test gratuit Kiabi Community : reçois deux ensembles assortis papa et bébé garçon, chemise rayée et bermuda beige pour l'un, chemise à motifs vélos et short pour l'autre. Tu testes, tu donnes ton avis, et tu gardes les deux tenues.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-kiabi-community-ensembles-assortis-papa-baby-boy-aout-2026.png" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Test gratuit Payot Suprême Absolu : Crème Yeux Jeunesse 5 ml</title>
-      <link>https://bonsplansmania.fr/article/test-gratuit-payot-creme-yeux-jeunesse-5ml-club-testeuses-juillet-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-gratuit-payot-creme-yeux-jeunesse-5ml-club-testeuses-juillet-2026</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Payot ouvre une nouvelle campagne ambassadrice via son Club des Testeuses : inscris-toi et complète ton profil beauté pour tenter de recevoir une miniature 5 ml de la Crème Yeux Jeunesse. Inscription gratuite, sans engagement, tirage au sort.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-payot-creme-yeux-jeunesse-5ml-club-testeuses-juillet-2026.png" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
