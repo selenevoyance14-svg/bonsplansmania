@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 02 Aug 2026 09:19:47 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 09:27:37 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Concours Aubert : un pack poussette William Kent à 383 € à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-aubert-william-kent-1733-poussette-sirius-coque-orion-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-aubert-william-kent-1733-poussette-sirius-coque-orion-aout-2026</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Aubert met en jeu un pack William Kent 1733 — poussette Sirius beige, coque Orion et ombrelle noire — d'une valeur de 383,85 €. Un seul gagnant, participation gratuite jusqu'au 31 août 2026, limitée aux 15 000 premiers.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-aubert-william-kent-1733-poussette-sirius-coque-orion-aout-2026.png" type="image/svg+xml" length="0"/>
+    </item>
     <item>
       <title>85 € de soins pour 20 € : la box beauté d'août LOOKFANTASTIC</title>
       <link>https://bonsplansmania.fr/article/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun</link>
@@ -24,6 +33,15 @@
       <description>Opinagora recrute 25 testeuses pour des feuilles de lessive MomRemedy : 60 feuilles pré-dosées, jusqu'à 120 lavages, enzymes végétales, sans sulfate, zéro plastique. Candidature gratuite jusqu'au 1er septembre 2026.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/opinagora-test-gratuit-feuilles-de-lessive-septembre-2026.png" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Test gratuit : le Concentré Cellulaire Institut Esthederm</title>
+      <link>https://bonsplansmania.fr/article/test-gratuit-blissim-institut-esthederm-concentre-cellulaire-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-gratuit-blissim-institut-esthederm-concentre-cellulaire-aout-2026</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <description>La communauté Blissim recrute 14 testeuses pour le Concentré Cellulaire Institut Esthederm, un sérum anti-premières rides de la gamme Eau Cellulaire. Candidatures jusqu'au 9 août 2026, France métropolitaine et Belgique.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-blissim-institut-esthederm-concentre-cellulaire-aout-2026.png" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>BIC Highlighter Grip : blister de 12 surligneurs à 11,99 €</title>
@@ -438,24 +456,6 @@
       <description>Coffret Polly Pocket Fête d'anniversaire au Pays des Licornes à 16,99 € au lieu de 21,99 €. Licorne-piñata qui s'ouvre, montgolfière décorable et accessoires à replacer à volonté.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/polly-pocket-fete-anniversaire-pays-licornes-16-euros.png" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Ariel Secrets de Perle : le coffret poupée à 13,99 €</title>
-      <link>https://bonsplansmania.fr/article/princesses-disney-ariel-secrets-perle-coffret-poupee-13-euros</link>
-      <guid>https://bonsplansmania.fr/article/princesses-disney-ariel-secrets-perle-coffret-poupee-13-euros</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Coffret Princesses Disney Ariel Secrets de Perle JBF86 à 13,99 € au lieu de 20,49 €. Poupée à queue de sirène amovible, coiffeuse, 5 perles surprises réutilisables et 5 accessoires.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/princesses-disney-ariel-secrets-perle-coffret-poupee-13-euros.png" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Test gratuit ACM Medisun+ : crème minérale teintée SPF 50+</title>
-      <link>https://bonsplansmania.fr/article/test-gratuit-acm-medisun-plus-creme-minerale-teintee-ambassadeur-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-gratuit-acm-medisun-plus-creme-minerale-teintee-ambassadeur-aout-2026</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Test gratuit ACM Laboratoire : crème minérale teintée Medisun+ SPF 50+. Filtres 100 % minéraux, protection UVB, UVA, lumière visible et infrarouge, non parfumée, pour peaux sensibles et intolérantes aux filtres chimiques. Candidature ambassadeur jusqu'au 12 août 2026.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-acm-medisun-plus-creme-minerale-teintee-ambassadeur-aout-2026.png" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
