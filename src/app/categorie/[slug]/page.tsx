@@ -25,7 +25,7 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 
 
 export async function generateStaticParams() {
-  return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "concours", "box-beaute", "selection", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
+  return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "concours", "box-beaute", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
 }
 
 interface PageProps { params: Promise<{ slug: string }>; }
@@ -104,9 +104,17 @@ export default async function CategoryPage({ params }: PageProps) {
   const cat = categoryConfig[slug];
   if (!cat) notFound();
 
-  // Page parente test-produit : regroupe test-gratuit + test-avis
-  const articles = slug === "test-produit"
-    ? [...getArticlesByCategory("test-gratuit"), ...getArticlesByCategory("test-avis")]
+  // Pages parentes : elles n'ont pas d'article à elles, elles agrègent leurs
+  // sous-catégories. Sans ça, /categorie/calendrier s'affichait « 0 article »
+  // alors que calendrier-avent en compte plusieurs (constaté le 02/08/2026).
+  const PARENT_CATEGORIES: Record<string, string[]> = {
+    "test-produit": ["test-gratuit", "test-avis"],
+    "calendrier": ["calendrier-avent"],
+  };
+  const children = PARENT_CATEGORIES[slug];
+  const articles = children
+    ? children
+        .flatMap((c) => getArticlesByCategory(c))
         .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
     : getArticlesByCategory(slug);
 

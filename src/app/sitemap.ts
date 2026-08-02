@@ -59,7 +59,7 @@ const CATEGORY_SLUGS = [
   "beaute",
   "concours",
   "box-beaute",
-  "selection",
+  "calendrier",
   "calendrier-avent",
   "code-promo",
 ];
