@@ -389,8 +389,8 @@ export default function Home() {
             <div>
               <h4>Explorer</h4>
               <ul className="footer-links" role="list">
-                <li><a href="/ete-2026">☀️ Été 2026</a></li>
-                <li><a href="/noel-2026">🎄 Noël 2026</a></li>
+                <li><a href="/ete">☀️ Été</a></li>
+                <li><a href="/noel">🎄 Noël</a></li>
                 <li><a href="/marques">Toutes les marques</a></li>
                 <li><a href="/blog">Tous les articles</a></li>
               </ul>

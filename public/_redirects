@@ -368,3 +368,9 @@
 /article/bon-plan-amazon-nuxe-very-rose-essentials-coffret-juillet-2026 /article/bon-plan-amazon-nuxe-merveillance-lift-creme-velours-effet-liftant-juillet-2026 301
 /article/chicco-test-gratuit-poussette-dolomiti-avril-2026 /article/chicco-poussette-dolomiti-test-produit-gratuit-juin-2026 301
 /categorie/selection /categorie/comparatif 301
+
+# Hubs saisonniers : URL dévidées de leur année pour capitaliser d'une saison
+# à l'autre au lieu de recréer une page morte chaque janvier (02/08/2026).
+/ete-2026 /ete 301
+/noel-2026 /noel 301
+/fete-des-peres-2026 /fete-des-peres 301

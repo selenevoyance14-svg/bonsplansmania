@@ -8,6 +8,11 @@ import StickyAdMobile from "@/app/components/StickyAdMobile";
 
 
 export const metadata: Metadata = {
+  // /blog listait les 4 700 articles du site dans une seule page de 3,7 Mo :
+  // aucun contenu propre, chaque article figurant déjà dans sa catégorie. Google
+  // n'y voyait qu'un doublon géant (185 impressions, 2 clics, CTR 1,08 %).
+  // La page reste en ligne et navigable, elle sort simplement de l'index.
+  robots: { index: false, follow: true },
   title: "Tous les Articles : Bons Plans, Tests Gratuits, Concours — Bons Plans Mania",
   description: "Retrouvez tous nos articles : bons plans beauté, codes promo, tests de produits gratuits, jeux concours et avis sur les box beauté. Plus de 700 offres à découvrir, mises à jour quotidiennement.",
   alternates: { canonical: "https://bonsplansmania.fr/blog" },

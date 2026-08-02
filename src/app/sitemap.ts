@@ -23,12 +23,16 @@ const CURATED_BRAND_SLUGS = new Set<string>([
 ]);
 
 const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
+  // Un sitemap ne doit lister que des pages qu'on demande à Google d'indexer.
+  // /blog (doublon de tout le site) et /fete-des-peres (périmée depuis le
+  // 21 juin) sont passées en `noindex` : les laisser ici revenait à les
+  // soumettre tout en demandant de ne pas les afficher. Elles restent en ligne
+  // et navigables. Les deux hubs saisonniers, eux, restent indexés une fois
+  // leur filtre corrigé.
   { path: "",                          priority: 1.0, changeFrequency: "daily" },
-  { path: "/blog",                     priority: 0.9, changeFrequency: "daily" },
   { path: "/bons-plans-en-cours",      priority: 0.9, changeFrequency: "daily" },
-  { path: "/ete-2026",                 priority: 0.9, changeFrequency: "daily" },
-  { path: "/fete-des-peres-2026",      priority: 0.3, changeFrequency: "yearly" },
-  { path: "/noel-2026",                priority: 0.8, changeFrequency: "weekly" },
+  { path: "/ete",                      priority: 0.9, changeFrequency: "daily" },
+  { path: "/noel",                     priority: 0.8, changeFrequency: "weekly" },
   { path: "/codes-promo-permanents",   priority: 0.8, changeFrequency: "weekly" },
   { path: "/code-promo",               priority: 0.8, changeFrequency: "weekly" },
   { path: "/bons-plans-beaute",        priority: 0.9, changeFrequency: "weekly" },
