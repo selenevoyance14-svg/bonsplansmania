@@ -80,16 +80,21 @@ export default function Home() {
   const latestBoxSlugs = new Set(latestBoxes.map((a) => a.meta.slug));
 
   // 🔥 Les bons plans du moment : priorité au potentiel commercial, puis à la fraîcheur.
-  // Le vivier est volontairement plus large que les 4 places affichées : le tirage
-  // au build (voir DailyTopDeals) y pioche, donc la home change à chaque déploiement.
+  // Le bloc s'appelle « les bons plans du jour » : il doit donc montrer ce qui vient
+  // d'être publié, pas ce qui rapporte le plus. Le classement par score commercial
+  // faisait remonter des codes promo de mars et mai — maintenus « frais » par leur
+  // champ `updated` — devant les offres du jour même (constaté le 02/08/2026).
+  // On trie donc par date effective décroissante, et on exige un lien marchand pour
+  // ne pas afficher un article sans offre à cliquer. Le vivier de 8 laisse au tirage
+  // au build (voir DailyTopDeals) de quoi faire tourner la home à chaque déploiement.
   const topDealCandidates = allArticles
     .filter((a) =>
       (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
       && !isEffectivelyExpired(a.meta)
       && isCommerciallyFresh(a)
+      && Boolean(a.meta.affiliateUrl)
     )
-    .toSorted((a, b) => commercialScore(b) - commercialScore(a))
-    .slice(0, 24)
+    .slice(0, 8)
     .map(({ meta }) => ({ meta }));
   // Graine du tirage : figée pour un déploiement donné, différente au suivant.
   const topDealSeed = String(Date.now());
