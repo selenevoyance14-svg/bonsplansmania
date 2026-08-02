@@ -230,10 +230,11 @@ const NON_BEAUTE_TOKENS = [
 // On exclut toutes les catégories qui ont leur propre page dédiée
 // (test-gratuit → /categorie/test-gratuit, concours → /categorie/concours,
 // box-beaute → /categorie/box-beaute, test-avis → /categorie/test-avis,
-// calendrier-avent → /categorie/calendrier-avent, code-promo → /categorie/code-promo).
+// comparatif → /categorie/comparatif, calendrier-avent → /categorie/calendrier-avent,
+// code-promo → /categorie/code-promo).
 // Restent : bon-plan (cœur), beaute (conseils/tests), selection (hubs).
 const EXCLUDED_CATEGORIES = new Set<string>([
-  "test-gratuit", "concours", "box-beaute", "test-avis",
+  "test-gratuit", "concours", "box-beaute", "test-avis", "comparatif",
   "calendrier-avent", "code-promo",
 ]);
 

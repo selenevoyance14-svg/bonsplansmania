@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 02 Aug 2026 11:16:22 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 02 Aug 2026 12:43:31 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Aubert : un pack poussette William Kent à 383 € à gagner</title>
@@ -15,6 +15,15 @@
       <description>Aubert met en jeu un pack William Kent 1733 — poussette Sirius beige, coque Orion et ombrelle noire — d'une valeur de 383,85 €. Un seul gagnant, participation gratuite jusqu'au 31 août 2026, limitée aux 15 000 premiers.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-aubert-william-kent-1733-poussette-sirius-coque-orion-aout-2026.png" type="image/svg+xml" length="0"/>
+    </item>
+    <item>
+      <title>Concours Corine de Farme : 10 kits solaires SPF50 à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-corine-de-farme-quiz-solaire-kit-spf50-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-corine-de-farme-quiz-solaire-kit-spf50-aout-2026</guid>
+      <pubDate>Sun, 02 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Corine de Farme met en jeu 10 kits solaires visage SPF50 — fluide anti-âge ou anti-taches et trousse d'essentiels — d'une valeur de 27,90 € chacun. Participation gratuite jusqu'au 17 août 2026, et le score du quiz ne compte pas.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-corine-de-farme-quiz-solaire-kit-spf50-aout-2026.png" type="image/svg+xml" length="0"/>
     </item>
     <item>
       <title>85 € de soins pour 20 € : la box beauté d'août LOOKFANTASTIC</title>
@@ -447,15 +456,6 @@
       <description>Rasoir électrique Philips Series 5000 S5466/18 à 69,99 € au lieu de 81,87 €. Lames ComfortTech 360°, têtes de contour, 100 % étanche, tondeuse de précision SmartClick incluse.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/philips-series-5000-rasoir-electrique-etanche-69-euros.png" type="image/svg+xml" length="0"/>
-    </item>
-    <item>
-      <title>Polly Pocket Fête au Pays des Licornes à 16,99 €</title>
-      <link>https://bonsplansmania.fr/article/polly-pocket-fete-anniversaire-pays-licornes-16-euros</link>
-      <guid>https://bonsplansmania.fr/article/polly-pocket-fete-anniversaire-pays-licornes-16-euros</guid>
-      <pubDate>Fri, 31 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Coffret Polly Pocket Fête d'anniversaire au Pays des Licornes à 16,99 € au lieu de 21,99 €. Licorne-piñata qui s'ouvre, montgolfière décorable et accessoires à replacer à volonté.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/polly-pocket-fete-anniversaire-pays-licornes-16-euros.png" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
