@@ -374,3 +374,52 @@
 /ete-2026 /ete 301
 /noel-2026 /noel 301
 /fete-des-peres-2026 /fete-des-peres 301
+
+# Pages /marque/ qui n'étaient pas des marques : tags génériques ("bon plan", "promo"),
+# datés ("2026", "juillet 2026") ou techniques ("9000 btu"). 48 pages, 1938 articles pour
+# la seule /marque/2026, et 4 clics cumulés en un an. Elles cannibalisaient /categorie/*
+# et diluaient le crawl. Supprimées du build le 03/08/2026, redirigées vers la vraie page.
+/marque/2026 /categorie/bon-plan 301
+/marque/bon-plan /categorie/bon-plan 301
+/marque/bons-plans /categorie/bon-plan 301
+/marque/promo /categorie/bon-plan 301
+/marque/promotion /categorie/bon-plan 301
+/marque/offre /categorie/bon-plan 301
+/marque/reduction /categorie/bon-plan 301
+/marque/pas-cher /categorie/bon-plan 301
+/marque/soldes /categorie/bon-plan 301
+/marque/soldes-2026 /categorie/bon-plan 301
+/marque/code-promo /categorie/code-promo 301
+/marque/beaute /categorie/beaute 301
+/marque/box-beaute-juin-2026 /categorie/box-beaute 301
+/marque/concours-juin-2026 /categorie/concours 301
+/marque/maison /bons-plans-maison 301
+/marque/maison-connectee /bons-plans-maison 301
+/marque/maison-entretien /bons-plans-maison 301
+/marque/9000-btu /bons-plans-maison 301
+/marque/7000-btu /bons-plans-maison 301
+/marque/8000-btu /bons-plans-maison 301
+/marque/12000-btu /bons-plans-maison 301
+/marque/2200w /bons-plans-beaute 301
+/marque/mains-libres /bons-plans-tech 301
+/marque/maillot /bons-plans-mode 301
+/marque/cadeau /categorie/bon-plan 301
+/marque/1000-euros /categorie/concours 301
+/marque/ete-2026 /ete 301
+/marque/soldes-ete-2026 /ete 301
+/marque/printemps-2026 /categorie/bon-plan 301
+/marque/rentree-2026 /bons-plans-rentree 301
+/marque/mars-2026 /categorie/bon-plan 301
+/marque/avril /categorie/bon-plan 301
+/marque/avril-2026 /categorie/bon-plan 301
+/marque/mai-2026 /categorie/bon-plan 301
+/marque/juin-2026 /categorie/bon-plan 301
+/marque/juin-juillet-2026 /categorie/bon-plan 301
+/marque/juillet-2026 /categorie/bon-plan 301
+/marque/fin-31-juillet-2026 /categorie/bon-plan 301
+/marque/aout-2026 /categorie/bon-plan 301
+/marque/septembre-2026 /categorie/bon-plan 301
+/marque/octobre-2026 /categorie/bon-plan 301
+/marque/fete-des-meres-2026 /categorie/bon-plan 301
+/marque/coupe-du-monde-2026 /categorie/bon-plan 301
+/marque/tour-de-france-2026 /categorie/bon-plan 301

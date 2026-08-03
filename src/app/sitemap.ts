@@ -1,26 +1,10 @@
 import type { MetadataRoute } from "next";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
+// Une seule source de vérité pour les pages /marque/ : le sitemap dupliquait la règle
+// et pouvait donc soumettre à Google des URL que le build ne génère pas (ou l'inverse).
+import { shouldGenerateTagPage, slugifyTag } from "@/lib/tag-pages";
 
 const BASE = "https://bonsplansmania.fr";
-
-// Slugify identique à src/app/marque/[slug]/page.tsx (pour rester aligné sur les routes générées)
-function slugifyTag(tag: string): string {
-  return tag
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[̀-ͯ]/g, "")
-    .replace(/\s+/g, "-")
-    .replace(/[^a-z0-9-]/g, "");
-}
-
-const MIN_ARTICLES_FOR_MARQUE_PAGE = 3;
-
-const CURATED_BRAND_SLUGS = new Set<string>([
-  "nyx", "maybelline", "loreal", "garnier", "cerave", "la-roche-posay",
-  "neutrogena", "kerastase", "moroccanoil", "nuxe", "weleda", "bioderma",
-  "rimmel", "catrice", "nivea", "glowria", "prescription-lab", "biotyfull",
-  "blissim", "igraal", "ebuyclub", "poulpeo", "sephora", "yves-rocher", "amazon",
-]);
 
 const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataRoute.Sitemap[number]["changeFrequency"] }[] = [
   // Un sitemap ne doit lister que des pages qu'on demande à Google d'indexer.
@@ -115,7 +99,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   }
   const marqueEntries: MetadataRoute.Sitemap = Array.from(tagCounts.entries())
-    .filter(([slug, count]) => CURATED_BRAND_SLUGS.has(slug) || count >= MIN_ARTICLES_FOR_MARQUE_PAGE)
+    .filter(([slug, count]) => shouldGenerateTagPage(slug, count))
     .map(([slug]) => ({
       url: `${BASE}/marque/${slug}`,
       lastModified: now,
