@@ -51,6 +51,11 @@ const GENERIC_TAG_SLUGS = new Set([
   "beaute", "maison", "maison-connectee", "maison-entretien", "mode", "jardin",
   "cuisine", "high-tech", "tech", "bebe", "enfant", "homme", "femme",
   "maillot", "mains-libres", "test", "tests", "avis", "comparatif",
+  // Doublons exacts d'une /categorie/ : même contenu, même requête, deux URL.
+  "test-gratuit", "tests-gratuits", "test-produit", "test-produit-gratuit",
+  "test-avis", "box-beaute", "calendrier-avent", "calendrier", "selection",
+  "bon-plan-beaute", "instant-gagnant", "instants-gagnants", "jeu-concours",
+  "jeux-concours", "tirage-au-sort", "echantillon-gratuit", "echantillons-gratuits",
 ]);
 
 // Mois : un tag "avril" ou "juin 2026" est une date, jamais une marque.
