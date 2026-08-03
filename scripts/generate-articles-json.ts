@@ -139,6 +139,15 @@ function escapeXml(str: string): string {
   return str.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;");
 }
 
+function imageMimeType(imagePath: string): string {
+  const extension = path.extname(imagePath).toLowerCase();
+  if (extension === ".webp") return "image/webp";
+  if (extension === ".jpg" || extension === ".jpeg") return "image/jpeg";
+  if (extension === ".png") return "image/png";
+  if (extension === ".gif") return "image/gif";
+  return "image/svg+xml";
+}
+
 function generateRss(items: ArticleInfo[]): string {
   const rssItems = items.map((a) => `    <item>
       <title>${escapeXml(a.title)}</title>
@@ -147,7 +156,7 @@ function generateRss(items: ArticleInfo[]): string {
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
       <description>${escapeXml(a.description)}</description>
       <category>${escapeXml(a.category)}</category>
-      <enclosure url="${SITE_URL}${a.image}" type="image/svg+xml" length="0"/>
+      <enclosure url="${SITE_URL}${a.image}" type="${imageMimeType(a.image)}" length="0"/>
     </item>`).join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
