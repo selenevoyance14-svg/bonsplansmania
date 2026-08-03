@@ -20,6 +20,7 @@ export interface CodePromoOffer {
   title: string;                 // titre du card
   code?: string;                 // révélé au clic (uniquement si type === "code")
   affiliateUrl?: string;         // override du brand affiliateUrl
+  starts?: string;               // ISO YYYY-MM-DD ; masque l'offre avant cette date
   expires?: string;              // ISO YYYY-MM-DD ; absent = permanent
   permanent?: boolean;           // affiche badge "♾️ Permanent" (à utiliser pour /codes-promo-permanents)
   conditions?: string;           // texte accordion
@@ -666,8 +667,62 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // LOOKFANTASTIC — offres vérifiées fin juillet 2026
+  // LOOKFANTASTIC — programme partenaire août 2026
   // ============================================================
+  {
+    id: "lookfantastic-lundi-25-aout",
+    brandSlug: "lookfantastic",
+    type: "code",
+    value: "-25 %",
+    valueLabel: "3 AOÛT",
+    title: "Monday Shopping Extended : -25 % sur la sélection avec LUNDI",
+    code: "LUNDI",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu%2Fmonday-shopping%2Ffr%2F",
+    starts: "2026-08-03",
+    expires: "2026-08-03",
+    conditions: "Code LUNDI annoncé le 03/08/2026 pour obtenir -25 % sur la sélection Monday Shopping Extended. Exclusions et produits éligibles à vérifier dans le panier.",
+    featured: true,
+  },
+  {
+    id: "lookfantastic-salelf-aout",
+    brandSlug: "lookfantastic",
+    type: "code",
+    value: "-30 %",
+    valueLabel: "5-8 AOÛT",
+    title: "Last Chance Summer Sale : jusqu'à -30 % avec SALELF du 5 au 8 août",
+    code: "SALELF",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2F",
+    starts: "2026-08-05",
+    expires: "2026-08-08",
+    conditions: "Code SALELF annoncé du 05/08/2026 au 08/08/2026 pour une remise allant jusqu'à -30 % sur la sélection Last Chance Summer Sale. Produits et exclusions susceptibles d'évoluer.",
+    featured: true,
+  },
+  {
+    id: "lookfantastic-beauty-box-ete-aout",
+    brandSlug: "lookfantastic",
+    type: "code",
+    value: "+ 10 %",
+    valueLabel: "BOX JUSQU'AU 5/08",
+    title: "10 % supplémentaires sur certaines Beauty Box déjà remisées avec ETE",
+    code: "ETE",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fl-edition-estivale-d-une-valeur-superieure-a-160%2F17691544%2F",
+    starts: "2026-08-03",
+    expires: "2026-08-05",
+    conditions: "Programme partenaire : jusqu'à -20 % sur certaines éditions, puis 10 % supplémentaires avec le code ETE jusqu'au 05/08/2026. Vérifier l'éligibilité et la remise finale dans le panier.",
+    featured: true,
+  },
+  {
+    id: "lookfantastic-beauty-of-joseon-spf-aout",
+    brandSlug: "lookfantastic",
+    type: "offre",
+    value: "-20 %",
+    valueLabel: "BEAUTY OF JOSEON",
+    title: "-20 % sur les SPF Beauty of Joseon pendant le mois d'août",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fbeauty-of-joseon%2Foffers%2F",
+    starts: "2026-08-01",
+    expires: "2026-08-31",
+    conditions: "Remise de 20 % annoncée sans code sur la sélection de protections solaires Beauty of Joseon du 01/08/2026 au 31/08/2026. Exclusions et produits susceptibles d'évoluer.",
+  },
   {
     id: "lookfantastic-plus5-end-month",
     brandSlug: "lookfantastic",
@@ -720,32 +775,42 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     id: "lookfantastic-box-summer",
     brandSlug: "lookfantastic",
     type: "offre",
-    value: "44 €",
+    value: "55 €",
     valueLabel: "VALEUR 160 €+",
-    title: "Édition Estivale à 44 € au lieu de 55 € (valeur supérieure à 160 €)",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Flookfantastic-l-edition-estivale-d-une-valeur-superieure-a-160%2F17398279%2F",
-    conditions: "Prix observé le 28/07/2026 : 44 € au lieu de 55 €, dans la limite des stocks disponibles. La composition et le prix final sont à vérifier sur Lookfantastic.",
+    title: "Édition Estivale à 55 € pour une valeur annoncée supérieure à 160 €",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fl-edition-estivale-d-une-valeur-superieure-a-160%2F17691544%2F",
+    conditions: "Prix de référence annoncé en août 2026 : 55 € pour une valeur supérieure à 160 €. Une remise peut être proposée selon l'opération en cours. Prix final et stock à vérifier.",
     featured: true,
   },
   {
     id: "lookfantastic-box-you-deserve-it",
     brandSlug: "lookfantastic",
     type: "offre",
-    value: "36 €",
+    value: "45 €",
     valueLabel: "VALEUR 145 €+",
-    title: "Édition You Deserve It à 36 € au lieu de 45 € (valeur supérieure à 145 €)",
+    title: "Édition You Deserve It à 45 € pour une valeur supérieure à 145 €",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fl-edition-you-deserve-it-valeur-superieure-a-145%2F17691484%2F",
-    conditions: "Prix observé le 28/07/2026 : 36 € au lieu de 45 €, dans la limite des stocks disponibles. La composition et le prix final sont à vérifier sur Lookfantastic.",
+    conditions: "Prix de référence annoncé en août 2026 : 45 € pour une valeur supérieure à 145 €. Une remise peut être proposée selon l'opération en cours. Prix final et stock à vérifier.",
   },
   {
     id: "lookfantastic-box-just-because",
     brandSlug: "lookfantastic",
     type: "offre",
-    value: "36 €",
+    value: "45 €",
     valueLabel: "VALEUR 160 €+",
-    title: "Édition Just Because à 36 € au lieu de 45 € (valeur supérieure à 160 €)",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fl-edition-just-because-d-une-valeur-superieure-a-160%2F17691478%2F",
-    conditions: "Prix observé le 28/07/2026 : 36 € au lieu de 45 €, dans la limite des stocks disponibles. La composition et le prix final sont à vérifier sur Lookfantastic.",
+    title: "Édition Juste comme ça à 45 € pour une valeur supérieure à 160 €",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fl-edition-juste-comme-ca-valeur-superieure-a-160%2F17691503%2F",
+    conditions: "Prix de référence annoncé en août 2026 : 45 € pour une valeur supérieure à 160 €. Une remise peut être proposée selon l'opération en cours. Prix final et stock à vérifier.",
+  },
+  {
+    id: "lookfantastic-box-lip-edit",
+    brandSlug: "lookfantastic",
+    type: "offre",
+    value: "55 €",
+    valueLabel: "VALEUR 146 €",
+    title: "Édition Lèvres à 55 € pour une valeur annoncée de 146 €",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fl-edition-levres-d-une-valeur-de-plus-de-146%2F17691432%2F",
+    conditions: "Édition Lèvres annoncée à 55 € pour une valeur de 146 € en août 2026. Prix, composition et disponibilité à vérifier sur la fiche produit.",
   },
 
   // ============================================================
@@ -1101,8 +1166,10 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "6-9 AOÛT",
     title: "-10 % supplémentaires dès 50 € d'achat (code ETE10, du 6 au 9 août)",
     code: "ETE10",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
     expires: "2026-08-09",
     conditions: "Code ETE10 -10 % supplémentaires dès 50 € d'achat sur ricaud.com. Actif uniquement du 06/08/2026 au 09/08/2026.",
+    featured: true,
   },
   {
     id: "dpr-aout10",
@@ -1112,6 +1179,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "13-16 AOÛT",
     title: "10 € offerts dès 60 € d'achat (code AOUT10, du 13 au 16 août)",
     code: "AOUT10",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
     expires: "2026-08-16",
     conditions: "Code AOUT10 : 10 € offerts dès 60 € d'achat sur ricaud.com. Actif uniquement du 13/08/2026 au 16/08/2026.",
   },
@@ -1123,6 +1191,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "20-23 AOÛT",
     title: "-10 % supplémentaires dès 50 € d'achat (code VAC10, du 20 au 23 août)",
     code: "VAC10",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
     expires: "2026-08-23",
     conditions: "Code VAC10 -10 % supplémentaires dès 50 € d'achat sur ricaud.com. Actif uniquement du 20/08/2026 au 23/08/2026.",
   },
@@ -1134,6 +1203,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "27-30 AOÛT",
     title: "10 € offerts dès 60 € d'achat (code BEAUTE10, du 27 au 30 août)",
     code: "BEAUTE10",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
     expires: "2026-08-30",
     conditions: "Code BEAUTE10 : 10 € offerts dès 60 € d'achat sur ricaud.com. Actif uniquement du 27/08/2026 au 30/08/2026.",
   },
@@ -1576,8 +1646,11 @@ export function getOffersByBrand(brandSlug: string): CodePromoOffer[] {
 
 export function getActiveOffers(today = new Date()): CodePromoOffer[] {
   return CODE_PROMO_OFFERS.filter((o) => {
-    if (!o.expires) return true;
-    return new Date(o.expires) >= today;
+    const start = o.starts ? new Date(`${o.starts}T00:00:00.000`) : null;
+    const end = o.expires ? new Date(`${o.expires}T23:59:59.999`) : null;
+    if (start && start > today) return false;
+    if (end && end < today) return false;
+    return true;
   });
 }
 
