@@ -2,6 +2,7 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 import ProductReviewStat from "@/app/components/ProductReviewStat";
 
@@ -221,13 +222,13 @@ export default function CommunityProductList() {
               color: "inherit",
             }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src={product.image}
               alt={product.imageAlt}
               width={96}
               height={96}
               loading="lazy"
+              sizes="96px"
               style={{ width: "96px", height: "96px", objectFit: "contain", flexShrink: 0 }}
             />
             <span style={{ display: "flex", flexDirection: "column", gap: "4px" }}>

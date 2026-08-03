@@ -36,7 +36,7 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   title: "Beauty Success",
   description:
     "Profitez de −25 % sur votre parfum préféré avec le code BSPARF25, valable jusqu’au 30 août 2026.",
-  imageSrc: "/images/featured-partner-beauty-success.png",
+  imageSrc: "/images/featured-partner-beauty-success.webp",
   imageAlt:
     "Sélection élégante de parfum, maquillage et soin aux couleurs corail et bordeaux",
   promoCode: "BSPARF25",

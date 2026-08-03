@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ChevronRight, ShieldCheck } from "lucide-react";
 import Header from "@/app/components/Header";
 import ProductFavoriteButton from "@/app/components/ProductFavoriteButton";
@@ -54,12 +55,13 @@ export default function CommunityProductPage({
 
             <div className="community-product-grid">
               <div className="community-product-visual">
-                <img
+                <Image
                   className="community-product-image"
                   src={image}
                   alt={imageAlt}
-                  width="520"
-                  height="520"
+                  width={520}
+                  height={520}
+                  sizes="(max-width: 768px) 100vw, 520px"
                 />
               </div>
               <div className="community-product-copy">
