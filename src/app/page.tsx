@@ -1,8 +1,7 @@
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import NewsletterForm from "@/app/components/NewsletterForm";
-import NewsletterInline from "@/app/components/NewsletterInline";
-import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Shirt, ToyBrick, ArrowRight, Gift, Percent } from "lucide-react";
+import { ShoppingBag, Flame, Sparkles, Baby, Smartphone, Home as HomeIcon, TreePine, Gift, Percent, Trophy, PackageCheck } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import ArticleCardHorizontal from "@/app/components/ArticleCardHorizontal";
@@ -11,7 +10,6 @@ import HeroSearchBar from "@/app/components/HeroSearchBar";
 import BrandOfTheWeek from "@/app/components/BrandOfTheWeek";
 import SectionHeader from "@/app/components/SectionHeader";
 import FeaturedPartner from "@/app/components/FeaturedPartner";
-import DailyTopDeals from "@/app/components/DailyTopDeals";
 import {
   FEATURED_PARTNER,
   isFeaturedPartnerActive,
@@ -19,34 +17,23 @@ import {
 import { Newspaper } from "lucide-react";
 
 const HOME_CATEGORIES = [
+  { href: "/categorie/concours", Icon: Trophy, label: "Concours gratuits", color: "#F59E0B" },
+  { href: "/categorie/test-gratuit", Icon: PackageCheck, label: "Tests produits gratuits", color: "#7C3AED" },
   { href: "/bons-plans-beaute", Icon: Sparkles, label: "Bons plans Beauté", color: "#DB2777" },
+  { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", color: "#86198F" },
+  { href: "/code-promo", Icon: Percent, label: "Codes promo du moment", color: "#0F766E" },
   { href: "/bons-plans-maison", Icon: HomeIcon, label: "Maison & Cuisine", color: "#16A34A" },
   { href: "/bons-plans-tech", Icon: Smartphone, label: "Coin Tech", color: "#2563EB" },
-  { href: "/code-promo", Icon: Percent, label: "Codes promo du moment", color: "#0F766E" },
-  { href: "/categorie/box-beaute", Icon: ShoppingBag, label: "Box Beauté", color: "#86198F" },
   { href: "/bons-plans-bebe", Icon: Baby, label: "Bébé & Famille", color: "#0891B2" },
   { href: "/bons-plans-ninja", Icon: Flame, label: "Air Fryer & Ninja", color: "#DC2626" },
   { href: "/bons-plans-jardin", Icon: TreePine, label: "Jardin", color: "#65A30D" },
-  { href: "/bons-plans-jouets", Icon: ToyBrick, label: "Jouets", color: "#F59E0B" },
-  { href: "/bons-plans-mode", Icon: Shirt, label: "Coin Mode", color: "#7C3AED" },
 ];
 
-// Graine du tirage des bons plans du jour. Évaluée une seule fois, au build :
-// figée pour un déploiement donné, différente au suivant. La calculer pendant
-// le rendu déclenchait l'erreur React « Cannot call impure function ».
-const BUILD_SEED = String(Date.now());
-
 function isCommerciallyFresh(article: ReturnType<typeof getAllArticles>[number]): boolean {
-  const effectiveDate = new Date(
-    `${article.meta.updated || article.meta.date}T12:00:00`,
-  ).getTime();
+  const effectiveDate = new Date(`${article.meta.date}T12:00:00`).getTime();
   if (!Number.isFinite(effectiveDate)) return false;
   const ageInDays = (Date.now() - effectiveDate) / 86_400_000;
-  // La date effective est ancrée à 12:00. Un article publié le jour même a donc
-  // un âge négatif jusqu'à midi (-0,5 j à minuit) : le borner à 0 l'excluait de
-  // la home toute la matinée. On tolère la journée en cours (>= -1) tout en
-  // continuant d'écarter les articles réellement datés dans le futur.
-  return ageInDays >= -1 && ageInDays <= 21;
+  return ageInDays >= -1 && ageInDays <= 14;
 }
 
 export default function Home() {
@@ -63,14 +50,8 @@ export default function Home() {
     .slice(0, 4);
   const latestBoxSlugs = new Set(latestBoxes.map((a) => a.meta.slug));
 
-  // 🔥 Les bons plans du moment : priorité au potentiel commercial, puis à la fraîcheur.
-  // Le bloc s'appelle « les bons plans du jour » : il doit donc montrer ce qui vient
-  // d'être publié, pas ce qui rapporte le plus. Le classement par score commercial
-  // faisait remonter des codes promo de mars et mai — maintenus « frais » par leur
-  // champ `updated` — devant les offres du jour même (constaté le 02/08/2026).
-  // On trie donc par date effective décroissante, et on exige un lien marchand pour
-  // ne pas afficher un article sans offre à cliquer. Le vivier de 8 laisse au tirage
-  // au build (voir DailyTopDeals) de quoi faire tourner la home à chaque déploiement.
+  // Une correction d'un ancien article ne doit pas le transformer artificiellement
+  // en « offre récente » : seule la date de publication est utilisée ici.
   const topDealCandidates = allArticles
     .filter((a) =>
       (a.meta.category === "bon-plan" || a.meta.category === "code-promo")
@@ -78,7 +59,8 @@ export default function Home() {
       && isCommerciallyFresh(a)
       && Boolean(a.meta.affiliateUrl)
     )
-    .slice(0, 8)
+    .toSorted((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
+    .slice(0, 4)
     .map(({ meta }) => ({ meta }));
   const topDealSlugs = new Set(topDealCandidates.map((a) => a.meta.slug));
 
@@ -90,7 +72,8 @@ export default function Home() {
       && a.meta.category !== "concours"
       && a.meta.category !== "test-gratuit"
     )
-    .slice(0, 24);
+    .toSorted((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
+    .slice(0, 10);
 
   // Garder les tests produits visibles sur l'accueil même lorsque plusieurs concours
   // sont publiés le même jour : 2 derniers tests + 2 derniers concours, tous actifs.
@@ -137,26 +120,49 @@ export default function Home() {
       <Header activePage="/" />
 
       <main>
-      {/* ═══ HERO v2 ═══ */}
+      {/* ═══ HERO ═══ */}
       <section className="bpm-hero">
+        <div className="container bpm-hero-layout">
+          <div className="bpm-hero-copy">
+            <span className="bpm-hero-kicker"><span aria-hidden>🔥</span> Les bonnes affaires du moment</span>
+            <h1>Les bons plans qui valent <span>vraiment le coup</span></h1>
+            <p className="bpm-hero-sub">
+              Promotions, codes promo, box beauté, concours et tests gratuits :
+              retrouvez ici les offres les plus intéressantes du moment.
+            </p>
+            <HeroSearchBar />
+          </div>
+        </div>
+      </section>
+
+      {/* ═══ NAVIGATION RAPIDE ═══ */}
+      <section className="home-categories-section">
         <div className="container">
-          <h1>Les meilleurs bons plans du moment.</h1>
-          <p className="bpm-hero-sub">
-            Économisez sur vos achats avec les codes promo, réductions et cashback
-            repérés chaque jour — beauté, mode, tech et maison.
-          </p>
-
-          <a href="/bons-plans-en-cours" className="bpm-hero-primary-cta">
-            Voir tous les bons plans en cours <ArrowRight size={18} aria-hidden />
-          </a>
-
-          <HeroSearchBar />
-
-          {/* Bandeau de preuve sociale retiré le 02/08/2026.
-              Il annonçait « 4 700+ articles vérifiés » et « Mis à jour chaque
-              jour », deux promesses qu'aucune relecture réelle du catalogue ne
-              soutenait, et « 50+ marques partenaires » compté depuis une liste
-              de marques suivies, sans contrat de partenariat derrière. */}
+          <div className="home-categories-intro">
+            <span>Explorer par univers</span>
+            <p>Allez directement aux offres qui vous intéressent.</p>
+          </div>
+          <div className="home-categories-grid">
+            {HOME_CATEGORIES.map((c, index) => (
+              <a key={c.href} href={c.href} className={`home-category-card ${index >= 5 ? "home-category-secondary" : ""}`}>
+                <span className="home-category-icon" style={{ color: c.color, background: `${c.color}12` }}>
+                  <c.Icon size={24} aria-hidden />
+                </span>
+                <span>{c.label}</span>
+              </a>
+            ))}
+          </div>
+          <details className="home-categories-more">
+            <summary>Voir tous les univers</summary>
+            <div className="home-categories-extra-grid">
+              {HOME_CATEGORIES.slice(5).map((c) => (
+                <a key={`mobile-${c.href}`} href={c.href} className="home-category-card">
+                  <span className="home-category-icon" style={{ color: c.color, background: `${c.color}12` }}><c.Icon size={22} aria-hidden /></span>
+                  <span>{c.label}</span>
+                </a>
+              ))}
+            </div>
+          </details>
         </div>
       </section>
 
@@ -165,15 +171,18 @@ export default function Home() {
         <section id="offres-du-jour" className="section-sm home-top-deals">
           <div className="container">
             <SectionHeader
-              badge="Notre sélection"
+              badge="Publié récemment"
               badgeIcon={<Flame size={12} aria-hidden />}
-              title="Les bons plans du jour"
-              titleEmoji="🔥"
-              subtitle="Les offres actives au meilleur potentiel, sélectionnées parmi nos partenaires."
+              title="Les offres à regarder maintenant"
+              subtitle="Quatre bons plans publiés ces 14 derniers jours, avec prix et conditions visibles."
               color="#0EA5A9"
               href="/bons-plans-en-cours"
             />
-            <DailyTopDeals candidates={topDealCandidates} seed={BUILD_SEED} />
+            <div className="articles-grid articles-grid-4">
+              {topDealCandidates.map((article, index) => (
+                <ArticleCard key={article.meta.slug} article={article} priority={index === 0} />
+              ))}
+            </div>
           </div>
         </section>
       )}
@@ -182,50 +191,6 @@ export default function Home() {
         partner={FEATURED_PARTNER}
         initiallyActive={featuredPartnerInitiallyActive}
       />
-
-      {/* ═══ NAVIGATION UNIFIÉE (catégories + univers en petits carrés) ═══ */}
-      <section className="section-sm" style={{ paddingTop: "28px", paddingBottom: "8px" }}>
-        <div className="container">
-          <div className="home-categories-grid">
-            {HOME_CATEGORIES.map((c, index) => (
-              <a
-                key={c.href}
-                href={c.href}
-                className={`cat-card home-category-card ${index >= 5 ? "home-category-secondary" : ""}`}
-                style={{
-                  background: "#FFFFFF",
-                  borderRadius: "14px",
-                  padding: "20px 10px",
-                  textDecoration: "none",
-                  border: "1px solid var(--border)",
-                  transition: "all 0.2s",
-                  display: "flex",
-                  flexDirection: "column",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  gap: "10px",
-                  minHeight: "108px",
-                }}
-              >
-                {c.Icon ? <c.Icon size={30} color={c.color} aria-hidden /> : null}
-                <div style={{ fontWeight: 700, color: "var(--foreground)", fontSize: "0.85rem", lineHeight: "1.2" }}>{c.label}</div>
-              </a>
-            ))}
-          </div>
-          <details className="home-categories-more">
-            <summary>Voir tous les univers</summary>
-            <div className="home-categories-extra-grid">
-              {HOME_CATEGORIES.slice(5).map((c) => (
-                <a key={`mobile-${c.href}`} href={c.href} className="cat-card home-category-card">
-                  <c.Icon size={25} color={c.color} aria-hidden />
-                  <span>{c.label}</span>
-                </a>
-              ))}
-            </div>
-          </details>
-        </div>
-      </section>
 
       {/* ═══ NOUVELLES BOX BEAUTÉ À DÉCOUVRIR ═══ */}
       {latestBoxes.length > 0 && (
@@ -254,14 +219,6 @@ export default function Home() {
         <AdBlock />
       </div>
 
-      {/* ═══ 🌟 MARQUE À L'HONNEUR CETTE SEMAINE ═══ */}
-      <BrandOfTheWeek />
-
-      {/* ═══ NEWSLETTER MILIEU ═══ */}
-      <section className="container" style={{ paddingTop: "8px", paddingBottom: "8px" }}>
-        <NewsletterInline />
-      </section>
-
       {/* Bloc « Réductions valables toute l'année » retiré de l'accueil le
           02/08/2026. La page /codes-promo-permanents reste en ligne et
           accessible depuis le menu Bons plans. */}
@@ -277,8 +234,8 @@ export default function Home() {
           <SectionHeader
             badge="Fil actualités"
             badgeIcon={<Newspaper size={12} aria-hidden />}
-            title="Dernières offres"
-            subtitle="Toutes nos publications récentes, mises à jour au fil de l'eau."
+            title="Les dernières publications"
+            subtitle="Une sélection courte pour voir rapidement ce qui vient d'être publié."
             color="#334155"
             href="/blog"
           />
@@ -295,6 +252,9 @@ export default function Home() {
           )}
         </div>
       </section>
+
+      {/* ═══ MARQUE DU MOMENT : grand bandeau sans cartes secondaires ═══ */}
+      <BrandOfTheWeek />
 
       {freeOpportunities.length > 0 && (
         <section className="section-sm home-free-opportunities">

@@ -1,33 +1,8 @@
 import { BRAND_OF_THE_WEEK } from "@/lib/highlight-brand";
-import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
-import ArticleCard from "@/app/components/ArticleCard";
 import { Sparkles, ArrowRight } from "lucide-react";
-
-// Matching resserré : la marque doit apparaître dans le SLUG (l'URL) — les articles
-// vraiment dédiés à une marque ont son nom dans leur slug. Les articles multi-marques
-// (ex : "Avis Beauté Privée : Clarins, Nuxe, L'Occitane…") ne matchent pas car leur
-// slug ne contient pas "nuxe" isolé.
-function findBrandArticles(slug: string, name: string, limit = 4) {
-  const needleSlug = slug.toLowerCase();
-  const needleName = name.toLowerCase().replace(/'/g, "");
-  const all = getAllArticles();
-  return all
-    .filter((a) => {
-      if (isEffectivelyExpired(a.meta)) return false;
-      if (a.meta.category !== "bon-plan" && a.meta.category !== "code-promo") return false;
-      const articleSlug = (a.meta.slug ?? "").toLowerCase();
-      // Le slug doit contenir la marque comme "mot" séparé par des tirets
-      // (ex "meilleurs-bons-plans-nuxe-2026" ✅ / "beaute-privee-…" ❌).
-      const re = new RegExp(`(^|-)(${needleSlug}|${needleName})(-|$)`);
-      return re.test(articleSlug);
-    })
-    .slice(0, limit);
-}
 
 export default function BrandOfTheWeek() {
   const brand = BRAND_OF_THE_WEEK;
-  const articles = findBrandArticles(brand.slug, brand.name, 4);
-  if (articles.length === 0) return null;
 
   const bg = brand.bg ?? "#FDF2F8";
   const color = brand.color ?? "#DB2777";
@@ -102,7 +77,7 @@ export default function BrandOfTheWeek() {
                   boxShadow: `0 4px 12px -2px ${color}66`,
                 }}
               >
-                <Sparkles size={12} aria-hidden /> Marque à l&apos;honneur
+                <Sparkles size={12} aria-hidden /> Marque du moment
               </div>
               <h2
                 style={{
@@ -132,6 +107,8 @@ export default function BrandOfTheWeek() {
 
             <a
               href={brand.hubUrl}
+              target="_blank"
+              rel="sponsored nofollow noopener noreferrer"
               className="brand-hero-cta"
               style={{
                 display: "inline-flex",
@@ -149,23 +126,11 @@ export default function BrandOfTheWeek() {
                 transition: "transform 0.15s, box-shadow 0.15s",
               }}
             >
-              Voir la sélection {brand.name} <ArrowRight size={16} aria-hidden />
+              Découvrir chez LOOKFANTASTIC <ArrowRight size={16} aria-hidden />
             </a>
           </div>
         </div>
 
-        {/* Sous-titre + 4 deals du moment */}
-        <div style={{ marginTop: "26px", marginBottom: "14px", display: "flex", justifyContent: "space-between", alignItems: "flex-end", flexWrap: "wrap", gap: "8px" }}>
-          <p style={{ margin: 0, color: "var(--muted-foreground)", fontSize: "0.9rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.06em" }}>
-            Les 4 deals {brand.name} du moment
-          </p>
-        </div>
-
-        <div className="articles-grid articles-grid-4">
-          {articles.map((article, index) => (
-            <ArticleCard key={article.meta.slug} article={article} priority={index < 3} />
-          ))}
-        </div>
       </div>
 
       <style>{`

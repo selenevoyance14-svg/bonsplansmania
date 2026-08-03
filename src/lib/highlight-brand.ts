@@ -1,6 +1,5 @@
-// Marque à l'honneur cette semaine — homepage.
-// Nathalie : modifie SEULEMENT cet objet chaque lundi (slug + name + tagline + hubUrl).
-// Le composant BrandOfTheWeek récupère automatiquement les 4 derniers deals actifs de la marque.
+// Marque du moment — homepage.
+// Modifie cet objet pour changer le nom, l'accroche et le lien affilié du bandeau.
 
 export type HighlightBrand = {
   /** slug technique utilisé pour matcher les articles (tag ou brand path) */
@@ -9,7 +8,7 @@ export type HighlightBrand = {
   name: string;
   /** courte accroche affichée sous le nom (max ~90 chars) */
   tagline: string;
-  /** page vers laquelle envoyer les visiteurs qui cliquent "Voir tout" */
+  /** lien affilié vers lequel envoyer les visiteurs */
   hubUrl: string;
   /** couleur d'accent utilisée pour le fond du bloc (hex clair pastel) */
   bg?: string;
@@ -23,7 +22,7 @@ export const BRAND_OF_THE_WEEK: HighlightBrand = {
   slug: "sol-de-janeiro",
   name: "Sol de Janeiro",
   tagline: "Bum Bum Cream, Cheirosa 62, brumes cultes : jusqu'à -40 % + trousse cadeau offerte chez LookFantastic.",
-  hubUrl: "/article/marque-semaine-sol-de-janeiro-lookfantastic-jusqu-a-40-pourcent-cadeau-offert-juillet-2026",
+  hubUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu%2Fpc-savings%2Fv1%2F",
   bg: "#FEF0F5",
   color: "#D6336C",
   emoji: "🇧🇷",
