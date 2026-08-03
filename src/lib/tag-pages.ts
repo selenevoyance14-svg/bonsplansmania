@@ -1,6 +1,34 @@
-export const MIN_ARTICLES_FOR_STATIC_TAG_PAGE = 3;
+// Seuil relevé de 3 à 30 le 03/08/2026. À 3 articles, on générait 2082 pages dont
+// 2050 n'avaient jamais reçu un seul clic en 12 mois (export Search Console : la
+// 1000e page listée est déjà à 1 clic, donc les absentes sont bien à zéro).
+// Ces pages quasi vides absorbaient du crawl et du jus interne pour rien.
+export const MIN_ARTICLES_FOR_STATIC_TAG_PAGE = 30;
 
 export const CURATED_TAG_SLUGS = new Set([
+  // 1. Marques qui rapportent des clics ou des impressions selon Search Console,
+  //    même avec peu d'articles. Relevé du 31/07/2026, à réviser tous les 6 mois.
+  "pampers",           // 25 clics, 2644 impressions — la meilleure page /marque/ du site
+  "cdiscount",
+  "la-fournee-doree",
+  "steampod",
+  "tefal",
+  "laneige",
+  "adopt",
+  "moulinex",
+  "soignon",
+  "envie-de-plus",
+  "dash",
+  "kindle",
+  "segway",
+  "maped",
+  "aubert",
+  "tennis",
+  "echantillon",
+  "ventilateur-colonne",
+  "routines-beaute",
+  "jeu-gratuit",
+  "concours-avec-obligation-achat",
+  // 2. Marques partenaires, gardées pour des raisons éditoriales même sans trafic.
   "nyx",
   "maybelline",
   "loreal",
@@ -56,6 +84,7 @@ const GENERIC_TAG_SLUGS = new Set([
   "test-avis", "box-beaute", "calendrier-avent", "calendrier", "selection",
   "bon-plan-beaute", "instant-gagnant", "instants-gagnants", "jeu-concours",
   "jeux-concours", "tirage-au-sort", "echantillon-gratuit", "echantillons-gratuits",
+  "archive", "archives", "france",
 ]);
 
 // Mois : un tag "avril" ou "juin 2026" est une date, jamais une marque.
