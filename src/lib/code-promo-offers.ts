@@ -29,6 +29,34 @@ export interface CodePromoOffer {
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
+  // CAROLL — offres permanentes
+  // ============================================================
+  {
+    id: "caroll-booster-10-deux-articles",
+    brandSlug: "caroll",
+    type: "offre",
+    value: "-10 %",
+    valueLabel: "DÈS 2 ARTICLES",
+    title: "-10 % dès 2 articles achetés",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Booster",
+    permanent: true,
+    conditions: "Remise accordée dès l'achat de 2 articles, selon les conditions de l'offre Booster affichées par Caroll. Vérifier son application dans le panier.",
+    featured: true,
+  },
+  {
+    id: "caroll-newsletter-15",
+    brandSlug: "caroll",
+    type: "newsletter",
+    value: "-15 %",
+    valueLabel: "NEWSLETTER",
+    title: "-15 % sur votre article préféré avec l'inscription à la newsletter",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Caroll15",
+    permanent: true,
+    conditions: "Offre de bienvenue obtenue après inscription à la newsletter Caroll, selon les conditions communiquées par la marque.",
+    featured: true,
+  },
+
+  // ============================================================
   // C-MONETIQUETTE — rentrée 2026
   // ============================================================
   {

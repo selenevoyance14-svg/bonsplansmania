@@ -111,6 +111,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#1F2937",
   },
   {
+    slug: "caroll",
+    name: "Caroll",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours",
+    affiliateLabel: "Voir les offres Caroll",
+    matchTags: ["caroll"],
+    color: "#243746",
+  },
+  {
     slug: "cdiscount",
     name: "Cdiscount",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
