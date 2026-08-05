@@ -19,11 +19,11 @@ export type HighlightBrand = {
 };
 
 export const BRAND_OF_THE_WEEK: HighlightBrand = {
-  slug: "sol-de-janeiro",
-  name: "Sol de Janeiro",
-  tagline: "Bum Bum Cream, Cheirosa 62, brumes cultes : jusqu'à -40 % + trousse cadeau offerte chez LookFantastic.",
-  hubUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu%2Fpc-savings%2Fv1%2F",
-  bg: "#FEF0F5",
-  color: "#D6336C",
-  emoji: "🇧🇷",
+  slug: "beauty-of-joseon",
+  name: "Beauty of Joseon",
+  tagline: "Jusqu'à -30 % sur Beauty of Joseon + le Relief Sun Rice + Probiotics SPF50 10 ml offert dès 35 € d'achat.",
+  hubUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fbeauty-of-joseon%2Foffers%2F",
+  bg: "#F7F1E7",
+  color: "#8C2F39",
+  emoji: "🇰🇷",
 };
