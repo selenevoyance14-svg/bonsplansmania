@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 05 Aug 2026 12:08:55 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 05 Aug 2026 18:03:26 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Biotyfull Box : 5 box pour le prix d'une à 39,90 €</title>
+      <link>https://bonsplansmania.fr/article/biotyfull-box-5-box-pour-le-prix-d-une-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/biotyfull-box-5-box-pour-le-prix-d-une-aout-2026</guid>
+      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Biotyfull Box propose 5 nouvelles box, dont une double box, pour 39,90 € : 30 produits d'une valeur annoncée de 431 €, livraison offerte et abonnement sans engagement.</description>
+      <category>box-beaute</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/biotyfull-box-5-box-pour-le-prix-d-une-aout-2026.webp" type="image/webp" length="0"/>
+    </item>
     <item>
       <title>Bon plan Amazon : appareil visage radiofréquence 5-en-1 à 99,99 €</title>
       <link>https://bonsplansmania.fr/article/bon-plan-amazon-appareil-visage-radiofrequence-5en1-aout-2026</link>
@@ -447,15 +456,6 @@
       <description>Mam'Advisor recherche des familles pour tester gratuitement la K-WATCH de Kidywolf, une montre interactive évolutive destinée aux enfants à partir de 8 ans.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-k-watch-kidywolf-mamadvisor-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Test produit SO'BiO étic : Brume thermale d'aloe vera bio gratuite</title>
-      <link>https://bonsplansmania.fr/article/test-produit-so-bio-etic-brume-thermale-aloe-vera-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-so-bio-etic-brume-thermale-aloe-vera-aout-2026</guid>
-      <pubDate>Wed, 05 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Candidatez gratuitement pour tester la Brume thermale d'aloe vera bio SO'BiO étic avec le Club Léa Nature. Inscriptions ouvertes jusqu'au 18 août 2026.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-so-bio-etic-brume-thermale-aloe-vera-aout-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
