@@ -1,6 +1,6 @@
 "use client";
 
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -24,6 +24,7 @@ interface ArticleListItem {
   featured?: boolean;
   tags?: string[];
   price?: string;
+  amazonAsin?: string;
   affiliateUrl?: string;
 }
 
@@ -137,6 +138,33 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;
 
+  useEffect(() => {
+    const controller = new AbortController();
+    const asins = Array.from(new Set(filtered.slice(0, visible).flatMap((article) => {
+      const asin = article.amazonAsin
+        || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
+        || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
+      return asin ? [asin.toUpperCase()] : [];
+    })));
+
+    Promise.all(asins.map(async (asin) => {
+      try {
+        const response = await fetch(`/api/amazon/${encodeURIComponent(asin)}`, { signal: controller.signal });
+        if (!response.ok) return;
+        const offer = await response.json() as { price?: string };
+        if (offer.price) {
+          document.querySelectorAll<HTMLElement>(`[data-amazon-price="${asin}"]`).forEach((element) => {
+            element.textContent = offer.price!;
+          });
+        }
+      } catch {
+        // Le libellé Amazon reste affiché si l'API ne répond pas.
+      }
+    }));
+
+    return () => controller.abort();
+  }, [filtered, visible]);
+
   const selectStyle: React.CSSProperties = {
     padding: "8px 12px",
     paddingRight: "32px",
@@ -232,6 +260,10 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
               const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
+              const amazonAsin = article.amazonAsin
+                || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
+                || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
+              const isAmazonOffer = !!amazonAsin || /(?:amazon\.fr|amzn\.(?:to|eu)|link\.amazon)/i.test(article.affiliateUrl || "");
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const hasExternalAffiliate = hasDirectMerchantCta({
@@ -268,13 +300,11 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                       <p className="bpm-card-h-excerpt">{article.description}</p>
                       <div className="bpm-card-h-footer">
                         <div className="bpm-card-h-price">
-                          {now && (
-                            <>
-                              <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>{now}</span>
-                              {was && <span className="bpm-card-h-price-was">{was}</span>}
-                              {savings && <span className="bpm-card-h-chip">{savings}</span>}
-                            </>
-                          )}
+                          <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`} data-amazon-price={amazonAsin?.toUpperCase()}>
+                            {now || (isAmazonOffer ? "Prix sur Amazon" : hasExternalAffiliate ? "Voir le prix" : "")}
+                          </span>
+                          {was && <span className="bpm-card-h-price-was">{was}</span>}
+                          {savings && <span className="bpm-card-h-chip">{savings}</span>}
                         </div>
                         {hasExternalAffiliate ? (
                           <a
