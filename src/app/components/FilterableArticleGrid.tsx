@@ -666,18 +666,11 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
 
                       <div className="bpm-card-h-footer">
                         <div className="bpm-card-h-price">
-                          {now && (
-                            <>
-                              <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>{now}</span>
-                              {was && <span className="bpm-card-h-price-was">{was}</span>}
-                              {savings && <span className="bpm-card-h-chip">{savings}</span>}
-                            </>
-                          )}
-                          {!now && hasExternalAffiliate && (
-                            <span className="bpm-card-h-price-now">
-                              {(amazonAsin && liveAmazonPrices[amazonAsin.toUpperCase()]) || (isAmazonOffer ? "Prix sur Amazon" : "Voir le prix")}
-                            </span>
-                          )}
+                          <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>
+                            {(amazonAsin && liveAmazonPrices[amazonAsin.toUpperCase()]) || now || (isAmazonOffer ? "Prix sur Amazon" : hasExternalAffiliate ? "Voir le prix" : "")}
+                          </span>
+                          {was && <span className="bpm-card-h-price-was">{was}</span>}
+                          {savings && <span className="bpm-card-h-chip">{savings}</span>}
                         </div>
                         {hasExternalAffiliate ? (
                           <a
