@@ -5,6 +5,7 @@ import {
 } from "lucide-react";
 import { parsePrice } from "@/lib/price";
 import { DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
+import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 
 export type CardCategoryConfig = {
     label: string;
@@ -51,6 +52,7 @@ type Article = {
         expired?: boolean;
         endDate?: string;
         affiliateUrl?: string;
+        amazonAsin?: string;
     };
 };
 
@@ -116,6 +118,11 @@ export default function ArticleCard({
                         <div className="bpm-card-price">
                             <span className="bpm-card-price-now">{now}</span>
                             {was && <span className="bpm-card-price-was">{was}</span>}
+                        </div>
+                    )}
+                    {!now && article.meta.amazonAsin && (
+                        <div className="bpm-card-price">
+                            <span className="bpm-card-price-now"><AmazonCardPrice asin={article.meta.amazonAsin} fallback="" /></span>
                         </div>
                     )}
                 </div>

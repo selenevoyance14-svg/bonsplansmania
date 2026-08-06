@@ -6,6 +6,7 @@ import { ArrowRight, Filter, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
+import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 
 interface ArticleListItem {
   slug: string;
@@ -580,6 +581,8 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
               const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
+              const amazonAsin = article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
+                || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const articleHref = `/article/${article.slug}`;
@@ -641,6 +644,11 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                               {was && <span className="bpm-card-h-price-was">{was}</span>}
                               {savings && <span className="bpm-card-h-chip">{savings}</span>}
                             </>
+                          )}
+                          {!now && amazonAsin && (
+                            <span className="bpm-card-h-price-now">
+                              <AmazonCardPrice asin={amazonAsin.toUpperCase()} fallback="" />
+                            </span>
                           )}
                         </div>
                         {hasExternalAffiliate ? (
