@@ -103,6 +103,18 @@ function secureAmazonAffiliateUrl(url: unknown): string | undefined {
   return value;
 }
 
+function extractAmazonAsin(data: Record<string, unknown>, content: string): string | undefined {
+  const explicit = typeof data.amazonAsin === "string" ? data.amazonAsin.trim().toUpperCase() : "";
+  if (/^[A-Z0-9]{10}$/.test(explicit)) return explicit;
+
+  const candidates = [data.affiliateUrl, content]
+    .filter((value): value is string => typeof value === "string")
+    .join("\n");
+  const match = candidates.match(/amazon\.fr\/[^\s)"']*\/dp\/([A-Z0-9]{10})/i)
+    || candidates.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i);
+  return match?.[1]?.toUpperCase();
+}
+
 function resolveArticleImage(image: unknown): string {
   const value =
     typeof image === "string" && image.trim()
@@ -154,6 +166,7 @@ export interface ArticleMeta {
   price?: string;
   affiliateUrl?: string;
   affiliateLabel?: string;
+  amazonAsin?: string;
   readingTime: string;
   published: boolean;
   featured?: boolean;
@@ -234,6 +247,7 @@ export function getArticleBySlug(slug: string): Article | null {
       price: amazonArticle ? undefined : data.price,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,
+      amazonAsin: amazonArticle ? extractAmazonAsin(data, content) : undefined,
       readingTime: stats.text.replace("min read", "min"),
       published: data.published !== false,
       featured: data.featured || false,

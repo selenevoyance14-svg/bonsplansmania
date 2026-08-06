@@ -1375,6 +1375,42 @@ body {
   color: #92400E;
 }
 
+/* ── AMAZON CREATORS API LIVE OFFER ── */
+.amazon-live-offer {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  margin: 22px 0;
+  padding: 20px 24px;
+  background: linear-gradient(135deg, #fff8eb 0%, #fffdf7 100%);
+  border: 1px solid #f4c46b;
+  border-radius: 14px;
+  color: var(--foreground);
+}
+
+.amazon-live-image-link { flex: 0 0 130px; }
+.amazon-live-image { display: block; width: 130px; height: 130px; object-fit: contain; mix-blend-mode: multiply; }
+.amazon-live-copy { display: flex; flex-direction: column; align-items: flex-start; gap: 8px; min-width: 0; }
+.amazon-live-label { color: #8a4b08; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
+.amazon-live-prices { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
+.amazon-live-prices strong { font-size: clamp(1.65rem, 4vw, 2.25rem); color: #7d293d; line-height: 1; }
+.amazon-live-prices del { color: var(--muted-foreground); }
+.amazon-live-prices span { padding: 3px 8px; background: #fee2e2; color: #b91c1c; border-radius: 999px; font-size: 0.78rem; font-weight: 800; }
+.amazon-live-copy small { color: var(--muted-foreground); }
+.amazon-live-offer-loading { justify-content: center; min-height: 90px; color: var(--muted-foreground); }
+.amazon-live-spinner { animation: amazon-live-spin 0.9s linear infinite; }
+.amazon-live-offer-fallback { justify-content: space-between; }
+.amazon-live-offer-fallback a { display: inline-flex; align-items: center; gap: 5px; font-weight: 700; }
+
+@keyframes amazon-live-spin { to { transform: rotate(360deg); } }
+
+@media (max-width: 600px) {
+  .amazon-live-offer { align-items: flex-start; gap: 14px; padding: 16px; }
+  .amazon-live-image-link { flex-basis: 88px; }
+  .amazon-live-image { width: 88px; height: 88px; }
+  .amazon-live-offer-fallback { flex-direction: column; }
+}
+
 /* ── AFFILIATE DISCLAIMER ── */
 .affiliate-disclaimer {
   margin-top: 40px;
