@@ -124,7 +124,7 @@ export default function OfferGrid({ offers }: Props) {
       <div className="offer-list">
         {filtered.length === 0 ? (
           <p style={{ textAlign: "center", padding: "40px 0", color: "var(--muted-foreground)" }}>
-            Aucune offre pour ce filtre. <button type="button" onClick={reset} style={{ background: "none", border: "none", color: "#0EA5A9", textDecoration: "underline", cursor: "pointer", fontWeight: 600 }}>Réinitialiser</button>
+            Aucune offre pour ce filtre. <button type="button" onClick={reset} style={{ background: "none", border: "none", color: "#7D293D", textDecoration: "underline", cursor: "pointer", fontWeight: 600 }}>Réinitialiser</button>
           </p>
         ) : (
           filtered.map((offer) => <OfferCard key={offer.id} offer={offer} />)
@@ -142,7 +142,7 @@ export default function OfferGrid({ offers }: Props) {
           padding: 14px;
           background: white;
           border: 1px solid var(--border);
-          border-radius: 14px;
+          border-radius: 2px;
         }
         .offer-filters {
           display: flex;
@@ -160,7 +160,7 @@ export default function OfferGrid({ offers }: Props) {
           background: white;
           color: var(--foreground);
           padding: 8px 16px;
-          border-radius: 999px;
+          border-radius: 2px;
           font-size: 0.85rem;
           font-weight: 700;
           cursor: pointer;
@@ -170,8 +170,8 @@ export default function OfferGrid({ offers }: Props) {
           border-color: #94A3B8;
         }
         .offer-filter-active {
-          background: #0EA5A9;
-          border-color: #0EA5A9;
+          background: #7D293D;
+          border-color: #7D293D;
           color: white;
         }
         .offer-filter-count {
@@ -182,7 +182,7 @@ export default function OfferGrid({ offers }: Props) {
         .offer-brand-select {
           padding: 9px 34px 9px 14px;
           border: 1.5px solid var(--border);
-          border-radius: 999px;
+          border-radius: 2px;
           background: white;
           font-size: 0.88rem;
           font-weight: 700;
@@ -195,9 +195,9 @@ export default function OfferGrid({ offers }: Props) {
           max-width: 260px;
         }
         .offer-brand-select-active {
-          border-color: #0EA5A9;
-          background-color: #0EA5A911;
-          color: #0EA5A9;
+          border-color: #7D293D;
+          background-color: #F7EBED;
+          color: #7D293D;
         }
         .offer-reset {
           padding: 8px 12px;

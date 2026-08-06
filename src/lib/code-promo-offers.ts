@@ -1639,12 +1639,12 @@ export function offerTypeLabel(type: OfferType): string {
 
 export function offerTypeColor(type: OfferType): string {
   switch (type) {
-    case "code": return "#2563EB";       // bleu
-    case "offre": return "#DB2777";      // rose
-    case "soldes": return "#DC2626";     // rouge
-    case "cashback": return "#F59E0B";   // orange
-    case "livraison": return "#059669";  // vert
-    case "newsletter": return "#7C3AED"; // violet
+    case "code": return "#735A24";
+    case "offre": return "#7D293D";
+    case "soldes": return "#8A3B3B";
+    case "cashback": return "#8A642E";
+    case "livraison": return "#5E416F";
+    case "newsletter": return "#5E416F";
   }
 }
 

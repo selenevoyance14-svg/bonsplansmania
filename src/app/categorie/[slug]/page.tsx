@@ -207,10 +207,10 @@ export default async function CategoryPage({ params }: PageProps) {
             </p>
             {slug === "test-produit" && (
               <div style={{ display: "flex", gap: "12px", marginTop: "16px", flexWrap: "wrap" }}>
-                <a href="/categorie/test-gratuit" style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "8px 18px", borderRadius: "24px", background: "#FFF7ED", color: "#C2410C", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", border: "1.5px solid #C2410C22" }}>
+                <a href="/categorie/test-gratuit" style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", borderRadius: "2px", background: "#E4EFEA", color: "#1F6D58", fontWeight: 700, fontSize: "0.88rem", textDecoration: "none", border: "1px solid #BFD6CC" }}>
                   <Gift size={14} /> Tests Gratuits
                 </a>
-                <a href="/categorie/test-avis" style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "8px 18px", borderRadius: "24px", background: "#EDE9FE", color: "#6D28D9", fontWeight: 600, fontSize: "0.9rem", textDecoration: "none", border: "1.5px solid #6D28D922" }}>
+                <a href="/categorie/test-avis" style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", borderRadius: "2px", background: "#ECE6F0", color: "#5E416F", fontWeight: 700, fontSize: "0.88rem", textDecoration: "none", border: "1px solid #D4C7DB" }}>
                   <FlaskConical size={14} /> Tests & Avis
                 </a>
               </div>

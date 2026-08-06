@@ -22,21 +22,22 @@ export default function CodePromoIndexPage() {
         {/* Hero */}
         <section
           style={{
-            background: "linear-gradient(135deg, #0EA5A9 0%, #0891A5 100%)",
-            padding: "44px 0 30px",
-            color: "white",
+            background: "linear-gradient(135deg, #F4F0E8 0%, #F7EBED 100%)",
+            padding: "48px 0 34px",
+            color: "#1F1B19",
+            borderBottom: "1px solid #D9D2C8",
           }}
         >
           <div className="container">
-            <nav className="breadcrumbs" style={{ color: "rgba(255,255,255,0.85)" }}>
-              <a href="/" style={{ color: "rgba(255,255,255,0.85)" }}>Accueil</a>
+            <nav className="breadcrumbs" style={{ color: "#635C56" }}>
+              <a href="/" style={{ color: "#635C56" }}>Accueil</a>
               <ChevronRight size={12} style={{ margin: "0 4px", opacity: 0.5 }} />
               <span>Codes promo du moment</span>
             </nav>
             <h1 style={{ fontSize: "clamp(1.8rem, 4.5vw, 2.5rem)", fontWeight: 900, marginBottom: "10px", letterSpacing: "-0.02em" }}>
               Codes promo du moment
             </h1>
-            <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", lineHeight: 1.5 }}>
+            <p style={{ color: "#635C56", fontSize: "1.05rem", maxWidth: "780px", lineHeight: 1.6 }}>
               <strong>{activeOffers.length} offres actives</strong> triées et vérifiées : soldes, codes promo, cashback, livraison offerte, ventes privées.
               Mis à jour chaque jour par notre équipe.
             </p>
@@ -55,10 +56,10 @@ export default function CodePromoIndexPage() {
         </section>
 
         {/* Grid marques : découvrir toutes les marques */}
-        <section id="marques" className="section-sm" style={{ background: "#FAFAFA", borderTop: "1px solid var(--border)", marginTop: "20px", scrollMarginTop: "90px" }}>
+        <section id="marques" className="section-sm" style={{ background: "#F4F0E8", borderTop: "1px solid #D9D2C8", marginTop: "20px", scrollMarginTop: "90px" }}>
           <div className="container">
             <div style={{ marginBottom: "22px" }}>
-              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#0EA5A911", color: "#0EA5A9", padding: "5px 12px", borderRadius: "999px", fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.06em", textTransform: "uppercase", marginBottom: "10px" }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: "6px", background: "#EFE8D8", color: "#735A24", padding: "6px 12px", borderRadius: "2px", fontSize: "0.72rem", fontWeight: 800, letterSpacing: "0.08em", textTransform: "uppercase", marginBottom: "10px" }}>
                 <Tag size={12} aria-hidden /> Trouver une marque
               </div>
               <h2 style={{ margin: 0, fontSize: "clamp(1.4rem, 3.5vw, 1.8rem)", fontWeight: 800, letterSpacing: "-0.01em" }}>
@@ -76,9 +77,9 @@ export default function CodePromoIndexPage() {
                   href={`/code-promo/${brand.slug}`}
                   style={{
                     textDecoration: "none",
-                    background: "white",
-                    border: "1px solid var(--border)",
-                    borderRadius: "10px",
+                    background: "#FBFAF6",
+                    border: "1px solid #D9D2C8",
+                    borderRadius: "2px",
                     padding: "14px 14px",
                     display: "flex",
                     alignItems: "center",

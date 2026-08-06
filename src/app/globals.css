@@ -2774,7 +2774,7 @@ body {
 }
 
 .bpm-card-discount {
-  background: #1a1a1a;
+  background: #7D293D;
   color: #fff;
 }
 
@@ -3115,14 +3115,14 @@ body {
   position: absolute;
   top: 14px;
   right: 14px;
-  background: var(--primary);
+  background: #7D293D;
   color: white;
   font-weight: 900;
   font-size: 1.4rem;
   letter-spacing: -0.01em;
   padding: 8px 14px;
   border-radius: 12px;
-  box-shadow: 0 6px 16px rgba(14, 165, 169, 0.35);
+  box-shadow: 0 6px 16px rgba(125, 41, 61, 0.28);
 }
 
 .bpm-deal-body {
@@ -3383,7 +3383,7 @@ body {
 }
 
 .bpm-card-h-discount {
-  background: #1a1a1a;
+  background: #7D293D;
   color: #fff;
 }
 
@@ -3564,7 +3564,7 @@ body {
 }
 
 .bpm-card-h-chip {
-  background: var(--primary);
+  background: #7D293D;
   color: #fff;
   font-size: 0.72rem;
   font-weight: 700;
