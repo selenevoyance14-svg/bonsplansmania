@@ -71,11 +71,11 @@ function sanitizeAmazonClaims(value: unknown): string | undefined {
     // Supprime les anciens prix/remises fixes : le prix actuel est affiché
     // séparément par AmazonLiveOffer grâce à l'API officielle Amazon.
     .replace(
-      /[ \t]+(?:à|au prix de|pour|dès|à partir de)[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?(?:[ \t]+au lieu de[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?)?/giu,
+      /[ \t]+(?:à|au prix de|pour|dès|à partir de)[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t\u00a0]*(?:€|euros?)(?:\*{1,2})?(?:[ \t]+au lieu de[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t\u00a0]*(?:€|euros?)(?:\*{1,2})?)?/giu,
       ""
     )
     .replace(
-      /(?:\*{1,2})?\b\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?(?:[ \t]+au lieu de[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?)?/giu,
+      /(?:\*{1,2})?\b\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t\u00a0]*(?:€|euros?)(?:\*{1,2})?(?:[ \t]+au lieu de[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t\u00a0]*(?:€|euros?)(?:\*{1,2})?)?/giu,
       ""
     )
     .replace(/\s*\((?:\*{1,2})?(?:−|-)?\s*\d{1,2}\s*%(?:\*{1,2})?[^)]*\)/giu, "")

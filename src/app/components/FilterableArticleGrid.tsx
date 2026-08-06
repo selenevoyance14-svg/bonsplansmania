@@ -1,12 +1,11 @@
 "use client";
 
-import { Fragment, useMemo, useState } from "react";
+import { Fragment, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Filter, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
-import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 
 interface ArticleListItem {
   slug: string;
@@ -393,6 +392,32 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
 
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;
+  const [liveAmazonPrices, setLiveAmazonPrices] = useState<Record<string, string>>({});
+
+  useEffect(() => {
+    const controller = new AbortController();
+    const asins = Array.from(new Set(
+      filtered.slice(0, visible).flatMap((article) => {
+        const asin = article.amazonAsin
+          || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
+          || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
+        return asin ? [asin.toUpperCase()] : [];
+      }),
+    ));
+
+    Promise.all(asins.map(async (asin) => {
+      try {
+        const response = await fetch(`/api/amazon/${encodeURIComponent(asin)}`, { signal: controller.signal });
+        if (!response.ok) return;
+        const offer = await response.json() as { price?: string };
+        if (offer.price) setLiveAmazonPrices((current) => ({ ...current, [asin]: offer.price! }));
+      } catch {
+        // Le libellé neutre reste visible si Amazon ne répond pas.
+      }
+    }));
+
+    return () => controller.abort();
+  }, [filtered, visible]);
 
   // Style commun pour tous les selects inline (compact, lisible)
   const selectStyle: React.CSSProperties = {
@@ -585,6 +610,7 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
               const amazonAsin = article.amazonAsin
                 || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
                 || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
+              const isAmazonOffer = !!amazonAsin || /(?:amazon\.fr|amzn\.(?:to|eu)|link\.amazon)/i.test(article.affiliateUrl || "");
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const articleHref = `/article/${article.slug}`;
@@ -647,9 +673,9 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                               {savings && <span className="bpm-card-h-chip">{savings}</span>}
                             </>
                           )}
-                          {!now && amazonAsin && (
+                          {!now && hasExternalAffiliate && (
                             <span className="bpm-card-h-price-now">
-                              <AmazonCardPrice asin={amazonAsin.toUpperCase()} fallback="" />
+                              {(amazonAsin && liveAmazonPrices[amazonAsin.toUpperCase()]) || (isAmazonOffer ? "Prix sur Amazon" : "Voir le prix")}
                             </span>
                           )}
                         </div>
