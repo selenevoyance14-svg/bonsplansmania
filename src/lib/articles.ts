@@ -23,6 +23,65 @@ const ARTICLE_IMAGE_FILENAMES = new Set(
 );
 const AMAZON_PARTNER_TAG = "lebrunnathali-21";
 
+function isAmazonUrl(value: unknown): boolean {
+  if (typeof value !== "string") return false;
+  try {
+    const hostname = new URL(value).hostname.toLowerCase();
+    return (
+      hostname === "amzn.to" ||
+      hostname === "amzn.eu" ||
+      hostname === "link.amazon" ||
+      hostname === "amazon.fr" ||
+      hostname.endsWith(".amazon.fr")
+    );
+  } catch {
+    return false;
+  }
+}
+
+function isAmazonArticle(data: Record<string, unknown>, content: string): boolean {
+  const tags = Array.isArray(data.tags) ? data.tags : [];
+  return (
+    isAmazonUrl(data.affiliateUrl) ||
+    tags.some((tag) => typeof tag === "string" && /amazon/i.test(tag)) ||
+    (typeof data.title === "string" && /amazon/i.test(data.title)) ||
+    /https?:\/\/(?:www\.)?(?:amazon\.fr|amzn\.to|amzn\.eu|link\.amazon)\//i.test(content)
+  );
+}
+
+/**
+ * Les prix, notes et volumes d'avis Amazon ne sont pas publiés sans PA-API.
+ * Les liens affiliés et l'analyse éditoriale restent intacts.
+ */
+function sanitizeAmazonClaims(value: unknown): string | undefined {
+  if (typeof value !== "string") return undefined;
+  return value
+    .replace(
+      /\b[0-5](?:[,.]\d+)?\s*\/\s*5\b/giu,
+      "note à consulter sur Amazon"
+    )
+    .replace(
+      /\b\d[\d\s]*(?:avis|commentaires)(?:\s+clients?)?\b/giu,
+      "avis clients à consulter sur Amazon"
+    )
+    .replace(
+      /\b\d[\d\s]*(?:[,.]\d{1,2})?\s*(?:€|euros?)(?=\s|[),.;:!?*_<>]|$)/giu,
+      "prix à vérifier sur Amazon"
+    )
+    .replace(
+      /(?:−|-)?\s*\d{1,2}\s*%(?=\s|[),.;:!?*_<>]|$)/giu,
+      "promotion à vérifier sur Amazon"
+    );
+}
+
+function sanitizeAmazonContent(content: string): string {
+  const withoutStoredAmazonImages = content.replace(
+    /^!?\[[^\]]*\]\(\/images\/amazon\/[^)]+\)\s*$/gimu,
+    ""
+  );
+  return sanitizeAmazonClaims(withoutStoredAmazonImages) || "";
+}
+
 function secureAmazonAffiliateUrl(url: unknown): string | undefined {
   if (typeof url !== "string" || !url.trim()) return undefined;
 
@@ -147,7 +206,9 @@ export function getArticleBySlug(slug: string): Article | null {
   if (!filePath || !fs.existsSync(filePath)) return null;
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
-  const stats = readingTime(content);
+  const amazonArticle = isAmazonArticle(data, content);
+  const safeContent = amazonArticle ? sanitizeAmazonContent(content) : content;
+  const stats = readingTime(safeContent);
   const category = data.category || "bon-plan";
   const expired = data.expired === true;
   const endDate = data.endDate;
@@ -155,34 +216,36 @@ export function getArticleBySlug(slug: string): Article | null {
   return {
     meta: {
       slug,
-      title: data.title || "",
-      description: data.description || "",
+      title: (amazonArticle ? sanitizeAmazonClaims(data.title) : data.title) || "",
+      description: (amazonArticle ? sanitizeAmazonClaims(data.description) : data.description) || "",
       date: data.date || new Date().toISOString(),
       updated: data.updated,
       category,
       tags: data.tags || [],
       image: isExpired
         ? getArchiveArticleImage(category)
-        : resolveArticleImage(data.image),
+        : amazonArticle && typeof data.image === "string" && data.image.startsWith("/images/amazon/")
+          ? FALLBACK_ARTICLE_IMAGE
+          : resolveArticleImage(data.image),
       imageAlt: isExpired
         ? getArchiveArticleImageAlt(category)
-        : data.imageAlt || data.title || "",
-      rating: data.rating,
-      price: data.price,
+        : (amazonArticle ? sanitizeAmazonClaims(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
+      rating: amazonArticle ? undefined : data.rating,
+      price: amazonArticle ? undefined : data.price,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,
       readingTime: stats.text.replace("min read", "min"),
       published: data.published !== false,
       featured: data.featured || false,
-      seoTitle: data.seoTitle,
-      seoDescription: data.seoDescription,
+      seoTitle: amazonArticle ? sanitizeAmazonClaims(data.seoTitle) : data.seoTitle,
+      seoDescription: amazonArticle ? sanitizeAmazonClaims(data.seoDescription) : data.seoDescription,
       expired,
       evergreen: data.evergreen || false,
       endDate,
       dealOfDay: data.dealOfDay || false,
       noindex: data.noindex || false,
     },
-    content,
+    content: safeContent,
   };
 }
 

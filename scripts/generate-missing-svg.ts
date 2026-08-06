@@ -211,6 +211,10 @@ for (const file of files) {
 
   const imagePath = data.image as string | undefined;
   if (!imagePath) continue;
+  // Les anciens chemins /images/amazon provenaient d'un catalogue non PA-API.
+  // Le chargeur d'articles les remplace par le visuel neutre du site : ne pas
+  // recréer de fichiers à ces emplacements pendant le build.
+  if (imagePath.startsWith("/images/amazon/")) continue;
 
   const fullPath = path.join(PUBLIC_DIR, imagePath);
   if (fs.existsSync(fullPath)) continue;
