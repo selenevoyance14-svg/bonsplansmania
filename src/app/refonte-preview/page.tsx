@@ -93,7 +93,12 @@ export default function RefontePreviewPage() {
         {latest.map(({ meta }) => (
           <Link href={`/article/${meta.slug}`} key={meta.slug} className={styles.latestItem}>
             <Image src={meta.image} alt={meta.imageAlt} width={128} height={96} />
-            <span><small>{labels[meta.category] ?? "Nouveau"}</small><strong>{meta.title}</strong><em>{formatDate(meta.date)}</em></span>
+            <span>
+              <small>{labels[meta.category] ?? "Nouveau"}</small>
+              <strong>{meta.title}</strong>
+              {(meta.amazonAsin || meta.price) && <b className={styles.latestPrice}><AmazonCardPrice asin={meta.amazonAsin} fallback={meta.price || "Voir l’offre"} /></b>}
+              <em>{formatDate(meta.date)}</em>
+            </span>
           </Link>
         ))}
         </div>
