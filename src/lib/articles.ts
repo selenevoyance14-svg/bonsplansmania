@@ -57,30 +57,40 @@ function sanitizeAmazonClaims(value: unknown): string | undefined {
   if (typeof value !== "string") return undefined;
   return value
     .replace(
-      /\b[0-5](?:[,.]\d+)?\s*\/\s*5\b/giu,
+      /[^.!?\n]*(?:\b[0-5](?:[,.]\d+)?[ \t]*\/[ \t]*5\b|\b\d[\d\u00a0 ]*(?:avis|commentaires)(?:[ \t]+clients?)?\b)[^.!?\n]*[.!?]?/giu,
+      ""
+    )
+    .replace(
+      /(?:\*{1,2})?\b[0-5](?:[,.]\d+)?[ \t]*\/[ \t]*5\b(?:\*{1,2})?/giu,
       "note à consulter sur Amazon"
     )
     .replace(
-      /\b\d[\d\s]*(?:avis|commentaires)(?:\s+clients?)?\b/giu,
+      /(?:\*{1,2})?\b\d[\d\u00a0 ]*(?:avis|commentaires)(?:[ \t]+clients?)?\b(?:\*{1,2})?/giu,
       "avis clients à consulter sur Amazon"
     )
     // Supprime les anciens prix/remises fixes : le prix actuel est affiché
     // séparément par AmazonLiveOffer grâce à l'API officielle Amazon.
     .replace(
-      /\s+(?:à|au prix de|pour|dès|à partir de)\s+\d[\d\s]*(?:[,.]\d{1,2})?\s*(?:€|euros?)(?:\s+au lieu de\s+\d[\d\s]*(?:[,.]\d{1,2})?\s*(?:€|euros?))?/giu,
+      /[ \t]+(?:à|au prix de|pour|dès|à partir de)[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?(?:[ \t]+au lieu de[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?)?/giu,
       ""
     )
     .replace(
-      /\b\d[\d\s]*(?:[,.]\d{1,2})?\s*(?:€|euros?)(?:\s+au lieu de\s+\d[\d\s]*(?:[,.]\d{1,2})?\s*(?:€|euros?))?/giu,
+      /(?:\*{1,2})?\b\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?(?:[ \t]+au lieu de[ \t]+(?:\*{1,2})?\d[\d\u00a0 ]*(?:[,.]\d{1,2})?[ \t]*(?:€|euros?)(?:\*{1,2})?)?/giu,
       ""
     )
-    .replace(/\s*\((?:−|-)?\s*\d{1,2}\s*%[^)]*\)/giu, "")
-    .replace(/(?:−|-)\s*\d{1,2}\s*%/giu, "")
+    .replace(/\s*\((?:\*{1,2})?(?:−|-)?\s*\d{1,2}\s*%(?:\*{1,2})?[^)]*\)/giu, "")
+    .replace(/(?:\*{1,2})?(?:−|-)\s*\d{1,2}\s*%(?:\*{1,2})?/giu, "")
+    .replace(/\b(?:passent|tombent)\s+sur Amazon/giu, "sont disponibles sur Amazon")
     .replace(/\b(?:passe|tombe)\s+sur Amazon/giu, "est disponible sur Amazon")
     .replace(/\bprix actuel à vérifier(?:\s+sur Amazon)?/giu, "offre actuelle sur Amazon")
+    .replace(/,?[ \t]+ce qui revient à seulement[ \t]+(?:la paire)?\*{0,2}/giu, "")
+    .replace(/^-[ \t]+(?:\*{0,2})?(?:de réduction|la paire)(?:\*{0,2})?[ \t]+—.*$/gimu, "")
+    .replace(/^-[ \t]+\*{0,2}Livraison gratuite\*{0,2}[ \t]+sur les commandes Amazon de[ \t]*\+.*$/gimu, "- **Livraison** selon les conditions affichées sur Amazon")
+    .replace(/À[ \t]+la paire de [^,.]+,[ \t]+c'est imbattable\./giu, "Avec ce grand format, l'offre est économique et pratique.")
+    .replace(/\b(?:la paire|de réduction)\*{1,2}/giu, (match) => match.replace(/\*+/g, ""))
     .replace(/\s*(?:—|,)?\s*(?:soit\s*)?(?:d['’]?économie|d economie)(?:\s+de)?(?=\s*[.,]|$)/giu, "")
     .replace(/,?\s+soit(?=\s*[.,])/giu, "")
-    .replace(/\s{2,}/g, " ")
+    .replace(/[ \t]{2,}/g, " ")
     .replace(/\s+([,.;:!?])/g, "$1")
     .replace(/\(\s*\)/g, "")
     .trim();
@@ -91,7 +101,17 @@ function sanitizeAmazonContent(content: string): string {
     /^!?\[[^\]]*\]\(\/images\/amazon\/[^)]+\)\s*$/gimu,
     ""
   );
-  return sanitizeAmazonClaims(withoutStoredAmazonImages) || "";
+  return (sanitizeAmazonClaims(withoutStoredAmazonImages) || "")
+    // Un ancien prix entouré de Markdown pouvait laisser un marqueur gras
+    // orphelin après sa suppression. Le texte reste volontairement sans gras
+    // plutôt que de casser tout le rendu de l'article.
+    .replace(/\*{1,3}/g, "")
+    .replace(/[ \t]*\(au lieu de[ \t]*,[ \t]*(?:soit[ \t]*)?(?:sur Amazon)?[.,]?[ \t]*\)/giu, "")
+    .replace(/^\|[ \t]*Prix Amazon[ \t]*\|[ \t]*\|$/gimu, "| Prix Amazon | Voir le prix actuel sur Amazon |")
+    .replace(/(💰[ \t]*Prix[ \t]*:)[ \t]*[.,]/giu, "$1 voir le prix actuel sur Amazon.")
+    .replace(/[ \t]+au lieu de(?=[ \t]*[.,;:!?])/giu, "")
+    .replace(/,?[ \t]+soit(?=[ \t]*[.,;:!?])/giu, "")
+    .replace(/\n{3,}/g, "\n\n");
 }
 
 function secureAmazonAffiliateUrl(url: unknown): string | undefined {
