@@ -392,8 +392,6 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
 
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;
-  const [liveAmazonPrices, setLiveAmazonPrices] = useState<Record<string, string>>({});
-
   useEffect(() => {
     const controller = new AbortController();
     const asins = Array.from(new Set(
@@ -410,7 +408,11 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
         const response = await fetch(`/api/amazon/${encodeURIComponent(asin)}`, { signal: controller.signal });
         if (!response.ok) return;
         const offer = await response.json() as { price?: string };
-        if (offer.price) setLiveAmazonPrices((current) => ({ ...current, [asin]: offer.price! }));
+        if (offer.price) {
+          document.querySelectorAll<HTMLElement>(`[data-amazon-price="${asin}"]`).forEach((element) => {
+            element.textContent = offer.price!;
+          });
+        }
       } catch {
         // Le libellé neutre reste visible si Amazon ne répond pas.
       }
@@ -667,7 +669,7 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                       <div className="bpm-card-h-footer">
                         <div className="bpm-card-h-price">
                           <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>
-                            {(amazonAsin && liveAmazonPrices[amazonAsin.toUpperCase()]) || now || (isAmazonOffer ? "Prix sur Amazon" : hasExternalAffiliate ? "Voir le prix" : "")}
+                            <span data-amazon-price={amazonAsin?.toUpperCase()}>{now || (isAmazonOffer ? "Prix sur Amazon" : "Voir le prix")}</span>
                           </span>
                           {was && <span className="bpm-card-h-price-was">{was}</span>}
                           {savings && <span className="bpm-card-h-chip">{savings}</span>}
