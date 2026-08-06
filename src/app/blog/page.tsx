@@ -49,6 +49,7 @@ export default function BlogPage() {
       expired: a.meta.expired,
       endDate: a.meta.endDate,
       price: a.meta.price,
+      amazonAsin: a.meta.amazonAsin,
     };
   });
 

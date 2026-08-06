@@ -24,6 +24,7 @@ interface ArticleListItem {
   featured?: boolean;
   tags?: string[];
   price?: string;
+  amazonAsin?: string;
   affiliateUrl?: string;
 }
 
@@ -581,7 +582,8 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
               const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
-              const amazonAsin = article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
+              const amazonAsin = article.amazonAsin
+                || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
                 || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;

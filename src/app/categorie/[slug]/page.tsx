@@ -146,6 +146,7 @@ export default async function CategoryPage({ params }: PageProps) {
       featured: a.meta.featured,
       tags: a.meta.tags,
       price: a.meta.price,
+      amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
     };
   });

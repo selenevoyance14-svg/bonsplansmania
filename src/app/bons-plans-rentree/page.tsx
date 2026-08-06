@@ -202,6 +202,7 @@ export default async function BonsPlansRentreePage() {
       endDate: a.meta.endDate,
       tags: a.meta.tags,
       price: a.meta.price,
+      amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
     };
   });

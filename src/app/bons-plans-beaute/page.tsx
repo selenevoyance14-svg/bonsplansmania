@@ -274,6 +274,7 @@ export default async function BonsPlansBeautePage() {
       endDate: a.meta.endDate,
       tags: a.meta.tags,
       price: a.meta.price,
+      amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
     };
   });

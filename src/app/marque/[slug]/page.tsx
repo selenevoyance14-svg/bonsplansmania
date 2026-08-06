@@ -145,6 +145,7 @@ export default async function BrandPage({ params }: PageProps) {
       expired: a.meta.expired,
       endDate: a.meta.endDate,
       price: a.meta.price,
+      amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
     };
   });
