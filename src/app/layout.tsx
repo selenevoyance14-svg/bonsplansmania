@@ -74,6 +74,19 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={poppins.className}>
         {children}
+        <p
+          style={{
+            margin: 0,
+            padding: "12px 20px",
+            background: "#111827",
+            color: "#d1d5db",
+            fontSize: "0.75rem",
+            lineHeight: 1.5,
+            textAlign: "center",
+          }}
+        >
+          En tant que Partenaire Amazon, Bons Plans Mania réalise un bénéfice sur les achats remplissant les conditions requises.
+        </p>
         <ClientShell />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}

@@ -20,6 +20,11 @@ import https from "https";
 import zlib from "zlib";
 import { fileURLToPath } from "url";
 
+console.error(
+  "Ce script est désactivé : les données Amazon doivent provenir des outils officiels du Programme Partenaires (PA-API)."
+);
+process.exit(1);
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.join(__dirname, "..");
 const OUT_FILE = path.join(ROOT, "src", "data", "amazon-flash-deals.json");

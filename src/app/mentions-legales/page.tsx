@@ -34,6 +34,9 @@ export default function MentionsLegales() {
               nous pouvons percevoir une commission, sans aucun surcoût pour vous. Cela nous permet de maintenir
               le site gratuitement et de continuer à dénicher les meilleures offres.
             </p>
+            <p style={{ marginTop: "12px" }}>
+              En tant que Partenaire Amazon, Bons Plans Mania réalise un bénéfice sur les achats remplissant les conditions requises.
+            </p>
           </section>
 
           <section style={{ marginBottom: "32px" }}>

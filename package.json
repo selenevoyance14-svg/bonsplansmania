@@ -8,7 +8,6 @@
     "build": "next build && npx tsx scripts/clean-rsc-txt.ts",
     "start": "next start",
     "lint": "eslint",
-    "sync-amazon": "node scripts/build-amazon-catalog.mjs",
     "audit:revenue": "npx tsx scripts/audit-revenue-readiness.ts",
     "cockpit:revenue": "npx tsx scripts/build-revenue-cockpit.ts",
     "audit:content": "npx tsx scripts/audit-content-integrity.ts"

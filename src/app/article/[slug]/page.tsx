@@ -9,7 +9,6 @@ import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import InContentAdsInit from "@/app/components/InContentAdsInit";
 import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
-import FlashDeals from "@/app/components/FlashDeals";
 import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
 import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
@@ -382,10 +381,6 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Pub après le contenu */}
             <AdBlock />
-
-            {/* Bloc cross-sell "promo flash" : AVANT le CTA principal pour les freebies
-                (le visiteur doit voir les bons plans avant de quitter le site via "Participer") */}
-            {isFreebieCategory && <FlashDeals slug={slug} />}
 
             {/* Articles connexes AVANT la CTA affilié : si le visiteur ne clique pas sur l'affilié,
                 il doit voir 4 autres articles pertinents avant d'envisager de quitter le site.
