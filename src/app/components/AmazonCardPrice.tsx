@@ -14,6 +14,7 @@ export default function AmazonCardPrice({
   const [price, setPrice] = useState<string>();
 
   useEffect(() => {
+    setPrice(undefined);
     if (!asin) return;
     const controller = new AbortController();
     fetch(`/api/amazon/${encodeURIComponent(asin)}`, { signal: controller.signal })
