@@ -88,7 +88,7 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                     src={article.image}
                     alt={article.imageAlt}
                     fill
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain", padding: "8px" }}
                     sizes="(max-width: 768px) 120px, 200px"
                     loading="lazy"
                   />

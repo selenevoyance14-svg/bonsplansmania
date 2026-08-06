@@ -1,165 +1,82 @@
 "use client";
-import { useState, useRef, useEffect } from "react";
 
-export default function Header({ activePage }: { activePage?: string }) {
-  const [beautyOpen, setBeautyOpen] = useState(false);
-  const [testsOpen, setTestsOpen] = useState(false);
-  const [bonsPlansOpen, setBonsPlansOpen] = useState(false);
+import Link from "next/link";
+import { useEffect, useRef, useState } from "react";
+import styles from "./EditorialHeader.module.css";
+
+const menus = [
+  {
+    label: "Bons Plans",
+    active: ["/bon-plan", "/bons-plans-"],
+    links: [
+      ["Bons plans beauté", "/bons-plans-beaute"], ["Coin Bébé", "/bons-plans-bebe"],
+      ["Air Fryer & Ninja", "/bons-plans-ninja"], ["Coin Tech", "/bons-plans-tech"],
+      ["Coin Maison", "/bons-plans-maison"], ["Jardin & animaux", "/bons-plans-jardin"],
+      ["Coin Mode", "/bons-plans-mode"], ["Coin Jouets", "/bons-plans-jouets"],
+      ["Coin Rentrée", "/bons-plans-rentree"], ["Bons plans en cours", "/bons-plans-en-cours"],
+      ["Réductions toute l’année", "/codes-promo-permanents"],
+    ],
+  },
+  {
+    label: "Tests Produits",
+    active: ["/test-", "/comparatif"],
+    links: [["Tous les tests", "/categorie/test-produit"], ["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
+  },
+  {
+    label: "Beauté",
+    active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier"],
+    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Box beauté", "/categorie/box-beaute"], ["Calendrier de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
+  },
+] as const;
+
+export default function Header({ activePage = "" }: { activePage?: string }) {
+  const [openMenu, setOpenMenu] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const dropdownRef = useRef<HTMLDivElement>(null);
-  const testsRef = useRef<HTMLDivElement>(null);
-  const bonsPlansRef = useRef<HTMLDivElement>(null);
+  const headerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
-    function handleClick(e: MouseEvent) {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setBeautyOpen(false);
-      }
-      if (testsRef.current && !testsRef.current.contains(e.target as Node)) {
-        setTestsOpen(false);
-      }
-      if (bonsPlansRef.current && !bonsPlansRef.current.contains(e.target as Node)) {
-        setBonsPlansOpen(false);
-      }
-    }
-    document.addEventListener("mousedown", handleClick);
-    return () => document.removeEventListener("mousedown", handleClick);
+    const close = (event: MouseEvent) => {
+      if (headerRef.current && !headerRef.current.contains(event.target as Node)) setOpenMenu(null);
+    };
+    document.addEventListener("mousedown", close);
+    return () => document.removeEventListener("mousedown", close);
   }, []);
 
-  const isBeautyActive = ["/beaute", "/box-beaute", "/calendrier", "/calendrier-avent", "/avis-prix-beaute"].some(p => activePage === p);
-  const isTestsActive = ["/test-produit", "/test-gratuit", "/test-avis", "/comparatif"].some(p => activePage === p);
-  const isBonsPlansActive = ["/bon-plan", "/bons-plans-bebe", "/bons-plans-beaute", "/bons-plans-ninja", "/bons-plans-tech", "/bons-plans-maison", "/bons-plans-jardin", "/bons-plans-mode", "/bons-plans-jouets", "/bons-plans-rentree", "/codes-promo-permanents"].some(p => activePage === p);
+  useEffect(() => {
+    setOpenMenu(null);
+    setMobileOpen(false);
+  }, [activePage]);
 
   return (
-    <header className="header">
-      <div className="container">
-        <div className="header-inner">
-          <a href="/" className="logo">
-            Bons Plans <span>Mania</span>
-          </a>
-          <nav className="nav">
-            <a href="/" className={activePage === "/" ? "active" : ""}>Accueil</a>
-            <div className="nav-dropdown" ref={bonsPlansRef}>
-              <button
-                className={`nav-dropdown-toggle ${isBonsPlansActive ? "active" : ""}`}
-                onClick={() => { setBonsPlansOpen(!bonsPlansOpen); setTestsOpen(false); setBeautyOpen(false); }}
-              >
-                Bons Plans ▾
-              </button>
-              {bonsPlansOpen && (
-                <div className="nav-dropdown-menu">
-                  <a href="/bons-plans-beaute">🌸 Bons plans beauté</a>
-                  <a href="/bons-plans-bebe">👶 Coin Bébé</a>
-                  <a href="/bons-plans-ninja"><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Air Fryer &amp; Ninja</a>
-                  <a href="/bons-plans-tech">📱 Coin Tech</a>
-                  <a href="/bons-plans-maison">🏠 Coin Maison</a>
-                  <a href="/bons-plans-jardin">🌱 Coin Jardin & Animaux</a>
-                  <a href="/bons-plans-mode">👗 Coin Mode</a>
-                  <a href="/bons-plans-jouets">🧸 Coin Jouets</a>
-                  <a href="/bons-plans-rentree">🎒 Coin Rentrée</a>
-                  <a href="/bons-plans-en-cours">🔥 Bons plans en cours</a>
-                  <a href="/codes-promo-permanents">♾️ Réductions toute l&apos;année</a>
-                  <a href="/code-promo#marques">Trouver un code par marque</a>
-                </div>
-              )}
+    <header className={styles.header} ref={headerRef}>
+      <div className={styles.inner}>
+        <Link href="/" className={styles.logo} aria-label="Bons Plans Mania, accueil">Bons Plans <em>Mania</em></Link>
+        <nav className={styles.desktopNav} aria-label="Navigation principale">
+          <Link href="/" className={activePage === "/" ? styles.active : ""}>Accueil</Link>
+          {menus.slice(0, 2).map((menu) => (
+            <div className={styles.dropdown} key={menu.label}>
+              <button type="button" aria-expanded={openMenu === menu.label} onClick={() => setOpenMenu(openMenu === menu.label ? null : menu.label)} className={menu.active.some((path) => activePage.includes(path)) ? styles.active : ""}>{menu.label}<span>⌄</span></button>
+              {openMenu === menu.label && <div className={styles.dropdownPanel}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
             </div>
-            <div className="nav-dropdown" ref={testsRef}>
-              <button
-                className={`nav-dropdown-toggle ${isTestsActive ? "active" : ""}`}
-                onClick={() => { setTestsOpen(!testsOpen); setBeautyOpen(false); setBonsPlansOpen(false); }}
-              >
-                Tests Produits ▾
-              </button>
-              {testsOpen && (
-                <div className="nav-dropdown-menu">
-                  <a href="/categorie/test-produit">Tous les tests</a>
-                  <a href="/categorie/test-gratuit">Tests Gratuits</a>
-                  <a href="/categorie/test-avis">Tests & Avis</a>
-                  <a href="/categorie/comparatif">Comparatifs</a>
-                </div>
-              )}
+          ))}
+          <Link href="/code-promo" className={activePage === "/code-promo" ? styles.active : ""}>Codes promo</Link>
+          <Link href="/categorie/concours" className={activePage.includes("concours") ? styles.active : ""}>Concours</Link>
+          {menus.slice(2).map((menu) => (
+            <div className={styles.dropdown} key={menu.label}>
+              <button type="button" aria-expanded={openMenu === menu.label} onClick={() => setOpenMenu(openMenu === menu.label ? null : menu.label)} className={menu.active.some((path) => activePage.includes(path)) ? styles.active : ""}>{menu.label}<span>⌄</span></button>
+              {openMenu === menu.label && <div className={styles.dropdownPanel}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
             </div>
-            <a href="/code-promo" className={activePage === "/code-promo" ? "active" : ""}>Codes promo</a>
-            <a href="/categorie/concours" className={activePage === "/concours" ? "active" : ""}>Concours</a>
-            <div className="nav-dropdown" ref={dropdownRef}>
-              <button
-                className={`nav-dropdown-toggle ${isBeautyActive ? "active" : ""}`}
-                onClick={() => { setBeautyOpen(!beautyOpen); setTestsOpen(false); setBonsPlansOpen(false); }}
-              >
-                Beauté ▾
-              </button>
-              {beautyOpen && (
-                <div className="nav-dropdown-menu">
-                  <a href="/avis-prix-beaute">Avis et prix beauté</a>
-                  <a href="/categorie/box-beaute">Box Beauté</a>
-                  <a href="/categorie/calendrier-avent">Calendrier de l'Avent</a>
-                  <a href="/categorie/beaute">Guides & Tests</a>
-                </div>
-              )}
-            </div>
-          </nav>
-
-          {/* Burger button : visible uniquement sur mobile via CSS */}
-          <button
-            className="burger-btn"
-            aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            aria-expanded={mobileOpen}
-            onClick={() => setMobileOpen(!mobileOpen)}
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-              {mobileOpen ? (
-                <>
-                  <line x1="18" y1="6" x2="6" y2="18" />
-                  <line x1="6" y1="6" x2="18" y2="18" />
-                </>
-              ) : (
-                <>
-                  <line x1="3" y1="6" x2="21" y2="6" />
-                  <line x1="3" y1="12" x2="21" y2="12" />
-                  <line x1="3" y1="18" x2="21" y2="18" />
-                </>
-              )}
-            </svg>
-          </button>
-        </div>
+          ))}
+        </nav>
+        <Link className={styles.today} href="/bons-plans-en-cours">Offres du jour</Link>
+        <button type="button" className={styles.burger} aria-expanded={mobileOpen} aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"} onClick={() => setMobileOpen(!mobileOpen)}><span /><span /><span /></button>
       </div>
-
-      {/* Panneau menu mobile (s'affiche quand mobileOpen = true) */}
       {mobileOpen && (
-        <div className="mobile-menu" role="navigation" aria-label="Menu principal">
-          <a href="/" onClick={() => setMobileOpen(false)}>Accueil</a>
-          <div className="mobile-menu-section">
-            <span className="mobile-menu-title">Bons Plans</span>
-            <a href="/bons-plans-beaute" onClick={() => setMobileOpen(false)}>🌸 Bons plans beauté</a>
-            <a href="/bons-plans-bebe" onClick={() => setMobileOpen(false)}>👶 Coin Bébé</a>
-            <a href="/bons-plans-ninja" onClick={() => setMobileOpen(false)}><span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "0 5px", borderRadius: "3px", fontWeight: 800, fontSize: "0.85em", marginRight: "6px", lineHeight: "1.3", verticalAlign: "0" }}>N</span>Air Fryer &amp; Ninja</a>
-            <a href="/bons-plans-tech" onClick={() => setMobileOpen(false)}>📱 Coin Tech</a>
-            <a href="/bons-plans-maison" onClick={() => setMobileOpen(false)}>🏠 Coin Maison</a>
-            <a href="/bons-plans-jardin" onClick={() => setMobileOpen(false)}>🌱 Coin Jardin & Animaux</a>
-            <a href="/bons-plans-mode" onClick={() => setMobileOpen(false)}>👗 Coin Mode</a>
-            <a href="/bons-plans-jouets" onClick={() => setMobileOpen(false)}>🧸 Coin Jouets</a>
-            <a href="/bons-plans-rentree" onClick={() => setMobileOpen(false)}>🎒 Coin Rentrée</a>
-            <a href="/bons-plans-en-cours" onClick={() => setMobileOpen(false)}>🔥 Bons plans en cours</a>
-            <a href="/codes-promo-permanents" onClick={() => setMobileOpen(false)}>♾️ Réductions toute l&apos;année</a>
-            <a href="/code-promo#marques" onClick={() => setMobileOpen(false)}>Trouver un code par marque</a>
-          </div>
-          <div className="mobile-menu-section">
-            <span className="mobile-menu-title">Tests Produits</span>
-            <a href="/categorie/test-produit" onClick={() => setMobileOpen(false)}>Tous les tests</a>
-            <a href="/categorie/test-gratuit" onClick={() => setMobileOpen(false)}>Tests Gratuits</a>
-            <a href="/categorie/test-avis" onClick={() => setMobileOpen(false)}>Tests & Avis</a>
-            <a href="/categorie/comparatif" onClick={() => setMobileOpen(false)}>Comparatifs</a>
-          </div>
-          <a href="/code-promo" onClick={() => setMobileOpen(false)}>Codes promo</a>
-          <a href="/categorie/concours" onClick={() => setMobileOpen(false)}>Concours</a>
-          <div className="mobile-menu-section">
-            <span className="mobile-menu-title">Beauté</span>
-            <a href="/avis-prix-beaute" onClick={() => setMobileOpen(false)}>Avis et prix beauté</a>
-            <a href="/categorie/box-beaute" onClick={() => setMobileOpen(false)}>Box Beauté</a>
-            <a href="/categorie/calendrier-avent" onClick={() => setMobileOpen(false)}>Calendrier de l&apos;Avent</a>
-            <a href="/categorie/beaute" onClick={() => setMobileOpen(false)}>Guides & Tests</a>
-          </div>
-        </div>
+        <nav className={styles.mobilePanel} aria-label="Navigation mobile">
+          <Link href="/">Accueil</Link>
+          {menus.map((menu) => <div key={menu.label}><strong>{menu.label}</strong>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>)}
+          <Link href="/code-promo">Codes promo</Link><Link href="/categorie/concours">Concours</Link>
+        </nav>
       )}
     </header>
   );

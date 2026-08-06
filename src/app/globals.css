@@ -1492,7 +1492,8 @@ body {
 /* ── CATEGORY PAGE ── */
 .category-header {
   padding: 48px 0 32px;
-  background: linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%);
+  background: linear-gradient(135deg, #F4F0E8 0%, #FBFAF6 72%, #F1E3E6 100%);
+  border-bottom: 1px solid #D9D2C8;
 }
 
 /* ── NEWSLETTER ── */
@@ -2795,23 +2796,23 @@ body {
 
 /* Pills + badges + footer accents per category */
 .bpm-pill-bon-plan,
-.bpm-badge-bon-plan { background: #FEE7EF; color: #E11D48; }
+.bpm-badge-bon-plan { background: #7D293D; color: #FFFFFF; }
 .bpm-pill-test-gratuit,
-.bpm-badge-test-gratuit { background: #FFE7CC; color: #C2410C; }
+.bpm-badge-test-gratuit { background: #E4EFEA; color: #1F6D58; }
 .bpm-pill-test-avis,
-.bpm-badge-test-avis { background: #E8E0FF; color: #6D28D9; }
+.bpm-badge-test-avis { background: #ECE6F0; color: #5E416F; }
 .bpm-pill-concours,
-.bpm-badge-concours { background: #DCFCE7; color: #166534; }
+.bpm-badge-concours { background: #F3EBCF; color: #80611E; }
 .bpm-pill-box-beaute,
-.bpm-badge-box-beaute { background: #F5E1FF; color: #86198F; }
+.bpm-badge-box-beaute { background: #F1E3E6; color: #7D293D; }
 .bpm-pill-beaute,
-.bpm-badge-beaute { background: #DBE9FE; color: #1D4ED8; }
+.bpm-badge-beaute { background: #F3E7DF; color: #8A4D3A; }
 .bpm-pill-code-promo,
-.bpm-badge-code-promo { background: #FEF3C7; color: #92400E; }
+.bpm-badge-code-promo { background: #EFE8D8; color: #735A24; }
 .bpm-pill-calendrier-avent,
-.bpm-badge-calendrier-avent { background: #DCFCE7; color: #15803D; }
+.bpm-badge-calendrier-avent { background: #E5ECE5; color: #3F654B; }
 .bpm-pill-calendrier,
-.bpm-badge-calendrier { background: #FEF3C7; color: #B45309; }
+.bpm-badge-calendrier { background: #EEE8DC; color: #725C32; }
 
 .bpm-card-body {
   padding: 18px 20px 12px;
@@ -3548,7 +3549,8 @@ body {
 .bpm-card-h-price-now {
   font-size: 1.2rem;
   font-weight: 800;
-  color: var(--primary);
+  color: #1F1B19;
+  font-family: Georgia, serif;
   line-height: 1;
 }
 
@@ -3593,15 +3595,30 @@ body {
 .bpm-card-h:hover .bpm-card-h-cta { gap: 8px; }
 
 /* CTA color per category (reuse footer colors) */
-.bpm-cta-bon-plan { color: var(--primary); }
-.bpm-cta-test-gratuit { color: #C2410C; }
-.bpm-cta-test-avis { color: #6D28D9; }
-.bpm-cta-concours { color: #166534; }
-.bpm-cta-box-beaute { color: #86198F; }
-.bpm-cta-beaute { color: #1D4ED8; }
-.bpm-cta-code-promo { color: #92400E; }
-.bpm-cta-calendrier-avent { color: #15803D; }
-.bpm-cta-calendrier { color: #B45309; }
+.bpm-cta-bon-plan { color: #7D293D; }
+.bpm-card-h-bon-plan .bpm-card-h-price-now {
+  color: #1F1B19;
+  font-family: Georgia, serif;
+  font-size: 1.28rem;
+}
+.bpm-card-h-bon-plan .bpm-cta-bon-plan {
+  background: #7D293D;
+  color: #FFFFFF;
+  padding: 8px 12px;
+  border-radius: 2px;
+  letter-spacing: 0.01em;
+}
+.bpm-card-h-bon-plan:hover .bpm-cta-bon-plan {
+  background: #642031;
+}
+.bpm-cta-test-gratuit { color: #1F6D58; }
+.bpm-cta-test-avis { color: #5E416F; }
+.bpm-cta-concours { color: #80611E; }
+.bpm-cta-box-beaute { color: #7D293D; }
+.bpm-cta-beaute { color: #8A4D3A; }
+.bpm-cta-code-promo { color: #735A24; }
+.bpm-cta-calendrier-avent { color: #3F654B; }
+.bpm-cta-calendrier { color: #725C32; }
 
 /* Mobile : image plus petite, header meta compact */
 @media (max-width: 640px) {

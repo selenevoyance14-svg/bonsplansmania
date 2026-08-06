@@ -73,7 +73,7 @@ export default function ArticleCardHorizontal({
                     src={article.meta.image}
                     alt={article.meta.imageAlt}
                     fill
-                    style={{ objectFit: "cover" }}
+                    style={{ objectFit: "contain", padding: "8px" }}
                     sizes="(max-width: 768px) 120px, 180px"
                     priority={priority}
                     loading={priority ? undefined : "lazy"}

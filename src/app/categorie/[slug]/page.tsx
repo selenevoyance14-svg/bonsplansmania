@@ -227,10 +227,6 @@ export default async function CategoryPage({ params }: PageProps) {
           </section>
         )}
 
-        <section className="container" style={{ paddingTop: "0", paddingBottom: "0" }}>
-          <AdBlock />
-        </section>
-
         <section className="section">
           <div className="container">
             {articles.length === 0 ? (
@@ -258,6 +254,10 @@ export default async function CategoryPage({ params }: PageProps) {
               </nav>
             )}
           </div>
+        </section>
+
+        <section className="container" style={{ paddingTop: "0", paddingBottom: "24px" }}>
+          <AdBlock format="in-article" />
         </section>
       </main>
 
