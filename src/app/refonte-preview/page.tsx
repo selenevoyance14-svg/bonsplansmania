@@ -10,6 +10,7 @@ import Header from "@/app/components/Header";
 import DealCarousel from "./DealCarousel";
 import EditorialNewsletter from "./EditorialNewsletter";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
+import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import styles from "./refonte.module.css";
 
 const labels: Record<string, string> = {
@@ -77,7 +78,7 @@ export default function RefontePreviewPage() {
           </form>
         </div>
 
-        <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:meta.title, image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin }))} />
+        <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:meta.title, image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:hasDirectMerchantCta({ category:meta.category, affiliateUrl:meta.affiliateUrl, expired:false, endDate:meta.endDate }) }))} />
       </section>
 
       <section className={styles.trust} aria-label="Nos engagements">
@@ -139,7 +140,11 @@ export default function RefontePreviewPage() {
                 {index === 0 && <p>{article.meta.description}</p>}
                 <div className={styles.cardFooter}>
                   <strong><AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} /></strong>
-                  <Link href={`/article/${article.meta.slug}`} aria-label={`Découvrir ${article.meta.title}`}><ArrowUpRight size={17} /></Link>
+                  {hasDirectMerchantCta({ category:article.meta.category, affiliateUrl:article.meta.affiliateUrl, expired:false, endDate:article.meta.endDate }) ? (
+                    <a href={`/go/${article.meta.slug}`} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}><ArrowUpRight size={17} /></a>
+                  ) : (
+                    <Link href={`/article/${article.meta.slug}`} aria-label={`Découvrir ${article.meta.title}`}><ArrowUpRight size={17} /></Link>
+                  )}
                 </div>
               </div>
             </article>

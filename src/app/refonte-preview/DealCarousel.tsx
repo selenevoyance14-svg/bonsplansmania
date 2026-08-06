@@ -16,6 +16,7 @@ type Slide = {
   date: string;
   price?: string;
   amazonAsin?: string;
+  directOffer?: boolean;
 };
 
 export default function DealCarousel({ slides }: { slides: Slide[] }) {
@@ -44,7 +45,11 @@ export default function DealCarousel({ slides }: { slides: Slide[] }) {
         <small>{slide.label} · {slide.date}</small>
         <h2>{slide.title}</h2>
         <div className={styles.leadBottom}>
-          <Link href={`/article/${slide.slug}`}><AmazonCardPrice asin={slide.amazonAsin} fallback={slide.price || "Découvrir l’offre"} /> <ArrowUpRight size={16} /></Link>
+          {slide.directOffer ? (
+            <a href={`/go/${slide.slug}`} target="_blank" rel="nofollow sponsored noopener"><AmazonCardPrice asin={slide.amazonAsin} fallback={slide.price || "Voir l’offre"} /> <ArrowUpRight size={16} /></a>
+          ) : (
+            <Link href={`/article/${slide.slug}`}><AmazonCardPrice asin={slide.amazonAsin} fallback={slide.price || "Découvrir l’offre"} /> <ArrowUpRight size={16} /></Link>
+          )}
           <div className={styles.carouselControls}>
             <button type="button" onClick={() => move(-1)} aria-label="Offre précédente"><ArrowLeft size={15} /></button>
             <span>{current + 1} / {slides.length}</span>
