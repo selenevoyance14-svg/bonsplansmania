@@ -102,6 +102,34 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
           <AdBlock />
         </section>
 
+        {brand.currentOffer && (
+          <section className="section-sm">
+            <div className="container">
+              <div style={{
+                maxWidth: "760px",
+                margin: "0 auto",
+                padding: "24px",
+                border: `2px solid ${brand.color}`,
+                borderRadius: "18px",
+                background: "white",
+                boxShadow: "0 12px 30px -18px rgba(0,0,0,0.35)",
+                textAlign: "center",
+              }}>
+                <p style={{ margin: "0 0 6px", color: "#6B7280", fontWeight: 700 }}>Code promo vérifié</p>
+                <div style={{ fontSize: "clamp(1.7rem, 6vw, 2.5rem)", fontWeight: 900, letterSpacing: "0.06em", color: brand.color }}>
+                  {brand.currentOffer.code}
+                </div>
+                <p style={{ fontSize: "1.15rem", fontWeight: 800, margin: "8px 0 4px" }}>{brand.currentOffer.discount}</p>
+                <p style={{ color: "#6B7280", margin: "0 0 16px" }}>{brand.currentOffer.conditions}</p>
+                <a href={brand.affiliateUrl} target="_blank" rel="nofollow sponsored noopener" className="btn btn-primary" style={{ padding: "12px 24px" }}>
+                  Utiliser {brand.currentOffer.code} <ExternalLink size={15} />
+                </a>
+                <p style={{ color: "#9CA3AF", fontSize: "0.78rem", margin: "12px 0 0" }}>Vérifié le {brand.currentOffer.verifiedAt}</p>
+              </div>
+            </div>
+          </section>
+        )}
+
         {active.length > 0 && (
           <section className="section">
             <div className="container">

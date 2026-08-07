@@ -11,6 +11,12 @@ export interface CodePromoBrand {
   affiliateLabel: string;
   matchTags: string[]; // tags à matcher dans le frontmatter MDX
   color: string;
+  currentOffer?: {
+    code: string;
+    discount: string;
+    conditions: string;
+    verifiedAt: string;
+  };
 }
 
 export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
@@ -474,9 +480,15 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "zooplus",
     name: "Zooplus",
     affiliateUrl: "https://tidd.ly/4bvX2g9",
-    affiliateLabel: "Voir les offres Zooplus",
+    affiliateLabel: "Utiliser le code AFF-NEW10",
     matchTags: ["zooplus", "animalerie"],
     color: "#FFA726",
+    currentOffer: {
+      code: "AFF-NEW10",
+      discount: "-10 % sur la première commande dès 59 €",
+      conditions: "Offre réservée aux nouveaux clients.",
+      verifiedAt: "7 août 2026",
+    },
   },
   {
     slug: "baija",
