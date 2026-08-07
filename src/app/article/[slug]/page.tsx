@@ -13,6 +13,7 @@ import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
 import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
 import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
+import { shouldHideAmazonPrice } from "@/lib/article-commerce";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -360,7 +361,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
             </div>
 
-            {article.meta.amazonAsin && affiliateUrl !== "#" && !isExpired && (
+            {article.meta.amazonAsin && !shouldHideAmazonPrice(slug) && affiliateUrl !== "#" && !isExpired && (
               <AmazonLiveOffer asin={article.meta.amazonAsin} affiliateUrl={affiliateUrl} />
             )}
 

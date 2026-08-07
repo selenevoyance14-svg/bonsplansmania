@@ -5,7 +5,7 @@ import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
-import { hasDirectMerchantCta } from "@/lib/article-commerce";
+import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
 
 interface ArticleListItem {
   slug: string;
@@ -264,6 +264,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                 || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
                 || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
               const isAmazonOffer = !!amazonAsin || /(?:amazon\.fr|amzn\.(?:to|eu)|link\.amazon)/i.test(article.affiliateUrl || "");
+              const hideAmazonPrice = shouldHideAmazonPrice(article.slug);
               const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const hasExternalAffiliate = hasDirectMerchantCta({
@@ -299,13 +300,15 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                       <h2 className="bpm-card-h-title">{article.title}</h2>
                       <p className="bpm-card-h-excerpt">{article.description}</p>
                       <div className="bpm-card-h-footer">
-                        <div className="bpm-card-h-price">
-                          <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`} data-amazon-price={amazonAsin?.toUpperCase()}>
-                            {now || (isAmazonOffer ? "Prix sur Amazon" : hasExternalAffiliate ? "Voir le prix" : "")}
-                          </span>
-                          {was && <span className="bpm-card-h-price-was">{was}</span>}
-                          {savings && <span className="bpm-card-h-chip">{savings}</span>}
-                        </div>
+                        {(now || (isAmazonOffer && hasExternalAffiliate && !hideAmazonPrice)) && (
+                          <div className="bpm-card-h-price">
+                            <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`} data-amazon-price={amazonAsin?.toUpperCase()}>
+                              {now || "Prix sur Amazon"}
+                            </span>
+                            {was && <span className="bpm-card-h-price-was">{was}</span>}
+                            {savings && <span className="bpm-card-h-chip">{savings}</span>}
+                          </div>
+                        )}
                         {hasExternalAffiliate ? (
                           <a
                             href={affiliateHref}
