@@ -62,6 +62,26 @@ function normalize(s: string): string {
   return s.toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
 }
 
+/**
+ * Les anciens articles n'ont pas toujours de champ `price` dans leur
+ * frontmatter, alors que le prix est présent dans le titre ou la description.
+ * On l'utilise comme solution de secours afin que les tris par prix restent
+ * fiables pendant la remise à niveau progressive des archives.
+ */
+function getSortablePrice(article: ArticleListItem): number | undefined {
+  const structured = parsePrice(article.price).nowAmount;
+  if (structured !== undefined) return structured;
+
+  const fallbackText = `${article.title} ${article.description}`;
+  const match = fallbackText.match(/(?:^|\s)(\d{1,4}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?)\s*€/);
+  if (!match) return undefined;
+
+  const amount = Number.parseFloat(
+    match[1].replace(/[\s\u00a0]/g, "").replace(",", "."),
+  );
+  return Number.isFinite(amount) ? amount : undefined;
+}
+
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
 
 export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }: { articles: ArticleListItem[]; brands: BrandDef[]; sortBrandsBy?: "count" | "alpha" }) {
@@ -82,7 +102,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
         if (matches) matchedKeys.push(brand.key);
       }
       const parsed = parsePrice(a.price);
-      return { article: a, matchedKeys, ...parsed, nowNum: parsed.nowAmount };
+      return { article: a, matchedKeys, ...parsed, nowNum: getSortablePrice(a) };
     });
   }, [articles, brands]);
 
