@@ -15,6 +15,7 @@ type Article = {
   endDate: string;
   price: string;
   affiliateUrl: string;
+  amazonAsin: string;
   affiliateLabel: string;
   content: string;
   published: boolean;
@@ -57,6 +58,7 @@ function readArticles(): Article[] {
       endDate: String(data.endDate || ""),
       price: String(data.price || ""),
       affiliateUrl: String(data.affiliateUrl || ""),
+      amazonAsin: String(data.amazonAsin || ""),
       affiliateLabel: String(data.affiliateLabel || ""),
       content,
       published: data.published !== false,
@@ -143,6 +145,24 @@ function csvCell(value: unknown): string {
 const PROMOTIONAL_TEXT =
   /\b(?:promo|promotion|bon plan|vente flash|soldes|remise|coupon|code promo|prix actuel|offre limitée|stock limité)\b/i;
 const PRICE_TEXT = /\b\d[\d\s]*(?:[.,]\d{1,2})?\s*€|\b-\s*\d{1,3}\s*%/;
+const LIMITED_CAMPAIGN_TEXT =
+  /\b(?:coupon|code promo|vente(?:s)? flash|prime day|french (?:days|week)|black friday|cyber monday|soldes|offre de remboursement|satisfait ou rembours[ée]|odr)\b/i;
+
+function isAmazonUrl(url: string): boolean {
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    return host === "amazon.fr" || host.endsWith(".amazon.fr") || host === "amzn.to" || host === "link.amazon";
+  } catch {
+    return false;
+  }
+}
+
+function isDynamicAmazonOffer(article: Article): boolean {
+  if (article.category !== "bon-plan") return false;
+  if (!article.amazonAsin && !isAmazonUrl(article.affiliateUrl)) return false;
+  const combined = `${article.title}\n${article.description}\n${article.content}`;
+  return !LIMITED_CAMPAIGN_TEXT.test(combined);
+}
 const SENSITIVE_CLAIMS: Array<{ key: string; pattern: RegExp; label: string }> = [
   {
     key: "first_hand_test",
@@ -197,6 +217,7 @@ const staleCommercialPages = articles
     if (
       article.expired ||
       article.endDate ||
+      isDynamicAmazonOffer(article) ||
       !looksTimeSensitive ||
       ageDays === undefined ||
       ageDays <= 30
@@ -270,9 +291,9 @@ const hasAutomaticFreeTrafficBridge =
 const hasAutomaticStaleProtection =
   articleTemplateSource.includes("const STALE_DAYS = 21") &&
   articleTemplateSource.includes("productAvailability = (isExpired || isStale)") &&
-  articleTemplateSource.includes("Ce post a plus de 3 semaines") &&
-  articleTemplateSource.includes("Ce concours a plus de 3 semaines") &&
-  articleTemplateSource.includes("Ce test gratuit a plus de 3 semaines");
+  articleTemplateSource.includes('"code-promo"') &&
+  articleTemplateSource.includes("le code promo n'est peut-être plus valable");
+const AUTOMATIC_STALE_CATEGORIES = new Set(["code-promo", "box-beaute", "calendrier-avent"]);
 
 const freeTrafficBridgeRows = articles
   .filter((article) => ["concours", "test-gratuit"].includes(article.category))
@@ -309,12 +330,12 @@ const unmonetizedFreeTrafficPages = freeTrafficBridgeRows.filter(
 const automaticallyMonetizedFreeTrafficPages = freeTrafficBridgeRows.filter(
   (row) => !row.hasInlineCommercialBridge && row.hasAutomaticCommercialBridge,
 );
-const unprotectedStaleCommercialPages = hasAutomaticStaleProtection
-  ? []
-  : staleCommercialPages;
-const automaticallyProtectedStaleCommercialPages = hasAutomaticStaleProtection
-  ? staleCommercialPages
-  : [];
+const unprotectedStaleCommercialPages = staleCommercialPages.filter(
+  (row) => !hasAutomaticStaleProtection || !AUTOMATIC_STALE_CATEGORIES.has(row.category),
+);
+const automaticallyProtectedStaleCommercialPages = staleCommercialPages.filter(
+  (row) => hasAutomaticStaleProtection && AUTOMATIC_STALE_CATEGORIES.has(row.category),
+);
 const unprotectedOverdueFreeTrafficPages = hasAutomaticStaleProtection
   ? []
   : overdueFreeTrafficPages;

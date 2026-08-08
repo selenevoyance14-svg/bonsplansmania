@@ -9,6 +9,7 @@ type ArticleAudit = {
   date: string;
   endDate?: string;
   affiliateUrl?: string;
+  amazonAsin?: string;
   price?: string;
   expired: boolean;
   evergreen: boolean;
@@ -34,6 +35,8 @@ const EXPIRABLE_CATEGORIES = new Set([
 ]);
 const TEST_CLAIM =
   /\b(on a test[ée]s?|nous avons test[ée]|notre test|apr[eè]s test|test[ée] par (?:nos soins|la r[ée]daction))\b/i;
+const LIMITED_CAMPAIGN_TEXT =
+  /\b(?:coupon|code promo|vente(?:s)? flash|prime day|french (?:days|week)|black friday|cyber monday|soldes|offre de remboursement|satisfait ou rembours[ée]|odr)\b/i;
 
 function walkMdx(dir: string): string[] {
   if (!fs.existsSync(dir)) return [];
@@ -86,6 +89,22 @@ function ageDays(date: string): number {
   return Math.max(0, Math.floor((NOW.getTime() - time) / 86_400_000));
 }
 
+function isAmazonUrl(url?: string): boolean {
+  if (!url) return false;
+  try {
+    const host = new URL(url).hostname.replace(/^www\./, "");
+    return host === "amazon.fr" || host.endsWith(".amazon.fr") || host === "amzn.to" || host === "link.amazon";
+  } catch {
+    return false;
+  }
+}
+
+function isDynamicAmazonOffer(article: ArticleAudit): boolean {
+  if (article.category !== "bon-plan") return false;
+  if (!article.amazonAsin && !isAmazonUrl(article.affiliateUrl)) return false;
+  return !LIMITED_CAMPAIGN_TEXT.test(`${article.title}\n${article.description}\n${article.content}`);
+}
+
 function readArticles(): ArticleAudit[] {
   return walkMdx(CONTENT_DIR).map((file) => {
     const source = fs.readFileSync(file, "utf8");
@@ -97,6 +116,7 @@ function readArticles(): ArticleAudit[] {
       date: String(data.date || ""),
       endDate: typeof data.endDate === "string" ? data.endDate : undefined,
       affiliateUrl: typeof data.affiliateUrl === "string" ? data.affiliateUrl : undefined,
+      amazonAsin: typeof data.amazonAsin === "string" ? data.amazonAsin : undefined,
       price: typeof data.price === "string" ? data.price : undefined,
       expired: data.expired === true || (typeof data.endDate === "string" && data.endDate < TODAY),
       evergreen: data.evergreen === true,
@@ -124,6 +144,7 @@ const missingEndDate = published.filter(
     EXPIRABLE_CATEGORIES.has(article.category) &&
     !article.expired &&
     !article.evergreen &&
+    !isDynamicAmazonOffer(article) &&
     !article.endDate &&
     ageDays(article.date) > 21,
 );
