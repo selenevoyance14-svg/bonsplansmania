@@ -177,10 +177,25 @@ def download_image(url: str, slug: str) -> Path:
     return final
 
 
+def clean_catalog_title(title: str, brand: str, max_length: int = 72) -> str:
+    """Transforme un intitulé catalogue Amazon en titre éditorial court."""
+    cleaned = re.split(r"\s*\|\s*", title or "", maxsplit=1)[0].strip()
+    if brand:
+        cleaned = re.sub(rf"^(?:{re.escape(brand)}\s+)+", "", cleaned, flags=re.IGNORECASE)
+        cleaned = f"{brand} {cleaned}".strip()
+    cleaned = re.sub(r"\s+", " ", cleaned).strip(" ,-–")
+    if len(cleaned) <= max_length:
+        return cleaned
+    shortened = cleaned[: max_length + 1]
+    cut = shortened.rfind(" ")
+    return shortened[: cut if cut > 48 else max_length].rstrip(" ,-–")
+
+
 def make_draft(data: dict, slug: str) -> Path:
     today = date.today().isoformat()
     title = data.get("title") or "Bon plan Amazon"
     brand = data.get("brand") or ""
+    editorial_title = clean_catalog_title(title, brand)
     price = data.get("price") or "à voir"
     savings = data.get("savings") or ""
     pct = data.get("savings_percent")
@@ -190,26 +205,23 @@ def make_draft(data: dict, slug: str) -> Path:
 
     savings_phrase = f"{savings} d'économie" if savings else ""
     brand_tag = f'"{brand.lower()}", ' if brand else ""
-    title_short = title[:40]
-    title_med = title[:80]
-
     body = f"""---
-title: "Bon plan {brand} {title} à {price} sur Amazon{pct_str}"
-description: "{brand} {title} à {price} sur Amazon{pct_str}. {savings_phrase}"
+title: "{editorial_title}"
+description: "{editorial_title} : caractéristiques essentielles et prix actualisé automatiquement. {savings_phrase}"
 date: "{today}"
 category: "bon-plan"
 tags: [{brand_tag}"amazon", "bon plan", "2026"]
 image: "/images/articles/{slug}.png"
-imageAlt: "{brand} {title} bon plan Amazon"
+imageAlt: "{editorial_title}"
 affiliateUrl: "{affiliate_url}"
 affiliateLabel: "Voir sur Amazon"
 published: true
 featured: false
-seoTitle: "{brand} {title_short}... {price}"
-seoDescription: "{brand} {title_med} à {price} sur Amazon{pct_str}."
+seoTitle: "{editorial_title} : prix et bon plan"
+seoDescription: "Découvrez {editorial_title} : caractéristiques, conseils et prix actualisé automatiquement."
 ---
 
-## {brand} {title} à {price} sur Amazon{pct_str}
+## {editorial_title}
 
 [Voir sur Amazon]({affiliate_url})
 
@@ -219,7 +231,7 @@ seoDescription: "{brand} {title_med} à {price} sur Amazon{pct_str}."
 
 | Élément | Détail |
 |---|---|
-| **Produit** | {title} |
+| **Produit** | {editorial_title} |
 | **Marque** | {brand} |
 | **Prix** | {price} |
 | **Économie** | {savings or 'N/A'} {pct_str} |
