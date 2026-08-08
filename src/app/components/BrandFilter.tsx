@@ -6,6 +6,7 @@ import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
+import { formatCardTitle } from "@/lib/display-title";
 
 interface ArticleListItem {
   slug: string;
@@ -341,7 +342,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                           {new Date(article.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" })}
                         </time>
                       </div>
-                      <h2 className="bpm-card-h-title">{article.title}</h2>
+                      <h2 className="bpm-card-h-title">{formatCardTitle(article.title)}</h2>
                       <p className="bpm-card-h-excerpt">{article.description}</p>
                       <div className="bpm-card-h-footer">
                         {(now || (isAmazonOffer && hasExternalAffiliate && !hideAmazonPrice)) && (

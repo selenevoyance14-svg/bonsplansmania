@@ -4,6 +4,7 @@ import { ArrowRight } from "lucide-react";
 import { CATEGORY_CONFIG } from "./ArticleCard";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
+import { formatCardTitle } from "@/lib/display-title";
 
 type Article = {
     meta: {
@@ -97,7 +98,7 @@ export default function ArticleCardHorizontal({
                     </time>
                 </div>
 
-                <h3 className="bpm-card-h-title">{article.meta.title}</h3>
+                <h3 className="bpm-card-h-title">{formatCardTitle(article.meta.title)}</h3>
                 <p className="bpm-card-h-excerpt">{article.meta.description}</p>
 
                 <div className="bpm-card-h-footer">

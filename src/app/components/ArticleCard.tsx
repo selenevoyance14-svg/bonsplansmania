@@ -6,6 +6,7 @@ import {
 import { parsePrice } from "@/lib/price";
 import { DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
+import { formatCardTitle } from "@/lib/display-title";
 
 export type CardCategoryConfig = {
     label: string;
@@ -111,7 +112,7 @@ export default function ArticleCard({
                 </div>
 
                 <div className="bpm-card-body">
-                    <h3 className="bpm-card-title">{article.meta.title}</h3>
+                    <h3 className="bpm-card-title">{formatCardTitle(article.meta.title)}</h3>
                     <p className="bpm-card-excerpt">{article.meta.description}</p>
 
                     {now && (
