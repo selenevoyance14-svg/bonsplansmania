@@ -89,12 +89,30 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortBy>("recent");
 
+  // Une même marque peut provenir de plusieurs univers (ex. Philips en beauté,
+  // maison et tech). On fusionne ses mots-clés pour éviter les options en double.
+  const uniqueBrands = useMemo(() => {
+    const merged = new Map<string, BrandDef>();
+    for (const brand of brands) {
+      const current = merged.get(brand.key);
+      if (!current) {
+        merged.set(brand.key, brand);
+        continue;
+      }
+      merged.set(brand.key, {
+        ...current,
+        keywords: Array.from(new Set([...current.keywords, ...brand.keywords])),
+      });
+    }
+    return Array.from(merged.values());
+  }, [brands]);
+
   // Pré-calcul : pour chaque article, trouver les clés des marques qui matchent
   const enriched = useMemo(() => {
     return articles.map((a) => {
       const tagSet = (a.tags || []).map(normalize);
       const matchedKeys: string[] = [];
-      for (const brand of brands) {
+      for (const brand of uniqueBrands) {
         const normalizedKeywords = brand.keywords.map(normalize);
         const matches = tagSet.some((tag) =>
           normalizedKeywords.some((kw) => tag === kw || tag.includes(kw))
@@ -104,7 +122,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
       const parsed = parsePrice(a.price);
       return { article: a, matchedKeys, ...parsed, nowNum: getSortablePrice(a) };
     });
-  }, [articles, brands]);
+  }, [articles, uniqueBrands]);
 
   // Marques disponibles (≥ 1 article)
   const availableBrands = useMemo(() => {
@@ -114,14 +132,14 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
         counts.set(key, (counts.get(key) || 0) + 1);
       }
     }
-    return brands
+    return uniqueBrands
       .filter((b) => (counts.get(b.key) || 0) > 0)
       .map((b) => ({ ...b, count: counts.get(b.key) || 0 }))
       .sort((a, b) => {
         if (sortBrandsBy === "alpha") return a.label.localeCompare(b.label);
         return b.count - a.count || a.label.localeCompare(b.label);
       });
-  }, [enriched, brands, sortBrandsBy]);
+  }, [enriched, uniqueBrands, sortBrandsBy]);
 
   const hasPriceData = useMemo(() => enriched.some((e) => e.nowNum !== undefined), [enriched]);
 
@@ -216,7 +234,10 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
         {availableBrands.length > 0 && (
           <select
             value={selectedBrand}
-            onChange={(e) => setSelectedBrand(e.target.value)}
+            onChange={(e) => {
+              setSelectedBrand(e.target.value);
+              setVisible(PER_PAGE);
+            }}
             style={selectedBrand ? activeSelectStyle : selectStyle}
             aria-label="Filtrer par marque"
           >
@@ -231,7 +252,10 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
 
         <select
           value={sortBy}
-          onChange={(e) => setSortBy(e.target.value as SortBy)}
+          onChange={(e) => {
+            setSortBy(e.target.value as SortBy);
+            setVisible(PER_PAGE);
+          }}
           style={sortBy !== "recent" ? activeSelectStyle : selectStyle}
           aria-label="Trier par"
         >

@@ -2,7 +2,7 @@ import { getArticlesByCategory, isEffectivelyExpired, expiresSoon } from "@/lib/
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import BrandFilter from "@/app/components/BrandFilter";
-import { BON_PLAN_BRANDS, BOX_BEAUTE_BRANDS } from "@/lib/brand-filters";
+import { ALL_DEAL_BRANDS, BOX_BEAUTE_BRANDS } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -237,7 +237,7 @@ export default async function CategoryPage({ params }: PageProps) {
             ) : useBoxFilter ? (
               <BrandFilter articles={cards} brands={BOX_BEAUTE_BRANDS} />
             ) : useBonPlanFilter ? (
-              <BrandFilter articles={cards} brands={BON_PLAN_BRANDS} />
+              <BrandFilter articles={cards} brands={ALL_DEAL_BRANDS} sortBrandsBy="alpha" />
             ) : useSortOnlyFilter ? (
               <BrandFilter articles={cards} brands={[]} />
             ) : (

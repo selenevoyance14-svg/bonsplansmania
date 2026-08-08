@@ -3,7 +3,11 @@
 import { useState, useEffect } from "react";
 import { Flame } from "lucide-react";
 
-export default function NewsletterInline() {
+export default function NewsletterInline({
+  formLocation = "article_inline",
+}: {
+  formLocation?: string;
+}) {
   const [email, setEmail] = useState("");
   const [hidden, setHidden] = useState(false);
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
@@ -35,7 +39,7 @@ export default function NewsletterInline() {
       localStorage.setItem("bpm_newsletter_email", email);
       localStorage.setItem("bpm_subscribed", "true");
       window.gtag?.("event", "newsletter_signup", {
-        form_location: "article_inline",
+        form_location: formLocation,
         page_path: window.location.pathname,
       });
       setStatus("done");
@@ -59,7 +63,7 @@ export default function NewsletterInline() {
     <div style={{ background: "var(--surface, #fefce8)", padding: "1.25rem", borderRadius: "12px", margin: "2rem 0" }}>
       <form onSubmit={handleSubmit} style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
         <Flame size={18} style={{ color: "var(--primary)" }} />
-        <span style={{ fontWeight: 600, fontSize: "0.9rem", marginRight: "8px" }}>Recevez les bons plans par email</span>
+        <span style={{ fontWeight: 600, fontSize: "0.9rem", marginRight: "8px" }}>Recevez les bons plans du mardi et du samedi</span>
         <input
           type="email"
           placeholder="Votre email"

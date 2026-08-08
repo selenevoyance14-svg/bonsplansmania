@@ -3,9 +3,10 @@ import { ChevronRight, Flame, Calendar } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import BrandFilter from "@/app/components/BrandFilter";
-import { BON_PLAN_BRANDS } from "@/lib/brand-filters";
+import { ALL_DEAL_BRANDS } from "@/lib/brand-filters";
 import { getAllArticles, isEffectivelyExpired, expiresSoon } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import NewsletterInline from "@/app/components/NewsletterInline";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",   color: "bon-plan" },
@@ -93,6 +94,10 @@ export default function BonsPlansEnCoursPage() {
           </div>
         </section>
 
+        <section className="container" style={{ paddingTop: "12px", paddingBottom: "0", maxWidth: "860px" }}>
+          <NewsletterInline formLocation="bons_plans_en_cours" />
+        </section>
+
         {liveDeals.length > 0 && (
           <section className="section">
             <div className="container">
@@ -103,7 +108,7 @@ export default function BonsPlansEnCoursPage() {
                 </h2>
                 <p>Publiés ces 14 derniers jours — filtre par marque pour trouver ton plan</p>
               </div>
-              <BrandFilter articles={allCards} brands={BON_PLAN_BRANDS} />
+              <BrandFilter articles={allCards} brands={ALL_DEAL_BRANDS} sortBrandsBy="alpha" />
             </div>
           </section>
         )}
