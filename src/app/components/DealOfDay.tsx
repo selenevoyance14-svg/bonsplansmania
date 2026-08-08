@@ -2,6 +2,7 @@ import Image from "next/image";
 import { Zap, ArrowRight } from "lucide-react";
 import { CATEGORY_CONFIG } from "@/app/components/ArticleCard";
 import { parsePrice } from "@/lib/price";
+import { formatCardTitle } from "@/lib/display-title";
 
 type Article = {
     meta: {
@@ -52,7 +53,7 @@ export default function DealOfDay({ article }: { article: Article }) {
                 </div>
 
                 <div className="bpm-deal-body">
-                    <h3 className="bpm-deal-title">{article.meta.title}</h3>
+                    <h3 className="bpm-deal-title">{formatCardTitle(article.meta.title)}</h3>
                     <p className="bpm-deal-excerpt">{article.meta.description}</p>
 
                     {now && (

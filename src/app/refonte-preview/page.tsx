@@ -11,6 +11,7 @@ import DealCarousel from "./DealCarousel";
 import EditorialNewsletter from "./EditorialNewsletter";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
+import { formatCardTitle } from "@/lib/display-title";
 import styles from "./refonte.module.css";
 
 const labels: Record<string, string> = {
@@ -78,7 +79,7 @@ export default function RefontePreviewPage() {
           </form>
         </div>
 
-        <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:meta.title, image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:hasDirectMerchantCta({ category:meta.category, affiliateUrl:meta.affiliateUrl, expired:false, endDate:meta.endDate }) }))} />
+        <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:hasDirectMerchantCta({ category:meta.category, affiliateUrl:meta.affiliateUrl, expired:false, endDate:meta.endDate }) }))} />
       </section>
 
       <section className={styles.trust} aria-label="Nos engagements">
@@ -95,7 +96,7 @@ export default function RefontePreviewPage() {
             <Image src={meta.image} alt={meta.imageAlt} width={128} height={96} />
             <span>
               <small>{labels[meta.category] ?? "Nouveau"}</small>
-              <strong>{meta.title}</strong>
+              <strong>{formatCardTitle(meta.title)}</strong>
               {(meta.amazonAsin || meta.price) && <b className={styles.latestPrice}><AmazonCardPrice asin={meta.amazonAsin} fallback={meta.price || "Voir l’offre"} /></b>}
               <em>{formatDate(meta.date)}</em>
             </span>
@@ -141,7 +142,7 @@ export default function RefontePreviewPage() {
               </Link>
               <div className={styles.cardCopy}>
                 <small>{article.meta.category.replaceAll("-", " ")} · {formatDate(article.meta.date)}</small>
-                <h3><Link href={`/article/${article.meta.slug}`}>{article.meta.title}</Link></h3>
+                <h3><Link href={`/article/${article.meta.slug}`}>{formatCardTitle(article.meta.title)}</Link></h3>
                 {index === 0 && <p>{article.meta.description}</p>}
                 <div className={styles.cardFooter}>
                   <strong><AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} /></strong>

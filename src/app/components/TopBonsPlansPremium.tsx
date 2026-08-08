@@ -1,6 +1,7 @@
 import Image from "next/image";
 import { ArrowRight, Flame } from "lucide-react";
 import { getTopPremiumDeals } from "@/lib/articles";
+import { formatCardTitle } from "@/lib/display-title";
 
 /**
  * Bloc "Top bons plans" affiché en haut des articles freebies (concours, test-gratuit)
@@ -116,7 +117,7 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
                   overflow: "hidden",
                 }}
               >
-                {a.meta.title}
+                {formatCardTitle(a.meta.title)}
               </h3>
               <div
                 style={{
