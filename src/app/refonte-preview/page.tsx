@@ -30,12 +30,54 @@ function formatDate(date: string) {
   );
 }
 
+function getBrandKey(title: string) {
+  const cleaned = formatCardTitle(title)
+    .toLocaleLowerCase("fr-FR")
+    .replace(/[’']/g, " ")
+    .replace(/[^a-z0-9à-ÿ\s-]/g, " ")
+    .trim();
+
+  const compoundBrands = [
+    "la roche-posay", "l oréal", "the ordinary", "beauty of joseon",
+    "elizabeth arden", "jean paul gaultier", "yves saint laurent",
+  ];
+  return compoundBrands.find((brand) => cleaned.startsWith(brand)) ?? cleaned.split(/\s+/)[0] ?? cleaned;
+}
+
+function selectDiverse<T extends { meta: { slug: string; title: string } }>(
+  articles: T[],
+  count: number,
+  excluded = new Set<string>(),
+) {
+  const selected: T[] = [];
+  const brands = new Set<string>();
+
+  for (const article of articles) {
+    if (excluded.has(article.meta.slug)) continue;
+    const brand = getBrandKey(article.meta.title);
+    if (brands.has(brand)) continue;
+    selected.push(article);
+    brands.add(brand);
+    if (selected.length === count) break;
+  }
+
+  if (selected.length < count) {
+    const selectedSlugs = new Set(selected.map((article) => article.meta.slug));
+    for (const article of articles) {
+      if (excluded.has(article.meta.slug) || selectedSlugs.has(article.meta.slug)) continue;
+      selected.push(article);
+      if (selected.length === count) break;
+    }
+  }
+  return selected;
+}
+
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const heroDeals = active.slice(0, 4);
-  const heroSlugs = new Set(heroDeals.map((article) => article.meta.slug));
-  const latest = active.filter((article) => !heroSlugs.has(article.meta.slug)).slice(0, 4);
-  const deals = active.filter((article) => !heroSlugs.has(article.meta.slug)).slice(4, 11);
+  const homepageDeals = selectDiverse(active, 15);
+  const heroDeals = homepageDeals.slice(0, 4);
+  const latest = homepageDeals.slice(4, 8);
+  const deals = homepageDeals.slice(8, 15);
   const freeTests = active
     .filter((article) => article.meta.category === "test-gratuit" || article.meta.category === "test-produit")
     .slice(0, 4);
