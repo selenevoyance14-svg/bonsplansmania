@@ -739,7 +739,7 @@ async function fetchLatestArticles(siteUrl: string): Promise<CategorizedArticles
       return {
         concours: data.filter((a) => a.category === "concours").slice(0, 3),
         testGratuit: data.filter((a) => a.category === "test-gratuit" || a.category === "test").slice(0, 3),
-        bonsPlans: data.filter((a) => a.category !== "concours" && a.category !== "test-gratuit" && a.category !== "test").slice(0, 4),
+        bonsPlans: data.filter((a) => a.category === "bon-plan" || a.category === "code-promo").slice(0, 3),
       };
     }
   } catch {
@@ -848,7 +848,7 @@ function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string):
         <!-- CTA -->
         <tr>
           <td style="padding:24px;text-align:center;">
-            <a href="${siteUrl}/blog" style="display:inline-block;padding:14px 32px;background:#DC2626;color:white;text-decoration:none;border-radius:999px;font-weight:700;font-size:15px;">
+            <a href="${siteUrl}/bons-plans-en-cours" style="display:inline-block;padding:14px 32px;background:#DC2626;color:white;text-decoration:none;border-radius:999px;font-weight:700;font-size:15px;">
               Voir tous les bons plans
             </a>
           </td>
