@@ -1,0 +1,19 @@
+name = "bonsplansmania-social-autopost"
+main = "src/index.ts"
+compatibility_date = "2025-04-01"
+
+[triggers]
+# Facebook : 9h, 14h et 19h en France l'été.
+# Instagram : le passage de 9h choisit aussi le meilleur visuel du jour.
+crons = ["0 7,12,17 * * *"]
+
+[[kv_namespaces]]
+binding = "SOCIAL_STATE"
+id = "7579014fe96a4193b5ed3faad805570d"
+
+[vars]
+SITE_URL = "https://bonsplansmania.fr"
+FACEBOOK_PAGE_ID = "100943155233071"
+INSTAGRAM_ACCOUNT_ID = "17841446963008888"
+GRAPH_API_VERSION = "v25.0"
+DRY_RUN = "true"
