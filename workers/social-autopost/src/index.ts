@@ -115,6 +115,24 @@ async function run(env: Env, platform: Platform, forceDryRun = false) {
   return { ok: true, platform, slug: article.slug };
 }
 
+async function runScheduled(env: Env, platform: Platform) {
+  try {
+    const result = await run(env, platform);
+    await env.SOCIAL_STATE.put(`status:${platform}`, JSON.stringify({
+      checkedAt: new Date().toISOString(),
+      result,
+    }));
+    return result;
+  } catch (error) {
+    const message = error instanceof Error ? error.message : String(error);
+    await env.SOCIAL_STATE.put(`status:${platform}`, JSON.stringify({
+      checkedAt: new Date().toISOString(),
+      error: message.slice(0, 1500),
+    }));
+    throw error;
+  }
+}
+
 export default {
   async fetch(request: Request, env: Env) {
     const url = new URL(request.url);
@@ -133,9 +151,9 @@ export default {
   },
 
   async scheduled(event: ScheduledController, env: Env, ctx: ExecutionContext) {
-    ctx.waitUntil(run(env, "facebook"));
+    ctx.waitUntil(runScheduled(env, "facebook"));
     if (event.cron === "0 7,12,17 * * *" && new Date(event.scheduledTime).getUTCHours() === 7) {
-      ctx.waitUntil(run(env, "instagram"));
+      ctx.waitUntil(runScheduled(env, "instagram"));
     }
   },
 } satisfies ExportedHandler<Env>;
