@@ -6,7 +6,7 @@ interface Env {
   GRAPH_API_VERSION: string;
   DRY_RUN: string;
   FACEBOOK_PAGE_TOKEN: string;
-  INSTAGRAM_ACCESS_TOKEN: string;
+  INSTAGRAM_ACCESS_TOKEN?: string;
   ADMIN_SECRET: string;
 }
 
@@ -85,15 +85,16 @@ async function publishFacebook(env: Env, article: Candidate) {
 }
 
 async function publishInstagram(env: Env, article: Candidate) {
+  const accessToken = env.INSTAGRAM_ACCESS_TOKEN || env.FACEBOOK_PAGE_TOKEN;
   const container = await graphPost(env, `${env.INSTAGRAM_ACCOUNT_ID}/media`, {
     image_url: article.image,
     caption: caption(article, "instagram"),
-  }, env.INSTAGRAM_ACCESS_TOKEN);
+  }, accessToken);
   const creationId = String(container.id || "");
   if (!creationId) throw new Error("Instagram n'a pas retourné d'identifiant de création");
   return graphPost(env, `${env.INSTAGRAM_ACCOUNT_ID}/media_publish`, {
     creation_id: creationId,
-  }, env.INSTAGRAM_ACCESS_TOKEN);
+  }, accessToken);
 }
 
 async function run(env: Env, platform: Platform, forceDryRun = false) {
