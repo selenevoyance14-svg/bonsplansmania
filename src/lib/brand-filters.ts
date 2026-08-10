@@ -99,6 +99,7 @@ export const TECH_BRANDS: BrandDef[] = [
   { key: "insta360", label: "Insta360", keywords: ["insta360", "insta 360"] },
   { key: "gopro", label: "GoPro", keywords: ["gopro", "go-pro"] },
   { key: "anker", label: "Anker / Soundcore", keywords: ["anker", "soundcore"] },
+  { key: "isinwheel", label: "Isinwheel", keywords: ["isinwheel"] },
 ];
 
 // Hub /bons-plans-maison (incl. cuisine)

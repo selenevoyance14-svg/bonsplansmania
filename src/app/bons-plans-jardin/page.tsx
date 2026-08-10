@@ -90,7 +90,7 @@ const SLUG_TOKENS = [
 
 const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
-  "couches-", "babymoov",
+  "couches-", "babymoov", "babybjorn", "baby-bjorn", "transat-balance",
 ];
 
 // Exclusions pour éviter les faux positifs (tondeuse cheveux/barbe matchait "tondeuse")

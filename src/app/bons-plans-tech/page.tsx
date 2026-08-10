@@ -19,8 +19,8 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Tech : Bons Plans Tech & High-Tech — Bons Plans Mania",
-  description: "Tous les bons plans tech du moment : smartphones, ordinateurs, écouteurs, montres connectées, écrans PC, caméras, liseuses. Apple, Samsung, Google, Xiaomi, Sony, JBL, LG.",
+  title: "Coin Tech & Mobilité : Bons Plans High-Tech — Bons Plans Mania",
+  description: "Tous les bons plans tech et mobilité électrique : smartphones, ordinateurs, écouteurs, montres connectées, trottinettes et vélos électriques.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-tech" },
 };
 
@@ -36,6 +36,8 @@ const EXACT_TAGS = new Set([
   "tv", "television", "ecran",
   "souris", "clavier", "casque-gaming", "gaming",
   "domotique", "maison-connectee", "alexa", "echo-hub", "amazon-echo",
+  "mobilite", "mobilite-urbaine", "trottinette-electrique", "trottinette-enfant",
+  "trottinette-3-roues", "velo-electrique", "velo-urbain", "fat-bike", "isinwheel",
   "apple", "samsung", "google", "xiaomi", "huawei", "oneplus", "sony", "jbl", "bose", "lg",
   "asus", "dell", "hp", "lenovo", "alienware", "microsoft", "razer", "logitech",
   "pixel-10-pro", "pixel-watch-4", "galaxy-s26", "galaxy-buds3-pro", "galaxy-a35",
@@ -53,10 +55,11 @@ const SLUG_TOKENS = [
   "-galaxy-buds-", "-redmi-", "-xiaomi-",
   "-echo-hub-", "-amazon-echo-", "-maison-connectee-",
   "-tablette-", "-laptop-", "-ordinateur-portable-",
+  "-trottinette-", "-velo-electrique-", "isinwheel-",
 ];
 
 const BEBE_TOKENS = [
-  "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
+  "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto", "babybjorn",
 ];
 
 const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
@@ -107,7 +110,7 @@ export default async function BonsPlansTechPage() {
           "@context": "https://schema.org",
           "@type": "CollectionPage",
           name: "Coin Tech — Bons Plans Tech & High-Tech",
-          description: "Tous les bons plans tech : smartphones, ordinateurs, écouteurs, montres connectées, écrans PC, caméras, liseuses.",
+          description: "Tous les bons plans tech : smartphones, ordinateurs, écouteurs, montres connectées, trottinettes et vélos électriques.",
           url: "https://bonsplansmania.fr/bons-plans-tech",
           mainEntity: {
             "@type": "ItemList",
@@ -146,7 +149,7 @@ export default async function BonsPlansTechPage() {
               Coin Tech : Bons Plans Tech & High-Tech
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
-              Tous les <strong>bons plans tech & high-tech</strong> du moment : smartphones, ordinateurs portables, tablettes, écouteurs Bluetooth, montres connectées, écrans PC, caméras, consoles, liseuses. <strong>Apple, Samsung, Google, Xiaomi, Sony, JBL, LG, Microsoft</strong>… {articles.length} articles.
+              Tous les <strong>bons plans tech & mobilité électrique</strong> du moment : smartphones, ordinateurs portables, tablettes, écouteurs Bluetooth, montres connectées, trottinettes et vélos électriques. <strong>Apple, Samsung, Google, Xiaomi, Sony, JBL, Isinwheel</strong>… {articles.length} articles.
             </p>
           </div>
         </section>
