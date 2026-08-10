@@ -50,6 +50,7 @@ const EXACT_TAGS = new Set([
   "fer-repasser", "centrale-vapeur",
   // Linge & déco
   "linge-de-maison", "drap", "couette", "oreiller", "decoration",
+  "canape", "canapé", "sofa", "mobilier-maison",
   // Gammes exclusivement maison (les marques multi-univers comme Dyson,
   // Philips ou Samsung ne suffisent jamais seules à classer un article).
   "ninja-foodi", "ninja-creami", "ninja-slushi", "ninja-crispi",
@@ -64,6 +65,7 @@ const SLUG_TOKENS = [
   "-ventilateur-", "-climatiseur-", "-brumisateur-", "-nebuliseur-",
   "-purificateur-", "-humidificateur-", "-deshumidificateur-",
   "-shampouineuse-", "-nettoyeur-sols-", "-nettoyeur-vapeur-",
+  "-canape-", "-canapé-", "-sofa-",
   "-robot-laveur-", "-robot-aspirateur-", "-aspirateur-laveur-",
   "-foodi-", "-creami-", "-slushi-", "-crispi-", "-ingenio-", "-duetto-",
 ];

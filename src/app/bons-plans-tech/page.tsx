@@ -47,6 +47,7 @@ const EXACT_TAGS = new Set([
 const SLUG_TOKENS = [
   "-smartphone-", "-ordinateur-", "-laptop-", "-macbook-", "-tablette-", "-ipad-",
   "-airpods-", "-pixel-", "-galaxy-", "-iphone-", "-ecouteurs-", "-casque-bluetooth-",
+  "-casque-bandeau-",
   "-montre-connectee-", "-smartwatch-", "-pixel-watch-",
   "-ecran-pc-", "-moniteur-", "-ultrawide-",
   "-camera-", "-insta360-", "-gopro-", "-camera-360-",

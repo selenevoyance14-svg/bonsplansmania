@@ -30,6 +30,7 @@ const EXACT_TAGS = new Set([
   // Chaussures
   "chaussures", "chaussure", "baskets", "sneakers", "sandales", "bottes", "bottines",
   "tongs", "espadrilles", "mocassins", "derbies", "boots", "tennis",
+  "skechers",
   // Montres analogiques (PAS connectees → c'est tech)
   "montre", "montre-homme", "montre-femme", "montre-quartz", "montre-analogique",
   "montre-automatique", "montre-mecanique", "montre-acier",

@@ -29,13 +29,16 @@ export const metadata: Metadata = {
 // Jamais de match sur title/description (trop permissif, pollue avec maquillage/mode).
 const EXACT_TAGS = new Set([
   "bebe", "puericulture", "maternite", "allaitement", "babyboom",
-  "grossesse", "parent-bebe", "bebeboutik",
+  "grossesse", "parent-bebe", "bebeboutik", "babybjorn", "babybjörn",
+  "beaba", "béaba", "chicco", "maxi-cosi", "momcozy",
 ]);
 const SLUG_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
   "landau", "allaitement", "mamadvisor", "bebeboutik", "berceau", "tetine",
-  "vertbaudet-bebe",
+  "vertbaudet-bebe", "babybjorn", "baby-bjorn", "beaba-", "chicco-",
+  "maxi-cosi-", "momcozy-", "table-langer", "table-a-langer", "rehausseur-chaise",
+  "transat-balance", "tour-observation",
 ];
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);

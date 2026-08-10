@@ -75,6 +75,7 @@ const SLUG_TOKENS = [
   "-nettoyeur-haute-pression-", "-taille-haie-", "-tronconneuse-",
   "-souffleur-", "-debroussailleuse-",
   "-glaciere-electrique-", "-glaciere-",
+  "-camping-", "-bivouac-",
   "segway-navimow-", "worx-vision-", "aiper-", "wybot-", "medoxa-",
   "ecoflow-wave-",
   // Animaux / animalerie
@@ -91,6 +92,7 @@ const SLUG_TOKENS = [
 const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "couches-", "babymoov", "babybjorn", "baby-bjorn", "transat-balance",
+  "beaba-", "chicco-", "maxi-cosi-", "momcozy-",
 ];
 
 // Exclusions pour éviter les faux positifs (tondeuse cheveux/barbe matchait "tondeuse")
