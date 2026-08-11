@@ -135,7 +135,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "chaussea",
     name: "Chaussea",
-    affiliateUrl: "https://lk.gt/ahKcJ",
+    affiliateUrl: "https://jwv.chaussea.com/?P51387157CD2D1B1&redir=https%3A%2F%2Fwww.chaussea.com%2Ffr%2F",
     affiliateLabel: "Voir les offres Chaussea",
     matchTags: ["chaussea"],
     color: "#E53935",
