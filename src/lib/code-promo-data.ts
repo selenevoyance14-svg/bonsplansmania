@@ -349,6 +349,20 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#5A8A3A",
   },
   {
+    slug: "prozis",
+    name: "Prozis",
+    affiliateUrl: "https://prozis.com/1YlNV",
+    affiliateLabel: "Profiter du code BONSMANIA",
+    matchTags: ["prozis", "bonsmania"],
+    color: "#AEEA00",
+    currentOffer: {
+      code: "BONSMANIA",
+      discount: "-10 %",
+      conditions: "10 % de réduction sur le site Prozis. Vérifier l'application et les éventuelles règles de cumul dans le panier.",
+      verifiedAt: "2026-08-11",
+    },
+  },
+  {
     slug: "private-sport-shop",
     name: "Private Sport Shop",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=60430&progid=2334&partid=61992",

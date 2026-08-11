@@ -29,6 +29,23 @@ export interface CodePromoOffer {
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
+  // PROZIS — code partenaire Bons Plans Mania
+  // ============================================================
+  {
+    id: "prozis-bonsmania-10",
+    brandSlug: "prozis",
+    type: "code",
+    value: "-10 %",
+    valueLabel: "CODE EXCLUSIF",
+    title: "10 % de réduction avec le code BONSMANIA",
+    code: "BONSMANIA",
+    affiliateUrl: "https://prozis.com/1YlNV",
+    permanent: true,
+    conditions: "Code partenaire Bons Plans Mania actif sur Prozis. Les campagnes et avantages associés peuvent évoluer chaque mois. Vérifier la réduction et les règles de cumul dans le panier avant le paiement.",
+    featured: true,
+  },
+
+  // ============================================================
   // CAROLL — offres permanentes
   // ============================================================
   {
