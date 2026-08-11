@@ -146,7 +146,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     value: "-20 €",
     title: "-20 € sur la 1ʳᵉ commande Damart via newsletter (mode femme/homme/enfant + linge maison)",
     permanent: true,
-    conditions: "Inscription newsletter Damart pour recevoir le code -20 €. Cumulable avec promos en cours.",
+    conditions: "Inscription à la newsletter Damart pour recevoir l'offre de bienvenue. Des exclusions et conditions de non-cumul peuvent s'appliquer : vérifier le message reçu et le panier.",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
   },
   {
