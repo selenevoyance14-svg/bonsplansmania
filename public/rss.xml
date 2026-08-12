@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 12 Aug 2026 15:28:36 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 12 Aug 2026 15:42:34 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>E.Leclerc : jusqu’à -57 % sur KitchenAid du 17 au 23 août</title>
@@ -242,6 +242,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-cosmechic-bpm10-2026-v2.webp" type="image/webp" length="0"/>
     </item>
     <item>
+      <title>Code promo Prozis BONSMANIA : 10% de réduction</title>
+      <link>https://bonsplansmania.fr/article/code-promo-prozis-bonsmania-10-pourcent-2026</link>
+      <guid>https://bonsplansmania.fr/article/code-promo-prozis-bonsmania-10-pourcent-2026</guid>
+      <pubDate>Tue, 11 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Utilisez le code exclusif BONSMANIA pour obtenir 10% de réduction sur Prozis et découvrez notre sélection beauté, nutrition et vêtements.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-prozis-bonsmania-10-pourcent-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
       <title>Weleda : offres et code promo de bienvenue en août 2026</title>
       <link>https://bonsplansmania.fr/article/code-promo-weleda-mars-2026</link>
       <guid>https://bonsplansmania.fr/article/code-promo-weleda-mars-2026</guid>
@@ -447,15 +456,6 @@
       <description>Balai sans fil, robot, aspirateur laveur ou traîneau: les critères utiles pour choisir un aspirateur sur Amazon sans se fier à un prix figé.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/ventes-flash-printemps-2026-aspirateurs-amazon.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Barres énergétiques sur Amazon: guide pour comparer les lots</title>
-      <link>https://bonsplansmania.fr/article/ventes-flash-printemps-2026-barres-energetiques-amazon</link>
-      <guid>https://bonsplansmania.fr/article/ventes-flash-printemps-2026-barres-energetiques-amazon</guid>
-      <pubDate>Thu, 12 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Composition, protéines, sucres, allergènes et prix à l’unité: les bons critères pour choisir des barres énergétiques sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-barres-energetiques-guide-2026-v2.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
