@@ -25,10 +25,25 @@ export default function DealCarousel({ slides }: { slides: Slide[] }) {
 
   useEffect(() => {
     if (slides.length < 2 || paused || window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
-    const interval = window.setInterval(() => {
+
+    let interval: number | undefined;
+    const startRotation = () => {
+      if (document.visibilityState !== "visible") return;
       setCurrent((value) => (value + 1) % slides.length);
-    }, 5200);
-    return () => window.clearInterval(interval);
+      interval = window.setInterval(() => {
+        if (document.visibilityState === "visible") {
+          setCurrent((value) => (value + 1) % slides.length);
+        }
+      }, 6000);
+    };
+
+    // Laisse l'image initiale stable le temps du chargement et de la mesure LCP,
+    // puis conserve la rotation automatique appréciée par les visiteurs.
+    const initialDelay = window.setTimeout(startRotation, 10000);
+    return () => {
+      window.clearTimeout(initialDelay);
+      if (interval !== undefined) window.clearInterval(interval);
+    };
   }, [slides.length, paused]);
 
   if (!slides.length) return null;
@@ -37,8 +52,8 @@ export default function DealCarousel({ slides }: { slides: Slide[] }) {
 
   return (
     <article className={styles.lead} aria-roledescription="carrousel" aria-label="Les choix du jour" onMouseEnter={() => setPaused(true)} onMouseLeave={() => setPaused(false)} onFocusCapture={() => setPaused(true)} onBlurCapture={() => setPaused(false)}>
-      <Image key={`backdrop-${slide.image}`} className={styles.leadBackdrop} src={slide.image} alt="" fill priority sizes="(max-width: 800px) 90vw, 46vw" aria-hidden />
-      <Image key={`main-${slide.image}`} className={styles.leadProduct} src={slide.image} alt={slide.imageAlt} fill priority sizes="(max-width: 800px) 90vw, 46vw" />
+      <Image key={`backdrop-${slide.image}`} className={styles.leadBackdrop} src={slide.image} alt="" fill priority={current === 0} loading={current === 0 ? undefined : "lazy"} sizes="(max-width: 800px) 90vw, 46vw" aria-hidden />
+      <Image key={`main-${slide.image}`} className={styles.leadProduct} src={slide.image} alt={slide.imageAlt} fill priority={current === 0} loading={current === 0 ? undefined : "lazy"} sizes="(max-width: 800px) 90vw, 46vw" />
       <div className={styles.leadShade} />
       <div className={styles.leadContent}>
         <span className={styles.leadBadge}>À voir maintenant</span>
