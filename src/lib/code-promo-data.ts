@@ -245,6 +245,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#EC4899",
   },
   {
+    slug: "bebeboutik",
+    name: "Bebeboutik",
+    affiliateUrl: "https://a.time1.me/r?promoid=193535&progid=2890&partid=61992",
+    affiliateLabel: "Voir les ventes privées Bebeboutik",
+    matchTags: ["bebeboutik", "bébéboutik", "ventes privées bébé", "puericulture"],
+    color: "#E94E8B",
+  },
+  {
     slug: "degriffstock",
     name: "Dégriffstock",
     affiliateUrl: "https://auz.degriffstock.com/?P51257757CD2D1D1&redir=https%3A%2F%2Fwww.degriffstock.com%2F",
@@ -415,6 +423,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#9333EA",
   },
   {
+    slug: "lagrange-vacances",
+    name: "Vacances Lagrange",
+    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=113863&progid=4201&partid=61992",
+    affiliateLabel: "Voir les offres Vacances Lagrange",
+    matchTags: ["lagrange-vacances", "vacances lagrange", "lagrange", "vacances"],
+    color: "#0075A9",
+  },
+  {
     slug: "marionnaud",
     name: "Marionnaud",
     affiliateUrl: "https://www.marionnaud.fr/promotions",
@@ -461,6 +477,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres One Watch Company",
     matchTags: ["one-watch-company", "one-watch", "one watch company"],
     color: "#111827",
+  },
+  {
+    slug: "mileade",
+    name: "Miléade",
+    affiliateUrl: "https://a.time1.me/r?promoid=105072&progid=3530&partid=61992",
+    affiliateLabel: "Voir les bons plans Miléade",
+    matchTags: ["mileade", "miléade", "village-club", "vacances"],
+    color: "#006F8B",
   },
   {
     slug: "parfums-moins-chers",
@@ -627,6 +651,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Uriage",
     matchTags: ["uriage"],
     color: "#0EA5E9",
+  },
+  {
+    slug: "vidaxl",
+    name: "vidaXL",
+    affiliateUrl: "https://a.time1.me/r?promoid=84560&progid=3149&partid=61992",
+    affiliateLabel: "Voir les offres vidaXL",
+    matchTags: ["vidaxl", "vida xl", "maison", "jardin"],
+    color: "#F28C00",
   },
   {
     slug: "weleda",

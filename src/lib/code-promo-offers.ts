@@ -1039,14 +1039,71 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Deux articles de la rubrique Petits Prix sont requis. Vérifier les exclusions et l'application de la remise dans le panier.",
     featured: true,
   },
+  // ============================================================
+  // MILÉADE — offres vérifiées le 13/08/2026
+  // ============================================================
   {
-    id: "pin-up-secret-coffrets",
+    id: "mileade-derniere-minute-mer-2026",
+    brandSlug: "mileade",
+    type: "offre",
+    value: "-20 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à -20 % sur les séjours mer de dernière minute",
+    conditions: "Réservation moins d'un mois avant le départ, pour un séjour d'au moins 5 nuits, selon les dates, formules, destinations et stocks disponibles.",
+    featured: true,
+  },
+  {
+    id: "mileade-duo-automne-2026",
+    brandSlug: "mileade",
+    type: "offre",
+    value: "-20 %",
+    valueLabel: "2E ADULTE",
+    title: "20 % de réduction sur le séjour du deuxième adulte cet automne",
+    conditions: "Offre Duo Automne valable sur une sélection de dates et de destinations en septembre et octobre 2026. Vérifier les disponibilités et le prix final.",
+  },
+  {
+    id: "mileade-premiere-minute-hiver-2026",
+    brandSlug: "mileade",
+    type: "offre",
+    value: "400 €",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à 400 € économisés sur un séjour Tout Compris cet hiver",
+    expires: "2026-09-24",
+    conditions: "Réservation à effectuer jusqu'au 24 septembre 2026 inclus. Montant variable selon le séjour, la destination, les dates et les disponibilités.",
+    featured: true,
+  },
+  {
+    id: "mileade-enfants-bebes",
+    brandSlug: "mileade",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "ENFANTS",
+    title: "Jusqu'à -50 % pour les enfants et séjour gratuit pour les moins de 2 ans",
+    permanent: true,
+    conditions: "Avantage annoncé toute l'année, selon l'âge, le séjour, les dates, la formule et les disponibilités. Vérifier le détail lors de la réservation.",
+  },
+  {
+    id: "mileade-parrainage-100",
+    brandSlug: "mileade",
+    type: "parrainage",
+    value: "100 €",
+    valueLabel: "CHACUN",
+    title: "100 € offerts au parrain et au filleul avec le parrainage",
+    permanent: true,
+    conditions: "Accessible dès le premier séjour selon le programme Miléade & Moi. Avantage cumulable avec la fidélité selon les conditions du programme.",
+  },
+
+  // ============================================================
+  // PIN UP SECRET — offres vérifiées le 13/08/2026
+  // ============================================================
+  {
+    id: "pin-up-secret-produit-mois",
     brandSlug: "pin-up-secret",
     type: "offre",
-    value: "-60 %",
-    valueLabel: "COFFRETS",
-    title: "Jusqu'à -60 % sur une sélection de coffrets Pin Up Secret",
-    conditions: "Prix barrés affichés sur le site officiel le 27/07/2026, dans la limite des stocks. Vérifier le prix final dans le panier.",
+    value: "-10 %",
+    valueLabel: "PRODUIT DU MOIS",
+    title: "10 % de réduction sur le Secret Biphasé, produit du mois",
+    conditions: "Prix barré affiché sur la page d'accueil Pin Up Secret le 13/08/2026. Offre et stock susceptibles d'évoluer ; vérifier le prix dans le panier.",
     featured: true,
   },
   {
@@ -1056,7 +1113,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "OFFERTE",
     valueLabel: "DÈS 49 €",
     title: "Livraison offerte dès 49 € d'achat",
-    conditions: "Seuil affiché par Pin Up Secret le 27/07/2026. Vérifier le mode de livraison éligible dans le panier.",
+    permanent: true,
+    conditions: "Seuil affiché par Pin Up Secret le 13/08/2026. Vérifier le mode de livraison éligible dans le panier.",
   },
   {
     id: "twenty-dc-newsletter-10",
@@ -1760,41 +1818,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // DAMART — 7 offres été 2026 (soldes + -20 % + newsletter + facilités)
+  // DAMART — offres vérifiées le 13/08/2026
   // ============================================================
-  {
-    id: "damart-soldes-ete-2026",
-    brandSlug: "damart",
-    type: "soldes",
-    value: "SOLDES",
-    valueLabel: "ÉTÉ 2026",
-    title: "Soldes d'été Damart : sélection d'articles jusqu'au 21/07",
-    expires: "2026-07-21",
-    conditions: "Soldes du 24/06 au 21/07/2026 (arrêté préfectoral) sur une sélection d'articles signalés en boutiques et sur damart.fr, dans la limite des stocks disponibles.",
-    featured: true,
-  },
   {
     id: "damart-20-article-prefere",
     brandSlug: "damart",
     type: "code",
     value: "-20 %",
     valueLabel: "ARTICLE PRÉFÉRÉ",
-    title: "-20 % sur ton article préféré dès 19 € avec le code 40955",
-    code: "40955",
-    conditions: "Code 40955 affiché sur damart.fr le 11/08/2026 : -20 % sur un article préféré dès 19 € d'achat. Des exclusions peuvent s'appliquer, notamment aux articles déjà réduits et points rouges. Vérifier l'application au panier.",
+    title: "-20 % sur ton article préféré dès 19 € avec le code 40846",
+    code: "40846",
+    conditions: "Code 40846 affiché sur damart.fr le 13/08/2026 : -20 % sur un article préféré dès 19 € d'achat. Des exclusions peuvent s'appliquer ; vérifier la remise dans le panier.",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
     featured: true,
-  },
-  {
-    id: "damart-livraison-pickup-40955",
-    brandSlug: "damart",
-    type: "livraison",
-    value: "OFFERTE",
-    valueLabel: "DÈS 65 €",
-    title: "Livraison en relais Pickup offerte dès 65 € avec le code 40955",
-    code: "40955",
-    conditions: "Livraison en relais Pickup offerte dès 65 € d'achat avec le code 40955, selon l'offre affichée sur damart.fr le 11/08/2026. Vérifier les exclusions et l'application au panier.",
-    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
   },
   {
     id: "damart-newsletter-20",
@@ -1846,6 +1882,94 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "5 % de remise fidélité à chaque commande via la carte cliente",
     permanent: true,
     conditions: "Programme fidélité Damart : 5 % de remise cumulés sur ta carte cliente à chaque achat. Cumulable avec les promos.",
+  },
+
+  // ============================================================
+  // VACANCES LAGRANGE — offres permanentes à vérifier au moteur
+  // ============================================================
+  {
+    id: "lagrange-vacances-promotions",
+    brandSlug: "lagrange-vacances",
+    type: "offre",
+    value: "PROMOS",
+    valueLabel: "SÉJOURS",
+    title: "Prix remisés sur une sélection de résidences et séjours",
+    conditions: "Les promotions dépendent des dates, destinations, hébergements et disponibilités. Comparer le tarif affiché avec le prix de référence dans le moteur de réservation.",
+    featured: true,
+  },
+  {
+    id: "lagrange-vacances-derniere-minute",
+    brandSlug: "lagrange-vacances",
+    type: "offre",
+    value: "DERNIÈRE",
+    valueLabel: "MINUTE",
+    title: "Offres de dernière minute selon les disponibilités",
+    conditions: "Sélection et prix variables selon la date de départ et les stocks. Vérifier le prix total, les prestations comprises et les conditions d'annulation.",
+  },
+
+  // ============================================================
+  // PRIVATE SPORT SHOP — avantage permanent vérifié
+  // ============================================================
+  {
+    id: "private-sport-shop-jusqu-a-80",
+    brandSlug: "private-sport-shop",
+    type: "offre",
+    value: "-80 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à -80 % sur les ventes privées de grandes marques de sport",
+    permanent: true,
+    conditions: "Remise maximale selon les ventes, marques, modèles, tailles et stocks. L'inscription est gratuite ; comparer le prix final et les frais de livraison.",
+    featured: true,
+  },
+
+  // ============================================================
+  // BEBEBOUTIK — fonctionnement permanent des ventes privées
+  // ============================================================
+  {
+    id: "bebeboutik-ventes-privees",
+    brandSlug: "bebeboutik",
+    type: "offre",
+    value: "VENTES",
+    valueLabel: "PRIVÉES",
+    title: "Ventes privées renouvelées régulièrement pour bébé et enfant",
+    permanent: true,
+    conditions: "Marques, remises, produits, délais et stocks variables selon chaque vente. L'inscription est gratuite ; vérifier le prix final avec les frais de livraison.",
+    featured: true,
+  },
+
+  // ============================================================
+  // VIDAXL — offres vérifiées le 13/08/2026
+  // ============================================================
+  {
+    id: "vidaxl-outdoor-multibuy-2026",
+    brandSlug: "vidaxl",
+    type: "offre",
+    value: "-10 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à -10 % en achetant plusieurs articles d'extérieur",
+    expires: "2026-09-28",
+    conditions: "Offre valable sur les produits et catégories de la campagne outdoor. Quantité minimale variable selon la sélection, sans montant minimum annoncé.",
+    featured: true,
+  },
+  {
+    id: "vidaxl-newsletter-5",
+    brandSlug: "vidaxl",
+    type: "newsletter",
+    value: "5 €",
+    valueLabel: "OFFERTS",
+    title: "5 € de réduction après inscription à la newsletter",
+    permanent: true,
+    conditions: "Minimum de 70 € affiché sur la page d'accueil le 13/08/2026, uniquement sur les produits de la marque vidaXL. Vérifier les conditions du code reçu par e-mail.",
+  },
+  {
+    id: "vidaxl-plus-points",
+    brandSlug: "vidaxl",
+    type: "fidelite",
+    value: "POINTS",
+    valueLabel: "VIDAXL+",
+    title: "Des points à chaque achat avec le programme vidaXL+",
+    permanent: true,
+    conditions: "Compte vidaXL+ requis. Les points sont attribués sur les achats éligibles de produits vidaXL et peuvent être convertis en remises selon le règlement du programme.",
   },
 
   // ============================================================
