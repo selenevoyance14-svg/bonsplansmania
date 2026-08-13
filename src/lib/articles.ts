@@ -469,6 +469,53 @@ export function getRelatedArticles(slug: string, category: string, limit = 3, ta
   return matched;
 }
 
+/**
+ * Sélectionne des offres commerciales proches pour le bloc global de
+ * recommandations. Les destinations sont les liens affiliés déjà relus dans
+ * les articles : aucune URL marchande n'est fabriquée automatiquement.
+ */
+export function getAffiliateRecommendations(
+  slug: string,
+  category: string,
+  tags: string[] = [],
+  limit = 3
+): Article[] {
+  const freebie = category === "concours" || category === "test-gratuit";
+  const normalizedTags = new Set(tags.map(slugifyTag));
+  const now = Date.now();
+  const candidates = getAllArticles()
+    .filter((article) => article.meta.slug !== slug)
+    .filter((article) => !!article.meta.affiliateUrl && article.meta.affiliateUrl !== "#")
+    .filter((article) => !isEffectivelyExpired(article.meta))
+    .filter((article) => article.meta.category !== "concours" && article.meta.category !== "test-gratuit")
+    .map((article) => {
+      const sharedTags = article.meta.tags.reduce(
+        (score, tag) => score + (normalizedTags.has(slugifyTag(tag)) ? 1 : 0),
+        0
+      );
+      const sameCategory = article.meta.category === category ? 2 : 0;
+      const ageDays = (now - new Date(`${article.meta.updated || article.meta.date}T12:00:00`).getTime()) / 86_400_000;
+      const freshness = ageDays <= 7 ? 2 : ageDays <= 30 ? 1 : 0;
+      const featured = article.meta.featured ? 1 : 0;
+      return { article, score: sharedTags * 4 + sameCategory + freshness + featured, sharedTags };
+    })
+    // Sur une page produit, une recommandation doit réellement partager un tag.
+    // Sur un test/concours, les offres commerciales récentes servent de passerelle.
+    .filter((item) => freebie || item.sharedTags > 0)
+    .sort((a, b) => b.score - a.score);
+
+  const selected: Article[] = [];
+  const destinations = new Set<string>();
+  for (const { article } of candidates) {
+    if (selected.length >= limit) break;
+    const destination = article.meta.affiliateUrl!;
+    if (destinations.has(destination)) continue;
+    destinations.add(destination);
+    selected.push(article);
+  }
+  return selected;
+}
+
 export function getArticlesByTag(tag: string): Article[] {
   return getAllArticles().filter((a) => a.meta.tags.includes(tag));
 }

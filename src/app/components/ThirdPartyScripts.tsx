@@ -11,6 +11,7 @@ export default function ThirdPartyScripts() {
 
     function getClickLocation(anchor: HTMLAnchorElement): string {
       if (anchor.dataset.affiliatePosition) return anchor.dataset.affiliatePosition;
+      if (anchor.closest(".similar-products")) return "similar_products";
       if (anchor.closest(".bpm-card")) return "article_card";
       if (anchor.closest(".article-rating-bar")) return "article_header";
       if (anchor.closest(".cta-inline")) return "article_inline";

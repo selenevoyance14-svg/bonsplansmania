@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles, getAllArticles, getPrevNextArticle, isEffectivelyExpired } from "@/lib/articles";
+import { getArticleBySlug, getRelatedArticles, getAffiliateRecommendations, getAllArticles, getPrevNextArticle, isEffectivelyExpired } from "@/lib/articles";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-react";
@@ -216,6 +216,7 @@ export default async function ArticlePage({ params }: PageProps) {
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
 
   const relatedArticles = getRelatedArticles(slug, article.meta.category, 4, article.meta.tags);
+  const affiliateRecommendations = getAffiliateRecommendations(slug, article.meta.category, article.meta.tags, 3);
   const { prev: prevArticle, next: nextArticle } = getPrevNextArticle(slug, article.meta.category);
 
   const jsonLd = {
@@ -413,7 +414,39 @@ export default async function ArticlePage({ params }: PageProps) {
             {/* Articles connexes AVANT la CTA affilié : si le visiteur ne clique pas sur l'affilié,
                 il doit voir 4 autres articles pertinents avant d'envisager de quitter le site.
                 Position-clé pour réduire le bounce rate (mesuré ~100% au 3 juin 2026). */}
-            {relatedArticles.length > 0 && (
+            {affiliateRecommendations.length >= 3 ? (
+              <section className="similar-products" style={{ margin: "32px 0" }}>
+                <h2 style={{ fontSize: "1.4rem", marginBottom: "6px" }}>
+                  {isFreebieCategory ? "Bons plans à découvrir" : "Produits similaires"}
+                </h2>
+                <p style={{ margin: "0 0 16px", color: "var(--text-muted, #6b7280)", fontSize: "0.88rem" }}>
+                  Une sélection proche de cet article, avec nos liens partenaires.
+                </p>
+                <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
+                  {affiliateRecommendations.map((recommended) => (
+                    <a
+                      key={recommended.meta.slug}
+                      href={recommended.meta.affiliateUrl}
+                      target="_blank"
+                      rel="nofollow sponsored noopener"
+                      data-affiliate-position="similar_products"
+                      className="card"
+                      style={{ textDecoration: "none" }}
+                    >
+                      <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
+                        <Image src={recommended.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : recommended.meta.image} alt={recommended.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
+                      </div>
+                      <div className="card-body" style={{ padding: "12px" }}>
+                        <h3 className="card-title" style={{ fontSize: "0.92rem", lineHeight: 1.3, margin: 0 }}>{recommended.meta.title}</h3>
+                        <span style={{ display: "inline-block", marginTop: "10px", color: "var(--primary)", fontWeight: 700, fontSize: "0.82rem" }}>
+                          {recommended.meta.affiliateLabel || "Voir l’offre"} →
+                        </span>
+                      </div>
+                    </a>
+                  ))}
+                </div>
+              </section>
+            ) : relatedArticles.length > 0 && (
               <section className="related-articles" style={{ margin: "32px 0" }}>
                 <h2 style={{ fontSize: "1.4rem", marginBottom: "16px" }}>A lire aussi</h2>
                 <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>

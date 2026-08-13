@@ -8,7 +8,7 @@
 
 import { getBrandBySlug } from "./code-promo-data";
 
-export type OfferType = "code" | "offre" | "soldes" | "cashback" | "livraison" | "newsletter";
+export type OfferType = "code" | "offre" | "soldes" | "cashback" | "livraison" | "newsletter" | "parrainage" | "cadeau" | "fidelite";
 
 export interface CodePromoOffer {
   id: string;                    // unique
@@ -28,6 +28,7 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  { id: "clarins-welcome25", brandSlug: "clarins", type: "code", value: "-20 %", valueLabel: "+ CADEAUX", title: "20 % sur la première commande + une trousse et deux essentiels beauté dès 60 €", code: "WELCOME25", conditions: "Offre communiquée par Clarins le 13 août 2026. Réservée à la première commande. Une trousse et deux essentiels beauté sont annoncés dès 60 € d'achat, selon les conditions et stocks disponibles. Aucune date de fin précise n'a été communiquée ; vérifier l'application au panier.", featured: true },
   { id: "zigbuy-bons-plans", brandSlug: "zigbuy", type: "offre", value: "BONS PLANS", valueLabel: "HIGH-TECH & MAISON", title: "Promotions Zigbuy sur le high-tech, la maison et la mobilité", permanent: true, conditions: "Produits, prix, stocks, livraison et facilités de paiement variables. Vérifier chaque fiche et le montant final avant de commander.", featured: true },
   { id: "zigbuy-newsletter", brandSlug: "zigbuy", type: "newsletter", value: "-5 %", valueLabel: "BIENVENUE", title: "Réduction de bienvenue avec la newsletter Zigbuy", permanent: true, conditions: "Une remise de bienvenue peut être proposée après inscription à la newsletter. Vérifier le code reçu, sa durée, les exclusions et son éventuel cumul avant la commande." },
   { id: "belle-au-naturel-summer26", brandSlug: "belle-au-naturel", type: "code", value: "19,90 €", valueLabel: "1ʳᵉ BOX", title: "Première box bio Belle au Naturel à 19,90 €", code: "SUMMER26", expires: "2026-08-31", conditions: "Code annoncé jusqu'au 31 août 2026. Puis abonnement à 34,90 € par mois, sans engagement, livraison incluse. Vérifier les conditions avant validation.", featured: true },
@@ -2460,6 +2461,9 @@ export function offerTypeLabel(type: OfferType): string {
     case "cashback": return "Cashback";
     case "livraison": return "Livraison";
     case "newsletter": return "Newsletter";
+    case "parrainage": return "Parrainage";
+    case "cadeau": return "Cadeau";
+    case "fidelite": return "Fidélité";
   }
 }
 
@@ -2471,6 +2475,9 @@ export function offerTypeColor(type: OfferType): string {
     case "cashback": return "#8A642E";
     case "livraison": return "#5E416F";
     case "newsletter": return "#5E416F";
+    case "parrainage": return "#5E416F";
+    case "cadeau": return "#7D293D";
+    case "fidelite": return "#735A24";
   }
 }
 

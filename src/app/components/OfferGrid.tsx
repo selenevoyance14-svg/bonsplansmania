@@ -16,6 +16,9 @@ const FILTERS: { key: Filter; label: string }[] = [
   { key: "newsletter", label: "Newsletter" },
   { key: "cashback", label: "Cashback" },
   { key: "livraison", label: "Livraison" },
+  { key: "cadeau", label: "Cadeaux" },
+  { key: "parrainage", label: "Parrainage" },
+  { key: "fidelite", label: "Fidélité" },
 ];
 
 interface Props {
@@ -35,6 +38,9 @@ export default function OfferGrid({ offers }: Props) {
       cashback: 0,
       livraison: 0,
       newsletter: 0,
+      cadeau: 0,
+      parrainage: 0,
+      fidelite: 0,
     };
     offers.forEach((o) => { c[o.type]++; });
     return c;

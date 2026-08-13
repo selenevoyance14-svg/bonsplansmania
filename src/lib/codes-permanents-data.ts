@@ -128,18 +128,6 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     affiliateUrl: "https://tidd.ly/4dJ6jB6",
   },
   {
-    id: "perm-clarins",
-    brandSlug: "clarins",
-    type: "newsletter",
-    value: "-20 %",
-    title: "-20 % sur la 1ʳᵉ commande Clarins dans l'application",
-    code: "APP20",
-    permanent: true,
-    featured: true,
-    conditions: "Code APP20 affiché par Clarins pour une première commande passée dans l'application. Vérifier les exclusions au panier.",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr",
-  },
-  {
     id: "perm-damart",
     brandSlug: "damart",
     type: "newsletter",
