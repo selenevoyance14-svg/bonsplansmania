@@ -3630,6 +3630,16 @@ body {
 
 .bpm-card-h:hover .bpm-card-h-cta { gap: 8px; }
 
+/* AdSense signale officiellement les unités sans annonce avec data-ad-status.
+   Le conteneur doit alors disparaître lui aussi pour ne conserver ni marge ni hauteur. */
+.ad-container:has(> ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
+}
+
 /* CTA color per category (reuse footer colors) */
 .bpm-cta-bon-plan { color: #7D293D; }
 .bpm-card-h-bon-plan .bpm-card-h-price-now {

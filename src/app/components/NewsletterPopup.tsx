@@ -4,6 +4,9 @@ import { useState, useEffect, FormEvent } from "react";
 import { Mail, Flame, Lock, CheckCircle, X } from "lucide-react";
 
 const STORAGE_KEY = "bpm_popup_dismissed";
+const DISMISS_PERIOD_MS = 14 * 24 * 60 * 60 * 1000;
+const MIN_DELAY_MS = 45000;
+const MIN_SCROLL_PROGRESS = 0.35;
 
 export default function NewsletterPopup() {
   const [show, setShow] = useState(false);
@@ -12,12 +15,32 @@ export default function NewsletterPopup() {
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    // Ne pas afficher si déjà fermé ou déjà inscrit
-    if (localStorage.getItem(STORAGE_KEY)) return;
+    const dismissedAt = Number(localStorage.getItem(STORAGE_KEY) || 0);
+    if (dismissedAt && Date.now() - dismissedAt < DISMISS_PERIOD_MS) return;
     if (localStorage.getItem("bpm_subscribed")) return;
 
-    const timer = setTimeout(() => setShow(true), 30000);
-    return () => clearTimeout(timer);
+    let delayElapsed = false;
+    let scrollReached = false;
+    const maybeShow = () => {
+      if (delayElapsed || scrollReached) setShow(true);
+    };
+    const onScroll = () => {
+      const scrollable = document.documentElement.scrollHeight - window.innerHeight;
+      scrollReached = scrollable > 0 && window.scrollY / scrollable >= MIN_SCROLL_PROGRESS;
+      if (scrollReached) {
+        maybeShow();
+        window.removeEventListener("scroll", onScroll);
+      }
+    };
+    const timer = window.setTimeout(() => {
+      delayElapsed = true;
+      maybeShow();
+    }, MIN_DELAY_MS);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => {
+      window.clearTimeout(timer);
+      window.removeEventListener("scroll", onScroll);
+    };
   }, []);
 
   function handleClose() {

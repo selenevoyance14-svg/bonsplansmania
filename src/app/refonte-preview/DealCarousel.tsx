@@ -61,9 +61,9 @@ export default function DealCarousel({ slides }: { slides: Slide[] }) {
         <h2>{slide.title}</h2>
         <div className={styles.leadBottom}>
           {slide.directOffer ? (
-            <a href={`/go/${slide.slug}`} target="_blank" rel="nofollow sponsored noopener"><AmazonCardPrice key={slide.amazonAsin || slide.slug} asin={slide.amazonAsin} fallback={slide.price || "Voir l’offre"} /> <ArrowUpRight size={16} /></a>
+            <a href={`/go/${slide.slug}`} target="_blank" rel="nofollow sponsored noopener"><span>Voir l’offre</span> <AmazonCardPrice key={slide.amazonAsin || slide.slug} asin={slide.amazonAsin} fallback={slide.price || ""} /> <ArrowUpRight size={16} /></a>
           ) : (
-            <Link href={`/article/${slide.slug}`}><AmazonCardPrice key={slide.amazonAsin || slide.slug} asin={slide.amazonAsin} fallback={slide.price || "Découvrir l’offre"} /> <ArrowUpRight size={16} /></Link>
+            <Link href={`/article/${slide.slug}`}><span>Découvrir l’offre</span> <AmazonCardPrice key={slide.amazonAsin || slide.slug} asin={slide.amazonAsin} fallback={slide.price || ""} /> <ArrowUpRight size={16} /></Link>
           )}
           <div className={styles.carouselControls}>
             <button type="button" onClick={() => move(-1)} aria-label="Offre précédente"><ArrowLeft size={15} /></button>
