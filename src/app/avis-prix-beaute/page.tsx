@@ -10,7 +10,7 @@ import CommunityProductList from "@/app/components/CommunityProductList";
 const canonical = "https://bonsplansmania.fr/avis-prix-beaute";
 
 export const metadata: Metadata = {
-  title: "Avis et prix beauté : les fiches produits de la communauté — Bons Plans Mania",
+  title: "Comparateur beauté : avis, prix et offres — Bons Plans Mania",
   description:
     "Les fiches produits beauté de Bons Plans Mania : comparez les prix chez plusieurs marchands, lisez les avis de la communauté et partagez le vôtre.",
   alternates: { canonical },
@@ -31,10 +31,10 @@ export default function AvisPrixBeautePage() {
 
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Sparkles size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px" }} />
-              Avis et prix beauté
+              Comparateur beauté : avis, prix et offres
             </h1>
             <p style={{ color: "var(--muted-foreground)" }}>
-              Les produits testés par la communauté — {COMMUNITY_PRODUCTS.length} fiche
+              Comparez les produits et les marchands — {COMMUNITY_PRODUCTS.length} fiche
               {COMMUNITY_PRODUCTS.length > 1 ? "s" : ""}
             </p>
           </div>
@@ -61,11 +61,10 @@ export default function AvisPrixBeautePage() {
               vers les marchands qui le vendent.
             </p>
             <p>
-              On n&apos;affiche volontairement <strong>aucun prix figé</strong> :
-              en beauté les tarifs bougent d&apos;un jour à l&apos;autre, et un
-              prix recopié à la main serait faux avant même que vous le lisiez.
-              Le seul prix qui compte est celui affiché chez le marchand au
-              moment de votre commande.
+              Les prix contrôlés sont accompagnés d&apos;une date de constatation.
+              Pour Amazon, les tarifs proviennent exclusivement de l&apos;API
+              officielle et ne sont jamais recopiés à la main. Le prix affiché
+              chez le marchand au moment de la commande reste celui qui fait foi.
             </p>
             <p>
               Contrairement à un article de bon plan, qui photographie une offre à un

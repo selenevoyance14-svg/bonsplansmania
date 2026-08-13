@@ -16,17 +16,115 @@ export interface CommunityProduct {
   image: string;
   imageAlt: string;
   /** Rayon du parfum, sert au filtre femme / homme de /avis-prix-beaute */
-  gender: "femme" | "homme";
+  gender?: "femme" | "homme";
+  category: "parfums" | "soins-visage" | "k-beauty" | "solaires" | "coffrets" | "box-beaute";
   /** Description courte affichée sur la page rubrique */
   teaser: string;
+  lead?: string;
+  offers?: CommunityMerchantOffer[];
   /** Date d'ajout de la fiche au site (ISO), sert au tri récent / ancien */
   addedAt: string;
 }
 
+export interface CommunityMerchantOffer {
+  merchant: string;
+  note?: string;
+  href: string;
+  price?: string;
+  checkedAt?: string;
+  offer?: string;
+  amazonAsin?: string;
+}
+
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
+  {
+    slug: "beauty-of-joseon-relief-sun",
+    category: "k-beauty",
+    addedAt: "2026-08-13T12:00:00",
+    brand: "Beauty of Joseon",
+    name: "Relief Sun SPF50+ PA++++",
+    image: "/images/articles/beauty-of-joseon-relief-sun-creme-solaire-yesstyle-2026.png",
+    imageAlt: "Beauty of Joseon Relief Sun crème solaire SPF50+ PA++++",
+    teaser: "Un solaire coréen hydratant au riz et aux probiotiques, apprécié pour son fini sans traces blanches.",
+    lead: "Une protection solaire visage coréenne à la texture de crème légère. Elle convient surtout aux peaux normales à sèches qui recherchent un SPF quotidien confortable sans effet blanc.",
+    offers: [
+      {
+        merchant: "Amazon",
+        note: "Prix et disponibilité actualisés par l’API officielle",
+        href: "https://www.amazon.fr/dp/B0DFMGBZ9Z?tag=lebrunnathali-21",
+        amazonAsin: "B0DFMGBZ9Z",
+      },
+      {
+        merchant: "YesStyle",
+        note: "Fiche Beauty of Joseon",
+        offer: "Codes promotionnels YesStyle selon l’opération en cours",
+        href: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-of-joseon-relief%2Finfo.html%2Fpid.1137908658",
+      },
+    ],
+  },
+  {
+    slug: "cerave-creme-hydratante-visage",
+    category: "soins-visage",
+    addedAt: "2026-08-13T11:55:00",
+    brand: "CeraVe",
+    name: "Crème Hydratante Visage",
+    image: "/images/articles/comparatif-creme-bio-hydratante-cerave-visage-produit.png",
+    imageAlt: "CeraVe Crème Hydratante Visage aux céramides et à l’acide hyaluronique",
+    teaser: "Un hydratant simple aux trois céramides et à l’acide hyaluronique pour les peaux normales à sèches.",
+    lead: "Une crème hydratante sans sophistication inutile, pensée pour soutenir la barrière cutanée. Elle convient surtout aux peaux normales à sèches et aux routines minimalistes.",
+    offers: [
+      {
+        merchant: "Amazon",
+        note: "Prix et disponibilité actualisés par l’API officielle",
+        href: "https://www.amazon.fr/dp/B07C5XYT19?tag=lebrunnathali-21",
+        amazonAsin: "B07C5XYT19",
+      },
+    ],
+  },
+  {
+    slug: "la-roche-posay-anthelios-uvmune-400-fluide-invisible-spf50",
+    category: "solaires",
+    addedAt: "2026-08-13T11:50:00",
+    brand: "La Roche-Posay",
+    name: "Anthelios UVMune 400 Fluide Invisible SPF50+",
+    image: "/images/articles/bon-plan-lookfantastic-la-roche-posay-anthelios-uvmune-400-spf50-19-32-euros-juillet-2026.png",
+    imageAlt: "La Roche-Posay Anthelios UVMune 400 Fluide Invisible SPF50+ 50 ml",
+    teaser: "Un fluide solaire visage non parfumé à très haute protection, adapté notamment aux peaux sensibles.",
+    lead: "Un solaire visage fluide et non parfumé, conçu pour une haute protection quotidienne contre les UVB et les UVA longs. Une option pertinente pour les peaux sensibles qui préfèrent une texture légère.",
+    offers: [
+      {
+        merchant: "Lookfantastic",
+        note: "Flacon 50 ml non parfumé",
+        price: "18,11 €",
+        checkedAt: "2026-08-02",
+        offer: "Prix ancien daté : vérifier le tarif actuel",
+        href: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fla-roche-posay-anthelios-uvmune-400-invisible-fluid-non-perfumed-suncream-spf50-50ml%2F13494906%2F",
+      },
+    ],
+  },
+  {
+    slug: "laneige-lip-sleeping-mask",
+    category: "k-beauty",
+    addedAt: "2026-08-13T11:45:00",
+    brand: "Laneige",
+    name: "Lip Sleeping Mask",
+    image: "/images/articles/bon-plan-laneige-lip-sleeping-mask-3-versions-yesstyle-juin-2026.png",
+    imageAlt: "Laneige Lip Sleeping Mask masque de nuit pour les lèvres",
+    teaser: "Le masque de nuit coréen pour les lèvres sèches, décliné en plusieurs parfums.",
+    lead: "Un masque lèvres riche à utiliser le soir, destiné aux lèvres sèches ou gercées. Les différentes versions partagent le même positionnement gourmand et nourrissant.",
+    offers: [
+      {
+        merchant: "YesStyle",
+        note: "Plusieurs parfums selon les stocks",
+        offer: "Codes promotionnels YesStyle selon l’opération en cours",
+        href: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fhome.html",
+      },
+    ],
+  },
   {
     slug: "terre-d-hermes-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T19:16:00",
     brand: "Hermès",
     name: "Terre d’Hermès Eau de Toilette",
@@ -38,6 +136,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "viktor-rolf-spicebomb-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T19:12:00",
     brand: "Viktor & Rolf",
     name: "Spicebomb Eau de Toilette",
@@ -49,6 +148,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "azzaro-the-most-wanted-eau-de-parfum-intense",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T19:08:00",
     brand: "Azzaro",
     name: "The Most Wanted Eau de Parfum Intense",
@@ -60,6 +160,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "hugo-boss-bottled-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T19:04:00",
     brand: "Hugo Boss",
     name: "Boss Bottled Eau de Toilette",
@@ -71,6 +172,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "armani-acqua-di-gio-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T19:00:00",
     brand: "Giorgio Armani",
     name: "Acqua di Giò Eau de Toilette",
@@ -82,6 +184,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "rabanne-1-million-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T18:56:00",
     brand: "Rabanne",
     name: "1 Million Eau de Toilette",
@@ -93,6 +196,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "yves-saint-laurent-y-eau-de-parfum",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T18:52:00",
     brand: "Yves Saint Laurent",
     name: "Y Eau de Parfum",
@@ -104,6 +208,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "jean-paul-gaultier-le-male-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T18:48:00",
     brand: "Jean Paul Gaultier",
     name: "Le Male Eau de Toilette",
@@ -115,6 +220,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "dior-sauvage-eau-de-toilette",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T18:44:00",
     brand: "Dior",
     name: "Sauvage Eau de Toilette",
@@ -126,6 +232,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "bleu-de-chanel-eau-de-parfum",
     gender: "homme",
+    category: "parfums",
     addedAt: "2026-08-01T18:40:00",
     brand: "Chanel",
     name: "Bleu de Chanel Eau de Parfum",
@@ -137,6 +244,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "nuxe-prodigieux-le-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T18:12:00",
     brand: "Nuxe",
     name: "Prodigieux Le Parfum",
@@ -148,6 +256,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "guerlain-la-petite-robe-noire-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T18:06:00",
     brand: "Guerlain",
     name: "La Petite Robe Noire Eau de Parfum",
@@ -160,6 +269,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "chloe-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T17:58:00",
     brand: "Chloé",
     name: "Chloé Eau de Parfum",
@@ -171,6 +281,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "burberry-goddess-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T17:45:00",
     brand: "Burberry",
     name: "Goddess Eau de Parfum",
@@ -182,6 +293,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "mugler-alien-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T17:20:00",
     brand: "Mugler",
     name: "Alien Eau de Parfum",
@@ -193,6 +305,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "rabanne-lady-million-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T17:14:00",
     brand: "Rabanne",
     name: "Lady Million Eau de Parfum",
@@ -204,6 +317,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "valentino-born-in-roma-donna-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T17:08:00",
     brand: "Valentino",
     name: "Donna Born in Roma Eau de Parfum",
@@ -215,6 +329,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "prada-paradoxe-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T16:58:00",
     brand: "Prada",
     name: "Paradoxe Eau de Parfum",
@@ -226,6 +341,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "jean-paul-gaultier-la-belle-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T16:54:00",
     brand: "Jean Paul Gaultier",
     name: "La Belle Eau de Parfum",
@@ -237,6 +353,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "carolina-herrera-good-girl-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T16:48:00",
     brand: "Carolina Herrera",
     name: "Good Girl Eau de Parfum",
@@ -248,6 +365,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "dior-miss-dior-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T16:42:00",
     brand: "Dior",
     name: "Miss Dior Eau de Parfum",
@@ -260,6 +378,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "chanel-coco-mademoiselle-eau-de-parfum",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T16:30:00",
     brand: "Chanel",
     name: "Coco Mademoiselle Eau de Parfum",
@@ -271,6 +390,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "sol-de-janeiro-cheirosa-62-perfume-mist-90ml",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T16:05:00",
     brand: "Sol de Janeiro",
     name: "Cheirosa 62 Brume Parfumée 90 ml",
@@ -282,6 +402,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "kayali-yum-boujee-marshmallow-81",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-08-01T15:40:00",
     brand: "Kayali",
     name: "Yum Boujee Marshmallow 81 Eau de Parfum Intense",
@@ -294,6 +415,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "la-vie-est-belle-eau-de-parfum-lancome",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-07-30T18:51:00",
     brand: "Lancôme",
     name: "La Vie Est Belle Eau de Parfum",
@@ -305,6 +427,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "opium-eau-de-parfum-yves-saint-laurent",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-07-30T15:11:00",
     brand: "Yves Saint Laurent",
     name: "Opium Eau de Parfum",
@@ -316,6 +439,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
     slug: "libre-eau-de-parfum-yves-saint-laurent",
     gender: "femme",
+    category: "parfums",
     addedAt: "2026-07-30T18:51:00",
     brand: "Yves Saint Laurent",
     name: "Libre Eau de Parfum",

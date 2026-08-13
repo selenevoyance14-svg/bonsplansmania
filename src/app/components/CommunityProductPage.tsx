@@ -7,6 +7,7 @@ import ProductReviewForm from "@/app/components/ProductReviewForm";
 import HelpfulButton from "@/app/components/HelpfulButton";
 import ProductPublishedReviews from "@/app/components/ProductPublishedReviews";
 import ProductRatingSummary from "@/app/components/ProductRatingSummary";
+import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
 
 /**
  * Un marchand chez qui le produit est disponible.
@@ -20,6 +21,12 @@ type MerchantOffer = {
   merchant: string;
   note?: string;
   href: string;
+  /** Prix saisi uniquement après contrôle chez un marchand hors Amazon. */
+  price?: string;
+  checkedAt?: string;
+  offer?: string;
+  /** Amazon : le prix vient exclusivement de l'API officielle. */
+  amazonAsin?: string;
 };
 
 export default function CommunityProductPage({
@@ -84,10 +91,10 @@ export default function CommunityProductPage({
               <span className="community-section-kicker">Où l’acheter</span>
               <h2>Voir le produit chez nos partenaires</h2>
               <p className="community-section-intro">
-                Les prix des parfums bougent souvent. Plutôt que d’afficher un
-                tarif qui serait faux dès le lendemain, on vous envoie
-                directement chez le marchand : le prix affiché au moment de la
-                commande est le seul qui fait foi.
+                Les prix sont datés lorsqu’ils ont été contrôlés. Pour Amazon,
+                aucun prix n’est saisi à la main : il provient uniquement de
+                l’API officielle. Le tarif affiché chez le marchand au moment
+                de la commande reste celui qui fait foi.
               </p>
               <div className="merchant-comparison" role="list">
                 {offers.map((offer) => (
@@ -95,15 +102,27 @@ export default function CommunityProductPage({
                     <div className="merchant-info">
                       <strong>{offer.merchant}</strong>
                       {offer.note && <span>{offer.note}</span>}
+                      {offer.price && !offer.amazonAsin && <b>{offer.price}</b>}
+                      {offer.checkedAt && !offer.amazonAsin && (
+                        <small>
+                          Prix constaté le {new Date(`${offer.checkedAt}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
+                        </small>
+                      )}
+                      {offer.offer && <span>{offer.offer}</span>}
                     </div>
-                    <a
-                      className="btn btn-primary"
-                      href={offer.href}
-                      target="_blank"
-                      rel="sponsored nofollow noopener"
-                    >
-                      Voir le produit
-                    </a>
+                    {offer.amazonAsin ? (
+                      <AmazonLiveOffer asin={offer.amazonAsin} affiliateUrl={offer.href} />
+                    ) : (
+                      <a
+                        className="btn btn-primary"
+                        href={offer.href}
+                        target="_blank"
+                        rel="sponsored nofollow noopener"
+                        data-affiliate-position="beauty_comparator"
+                      >
+                        Voir le produit
+                      </a>
+                    )}
                   </article>
                 ))}
               </div>

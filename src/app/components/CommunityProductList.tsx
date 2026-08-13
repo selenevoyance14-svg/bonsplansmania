@@ -16,6 +16,17 @@ const ALL = "__all__";
  */
 type SortKey = "recent" | "ancien";
 type Gender = typeof ALL | "femme" | "homme";
+type ProductCategory = typeof ALL | "parfums" | "soins-visage" | "k-beauty" | "solaires" | "coffrets" | "box-beaute";
+
+const CATEGORIES: { key: ProductCategory; label: string }[] = [
+  { key: ALL, label: "Tous les rayons" },
+  { key: "parfums", label: "Parfums" },
+  { key: "soins-visage", label: "Soins visage" },
+  { key: "k-beauty", label: "K-Beauty" },
+  { key: "solaires", label: "Solaires" },
+  { key: "coffrets", label: "Coffrets" },
+  { key: "box-beaute", label: "Box beauté" },
+];
 
 const GENDERS: { key: Gender; label: string }[] = [
   { key: ALL, label: "Tout" },
@@ -24,6 +35,7 @@ const GENDERS: { key: Gender; label: string }[] = [
 ];
 
 export default function CommunityProductList() {
+  const [category, setCategory] = useState<ProductCategory>(ALL);
   const [gender, setGender] = useState<Gender>(ALL);
   const [brand, setBrand] = useState<string>(ALL);
   const [sort, setSort] = useState<SortKey>("recent");
@@ -31,13 +43,11 @@ export default function CommunityProductList() {
   // Le rayon commande la suite : la liste des marques et leurs compteurs ne
   // portent que sur le rayon affiché, sinon on proposerait « Chloé (1) » dans
   // le rayon homme et le filtre renverrait une page vide.
-  const scoped = useMemo(
-    () =>
-      gender === ALL
-        ? COMMUNITY_PRODUCTS
-        : COMMUNITY_PRODUCTS.filter((p) => p.gender === gender),
-    [gender],
-  );
+  const scoped = useMemo(() => COMMUNITY_PRODUCTS.filter((product) => {
+    if (category !== ALL && product.category !== category) return false;
+    if (gender !== ALL && product.gender !== gender) return false;
+    return true;
+  }), [category, gender]);
 
   const brands = useMemo(
     () =>
@@ -70,7 +80,16 @@ export default function CommunityProductList() {
   const countByGender = useMemo(() => {
     const map = new Map<Gender, number>([[ALL, COMMUNITY_PRODUCTS.length]]);
     for (const p of COMMUNITY_PRODUCTS) {
+      if (!p.gender) continue;
       map.set(p.gender, (map.get(p.gender) || 0) + 1);
+    }
+    return map;
+  }, []);
+
+  const countByCategory = useMemo(() => {
+    const map = new Map<ProductCategory, number>([[ALL, COMMUNITY_PRODUCTS.length]]);
+    for (const product of COMMUNITY_PRODUCTS) {
+      map.set(product.category, (map.get(product.category) || 0) + 1);
     }
     return map;
   }, []);
@@ -86,40 +105,57 @@ export default function CommunityProductList() {
           marginBottom: "20px",
         }}
       >
-        <div
-          role="group"
-          aria-label="Filtrer par rayon"
-          style={{ display: "flex", gap: "6px", marginRight: "6px" }}
+        <label htmlFor="category-filter" style={{ fontWeight: 600, fontSize: "0.92rem" }}>
+          Rayon
+        </label>
+        <select
+          id="category-filter"
+          value={category}
+          onChange={(event) => {
+            setCategory(event.target.value as ProductCategory);
+            setGender(ALL);
+            setBrand(ALL);
+          }}
+          style={{ padding: "9px 14px", borderRadius: "10px", border: "1.5px solid var(--border, #e5e7eb)", background: "white", fontSize: "0.92rem", fontWeight: 600, color: "#1f2937", cursor: "pointer" }}
         >
-          {GENDERS.map(({ key, label }) => {
-            const active = gender === key;
-            return (
-              <button
-                key={key}
-                type="button"
-                aria-pressed={active}
-                onClick={() => {
-                  setGender(key);
-                  // La marque choisie peut ne pas exister dans le nouveau
-                  // rayon : on repart de « toutes les marques ».
-                  setBrand(ALL);
-                }}
-                style={{
-                  padding: "9px 16px",
-                  borderRadius: "999px",
-                  border: `1.5px solid ${active ? "#6D28D9" : "var(--border, #e5e7eb)"}`,
-                  background: active ? "#6D28D9" : "white",
-                  color: active ? "white" : "#1f2937",
-                  fontSize: "0.92rem",
-                  fontWeight: 600,
-                  cursor: "pointer",
-                }}
-              >
-                {label} ({countByGender.get(key) || 0})
-              </button>
-            );
-          })}
-        </div>
+          {CATEGORIES.map(({ key, label }) => (
+            <option key={key} value={key}>{label} ({countByCategory.get(key) || 0})</option>
+          ))}
+        </select>
+        {(category === ALL || category === "parfums") && (
+          <div
+            role="group"
+            aria-label="Filtrer les parfums"
+            style={{ display: "flex", gap: "6px", marginRight: "6px" }}
+          >
+            {GENDERS.map(({ key, label }) => {
+              const active = gender === key;
+              return (
+                <button
+                  key={key}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => {
+                    setGender(key);
+                    setBrand(ALL);
+                  }}
+                  style={{
+                    padding: "9px 16px",
+                    borderRadius: "999px",
+                    border: `1.5px solid ${active ? "#6D28D9" : "var(--border, #e5e7eb)"}`,
+                    background: active ? "#6D28D9" : "white",
+                    color: active ? "white" : "#1f2937",
+                    fontSize: "0.92rem",
+                    fontWeight: 600,
+                    cursor: "pointer",
+                  }}
+                >
+                  {label} ({countByGender.get(key) || 0})
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         <label
           htmlFor="brand-filter"
@@ -175,10 +211,11 @@ export default function CommunityProductList() {
           <option value="ancien">Plus ancien d&apos;abord</option>
         </select>
 
-        {(gender !== ALL || brand !== ALL || sort !== "recent") && (
+        {(category !== ALL || gender !== ALL || brand !== ALL || sort !== "recent") && (
           <button
             type="button"
             onClick={() => {
+              setCategory(ALL);
               setGender(ALL);
               setBrand(ALL);
               setSort("recent");
@@ -206,6 +243,11 @@ export default function CommunityProductList() {
         suite de la page sans rien apporter (31/07/2026).
       */}
       <div style={{ display: "grid", gap: "16px" }}>
+        {products.length === 0 && (
+          <p style={{ padding: "24px", textAlign: "center", color: "#4b5563" }}>
+            Les premières fiches de ce rayon arrivent bientôt.
+          </p>
+        )}
         {products.map((product) => (
           <Link
             key={product.slug}

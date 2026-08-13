@@ -3,6 +3,7 @@ import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 // Une seule source de vérité pour les pages /marque/ : le sitemap dupliquait la règle
 // et pouvait donc soumettre à Google des URL que le build ne génère pas (ou l'inverse).
 import { shouldGenerateTagPage, slugifyTag } from "@/lib/tag-pages";
+import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 
 const BASE = "https://bonsplansmania.fr";
 
@@ -107,5 +108,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.5,
     }));
 
-  return [...staticEntries, ...categoryEntries, ...articleEntries, ...marqueEntries];
+  const productEntries: MetadataRoute.Sitemap = COMMUNITY_PRODUCTS.map((product) => ({
+    url: `${BASE}/produit/${product.slug}`,
+    lastModified: new Date(product.addedAt),
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...categoryEntries, ...articleEntries, ...marqueEntries, ...productEntries];
 }
