@@ -28,6 +28,65 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  // SPARTOO — avantages vérifiés le 13 août 2026
+  { id: "spartoo-etudiants-20", brandSlug: "spartoo", type: "offre", value: "-20 %", valueLabel: "ÉTUDIANTS", title: "20 % de réduction pour les étudiants", permanent: true, conditions: "Accès après validation du statut étudiant. Vérifier le minimum d'achat, les exclusions, les produits partenaires et le cumul au moment de l'activation.", featured: true },
+  { id: "spartoo-newsletter-10", brandSlug: "spartoo", type: "newsletter", value: "10 €", valueLabel: "NEWSLETTER", title: "10 € de réduction en s'inscrivant à la newsletter", permanent: true, conditions: "Bon envoyé après inscription. Vérifier dans l'e-mail le minimum d'achat, la durée et les marques ou produits exclus." },
+  { id: "spartoo-livraison-retour", brandSlug: "spartoo", type: "livraison", value: "0 €", valueLabel: "LIVRAISON & RETOUR", title: "Livraison et retour gratuits sur les articles éligibles", permanent: true, conditions: "Livraison gratuite en quatre jours et retour gratuit sous 30 jours annoncés sur les produits éligibles. Les vendeurs partenaires peuvent appliquer d'autres conditions." },
+  // WELEDA — offres vérifiées le 13 août 2026
+  { id: "weleda-very-cherry-offerte", brandSlug: "weleda", type: "offre", value: "3 + 1", valueLabel: "DOUCHE", title: "Une crème de douche Very Cherry offerte pour trois gels ou crèmes de douche achetés", expires: "2026-08-31", conditions: "Formats de 200 ml et 750 ml éligibles, dans la limite des stocks. Vérifier l'ajout du produit offert au panier.", featured: true },
+  { id: "weleda-newsletter-15", brandSlug: "weleda", type: "newsletter", value: "-15 %", valueLabel: "1ʳᵉ COMMANDE", title: "15 % sur la première commande avec la newsletter", permanent: true, conditions: "Code envoyé par e-mail après inscription. Vérifier la durée, les exclusions et le cumul dans le message reçu.", featured: true },
+  { id: "weleda-livraison-45", brandSlug: "weleda", type: "livraison", value: "45 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 45 € à domicile ou en point relais", permanent: true, conditions: "Seuil calculé après remises, selon les conditions de livraison Weleda." },
+  { id: "weleda-echantillons", brandSlug: "weleda", type: "offre", value: "3", valueLabel: "ÉCHANTILLONS", title: "Trois échantillons gratuits au choix pour toute commande", permanent: true, conditions: "Selon les échantillons disponibles au moment de la commande." },
+  // BABYBIO — avantages vérifiés le 13 août 2026
+  { id: "babybio-antigaspi-20", brandSlug: "babybio", type: "offre", value: "-20 %", valueLabel: "ANTI-GASPI", title: "20 % de remise sur une sélection anti-gaspi Babybio", permanent: true, conditions: "Produits signalés dans la sélection anti-gaspi, selon les stocks et dates de durabilité. Vérifier chaque fiche avant de commander.", featured: true },
+  { id: "babybio-livraison-59", brandSlug: "babybio", type: "livraison", value: "59 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison gratuite dès 59 € en France", permanent: true, conditions: "Livraison annoncée sous 72 h en France, gratuite dès 59 €, selon les modalités Babybio." },
+  // MICROMANIA — avantages permanents
+  { id: "micromania-bons-plans", brandSlug: "micromania", type: "offre", value: "PROMOS", valueLabel: "JEUX & CONSOLES", title: "Promotions Micromania sur les jeux, consoles et accessoires", permanent: true, conditions: "Prix, stocks et durée variables. Vérifier l'offre et le retrait ou la livraison avant de payer.", featured: true },
+  // PARFUMS MOINS CHERS — remises constatées le 13 août 2026
+  { id: "parfums-moins-chers-jusqua-75", brandSlug: "parfums-moins-chers", type: "offre", value: "-75 %", valueLabel: "JUSQU'À", title: "Jusqu'à 75 % de remise sur des parfums et cosmétiques", permanent: true, conditions: "Remise maximale constatée sur une sélection. Comparer le prix final, le format et les frais de livraison avant achat.", featured: true },
+  // HELLOFRESH — offre officielle vérifiée le 13 août 2026
+  { id: "hellofresh-85-euros-4-box", brandSlug: "hellofresh", type: "offre", value: "85 €", valueLabel: "JUSQU'À", title: "Jusqu'à 85 € de réduction sur les quatre premières box", permanent: true, conditions: "Nouveaux clients et anciens clients ayant résilié depuis plus de 52 semaines. Réduction répartie sur les quatre premières box commandées dans les huit semaines suivant la souscription. Montant selon la taille de la box ; livraison offerte uniquement sur la première. Offre non cumulable et limitée à une par foyer.", featured: true },
+  { id: "hellofresh-apero-offert-ete", brandSlug: "hellofresh", type: "offre", value: "OFFERT", valueLabel: "CHAQUE SEMAINE", title: "Un produit apéro offert chaque semaine jusqu'au 21 septembre", expires: "2026-09-21", conditions: "Pour toute souscription éligible, choisir manuellement chaque semaine un extra offert parmi la sélection du marché HelloFresh. Avantage maintenu tant que l'abonnement n'est pas résilié, sous réserve de disponibilité.", featured: true },
+  // D.PLANTES — avantages permanents vérifiés le 13 août 2026
+  { id: "dplantes-mon-club-20", brandSlug: "dplantes", type: "offre", value: "-20 %", valueLabel: "MON CLUB", title: "20 % toute l'année avec Mon Club D.Plantes", permanent: true, conditions: "Adhésion Mon Club à 5 € pour un an. Remise immédiate dès la première commande éligible, hors sélection anti-gaspi.", featured: true },
+  { id: "dplantes-livraison-29", brandSlug: "dplantes", type: "livraison", value: "29 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 29 € en Mondial Relay", permanent: true, conditions: "Livraison offerte dès 29 € en Mondial Relay et dès 59 € en Colissimo, selon les modalités D.Plantes." },
+  // SANS COMPLEXE — avantages permanents vérifiés le 13 août 2026
+  { id: "sans-complexe-ensembles-10", brandSlug: "sans-complexe", type: "offre", value: "-10 %", valueLabel: "ENSEMBLES", title: "10 % de remise sur les ensembles lingerie signalés", permanent: true, conditions: "Réduction sur les ensembles soutien-gorge et bas assorti portant la mention de l'offre. Vérifier l'application au panier et les exclusions.", featured: true },
+  { id: "sans-complexe-livraison-49", brandSlug: "sans-complexe", type: "livraison", value: "49 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 49 € d'achat", permanent: true, conditions: "Selon le mode de livraison, la destination et les conditions affichées par Sans Complexe." },
+  { id: "desigual-club-25", brandSlug: "desigual", type: "offre", value: "25 %", valueLabel: "CRÉDITÉS", title: "25 % crédités pour de futurs achats avec le Club Desigual", permanent: true, conditions: "Inscription requise. Avantage pour de futurs achats, pas nécessairement une remise immédiate.", featured: true },
+  { id: "desigual-livraison-55", brandSlug: "desigual", type: "livraison", value: "55 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte à domicile dès 55 € et en boutique", permanent: true, conditions: "Selon les conditions Desigual." },
+  { id: "gemo-deuxieme-produit-ete-50", brandSlug: "gemo", type: "offre", value: "-50 %", valueLabel: "SUR LE 2E", title: "50 % sur le deuxième produit d'été", expires: "2026-08-16", conditions: "Sur le moins cher des deux parmi la sélection signalée.", featured: true },
+  { id: "gemo-deuxieme-pyjama-50", brandSlug: "gemo", type: "offre", value: "-50 %", valueLabel: "SUR LE 2E", title: "50 % sur le deuxième pyjama bébé au choix", conditions: "Vérifier la sélection et le panier." },
+  { id: "gemo-livraison-40", brandSlug: "gemo", type: "livraison", value: "40 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 40 € et retrait magasin gratuit", permanent: true, conditions: "Selon les modes affichés par Gémo." },
+  // SHOES.FR — avantages vérifiés le 13 août 2026
+  {
+    id: "shoes-fr-newsletter-5-euros", brandSlug: "shoes-fr", type: "newsletter",
+    value: "5 €", valueLabel: "NEWSLETTER", title: "5 € de réduction avec l'inscription à la newsletter",
+    permanent: true, conditions: "Réduction annoncée après inscription. Vérifier dans l'e-mail le minimum d'achat, la durée et les exclusions.", featured: true,
+  },
+  {
+    id: "shoes-fr-livraison-gratuite", brandSlug: "shoes-fr", type: "livraison",
+    value: "0 €", valueLabel: "LIVRAISON", title: "Livraison et retour offerts selon les modalités Shoes.fr",
+    permanent: true, conditions: "Consulter les modalités applicables au produit, à la destination et au retour avant la commande.",
+  },
+  // DÉGRIFFSTOCK — offres vérifiées le 13 août 2026
+  {
+    id: "degriffstock-vente-flash-40", brandSlug: "degriffstock", type: "offre",
+    value: "-40 %", valueLabel: "JUSQU'À", title: "Jusqu'à 40 % sur la vente flash multimarques",
+    affiliateUrl: "https://auz.degriffstock.com/?P51257757CD2D1D1&redir=https%3A%2F%2Fwww.degriffstock.com%2F3142-vente-flash-multimarques-",
+    conditions: "Remise maximale sur une sélection signalée, dans la limite des stocks.", featured: true,
+  },
+  {
+    id: "degriffstock-promo-50-supp", brandSlug: "degriffstock", type: "offre",
+    value: "-50 %", valueLabel: "SUPPLÉMENTAIRES", title: "Jusqu'à 50 % supplémentaires sur une sélection en promotion",
+    affiliateUrl: "https://auz.degriffstock.com/?P51257757CD2D1D1&redir=https%3A%2F%2Fwww.degriffstock.com%2F2216-promos",
+    conditions: "Articles signalés dans la rubrique Promotions, hors ventes flash. Vérifier le prix final.", featured: true,
+  },
+  {
+    id: "degriffstock-livraison-85", brandSlug: "degriffstock", type: "livraison",
+    value: "85 €", valueLabel: "POINT RELAIS", title: "Livraison offerte en magasin et dès 85 € en point relais",
+    permanent: true, conditions: "Selon les modalités, magasins participants et exclusions de Dégriffstock.",
+  },
   // VOYAGES AUCHAN — avantages vérifiés le 13 août 2026
   {
     id: "voyages-auchan-newsletter-30-euros",
@@ -780,95 +839,9 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
 
-  // ============================================================
-  // BÉABA — soldes -60 % + code LAST5 + newsletter
-  // ============================================================
-  {
-    id: "beaba-soldes-60",
-    brandSlug: "beaba",
-    type: "soldes",
-    value: "-60 %",
-    valueLabel: "SOLDES",
-    title: "Soldes Béaba jusqu'à -60 % sur une sélection d'articles bébé",
-    expires: "2026-07-21",
-    conditions: "Soldes d'été 2026 sur beaba.com. Valables du 24/06/2026 au 21/07/2026 dans la limite des stocks disponibles, sur une sélection d'articles Béaba (repas bébé, allaitement, bain, éveil).",
-    featured: true,
-  },
-  {
-    id: "beaba-last5",
-    brandSlug: "beaba",
-    type: "code",
-    value: "-5 %",
-    valueLabel: "SUR SOLDES",
-    title: "-5 % supplémentaires sur les articles déjà soldés (code LAST5)",
-    code: "LAST5",
-    expires: "2026-07-21",
-    conditions: "Code -5 % en supplément sur les articles Béaba déjà soldés. Cumulable avec les prix soldés, valable jusqu'à la fin des soldes Béaba (21/07/2026).",
-    featured: true,
-  },
-  {
-    id: "beaba-newsletter-10",
-    brandSlug: "beaba",
-    type: "newsletter",
-    value: "-10 %",
-    valueLabel: "1ʳᵉ CDE",
-    title: "-10 % sur la 1ʳᵉ commande en s'inscrivant à la newsletter",
-    conditions: "Offre permanente. Code de réduction reçu par mail après inscription à la newsletter Béaba, valable sur la première commande.",
-    featured: true,
-  },
-  {
-    id: "beaba-packs-20",
-    brandSlug: "beaba",
-    type: "offre",
-    value: "-20 %",
-    valueLabel: "PACKS",
-    title: "-20 % de remise permanente sur tous les packs Béaba",
-    conditions: "Offre permanente : -20 % sur la sélection de packs Béaba (repas, allaitement, bain, éveil). Remise appliquée automatiquement sur les packs éligibles.",
-  },
-  {
-    id: "beaba-bkmeal-coffret",
-    brandSlug: "beaba",
-    type: "code",
-    value: "OFFERT",
-    valueLabel: "COFFRET REPAS",
-    title: "Coffret repas silicone offert pour l'achat d'un Babycook Néo® (code BKMEAL)",
-    code: "BKMEAL",
-    conditions: "Offre permanente : coffret repas en silicone offert pour tout achat d'un Babycook Néo® Béaba (coloris au choix). Code BKMEAL à saisir au panier.",
-    featured: true,
-  },
-  {
-    id: "beaba-bibex-doseuse",
-    brandSlug: "beaba",
-    type: "code",
-    value: "OFFERT",
-    valueLabel: "BOÎTE DOSEUSE",
-    title: "Boîte doseuse de lait offerte pour l'achat d'un Bib'Espresso® (code BIBEX)",
-    code: "BIBEX",
-    conditions: "Offre permanente : boîte doseuse de lait offerte pour tout achat d'un Bib'Espresso® Béaba. Code BIBEX à saisir au panier.",
-    featured: true,
-  },
-  {
-    id: "beaba-paris-gourde",
-    brandSlug: "beaba",
-    type: "code",
-    value: "OFFERT",
-    valueLabel: "GOURDE INOX",
-    title: "Gourde inox 350 ml offerte pour l'achat d'un sac à langer Paris (code PARIS)",
-    code: "PARIS",
-    conditions: "Offre permanente : gourde en inox 350 ml offerte pour tout achat d'un sac à langer Paris Béaba (coloris au choix). Code PARIS à saisir au panier.",
-    featured: true,
-  },
-  {
-    id: "beaba-sofa-toilette",
-    brandSlug: "beaba",
-    type: "code",
-    value: "OFFERT",
-    valueLabel: "SET TOILETTE",
-    title: "Set accessoires de toilette offert pour l'achat d'un matelas Sofalange® (code SOFA)",
-    code: "SOFA",
-    conditions: "Offre permanente : set accessoires de toilette offert pour tout achat d'un matelas Sofalange® Béaba. Code SOFA à saisir au panier.",
-    featured: true,
-  },
+  // BÉABA — avantages vérifiés le 13 août 2026
+  { id: "beaba-livraison-70", brandSlug: "beaba", type: "livraison", value: "70 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison gratuite dès 70 € d'achat", permanent: true, conditions: "Selon le mode de livraison, la destination et les conditions affichées par Béaba.", featured: true },
+  { id: "beaba-club", brandSlug: "beaba", type: "offre", value: "CLUB", valueLabel: "AVANTAGES", title: "Ventes privées, prix réduits et cadeaux avec le Club Béaba", permanent: true, conditions: "Inscription au Club Béaba requise. Les avantages et leur disponibilité peuvent varier." },
 
   // ============================================================
   // BEAUTY SUCCESS — soldes + chéquier été + newsletter + offres perma
@@ -1006,7 +979,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
 
   // ============================================================
   // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
-  // Offres vérifiées le 27/07/2026
+  // Offres Léa Nature vérifiées le 13/08/2026
   // ============================================================
   {
     id: "lea-nature-soleil20",
@@ -1016,8 +989,9 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "SÉLECTION",
     title: "-20 % sur une sélection avec le code SOLEIL20",
     code: "SOLEIL20",
-    expires: "2026-07-31",
-    conditions: "Offre du 01/07 au 31/07/2026 sur une sélection. Non cumulable avec une autre promotion, hors direct usine, kits et routines.",
+    starts: "2026-08-09",
+    expires: "2026-08-22",
+    conditions: "Offre du 9 au 22 août 2026 sur une sélection. Non cumulable avec une autre promotion, hors direct usine, kits et routines.",
     featured: true,
   },
   {
@@ -1029,6 +1003,41 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "-30 % sur la gamme Lift'Grenade SO'BiO étic",
     expires: "2026-08-31",
     conditions: "Remise automatique valable dans la limite des stocks. Non cumulable avec une autre promotion.",
+  },
+  {
+    id: "lea-nature-braderie-aout-40",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-40 %",
+    valueLabel: "BRADERIE",
+    title: "40 % de réduction sur la sélection Braderie",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fselections%2Fbraderie.html",
+    expires: "2026-08-16",
+    conditions: "Remise appliquée aux produits signalés Braderie, dans la limite des stocks. Non cumulable avec les autres promotions.",
+    featured: true,
+  },
+  // MORGAN — offres vérifiées le 13 août 2026
+  {
+    id: "morgan-deuxieme-article-30",
+    brandSlug: "morgan",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "SUR LE 2E",
+    title: "30 % de réduction sur le deuxième article acheté",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P43B4357CD2D131&redir=https%3A%2F%2Fwww.morgandetoi.fr%2Fvetements-femme-c_010000%2F",
+    conditions: "Offre selon la sélection et les conditions Morgan. La remise peut s'appliquer à l'article le moins cher ; vérifier le panier.",
+    featured: true,
+  },
+  {
+    id: "morgan-petits-prix-15",
+    brandSlug: "morgan",
+    type: "offre",
+    value: "-15 %",
+    valueLabel: "SUPPLÉMENTAIRES",
+    title: "15 % supplémentaires dès 2 articles Petits Prix",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P43B4357CD2D131&redir=https%3A%2F%2Fwww.morgandetoi.fr%2Fpetits-prix-s%2F",
+    conditions: "Deux articles de la rubrique Petits Prix sont requis. Vérifier les exclusions et l'application de la remise dans le panier.",
+    featured: true,
   },
   {
     id: "pin-up-secret-coffrets",
@@ -1071,15 +1080,35 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Livraison en point relais annoncée offerte dès 49 € d'achat. Vérifier le mode de livraison, la destination et les éventuelles exclusions dans le panier.",
   },
   {
-    id: "uriage-bariesun-2026",
+    id: "uriage-creme-offerte-aout-2026",
     brandSlug: "uriage",
     type: "code",
-    value: "3ᵉ OFFERT",
-    valueLabel: "SOLAIRES",
-    title: "Dès 3 solaires achetés, le moins cher est offert",
-    code: "BARIESUN",
-    conditions: "Le solaire le moins cher du panier est offert. Vérifier l'éligibilité des références et l'application du code au panier.",
+    value: "OFFERTE",
+    valueLabel: "DÈS 60 €",
+    title: "Une Crème d'eau offerte dès 60 € d'achat",
+    code: "CREME",
+    conditions: "Offre estivale affichée par Uriage. Saisir le code CREME et vérifier l'ajout du cadeau dans le panier, sous réserve des stocks et exclusions.",
     featured: true,
+  },
+  {
+    id: "uriage-mousse-offerte-aout-2026",
+    brandSlug: "uriage",
+    type: "code",
+    value: "OFFERTE",
+    valueLabel: "DÈS 60 €",
+    title: "Une Mousse d'eau nettoyante offerte dès 60 € d'achat",
+    code: "MOUSSE",
+    conditions: "Offre estivale affichée par Uriage. Saisir le code MOUSSE et vérifier l'ajout du cadeau dans le panier, sous réserve des stocks et exclusions.",
+  },
+  {
+    id: "uriage-newsletter-15",
+    brandSlug: "uriage",
+    type: "newsletter",
+    value: "-15 %",
+    valueLabel: "1RE COMMANDE",
+    title: "15 % de réduction sur la première commande avec la newsletter",
+    permanent: true,
+    conditions: "Inscription à la newsletter Uriage requise. Le code et ses conditions sont communiqués par e-mail ; vérifier son application au panier.",
   },
   {
     id: "uriage-livraison-49",
@@ -1088,20 +1117,54 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "OFFERTE",
     valueLabel: "PLUS DE 49 €",
     title: "Livraison offerte pour toute commande supérieure à 49 €",
-    conditions: "Seuil affiché par Uriage le 27/07/2026. Vérifier les modalités de livraison au panier.",
+    permanent: true,
+    conditions: "Seuil affiché par Uriage le 13/08/2026. Vérifier les modalités de livraison au panier.",
   },
 
   // ============================================================
-  // SARENZA — service permanent
+  // SARENZA — offres vérifiées le 13/08/2026
   // ============================================================
   {
-    id: "sarenza-retours-100j",
+    id: "sarenza-jours-extra-aout-2026",
     brandSlug: "sarenza",
-    type: "livraison",
-    value: "100 j",
-    valueLabel: "RETOURS",
-    title: "100 jours pour retourner tes chaussures gratuitement",
-    conditions: "Retours et échanges gratuits sous 100 jours sur Sarenza.fr. Un des délais les plus généreux du marché.",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "JUSQU'À",
+    title: "Les Jours Extra : jusqu'à -50 % sur une sélection",
+    conditions: "Réduction déjà appliquée aux articles signalés. Sélection et stocks variables ; vérifier le prix final avant de commander.",
+    featured: true,
+  },
+  {
+    id: "sarenza-bienvenue-20-euros",
+    brandSlug: "sarenza",
+    type: "code",
+    value: "20 €",
+    valueLabel: "BIENVENUE",
+    title: "20 € offerts sur la première commande avec la newsletter",
+    conditions: "Inscription à la newsletter requise. Le minimum d'achat, la durée et les exclusions sont précisés dans l'e-mail contenant le code.",
+  },
+
+  // ============================================================
+  // THALGO — offres vérifiées le 13/08/2026
+  // ============================================================
+  {
+    id: "thalgo-selection-moins-50-aout-2026",
+    brandSlug: "thalgo",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à -50 % sur une sélection de soins Thalgo",
+    conditions: "Prix remisés sur une sélection, dans la limite des stocks. Vérifier le prix et l'éligibilité sur la fiche produit.",
+    featured: true,
+  },
+  {
+    id: "thalgo-trousse-summer-79-aout-2026",
+    brandSlug: "thalgo",
+    type: "cadeau",
+    value: "OFFERTE",
+    valueLabel: "DÈS 79 €",
+    title: "Une trousse Summer offerte dès 79 € d'achat",
+    conditions: "Cadeau annoncé sur le site Thalgo dès 79 € d'achat, sous réserve de disponibilité et des éventuelles exclusions affichées dans le panier.",
   },
 
   // ============================================================
