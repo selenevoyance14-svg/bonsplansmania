@@ -37,6 +37,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#EC4899",
   },
   {
+    slug: "activa-store",
+    name: "Activa Store",
+    affiliateUrl: "https://rel.fr.activastore.com/?P4B68D57CD2D1F1&redir=https%3A%2F%2Ffr.activastore.com%2F",
+    affiliateLabel: "Voir les offres Activa Store",
+    matchTags: ["activa-store", "activa store", "activastore", "complements-alimentaires"],
+    color: "#6B8E23",
+  },
+  {
     slug: "aliexpress",
     name: "AliExpress",
     affiliateUrl: "https://tidd.ly/42BTllj",
@@ -53,6 +61,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#4A4A4A",
   },
   {
+    slug: "atida",
+    name: "Atida",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2F",
+    affiliateLabel: "Voir les promotions Atida",
+    matchTags: ["atida", "sante-discount", "parapharmacie"],
+    color: "#E85D75",
+  },
+  {
     slug: "beaba",
     name: "Béaba",
     affiliateUrl: "https://lk.gt/aYhaB",
@@ -67,6 +83,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Beauty Success",
     matchTags: ["beauty-success", "beauty success"],
     color: "#FF1493",
+  },
+  {
+    slug: "bayard-jeunesse",
+    name: "Bayard Jeunesse",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51323D57CD2D171&redir=https%3A%2F%2Fwww.bayard-jeunesse.com%2F",
+    affiliateLabel: "Voir les offres Bayard Jeunesse",
+    matchTags: ["bayard-jeunesse", "bayard jeunesse", "magazines enfants"],
+    color: "#E53935",
   },
   {
     slug: "biogemm",
@@ -119,10 +143,18 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "caroll",
     name: "Caroll",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2F",
     affiliateLabel: "Voir les offres Caroll",
     matchTags: ["caroll"],
     color: "#243746",
+  },
+  {
+    slug: "carrefour",
+    name: "Carrefour",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
+    affiliateLabel: "Voir les promotions Carrefour",
+    matchTags: ["carrefour"],
+    color: "#0050AA",
   },
   {
     slug: "cdiscount",
@@ -191,7 +223,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "daxon",
     name: "Daxon",
-    affiliateUrl: "https://www.daxon.fr/",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23260342&url=https%3A%2F%2Fwww.daxon.fr",
     affiliateLabel: "Voir les offres Daxon",
     matchTags: ["daxon"],
     color: "#1E40AF",
@@ -253,6 +285,22 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#4CAF50",
   },
   {
+    slug: "havas-voyages",
+    name: "Havas Voyages",
+    affiliateUrl: "https://kfx.havas-voyages.fr/?P511EA757CD2D151&redir=https%3A%2F%2Fwww.havas-voyages.fr%2F",
+    affiliateLabel: "Voir les bons plans Havas Voyages",
+    matchTags: ["havas-voyages", "havas voyages", "voyage"],
+    color: "#E30613",
+  },
+  {
+    slug: "histoire-dor",
+    name: "Histoire d'Or",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51334157CD2D1D1&redir=https%3A%2F%2Fwww.histoiredor.com%2Ffr_FR",
+    affiliateLabel: "Voir les offres Histoire d'Or",
+    matchTags: ["histoire-dor", "histoire d'or", "histoire d’or"],
+    color: "#B28A45",
+  },
+  {
     slug: "ioma",
     name: "Ioma",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=26447&awinaffid=990397&ued=https%3A%2F%2Fioma-paris.com%2F",
@@ -283,6 +331,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Little Cigogne",
     matchTags: ["little-cigogne", "mode-enfant"],
     color: "#F472B6",
+  },
+  {
+    slug: "lollipops",
+    name: "Lollipops",
+    affiliateUrl: "https://fou.lollipops.fr/?P51322957CD2D151&redir=https%3A%2F%2Flollipops.fr%2F",
+    affiliateLabel: "Voir les offres Lollipops",
+    matchTags: ["lollipops", "lollipops paris"],
+    color: "#E91E63",
   },
   {
     slug: "lookfantastic",
@@ -333,12 +389,28 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#EC4899",
   },
   {
+    slug: "milan-jeunesse",
+    name: "Milan Jeunesse",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51323F57CD2D171&redir=https%3A%2F%2Fmilan-jeunesse.com%2F",
+    affiliateLabel: "Voir les offres Milan Jeunesse",
+    matchTags: ["milan-jeunesse", "milan jeunesse", "magazines-enfants"],
+    color: "#E53935",
+  },
+  {
     slug: "nocibe",
     name: "Nocibé",
     affiliateUrl: "https://www.nocibe.fr/",
     affiliateLabel: "Voir les offres Nocibé",
     matchTags: ["nocibe", "nocibé"],
     color: "#E91E63",
+  },
+  {
+    slug: "one-watch-company",
+    name: "One Watch Company",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51379557CD2D1D1&redir=https%3A%2F%2Fonewatchcompany.com%2Ffr",
+    affiliateLabel: "Voir les offres One Watch Company",
+    matchTags: ["one-watch-company", "one-watch", "one watch company"],
+    color: "#111827",
   },
   {
     slug: "pranarom",
@@ -361,6 +433,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
       conditions: "10 % de réduction sur le site Prozis. Vérifier l'application et les éventuelles règles de cumul dans le panier.",
       verifiedAt: "2026-08-11",
     },
+  },
+  {
+    slug: "rougier-ple",
+    name: "Rougier & Plé",
+    affiliateUrl: "https://afi.rougier-ple.fr/?P4826957CD2D1B1&redir=https%3A%2F%2Fwww.rougier-ple.fr%2F",
+    affiliateLabel: "Voir les offres Rougier & Plé",
+    matchTags: ["rougier-ple", "rougier & plé", "rougier et plé"],
+    color: "#E30613",
   },
   {
     slug: "private-sport-shop",
@@ -453,9 +533,9 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "twenty-dc",
     name: "Twenty DC",
-    affiliateUrl: "https://lk.gt/amW3A",
+    affiliateUrl: "https://osu.twentydc.com/?P51399D57CD2D1F1&redir=https%3A%2F%2Ftwentydc.com%2F",
     affiliateLabel: "Voir les offres Twenty DC",
-    matchTags: ["twenty-dc", "twenty dc", "collagene"],
+    matchTags: ["twenty-dc", "twentydc", "twenty dc", "collagene"],
     color: "#7C3AED",
   },
   {
@@ -473,6 +553,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Weleda",
     matchTags: ["weleda"],
     color: "#B85B27",
+  },
+  {
+    slug: "voyages-auchan",
+    name: "Voyages Auchan",
+    affiliateUrl: "https://vmx.voyages-auchan.com/?P51211D57CD2D1D1&redir=https%3A%2F%2Fwww.voyages-auchan.com%2F",
+    affiliateLabel: "Voir les bons plans Voyages Auchan",
+    matchTags: ["voyages-auchan", "voyages auchan", "auchan voyages", "voyage pas cher"],
+    color: "#E30613",
   },
   {
     slug: "yesstyle",

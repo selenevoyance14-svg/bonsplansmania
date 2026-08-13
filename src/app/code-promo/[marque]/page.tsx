@@ -30,14 +30,43 @@ function matchesBrand(tags: string[], matchTags: string[]): boolean {
   return matchTags.some((m) => lowerTags.includes(m.toLowerCase()));
 }
 
+const COMMERCIAL_CATEGORIES = new Set([
+  "bon-plan",
+  "code-promo",
+  "box-beaute",
+  "calendrier-avent",
+]);
+
+function matchingBrandCount(tags: string[]): number {
+  return CODE_PROMO_BRANDS.filter((candidate) =>
+    matchesBrand(tags, candidate.matchTags),
+  ).length;
+}
+
+/**
+ * Une offre de marque doit être commerciale et consacrée à cette marque.
+ * Les comparatifs et sélections multi-marques restent utiles, mais ne doivent
+ * jamais gonfler le compteur des « offres en cours ».
+ */
+function isDirectBrandOffer(category: string, tags: string[]): boolean {
+  return COMMERCIAL_CATEGORIES.has(category) && matchingBrandCount(tags) === 1;
+}
+
 export default async function CodePromoBrandPage({ params }: PageProps) {
   const { marque } = await params;
   const brand = getBrandBySlug(marque);
   if (!brand) notFound();
 
   const allMatching = getAllArticles().filter((a) => matchesBrand(a.meta.tags, brand.matchTags));
-  const active = allMatching.filter((a) => !isEffectivelyExpired(a.meta));
-  const expired = allMatching.filter((a) => isEffectivelyExpired(a.meta));
+  const directOffers = allMatching.filter((a) =>
+    isDirectBrandOffer(a.meta.category, a.meta.tags),
+  );
+  const active = directOffers.filter((a) => !isEffectivelyExpired(a.meta));
+  const expired = directOffers.filter((a) => isEffectivelyExpired(a.meta));
+  const guides = allMatching.filter((a) =>
+    !isDirectBrandOffer(a.meta.category, a.meta.tags) &&
+    !isEffectivelyExpired(a.meta),
+  );
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -73,7 +102,11 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
               Bons plans et codes promo {brand.name}
             </h1>
             <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", marginBottom: "20px", lineHeight: 1.5 }}>
-              <strong>{active.length} bon{active.length > 1 ? "s" : ""} plan{active.length > 1 ? "s" : ""}</strong> en cours, mis à jour régulièrement.
+              {active.length > 0 ? (
+                <><strong>{active.length} offre{active.length > 1 ? "s" : ""}</strong> consacrée{active.length > 1 ? "s" : ""} à {brand.name}, plus nos guides et comparatifs utiles.</>
+              ) : (
+                <>Aucun code promo {brand.name} vérifié actuellement. Retrouve la boutique et nos guides utiles ci-dessous.</>
+              )}
             </p>
             <a
               href={brand.affiliateUrl}
@@ -134,13 +167,37 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
           <section className="section">
             <div className="container">
               <div className="section-title">
-                <h2>Nos bons plans {brand.name} en cours</h2>
+                <h2>Offres et bons plans {brand.name}</h2>
                 <p>{active.length} article{active.length > 1 ? "s" : ""}</p>
               </div>
               <div className="articles-grid">
                 {active.map((a) => (
                   <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
                     <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
+                      <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
+                    </div>
+                    <div className="card-body">
+                      <h3 className="card-title">{a.meta.title}</h3>
+                      <p className="card-excerpt">{a.meta.description}</p>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        {guides.length > 0 && (
+          <section className="section-sm">
+            <div className="container">
+              <div className="section-title">
+                <h2>Guides et sélections autour de {brand.name}</h2>
+                <p>Ces contenus peuvent citer plusieurs marques et ne sont pas comptés comme des offres {brand.name}.</p>
+              </div>
+              <div className="articles-grid">
+                {guides.slice(0, 12).map((a) => (
+                  <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
+                    <div style={{ position: "relative", height: "160px", overflow: "hidden" }}>
                       <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
                     </div>
                     <div className="card-body">
@@ -179,7 +236,7 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
           </section>
         )}
 
-        {active.length === 0 && expired.length === 0 && (
+        {active.length === 0 && expired.length === 0 && guides.length === 0 && (
           <section className="section">
             <div className="container">
               <p style={{ textAlign: "center", color: "var(--muted-foreground)", padding: "48px 0" }}>

@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { X } from "lucide-react";
 import type { CodePromoOffer, OfferType } from "@/lib/code-promo-offers";
-import { getBrandBySlug } from "@/lib/code-promo-data";
+import { CODE_PROMO_BRANDS, getBrandBySlug } from "@/lib/code-promo-data";
 import OfferCard from "./OfferCard";
 
 type Filter = "all" | OfferType;
@@ -40,18 +40,21 @@ export default function OfferGrid({ offers }: Props) {
     return c;
   }, [offers]);
 
-  // Marques présentes (avec compte), triées alpha
+  // Registre complet des marques affichées en bas de /code-promo.
+  // Le compteur reste limité aux offres actives du mur, mais une marque sans
+  // offre du jour ne disparaît plus du menu déroulant.
   const availableBrands = useMemo(() => {
     const counts = new Map<string, number>();
     offers.forEach((o) => {
       counts.set(o.brandSlug, (counts.get(o.brandSlug) || 0) + 1);
     });
-    return Array.from(counts.entries())
-      .map(([slug, count]) => {
-        const brand = getBrandBySlug(slug);
-        return { slug, name: brand?.name ?? slug, count };
-      })
-      .sort((a, b) => a.name.localeCompare(b.name));
+    return CODE_PROMO_BRANDS
+      .map((brand) => ({
+        slug: brand.slug,
+        name: brand.name,
+        count: counts.get(brand.slug) || 0,
+      }))
+      .sort((a, b) => a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
   }, [offers]);
 
   const filtered = useMemo(() => {
@@ -103,7 +106,7 @@ export default function OfferGrid({ offers }: Props) {
             <option value="">🏷️ Toutes les marques ({availableBrands.length})</option>
             {availableBrands.map((b) => (
               <option key={b.slug} value={b.slug}>
-                {b.name} ({b.count})
+                {b.name}{b.count > 0 ? ` (${b.count})` : ""}
               </option>
             ))}
           </select>
@@ -124,7 +127,14 @@ export default function OfferGrid({ offers }: Props) {
       <div className="offer-list">
         {filtered.length === 0 ? (
           <p style={{ textAlign: "center", padding: "40px 0", color: "var(--muted-foreground)" }}>
-            Aucune offre pour ce filtre. <button type="button" onClick={reset} style={{ background: "none", border: "none", color: "#7D293D", textDecoration: "underline", cursor: "pointer", fontWeight: 600 }}>Réinitialiser</button>
+            Aucune offre active dans le mur pour cette marque.{" "}
+            {brandSlug ? (
+              <a href={`/code-promo/${brandSlug}`} style={{ color: "#7D293D", textDecoration: "underline", fontWeight: 700 }}>
+                Voir sa page et ses bons plans
+              </a>
+            ) : (
+              <button type="button" onClick={reset} style={{ background: "none", border: "none", color: "#7D293D", textDecoration: "underline", cursor: "pointer", fontWeight: 600 }}>Réinitialiser</button>
+            )}
           </p>
         ) : (
           filtered.map((offer) => <OfferCard key={offer.id} offer={offer} />)
