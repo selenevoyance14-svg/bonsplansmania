@@ -21,6 +21,12 @@ export interface CommunityProduct {
   /** Description courte affichée sur la page rubrique */
   teaser: string;
   lead?: string;
+  idealFor?: string[];
+  strengths?: string[];
+  watchOut?: string[];
+  editorialNote?: string;
+  seoTitle?: string;
+  seoDescription?: string;
   offers?: CommunityMerchantOffer[];
   /** Date d'ajout de la fiche au site (ISO), sert au tri récent / ancien */
   addedAt: string;
@@ -47,6 +53,12 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     imageAlt: "Beauty of Joseon Relief Sun crème solaire SPF50+ PA++++",
     teaser: "Un solaire coréen hydratant au riz et aux probiotiques, apprécié pour son fini sans traces blanches.",
     lead: "Une protection solaire visage coréenne à la texture de crème légère. Elle convient surtout aux peaux normales à sèches qui recherchent un SPF quotidien confortable sans effet blanc.",
+    idealFor: ["Protection quotidienne SPF50+", "Peaux normales à sèches", "Routine K-Beauty simple"],
+    strengths: ["Texture confortable sous le maquillage", "Fini sans traces blanches", "Association riz et probiotiques"],
+    watchOut: ["Une peau très grasse peut préférer une texture plus mate", "La protection doit être renouvelée en cas d’exposition"],
+    editorialNote: "Notre avis : c’est un excellent solaire de ville pour celles qui abandonnent les SPF trop épais. Son principal intérêt est le confort d’utilisation quotidien, pas une promesse de soin miracle.",
+    seoTitle: "Beauty of Joseon Relief Sun : avis et prix",
+    seoDescription: "Beauty of Joseon Relief Sun SPF50+ : notre avis, les peaux auxquelles il convient, prix Amazon via API, offre YesStyle et avis des utilisatrices.",
     offers: [
       {
         merchant: "Amazon",
@@ -72,6 +84,12 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     imageAlt: "CeraVe Crème Hydratante Visage aux céramides et à l’acide hyaluronique",
     teaser: "Un hydratant simple aux trois céramides et à l’acide hyaluronique pour les peaux normales à sèches.",
     lead: "Une crème hydratante sans sophistication inutile, pensée pour soutenir la barrière cutanée. Elle convient surtout aux peaux normales à sèches et aux routines minimalistes.",
+    idealFor: ["Peaux normales à sèches", "Barrière cutanée fragilisée", "Routine sans parfum"],
+    strengths: ["Trois céramides essentiels", "Acide hyaluronique", "Formule simple et non parfumée"],
+    watchOut: ["Peut sembler trop riche sur une peau très grasse", "Ce n’est pas un soin ciblé contre les taches ou les rides"],
+    editorialNote: "Notre avis : CeraVe est une valeur sûre pour hydrater sans multiplier les actifs. Elle convient davantage à un besoin de confort et de barrière cutanée qu’à une recherche de correction anti-âge intensive.",
+    seoTitle: "CeraVe Crème Hydratante Visage : avis et prix",
+    seoDescription: "Avis sur la crème hydratante visage CeraVe : céramides, types de peau, points forts, limites, prix Amazon via API et avis des utilisatrices.",
     offers: [
       {
         merchant: "Amazon",
@@ -80,6 +98,99 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
         amazonAsin: "B07C5XYT19",
       },
     ],
+  },
+  {
+    slug: "dr-pierre-ricaud-creme-lifting-raffermissante",
+    category: "soins-visage",
+    addedAt: "2026-08-13T18:20:00",
+    brand: "Dr Pierre Ricaud",
+    name: "Crème Lifting Raffermissante",
+    image: "/images/articles/dr-pierre-ricaud-creme-lifting-raffermissante-booster-collagenes-et-elastine.png",
+    imageAlt: "Crème lifting raffermissante Dr Pierre Ricaud booster collagènes et élastine",
+    teaser: "Un soin anti-âge destiné aux peaux matures qui recherchent surtout fermeté, confort et amélioration de l’apparence de l’ovale.",
+    lead: "La Crème Lifting Raffermissante Dr Pierre Ricaud cible la perte de fermeté avec un positionnement booster de collagènes et d’élastine. Cette fiche rassemble notre analyse, le prix vérifié chez la marque et les avis des visiteuses.",
+    idealFor: ["Peaux matures", "Perte de fermeté", "Visage et ovale moins toniques"],
+    strengths: ["Texture pensée pour le confort des peaux matures", "Positionnement ciblé fermeté", "Nombreux avis clients chez la marque"],
+    watchOut: ["Les résultats varient selon la peau et la régularité", "Un cosmétique ne remplace pas une protection solaire quotidienne"],
+    editorialNote: "Notre avis : une option cohérente pour découvrir les soins Dr Pierre Ricaud lorsque la priorité est la fermeté. Il faut juger surtout le confort, la tolérance et l’évolution de la peau après plusieurs semaines.",
+    seoTitle: "Dr Pierre Ricaud avis : crème lifting raffermissante",
+    seoDescription: "Dr Pierre Ricaud : avis sur la crème lifting raffermissante, types de peau, points forts, limites, offre officielle et avis des utilisatrices.",
+    offers: [{
+      merchant: "Dr Pierre Ricaud",
+      note: "Boutique officielle — vérifier le tarif actuel",
+      href: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Fcreme-lifting-raffermissante-booster-collagenes-et-elastine-1.htm",
+    }],
+  },
+  {
+    slug: "clarins-double-serum-avis",
+    category: "soins-visage",
+    addedAt: "2026-08-13T18:15:00",
+    brand: "Clarins",
+    name: "Double Serum",
+    image: "/images/articles/avis-clarins-soins-anti-age-premium-test-2026.png",
+    imageAlt: "Clarins Double Serum soin visage anti-âge premium",
+    teaser: "Le sérum anti-âge emblématique de Clarins : une formule premium à évaluer selon le confort, l’éclat et le budget.",
+    lead: "Clarins Double Serum est un soin anti-âge premium connu pour sa double formule. Notre analyse distingue les promesses de la marque, l’expérience cosmétique et les résultats que chaque utilisatrice peut réellement commenter.",
+    idealFor: ["Peaux matures ou en manque d’éclat", "Routine anti-âge premium", "Utilisatrices appréciant les textures sensorielles"],
+    strengths: ["Texture et dosage caractéristiques", "S’intègre facilement avant une crème", "Référence connue avec beaucoup de retours d’utilisation"],
+    watchOut: ["Budget élevé", "La présence de parfum peut déplaire aux peaux très réactives", "Aucun résultat individuel n’est garanti"],
+    editorialNote: "Notre avis : Double Serum mise autant sur l’expérience d’utilisation que sur son positionnement anti-âge. Il est surtout pertinent si la texture plaît et si le budget permet une utilisation régulière.",
+    seoTitle: "Clarins Double Serum : avis, utilisation et offre",
+    seoDescription: "Clarins Double Serum : notre avis, pour quelles peaux, points forts, limites, offre Clarins suivie et avis des utilisatrices Bons Plans Mania.",
+    offers: [{
+      merchant: "Clarins",
+      note: "Boutique officielle — rechercher Double Serum",
+      offer: "Code WELCOME20 : -20 % sur la première commande et cadeaux selon conditions",
+      href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr%2Frecherche%3Fq%3Ddouble%2Bserum",
+    }],
+  },
+  {
+    slug: "nuxe-huile-prodigieuse-avis-prix",
+    category: "soins-visage",
+    addedAt: "2026-08-13T18:10:00",
+    brand: "Nuxe",
+    name: "Huile Prodigieuse",
+    image: "/images/articles/nuxe-huile-prodigieuse-100ml-visage-corps-cheveux-2026.png",
+    imageAlt: "Nuxe Huile Prodigieuse huile sèche visage corps et cheveux",
+    teaser: "L’huile sèche multi-usage culte de Nuxe pour le visage, le corps et les cheveux, avec une fragrance très présente.",
+    lead: "L’Huile Prodigieuse de Nuxe est un soin sec multi-usage destiné à nourrir et satiner le visage, le corps et les cheveux. Son parfum signature fait partie de l’expérience et mérite d’être pris en compte avant l’achat.",
+    idealFor: ["Peaux normales à sèches", "Pointes de cheveux sèches", "Routine corps sensorielle"],
+    strengths: ["Usage visage, corps et cheveux", "Fini d’huile sèche", "Plusieurs versions disponibles"],
+    watchOut: ["Parfum marqué", "À doser légèrement sur les cheveux fins", "La version classique n’est pas une protection solaire"],
+    editorialNote: "Notre avis : son intérêt vient de sa polyvalence et de son fini sec. Elle séduira surtout les personnes qui aiment sa fragrance ; les peaux réactives au parfum devront tester avec prudence.",
+    seoTitle: "Nuxe Huile Prodigieuse : avis et prix",
+    seoDescription: "Nuxe Huile Prodigieuse : notre avis, usages visage corps cheveux, points forts, précautions, prix chez nos partenaires et avis des utilisatrices.",
+    offers: [{
+      merchant: "Beauty Success",
+      note: "Rechercher Huile Prodigieuse et vérifier le format",
+      href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Frecherche%3Fq%3Dhuile%2Bprodigieuse",
+    }],
+  },
+  {
+    slug: "meilleure-creme-anti-age-60-ans",
+    category: "soins-visage",
+    addedAt: "2026-08-13T18:05:00",
+    brand: "Guide Bons Plans Mania",
+    name: "Quelle crème anti-âge choisir après 60 ans ?",
+    image: "/images/articles/nuxe-nuxuriance-ultra-creme-riche-anti-age-2026.png",
+    imageAlt: "Guide pour choisir une crème anti-âge adaptée après 60 ans",
+    teaser: "Un guide pratique pour choisir selon la sécheresse, la fermeté, les taches et la sensibilité plutôt que selon l’âge seul.",
+    lead: "Après 60 ans, la meilleure crème anti-âge n’est pas universelle : elle dépend de la sécheresse, de la sensibilité, des taches et de la perte de fermeté. Ce guide aide à identifier la priorité avant de comparer les soins.",
+    idealFor: ["Peaux matures et sèches", "Recherche de confort et de fermeté", "Choix entre plusieurs soins anti-âge"],
+    strengths: ["Choix guidé par le type de peau", "Priorité à la tolérance et au confort", "Avis visiteurs pour comparer les expériences"],
+    watchOut: ["L’âge ne suffit pas pour choisir une formule", "Introduire les actifs progressivement", "Un SPF quotidien reste indispensable"],
+    editorialNote: "Notre conseil : commencer par une crème bien tolérée qui corrige la sécheresse, puis ajouter un actif ciblé seulement si nécessaire. Une routine simple et régulière est souvent plus utile qu’une accumulation de soins puissants.",
+    seoTitle: "Meilleure crème anti-âge après 60 ans : guide",
+    seoDescription: "Quelle crème anti-âge choisir après 60 ans ? Guide selon la sécheresse, la fermeté, les taches et la sensibilité, avec avis et offres partenaires.",
+    offers: [{
+      merchant: "Dr Pierre Ricaud",
+      note: "Sélection de soins pour peaux matures",
+      href: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr",
+    }, {
+      merchant: "Clarins",
+      note: "Soins visage anti-âge premium",
+      href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr",
+    }],
   },
   {
     slug: "la-roche-posay-anthelios-uvmune-400-fluide-invisible-spf50",

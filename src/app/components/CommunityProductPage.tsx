@@ -36,6 +36,10 @@ export default function CommunityProductPage({
   image,
   imageAlt,
   lead,
+  idealFor,
+  strengths,
+  watchOut,
+  editorialNote,
   offers,
 }: {
   slug: string;
@@ -44,6 +48,10 @@ export default function CommunityProductPage({
   image: string;
   imageAlt: string;
   lead: string;
+  idealFor?: string[];
+  strengths?: string[];
+  watchOut?: string[];
+  editorialNote?: string;
   offers?: MerchantOffer[];
 }) {
   return (
@@ -84,6 +92,21 @@ export default function CommunityProductPage({
             </div>
           </div>
         </section>
+
+        {(idealFor?.length || strengths?.length || watchOut?.length || editorialNote) && (
+          <section className="community-product-section">
+            <div className="container community-product-narrow">
+              <span className="community-section-kicker">Notre analyse</span>
+              <h2>Avis rapide : à qui convient ce produit ?</h2>
+              {editorialNote && <p className="community-section-intro">{editorialNote}</p>}
+              <div className="merchant-comparison">
+                {idealFor?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>Idéal pour</strong><span>{idealFor.join(" · ")}</span></div></article> : null}
+                {strengths?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>Points forts</strong><span>{strengths.join(" · ")}</span></div></article> : null}
+                {watchOut?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>À savoir avant d’acheter</strong><span>{watchOut.join(" · ")}</span></div></article> : null}
+              </div>
+            </div>
+          </section>
+        )}
 
         {offers && offers.length > 0 && (
           <section className="community-product-section" id="prix">
@@ -136,7 +159,7 @@ export default function CommunityProductPage({
         <section className="community-product-section community-opinion-section">
           <div className="container community-product-narrow">
             <span className="community-section-kicker">Avis de la communauté</span>
-            <h2>Vous connaissez ce parfum ?</h2>
+            <h2>Vous connaissez ce produit ?</h2>
             <ProductPublishedReviews productSlug={slug} />
             <div className="community-trust-note">
               <ShieldCheck size={20} />
