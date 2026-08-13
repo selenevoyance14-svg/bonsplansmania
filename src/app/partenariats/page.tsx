@@ -59,6 +59,7 @@ export default function Partenariats() {
             >
               {[
                 { value: `${totalArticles}+`, label: "articles publiés" },
+                { value: "674 clics", label: "Google vers la page d’accueil sur la période analysée" },
                 { value: "Depuis 2020", label: "un site consacré aux économies" },
                 { value: "Depuis 2024", label: "une activité à plein temps" },
                 { value: "Accès gratuit", label: "pour tous les lecteurs" },
@@ -150,7 +151,7 @@ export default function Partenariats() {
               {[
                 {
                   title: "Partenaire à la une",
-                  desc: "Un emplacement temporaire et visible sur la page d'accueil, avec votre visuel, une présentation validée et un bouton intégrant votre lien de suivi officiel.",
+                  desc: "Un emplacement temporaire et visible sur la page d'accueil, qui a reçu 674 clics issus de Google sur la période analysée, avec votre visuel, une présentation validée et un bouton intégrant votre lien de suivi officiel.",
                 },
                 {
                   title: "Article dédié",
