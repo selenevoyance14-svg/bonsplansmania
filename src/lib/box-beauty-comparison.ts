@@ -68,7 +68,7 @@ export const BOX_BEAUTY_COMPARISON: BoxBeautyComparisonItem[] = [
     formats: "Mix selon l'édition",
     idealFor: "Marques internationales",
     offerName: "Offre actuelle Lookfantastic",
-    affiliateUrl: "https://tidd.ly/3AIsNEn",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2F",
     advantages: ["Marques internationales", "Sélections variées", "Découvertes difficiles à trouver en France"],
     disadvantages: ["Contenu et formats variables selon l'édition"],
     profile: "Pour sortir des marques françaises habituelles.",

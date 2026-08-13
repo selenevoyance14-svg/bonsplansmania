@@ -742,6 +742,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Offre permanente. Code de réduction reçu par mail après inscription à la newsletter Atelier du Sourcil, valable sur la première commande.",
     featured: true,
   },
+  {
+    id: "la-boite-rose-coffrets",
+    brandSlug: "la-boite-rose",
+    type: "offre",
+    value: "GRATUIT",
+    valueLabel: "COFFRETS BÉBÉ",
+    title: "Coffrets grossesse et bébé selon disponibilité",
+    permanent: true,
+    conditions: "Inscription requise. Contenu, conditions d'éligibilité, lieux de retrait et disponibilité variables selon la période et les partenaires de La Boîte Rose.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=26737&awinaffid=990397&ued=https%3A%2F%2Fwww.laboiterose.fr%2Ffr",
+    featured: true,
+  },
 
   // ============================================================
   // DARTY — opération GEM 17-19/07 (3 codes bas de panier)
@@ -1209,6 +1221,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
   {
+    id: "le-rouge-francais-newsletter",
+    brandSlug: "le-rouge-francais",
+    type: "newsletter",
+    value: "-15 %",
+    valueLabel: "1ʳᵉ COMMANDE",
+    title: "-15 % sur la première commande via la newsletter",
+    permanent: true,
+    conditions: "Inscription à la newsletter requise. Le code et ses éventuelles exclusions sont communiqués par Le Rouge Français ; vérifier les conditions reçues avant de commander.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=115665&awinaffid=990397&ued=https%3A%2F%2Flerougefrancais.com%2F",
+    featured: true,
+  },
+  {
     id: "lookfantastic-shop-22-aout",
     brandSlug: "lookfantastic",
     type: "code",
@@ -1395,16 +1419,54 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // SENSILAB — Metabolism Boost 4x -55 % + livraison offerte
+  // SEASONLY et SENSILAB — accès permanents suivis par Awin
   // ============================================================
   {
-    id: "sensilab-metabolism-boost-55",
+    id: "seasonly-soins-visage",
+    brandSlug: "seasonly",
+    type: "offre",
+    value: "SOINS",
+    valueLabel: "VISAGE",
+    title: "Soins visage et accessoires Seasonly",
+    permanent: true,
+    conditions: "Produits, prix, avantages et stocks susceptibles d'évoluer. Vérifier les offres disponibles sur Seasonly avant de commander.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=30403&awinaffid=990397&ued=https%3A%2F%2Fseasonly.fr%2F",
+    featured: true,
+  },
+  {
+    id: "sensilab-offres-bien-etre",
     brandSlug: "sensilab",
     type: "offre",
-    value: "-55 %",
-    valueLabel: "+ LIVRAISON",
-    title: "Sensilab Metabolism Boost 4x à -55 % + livraison offerte (programme 4 étapes)",
-    conditions: "Programme complet 4 étapes Metabolism Boost 4x de Sensilab (compléments alimentaires pour la gestion du poids et du métabolisme). Remise -55 % appliquée automatiquement + livraison offerte. Offre soumise à disponibilité stocks.",
+    value: "OFFRES",
+    valueLabel: "BIEN-ÊTRE",
+    title: "Compléments alimentaires et offres Sensilab",
+    permanent: true,
+    conditions: "Prix, remises, composition et disponibilité susceptibles d'évoluer. Lire les précautions et demander conseil à un professionnel de santé en cas de doute.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=24206&awinaffid=990397&ued=https%3A%2F%2Fwww.sensilab.fr%2F",
+    featured: true,
+  },
+  {
+    id: "stylevana-catalogue-kbeauty",
+    brandSlug: "stylevana",
+    type: "offre",
+    value: "K-BEAUTY",
+    valueLabel: "CATALOGUE",
+    title: "Soins et maquillage asiatiques disponibles sur Stylevana",
+    permanent: true,
+    conditions: "Prix, codes, stocks et délais de livraison susceptibles d'évoluer. Vérifier les conditions et la disponibilité avant de commander.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=23223&awinaffid=990397&ued=https%3A%2F%2Fwww.stylevana.com%2Ffr",
+    featured: true,
+  },
+  {
+    id: "zolux-catalogue-animalerie",
+    brandSlug: "zolux",
+    type: "offre",
+    value: "ANIMAUX",
+    valueLabel: "ACCESSOIRES",
+    title: "Produits et accessoires Zolux pour animaux",
+    permanent: true,
+    conditions: "Catalogue, disponibilité et conditions d'achat susceptibles de varier. Vérifier le revendeur ou le service proposé sur le site Zolux.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7334&awinaffid=990397&ued=https%3A%2F%2Fwww.zolux.com%2F",
     featured: true,
   },
 
@@ -1470,27 +1532,31 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CARTE NOIRE — soldes d'été café + livraison
+  // CARTE NOIRE — offre été et abonnements vérifiés
   // ============================================================
   {
-    id: "carte-noire-cafe30",
+    id: "carte-noire-ete-cartenoire",
     brandSlug: "carte-noire",
     type: "code",
-    value: "-30 %",
-    valueLabel: "CAFÉS",
-    title: "-30 % sur tous les cafés Carte Noire avec le code CAFE30",
-    code: "CAFE30",
-    conditions: "-30 % sur la sélection cafés Carte Noire (grains, moulus, capsules) avec le code CAFE30 à saisir au panier.",
+    value: "-25 €",
+    valueLabel: "DÈS 89 €",
+    title: "Jusqu'à -25 € sur le panier avec le code CARTENOIRE",
+    code: "CARTENOIRE",
+    expires: "2026-08-25",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr",
+    conditions: "Du 22/07 au 25/08/2026 : -15 € dès 69 €, -20 € dès 79 € ou -25 € dès 89 € sur la sélection éligible. Vérifier l'application dans le panier.",
     featured: true,
   },
   {
-    id: "carte-noire-accessoires-30",
+    id: "carte-noire-abonnement-cafe-20",
     brandSlug: "carte-noire",
     type: "offre",
-    value: "-30 %",
-    valueLabel: "ACCESSOIRES",
-    title: "-30 % sur les accessoires café Carte Noire (tasses, machines, mugs…)",
-    conditions: "-30 % sur la sélection accessoires Carte Noire (tasses, mugs, machines à café, bocaux, plateaux…) directement appliquée en prix, sans code.",
+    value: "-20 %",
+    valueLabel: "ABONNEMENT",
+    title: "Jusqu'à -20 % sur le café en grains ou les capsules en abonnement",
+    permanent: true,
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr%2Fabonnement-cafe-carte-noire%2Fabonnement",
+    conditions: "Réduction selon la formule, la quantité et les engagements minimums indiqués. Livraison des commandes d'abonnement offerte.",
     featured: true,
   },
   {
@@ -1501,6 +1567,38 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "GROS FORMATS",
     title: "Coffrets dégustation et gros formats Carte Noire (grains + capsules)",
     conditions: "Assortiments avantageux Carte Noire : coffrets dégustation, best sellers et gros formats sur les cafés en grains et en capsules. Offres permanentes disponibles sur cartenoire.fr.",
+  },
+  {
+    id: "biolane-livraison-39",
+    brandSlug: "biolane",
+    type: "livraison",
+    value: "0 €",
+    valueLabel: "DÈS 39 €",
+    title: "Livraison offerte dès 39 € d'achat",
+    permanent: true,
+    conditions: "Livraison offerte dès 39 € d'achat sur biolane.fr, selon les modalités affichées lors de la commande.",
+  },
+  {
+    id: "biolane-abonnement-couches",
+    brandSlug: "biolane",
+    type: "offre",
+    value: "SANS",
+    valueLabel: "ENGAGEMENT",
+    title: "Abonnement couches avec livraison gratuite à domicile",
+    permanent: true,
+    conditions: "Abonnement couches ou couches-culottes sans engagement, modifiable et suspendable. Retours gratuits des paquets scellés selon les conditions Biolane.",
+    featured: true,
+  },
+  {
+    id: "biolane-multibabies20",
+    brandSlug: "biolane",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "MULTI-ABONNEMENTS",
+    title: "-20 % sur plusieurs abonnements actifs avec MULTIBABIES20",
+    code: "MULTIBABIES20",
+    permanent: true,
+    conditions: "Réservé aux familles souscrivant plusieurs formules d'abonnement éligibles. La réduction de 20 % s'applique aux abonnements actifs selon les modalités Biolane.",
   },
   {
     id: "carte-noire-livraison-50",
@@ -1851,6 +1949,46 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Code BEAUTE10 : 10 € offerts dès 60 € d'achat sur ricaud.com. Actif uniquement du 27/08/2026 au 30/08/2026.",
   },
 
+  // E.LECLERC — accès permanent aux offres en ligne
+  {
+    id: "e-leclerc-offres-en-ligne",
+    brandSlug: "e-leclerc",
+    type: "offre",
+    value: "OFFRES",
+    valueLabel: "EN LIGNE",
+    title: "Promotions et opérations E.Leclerc disponibles en ligne",
+    permanent: true,
+    conditions: "Prix, promotions, disponibilité, retrait et livraison variables selon le produit et le magasin sélectionné. Vérifier les conditions directement sur E.Leclerc avant de commander.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15135&awinaffid=990397&ued=https%3A%2F%2Fwww.e.leclerc%2F",
+    featured: true,
+  },
+
+  // IOMA PARIS et ISINWHEEL — accès permanents suivis par Awin
+  {
+    id: "ioma-diagnostic-soins",
+    brandSlug: "ioma",
+    type: "offre",
+    value: "SOINS",
+    valueLabel: "PERSONNALISÉS",
+    title: "Diagnostic et sélection de soins IOMA Paris",
+    permanent: true,
+    conditions: "Les services, produits, prix et avantages disponibles peuvent évoluer. Vérifier les conditions affichées par IOMA Paris avant de commander.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=26447&awinaffid=990397&ued=https%3A%2F%2Fioma-paris.com%2F",
+    featured: true,
+  },
+  {
+    id: "isinwheel-offres-mobilite",
+    brandSlug: "isinwheel",
+    type: "offre",
+    value: "MOBILITÉ",
+    valueLabel: "OFFRES EN LIGNE",
+    title: "Trottinettes et vélos électriques iSinwheel",
+    permanent: true,
+    conditions: "Prix, remises, modèles et stocks susceptibles d'évoluer. Vérifier le tarif, les caractéristiques, les conditions de circulation et la disponibilité sur iSinwheel avant l'achat.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=59757&awinaffid=990397&ued=https%3A%2F%2Fwww.isinwheel.fr%2F",
+    featured: true,
+  },
+
   // ============================================================
   // DAMART — offres vérifiées le 13/08/2026
   // ============================================================
@@ -2007,70 +2145,6 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // ALIEXPRESS — 7 codes Promo des Vacances (13-19 juillet 2026)
-  // ============================================================
-  {
-    id: "aliexpress-frvs02",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-2 €",
-    title: "-2 € dès 18 € d'achat sur AliExpress (Promo des Vacances)",
-    code: "FRVS02",
-    expires: "2026-07-19",
-    conditions: "Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 18 €.",
-  },
-  {
-    id: "aliexpress-frvs06",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-6 €",
-    title: "-6 € dès 45 € d'achat sur AliExpress (Promo des Vacances)",
-    code: "FRVS06",
-    expires: "2026-07-19",
-    conditions: "Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 45 €.",
-  },
-  {
-    id: "aliexpress-frvs11",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-11 €",
-    title: "-11 € dès 79 € d'achat sur AliExpress (meilleur ratio 14 %)",
-    code: "FRVS11",
-    expires: "2026-07-19",
-    featured: true,
-    conditions: "Meilleur ratio %/prix de la campagne. Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 79 €.",
-  },
-  {
-    id: "aliexpress-frvs20",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-20 €",
-    title: "-20 € dès 149 € d'achat sur AliExpress (Promo des Vacances)",
-    code: "FRVS20",
-    expires: "2026-07-19",
-    conditions: "Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 149 €.",
-  },
-  {
-    id: "aliexpress-frvs30",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-30 €",
-    title: "-30 € dès 239 € d'achat sur AliExpress (Promo des Vacances)",
-    code: "FRVS30",
-    expires: "2026-07-19",
-    conditions: "Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 239 €.",
-  },
-  {
-    id: "aliexpress-frvs45",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-45 €",
-    title: "-45 € dès 359 € d'achat sur AliExpress (Promo des Vacances)",
-    code: "FRVS45",
-    expires: "2026-07-19",
-    conditions: "Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 359 €.",
-  },
-  // ============================================================
   // CDISCOUNT — offres vérifiées le 12/08/2026
   // ============================================================
   {
@@ -2134,17 +2208,17 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
     featured: true,
   },
-
   {
-    id: "aliexpress-frvs60",
-    brandSlug: "aliexpress",
-    type: "code",
-    value: "-60 €",
-    title: "-60 € dès 479 € d'achat sur AliExpress (meilleure valeur absolue)",
-    code: "FRVS60",
-    expires: "2026-07-19",
+    id: "cdiscount-voyages-paiement-4x",
+    brandSlug: "cdiscount-voyages",
+    type: "offre",
+    value: "4X",
+    valueLabel: "PAIEMENT",
+    title: "Paiement en 4 fois sur les séjours éligibles",
+    permanent: true,
+    conditions: "Facilité de paiement proposée sur les séjours éligibles, sous réserve d'acceptation et selon les conditions affichées par Cdiscount Voyages au moment de la réservation.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=14021&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2Fvoyages%2F",
     featured: true,
-    conditions: "Meilleure valeur absolue de la campagne. Code valable du 13 au 19 juillet 2026 à 23h59 sur les articles marqués « Promo des Vacances ». Palier mini 479 €.",
   },
 
   // ============================================================

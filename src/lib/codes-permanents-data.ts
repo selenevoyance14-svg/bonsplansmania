@@ -239,7 +239,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "-10 % sur la 1ʳᵉ commande L'Atelier du Sourcil via newsletter + livraison dès 50 €",
     permanent: true,
     conditions: "Code reçu par e-mail après inscription. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/43vh4Wd",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=33057&awinaffid=990397&ued=https%3A%2F%2Fwww.atelierdusourcil.com%2F",
   },
   {
     id: "perm-le-rouge-francais",
@@ -250,7 +250,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "-15 % sur la 1ʳᵉ commande Le Rouge Français (rouges à lèvres bio made in France)",
     permanent: true,
     conditions: "Inscription newsletter Le Rouge Français pour recevoir le code -15 %.",
-    affiliateUrl: "https://tidd.ly/40eZAKO",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=115665&awinaffid=990397&ued=https%3A%2F%2Flerougefrancais.com%2F",
   },
   {
     id: "perm-lea-nature",
@@ -282,7 +282,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "-10 % sur la 1ʳᵉ commande Magnifaïk via newsletter",
     permanent: true,
     conditions: "Inscription newsletter Magnifaïk pour recevoir le code -10 %.",
-    affiliateUrl: "https://tidd.ly/44n99Jx",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=112600&awinaffid=990397&ued=https%3A%2F%2Fwww.magnifaik.com%2F",
   },
   {
     id: "perm-mieux-que-des-fleurs",
@@ -305,7 +305,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "10 € offerts sur la 1ʳᵉ commande MiiN Cosmetics via newsletter (K-Beauty)",
     permanent: true,
     conditions: "Inscription newsletter MiiN gratuite. Cumulable avec promos en cours.",
-    affiliateUrl: "https://tidd.ly/3JKQA7H",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&ued=https%3A%2F%2Fmiin-cosmetics.fr%2F",
   },
   {
     id: "perm-news-parfums",
@@ -442,7 +442,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "5 € offerts dès 150 € après inscription à la newsletter ManoMano",
     permanent: true,
     conditions: "Code envoyé par e-mail, valable un mois à compter de sa réception pour une commande de 150 € minimum.",
-    affiliateUrl: "https://tidd.ly/4pF5waa",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=17547&awinaffid=990397&ued=https%3A%2F%2Fwww.manomano.fr%2F",
   },
   {
     id: "perm-zooplus",
