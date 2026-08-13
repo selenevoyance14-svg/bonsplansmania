@@ -68,7 +68,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "10 € offerts à l'inscription newsletter Afibel + offres exclusives en avant-première",
     permanent: true,
     conditions: "Inscription newsletter gratuite. 10 € utilisables dès la 1ʳᵉ commande.",
-    affiliateUrl: "https://fnty.co/c/r-QlYSYsPC",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23267212&url=https%3A%2F%2Fwww.afibel.com",
   },
   {
     id: "perm-amazon-prime",
@@ -102,7 +102,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     permanent: true,
     featured: true,
     conditions: "Code SUMMER26 à saisir lors de la commande, valable jusqu'au 31 août 2026. Puis 34,90 €/mois sans engagement. Livraison incluse.",
-    affiliateUrl: "https://wkl.belleaunaturel.fr/click-9693-2545?clickid=&subid=code-permanent",
+    affiliateUrl: "https://wkl.belleaunaturel.fr/click-9693-2623?clickid=&subid=code-permanent",
   },
   {
     id: "perm-bzb-bizzbee",
@@ -158,7 +158,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "15 € offerts sur la 1ʳᵉ commande Daxon via newsletter",
     permanent: true,
     conditions: "Inscription newsletter gratuite. 15 € utilisables dès la 1ʳᵉ commande.",
-    affiliateUrl: "https://fnty.co/c/r-nCqxZeUT",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23260342&url=https%3A%2F%2Fwww.daxon.fr",
   },
   {
     id: "perm-demain-beauty",
@@ -317,7 +317,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "News Parfums : parfums de marque jusqu'à -70 % toute l'année + livraison offerte dès 60 €",
     permanent: true,
     conditions: "Sélection rotative de 500+ parfums. Originaux et flacons éco (sans boîte).",
-    affiliateUrl: "https://fnty.co/c/r-XPuhDdkO",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249990&url=https%3A%2F%2Fwww.news-parfums.com",
   },
   {
     id: "perm-nubiance",
@@ -374,7 +374,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "Rakuten Club R : cashback gratuit toute l'année + Rakuten Points convertibles",
     permanent: true,
     conditions: "Inscription gratuite au Club R. Cashback crédité après validation de la commande. Cumulable avec codes promo. Opérations boostées Mega Peak Days.",
-    affiliateUrl: "https://fnty.co/c/r-GjssEgPP",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23252090&url=https%3A%2F%2Ffr.shopping.rakuten.com",
   },
   {
     id: "perm-rougier-ple",

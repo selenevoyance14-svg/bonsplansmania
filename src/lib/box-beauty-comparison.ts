@@ -124,7 +124,7 @@ export const BOX_BEAUTY_COMPARISON: BoxBeautyComparisonItem[] = [
     formats: "Formats vente",
     idealFor: "Bio et marques françaises",
     offerName: "Offre actuelle Belle au Naturel",
-    affiliateUrl: "https://wkl.belleaunaturel.fr/click-9693-2545?clickid=&subid=belle-au-naturel-box-beaute-bio-juillet-2026",
+    affiliateUrl: "https://wkl.belleaunaturel.fr/click-9693-2623?clickid=&subid=belle-au-naturel-box-beaute-bio-juillet-2026",
     advantages: ["Soins bio", "Formats vente", "Marques françaises indépendantes"],
     disadvantages: ["Sélection plus ciblée que les box généralistes"],
     profile: "Pour celles qui veulent une routine bio française sans miniatures.",

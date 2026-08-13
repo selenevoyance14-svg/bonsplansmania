@@ -28,6 +28,23 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  { id: "zigbuy-bons-plans", brandSlug: "zigbuy", type: "offre", value: "BONS PLANS", valueLabel: "HIGH-TECH & MAISON", title: "Promotions Zigbuy sur le high-tech, la maison et la mobilité", permanent: true, conditions: "Produits, prix, stocks, livraison et facilités de paiement variables. Vérifier chaque fiche et le montant final avant de commander.", featured: true },
+  { id: "zigbuy-newsletter", brandSlug: "zigbuy", type: "newsletter", value: "-5 %", valueLabel: "BIENVENUE", title: "Réduction de bienvenue avec la newsletter Zigbuy", permanent: true, conditions: "Une remise de bienvenue peut être proposée après inscription à la newsletter. Vérifier le code reçu, sa durée, les exclusions et son éventuel cumul avant la commande." },
+  { id: "belle-au-naturel-summer26", brandSlug: "belle-au-naturel", type: "code", value: "19,90 €", valueLabel: "1ʳᵉ BOX", title: "Première box bio Belle au Naturel à 19,90 €", code: "SUMMER26", expires: "2026-08-31", conditions: "Code annoncé jusqu'au 31 août 2026. Puis abonnement à 34,90 € par mois, sans engagement, livraison incluse. Vérifier les conditions avant validation.", featured: true },
+  { id: "createurs-bio-antigaspi", brandSlug: "createurs-bio", type: "offre", value: "ANTI-GASPI", valueLabel: "COSMÉTIQUES BIO", title: "Sélection anti-gaspi Les Créateurs Bio", permanent: true, conditions: "Produits, remises et stocks variables. Vérifier la date, le format et le prix final sur chaque fiche avant la commande." },
+  { id: "perfumes-club-newsletter", brandSlug: "perfumes-club", type: "newsletter", value: "5 €", valueLabel: "BIENVENUE", title: "5 € offerts avec la newsletter Perfume’s Club", permanent: true, conditions: "Offre reçue après inscription à la newsletter. Vérifier dans l'e-mail le minimum d'achat, la durée, les exclusions et les conditions de cumul." },
+  { id: "laboratoires-bimont-offres", brandSlug: "laboratoires-bimont", type: "offre", value: "OFFRES", valueLabel: "BIEN-ÊTRE", title: "Offres Laboratoires Bimont sur les produits de bien-être", permanent: true, conditions: "Produits, remises et conditions variables. Vérifier la fiche, la composition, les précautions d'emploi et le prix final avant toute commande." },
+  { id: "made-in-sport-offres", brandSlug: "made-in-sport", type: "offre", value: "PROMOS", valueLabel: "SPORT", title: "Promotions Made in Sport sur les maillots et équipements", permanent: true, conditions: "Sélection, tailles, stocks et remises variables. Vérifier les conditions et le prix final sur le site." },
+  { id: "my-beauty-factory-box", brandSlug: "my-beauty-factory", type: "offre", value: "BOX", valueLabel: "BEAUTÉ", title: "Box et sélections beauté My Beauty Factory", permanent: true, conditions: "Contenu, prix et disponibilité des box variables selon les éditions. Vérifier la composition et le prix avant de commander." },
+  { id: "news-parfums-offres", brandSlug: "news-parfums", type: "offre", value: "PROMOS", valueLabel: "PARFUMS", title: "Promotions News Parfums sur les parfums et cosmétiques", permanent: true, conditions: "Remises, formats et stocks variables. Comparer le format et vérifier les frais de livraison avant l'achat." },
+  // ÉLECTRO DÉPÔT — bons plans variables
+  { id: "electro-depot-bons-plans", brandSlug: "electro-depot", type: "offre", value: "BONS PLANS", valueLabel: "HIGH-TECH & MAISON", title: "Offres Électro Dépôt sur le high-tech et l'électroménager", permanent: true, conditions: "Produits, prix et stocks variables selon les magasins et le site. Vérifier le prix final, la disponibilité et le mode de retrait avant de commander.", featured: true },
+  // FAMILLE MARY — promotions variables
+  { id: "famille-mary-promotions", brandSlug: "famille-mary", type: "offre", value: "PROMOS", valueLabel: "PRODUITS DE LA RUCHE", title: "Promotions Famille Mary sur le miel et les produits de la ruche", permanent: true, conditions: "Sélection, remise et disponibilité variables. Vérifier l'offre affichée et ses conditions avant la commande.", featured: true },
+  // LABORATOIRES DE BIARRITZ — offres variables
+  { id: "laboratoires-biarritz-offres", brandSlug: "laboratoires-biarritz", type: "offre", value: "OFFRES", valueLabel: "SOINS BIO", title: "Offres Laboratoires de Biarritz sur les soins et solaires bio", permanent: true, conditions: "Produits, remises, cadeaux et seuils de livraison susceptibles d'évoluer. Vérifier les conditions affichées sur le site avant de commander.", featured: true },
+  // COUPON NETWORK — service permanent, offres variables
+  { id: "coupon-network-offres", brandSlug: "coupon-network", type: "offre", value: "BONS", valueLabel: "& REMBOURSEMENTS", title: "Bons de réduction et offres de remboursement Coupon Network", permanent: true, conditions: "Le nombre d'offres, les produits éligibles, les montants et les dates changent régulièrement. Vérifier les conditions de chaque coupon ou remboursement avant l'achat.", featured: true },
   // SPARTOO — avantages vérifiés le 13 août 2026
   { id: "spartoo-etudiants-20", brandSlug: "spartoo", type: "offre", value: "-20 %", valueLabel: "ÉTUDIANTS", title: "20 % de réduction pour les étudiants", permanent: true, conditions: "Accès après validation du statut étudiant. Vérifier le minimum d'achat, les exclusions, les produits partenaires et le cumul au moment de l'activation.", featured: true },
   { id: "spartoo-newsletter-10", brandSlug: "spartoo", type: "newsletter", value: "10 €", valueLabel: "NEWSLETTER", title: "10 € de réduction en s'inscrivant à la newsletter", permanent: true, conditions: "Bon envoyé après inscription. Vérifier dans l'e-mail le minimum d'achat, la durée et les marques ou produits exclus." },
@@ -1495,29 +1512,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // BLANCHE PORTE — offres vérifiées le 27/07/2026
+  // AFIBEL et BLANCHEPORTE — avantages permanents
   // ============================================================
   {
-    id: "blancheporte-code-899013",
-    brandSlug: "blanche-porte",
-    type: "code",
-    value: "-50 %",
-    valueLabel: "DÈS 2 ART.",
-    title: "-50 % sur toute la commande dès 2 articles éligibles avec le code 899013",
-    code: "899013",
-    expires: "2026-08-09",
-    conditions: "Offre Blancheporte valable du 22/07/2026 au 09/08/2026 dès 2 articles commandés, hors articles signalés par un astérisque et hors frais d'envoi. Non cumulable avec une autre offre promotionnelle.",
+    id: "afibel-newsletter",
+    brandSlug: "afibel",
+    type: "newsletter",
+    value: "10 €",
+    valueLabel: "BIENVENUE",
+    title: "10 € offerts après inscription à la newsletter Afibel",
+    permanent: true,
+    conditions: "Inscription à la newsletter requise. Vérifier le minimum d'achat, la durée de validité et les exclusions dans l'e-mail envoyé par Afibel.",
+    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23267212&url=https%3A%2F%2Fwww.afibel.com",
     featured: true,
-  },
-  {
-    id: "blancheporte-soldes-80-prolongation",
-    brandSlug: "blanche-porte",
-    type: "soldes",
-    value: "-80 %",
-    valueLabel: "SOLDES",
-    title: "Prolongation des soldes Blancheporte jusqu'à -80 % sur les articles signalés",
-    expires: "2026-07-28",
-    conditions: "Prolongation du 22/07/2026 au 28/07/2026 sur les articles marqués « Soldes », selon tailles et coloris et dans la limite des stocks disponibles.",
   },
   {
     id: "blancheporte-newsletter",
