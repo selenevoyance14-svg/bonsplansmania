@@ -81,15 +81,23 @@ export default function ThirdPartyScripts() {
       const sourceSlug = window.location.pathname.startsWith("/article/")
         ? decodeURIComponent(window.location.pathname.slice(9))
         : "";
+      const contentRoot = anchor.closest<HTMLElement>("[data-content-category]");
+      const contentCategory = contentRoot?.dataset.contentCategory || "";
+      const contentKind = contentRoot?.dataset.contentKind || "";
+      const contentTitle = contentRoot?.dataset.contentTitle || document.title;
+      const articleMerchant = contentRoot?.dataset.affiliateMerchant || "";
 
       const commonParams = {
         page_path: window.location.pathname,
         link_text: anchor.textContent?.trim().slice(0, 100) || "",
         click_location: getClickLocation(anchor),
-        merchant: anchor.dataset.affiliateMerchant || "",
+        merchant: anchor.dataset.affiliateMerchant || articleMerchant,
         offer_name: anchor.dataset.affiliateOffer || "",
         button_position:
           anchor.dataset.affiliatePosition || getClickLocation(anchor),
+        content_category: contentCategory,
+        content_kind: contentKind,
+        content_title: contentTitle.slice(0, 100),
       };
 
       if (url.pathname.startsWith("/go/")) {

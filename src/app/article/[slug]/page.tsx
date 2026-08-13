@@ -40,6 +40,21 @@ const validCategorySlugs = new Set([
   "code-promo",
 ]);
 
+function getAffiliateMerchant(value: string): string {
+  try {
+    const hostname = new URL(value).hostname.replace(/^www\./, "");
+    if (hostname === "amazon.fr" || hostname.endsWith(".amazon.fr") || hostname === "amzn.to") return "Amazon";
+    if (hostname === "prozis.com" || hostname.endsWith(".prozis.com")) return "Prozis";
+    if (hostname === "yesstyle.com" || hostname.endsWith(".yesstyle.com") || hostname === "ystyle.co") return "YesStyle";
+    if (hostname === "awin1.com" || hostname.endsWith(".awin1.com")) return "Awin";
+    if (hostname === "track.effiliation.com") return "Effiliation";
+    if (hostname === "tracking.publicidees.com" || hostname === "a.time1.me") return "TimeOne";
+    return hostname;
+  } catch {
+    return "";
+  }
+}
+
 function normalizeContentInternalUrl(value: string): string | null {
   let url = value;
 
@@ -152,6 +167,7 @@ export default async function ArticlePage({ params }: PageProps) {
   // et Cloudflare Function (functions/go/[slug].ts) fait le 302 vers la vraie destination.
   const rawAffiliate = article.meta.affiliateUrl || "";
   const affiliateUrl = /^https?:\/\//i.test(rawAffiliate) ? `/go/${slug}` : "#";
+  const affiliateMerchant = getAffiliateMerchant(rawAffiliate);
   const affiliateLabel = article.meta.affiliateLabel || "Voir l'offre";
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
@@ -288,7 +304,13 @@ export default async function ArticlePage({ params }: PageProps) {
             <span>{article.meta.title}</span>
           </nav>
 
-          <article className="article">
+          <article
+            className="article"
+            data-content-category={article.meta.category}
+            data-content-kind={isFreebieCategory ? "audience" : "commercial"}
+            data-content-title={article.meta.title}
+            data-affiliate-merchant={affiliateMerchant}
+          >
             {isExpired && (
               <div style={{ background: "#FEE2E2", border: "2px solid #F87171", borderRadius: "12px", padding: "16px 20px", marginBottom: "20px", textAlign: "center" }}>
                 <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem", color: "#B91C1C" }}>
