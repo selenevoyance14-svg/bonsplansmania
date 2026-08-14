@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 14 Aug 2026 18:23:33 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 18:44:06 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>E.Leclerc : jusqu’à -57 % sur KitchenAid du 17 au 23 août</title>
@@ -33,6 +33,15 @@
       <description>Huit codes promo AliExpress DSFR : 3 € dès 15 € jusqu'à 110 € dès 650 € d'achat, sur les articles sélectionnés du 17 au 26 août 2026.</description>
       <category>code-promo</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-aliexpress-french-week-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Code promo Zooplus AFF-NEW10 : -10 % dès 59 €</title>
+      <link>https://bonsplansmania.fr/article/code-promo-zooplus-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/code-promo-zooplus-mars-2026</guid>
+      <pubDate>Tue, 04 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Code Zooplus AFF-NEW10 pour les nouveaux clients et Club Premium : 5 % de réduction supplémentaire, zooPoints, Club Days et surprises anniversaire.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-zooplus-mars-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Glowria : 3 routines beauté à 12 € sans engagement (270 €)</title>
@@ -447,15 +456,6 @@
       <description>HelloFresh propose jusqu'à 85 € de réduction sur les quatre premières box et un produit apéro offert chaque semaine jusqu'au 21 septembre 2026.</description>
       <category>code-promo</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/hellofresh-box-repas-apero-offert-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Histoire d’Or : livraison, gravure et avantages bijouterie</title>
-      <link>https://bonsplansmania.fr/article/histoire-dor-offres-avantages-bijoux-montres-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/histoire-dor-offres-avantages-bijoux-montres-aout-2026</guid>
-      <pubDate>Sun, 09 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Les offres Histoire d’Or vérifiées : livraison et gravure offertes, perçage gratuit avec bon d’achat, paiement en 3 fois et fidélité.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/histoire-dor-offres-avantages-aout-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
