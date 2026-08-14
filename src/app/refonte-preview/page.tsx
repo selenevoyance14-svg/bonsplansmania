@@ -238,8 +238,6 @@ export default function RefontePreviewPage() {
         </div>
       </section>
 
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex /></div>
-
       <section className={styles.beautyCompare} aria-labelledby="beauty-compare-title">
         <header>
           <div><span>Beauté</span><h2 id="beauty-compare-title">Guide d’achat beauté</h2></div>
@@ -258,6 +256,8 @@ export default function RefontePreviewPage() {
         </div>
         <Link href="/avis-prix-beaute" className={styles.beautyCompareCta}>Voir tout le comparateur beauté <ArrowUpRight size={16} /></Link>
       </section>
+
+      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex /></div>
 
       <EditorialNewsletter />
 
