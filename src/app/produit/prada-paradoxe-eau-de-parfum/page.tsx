@@ -21,10 +21,16 @@ export default function ParadoxeProductPage() {
       image="/images/products/prada-paradoxe-eau-de-parfum.png"
       imageAlt="Flacon triangle Prada Paradoxe Eau de Parfum"
       lead="Un floral ambré construit autour du néroli, de la fleur de jasmin et d’un fond de musc et d’ambre. Portable au quotidien, plus discret que les gourmands du moment, dans le flacon triangle rechargeable de la maison."
+      idealFor={["Les amateurs de parfums floraux ambrés", "Les personnes qui apprécient le néroli et le jasmin", "Un parfum féminin polyvalent pour le quotidien"]}
+      strengths={["Accord lumineux de néroli et de jasmin", "Fond ambré et musqué", "Petit format 10 ml"]}
+      watchOut={["Le format 10 ml s’adresse surtout à la découverte ou au voyage", "La tenue varie selon la peau"]}
+      editorialNote="Notre avis : Prada Paradoxe convient surtout aux personnes qui recherchent un floral ambré moderne et facile à porter. Le néroli et le jasmin apportent de la lumière, tandis que les accords ambrés et musqués donnent davantage de douceur."
       offers={[
         {
           merchant: "Beauty Success",
-          note: "Eau de parfum vaporisateur",
+          note: "Eau de parfum vaporisateur 10 ml",
+          price: "29,90 €",
+          checkedAt: "2026-08-14",
           href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fparfum-prada-paradoxe-eau-de-parfum-femme-c071661",
         },
       ]}

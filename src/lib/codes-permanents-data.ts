@@ -320,18 +320,6 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     affiliateUrl: "https://nubiance.fr/pages/programme-de-fidelite-parrainage",
   },
   {
-    id: "perm-perfumes-club",
-    brandSlug: "perfumes-club",
-    brandName: "Perfumes Club",
-    type: "newsletter",
-    value: "5 €",
-    valueLabel: "OFFERTS",
-    title: "5 € offerts sur la 1ʳᵉ commande Perfumes Club via newsletter (parfums, soin, maquillage premium)",
-    permanent: true,
-    conditions: "Inscription newsletter Perfumes Club pour recevoir les 5 €.",
-    affiliateUrl: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2F",
-  },
-  {
     id: "perm-poulpeo",
     brandSlug: "poulpeo",
     brandName: "Poulpeo",

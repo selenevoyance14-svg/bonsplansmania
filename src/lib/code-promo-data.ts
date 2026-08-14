@@ -725,14 +725,6 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#0F766E",
   },
   {
-    slug: "perfumes-club",
-    name: "Perfume’s Club",
-    affiliateUrl: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2F",
-    affiliateLabel: "Voir les offres Perfume’s Club",
-    matchTags: ["perfumes-club", "perfumes club", "perfume's club", "parfum"],
-    color: "#A9275C",
-  },
-  {
     slug: "rakuten",
     name: "Rakuten",
     affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23252090&url=https%3A%2F%2Ffr.shopping.rakuten.com",
