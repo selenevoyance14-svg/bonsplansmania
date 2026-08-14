@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 14 Aug 2026 15:55:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 18:23:33 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>E.Leclerc : jusqu’à -57 % sur KitchenAid du 17 au 23 août</title>
@@ -24,6 +24,15 @@
       <description>Offre Biotyfull Box : recevez 5 nouvelles routines et 16 produits d’une valeur annoncée de 231 € pour 14 €, plus 3,90 € de livraison.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/biotyfull-box-5-routines-14-euros-16-produits-aout-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>Codes promo AliExpress DSFR : jusqu'à 110 € de remise</title>
+      <link>https://bonsplansmania.fr/article/code-promo-aliexpress-french-week-mai-2026</link>
+      <guid>https://bonsplansmania.fr/article/code-promo-aliexpress-french-week-mai-2026</guid>
+      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Huit codes promo AliExpress DSFR : 3 € dès 15 € jusqu'à 110 € dès 650 € d'achat, sur les articles sélectionnés du 17 au 26 août 2026.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-aliexpress-french-week-mai-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Glowria : 3 routines beauté à 12 € sans engagement (270 €)</title>
@@ -447,15 +456,6 @@
       <description>Les offres Histoire d’Or vérifiées : livraison et gravure offertes, perçage gratuit avec bon d’achat, paiement en 3 fois et fidélité.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/histoire-dor-offres-avantages-aout-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Lollipops : -10 % newsletter et sacs jusqu'à -60 %</title>
-      <link>https://bonsplansmania.fr/article/lollipops-bon-plan-sacs-accessoires-mode-paris-2026</link>
-      <guid>https://bonsplansmania.fr/article/lollipops-bon-plan-sacs-accessoires-mode-paris-2026</guid>
-      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Les offres Lollipops : 10 % sur la première commande, certains sacs jusqu'à -60 %, livraison offerte dès 69 € et paiement en quatre fois.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/lollipops-bon-plan-sacs-accessoires-mode-paris-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
