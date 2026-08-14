@@ -91,20 +91,20 @@
 .sectionHeading { display:flex; align-items:flex-end; justify-content:space-between; gap:25px; margin-bottom:34px; }
 .sectionHeading h2 { margin:9px 0 0; font:400 clamp(35px,4vw,57px)/1 Georgia,serif; letter-spacing:-.04em; }
 .sectionHeading>a { display:flex; align-items:center; gap:7px; padding-bottom:4px; border-bottom:1px solid; font-size:12px; font-weight:700; }
-.editorialGrid { display:grid; grid-template-columns:1.25fr .75fr .75fr; gap:20px; align-items:start; }
-.featuredCard { grid-row:span 2; }
-.card,.featuredCard { min-width:0; background:transparent; }
+.editorialGrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px; align-items:stretch; }
+.featuredCard { grid-row:auto; }
+.card,.featuredCard { min-width:0; display:flex; flex-direction:column; background:transparent; }
 .imageWrap { height:240px; position:relative; display:block; overflow:hidden; background:white; }
-.featuredCard .imageWrap { height:550px; }
+.featuredCard .imageWrap { height:240px; }
 .imageWrap img { object-fit:contain; object-position:center; padding:12px; background:#fff; transition:transform .35s ease; }
 .imageWrap:hover img { transform:scale(1.025); }
 .imageWrap>span { position:absolute; top:14px; left:14px; z-index:2; padding:7px 9px; background:var(--wine); color:white; font-size:10px; font-weight:800; letter-spacing:.08em; text-transform:uppercase; }
-.cardCopy { padding:17px 2px 28px; }
+.cardCopy { flex:1; display:flex; flex-direction:column; padding:17px 2px 28px; }
 .cardCopy small { color:var(--wine); text-transform:uppercase; letter-spacing:.09em; font-size:10px; font-weight:800; }
-.cardCopy h3 { margin:8px 0 9px; font:400 21px/1.08 Georgia,serif; }
-.featuredCard .cardCopy h3 { font-size:34px; }
+.cardCopy h3 { min-height:46px; margin:8px 0 9px; font:400 21px/1.08 Georgia,serif; }
+.featuredCard .cardCopy h3 { font-size:21px; }
 .cardCopy p { color:#625b55; font-size:13px; line-height:1.65; }
-.cardFooter { min-height:30px; display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:13px; }
+.cardFooter { min-height:30px; display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:13px; }
 .cardFooter strong { font-size:12px; }
 .cardFooter a { width:30px; height:30px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; }
 .newsletter { display:grid; grid-template-columns:auto minmax(0,1.2fr) minmax(320px,.8fr); align-items:center; gap:30px; padding:48px clamp(22px,5.5vw,90px); background:var(--wine); color:#fff; }
@@ -153,5 +153,5 @@
 .footerLinks a { color:#e0d9d3; font-size:13px; transition:color .2s; }
 .footerLinks a:hover { color:white; }
 .footerBottom { grid-column:1/-1; display:flex; justify-content:space-between; gap:25px; margin-top:25px; padding-top:20px; border-top:1px solid #37322f; color:#aaa29b; font-size:10px; }
-@media(max-width:1180px){.nav{display:none}.mobileNav{display:block}.today{margin-left:0}.latestStrip>div{grid-template-columns:1fr 1fr}.featureRow{grid-template-columns:1fr}.freeTestsGrid{grid-template-columns:1fr 1fr}.editorialGrid{grid-template-columns:1fr 1fr}.featuredCard{grid-column:span 2;grid-row:auto}.featuredCard .imageWrap{height:500px}.beautyCompareGrid{grid-template-columns:1fr 1fr}.newsletter{grid-template-columns:auto 1fr}.newsletterForm{grid-column:2}.footer{grid-template-columns:1fr 1fr}.footerBrand{grid-column:1/-1}}
+@media(max-width:1180px){.nav{display:none}.mobileNav{display:block}.today{margin-left:0}.latestStrip>div{grid-template-columns:1fr 1fr}.featureRow{grid-template-columns:1fr}.freeTestsGrid{grid-template-columns:1fr 1fr}.editorialGrid{grid-template-columns:1fr 1fr}.featuredCard{grid-column:auto;grid-row:auto}.featuredCard .imageWrap{height:240px}.beautyCompareGrid{grid-template-columns:1fr 1fr}.newsletter{grid-template-columns:auto 1fr}.newsletterForm{grid-column:2}.footer{grid-template-columns:1fr 1fr}.footerBrand{grid-column:1/-1}}
 @media(max-width:760px){.header{height:64px;padding:0 18px}.today{display:none}.hero{grid-template-columns:1fr}.heroCopy{padding:50px 22px 38px}.hero h1{font-size:48px}.lead{min-height:420px;margin:0 18px 25px}.leadContent{padding:25px}.leadBottom{align-items:flex-end;gap:12px}.leadBottom>a{padding:10px 12px;background:var(--wine);border:0}.trust{grid-template-columns:1fr 1fr;padding:0}.trust span:nth-child(2){border-right:0}.latestStrip{padding:34px 18px 42px}.latestStrip>header{display:block}.latestStrip>header h2{margin-top:6px}.latestStrip>div{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.latestItem{flex:0 0 82%;scroll-snap-align:start}.featureRow{margin:0 18px 45px}.partnerFeature{grid-template-columns:1fr;padding:20px}.partnerFeature>small{position:static}.partnerFeature>img{height:180px}.freeTests{padding:0 18px 45px}.freeTests>header{align-items:flex-start}.freeTests>header>a{display:none}.freeTests>header h2{font-size:27px}.freeTestsGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.freeTestCard{flex:0 0 76%;scroll-snap-align:start}.selection{padding:55px 18px 65px}.sectionHeading{align-items:flex-start}.sectionHeading>a{display:none}.editorialGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.card,.featuredCard{flex:0 0 84%;scroll-snap-align:start}.featuredCard .imageWrap,.imageWrap{height:390px}.featuredCard .cardCopy h3{font-size:27px}.beautyCompare{padding:48px 18px 55px}.beautyCompare>header{grid-template-columns:1fr;gap:15px}.beautyCompareGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.beautyCompareCard{flex:0 0 76%;scroll-snap-align:start}.newsletter{grid-template-columns:1fr;padding:38px 22px}.newsletterIcon{width:48px;height:48px}.newsletterForm{grid-column:auto}.brandMoment,.partnerSpot{padding:28px}.brandMomentContent{grid-template-columns:1fr}.brandMomentContent>img{width:100%;height:160px;margin-top:12px}.partnerSpot{grid-template-columns:1fr}.partnerSpot img{margin-top:25px;width:100%;height:180px}.manifesto p{font-size:28px}.footer{grid-template-columns:1fr;gap:33px;padding:45px 22px 22px}.footerBrand{grid-column:auto}.footerBottom{flex-direction:column;gap:8px}}

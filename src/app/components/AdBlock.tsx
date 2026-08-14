@@ -8,6 +8,7 @@ interface AdBlockProps {
   className?: string;
   format?: AdFormat;
   slot?: string; // override optionnel
+  compactMultiplex?: boolean;
 }
 
 declare global {
@@ -23,7 +24,7 @@ const SLOTS: Record<AdFormat, string> = {
   "multiplex": "4554643083",     // BPM Multiplex (autorelaxed)
 };
 
-export default function AdBlock({ className = "", format = "display", slot }: AdBlockProps) {
+export default function AdBlock({ className = "", format = "display", slot, compactMultiplex = false }: AdBlockProps) {
   const adRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
 
@@ -64,6 +65,11 @@ export default function AdBlock({ className = "", format = "display", slot }: Ad
           data-ad-format="autorelaxed"
           data-ad-client="ca-pub-5064203547863113"
           data-ad-slot={slotId}
+          {...(compactMultiplex ? {
+            "data-matched-content-ui-type": "image_stacked,image_stacked",
+            "data-matched-content-rows-num": "1,1",
+            "data-matched-content-columns-num": "2,4",
+          } : {})}
           ref={adRef}
         />
       </div>

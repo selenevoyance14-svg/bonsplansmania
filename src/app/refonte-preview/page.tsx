@@ -238,7 +238,7 @@ export default function RefontePreviewPage() {
         </div>
       </section>
 
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" /></div>
+      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex /></div>
 
       <section className={styles.beautyCompare} aria-labelledby="beauty-compare-title">
         <header>
