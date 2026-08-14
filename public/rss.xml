@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 14 Aug 2026 09:06:54 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 14 Aug 2026 15:55:12 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>E.Leclerc : jusqu’à -57 % sur KitchenAid du 17 au 23 août</title>
@@ -60,6 +60,15 @@
       <description>Kerargan ouvre trois missions ambassadeur : routines Coco, Kératine et Ricin. Candidatez gratuitement avant le 27 ou le 30 août 2026.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-kerargan-ambassadeur-soins-capillaires-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test gratuit protections fuites urinaires : 500 femmes recherchées par TRND</title>
+      <link>https://bonsplansmania.fr/article/test-gratuit-protections-fuites-urinaires-trnd-500-femmes-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-gratuit-protections-fuites-urinaires-trnd-500-femmes-2026</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <description>TRND recherche 500 femmes pour tester gratuitement chez elles un nouveau pack de protections pour les fuites urinaires. Candidatures avant le 9 septembre 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-always-discreet-trnd-500-femmes-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Crèmes solaires enfant: 6 références SPF 50 à comparer</title>
@@ -447,15 +456,6 @@
       <description>Les offres Lollipops : 10 % sur la première commande, certains sacs jusqu'à -60 %, livraison offerte dès 69 € et paiement en quatre fois.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/lollipops-bon-plan-sacs-accessoires-mode-paris-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Meilleur brumisateur de terrasse 2026: kits disponibles</title>
-      <link>https://bonsplansmania.fr/article/meilleur-brumisateur-terrasse-comparatif-2026</link>
-      <guid>https://bonsplansmania.fr/article/meilleur-brumisateur-terrasse-comparatif-2026</guid>
-      <pubDate>Fri, 20 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Quel brumisateur de terrasse choisir cet été? Comparez les kits disponibles selon la longueur, les buses, la pression et le prix constaté.</description>
-      <category>comparatif</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/meilleur-brumisateur-terrasse-comparatif-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
