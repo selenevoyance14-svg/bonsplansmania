@@ -44,6 +44,31 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "baija-jardin-pallanca-eau-de-parfum",
+    gender: "femme",
+    category: "parfums",
+    addedAt: "2026-08-14T12:00:00",
+    brand: "Baïja",
+    name: "Jardin Pallanca Eau de Parfum 15 ml",
+    image: "/images/products/baija-jardin-pallanca-eau-de-parfum-15ml.webp",
+    imageAlt: "Flacon Baïja Jardin Pallanca Eau de Parfum 15 ml",
+    teaser: "Un petit parfum frais et fruité où le cassis rencontre le jasmin et les muscs blancs, dans un format facile à emporter.",
+    lead: "Jardin Pallanca est une eau de parfum Baïja au profil pétillant, frais et fruité. Son format 15 ml vise surtout les personnes qui souhaitent un parfum nomade à glisser facilement dans un sac.",
+    idealFor: ["Les personnes qui aiment les parfums fruités et frais", "Un parfum léger à porter au quotidien", "Un petit format facile à emporter"],
+    strengths: ["Accord cassis, jasmin et muscs blancs", "Format nomade de 15 ml", "Fabrication française annoncée par Baïja"],
+    watchOut: ["Le format 15 ml est plus petit qu’un flacon classique", "La tenue et le rendu d’un parfum varient selon la peau"],
+    editorialNote: "Notre avis : Jardin Pallanca convient surtout à celles qui recherchent une fragrance fraîche, fruitée et facile à porter. Le cassis apporte un départ pétillant, le jasmin adoucit le cœur et les muscs blancs donnent un fond propre et discret.",
+    seoTitle: "Baïja Jardin Pallanca : avis et prix du parfum",
+    seoDescription: "Baïja Jardin Pallanca Eau de Parfum 15 ml : notre avis, notes de cassis, jasmin et muscs blancs, prix vérifié et lien affilié Baïja.",
+    offers: [{
+      merchant: "Baïja",
+      note: "Eau de Parfum Jardin Pallanca 15 ml — boutique officielle",
+      price: "19,90 €",
+      checkedAt: "2026-08-14",
+      href: "https://irb.baija.com/?P51318757CD2D1D1&redir=https%3A%2F%2Fbaija.com%2Fproducts%2Fl-irresistible-eau-de-parfum-jardin-pallanca",
+    }],
+  },
+  {
     slug: "beauty-of-joseon-relief-sun",
     category: "k-beauty",
     addedAt: "2026-08-13T12:00:00",
