@@ -2295,6 +2295,37 @@ body {
   white-space: nowrap;
 }
 
+.merchant-live-offer {
+  min-width: min(100%, 430px);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+  margin: 4px 0;
+  padding: 20px 24px;
+  border: 1px solid #d9d2c8;
+  border-radius: 14px;
+  background: linear-gradient(135deg, #f8f3eb 0%, #fff 100%);
+}
+
+.merchant-live-label {
+  color: #7d293d;
+  font-size: .78rem;
+  font-weight: 800;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+}
+
+.merchant-live-offer > strong {
+  color: #7d293d;
+  font-size: clamp(1.35rem, 3vw, 1.8rem);
+  line-height: 1.1;
+}
+
+.merchant-live-offer > small {
+  color: var(--muted-foreground);
+}
+
 .community-empty-state,
 .community-trust-note {
   display: flex;

@@ -69,6 +69,8 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
       {
         merchant: "YesStyle",
         note: "Fiche Beauty of Joseon",
+        price: "14,40 €",
+        checkedAt: "2026-08-14",
         offer: "Codes promotionnels YesStyle selon l’opération en cours",
         href: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-of-joseon-relief%2Finfo.html%2Fpid.1137908658",
       },

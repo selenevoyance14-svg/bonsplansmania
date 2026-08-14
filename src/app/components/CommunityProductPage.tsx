@@ -125,26 +125,29 @@ export default function CommunityProductPage({
                     <div className="merchant-info">
                       <strong>{offer.merchant}</strong>
                       {offer.note && <span>{offer.note}</span>}
-                      {offer.price && !offer.amazonAsin && <b>{offer.price}</b>}
-                      {offer.checkedAt && !offer.amazonAsin && (
-                        <small>
-                          Prix constaté le {new Date(`${offer.checkedAt}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" })}
-                        </small>
-                      )}
                       {offer.offer && <span>{offer.offer}</span>}
                     </div>
                     {offer.amazonAsin ? (
                       <AmazonLiveOffer asin={offer.amazonAsin} affiliateUrl={offer.href} />
                     ) : (
-                      <a
-                        className="btn btn-primary"
-                        href={offer.href}
-                        target="_blank"
-                        rel="sponsored nofollow noopener"
-                        data-affiliate-position="beauty_comparator"
-                      >
-                        Voir le produit
-                      </a>
+                      <div className="merchant-live-offer">
+                        <span className="merchant-live-label">Prix chez {offer.merchant}</span>
+                        <strong>{offer.price || "Prix actuel à consulter"}</strong>
+                        {offer.checkedAt && (
+                          <small>
+                            Prix au {new Date(`${offer.checkedAt}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "long" })}
+                          </small>
+                        )}
+                        <a
+                          className="btn btn-primary btn-sm"
+                          href={offer.href}
+                          target="_blank"
+                          rel="sponsored nofollow noopener"
+                          data-affiliate-position="beauty_comparator"
+                        >
+                          Voir chez {offer.merchant}
+                        </a>
+                      </div>
                     )}
                   </article>
                 ))}
