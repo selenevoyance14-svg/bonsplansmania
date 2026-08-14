@@ -75,10 +75,10 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const homepageDeals = selectDiverse(active, 16);
+  const homepageDeals = selectDiverse(active, 17);
   const heroDeals = homepageDeals.slice(0, 4);
   const latest = homepageDeals.slice(4, 7);
-  const deals = homepageDeals.slice(8, 16);
+  const deals = homepageDeals.slice(8, 17);
   const freeTests = active
     .filter((article) => article.meta.category === "test-gratuit" || article.meta.category === "test-produit")
     .slice(0, 4);
