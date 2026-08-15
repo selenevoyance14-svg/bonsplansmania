@@ -109,31 +109,33 @@ export default function FeaturedPartner({
               {partner.description}
             </p>
 
-            <div className="featured-partner__promo">
-              <div>
-                <span className="featured-partner__promo-code">
-                  {partner.promoCode}
-                </span>
-                <span className="featured-partner__validity">
-                  {partner.promoValidityText}
-                </span>
+            {partner.promoCode ? (
+              <div className="featured-partner__promo">
+                <div>
+                  <span className="featured-partner__promo-code">
+                    {partner.promoCode}
+                  </span>
+                  <span className="featured-partner__validity">
+                    {partner.promoValidityText}
+                  </span>
+                </div>
+                <button
+                  type="button"
+                  className="featured-partner__copy"
+                  onClick={handleCopy}
+                  aria-label={`Copier le code promo ${partner.promoCode} de ${partner.brandName}`}
+                >
+                  {copyStatus === "copied" ? (
+                    <Check size={17} aria-hidden />
+                  ) : (
+                    <Clipboard size={17} aria-hidden />
+                  )}
+                  {copyStatus === "copied"
+                    ? "Code copié"
+                    : partner.copyButtonLabel}
+                </button>
               </div>
-              <button
-                type="button"
-                className="featured-partner__copy"
-                onClick={handleCopy}
-                aria-label={`Copier le code promo ${partner.promoCode} de ${partner.brandName}`}
-              >
-                {copyStatus === "copied" ? (
-                  <Check size={17} aria-hidden />
-                ) : (
-                  <Clipboard size={17} aria-hidden />
-                )}
-                {copyStatus === "copied"
-                  ? "Code copié"
-                  : partner.copyButtonLabel}
-              </button>
-            </div>
+            ) : null}
 
             <p
               className="featured-partner__copy-status"
@@ -158,7 +160,7 @@ export default function FeaturedPartner({
               className="featured-partner__cta"
               data-affiliate-position="homepage_featured_partner"
               data-affiliate-merchant={partner.merchant}
-              data-affiliate-offer={partner.promoCode}
+              data-affiliate-offer={partner.promoCode || undefined}
             >
               {partner.primaryCtaLabel}
               <MoveRight size={18} aria-hidden />
