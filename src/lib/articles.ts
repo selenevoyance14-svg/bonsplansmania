@@ -338,7 +338,13 @@ export function getAllArticles(): Article[] {
   if (_allArticlesCache) return _allArticlesCache;
   _allArticlesCache = getArticleSlugs()
     .map((slug) => getArticleBySlug(slug))
-    .filter((a): a is Article => a !== null && a.meta.published)
+    // Un article archivé reste accessible par son URL pour conserver
+    // l'historique et éviter un lien mort, mais il ne doit plus réapparaître
+    // dans l'accueil, les catégories, la recherche ou les listes éditoriales.
+    .filter(
+      (a): a is Article =>
+        a !== null && a.meta.published && !isEffectivelyExpired(a.meta)
+    )
     .sort((a, b) => {
       const aExp = isEffectivelyExpired(a.meta);
       const bExp = isEffectivelyExpired(b.meta);
