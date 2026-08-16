@@ -65,9 +65,9 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     type: "newsletter",
     value: "10 €",
     valueLabel: "OFFERTS",
-    title: "10 € offerts à l'inscription newsletter Afibel + offres exclusives en avant-première",
+    title: "10 € de réduction et livraison offerte dès 30 € avec la newsletter Afibel",
     permanent: true,
-    conditions: "Inscription newsletter gratuite. 10 € utilisables dès la 1ʳᵉ commande.",
+    conditions: "Réservé à la première inscription à la newsletter. Offre valable une seule fois sur Internet dès 30 € d'achat et non cumulable avec une autre promotion. Le code est envoyé par e-mail.",
     affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23267212&url=https%3A%2F%2Fwww.afibel.com",
   },
   {

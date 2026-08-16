@@ -1535,20 +1535,68 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // AFIBEL et BLANCHEPORTE — avantages permanents
+  // AFIBEL — offres vérifiées le 16 août 2026
   // ============================================================
+  {
+    id: "afibel-wvrl-25",
+    brandSlug: "afibel",
+    type: "code",
+    value: "-25 %",
+    valueLabel: "COMMANDE",
+    title: "25 % de réduction sur la commande avec le code WVRL",
+    code: "WVRL",
+    expires: "2026-09-09",
+    conditions: "Valable uniquement sur afibel.com/fr jusqu'au 9 septembre 2026 inclus, dans la limite des stocks. Hors produits déjà démarqués et articles signalés par un point rouge. Non cumulable avec les autres promotions.",
+    featured: true,
+  },
+  {
+    id: "afibel-jours-maison-60",
+    brandSlug: "afibel",
+    type: "offre",
+    value: "-60 %",
+    valueLabel: "JUSQU'À",
+    title: "Les Jours Maison : jusqu'à 60 % sur une sélection",
+    expires: "2026-09-09",
+    conditions: "Valable uniquement sur afibel.com/fr jusqu'au 9 septembre 2026 inclus sur les articles Maison signalés, dans la limite des stocks. Non cumulable avec d'autres opérations promotionnelles.",
+    featured: true,
+  },
   {
     id: "afibel-newsletter",
     brandSlug: "afibel",
     type: "newsletter",
     value: "10 €",
     valueLabel: "BIENVENUE",
-    title: "10 € offerts après inscription à la newsletter Afibel",
+    title: "10 € de réduction et livraison offerte dès 30 € avec la newsletter",
     permanent: true,
-    conditions: "Inscription à la newsletter requise. Vérifier le minimum d'achat, la durée de validité et les exclusions dans l'e-mail envoyé par Afibel.",
+    conditions: "Réservé à la première inscription à la newsletter. Offre valable une seule fois sur Internet dès 30 € d'achat et non cumulable avec une autre promotion. Le code reçu par e-mail doit être saisi dans le panier.",
     affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23267212&url=https%3A%2F%2Fwww.afibel.com",
     featured: true,
   },
+  {
+    id: "afibel-livraison-wwmb",
+    brandSlug: "afibel",
+    type: "code",
+    value: "0 €",
+    valueLabel: "LIVRAISON",
+    title: "Livraison offerte avec le code WWMB",
+    code: "WWMB",
+    permanent: true,
+    conditions: "Pour les produits livrés par Afibel : livraison Mondial Relay offerte dès 59 € et livraison standard offerte dès 69 €. Offre valable uniquement sur Internet, dans la limite des stocks et non cumulable avec une autre remise. Les frais des marques partenaires peuvent varier.",
+  },
+  {
+    id: "afibel-outlet-2026",
+    brandSlug: "afibel",
+    type: "offre",
+    value: "OUTLET",
+    valueLabel: "PRIX RÉDUITS",
+    title: "Réductions sur une sélection d'anciennes collections Afibel",
+    expires: "2026-12-31",
+    conditions: "Valable sur afibel.com/fr jusqu'au 31 décembre 2026 sur une sélection d'articles des anciennes collections signalés dans la catégorie Outlet, dans la limite des stocks. Non cumulable avec les autres promotions en cours.",
+  },
+
+  // ============================================================
+  // BLANCHEPORTE — avantage permanent
+  // ============================================================
   {
     id: "blancheporte-newsletter",
     brandSlug: "blanche-porte",
