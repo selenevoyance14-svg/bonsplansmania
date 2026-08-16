@@ -14,6 +14,9 @@ export const metadata: Metadata = {
 
 export default function CodePromoIndexPage() {
   const activeOffers = getActiveOffers();
+  const alphabetizedBrands = [...CODE_PROMO_BRANDS].sort((a, b) =>
+    a.name.localeCompare(b.name, "fr", { sensitivity: "base" }),
+  );
 
   return (
     <>
@@ -71,7 +74,7 @@ export default function CodePromoIndexPage() {
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(180px, 1fr))", gap: "10px" }}>
-              {CODE_PROMO_BRANDS.map((brand) => (
+              {alphabetizedBrands.map((brand) => (
                 <a
                   key={brand.slug}
                   href={`/code-promo/${brand.slug}`}
