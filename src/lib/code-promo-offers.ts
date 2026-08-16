@@ -694,8 +694,31 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // ADOPT — offres permanentes vérifiées sur la page officielle
+  // ADOPT — offres vérifiées sur la page officielle
   // ============================================================
+  {
+    id: "adopt-glow45-trousse",
+    brandSlug: "adopt",
+    type: "code",
+    value: "OFFERT",
+    valueLabel: "DÈS 45 €",
+    title: "Une trousse offerte dès 45 € d'achat",
+    code: "GLOW45",
+    expires: "2026-08-25",
+    conditions: "Valable sur adopt.com dès 45 € d'achat, hors produits remisés et dans la limite des stocks. Saisir le code GLOW45 dans le panier : la trousse s'ajoute automatiquement. Non cumulable avec d'autres codes promotionnels.",
+    featured: true,
+  },
+  {
+    id: "adopt-maquillage-deuxieme-offert",
+    brandSlug: "adopt",
+    type: "offre",
+    value: "1 = 2",
+    valueLabel: "MAQUILLAGE",
+    title: "Un article maquillage acheté = le deuxième offert",
+    expires: "2026-09-23",
+    conditions: "Sur une sélection portant la mention « offre maquillage », dès l'achat de deux articles distincts. Offre réservée aux membres du programme de fidélité, valable sur adopt.com et en boutique en France métropolitaine et au Luxembourg, dans la limite des stocks. Non cumulable avec les promotions en cours et limitée à cinq utilisations par commande.",
+    featured: true,
+  },
   {
     id: "adopt-newsletter-20",
     brandSlug: "adopt",
