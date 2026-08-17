@@ -248,8 +248,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CARREFOUR — offres vérifiées le 13 août 2026
+  // CARREFOUR — offres vérifiées le 17 août 2026
   // ============================================================
+  {
+    id: "carrefour-apple-10-fidelite-aout-2026",
+    brandSlug: "carrefour",
+    type: "offre",
+    value: "10 %",
+    valueLabel: "CRÉDITÉS FIDÉLITÉ",
+    title: "10 % crédités sur une sélection Apple pendant 48 heures",
+    expires: "2026-08-19",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
+    conditions: "Valable les 18 et 19 août 2026 sur les références Apple signalées, uniquement en livraison à domicile. Le prix total est payé : 10 % sont ensuite crédités sur le compte fidélité Carrefour.",
+    featured: true,
+  },
   {
     id: "carrefour-promos-semaine-70-deuxieme",
     brandSlug: "carrefour",
@@ -1632,6 +1644,48 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     code: "899009",
     conditions: "Code de bienvenue Blancheporte : 11 € de réduction dès 20 € d'achat pour une première commande mode ou maison. La remise est également proposée après inscription à la newsletter, selon les conditions reçues par e-mail. Non cumulable avec un autre code.",
     featured: true,
+  },
+
+  // ============================================================
+  // NOCIBÉ — offres vérifiées le 17 août 2026 (non affiliées)
+  // ============================================================
+  {
+    id: "nocibe-app-summer-30-aout-2026",
+    brandSlug: "nocibe",
+    type: "code",
+    value: "-30 %",
+    valueLabel: "DÈS 99 €",
+    title: "30 % de réduction dès 99 € sur l'application Nocibé",
+    code: "30APPSUMMER",
+    expires: "2026-08-17",
+    conditions: "Réservé aux porteurs de la carte de fidélité Nocibé ou à toute nouvelle souscription. Valable uniquement sur l'application, une fois, selon les produits éligibles. Non cumulable.",
+    affiliateUrl: "https://www.nocibe.fr/",
+    featured: true,
+  },
+  {
+    id: "nocibe-holiday-25-aout-2026",
+    brandSlug: "nocibe",
+    type: "code",
+    value: "-25 %",
+    valueLabel: "DÈS 89 €",
+    title: "25 % de réduction dès 89 € d'achat",
+    code: "HOLIDAY25",
+    expires: "2026-08-17",
+    conditions: "Réservé aux porteurs de la carte de fidélité Nocibé ou à toute nouvelle souscription. Utilisable une fois sur nocibe.fr ou dans l'application, selon les produits éligibles. Non cumulable.",
+    affiliateUrl: "https://www.nocibe.fr/",
+    featured: true,
+  },
+  {
+    id: "nocibe-coffrets-10-aout-2026",
+    brandSlug: "nocibe",
+    type: "code",
+    value: "-10 %",
+    valueLabel: "EN PLUS",
+    title: "10 % supplémentaires sur une sélection de coffrets déjà à -30 %",
+    code: "COFFR10",
+    expires: "2026-08-17",
+    conditions: "Valable sur une sélection de coffrets signalés, sur le site, l'application et dans les boutiques participantes. Réservé aux membres fidélité ou aux nouvelles souscriptions, une utilisation et non cumulable. Marques et produits exclus selon les conditions Nocibé.",
+    affiliateUrl: "https://www.nocibe.fr/",
   },
 
   // ============================================================
