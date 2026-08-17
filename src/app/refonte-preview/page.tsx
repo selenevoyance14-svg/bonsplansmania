@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check, Search, Sparkles } from "lucide-react";
+import { ArrowUpRight, Check, Search } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import { BRAND_OF_THE_WEEK } from "@/lib/highlight-brand";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
@@ -29,6 +29,12 @@ function formatDate(date: string) {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long" }).format(
     new Date(`${date}T12:00:00`),
   );
+}
+
+function merchantHref(slug: string, affiliateUrl?: string) {
+  return process.env.NODE_ENV === "development" && affiliateUrl
+    ? affiliateUrl
+    : `/go/${slug}`;
 }
 
 function getBrandKey(title: string) {
@@ -76,7 +82,15 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
   const homepageDeals = selectDiverse(active, 17);
-  const heroDeals = homepageDeals.slice(0, 4);
+  const heroDeals = selectDiverse(
+    active.filter(({ meta }) => hasDirectMerchantCta({
+      category: meta.category,
+      affiliateUrl: meta.affiliateUrl,
+      expired: false,
+      endDate: meta.endDate,
+    })),
+    4,
+  );
   const latest = homepageDeals.slice(4, 7);
   const deals = homepageDeals.slice(8, 17);
   const freeTests = active
@@ -125,7 +139,7 @@ export default function RefontePreviewPage() {
             </form>
           </div>
 
-          <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:hasDirectMerchantCta({ category:meta.category, affiliateUrl:meta.affiliateUrl, expired:false, endDate:meta.endDate }) }))} />
+          <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:true, merchantHref:merchantHref(meta.slug, meta.affiliateUrl) }))} />
         </section>
       </div>
 
@@ -138,17 +152,34 @@ export default function RefontePreviewPage() {
       <section className={styles.latestStrip} aria-label="Dernières publications">
         <header><h2>Les dernières nouveautés</h2></header>
         <div>
-        {latest.map(({ meta }) => (
-          <Link href={`/article/${meta.slug}`} key={meta.slug} className={styles.latestItem}>
+        {latest.map(({ meta }) => {
+          const linksToMerchant = hasDirectMerchantCta({
+            category: meta.category,
+            affiliateUrl: meta.affiliateUrl,
+            expired: false,
+            endDate: meta.endDate,
+          });
+
+          return (
+          <Link
+            href={linksToMerchant ? merchantHref(meta.slug, meta.affiliateUrl) : `/article/${meta.slug}`}
+            key={meta.slug}
+            className={styles.latestItem}
+            target={linksToMerchant ? "_blank" : undefined}
+            rel={linksToMerchant ? "nofollow sponsored noopener" : undefined}
+          >
             <Image src={meta.image} alt={meta.imageAlt} width={128} height={96} />
             <span>
               <small>{labels[meta.category] ?? "Nouveau"}</small>
               <strong>{formatCardTitle(meta.title)}</strong>
-              {(meta.amazonAsin || meta.price) && <b className={styles.latestPrice}><AmazonCardPrice asin={meta.amazonAsin} fallback={meta.price || "Voir l’offre"} /></b>}
-              <em>{formatDate(meta.date)}</em>
+              <span className={styles.latestMeta}>
+                <em>{formatDate(meta.date)}</em>
+                <b>{linksToMerchant ? "Voir l’offre" : "Lire l’article"} <ArrowUpRight size={13} /></b>
+              </span>
             </span>
           </Link>
-        ))}
+          );
+        })}
         </div>
       </section>
 
@@ -162,7 +193,9 @@ export default function RefontePreviewPage() {
                 <div>
                   <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
                   <p>{FEATURED_PARTNER.description}</p>
-                  <Link href={FEATURED_PARTNER.primaryCtaHref}>{FEATURED_PARTNER.primaryCtaLabel} <ArrowUpRight size={16} /></Link>
+                  <a href={FEATURED_PARTNER.primaryCtaHref} target="_blank" rel="noopener noreferrer">
+                    {FEATURED_PARTNER.primaryCtaLabel} <ArrowUpRight size={16} />
+                  </a>
                 </div>
               </>
             ) : (
@@ -184,26 +217,6 @@ export default function RefontePreviewPage() {
           </article>
         </div>
       </section>
-
-      {freeTests.length > 0 && (
-        <section className={styles.freeTests} aria-labelledby="free-tests-title">
-          <header>
-            <div><span>À tester gratuitement</span><h2 id="free-tests-title">Recevez, testez, donnez votre avis</h2></div>
-            <Link href="/categorie/test-gratuit">Voir tous les tests <ArrowUpRight size={15} /></Link>
-          </header>
-          <div className={styles.freeTestsGrid}>
-            {freeTests.map(({ meta }) => (
-              <article key={meta.slug} className={styles.freeTestCard}>
-                <Link href={`/article/${meta.slug}`} className={styles.freeTestImage}>
-                  <Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 760px) 44vw, 22vw" />
-                  <span>100 % gratuit</span>
-                </Link>
-                <div><small>Candidature ouverte</small><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3><Link href={`/article/${meta.slug}`} className={styles.freeTestCta}>Je découvre <ArrowUpRight size={14} /></Link></div>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
 
       <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" /></div>
 
@@ -227,7 +240,7 @@ export default function RefontePreviewPage() {
                 <div className={styles.cardFooter}>
                   <strong><AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} /></strong>
                   {hasDirectMerchantCta({ category:article.meta.category, affiliateUrl:article.meta.affiliateUrl, expired:false, endDate:article.meta.endDate }) ? (
-                    <a href={`/go/${article.meta.slug}`} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}><ArrowUpRight size={17} /></a>
+                    <a href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}><ArrowUpRight size={17} /></a>
                   ) : (
                     <Link href={`/article/${article.meta.slug}`} aria-label={`Découvrir ${article.meta.title}`}><ArrowUpRight size={17} /></Link>
                   )}
@@ -237,6 +250,26 @@ export default function RefontePreviewPage() {
           ))}
         </div>
       </section>
+
+      {freeTests.length > 0 && (
+        <section className={styles.freeTests} aria-labelledby="free-tests-title">
+          <header>
+            <div><span>À tester gratuitement</span><h2 id="free-tests-title">Recevez, testez, donnez votre avis</h2></div>
+            <Link href="/categorie/test-gratuit">Voir tous les tests <ArrowUpRight size={15} /></Link>
+          </header>
+          <div className={styles.freeTestsGrid}>
+            {freeTests.map(({ meta }) => (
+              <article key={meta.slug} className={styles.freeTestCard}>
+                <Link href={`/article/${meta.slug}`} className={styles.freeTestImage}>
+                  <Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 760px) 44vw, 22vw" />
+                  <span>100 % gratuit</span>
+                </Link>
+                <div><small>Candidature ouverte</small><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3><Link href={`/article/${meta.slug}`} className={styles.freeTestCta}>Je découvre <ArrowUpRight size={14} /></Link></div>
+              </article>
+            ))}
+          </div>
+        </section>
+      )}
 
       <section className={styles.beautyCompare} aria-labelledby="beauty-compare-title">
         <header>
@@ -250,11 +283,11 @@ export default function RefontePreviewPage() {
               <small>{product.category.replaceAll("-", " ")}</small>
               <strong>{product.brand}</strong>
               <span>{product.name}</span>
-              <b>Comparer les prix <ArrowUpRight size={14} /></b>
+              <b>Voir le produit <ArrowUpRight size={14} /></b>
             </Link>
           ))}
         </div>
-        <Link href="/avis-prix-beaute" className={styles.beautyCompareCta}>Voir tout le comparateur beauté <ArrowUpRight size={16} /></Link>
+        <Link href="/avis-prix-beaute" className={styles.beautyCompareCta}>Voir tous les produits <ArrowUpRight size={16} /></Link>
       </section>
 
       <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex /></div>

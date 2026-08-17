@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowLeft, ArrowRight, ArrowUpRight } from "lucide-react";
 import { useEffect, useState } from "react";
-import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import styles from "./refonte.module.css";
 
 type Slide = {
@@ -17,6 +16,7 @@ type Slide = {
   price?: string;
   amazonAsin?: string;
   directOffer?: boolean;
+  merchantHref?: string;
 };
 
 export default function DealCarousel({ slides }: { slides: Slide[] }) {
@@ -61,9 +61,9 @@ export default function DealCarousel({ slides }: { slides: Slide[] }) {
         <h2>{slide.title}</h2>
         <div className={styles.leadBottom}>
           {slide.directOffer ? (
-            <a href={`/go/${slide.slug}`} target="_blank" rel="nofollow sponsored noopener"><span>Voir l’offre</span> <AmazonCardPrice key={slide.amazonAsin || slide.slug} asin={slide.amazonAsin} fallback={slide.price || ""} /> <ArrowUpRight size={16} /></a>
+            <a href={slide.merchantHref ?? `/go/${slide.slug}`} target="_blank" rel="nofollow sponsored noopener"><span>Voir l’offre</span> <ArrowUpRight size={16} /></a>
           ) : (
-            <Link href={`/article/${slide.slug}`}><span>Découvrir l’offre</span> <AmazonCardPrice key={slide.amazonAsin || slide.slug} asin={slide.amazonAsin} fallback={slide.price || ""} /> <ArrowUpRight size={16} /></Link>
+            <Link href={`/article/${slide.slug}`}><span>Lire l’article</span> <ArrowUpRight size={16} /></Link>
           )}
           <div className={styles.carouselControls}>
             <button type="button" onClick={() => move(-1)} aria-label="Offre précédente"><ArrowLeft size={15} /></button>
