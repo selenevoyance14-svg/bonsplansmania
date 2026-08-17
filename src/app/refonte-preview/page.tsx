@@ -172,6 +172,11 @@ export default function RefontePreviewPage() {
             <span>
               <small>{labels[meta.category] ?? "Nouveau"}</small>
               <strong>{formatCardTitle(meta.title)}</strong>
+              {(meta.amazonAsin || meta.price) && (
+                <b className={styles.latestPrice}>
+                  <AmazonCardPrice asin={meta.amazonAsin} fallback={meta.price || "Prix à vérifier"} />
+                </b>
+              )}
               <span className={styles.latestMeta}>
                 <em>{formatDate(meta.date)}</em>
                 <b>{linksToMerchant ? "Voir l’offre" : "Lire l’article"} <ArrowUpRight size={13} /></b>
