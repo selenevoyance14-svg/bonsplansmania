@@ -1598,8 +1598,30 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // BLANCHEPORTE — avantage permanent
+  // BLANCHEPORTE — offres vérifiées le 17 août 2026
   // ============================================================
+  {
+    id: "blancheporte-40-deuxieme-troisieme-aout-2026",
+    brandSlug: "blanche-porte",
+    type: "code",
+    value: "-40 %",
+    valueLabel: "2E ET 3E ARTICLES",
+    title: "40 % sur les 2e et 3e articles dès 3 articles achetés",
+    code: "299001",
+    expires: "2026-08-25",
+    conditions: "Pour l'achat d'un article à prix normal de la nouvelle collection Automne-hiver 2026, -40 % sur les 2e et 3e articles. Les prix coup de cœur et les articles signalés par un astérisque sont exclus. Hors frais d'envoi et non cumulable avec une autre promotion.",
+    featured: true,
+  },
+  {
+    id: "blancheporte-sac-morgan-aout-2026",
+    brandSlug: "blanche-porte",
+    type: "cadeau",
+    value: "OFFERT",
+    valueLabel: "SAC MORGAN",
+    title: "Un sac Morgan en velours offert en remerciement d'une commande",
+    expires: "2026-08-25",
+    conditions: "Offre valable pour toute commande du 10 au 25 août 2026. Aucun minimum d'achat n'est précisé dans les conditions transmises. Valeur indicative de 45 € fondée sur des articles similaires ; cadeau non commercialisé. En cas d'indisponibilité, Blancheporte prévoit un avantage ou un cadeau de valeur équivalente ou supérieure.",
+  },
   {
     id: "blancheporte-newsletter",
     brandSlug: "blanche-porte",
@@ -1608,7 +1630,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "DÈS 20 €",
     title: "11 € offerts dès 20 € d'achat avec le code 899009 (bienvenue Blancheporte)",
     code: "899009",
-    conditions: "Code de bienvenue Blancheporte : 11 € offerts dès 20 € d'achat, à utiliser sur toute la boutique mode ou maison. Offre permanente pour toute première commande.",
+    conditions: "Code de bienvenue Blancheporte : 11 € de réduction dès 20 € d'achat pour une première commande mode ou maison. La remise est également proposée après inscription à la newsletter, selon les conditions reçues par e-mail. Non cumulable avec un autre code.",
     featured: true,
   },
 
