@@ -198,6 +198,36 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Code partenaire Bons Plans Mania actif sur Prozis. Les campagnes et avantages associés peuvent évoluer chaque mois. Vérifier la réduction et les règles de cumul dans le panier avant le paiement.",
     featured: true,
   },
+  {
+    id: "prozis-big-shot-1-achete-1-offert-aout-2026",
+    brandSlug: "prozis",
+    type: "offre",
+    value: "1 + 1",
+    valueLabel: "OFFRE PRODUIT",
+    title: "1 Big Shot Pre-Workout acheté = 1 offert",
+    affiliateUrl: "https://prozis.com/1YlNV",
+    conditions: "Offre repérée le 17 août 2026 sur une référence sélectionnée. Stock, variante et cumul avec BONSMANIA à vérifier dans le panier.",
+  },
+  {
+    id: "prozis-zero-protein-bar-2-achetes-1-offert-aout-2026",
+    brandSlug: "prozis",
+    type: "offre",
+    value: "2 + 1",
+    valueLabel: "OFFRE PRODUIT",
+    title: "2 boîtes de Zero Protein Bar achetées = 1 offerte",
+    affiliateUrl: "https://prozis.com/1YlNV",
+    conditions: "Offre repérée le 17 août 2026 sur une référence sélectionnée. Stock, parfums et cumul avec BONSMANIA à vérifier dans le panier.",
+  },
+  {
+    id: "prozis-h2o-infusion-1-achetee-1-offerte-aout-2026",
+    brandSlug: "prozis",
+    type: "offre",
+    value: "1 + 1",
+    valueLabel: "OFFRE PRODUIT",
+    title: "1 H2O Infusion achetée = 1 offerte",
+    affiliateUrl: "https://prozis.com/1YlNV",
+    conditions: "Offre repérée le 17 août 2026 sur une référence sélectionnée. Stock, parfum et cumul avec BONSMANIA à vérifier dans le panier.",
+  },
 
   // ============================================================
   // CAROLL — offres vérifiées le 13 août 2026
@@ -990,7 +1020,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
 
   // ============================================================
   // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
-  // Offres Léa Nature vérifiées le 13/08/2026
+  // Offres Léa Nature vérifiées le 17/08/2026
   // ============================================================
   {
     id: "lea-nature-soleil20",
@@ -1003,6 +1033,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     starts: "2026-08-09",
     expires: "2026-08-22",
     conditions: "Offre du 9 au 22 août 2026 sur une sélection. Non cumulable avec une autre promotion, hors direct usine, kits et routines.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
     featured: true,
   },
   {
@@ -1014,18 +1045,29 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "-30 % sur la gamme Lift'Grenade SO'BiO étic",
     expires: "2026-08-31",
     conditions: "Remise automatique valable dans la limite des stocks. Non cumulable avec une autre promotion.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
   },
   {
-    id: "lea-nature-braderie-aout-40",
+    id: "lea-nature-jardin-bio-karelea-aout-20",
     brandSlug: "lea-nature",
     type: "offre",
-    value: "-40 %",
-    valueLabel: "BRADERIE",
-    title: "40 % de réduction sur la sélection Braderie",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fselections%2Fbraderie.html",
-    expires: "2026-08-16",
-    conditions: "Remise appliquée aux produits signalés Braderie, dans la limite des stocks. Non cumulable avec les autres promotions.",
-    featured: true,
+    value: "-20 %",
+    valueLabel: "ALIMENTATION BIO",
+    title: "20 % sur Karéléa et les biscuits Jardin BiO étic",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
+    expires: "2026-08-31",
+    conditions: "Offre sur les produits signalés, dans la limite des stocks. Non cumulable avec les autres promotions.",
+  },
+  {
+    id: "lea-nature-cadeaux-paliers-aout-2026",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "Dès 55 €",
+    valueLabel: "CADEAU",
+    title: "Un cadeau offert selon le montant du panier",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
+    expires: "2026-08-31",
+    conditions: "Spray d'Eau Thermale dès 55 €, Hydrate Magnésium Marin Pêche dès 65 € ou Huile Irisée Illuminatrice dès 75 €. Un seul cadeau selon le palier atteint, dans la limite des stocks. Non cumulable.",
   },
   // MORGAN — offres vérifiées le 13 août 2026
   {
@@ -1105,17 +1147,31 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // PIN UP SECRET — offres vérifiées le 13/08/2026
+  // PIN UP SECRET — offres vérifiées le 17/08/2026
   // ============================================================
   {
-    id: "pin-up-secret-produit-mois",
+    id: "pin-up-secret-welcome35",
+    brandSlug: "pin-up-secret",
+    type: "code",
+    value: "-35 %",
+    valueLabel: "1RE COMMANDE",
+    title: "35 % de réduction et livraison offerte pour une première commande",
+    code: "WELCOME35",
+    permanent: true,
+    conditions: "Offre de bienvenue officielle Pin Up Secret réservée à la première commande, avec livraison offerte en France métropolitaine. Vérifier les exclusions et l'application de la remise dans le panier.",
+    affiliateUrl: "https://a.time1.me/r?promoid=243139&progid=8054&partid=61992",
+    featured: true,
+  },
+  {
+    id: "pin-up-secret-club-jusqua-42",
     brandSlug: "pin-up-secret",
     type: "offre",
-    value: "-10 %",
-    valueLabel: "PRODUIT DU MOIS",
-    title: "10 % de réduction sur le Secret Biphasé, produit du mois",
-    conditions: "Prix barré affiché sur la page d'accueil Pin Up Secret le 13/08/2026. Offre et stock susceptibles d'évoluer ; vérifier le prix dans le panier.",
-    featured: true,
+    value: "-42 %",
+    valueLabel: "JUSQU'À AU CLUB",
+    title: "Prix Club jusqu'à 42 % de réduction et livraison offerte",
+    permanent: true,
+    conditions: "Adhésion payante au Club Pin Up Secret : 1,99 € par mois ou 19,90 € par an. Avantages sur une sélection de produits ; comparer l'économie au coût de l'abonnement.",
+    affiliateUrl: "https://a.time1.me/r?promoid=243139&progid=8054&partid=61992",
   },
   {
     id: "pin-up-secret-livraison",

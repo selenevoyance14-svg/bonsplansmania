@@ -705,7 +705,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
       code: "BONSMANIA",
       discount: "-10 %",
       conditions: "10 % de réduction sur le site Prozis. Vérifier l'application et les éventuelles règles de cumul dans le panier.",
-      verifiedAt: "2026-08-11",
+      verifiedAt: "2026-08-17",
     },
   },
   {
