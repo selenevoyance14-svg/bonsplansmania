@@ -17,26 +17,29 @@ export default function Confidentialite() {
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Données collectées</h2>
             <p>
-              BonsPlansMania.fr collecte ton adresse email uniquement si tu t&apos;inscris
-              volontairement à la newsletter via les formulaires du site. Aucune autre
-              donnée personnelle n&apos;est collectée directement.
+              BonsPlansMania.fr peut traiter ton adresse email lorsque tu t&apos;inscris volontairement à la newsletter. Lors de la
+              navigation, des données techniques et des identifiants en ligne peuvent également être traités, notamment l&apos;adresse
+              IP, le type d&apos;appareil, le navigateur, les pages consultées et les interactions avec le site, selon tes choix en
+              matière de cookies.
             </p>
           </section>
 
           <section style={{ marginBottom: "32px" }}>
-            <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Utilisation de ton email</h2>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Finalités et bases légales</h2>
             <p>
-              Ton email est utilisé exclusivement pour t&apos;envoyer la sélection des
-              meilleurs bons plans, concours et tests gratuits. Aucun envoi commercial
-              tiers, aucune revente ou partage de l&apos;adresse.
+              Ton email est utilisé pour envoyer la newsletter, sur la base de ton consentement. Les données techniques strictement
+              nécessaires servent au fonctionnement et à la sécurité du site. Les mesures d&apos;audience et les publicités sont
+              utilisées selon les choix exprimés dans le gestionnaire de consentement. Bons Plans Mania ne vend pas les adresses
+              email de ses abonnés.
             </p>
           </section>
 
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Hébergement &amp; durée</h2>
             <p>
-              Les emails sont stockés de manière sécurisée sur Cloudflare (Europe).
-              Ils sont conservés tant que tu restes inscrit·e à la newsletter.
+              Les adresses email sont conservées tant que tu restes inscrit·e à la newsletter, puis supprimées lors de la
+              désinscription, sous réserve des délais techniques nécessaires. Les durées applicables aux cookies sont indiquées
+              dans le gestionnaire de consentement accessible sur le site.
             </p>
           </section>
 
@@ -52,9 +55,10 @@ export default function Confidentialite() {
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Tes droits RGPD</h2>
             <p>
               Conformément au Règlement Général sur la Protection des Données (RGPD),
-              tu disposes d&apos;un droit d&apos;accès, de rectification, de suppression
-              et d&apos;opposition. Pour les exercer, contacte-nous à{" "}
+              tu disposes notamment d&apos;un droit d&apos;accès, de rectification, de suppression,
+              d&apos;opposition, de limitation et de retrait de ton consentement. Pour les exercer, contacte Nathalie Lebrun à{" "}
               <a href="mailto:bonsplansmania@gmail.com" style={{ color: "var(--primary)" }}>bonsplansmania@gmail.com</a>.
+              Tu peux également adresser une réclamation à la CNIL sur <a href="https://www.cnil.fr" target="_blank" rel="noopener noreferrer" style={{ color: "var(--primary)" }}>cnil.fr</a>.
             </p>
           </section>
 
@@ -63,8 +67,18 @@ export default function Confidentialite() {
             <p>
               Le site utilise Google Analytics (statistiques anonymisées) et Google AdSense
               (publicités personnalisées). Ces services peuvent déposer des cookies analytiques
-              et publicitaires. Tu peux les désactiver dans les paramètres de ton navigateur
-              ou refuser leur dépôt via le bandeau cookies.
+              et publicitaires uniquement selon les choix exprimés dans le gestionnaire de consentement. Certains liens affiliés
+              peuvent également comporter des paramètres de suivi permettant d&apos;attribuer une vente ou une visite au site. Tu peux
+              refuser les cookies non essentiels ou modifier tes choix via le gestionnaire de consentement.
+            </p>
+          </section>
+
+          <section style={{ marginBottom: "32px" }}>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Responsable du traitement</h2>
+            <p>
+              Nathalie Lebrun — Entrepreneur individuel<br />
+              524 rue de la Tourrache<br />
+              83600 Fréjus — France
             </p>
           </section>
 
