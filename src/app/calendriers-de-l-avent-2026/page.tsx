@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import { ADVENT_CALENDARS_2026 } from "@/lib/advent-calendars-2026";
+import BrandCalendarFilter from "./BrandCalendarFilter";
 import styles from "./page.module.css";
 
 export const metadata: Metadata = {
@@ -63,26 +64,7 @@ export default function AdventCalendarsHub() {
 
         <section className={`container ${styles.section}`}>
           <h2>Les calendriers disponibles et annoncés</h2>
-          <div className={styles.grid}>{ADVENT_CALENDARS_2026.map((calendar) => (
-            <article className={styles.card} key={`${calendar.brand}-${calendar.name}`}>
-              <Link href={calendar.articleHref} className={styles.imageLink}>
-                {/* Images de produit fournies par les marchands ; l'illustration LOOKFANTASTIC est signalée. */}
-                <img src={calendar.image} alt={calendar.imageAlt} loading="lazy" />
-                {calendar.imageIsEditorial ? <span className={styles.imageNote}>Illustration éditoriale</span> : null}
-              </Link>
-              <div className={styles.cardBody}>
-                <p className={styles.brand}>{calendar.brand}</p><h3>{calendar.name}</h3>
-                <p className={styles.price}>{calendar.price}</p>
-                {calendar.value ? <p className={styles.value}>{calendar.value}</p> : null}
-                <p>{calendar.contents}</p><p className={styles.status}>{calendar.status}</p>
-                <p className={styles.checked}>Prix constaté le {calendar.checkedAt}</p>
-                <div className={styles.actions}>
-                  <Link href={calendar.articleHref}>Voir la fiche</Link>
-                  <a href={calendar.merchantHref} target="_blank" rel="nofollow sponsored noopener">Voir chez le marchand</a>
-                </div>
-              </div>
-            </article>
-          ))}</div>
+          <BrandCalendarFilter />
         </section>
 
         <section className={`container ${styles.guide}`}>
