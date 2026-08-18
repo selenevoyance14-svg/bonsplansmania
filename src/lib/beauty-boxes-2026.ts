@@ -1,0 +1,129 @@
+export type BeautyBox2026 = {
+  brand: string;
+  name: string;
+  price: string;
+  value?: string;
+  contents: string;
+  commitment: string;
+  formulas: string[];
+  checkedAt: string;
+  image: string;
+  imageAlt: string;
+  articleHref: string;
+  merchantHref: string;
+};
+
+// Données déjà publiées et vérifiées dans les articles du site.
+// Chaque offre conserve sa date de constat pour éviter de présenter un prix comme permanent.
+export const BEAUTY_BOXES_2026: BeautyBox2026[] = [
+  {
+    brand: "Belle au Naturel",
+    name: "Box beauté bio",
+    price: "19,90 € avec SUMMER26",
+    value: "Valeur annoncée : 81 €",
+    contents: "5 soins bio en format vente",
+    commitment: "Sans engagement",
+    formulas: ["Abonnement", "Sans engagement", "Bio"],
+    checkedAt: "1er août 2026",
+    image: "/images/articles/belle-au-naturel-box-beaute-bio-juillet-2026-royer-bomoi-cultiv-coslys-acorelle.webp",
+    imageAlt: "Box beauté bio Belle au Naturel avec cinq soins en format vente",
+    articleHref: "/article/belle-au-naturel-box-beaute-bio-juillet-2026-royer-bomoi-cultiv-coslys-acorelle",
+    merchantHref: "https://wkl.belleaunaturel.fr/click-9693-2623?clickid=&subid=belle-au-naturel-box-beaute-bio-juillet-2026",
+  },
+  {
+    brand: "Biotyfull Box",
+    name: "Abonnement beauté bio Made in France",
+    price: "Offre découverte autour de 13 €",
+    value: "Valeur mensuelle annoncée : 80 € minimum",
+    contents: "5 à 6 produits français en taille normale",
+    commitment: "Formule sans engagement disponible",
+    formulas: ["Abonnement", "Sans engagement", "Bio"],
+    checkedAt: "31 juillet 2026",
+    image: "/images/articles/biotyfull-box-abonnement-offre-decouverte-2026.webp",
+    imageAlt: "Biotyfull Box et ses produits de beauté bio français",
+    articleHref: "/article/biotyfull-box-abonnement-offre-decouverte-2026",
+    merchantHref: "https://xno.biotyfullbox.fr/?P51362157CD2D1D1&redir=https%3A%2F%2Fwww.biotyfullbox.fr%2F",
+  },
+  {
+    brand: "Blissim",
+    name: "Box beauté mensuelle",
+    price: "18,90 € par mois",
+    contents: "Miniatures et produits en format vente selon le mois",
+    commitment: "Sans engagement",
+    formulas: ["Abonnement", "Sans engagement"],
+    checkedAt: "14 juillet 2026",
+    image: "/images/articles/hub-meilleurs-bons-plans-blissim-juillet-2026-coffret-experte-boucles.webp",
+    imageAlt: "Sélection de soins et coffrets beauté Blissim",
+    articleHref: "/article/hub-meilleurs-bons-plans-blissim-juillet-2026-coffret-experte-boucles",
+    merchantHref: "https://www.awin1.com/cread.php?awinmid=15574&awinaffid=990397&ued=https%3A%2F%2Fblissim.fr%2F",
+  },
+  {
+    brand: "Glowria",
+    name: "4 routines et 11 produits",
+    price: "13 € + 6,90 € de livraison",
+    value: "Valeur annoncée : 349 €",
+    contents: "4 routines · 11 produits dans un même colis",
+    commitment: "Sans engagement, abonnement reconduit sauf résiliation",
+    formulas: ["Abonnement", "Sans engagement", "Offre découverte"],
+    checkedAt: "17 juillet 2026",
+    image: "/images/articles/glowria-4-nouvelles-routines-13-euros-11-produits-349-euros.webp",
+    imageAlt: "Offre Glowria quatre routines beauté et onze produits",
+    articleHref: "/article/glowria-4-nouvelles-routines-13-euros-11-produits-349-euros",
+    merchantHref: "https://glowria.com/landing/4pour13?ae=487",
+  },
+  {
+    brand: "L'Arôma Box",
+    name: "Box aromathérapie et bien-être",
+    price: "À partir de 26,65 € par box",
+    contents: "Huiles essentielles, produits naturels et guide d’utilisation",
+    commitment: "Selon la formule choisie",
+    formulas: ["Abonnement", "Bien-être"],
+    checkedAt: "3 août 2026",
+    image: "/images/articles/laroma-box-contenu-eucalyptus-2026.webp",
+    imageAlt: "L'Arôma Box avec huiles essentielles et produits naturels",
+    articleHref: "/article/laroma-box-aromatherapie-bien-etre-abonnement-2026",
+    merchantHref: "https://www.laromabox.fr/?ref=lqrriten",
+  },
+  {
+    brand: "LOOKFANTASTIC",
+    name: "The Box Beauté d’août",
+    price: "20 €",
+    value: "Valeur détaillée : 85 €",
+    contents: "6 produits + 1 échantillon parfum",
+    commitment: "Abonnement reconduit automatiquement",
+    formulas: ["Abonnement"],
+    checkedAt: "2 août 2026",
+    image: "/images/articles/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun.webp",
+    imageAlt: "Box beauté LOOKFANTASTIC d'août et ses produits",
+    articleHref: "/article/lookfantastic-the-box-beaute-aout-2026-spectrum-rituals-rodial-ultrasun",
+    merchantHref: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fbeauty-box%2Fla-box-beaute-d-aout-d-une-valeur-de-plus-de-80%2F12636601%2F",
+  },
+  {
+    brand: "Marie Claire",
+    name: "Box Beauté Solaire",
+    price: "39,90 €",
+    value: "Valeur annoncée : 261,85 €",
+    contents: "8 produits solaires et 1 accessoire",
+    commitment: "Achat ponctuel sans abonnement",
+    formulas: ["Édition limitée", "Sans engagement"],
+    checkedAt: "31 juillet 2026",
+    image: "/images/articles/box-beaute-solaire-marie-claire-my-beauty-factory-2026.webp",
+    imageAlt: "Box Beauté Solaire Marie Claire avec huit produits et un accessoire",
+    articleHref: "/article/box-beaute-solaire-marie-claire-39-90-euros-2026",
+    merchantHref: "https://fnty.co/c/r-kwGfHbPg",
+  },
+  {
+    brand: "Prescription Lab",
+    name: "4 box et 14 produits",
+    price: "14 € + 5,90 € de livraison",
+    value: "Valeur annoncée : 241 €",
+    contents: "4 box · 14 produits dans un même colis",
+    commitment: "Sans engagement, abonnement reconduit sauf résiliation",
+    formulas: ["Abonnement", "Sans engagement", "Offre découverte"],
+    checkedAt: "14 août 2026",
+    image: "/images/articles/prescription-lab-4-box-beaute-14-euros-14-produits-aout-2026.webp",
+    imageAlt: "Offre Prescription Lab quatre box beauté et quatorze produits",
+    articleHref: "/article/prescription-lab-4-box-beaute-14-euros-14-produits-aout-2026",
+    merchantHref: "https://www.prescriptionlab.com/landing/4pour14?ae=10&aev=https%3A%2F%2Fwww.prescriptionlab.com%2Flanding%2F5pour15%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",
+  },
+];

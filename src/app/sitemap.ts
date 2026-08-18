@@ -19,6 +19,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/ete",                      priority: 0.9, changeFrequency: "daily" },
   { path: "/noel",                     priority: 0.8, changeFrequency: "weekly" },
   { path: "/calendriers-de-l-avent-2026", priority: 0.9, changeFrequency: "daily" },
+  { path: "/meilleures-box-beaute",      priority: 0.9, changeFrequency: "daily" },
   { path: "/codes-promo-permanents",   priority: 0.8, changeFrequency: "weekly" },
   { path: "/code-promo",               priority: 0.8, changeFrequency: "weekly" },
   { path: "/bons-plans-beaute",        priority: 0.9, changeFrequency: "weekly" },
