@@ -20,7 +20,7 @@ const menus = [
   {
     label: "Tests Produits",
     active: ["/test-", "/comparatif"],
-    links: [["Tous les tests", "/categorie/test-produit"], ["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
+    links: [["Tests gratuits 2026", "/tests-produits-gratuits-2026"], ["Tous les tests", "/categorie/test-produit"], ["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
   },
   {
     label: "Beauté",
