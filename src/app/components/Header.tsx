@@ -10,7 +10,7 @@ const menus = [
     active: ["/bon-plan", "/bons-plans-"],
     links: [
       ["Bons plans beauté", "/bons-plans-beaute"], ["Coin Bébé", "/bons-plans-bebe"],
-      ["Air Fryer & Ninja", "/bons-plans-ninja"], ["Coin Tech", "/bons-plans-tech"],
+      ["Guide Air Fryer 2026", "/guide-air-fryer-2026"], ["Air Fryer & Ninja", "/bons-plans-ninja"], ["Coin Tech", "/bons-plans-tech"],
       ["Coin Maison", "/bons-plans-maison"], ["Jardin & animaux", "/bons-plans-jardin"],
       ["Coin Mode", "/bons-plans-mode"], ["Coin Jouets", "/bons-plans-jouets"],
       ["Coin Rentrée", "/bons-plans-rentree"], ["Bons plans en cours", "/bons-plans-en-cours"],
