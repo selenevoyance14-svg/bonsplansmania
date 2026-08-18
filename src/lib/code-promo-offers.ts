@@ -29,6 +29,24 @@ export interface CodePromoOffer {
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
+  // E.LECLERC — Opération Bébé août / septembre 2026
+  // ============================================================
+  {
+    id: "eleclerc-operation-bebe-aout-septembre-2026",
+    brandSlug: "eleclerc",
+    brandName: "E.Leclerc",
+    type: "offre",
+    value: "-20 %",
+    valueLabel: "PUÉRICULTURE",
+    title: "Jusqu'à -20 % sur une sélection Bébé et puériculture",
+    starts: "2026-08-17",
+    expires: "2026-09-06",
+    conditions: "Offre valable sur le site E.Leclerc du 17/08 au 06/09/2026 inclus, sur une sélection de produits de puériculture. Le taux de remise varie selon les articles éligibles. Aucun code promo n'est indiqué.",
+    affiliateUrl: "https://tidd.ly/4denv32",
+    featured: true,
+  },
+
+  // ============================================================
   // CAROLL — offres permanentes
   // ============================================================
   {

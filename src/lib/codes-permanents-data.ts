@@ -195,18 +195,6 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     affiliateUrl: "https://www.ebuyclub.com/",
   },
   {
-    id: "perm-eleclerc",
-    brandSlug: "eleclerc",
-    brandName: "E.Leclerc",
-    type: "offre",
-    value: "-100 €",
-    valueLabel: "HIGH-TECH",
-    title: "Codes promo permanents E.Leclerc : -100 € sur PC portables + 10 % remboursés en bons d'achat",
-    permanent: true,
-    conditions: "Carte de fidélité E.Leclerc nécessaire pour les bons d'achat (gratuite).",
-    affiliateUrl: "https://tidd.ly/4denv32",
-  },
-  {
     id: "perm-greenweez",
     brandSlug: "greenweez",
     type: "code",
