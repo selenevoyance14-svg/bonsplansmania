@@ -24,8 +24,8 @@ const menus = [
   },
   {
     label: "Beauté",
-    active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les actualités box", "/categorie/box-beaute"], ["Calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Guides & tests", "/categorie/beaute"]],
+    active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier", "/guide-solaires"],
+    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Guide d’achat solaires", "/guide-solaires-2026"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les actualités box", "/categorie/box-beaute"], ["Calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Guides & tests", "/categorie/beaute"]],
   },
 ] as const;
 
