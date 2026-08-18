@@ -21,6 +21,14 @@ export interface CodePromoBrand {
 
 export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
+    slug: "prescription-lab",
+    name: "Prescription Lab",
+    affiliateUrl: "https://www.prescriptionlab.com/landing/4pour14?ae=10&aev=https%3A%2F%2Fwww.prescriptionlab.com%2Flanding%2F5pour15%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",
+    affiliateLabel: "Voir les offres Prescription Lab",
+    matchTags: ["prescription-lab", "prescription lab"],
+    color: "#A37C76",
+  },
+  {
     slug: "zigbuy",
     name: "Zigbuy",
     affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=",

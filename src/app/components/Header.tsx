@@ -14,6 +14,7 @@ const menus = [
       ["Coin Maison", "/bons-plans-maison"], ["Jardin & animaux", "/bons-plans-jardin"],
       ["Coin Mode", "/bons-plans-mode"], ["Coin Jouets", "/bons-plans-jouets"],
       ["Coin Rentrée", "/bons-plans-rentree"], ["Bons plans en cours", "/bons-plans-en-cours"],
+      ["Marques partenaires", "/marques-partenaires"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
     ],
   },
