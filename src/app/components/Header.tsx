@@ -25,7 +25,7 @@ const menus = [
   {
     label: "Beauté",
     active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Box beauté", "/categorie/box-beaute"], ["Calendrier de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
+    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Box beauté", "/categorie/box-beaute"], ["Calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Guides & tests", "/categorie/beaute"]],
   },
 ] as const;
 

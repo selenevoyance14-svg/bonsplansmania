@@ -1325,10 +1325,10 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     type: "offre",
     value: "140 €",
     valueLabel: "VALEUR 770 €+",
-    title: "Calendrier de l'Avent Beauty 2026 : liste d'attente ouverte",
+    title: "Calendrier de l'Avent Beauty 2026 : 27 produits dont 19 formats vente",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fseasonal%2Fchristmas%2Fadvent-calendar%2F",
-    starts: "2026-08-12",
-    conditions: "Liste d'attente ouverte avant le lancement du 01/09/2026. Le calendrier Beauty est annoncé à 140 € pour une valeur supérieure à 770 €, avec 27 produits dont 19 en format vente. Premières révélations à partir du 17/08/2026. Disponibilité et composition finale à vérifier au lancement.",
+    starts: "2026-08-17",
+    conditions: "Liste d'attente ouverte avant le lancement du 01/09/2026. Le calendrier Beauty est annoncé à 140 € pour une valeur supérieure à 770 €, avec 27 produits dont 19 en format vente derrière 25 cases. Disponibilité et composition complète à vérifier au lancement.",
     featured: true,
   },
   {
