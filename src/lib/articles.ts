@@ -6,7 +6,7 @@ import { parsePrice } from "@/lib/price";
 import { slugifyTag } from "@/lib/tag-pages";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
-const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-neutral.svg";
+const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania-beige.png";
 const ARCHIVE_ARTICLE_IMAGES = {
   concours: "/images/articles/_archive-concours-termine.png",
   "test-gratuit": "/images/articles/_archive-test-produit-termine.png",

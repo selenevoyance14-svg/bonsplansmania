@@ -226,7 +226,7 @@ export default async function ArticlePage({ params }: PageProps) {
     description: article.meta.description,
     datePublished: article.meta.date,
     dateModified: article.meta.updated || article.meta.date,
-    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : article.meta.image}`,
+    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}`,
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://bonsplansmania.fr/article/${slug}`,
@@ -268,7 +268,7 @@ export default async function ArticlePage({ params }: PageProps) {
     "@type": "Product",
     name: productName,
     description: article.meta.description,
-    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : article.meta.image}`,
+    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}`,
     offers: {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
@@ -381,7 +381,7 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
 
             <div className="article-hero-image" style={{ background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
-              <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
+              <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
             </div>
 
             {article.meta.amazonAsin && !shouldHideAmazonPrice(slug) && affiliateUrl !== "#" && !isExpired && (
@@ -434,7 +434,7 @@ export default async function ArticlePage({ params }: PageProps) {
                       style={{ textDecoration: "none" }}
                     >
                       <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
-                        <Image src={recommended.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : recommended.meta.image} alt={recommended.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
+                        <Image src={recommended.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : recommended.meta.image} alt={recommended.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
                       </div>
                       <div className="card-body" style={{ padding: "12px" }}>
                         <h3 className="card-title" style={{ fontSize: "0.92rem", lineHeight: 1.3, margin: 0 }}>{recommended.meta.title}</h3>
@@ -455,7 +455,7 @@ export default async function ArticlePage({ params }: PageProps) {
                     return (
                       <a key={related.meta.slug} href={`/article/${related.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
                         <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
-                          <Image src={related.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
+                          <Image src={related.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
                         </div>
                         <div className="card-body" style={{ padding: "12px" }}>
                           <span style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.5px" }}>

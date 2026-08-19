@@ -85,7 +85,7 @@ export default function ArticleCard({
     // On ne laisse JAMAIS le vrai lien affilié dans le HTML : /go/<slug> côté Cloudflare Function fait le 302
     const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : rawAffiliate;
     const rawImage = article.meta.image ?? "";
-    const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : rawImage;
+    const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : rawImage;
 
     return (
         <article className={`bpm-card bpm-card-${cat.color} ${isExpired ? "bpm-card-expired" : ""}`}>
