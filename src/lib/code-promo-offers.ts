@@ -248,28 +248,32 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CAROLL — offres vérifiées le 13 août 2026
+  // CAROLL — offres vérifiées le 19 août 2026
   // ============================================================
   {
-    id: "caroll-booster-10-deux-articles",
+    id: "caroll-retour-ville-aout-2026",
     brandSlug: "caroll",
     type: "offre",
-    value: "-10 %",
-    valueLabel: "DÈS 2 ARTICLES",
-    title: "-10 % supplémentaires dès 2 articles de la sélection achetés",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Ffemme%2Fpetits-prix",
-    conditions: "Remise supplémentaire réservée aux articles de la sélection Checklist de l'été. Vérifier l'éligibilité des deux articles et l'application de la réduction dans le panier.",
+    value: "Prix barrés",
+    valueLabel: "RETOUR EN VILLE",
+    title: "Retour en ville : sélection Caroll à prix barrés",
+    starts: "2026-08-19",
+    expires: "2026-09-02",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2F",
+    conditions: "Valable du 19/08 au 02/09/2026 dans les boutiques Caroll participantes de France métropolitaine et du Luxembourg, hors grands magasins et outlets, et sur caroll.com. Articles signalés ou affichés avec un prix barré. Non cumulable.",
     featured: true,
   },
   {
-    id: "caroll-checklist-ete-30",
+    id: "caroll-bons-plans-20-deux-articles",
     brandSlug: "caroll",
     type: "offre",
-    value: "-30 %",
-    valueLabel: "JUSQU'À",
-    title: "Jusqu'à 30 % de réduction sur la Checklist de l'été",
+    value: "-20 %",
+    valueLabel: "DÈS 2 ARTICLES",
+    title: "-20 % dès 2 articles de la sélection Bons Plans",
+    starts: "2026-08-19",
+    expires: "2026-09-11",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Ffemme%2Fpetits-prix",
-    conditions: "Remise variable selon les articles de la sélection et les stocks. Contrôler le prix barré affiché sur la fiche produit.",
+    conditions: "Valable du 19/08 au 11/09/2026 dès 2 articles Bons Plans, dans les boutiques Caroll participantes de France métropolitaine et du Luxembourg, hors grands magasins et outlets, et sur caroll.com. Remise automatique, non cumulable.",
     featured: true,
   },
   {
@@ -281,7 +285,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "-15 % sur votre article préféré avec l'inscription à la newsletter",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Caroll15",
     permanent: true,
-    conditions: "Offre de bienvenue obtenue après inscription à la newsletter Caroll, selon les conditions communiquées par la marque.",
+    conditions: "-15 % sur un article préféré pour le prochain achat réalisé dans le mois suivant l'inscription. Utilisable une seule fois avec le code reçu par e-mail, hors Points Or et non cumulable.",
     featured: true,
   },
   {

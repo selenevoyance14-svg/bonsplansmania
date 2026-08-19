@@ -13,18 +13,6 @@ import type { CodePromoOffer } from "./code-promo-offers";
 
 export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
   {
-    id: "perm-caroll-booster-10-deux-articles",
-    brandSlug: "caroll",
-    type: "offre",
-    value: "-10 %",
-    valueLabel: "DÈS 2 ARTICLES",
-    title: "Caroll : -10 % dès 2 articles achetés",
-    permanent: true,
-    featured: true,
-    conditions: "Remise accordée dès l'achat de 2 articles, selon les conditions de l'offre Booster affichées par Caroll. Vérifier son application dans le panier.",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Booster",
-  },
-  {
     id: "perm-caroll-newsletter-15",
     brandSlug: "caroll",
     type: "newsletter",
@@ -33,7 +21,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "Caroll : -15 % sur votre article préféré après inscription à la newsletter",
     permanent: true,
     featured: true,
-    conditions: "Offre de bienvenue obtenue après inscription à la newsletter Caroll, selon les conditions communiquées par la marque.",
+    conditions: "-15 % sur un article préféré lors du prochain achat dans le mois suivant l'inscription. Utilisable une seule fois avec le code reçu par e-mail, hors Points Or et non cumulable.",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Caroll15",
   },
   {
