@@ -21,6 +21,21 @@ const ARTICLE_IMAGES_DIR = path.join(
 const ARTICLE_IMAGE_FILENAMES = new Set(
   fs.existsSync(ARTICLE_IMAGES_DIR) ? fs.readdirSync(ARTICLE_IMAGES_DIR) : []
 );
+const LEGACY_PLACEHOLDER_IMAGES = new Set([
+  "/images/articles/_placeholder-bonsplansmania.png",
+  "/images/placeholder.svg",
+]);
+const GENERATED_BRANDED_IMAGE_FILENAMES = new Set(
+  [...ARTICLE_IMAGE_FILENAMES].filter((filename) => {
+    const filePath = path.join(ARTICLE_IMAGES_DIR, filename);
+    try {
+      const beginning = fs.readFileSync(filePath, "utf8").slice(0, 2000);
+      return beginning.includes("<svg") && beginning.includes("BonsPlansMania.fr");
+    } catch {
+      return false;
+    }
+  })
+);
 const AMAZON_PARTNER_TAG = "lebrunnathali-21";
 
 function isAmazonUrl(value: unknown): boolean {
@@ -153,10 +168,12 @@ function resolveArticleImage(image: unknown): string {
       ? image.trim()
       : FALLBACK_ARTICLE_IMAGE;
 
+  if (LEGACY_PLACEHOLDER_IMAGES.has(value)) return FALLBACK_ARTICLE_IMAGE;
+
   if (!value.startsWith("/images/articles/")) return value;
 
   const filename = value.slice("/images/articles/".length);
-  return ARTICLE_IMAGE_FILENAMES.has(filename)
+  return ARTICLE_IMAGE_FILENAMES.has(filename) && !GENERATED_BRANDED_IMAGE_FILENAMES.has(filename)
     ? value
     : FALLBACK_ARTICLE_IMAGE;
 }
