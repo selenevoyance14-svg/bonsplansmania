@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run audit:affiliate-links -- --strict && npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts && npx tsx scripts/build-affiliate-mapping.ts",
+    "prebuild": "npm run audit:affiliate-links -- --strict && npx tsx scripts/generate-articles-json.ts && npx tsx scripts/build-affiliate-mapping.ts",
     "build": "next build && npx tsx scripts/clean-rsc-txt.ts",
     "start": "next start",
     "lint": "eslint",

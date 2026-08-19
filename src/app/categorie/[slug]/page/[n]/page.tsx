@@ -117,7 +117,7 @@ export default async function CategoryPaginatedPage({ params }: PageProps) {
               {pageArticles.map((a) => (
                 <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className={`bpm-card bpm-card-${cat.color} ${isEffectivelyExpired(a.meta) ? "bpm-card-expired" : ""}`}>
                   <div className="bpm-card-image">
-                    <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "contain", padding: "10px" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
+                    <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-neutral.svg" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "contain", padding: "10px" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
                   </div>
                   <div className="bpm-card-body">
                     <h3 className="bpm-card-title">{a.meta.title}</h3>
