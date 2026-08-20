@@ -130,13 +130,13 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Pourcentage maximal constaté le 13 août 2026 sur une sélection de séjours. Les remises, dates, villes de départ, disponibilités et tarifs à partir de varient selon le dossier.",
     featured: true,
   },
-  // ATIDA — offres vérifiées le 13 août 2026
+  // ATIDA — offres vérifiées le 20 août 2026
   {
-    id: "atida-cutie5-aout-2026", brandSlug: "atida", type: "code",
-    value: "-5 %", valueLabel: "DÈS 50 €",
-    title: "5 % de réduction dès 50 € d'achat avec le code CUTIE5", code: "CUTIE5",
-    starts: "2026-08-12", expires: "2026-08-13",
-    conditions: "Offre valable jusqu'au 13 août 2026, hors laits 1er âge et produits Prix Mini. Une utilisation par client. Vérifier le code dans le panier.", featured: true,
+    id: "atida-big5foru-aout-2026", brandSlug: "atida", type: "code",
+    value: "-5 %", valueLabel: "DÈS 49 €",
+    title: "5 % de réduction dès 49 € d'achat avec le code BIG5FORU", code: "BIG5FORU",
+    starts: "2026-08-20", expires: "2026-08-21",
+    conditions: "Offre valable les 20 et 21 août 2026, hors laits infantiles 1er âge et produits Prix Mini. Une utilisation par client. Vérifier l'application de la remise dans le panier.", featured: true,
   },
   {
     id: "atida-newsletter-5-euros", brandSlug: "atida", type: "newsletter",
@@ -152,11 +152,11 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Selon le mode et les conditions affichés par Atida. Expédition annoncée sous 24 à 48 heures pour les articles disponibles.",
   },
   {
-    id: "atida-chouchous-ete-10", brandSlug: "atida", type: "offre",
+    id: "atida-chouchous-aout-10", brandSlug: "atida", type: "offre",
     value: "-10 %", valueLabel: "SÉLECTION",
-    title: "10 % de réduction sur les chouchous de l'été",
+    title: "10 % de réduction sur une sélection de produits chouchous",
     affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fselection-evenementielle%2Fvos-chouchous-de-l-ete.html",
-    conditions: "Remise réservée aux produits de la sélection signalée. Vérifier le prix et la disponibilité dans le panier.",
+    conditions: "Remise affichée sur les produits participants. La sélection, les prix et les stocks peuvent évoluer ; vérifier le prix final dans le panier.",
   },
   // ============================================================
   // ACTIVA STORE — avantages permanents vérifiés le 13 août 2026
