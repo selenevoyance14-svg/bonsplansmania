@@ -118,11 +118,12 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
   {
     id: "perm-damart",
     brandSlug: "damart",
-    type: "newsletter",
-    value: "-20 €",
-    title: "-20 € sur la 1ʳᵉ commande Damart via newsletter (mode femme/homme/enfant + linge maison)",
-    permanent: true,
-    conditions: "Inscription à la newsletter Damart pour recevoir l'offre de bienvenue. Des exclusions et conditions de non-cumul peuvent s'appliquer : vérifier le message reçu et le panier.",
+    type: "code",
+    value: "-10 €",
+    title: "10 € dès 29 € d'achat chez Damart avec le code 40963",
+    code: "40963",
+    expires: "2026-09-01",
+    conditions: "Valable une fois jusqu'au 1er septembre 2026, hors points rouges et articles déjà à prix réduit. Offre non cumulable.",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
   },
   {

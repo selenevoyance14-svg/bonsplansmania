@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 20 Aug 2026 14:29:21 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 20 Aug 2026 14:46:49 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -24,6 +24,15 @@
       <description>Le code promo Atida BIG5FORU offre 5 % dès 49 € les 20 et 21 août 2026. Retrouvez aussi la livraison offerte dès 49 € et les promotions en cours.</description>
       <category>code-promo</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/atida-parapharmacie-bons-plans-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>Code promo Damart août 2026 : 10 € dès 29 € avec 40963</title>
+      <link>https://bonsplansmania.fr/article/damart-vente-flash-code-promo-printemps-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/damart-vente-flash-code-promo-printemps-mars-2026</guid>
+      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Le code promo Damart 40963 offre 10 € dès 29 € jusqu'au 1er septembre 2026. Newsletter : 20 € dès 40 € et livraison offerte dès 60 €.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/damart-vente-flash-code-promo-printemps-mars-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Test gratuit SolCotton La Délicate XL : 35 places à saisir</title>
@@ -447,15 +456,6 @@
       <description>Boiron Belgique recherche 15 ambassadeurs pour tester une Box Rentrée en Forme avec MagneFATIGUE, Arniroller et Euphralia. Candidatures jusqu'au 29 août 2026.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-boiron-box-back-to-school-rentree-forme-aout-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Test gratuit New and Boss : 160 mini-élastiques à recevoir</title>
-      <link>https://bonsplansmania.fr/article/test-gratuit-mini-elastiques-new-and-boss-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-gratuit-mini-elastiques-new-and-boss-aout-2026</guid>
-      <pubDate>Wed, 19 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Free Cosmetic Testing recherche 26 testeurs pour recevoir gratuitement un lot de 160 mini-élastiques noirs New and Boss. Tirage le 26 août 2026.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-mini-elastiques-new-and-boss-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>

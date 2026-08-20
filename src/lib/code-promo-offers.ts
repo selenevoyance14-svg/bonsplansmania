@@ -2189,17 +2189,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // DAMART — offres vérifiées le 13/08/2026
+  // DAMART — offres vérifiées le 20/08/2026
   // ============================================================
   {
-    id: "damart-20-article-prefere",
+    id: "damart-10-euros-29-aout-2026",
     brandSlug: "damart",
     type: "code",
-    value: "-20 %",
-    valueLabel: "ARTICLE PRÉFÉRÉ",
-    title: "-20 % sur ton article préféré dès 19 € avec le code 40846",
-    code: "40846",
-    conditions: "Code 40846 affiché sur damart.fr le 13/08/2026 : -20 % sur un article préféré dès 19 € d'achat. Des exclusions peuvent s'appliquer ; vérifier la remise dans le panier.",
+    value: "-10 €",
+    valueLabel: "DÈS 29 €",
+    title: "10 € de réduction dès 29 € d'achat avec le code 40963",
+    code: "40963",
+    expires: "2026-09-01",
+    conditions: "Offre personnelle valable une fois jusqu'au 1er septembre 2026 sur damart.fr, par téléphone et dans les boutiques participantes. Hors points rouges et articles déjà à prix réduit. Non cumulable avec une autre réduction ou offre promotionnelle.",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
     featured: true,
   },
@@ -2244,17 +2245,6 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     permanent: true,
     conditions: "Paiement en 4 fois sans frais avec PayPal disponible dès 30 € et jusqu'à 2 000 € d'achat (sous réserve d'acceptation de PayPal). Redirection automatique vers ton compte PayPal au checkout.",
   },
-  {
-    id: "damart-fidelite",
-    brandSlug: "damart",
-    type: "cashback",
-    value: "5 %",
-    valueLabel: "FIDÉLITÉ",
-    title: "5 % de remise fidélité à chaque commande via la carte cliente",
-    permanent: true,
-    conditions: "Programme fidélité Damart : 5 % de remise cumulés sur ta carte cliente à chaque achat. Cumulable avec les promos.",
-  },
-
   // ============================================================
   // VACANCES LAGRANGE — offres permanentes à vérifier au moteur
   // ============================================================
