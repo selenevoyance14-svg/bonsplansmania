@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Aug 2026 11:11:46 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 11:16:23 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -24,6 +24,15 @@
       <description>Mon avis sur La Favorite de Jean Paul Gaultier après réception et essai : odeur, sillage, tenue et prix des formats 30, 50, 100 et 200 ml.</description>
       <category>test-avis</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/jean-paul-gaultier-la-favorite-avis-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Codes promo Cdiscount informatique : 50 € et 100 € de réduction</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-cdiscount-alertes-codes-promo-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-cdiscount-alertes-codes-promo-mars-2026</guid>
+      <pubDate>Wed, 08 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Deux codes promo Cdiscount sur une sélection de PC portables : 50 € dès 429 € avec 50D429INFO et 100 € dès 529 € avec 100D529INFO.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-cdiscount-alertes-codes-promo-mars-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Codes promo Dr Pierre Ricaud août et septembre 2026</title>
@@ -447,15 +456,6 @@
       <description>La litière autonettoyante PuraLuce Cura X1 80 + 8 L avec capteurs et application est affichée sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-puraluce-cura-x1-litiere-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Revlon One-Step RVDR5222: brosse soufflante</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-revlon-one-step-rvdr5222-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-revlon-one-step-rvdr5222-aout-2026</guid>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-      <description>La brosse soufflante volumisante Revlon One-Step RVDR5222 est affichée sur Amazon au 20 août 2026.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-revlon-one-step-rvdr5222-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
