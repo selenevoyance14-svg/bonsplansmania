@@ -1568,17 +1568,17 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // GLOWRIA — offre exclusive 4 routines 13 € + baseline
+  // GLOWRIA — offre exclusive vérifiée le 21/08/2026 + baseline
   // ============================================================
   {
-    id: "glowria-4-routines-13",
+    id: "glowria-6-routines-13-aout-2026",
     brandSlug: "glowria",
     type: "offre",
     value: "13 €",
-    valueLabel: "11 PRODUITS",
-    title: "4 nouvelles routines beauté à 13 € (11 produits, valeur 349 €) sans engagement",
-    affiliateUrl: "https://glowria.com/landing/4pour13?ae=487",
-    conditions: "Offre de bienvenue Glowria : 4 routines beauté + 11 produits (valeur 349 €) pour 13 € + 6,90 € de livraison. Abonnement sans engagement — la box d'août 2026 est facturée 24,90 € sauf résiliation depuis l'espace client jusqu'à 2 jours avant la fin du mois en cours. 1ères arrivées 1ères servies.",
+    valueLabel: "15 PRODUITS",
+    title: "6 nouvelles routines beauté à 13 € (15 produits, valeur 310 €)",
+    affiliateUrl: "https://glowria.com/landing/13euros?ae=487",
+    conditions: "Offre de bienvenue Glowria : 6 routines beauté et 15 produits (valeur annoncée 310 €) pour 13 € + 2,90 € de livraison. Abonnement sans engagement reconduit à 24,90 € par box ; résiliation possible après l'expédition de la première commande et jusqu'au 31 août 2026 pour ne pas recevoir la box de septembre. Dans la limite des stocks.",
     featured: true,
   },
   {

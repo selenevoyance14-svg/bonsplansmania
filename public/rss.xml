@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Aug 2026 06:57:26 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 08:39:23 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -42,6 +42,15 @@
       <description>Participez gratuitement au concours MaFamilleZen et tentez de gagner l'un des 5 DVD du film L'Enfant du désert de Gilles de Maistre. Fin le 23 août 2026.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-dvd-enfant-du-desert-mafamillezen-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Glowria : 6 routines beauté et 15 produits pour 13 €</title>
+      <link>https://bonsplansmania.fr/article/glowria-6-routines-13-euros-tote-bag-ete-2026</link>
+      <guid>https://bonsplansmania.fr/article/glowria-6-routines-13-euros-tote-bag-ete-2026</guid>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Offre Glowria vérifiée : 6 routines beauté, 15 produits d’une valeur annoncée de 310 €, pour 13 € plus 2,90 € de livraison. Abonnement sans engagement.</description>
+      <category>box-beaute</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/glowria-offre-6-routines-13-euros-aout-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Jeu La Fournée Dorée 2026 : 1 000 € et des boîtes à goûter à gagner</title>
@@ -447,15 +456,6 @@
       <description>Le lot de 6 déodorants bille Sanex 0 % Extra Control 50 ml est affiché sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-sanex-zero-extra-control-6x50ml-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Shark FlexStyle HD476WHEU sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-shark-flexstyle-hd476wheu-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-shark-flexstyle-hd476wheu-aout-2026</guid>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Le Shark FlexStyle édition limitée HD476WHEU avec accessoires est affiché sur Amazon au 20 août 2026.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-shark-flexstyle-hd476wheu-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
