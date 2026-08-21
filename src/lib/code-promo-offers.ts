@@ -2482,6 +2482,17 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // CDISCOUNT — offres vérifiées le 12/08/2026
   // ============================================================
   {
+    id: "cdiscount-rentree-jusqua-40-aout-2026",
+    brandSlug: "cdiscount",
+    type: "offre",
+    value: "-40 %",
+    valueLabel: "JUSQU'À",
+    title: "Opération rentrée : jusqu'à 40 % sur une sélection",
+    conditions: "Opération lancée le 21 août 2026 à 11 h. Produits, remises, vendeurs et stocks variables. Vérifier le prix final et les conditions sur chaque fiche avant la commande.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2Frentree-des-classes%2Fv-14127-14127.html",
+    featured: true,
+  },
+  {
     id: "cdiscount-alertes-aout-2026",
     brandSlug: "cdiscount",
     type: "offre",
