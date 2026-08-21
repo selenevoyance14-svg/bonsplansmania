@@ -864,42 +864,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // DARTY — opération GEM 17-19/07 (3 codes bas de panier)
+  // DARTY — opération GEM du 21 au 23 août 2026
   // ============================================================
   {
-    id: "darty-gem60",
+    id: "darty-gem10-aout-2026",
     brandSlug: "darty",
     type: "code",
-    value: "-60 €",
-    valueLabel: "DÈS 600 €",
-    title: "-60 € dès 600 € d'achat sur le gros électroménager Darty",
-    code: "GEM60",
-    expires: "2026-07-19",
-    conditions: "Opération GEM (gros électroménager) Multicanal du vendredi 17/07/2026 à 9h au dimanche 19/07/2026 à 23h59. Palier mini 600 € sur le rayon gros électroménager. Non cumulable avec GEM80 et GEM100.",
-    featured: true,
-  },
-  {
-    id: "darty-gem80",
-    brandSlug: "darty",
-    type: "code",
-    value: "-80 €",
-    valueLabel: "DÈS 800 €",
-    title: "-80 € dès 800 € d'achat sur le gros électroménager Darty",
-    code: "GEM80",
-    expires: "2026-07-19",
-    conditions: "Opération GEM (gros électroménager) Multicanal du vendredi 17/07/2026 à 9h au dimanche 19/07/2026 à 23h59. Palier mini 800 € sur le rayon gros électroménager. Non cumulable avec GEM60 et GEM100.",
-    featured: true,
-  },
-  {
-    id: "darty-gem100",
-    brandSlug: "darty",
-    type: "code",
-    value: "-100 €",
-    valueLabel: "DÈS 1000 €",
-    title: "-100 € dès 1 000 € d'achat sur le gros électroménager Darty",
-    code: "GEM100",
-    expires: "2026-07-19",
-    conditions: "Opération GEM (gros électroménager) Multicanal du vendredi 17/07/2026 à 9h au dimanche 19/07/2026 à 23h59. Palier mini 1 000 € sur le rayon gros électroménager. Non cumulable avec GEM60 et GEM80.",
+    value: "-10 %",
+    valueLabel: "DÈS 400 €",
+    title: "-10 % dès 400 € sur le gros électroménager Haier, Candy et Rosières",
+    code: "GEM10",
+    starts: "2026-08-21",
+    expires: "2026-08-23",
+    conditions: "Valable du 21/08/2026 à 9 h au 23/08/2026 à 23 h 59 sur le gros électroménager Haier, Candy et Rosières, hors climatiseurs, ainsi que sur les accessoires gros électroménager toutes marques. Produits vendus et expédiés par Darty uniquement, hors Marketplace et seconde vie. Une utilisation par client. Seuil calculé hors éco-participation et redevance copie privée. Cumulable avec les promotions en cours, sauf celles utilisant un code avantage.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2Fnav%2Fextra%2Flist%3Fseller%3D311289-328771-311291-311290-327183-311452-0%26fl%3D1%26cat%3D4%26npk%3D1%26m%3DROSIE-HAIER-CANDY",
     featured: true,
   },
 
