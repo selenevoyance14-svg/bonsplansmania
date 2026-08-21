@@ -50,8 +50,8 @@ export const FEATURED_PERMANENT_CODES: FeaturedPermanentCode[] = [
   },
   {
     brand: "MiiN Cosmetics",
-    category: "Newsletter",
-    offer: "-10 % sur toute la boutique via inscription newsletter (K-Beauty premium).",
+    category: "Code",
+    offer: "-25 % sur Meisani et Ondo Beauty 36.5 + 5 % EXTRA avec MIIN5.",
     slug: "miin-cosmetics",
     color: "#0F766E",
   },

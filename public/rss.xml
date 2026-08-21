@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Aug 2026 09:57:03 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 11:11:46 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -33,6 +33,15 @@
       <description>Code VAC10 actif, code BEAUTE10 à venir et nouvelles offres Dr Pierre Ricaud : 2 + 1 offert, rentrée dès 11,90 € et soins Collector. Dates et conditions.</description>
       <category>code-promo</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-dr-pierre-ricaud-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>MiiN Cosmetics : -25 % sur Meisani et Ondo Beauty 36.5 + code MIIN5</title>
+      <link>https://bonsplansmania.fr/article/code-promo-miin-cosmetics-mars-2026</link>
+      <guid>https://bonsplansmania.fr/article/code-promo-miin-cosmetics-mars-2026</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Profitez de -25 % sur une sélection Meisani et Ondo Beauty 36.5 chez MiiN Cosmetics, puis de 5 % EXTRA avec le code MIIN5.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-miin-cosmetics-mars-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Concours MaFamilleZen : 5 DVD L'Enfant du désert à gagner</title>
@@ -447,15 +456,6 @@
       <description>La brosse soufflante volumisante Revlon One-Step RVDR5222 est affichée sur Amazon au 20 août 2026.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-revlon-one-step-rvdr5222-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Revlon One-Step Styler 5-en-1 sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-revlon-one-step-styler-5-en-1-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-revlon-one-step-styler-5-en-1-aout-2026</guid>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Le Revlon One-Step Styler 5-en-1 RVDR5370 avec accessoires amovibles est affiché sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-revlon-one-step-5-en-1-rvdr5370-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
