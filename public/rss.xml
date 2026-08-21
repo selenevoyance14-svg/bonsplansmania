@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Aug 2026 05:13:41 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 05:18:40 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -15,6 +15,15 @@
       <description>Jeu Fromagerie Milleret L'Ortolan du 31 août au 1er novembre 2026 : tentez de gagner un séjour et des entrées en famille pour le Puy du Fou.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-milleret-ortolan-puy-du-fou-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Concours MaFamilleZen : 5 DVD L'Enfant du désert à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-mafamillezen-dvd-enfant-du-desert-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-mafamillezen-dvd-enfant-du-desert-aout-2026</guid>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Participez gratuitement au concours MaFamilleZen et tentez de gagner l'un des 5 DVD du film L'Enfant du désert de Gilles de Maistre. Fin le 23 août 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-dvd-enfant-du-desert-mafamillezen-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Jeu La Fournée Dorée 2026 : 1 000 € et des boîtes à goûter à gagner</title>
@@ -447,15 +456,6 @@
       <description>Le lot de 100 capsules Starbucks Blonde Espresso Roast compatibles Nespresso est affiché sur Amazon au 20 août 2026.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-starbucks-blonde-espresso-100-capsules-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Starbucks Dolce Gusto: 72 capsules</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-starbucks-variete-cafe-gourmand-72-capsules-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-starbucks-variete-cafe-gourmand-72-capsules-aout-2026</guid>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Le pack variété Starbucks Café Gourmand compatible Nescafé Dolce Gusto de 72 capsules est affiché sur Amazon au 20 août 2026.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-starbucks-variete-cafe-gourmand-72-capsules-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
