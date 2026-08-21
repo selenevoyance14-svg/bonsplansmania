@@ -44,6 +44,32 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "jean-paul-gaultier-la-favorite-eau-de-parfum",
+    category: "parfums",
+    gender: "femme",
+    addedAt: "2026-08-21T08:12:00",
+    brand: "Jean Paul Gaultier",
+    name: "La Favorite Eau de Parfum",
+    image: "/images/products/jean-paul-gaultier-la-favorite.png",
+    imageAlt: "Flacon du parfum La Favorite Eau de Parfum de Jean Paul Gaultier",
+    teaser: "Une eau de parfum ambrée florale au sillage sensuel, testée et appréciée pour sa tenue et son caractère féminin.",
+    lead: "La Favorite est une eau de parfum ambrée florale de Jean Paul Gaultier, construite autour d’un benjoin chaleureux et de la Reine de la Nuit.",
+    idealFor: ["Celles qui aiment les parfums féminins et sensuels", "Un sillage présent sans être trop entêtant", "Une fragrance qui tient plusieurs heures"],
+    strengths: ["Très bonne tenue constatée", "Sillage envoûtant et raffiné", "Flacon à la silhouette féminine"],
+    watchOut: ["Le sillage est affirmé", "Les prix peuvent évoluer selon le format et les stocks"],
+    editorialNote: "Avis personnel après réception et essai : un véritable coup de cœur. La fragrance est envoûtante, sensuelle et raffinée. Elle tient plusieurs heures et donne une vraie sensation de confiance, tout en restant fidèle à l’univers audacieux de Jean Paul Gaultier.",
+    seoTitle: "Jean Paul Gaultier La Favorite : avis et prix 2026",
+    seoDescription: "Notre avis après essai du parfum La Favorite de Jean Paul Gaultier, sa tenue, son sillage et les prix par format constatés en août 2026.",
+    offers: [{
+      merchant: "Perfume’s Club",
+      note: "50 ml · autres formats disponibles chez le marchand",
+      price: "64,85 €",
+      checkedAt: "2026-08-21",
+      offer: "-42 % au moment de la vérification",
+      href: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2Ffr%2Fjean-paul-gaultier%2Fla-favorite-eau-de-parfum-vapor%2Fp_30512%2F",
+    }],
+  },
+  {
     slug: "dr-pierre-ricaud-creme-anti-rides-comblante-acide-hyaluronique",
     category: "soins-visage",
     addedAt: "2026-08-19T10:30:00",

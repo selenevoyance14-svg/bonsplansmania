@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Aug 2026 06:14:42 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 06:38:25 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -15,6 +15,15 @@
       <description>Jeu Fromagerie Milleret L'Ortolan du 31 août au 1er novembre 2026 : tentez de gagner un séjour et des entrées en famille pour le Puy du Fou.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-milleret-ortolan-puy-du-fou-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Jean Paul Gaultier La Favorite : mon avis après l’avoir testé</title>
+      <link>https://bonsplansmania.fr/article/avis-jean-paul-gaultier-la-favorite-eau-de-parfum-2026</link>
+      <guid>https://bonsplansmania.fr/article/avis-jean-paul-gaultier-la-favorite-eau-de-parfum-2026</guid>
+      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Mon avis sur La Favorite de Jean Paul Gaultier après réception et essai : odeur, sillage, tenue et prix des formats 30, 50, 100 et 200 ml.</description>
+      <category>test-avis</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/jean-paul-gaultier-la-favorite-avis-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Codes promo Dr Pierre Ricaud août et septembre 2026</title>
@@ -447,15 +456,6 @@
       <description>Le lot de 6 concentrés SodaStream limonade sans sucres est affiché sur Amazon au 20 août 2026.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-sodastream-limonade-sans-sucre-lot-6-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>St Marc: 588 lingettes désinfectantes sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-st-marc-588-lingettes-desinfectantes-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-st-marc-588-lingettes-desinfectantes-aout-2026</guid>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Le lot de 14 paquets de 42 lingettes St Marc, soit 588 lingettes, est affiché sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-st-marc-588-lingettes-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
