@@ -148,7 +148,10 @@ const categoryConfig: Record<string, { label: string; emoji: string }> = {
   "bon-plan-beaute": { label: "Bon Plan",     emoji: "🏷️" },
   "test-gratuit":    { label: "Test Gratuit", emoji: "🎁" },
   "test-avis":       { label: "Test & Avis",  emoji: "🧪" },
+  "test-produit":    { label: "Test Produit", emoji: "🧪" },
+  "comparatif":      { label: "Comparatif",   emoji: "⚖️" },
   "concours":        { label: "Concours",     emoji: "🏆" },
+  "code-promo":      { label: "Code Promo",   emoji: "🎟️" },
   "box-beaute":      { label: "Box Beauté",   emoji: "💄" },
   "beaute":            { label: "Beauté",               emoji: "✨" },
   "selection":         { label: "Beauté",               emoji: "✨" },
@@ -185,12 +188,15 @@ export default async function ArticlePage({ params }: PageProps) {
   // Bandeau "post de + de 3 semaines" pour les contenus dont la disponibilité
   // change vite. Les bons plans n'en ont plus besoin : leur prix Amazon est
   // désormais actualisé séparément par l'API officielle.
-  // Les concours et tests gratuits en sont volontairement exclus : leur durée
+  // Les offres Amazon reliées à un ASIN sont actualisées séparément et ne
+  // reçoivent donc pas cet avertissement. Les concours et tests gratuits sont
+  // volontairement exclus : leur durée
   // est fixée par le règlement, pas par leur ancienneté — ils reposent donc
   // uniquement sur `endDate` ou `expired`.
   // Référence = updated > date, donc une simple remontée fait disparaître le bandeau automatiquement.
   // "Maintenant" = date du build Cloudflare (le site est statique).
   const STALE_MESSAGES: Record<string, { title: string; cta: { label: string; href: string } }> = {
+    "bon-plan":        { title: "Ce bon plan a plus de 3 semaines — le prix ou la disponibilité peuvent avoir changé", cta: { label: "offres vérifiées récemment", href: "/bons-plans-en-cours" } },
     "code-promo":       { title: "Ce post a plus de 3 semaines — le code promo n'est peut-être plus valable", cta: { label: "codes promo en cours", href: "/categorie/code-promo" } },
     "box-beaute":       { title: "Ce post a plus de 3 semaines — cette box n'est peut-être plus proposée",     cta: { label: "box du moment",         href: "/categorie/box-beaute" } },
     "calendrier-avent": { title: "Ce post a plus de 3 semaines — ce calendrier n'est peut-être plus en vente", cta: { label: "calendriers du moment",  href: "/categorie/calendrier-avent" } },
@@ -212,6 +218,7 @@ export default async function ArticlePage({ params }: PageProps) {
   const staleMessage = STALE_MESSAGES[article.meta.category];
   const isStale = !isExpired
     && !article.meta.evergreen
+    && !article.meta.amazonAsin
     && staleMessage
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
 
@@ -414,7 +421,39 @@ export default async function ArticlePage({ params }: PageProps) {
             {/* Articles connexes AVANT la CTA affilié : si le visiteur ne clique pas sur l'affilié,
                 il doit voir 4 autres articles pertinents avant d'envisager de quitter le site.
                 Position-clé pour réduire le bounce rate (mesuré ~100% au 3 juin 2026). */}
-            {affiliateRecommendations.length >= 3 ? (
+            {relatedArticles.length > 0 && (
+              <section className="related-articles" style={{ margin: "32px 0" }}>
+                <h2 style={{ fontSize: "1.4rem", marginBottom: "6px" }}>À lire aussi</h2>
+                <p style={{ margin: "0 0 16px", color: "var(--text-muted, #6b7280)", fontSize: "0.88rem" }}>
+                  Des articles proches pour comparer, vérifier les conditions et trouver la meilleure offre.
+                </p>
+                <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
+                  {relatedArticles.map((related) => {
+                    const relCat = categoryConfig[related.meta.category];
+                    return (
+                      <a key={related.meta.slug} href={`/article/${related.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
+                        <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
+                          <Image src={related.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
+                        </div>
+                        <div className="card-body" style={{ padding: "12px" }}>
+                          <span style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.5px" }}>
+                            {relCat?.emoji} {relCat?.label}
+                          </span>
+                          <h3 className="card-title" style={{ fontSize: "0.92rem", lineHeight: 1.3, margin: "6px 0 0" }}>{related.meta.title}</h3>
+                          {related.meta.price && (
+                            <span style={{ display: "inline-block", marginTop: "8px", fontWeight: 800, fontSize: "0.86rem", color: "var(--foreground)" }}>
+                              {related.meta.price}
+                            </span>
+                          )}
+                        </div>
+                      </a>
+                    );
+                  })}
+                </div>
+              </section>
+            )}
+
+            {affiliateRecommendations.length >= 3 && (
               <section className="similar-products" style={{ margin: "32px 0" }}>
                 <h2 style={{ fontSize: "1.4rem", marginBottom: "6px" }}>
                   {isFreebieCategory ? "Bons plans à découvrir" : "Produits similaires"}
@@ -438,34 +477,17 @@ export default async function ArticlePage({ params }: PageProps) {
                       </div>
                       <div className="card-body" style={{ padding: "12px" }}>
                         <h3 className="card-title" style={{ fontSize: "0.92rem", lineHeight: 1.3, margin: 0 }}>{recommended.meta.title}</h3>
+                        {recommended.meta.price && (
+                          <strong style={{ display: "block", marginTop: "8px", fontSize: "0.9rem", color: "var(--foreground)" }}>
+                            {recommended.meta.price}
+                          </strong>
+                        )}
                         <span style={{ display: "inline-block", marginTop: "10px", color: "var(--primary)", fontWeight: 700, fontSize: "0.82rem" }}>
                           {recommended.meta.affiliateLabel || "Voir l’offre"} →
                         </span>
                       </div>
                     </a>
                   ))}
-                </div>
-              </section>
-            ) : relatedArticles.length > 0 && (
-              <section className="related-articles" style={{ margin: "32px 0" }}>
-                <h2 style={{ fontSize: "1.4rem", marginBottom: "16px" }}>A lire aussi</h2>
-                <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
-                  {relatedArticles.map((related) => {
-                    const relCat = categoryConfig[related.meta.category];
-                    return (
-                      <a key={related.meta.slug} href={`/article/${related.meta.slug}`} className="card" style={{ textDecoration: "none" }}>
-                        <div style={{ position: "relative", height: "140px", overflow: "hidden" }}>
-                          <Image src={related.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : related.meta.image} alt={related.meta.imageAlt} fill style={{ objectFit: "cover" }} sizes="25vw" />
-                        </div>
-                        <div className="card-body" style={{ padding: "12px" }}>
-                          <span style={{ fontSize: "0.7rem", fontWeight: 600, color: "var(--primary)", textTransform: "uppercase", letterSpacing: "0.5px" }}>
-                            {relCat?.emoji} {relCat?.label}
-                          </span>
-                          <h3 className="card-title" style={{ fontSize: "0.92rem", lineHeight: 1.3, margin: "6px 0 0" }}>{related.meta.title}</h3>
-                        </div>
-                      </a>
-                    );
-                  })}
                 </div>
               </section>
             )}

@@ -186,6 +186,23 @@ const SENSITIVE_CLAIMS: Array<{ key: string; pattern: RegExp; label: string }> =
   },
 ];
 
+function hasSensitiveClaim(text: string, claim: (typeof SENSITIVE_CLAIMS)[number]): boolean {
+  const match = text.match(claim.pattern);
+  if (!match || match.index === undefined) return false;
+
+  // Do not flag editorial disclaimers that explicitly reject an unsafe promise.
+  const context = text.slice(Math.max(0, match.index - 160), match.index + match[0].length + 30);
+  if (
+    claim.key === "guaranteed_result" &&
+    (/(?:sans|aucun|pas de|ne (?:promet|garantit))[^.!?\n]{0,120}(?:résultats? garantis?|efficacité garantie|à coup sûr)/i.test(context) ||
+      /évit(?:er|ez|ent|ons)[^.!?\n]{0,80}promesses?[^.!?\n]{0,80}(?:résultats? garantis?|efficacité garantie|à coup sûr)/i.test(context))
+  ) {
+    return false;
+  }
+
+  return true;
+}
+
 const articles = readArticles().filter((article) => article.published);
 const exactTitles = groupDuplicates(articles, (article) => normalizedText(article.title), 12);
 const exactSeoTitles = groupDuplicates(articles, (article) => normalizedText(article.seoTitle), 12);
@@ -256,7 +273,7 @@ const articleBySlug = new Map(articles.map((article) => [article.slug, article])
 const sensitiveClaims = articles.flatMap((article) => {
   const combined = `${article.title}\n${article.description}\n${article.content}`;
   return SENSITIVE_CLAIMS.flatMap((claim) =>
-    claim.pattern.test(combined)
+    hasSensitiveClaim(combined, claim)
       ? [{
           file: article.file,
           slug: article.slug,
@@ -293,7 +310,7 @@ const hasAutomaticStaleProtection =
   articleTemplateSource.includes("productAvailability = (isExpired || isStale)") &&
   articleTemplateSource.includes('"code-promo"') &&
   articleTemplateSource.includes("le code promo n'est peut-être plus valable");
-const AUTOMATIC_STALE_CATEGORIES = new Set(["code-promo", "box-beaute", "calendrier-avent"]);
+const AUTOMATIC_STALE_CATEGORIES = new Set(["bon-plan", "code-promo", "box-beaute", "calendrier-avent"]);
 
 const freeTrafficBridgeRows = articles
   .filter((article) => ["concours", "test-gratuit"].includes(article.category))

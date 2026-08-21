@@ -34,7 +34,7 @@ const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: st
   "test-avis":        { label: "Tests & Avis",          Icon: FlaskConical, desc: "Tests réellement effectués et analyses détaillées de produits", color: "test-avis" },
   "comparatif":       { label: "Comparatifs",           Icon: FlaskConical, desc: "Comparatifs et guides d'achat pour choisir selon tes besoins", color: "test-avis" },
   "concours":         { label: "Concours",              Icon: Trophy,       desc: "Les meilleurs jeux concours avec des lots à gagner", color: "concours" },
-  "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  desc: "Tests et avis complets sur les box beauté du moment", color: "box-beaute" },
+  "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  desc: "Offres, contenus et conditions des box beauté du moment", color: "box-beaute" },
   "beaute":           { label: "Beauté",                Icon: Sparkles,     desc: "Tutos, guides, comparatifs et avis sur les produits beauté", color: "beaute" },
   "selection":        { label: "Sélection",             Icon: Calendar,     desc: "Nos coups de cœur et sélections du moment", color: "selection" },
   "calendrier":       { label: "Calendrier",            Icon: Calendar,     desc: "Calendriers beauté et coffrets à saisir", color: "calendrier" },

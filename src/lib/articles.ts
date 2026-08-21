@@ -419,77 +419,27 @@ export function getDealOfDay(): Article | null {
 
 export function getRelatedArticles(slug: string, category: string, limit = 3, tags: string[] = []): Article[] {
   const all = getAllArticles().filter((a) => a.meta.slug !== slug);
-  const currentArticle = getArticleBySlug(slug);
-  const hasAffiliate = !!currentArticle?.meta.affiliateUrl;
+  const normalizedTags = new Set(tags.map(slugifyTag));
 
-  // Scoring amélioré : tags en commun + même catégorie + bonus fraîcheur + diversité
+  // Scoring éditorial : un tag réellement commun pèse davantage que la seule
+  // appartenance à une catégorie. La normalisation évite de séparer, par
+  // exemple, "Prescription Lab" et "prescription-lab".
   const now = Date.now();
   const scored = all.map((a) => {
-    const tagScore = a.meta.tags.filter((t) => tags.includes(t)).length;
-    const catScore = a.meta.category === category ? 2 : 0;
-    // Bonus pour les articles récents (max +1 pour articles < 7 jours)
-    const ageMs = now - new Date(a.meta.date).getTime();
+    const sharedTags = a.meta.tags.filter((tag) => normalizedTags.has(slugifyTag(tag))).length;
+    const catScore = a.meta.category === category ? 3 : 0;
+    const ageMs = now - new Date(a.meta.updated || a.meta.date).getTime();
     const ageDays = ageMs / (1000 * 60 * 60 * 24);
-    const freshnessScore = ageDays < 7 ? 1 : ageDays < 30 ? 0.5 : 0;
-    // Bonus pour les articles plus longs (contenu riche)
+    const freshnessScore = ageDays < 7 ? 1.5 : ageDays < 30 ? 0.75 : 0;
     const lengthScore = a.content.length > 2000 ? 0.5 : 0;
-    return { article: a, score: tagScore + catScore + freshnessScore + lengthScore };
+    const priceScore = a.meta.price ? 0.25 : 0;
+    return { article: a, score: sharedTags * 4 + catScore + freshnessScore + lengthScore + priceScore };
   });
 
-  // Trier par score puis sélectionner avec diversité de catégorie
-  const sorted = scored.filter((s) => s.score > 0).sort((a, b) => b.score - a.score);
-  const matched: Article[] = [];
-  const usedCategories = new Set<string>();
-
-  // D'abord, essayer de varier les catégories parmi les top scores
-  for (const s of sorted) {
-    if (matched.length >= limit) break;
-    // Accepter max 2 articles de la même catégorie pour garder de la diversité
-    const catCount = matched.filter((m) => m.meta.category === s.article.meta.category).length;
-    if (catCount < 2) {
-      matched.push(s.article);
-      usedCategories.add(s.article.meta.category);
-    }
-  }
-
-  // Si pas assez, compléter avec les meilleurs scores restants
-  if (matched.length < limit) {
-    const seen = new Set(matched.map((a) => a.meta.slug));
-    for (const s of sorted) {
-      if (matched.length >= limit) break;
-      if (!seen.has(s.article.meta.slug)) {
-        matched.push(s.article);
-        seen.add(s.article.meta.slug);
-      }
-    }
-  }
-
-  // Fallback : articles récents de catégories différentes
-  if (matched.length < limit) {
-    const seen = new Set(matched.map((a) => a.meta.slug));
-    const fallback = all
-      .filter((a) => !seen.has(a.meta.slug))
-      .filter((a) => !usedCategories.has(a.meta.category) || matched.length < limit - 1)
-      .slice(0, limit - matched.length);
-    matched.push(...fallback);
-  }
-
-  // Si l'article courant n'est pas affilié, remplacer le dernier article
-  // par un article affilié pertinent pour la monétisation
-  if (!hasAffiliate && matched.length > 0) {
-    const matchedSlugs = new Set(matched.map((a) => a.meta.slug));
-    // Chercher un article affilié dans la même catégorie d'abord
-    const affiliateArticle = all.find(
-      (a) => a.meta.affiliateUrl && !matchedSlugs.has(a.meta.slug) && a.meta.category === category
-    ) || all.find(
-      (a) => a.meta.affiliateUrl && !matchedSlugs.has(a.meta.slug)
-    );
-    if (affiliateArticle) {
-      matched[matched.length - 1] = affiliateArticle;
-    }
-  }
-
-  return matched;
+  const sorted = scored.sort((a, b) => b.score - a.score);
+  const sameCategory = sorted.filter(({ article }) => article.meta.category === category);
+  const otherCategories = sorted.filter(({ article }) => article.meta.category !== category);
+  return [...sameCategory, ...otherCategories].slice(0, limit).map(({ article }) => article);
 }
 
 /**
