@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 21 Aug 2026 08:39:23 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 21 Aug 2026 09:57:03 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -60,6 +60,15 @@
       <description>Jeu en or La Fournée Dorée avec achat : 1 000 € par tirage au sort, 120 boîtes à goûter et des bons de réduction à gagner. Achats éligibles jusqu'au 18 octobre 2026.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/jeu-en-or-la-fournee-doree-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Prescription Lab : 2 box beauté et 10 produits pour 13 €</title>
+      <link>https://bonsplansmania.fr/article/prescription-lab-4-box-beaute-14-euros-14-produits-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/prescription-lab-4-box-beaute-14-euros-14-produits-aout-2026</guid>
+      <pubDate>Fri, 14 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Offre Prescription Lab : 2 nouvelles box et 10 produits d’une valeur annoncée de 286 € pour 13 €, plus 3,90 € de livraison, avec abonnement sans engagement.</description>
+      <category>box-beaute</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/prescription-lab-offre-2-box-13-euros-aout-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Codes promo Private Sport Shop : jusqu’à -20 % en août 2026</title>
@@ -447,15 +456,6 @@
       <description>Le Revlon One-Step Styler 5-en-1 RVDR5370 avec accessoires amovibles est affiché sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-revlon-one-step-5-en-1-rvdr5370-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Sanex 0 % Extra Control: lot de 6 sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-sanex-zero-extra-control-lot-6-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-sanex-zero-extra-control-lot-6-aout-2026</guid>
-      <pubDate>Thu, 20 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Le lot de 6 déodorants bille Sanex 0 % Extra Control 50 ml est affiché sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-sanex-zero-extra-control-6x50ml-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
