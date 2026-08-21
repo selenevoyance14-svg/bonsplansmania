@@ -731,6 +731,12 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les ventes Private Sport Shop",
     matchTags: ["private-sport-shop", "private sport shop", "privatesportshop"],
     color: "#0F766E",
+    currentOffer: {
+      code: "BTS20",
+      discount: "-20 %",
+      conditions: "20 % supplémentaires dès 3 produits de la vente privée Back to Sport, jusqu’au 27 août 2026. Non cumulable avec un autre code.",
+      verifiedAt: "2026-08-21",
+    },
   },
   {
     slug: "rakuten",
