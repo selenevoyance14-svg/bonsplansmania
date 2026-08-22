@@ -16,6 +16,7 @@ const menus = [
       ["Coin Rentrée", "/bons-plans-rentree"], ["Bons plans en cours", "/bons-plans-en-cours"],
       ["Marques partenaires", "/marques-partenaires"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
+      ["Idées cadeaux Noël 2026", "/idees-cadeaux-noel-2026"],
     ],
   },
   {
