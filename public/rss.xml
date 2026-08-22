@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 22 Aug 2026 09:40:43 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 22 Aug 2026 14:14:20 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -69,6 +69,15 @@
       <description>L'eau de toilette femme Eau de Rochas Néroli Azur 100 ml est proposée à 44,86 € au lieu de 110 € chez Perfume's Club.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-rochas-neroli-azur-eau-toilette-aout-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>iGraal : 15 € offerts avec le parrainage du 24 au 27 août 2026</title>
+      <link>https://bonsplansmania.fr/article/igraal-cashback-parrainage-15-euros-offerts-inscription-2026</link>
+      <guid>https://bonsplansmania.fr/article/igraal-cashback-parrainage-15-euros-offerts-inscription-2026</guid>
+      <pubDate>Sat, 22 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Offre iGraal du 24 au 27 août 2026 : 15 € pour le filleul et 15 € pour le parrain, avec un tirage au sort de 100 € dès trois filleuls éligibles.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/igraal-cashback-parrainage-15-euros-4.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Jean Paul Gaultier La Favorite : mon avis après l’avoir testé</title>
@@ -447,15 +456,6 @@
       <description>Le lot de 2 kg de café en grains by Amazon House Blend, 100 % arabica, est affiché.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-by-amazon-house-blend-cafe-grains-2kg-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Huggies Pure: 1008 lingettes bébé sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-huggies-pure-99-eau-lingettes-1008-mai-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-huggies-pure-99-eau-lingettes-1008-mai-2026</guid>
-      <pubDate>Mon, 18 May 2026 00:00:00 GMT</pubDate>
-      <description>Le lot Huggies Pure de 18 paquets, soit 1008 lingettes bébé à 99 % d'eau et sans parfum, est affiché sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/amazon-huggies-pure-1008-lingettes-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
