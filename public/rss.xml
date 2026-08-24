@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 23 Aug 2026 20:11:17 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 24 Aug 2026 07:25:12 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -15,6 +15,24 @@
       <description>Jeu Fromagerie Milleret L'Ortolan du 31 août au 1er novembre 2026 : tentez de gagner un séjour et des entrées en famille pour le Puy du Fou.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-milleret-ortolan-puy-du-fou-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Test produit gratuit : 8 coffrets de sirops MONIN à tester</title>
+      <link>https://bonsplansmania.fr/article/test-produit-gratuit-coffret-sirops-monin-8-testeurs-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-gratuit-coffret-sirops-monin-8-testeurs-2026</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Tester des Produits recherche 8 testeurs pour essayer gratuitement un coffret de sirops MONIN. Tirage au sort prévu le 16 novembre 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gratuit-coffret-sirops-monin-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test gratuit Hauck : 3 poussettes doubles Grow N Care Twin Set</title>
+      <link>https://bonsplansmania.fr/article/test-produit-gratuit-poussette-double-hauck-grow-n-care-twin-set-aout-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-gratuit-poussette-double-hauck-grow-n-care-twin-set-aout-2026</guid>
+      <pubDate>Mon, 24 Aug 2026 00:00:00 GMT</pubDate>
+      <description>ConsoBaby recherche 3 familles pour tester gratuitement la poussette double Hauck Grow N Care Twin Set, vendue 699,90 €. Candidatures avant le 30 août 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gratuit-poussette-double-hauck-grow-n-care-twin-set-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Biotyfull Box : 8 routines et 20 produits pour 16 €</title>
@@ -413,15 +431,6 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-miin-cosmetics-mars-2026.png" type="image/png" length="0"/>
     </item>
     <item>
-      <title>Concours MaFamilleZen : 5 DVD L'Enfant du désert à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-mafamillezen-dvd-enfant-du-desert-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-mafamillezen-dvd-enfant-du-desert-aout-2026</guid>
-      <pubDate>Fri, 21 Aug 2026 00:00:00 GMT</pubDate>
-      <description>Participez gratuitement au concours MaFamilleZen et tentez de gagner l'un des 5 DVD du film L'Enfant du désert de Gilles de Maistre. Fin le 23 août 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-dvd-enfant-du-desert-mafamillezen-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
       <title>Glowria : 6 routines beauté et 15 produits pour 13 €</title>
       <link>https://bonsplansmania.fr/article/glowria-6-routines-13-euros-tote-bag-ete-2026</link>
       <guid>https://bonsplansmania.fr/article/glowria-6-routines-13-euros-tote-bag-ete-2026</guid>
@@ -447,15 +456,6 @@
       <description>Offre Prescription Lab : 2 nouvelles box et 10 produits d’une valeur annoncée de 286 € pour 13 €, plus 3,90 € de livraison, avec abonnement sans engagement.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/prescription-lab-offre-2-box-13-euros-aout-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Codes promo Private Sport Shop : jusqu’à -20 % en août 2026</title>
-      <link>https://bonsplansmania.fr/article/private-sport-shop-codes-promo-soldes-multibuy-extra-asics-adele10-bike-2026</link>
-      <guid>https://bonsplansmania.fr/article/private-sport-shop-codes-promo-soldes-multibuy-extra-asics-adele10-bike-2026</guid>
-      <pubDate>Sun, 19 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Codes promo Private Sport Shop vérifiés : BTS20, BTS10, NIKE, FREE et BIKE. Réductions, livraison offerte, dates et conditions en août 2026.</description>
-      <category>code-promo</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/private-sport-shop-codes-promo-soldes-multibuy-extra-asics-adele10-bike-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
