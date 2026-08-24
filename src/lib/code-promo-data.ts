@@ -633,7 +633,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "miin-cosmetics",
     name: "MiiN Cosmetics",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&ued=https%3A%2F%2Fmiin-cosmetics.fr%2F",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina",
     affiliateLabel: "Voir les offres MiiN Cosmetics",
     matchTags: ["miin-cosmetics", "miin cosmetics", "miin", "k-beauty"],
     color: "#EC4899",

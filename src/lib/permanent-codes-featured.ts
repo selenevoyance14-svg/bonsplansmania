@@ -49,13 +49,6 @@ export const FEATURED_PERMANENT_CODES: FeaturedPermanentCode[] = [
     color: "#7C3AED",
   },
   {
-    brand: "MiiN Cosmetics",
-    category: "Code",
-    offer: "-25 % sur Meisani et Ondo Beauty 36.5 + 5 % EXTRA avec MIIN5.",
-    slug: "miin-cosmetics",
-    color: "#0F766E",
-  },
-  {
     brand: "Poulpeo",
     category: "Cashback",
     offer: "10 € offerts à l'inscription + cashback boostés sur 3 000 marchands (Sephora, Cdiscount, Fnac).",
