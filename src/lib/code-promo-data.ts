@@ -21,6 +21,20 @@ export interface CodePromoBrand {
 
 export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
+    slug: "bears-with-benefits",
+    name: "Bears with Benefits",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller",
+    affiliateLabel: "Voir les offres Bears with Benefits",
+    matchTags: ["bears with benefits", "bears-with-benefits", "gummies"],
+    color: "#EAB8CA",
+    currentOffer: {
+      code: "BEARFECT",
+      discount: "12 % supplémentaires",
+      conditions: "BearsDay : jusqu'à 50 % de réduction et un tote bag offert dès 59 € d'achat. Vérifier le cumul et les exclusions au panier.",
+      verifiedAt: "2026-08-25",
+    },
+  },
+  {
     slug: "prescription-lab",
     name: "Prescription Lab",
     affiliateUrl: "https://www.prescriptionlab.com/landing/4pour14?ae=10&aev=https%3A%2F%2Fwww.prescriptionlab.com%2Flanding%2F5pour15%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",

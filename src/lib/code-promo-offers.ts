@@ -28,6 +28,8 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  { id: "bears-with-benefits-bearsday-bearfect-aout-2026", brandSlug: "bears-with-benefits", type: "code", value: "-12 %", valueLabel: "EXTRA", title: "12 % supplémentaires pendant BearsDay", code: "BEARFECT", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", starts: "2026-08-25", conditions: "Offre BearsDay communiquée par la marque le 25 août 2026 : jusqu'à 50 % de réduction sur la sélection, 12 % supplémentaires avec le code BEARFECT et un tote bag offert dès 59 € d'achat. Offre temporaire, dans la limite des stocks. Date de fin non indiquée dans le message reçu ; vérifier l'application du code et du cadeau au panier.", featured: true },
+  { id: "bears-with-benefits-newsletter-15", brandSlug: "bears-with-benefits", type: "newsletter", value: "-15 %", valueLabel: "NEWSLETTER", title: "15 % de réduction avec l'inscription à la newsletter", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", permanent: true, conditions: "Avantage proposé après inscription à la newsletter Bears with Benefits. Code envoyé par e-mail. Vérifier sa durée de validité, les exclusions et le cumul avec les promotions en cours avant de commander.", featured: true },
   { id: "igraal-parrainage-15-aout-2026", brandSlug: "igraal", brandName: "iGraal", type: "parrainage", value: "15 €", valueLabel: "PARRAIN + FILLEUL", title: "15 € pour le filleul et 15 € pour le parrain", starts: "2026-08-24", expires: "2026-08-27", affiliateUrl: "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=raf&utm_source=refer_premium", conditions: "Inscription via un lien de parrainage du 24 au 27 août 2026. Le filleul doit réaliser un achat éligible d'au moins 10 € TTC dans les 90 jours et atteindre au moins 1 € de cashback validé dans les 365 jours. Le bonus est validé après validation du cashback. Auto-parrainage interdit. Dès trois filleuls obtenus pendant l'opération, le parrain participe au tirage au sort permettant à dix gagnants de recevoir 100 € sur leur cagnotte.", featured: true },
   { id: "miin-back-to-school-15-aout-septembre-2026", brandSlug: "miin-cosmetics", type: "code", value: "-15 %", valueLabel: "DÈS 49 €", title: "15 % de réduction dès 49 € d'achat pour la rentrée", code: "BACK15MIIN", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina", starts: "2026-08-20", expires: "2026-09-12", conditions: "Promotion valable du 20 août au 12 septembre 2026 à 23 h 59 (heure de France métropolitaine), sur les commandes passées via le site web ou l'application MiiN Cosmetics, dans la limite des stocks disponibles. Réduction de 15 % dès 49 € d'achat avec le code BACK15MIIN. Offre non cumulable avec d'autres offres ou réductions, à l'exception du programme de fidélité MiiN Club.", featured: true },
   { id: "clarins-welcome20", brandSlug: "clarins", type: "code", value: "-20 %", valueLabel: "+ CADEAUX", title: "20 % sur la première commande + une trousse et deux essentiels beauté dès 60 €", code: "WELCOME20", conditions: "Offre communiquée par Clarins le 13 août 2026. Réservée à la première commande. Une trousse et deux essentiels beauté sont annoncés dès 60 € d'achat, selon les conditions et stocks disponibles. Aucune date de fin précise n'a été communiquée ; vérifier l'application au panier.", featured: true },
@@ -986,54 +988,32 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
 
   // ============================================================
   // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
-  // Offres Léa Nature vérifiées le 17/08/2026
+  // Offre Léa Nature vérifiée le 25/08/2026
   // ============================================================
   {
-    id: "lea-nature-soleil20",
-    brandSlug: "lea-nature",
-    type: "code",
-    value: "-20 %",
-    valueLabel: "SÉLECTION",
-    title: "-20 % sur une sélection avec le code SOLEIL20",
-    code: "SOLEIL20",
-    starts: "2026-08-09",
-    expires: "2026-08-22",
-    conditions: "Offre du 9 au 22 août 2026 sur une sélection. Non cumulable avec une autre promotion, hors direct usine, kits et routines.",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
-    featured: true,
-  },
-  {
-    id: "lea-nature-lift-grenade",
+    id: "lea-nature-green-rentree-beaute-bien-etre-2026",
     brandSlug: "lea-nature",
     type: "offre",
     value: "-30 %",
-    valueLabel: "LIFT'GRENADE",
-    title: "-30 % sur la gamme Lift'Grenade SO'BiO étic",
-    expires: "2026-08-31",
-    conditions: "Remise automatique valable dans la limite des stocks. Non cumulable avec une autre promotion.",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
+    valueLabel: "GREEN RENTRÉE",
+    title: "-30 % sur Beauté & Hygiène et Bien-être & Santé",
+    starts: "2026-08-23",
+    expires: "2026-08-29",
+    conditions: "Offre Green Rentrée valable du 23 au 29 août 2026 inclus sur les catégories Beauté & Hygiène et Bien-être & Santé. Remise affichée sur le site, selon les produits et stocks disponibles.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbeaute-et-hygiene.html",
+    featured: true,
   },
   {
-    id: "lea-nature-jardin-bio-karelea-aout-20",
+    id: "lea-nature-green-rentree-alimentation-maison-2026",
     brandSlug: "lea-nature",
     type: "offre",
-    value: "-20 %",
-    valueLabel: "ALIMENTATION BIO",
-    title: "20 % sur Karéléa et les biscuits Jardin BiO étic",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
-    expires: "2026-08-31",
-    conditions: "Offre sur les produits signalés, dans la limite des stocks. Non cumulable avec les autres promotions.",
-  },
-  {
-    id: "lea-nature-cadeaux-paliers-aout-2026",
-    brandSlug: "lea-nature",
-    type: "offre",
-    value: "Dès 55 €",
-    valueLabel: "CADEAU",
-    title: "Un cadeau offert selon le montant du panier",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans.html",
-    expires: "2026-08-31",
-    conditions: "Spray d'Eau Thermale dès 55 €, Hydrate Magnésium Marin Pêche dès 65 € ou Huile Irisée Illuminatrice dès 75 €. Un seul cadeau selon le palier atteint, dans la limite des stocks. Non cumulable.",
+    value: "-15 %",
+    valueLabel: "GREEN RENTRÉE",
+    title: "-15 % sur Alimentation et Maison",
+    starts: "2026-08-23",
+    expires: "2026-08-29",
+    conditions: "Offre Green Rentrée valable du 23 au 29 août 2026 inclus sur les catégories Alimentation et Maison. Remise affichée sur le site, selon les produits et stocks disponibles.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbeaute-et-hygiene.html",
   },
   // MORGAN — offres vérifiées le 13 août 2026
   {
