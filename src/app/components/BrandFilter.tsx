@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
+import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
@@ -329,7 +329,7 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
                       aria-label={article.title}
                     />
                     <div className="bpm-card-h-image">
-                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "contain", padding: "8px" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
+                      <AmazonProductImage asin={amazonAsin} fallbackSrc={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.image} alt={article.imageAlt} objectFit="contain" padding="8px" sizes="(max-width: 768px) 120px, 200px" />
                       {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
                       {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
                       {!article.expired && article.expiresSoon && <span className="bpm-card-h-soon-badge">⏰ Bientôt fini</span>}
