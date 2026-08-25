@@ -28,7 +28,7 @@ export const metadata: Metadata = {
 // Filtre ultra-strict : tag exact OU slug contient token dédié bébé.
 // Jamais de match sur title/description (trop permissif, pollue avec maquillage/mode).
 const EXACT_TAGS = new Set([
-  "bebe", "puericulture", "maternite", "allaitement", "babyboom",
+  "bebe", "bébé", "puericulture", "puériculture", "maternite", "maternité", "allaitement", "babyboom",
   "grossesse", "parent-bebe", "bebeboutik", "babybjorn", "babybjörn",
   "beaba", "béaba", "chicco", "maxi-cosi", "momcozy",
 ]);
