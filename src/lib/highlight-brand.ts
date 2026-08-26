@@ -18,6 +18,10 @@ export type HighlightBrand = {
   emoji?: string;
   /** libellé personnalisé du bouton */
   ctaLabel?: string;
+  /** visuel affiché dans le bloc de la page d'accueil */
+  imageSrc: string;
+  /** texte alternatif descriptif du visuel */
+  imageAlt: string;
 };
 
 export const BRAND_OF_THE_WEEK: HighlightBrand = {
@@ -29,4 +33,6 @@ export const BRAND_OF_THE_WEEK: HighlightBrand = {
   color: "#BE185D",
   emoji: "🩷",
   ctaLabel: "Découvrir chez YesStyle",
+  imageSrc: "/images/articles/biodance-bio-collagen-real-deep-mask-2026.png",
+  imageAlt: "Masques hydrogel Biodance Bio-Collagen Real Deep Mask",
 };

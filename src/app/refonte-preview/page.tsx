@@ -217,7 +217,7 @@ export default function RefontePreviewPage() {
                 <p>{BRAND_OF_THE_WEEK.tagline}</p>
                 <a href={BRAND_OF_THE_WEEK.hubUrl} target="_blank" rel="nofollow sponsored noopener">Découvrir la sélection <ArrowUpRight size={16} /></a>
               </div>
-              <Image src="/images/articles/beauty-of-joseon-relief-sun-creme-solaire-yesstyle-2026.png" alt="Beauty of Joseon Relief Sun SPF50+" width={210} height={190} />
+              <Image src={BRAND_OF_THE_WEEK.imageSrc} alt={BRAND_OF_THE_WEEK.imageAlt} width={210} height={190} />
             </div>
           </article>
         </div>
