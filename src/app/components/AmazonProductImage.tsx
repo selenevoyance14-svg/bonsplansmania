@@ -3,15 +3,16 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
-type AmazonOfferImage = {
+export type AmazonOffer = {
   image?: string | null;
   title?: string | null;
+  price?: string | null;
 };
 
-const offerCache = new Map<string, AmazonOfferImage>();
-const pendingOffers = new Map<string, Promise<AmazonOfferImage>>();
+const offerCache = new Map<string, AmazonOffer>();
+const pendingOffers = new Map<string, Promise<AmazonOffer>>();
 
-function loadAmazonOffer(asin: string): Promise<AmazonOfferImage> {
+export function loadAmazonOffer(asin: string): Promise<AmazonOffer> {
   const key = asin.toUpperCase();
   const cached = offerCache.get(key);
   if (cached) return Promise.resolve(cached);
@@ -22,7 +23,7 @@ function loadAmazonOffer(asin: string): Promise<AmazonOfferImage> {
   const request = fetch(`/api/amazon/${encodeURIComponent(key)}`)
     .then(async (response) => {
       if (!response.ok) throw new Error("Amazon image unavailable");
-      return (await response.json()) as AmazonOfferImage;
+      return (await response.json()) as AmazonOffer;
     })
     .then((offer) => {
       offerCache.set(key, offer);
@@ -53,7 +54,7 @@ export default function AmazonProductImage({
   objectFit = "cover",
   padding,
 }: Props) {
-  const [offer, setOffer] = useState<AmazonOfferImage | null>(() =>
+  const [offer, setOffer] = useState<AmazonOffer | null>(() =>
     asin ? offerCache.get(asin.toUpperCase()) ?? null : null,
   );
 

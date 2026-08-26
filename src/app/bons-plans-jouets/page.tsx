@@ -72,7 +72,16 @@ const EXCLUDED_TOKENS = [
   "nintendo-switch-game", "playstation-game", "xbox-game", "ps5-jeu",
 ];
 
-const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
+const EXCLUDED_TAGS_FROM_HERE = new Set([
+  "puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto",
+  "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe",
+  "table-a-langer", "couche-bebe", "lait-maternel",
+  // Beauté, mode et rentrée disposent déjà de leurs propres univers.
+  "beaute", "parfum", "eau-de-toilette", "sac-a-dos-enfant", "montre-enfant",
+  "fournitures-scolaires", "papeterie",
+  // Matériel professionnel de loisirs créatifs, mais pas jouet enfant.
+  "graveur-laser", "decoupe-laser", "laser-co2", "fablab",
+]);
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
 

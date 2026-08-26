@@ -293,7 +293,11 @@ export function getArticleBySlug(slug: string): Article | null {
         ? getArchiveArticleImageAlt(category)
         : (amazonArticle ? sanitizeAmazonClaims(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
       rating: amazonArticle ? undefined : data.rating,
-      price: amazonArticle ? undefined : data.price,
+      price: amazonArticle
+        ? typeof data.price === "string" && /^indisponible/i.test(data.price.trim())
+          ? data.price
+          : undefined
+        : data.price,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,
       amazonAsin: amazonArticle ? extractAmazonAsin(data, content) : undefined,
