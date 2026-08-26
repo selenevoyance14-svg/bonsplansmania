@@ -11,6 +11,12 @@ export type AmazonOffer = {
 
 const offerCache = new Map<string, AmazonOffer>();
 const pendingOffers = new Map<string, Promise<AmazonOffer>>();
+const forcedAmazonImages: Record<string, string> = {
+  // Visuel officiel renvoyé par l'API Amazon le 26 août 2026.
+  // Secours immédiat si le chargement dynamique est retardé sur cette fiche.
+  B0DM679R7F: "https://m.media-amazon.com/images/I/41COEJVKdbL._SL500_.jpg",
+  B0F3WXJ9F8: "https://m.media-amazon.com/images/I/519DNAusbLL._SL500_.jpg",
+};
 
 export function loadAmazonOffer(asin: string): Promise<AmazonOffer> {
   const key = asin.toUpperCase();
@@ -54,9 +60,11 @@ export default function AmazonProductImage({
   objectFit = "cover",
   padding,
 }: Props) {
-  const [offer, setOffer] = useState<AmazonOffer | null>(() =>
-    asin ? offerCache.get(asin.toUpperCase()) ?? null : null,
-  );
+  const [offer, setOffer] = useState<AmazonOffer | null>(() => {
+    if (!asin) return null;
+    const key = asin.toUpperCase();
+    return offerCache.get(key) ?? (forcedAmazonImages[key] ? { image: forcedAmazonImages[key] } : null);
+  });
 
   useEffect(() => {
     if (!asin) return;

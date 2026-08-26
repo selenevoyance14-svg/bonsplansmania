@@ -13,6 +13,7 @@ import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
 import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
 import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
+import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { shouldHideAmazonPrice } from "@/lib/article-commerce";
 
 interface PageProps { params: Promise<{ slug: string }>; }
@@ -387,8 +388,20 @@ export default async function ArticlePage({ params }: PageProps) {
               <AdBlock />
             </div>
 
-            <div className="article-hero-image" style={{ background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
-              <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
+            <div className="article-hero-image" style={{ position: "relative", width: "100%", minHeight: "clamp(260px, 45vw, 450px)", background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
+              {article.meta.amazonAsin ? (
+                <AmazonProductImage
+                  asin={article.meta.amazonAsin}
+                  fallbackSrc={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}
+                  alt={article.meta.imageAlt}
+                  objectFit="contain"
+                  padding="18px"
+                  sizes="(max-width: 768px) 100vw, 800px"
+                  priority
+                />
+              ) : (
+                <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
+              )}
             </div>
 
             {article.meta.amazonAsin && !shouldHideAmazonPrice(slug) && affiliateUrl !== "#" && !isExpired && (

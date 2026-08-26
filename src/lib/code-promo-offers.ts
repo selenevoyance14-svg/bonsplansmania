@@ -1039,7 +1039,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
   // ============================================================
-  // MILÉADE — offres vérifiées le 13/08/2026
+  // MILÉADE — offres vérifiées le 26/08/2026
   // ============================================================
   {
     id: "mileade-derniere-minute-mer-2026",
