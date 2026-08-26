@@ -197,7 +197,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "carte-noire",
     name: "Carte Noire",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr%2Frentreeaubureau",
     affiliateLabel: "Voir les offres Carte Noire",
     matchTags: ["carte-noire", "carte noire"],
     color: "#1F2937",
