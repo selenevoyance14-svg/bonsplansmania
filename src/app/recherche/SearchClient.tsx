@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import SearchAlertSignup from "@/app/components/SearchAlertSignup";
 
 interface ArticleData {
   slug: string;
@@ -103,6 +104,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
               <p style={{ color: "var(--muted-foreground)", fontSize: "0.9rem" }}>
                 Essayez avec un autre mot-clé ou parcourez les catégories depuis l&apos;accueil.
               </p>
+              <SearchAlertSignup initialQuery={query} />
             </div>
           )}
 
@@ -135,6 +137,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
                   </a>
                 ))}
               </div>
+              <SearchAlertSignup initialQuery={query} compact />
             </>
           )}
         </div>

@@ -17,7 +17,8 @@ export default function Confidentialite() {
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Données collectées</h2>
             <p>
-              BonsPlansMania.fr peut traiter ton adresse email lorsque tu t&apos;inscris volontairement à la newsletter. Lors de la
+              BonsPlansMania.fr peut traiter ton adresse email lorsque tu t&apos;inscris volontairement à la newsletter ou à une alerte personnalisée.
+              Pour une alerte, le mot-clé, le type (produit, marque ou catégorie) et la fréquence choisis sont également enregistrés. Lors de la
               navigation, des données techniques et des identifiants en ligne peuvent également être traités, notamment l&apos;adresse
               IP, le type d&apos;appareil, le navigateur, les pages consultées et les interactions avec le site, selon tes choix en
               matière de cookies.
@@ -27,7 +28,8 @@ export default function Confidentialite() {
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Finalités et bases légales</h2>
             <p>
-              Ton email est utilisé pour envoyer la newsletter, sur la base de ton consentement. Les données techniques strictement
+              Ton email est utilisé pour envoyer la newsletter ou les alertes demandées, sur la base de ton consentement. Les alertes sont
+              activées uniquement après confirmation par email et restent indépendantes de la newsletter. Les données techniques strictement
               nécessaires servent au fonctionnement et à la sécurité du site. Les mesures d&apos;audience et les publicités sont
               utilisées selon les choix exprimés dans le gestionnaire de consentement. Bons Plans Mania ne vend pas les adresses
               email de ses abonnés.
@@ -37,8 +39,8 @@ export default function Confidentialite() {
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Hébergement &amp; durée</h2>
             <p>
-              Les adresses email sont conservées tant que tu restes inscrit·e à la newsletter, puis supprimées lors de la
-              désinscription, sous réserve des délais techniques nécessaires. Les durées applicables aux cookies sont indiquées
+              Les données d&apos;abonnement sont conservées tant que tu restes inscrit·e à la newsletter ou à l&apos;alerte concernée, puis supprimées lors de la
+              désinscription. Les alertes sont hébergées dans Cloudflare KV et les emails sont envoyés par Resend. Les durées applicables aux cookies sont indiquées
               dans le gestionnaire de consentement accessible sur le site.
             </p>
           </section>
@@ -46,8 +48,8 @@ export default function Confidentialite() {
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Désinscription</h2>
             <p>
-              Tu peux te désinscrire à tout moment via le lien présent en bas de chaque
-              newsletter. La suppression est immédiate et définitive.
+              Tu peux te désinscrire à tout moment via le lien présent en bas de chaque newsletter ou email d&apos;alerte.
+              Chaque alerte peut ainsi être supprimée séparément.
             </p>
           </section>
 

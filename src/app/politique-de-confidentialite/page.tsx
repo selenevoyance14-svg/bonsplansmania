@@ -28,7 +28,8 @@ export default function PolitiqueConfidentialite() {
               Nous collectons uniquement les données nécessaires au bon fonctionnement du site :
             </p>
             <ul style={{ paddingLeft: "20px", marginTop: "8px", lineHeight: 1.8 }}>
-              <li>Adresse e-mail (si inscription à la newsletter)</li>
+              <li>Adresse e-mail (si inscription à la newsletter ou à une alerte personnalisée)</li>
+              <li>Mot-clé, type et fréquence choisis pour chaque alerte</li>
               <li>Données de navigation anonymisées (via Google Analytics)</li>
               <li>Cookies publicitaires (via Google AdSense)</li>
             </ul>
@@ -38,6 +39,7 @@ export default function PolitiqueConfidentialite() {
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Finalité du traitement</h2>
             <ul style={{ paddingLeft: "20px", lineHeight: 1.8 }}>
               <li>Envoi de la newsletter (si vous vous êtes inscrite)</li>
+              <li>Envoi des alertes personnalisées confirmées par e-mail</li>
               <li>Analyse du trafic pour améliorer le contenu</li>
               <li>Affichage de publicités personnalisées</li>
             </ul>
@@ -74,13 +76,22 @@ export default function PolitiqueConfidentialite() {
           </section>
 
           <section style={{ marginBottom: "32px" }}>
+            <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Alertes personnalisées</h2>
+            <p>
+              Les alertes produit, marque ou catégorie sont indépendantes de la newsletter et ne sont activées qu&apos;après confirmation par e-mail.
+              Les données sont stockées dans Cloudflare KV et les messages sont envoyés par Resend. Chaque alerte peut être supprimée à tout moment
+              grâce au lien de désinscription inclus dans les e-mails.
+            </p>
+          </section>
+
+          <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Hébergement</h2>
             <p>Cloudflare, Inc.<br />101 Townsend St, San Francisco, CA 94107, USA</p>
           </section>
 
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Mise à jour</h2>
-            <p>Cette politique peut être mise à jour à tout moment. Dernière mise à jour : juin 2026.</p>
+            <p>Cette politique peut être mise à jour à tout moment. Dernière mise à jour : août 2026.</p>
           </section>
         </div>
       </main>
