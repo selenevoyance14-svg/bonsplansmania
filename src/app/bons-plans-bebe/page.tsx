@@ -31,6 +31,9 @@ const EXACT_TAGS = new Set([
   "bebe", "bébé", "puericulture", "puériculture", "maternite", "maternité", "allaitement", "babyboom",
   "grossesse", "parent-bebe", "bebeboutik", "babybjorn", "babybjörn",
   "beaba", "béaba", "chicco", "maxi-cosi", "momcozy",
+  "couche", "couches", "couches-bebe", "couches bébé", "couches-ecologiques",
+  "couches écologiques", "culottes-apprentissage", "culottes apprentissage",
+  "lingettes-bebe", "lingettes bébé", "lait-infantile", "lait infantile",
 ]);
 const SLUG_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
@@ -38,7 +41,9 @@ const SLUG_TOKENS = [
   "landau", "allaitement", "mamadvisor", "bebeboutik", "berceau", "tetine",
   "vertbaudet-bebe", "babybjorn", "baby-bjorn", "beaba-", "chicco-",
   "maxi-cosi-", "momcozy-", "table-langer", "table-a-langer", "rehausseur-chaise",
-  "transat-balance", "tour-observation",
+  "transat-balance", "tour-observation", "couche-", "couches-",
+  "culotte-apprentissage", "lingettes-bebe", "lait-infantile",
+  "sucette-medicament", "trousse-soin-bebe", "chariot-marche", "draisienne",
 ];
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
