@@ -85,7 +85,7 @@ const EXACT_TAGS = new Set([
   "keratine", "argan", "shampoing", "apres-shampoing", "masque-cheveux",
   // Coiffure / hair styling
   "seche-cheveux", "sèche-cheveux", "lisseur", "boucleur",
-  "brosse-chauffante", "brushing", "dyson", "dyson-airwrap",
+  "brosse-chauffante", "brushing", "dyson-airwrap",
   "dyson-corrale", "ghd", "ukliss", "cecotec-bamba", "aowoka",
   "haokoo", "bopcal",
   // Autres
@@ -174,7 +174,7 @@ const SLUG_TOKENS = [
   // Coiffure / hair styling
   "-seche-cheveux-", "seche-cheveux-", "-lisseur-", "lisseur-",
   "-boucleur-", "boucleur-", "-brosse-chauffante-", "-brushing-",
-  "dyson-", "-dyson-", "-airwrap-", "dyson-airwrap-",
+  "-airwrap-", "dyson-airwrap-",
   "dyson-corrale-", "ghd-", "-ghd-", "ukliss-",
   "cecotec-bamba-", "aowoka-", "haokoo-", "bopcal-",
   "rouge-a-levres", "fond-de-teint", "fards-paupieres", "mascara-",
