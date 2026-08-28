@@ -146,10 +146,10 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     type: "newsletter",
     value: "15 €",
     valueLabel: "OFFERTS",
-    title: "15 € offerts sur la 1ʳᵉ commande Daxon via newsletter",
+    title: "15 € offerts dès 29 € sur la 1ʳᵉ commande Daxon via newsletter",
     permanent: true,
-    conditions: "Inscription newsletter gratuite. 15 € utilisables dès la 1ʳᵉ commande.",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23260342&url=https%3A%2F%2Fwww.daxon.fr",
+    conditions: "Inscription gratuite à la newsletter. 15 € offerts sur la première commande dès 29 € d'achats facturés, selon les conditions communiquées par Daxon.",
+    affiliateUrl: "https://fnty.co/c/r-nCqxZeUT",
   },
   {
     id: "perm-demain-beauty",

@@ -309,7 +309,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "daxon",
     name: "Daxon",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23260342&url=https%3A%2F%2Fwww.daxon.fr",
+    affiliateUrl: "https://fnty.co/c/r-nCqxZeUT",
     affiliateLabel: "Voir les offres Daxon",
     matchTags: ["daxon"],
     color: "#1E40AF",

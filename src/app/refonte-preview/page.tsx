@@ -25,6 +25,8 @@ const labels: Record<string, string> = {
   comparatif: "Le guide",
 };
 
+const FREE_TEST_CATEGORIES = new Set(["test-gratuit", "test-produit"]);
+
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long" }).format(
     new Date(`${date}T12:00:00`),
@@ -81,7 +83,8 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const homepageDeals = selectDiverse(active, 38);
+  const offersAndNews = active.filter((article) => !FREE_TEST_CATEGORIES.has(article.meta.category));
+  const homepageDeals = selectDiverse(offersAndNews, 38);
   const heroDeals = selectDiverse(
     active.filter(({ meta }) => hasDirectMerchantCta({
       category: meta.category,
@@ -94,7 +97,7 @@ export default function RefontePreviewPage() {
   const latest = homepageDeals.slice(4, 8);
   const deals = homepageDeals.slice(8, 32);
   const freeTests = active
-    .filter((article) => article.meta.category === "test-gratuit" || article.meta.category === "test-produit")
+    .filter((article) => FREE_TEST_CATEGORIES.has(article.meta.category))
     .slice(0, 4);
   const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
   const beautyProducts = COMMUNITY_PRODUCTS.slice(0, 4);
