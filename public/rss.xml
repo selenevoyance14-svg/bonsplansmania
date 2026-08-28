@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 28 Aug 2026 15:41:12 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 28 Aug 2026 15:48:09 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Milleret : un séjour et des entrées Puy du Fou</title>
@@ -42,6 +42,24 @@
       <description>Sept codes promo AliExpress FRLD : 2 € dès 18 € jusqu'à 63 € dès 499 € d'achat. Vente officielle du 1er au 7 septembre 2026.</description>
       <category>code-promo</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-aliexpress-french-week-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Concours Intermarché × Coca-Cola Zéro : un scooter à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-intermarche-coca-cola-zero-scooter-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-intermarche-coca-cola-zero-scooter-2026</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Jeu Intermarché et Coca-Cola Zéro du 25 août au 6 septembre 2026 : tentez de gagner un scooter et d’autres dotations avec la carte de fidélité.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-intermarche-coca-cola-zero-scooter-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Concours Intermarché × Mondelez : 242 lots pour la rentrée</title>
+      <link>https://bonsplansmania.fr/article/concours-intermarche-mondelez-rentree-sejours-trottinettes-pandacraft-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-intermarche-mondelez-rentree-sejours-trottinettes-pandacraft-2026</guid>
+      <pubDate>Fri, 28 Aug 2026 00:00:00 GMT</pubDate>
+      <description>Jeu Intermarché et Mondelez du 25 août au 6 septembre 2026 : 2 séjours en parc d’attractions, 90 trottinettes et 150 abonnements Pandacraft à gagner.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-intermarche-mondelez-rentree-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Concours X.TRA : lessives, bobs et tote bags à gagner</title>
@@ -438,24 +456,6 @@
       <description>Le pack Pampers Harmonie Édition Limitée taille 4 de 140 couches est affiché sur Amazon. Prix vérifié le 27 août 2026.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-pampers-harmonie-taille-4-140-couches-aout-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Philips Avent biberons verre 240 ml, lot de 2</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-philips-avent-biberons-verre-240ml-lot-2-tetines-t3-juin-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-philips-avent-biberons-verre-240ml-lot-2-tetines-t3-juin-2026</guid>
-      <pubDate>Tue, 07 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Le lot de 2 biberons en verre Philips Avent Natural Response 240 ml avec tétines débit 3 est affiché sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-philips-avent-biberons-verre-240ml-lot-2-tetines-t3-juin-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Philips Avent SCD503/26: l'écoute-bébé DECT</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-philips-avent-scd503-26-ecoute-bebe-dect-330m-49-euros-mai-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-philips-avent-scd503-26-ecoute-bebe-dect-330m-49-euros-mai-2026</guid>
-      <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Philips Avent SCD503/26 — écoute-bébé audio bidirectionnel, technologie DECT sans interférence, portée 330 m, autonomie 24h, mode Smart ECO, veilleuse intégrée. Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-philips-avent-scd503-26-ecoute-bebe-dect-330m-49-euros-mai-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
