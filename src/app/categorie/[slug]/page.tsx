@@ -206,6 +206,14 @@ export default async function CategoryPage({ params }: PageProps) {
             <p style={{ color: "var(--muted-foreground)" }}>
               {cat.desc} — {articles.length} article{articles.length > 1 ? "s" : ""}
             </p>
+            {slug === "concours" && (
+              <a
+                href="/calendriers-de-l-avent-concours-2026"
+                style={{ display: "inline-flex", alignItems: "center", gap: "7px", marginTop: "16px", padding: "10px 18px", borderRadius: "2px", background: "#991B1B", color: "white", fontWeight: 800, fontSize: "0.9rem", textDecoration: "none" }}
+              >
+                <TreePine size={15} /> Calendriers de l’Avent concours 2026
+              </a>
+            )}
             {slug === "test-produit" && (
               <div style={{ display: "flex", gap: "12px", marginTop: "16px", flexWrap: "wrap" }}>
                 <a href="/categorie/test-gratuit" style={{ display: "inline-flex", alignItems: "center", gap: "6px", padding: "9px 18px", borderRadius: "2px", background: "#E4EFEA", color: "#1F6D58", fontWeight: 700, fontSize: "0.88rem", textDecoration: "none", border: "1px solid #BFD6CC" }}>
