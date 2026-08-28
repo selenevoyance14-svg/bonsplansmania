@@ -18,6 +18,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/bons-plans-en-cours",      priority: 0.9, changeFrequency: "daily" },
   { path: "/ete",                      priority: 0.9, changeFrequency: "daily" },
   { path: "/noel",                     priority: 0.8, changeFrequency: "weekly" },
+  { path: "/calendriers-de-l-avent-concours-2026", priority: 0.9, changeFrequency: "daily" },
   { path: "/calendriers-de-l-avent-2026", priority: 0.9, changeFrequency: "daily" },
   { path: "/idees-cadeaux-noel-2026",    priority: 0.9, changeFrequency: "daily" },
   { path: "/meilleures-box-beaute",      priority: 0.9, changeFrequency: "daily" },
