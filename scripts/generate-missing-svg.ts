@@ -211,6 +211,14 @@ for (const file of files) {
 
   const imagePath = data.image as string | undefined;
   if (!imagePath) continue;
+
+  // Ce script ne doit jamais fabriquer un SVG sous une extension d'image
+  // matricielle (.png, .jpg, .webp…). Cela produirait un fichier invalide et
+  // pourrait remplacer silencieusement une vraie photo produit manquante.
+  // Les images matricielles absentes sont gérées par le visuel de secours du
+  // site et doivent être restaurées ou ajoutées explicitement.
+  if (path.extname(imagePath).toLowerCase() !== ".svg") continue;
+
   // Les anciens chemins /images/amazon provenaient d'un catalogue non PA-API.
   // Le chargeur d'articles les remplace par le visuel neutre du site : ne pas
   // recréer de fichiers à ces emplacements pendant le build.
