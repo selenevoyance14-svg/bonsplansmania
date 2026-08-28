@@ -81,7 +81,7 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const homepageDeals = selectDiverse(active, 30);
+  const homepageDeals = selectDiverse(active, 38);
   const heroDeals = selectDiverse(
     active.filter(({ meta }) => hasDirectMerchantCta({
       category: meta.category,
@@ -92,7 +92,7 @@ export default function RefontePreviewPage() {
     4,
   );
   const latest = homepageDeals.slice(4, 8);
-  const deals = homepageDeals.slice(8, 26);
+  const deals = homepageDeals.slice(8, 32);
   const freeTests = active
     .filter((article) => article.meta.category === "test-gratuit" || article.meta.category === "test-produit")
     .slice(0, 4);
