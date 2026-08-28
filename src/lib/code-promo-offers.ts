@@ -234,6 +234,52 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // ALIEXPRESS — 7 codes vente officielle (1er-7 septembre 2026)
+  // ============================================================
+  {
+    id: "aliexpress-frld02", brandSlug: "aliexpress", type: "code",
+    value: "-2 €", title: "-2 € dès 18 € d'achat sur une sélection AliExpress",
+    code: "FRLD02", expires: "2026-09-07",
+    conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 18 €.",
+  },
+  {
+    id: "aliexpress-frld06", brandSlug: "aliexpress", type: "code",
+    value: "-6 €", title: "-6 € dès 45 € d'achat sur une sélection AliExpress",
+    code: "FRLD06", expires: "2026-09-07",
+    conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 45 €.",
+  },
+  {
+    id: "aliexpress-frld12", brandSlug: "aliexpress", type: "code",
+    value: "-12 €", title: "-12 € dès 99 € d'achat sur une sélection AliExpress",
+    code: "FRLD12", expires: "2026-09-07", featured: true,
+    conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 99 €.",
+  },
+  {
+    id: "aliexpress-frld18", brandSlug: "aliexpress", type: "code",
+    value: "-18 €", title: "-18 € dès 149 € d'achat sur une sélection AliExpress",
+    code: "FRLD18", expires: "2026-09-07",
+    conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 149 €.",
+  },
+  {
+    id: "aliexpress-frld30", brandSlug: "aliexpress", type: "code",
+    value: "-30 €", title: "-30 € dès 239 € d'achat sur une sélection AliExpress",
+    code: "FRLD30", expires: "2026-09-07",
+    conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 239 €.",
+  },
+  {
+    id: "aliexpress-frld45", brandSlug: "aliexpress", type: "code",
+    value: "-45 €", title: "-45 € dès 359 € d'achat sur une sélection AliExpress",
+    code: "FRLD45", expires: "2026-09-07",
+    conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 359 €.",
+  },
+  {
+    id: "aliexpress-frld63", brandSlug: "aliexpress", type: "code",
+    value: "-63 €", title: "-63 € dès 499 € d'achat sur une sélection AliExpress",
+    code: "FRLD63", expires: "2026-09-07", featured: true,
+    conditions: "Meilleure remise de la campagne. Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 499 €.",
+  },
+
+  // ============================================================
   // E.LECLERC — Opération Bébé août / septembre 2026
   // ============================================================
   {
