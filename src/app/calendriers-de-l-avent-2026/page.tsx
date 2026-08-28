@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import Header from "@/app/components/Header";
 import { ADVENT_CALENDARS_2026 } from "@/lib/advent-calendars-2026";
 import BrandCalendarFilter from "./BrandCalendarFilter";
@@ -18,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdventCalendarsHub() {
-  const updatedAt = "17 août 2026";
+  const updatedAt = "28 août 2026";
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -53,7 +52,15 @@ export default function AdventCalendarsHub() {
               <thead><tr><th>Calendrier</th><th>Prix constaté</th><th>Contenu</th><th>Disponibilité</th></tr></thead>
               <tbody>{ADVENT_CALENDARS_2026.map((calendar) => (
                 <tr key={`${calendar.brand}-${calendar.name}`}>
-                  <td><Link href={calendar.articleHref}><strong>{calendar.brand}</strong><br />{calendar.name}</Link></td>
+                  <td>
+                    <a
+                      href={calendar.merchantHref}
+                      target="_blank"
+                      rel="nofollow sponsored noopener"
+                    >
+                      <strong>{calendar.brand}</strong><br />{calendar.name}
+                    </a>
+                  </td>
                   <td><strong>{calendar.price}</strong>{calendar.value ? <small>{calendar.value}</small> : null}</td>
                   <td>{calendar.contents}</td><td>{calendar.status}</td>
                 </tr>

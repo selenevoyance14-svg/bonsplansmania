@@ -55,6 +55,18 @@ export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
     imageIsEditorial: true,
   },
   {
+    brand: "Blissim",
+    name: "Calendrier de l'Avent 2026",
+    price: "Prix à venir",
+    contents: "Produits inédits en box · marques cultes et nouvelles découvertes",
+    status: "Sortie annoncée le 9 septembre",
+    checkedAt: "28 août 2026",
+    image: "/images/articles/calendrier-avent-blissim-2026.jpg",
+    imageAlt: "Aperçu officiel du calendrier de l'Avent Blissim 2026",
+    articleHref: "/article/calendrier-avent-blissim-2026-sortie-9-septembre",
+    merchantHref: "https://www.awin1.com/cread.php?awinmid=15574&awinaffid=990397&ued=https%3A%2F%2Fblissim.fr%2Fteasing-edition-limitee-calendrier",
+  },
+  {
     brand: "Labello",
     name: "Kissmas Calendrier de l'Avent 2026",
     price: "49,18 €",
