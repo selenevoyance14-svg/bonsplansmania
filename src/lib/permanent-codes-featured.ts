@@ -49,13 +49,6 @@ export const FEATURED_PERMANENT_CODES: FeaturedPermanentCode[] = [
     color: "#7C3AED",
   },
   {
-    brand: "MiiN Cosmetics",
-    category: "Newsletter",
-    offer: "-10 % sur toute la boutique via inscription newsletter (K-Beauty premium).",
-    slug: "miin-cosmetics",
-    color: "#0F766E",
-  },
-  {
     brand: "Poulpeo",
     category: "Cashback",
     offer: "10 € offerts à l'inscription + cashback boostés sur 3 000 marchands (Sephora, Cdiscount, Fnac).",

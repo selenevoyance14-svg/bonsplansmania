@@ -16,16 +16,20 @@ const ALL = "__all__";
  */
 type SortKey = "recent" | "ancien";
 type Gender = typeof ALL | "femme" | "homme";
-type ProductCategory = typeof ALL | "parfums" | "soins-visage" | "k-beauty" | "solaires" | "coffrets" | "box-beaute";
+type ProductCategory = typeof ALL | "parfums" | "maquillage" | "soins-visage" | "soins-corps" | "soins-cheveux" | "k-beauty" | "solaires" | "coffrets" | "box-beaute" | "bebe-maman";
 
 const CATEGORIES: { key: ProductCategory; label: string }[] = [
   { key: ALL, label: "Tous les rayons" },
   { key: "parfums", label: "Parfums" },
+  { key: "maquillage", label: "Maquillage" },
   { key: "soins-visage", label: "Soins visage" },
+  { key: "soins-corps", label: "Soins corps" },
+  { key: "soins-cheveux", label: "Soins cheveux" },
   { key: "k-beauty", label: "K-Beauty" },
   { key: "solaires", label: "Solaires" },
   { key: "coffrets", label: "Coffrets" },
   { key: "box-beaute", label: "Box beauté" },
+  { key: "bebe-maman", label: "Bébé & maman" },
 ];
 
 const GENDERS: { key: Gender; label: string }[] = [

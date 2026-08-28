@@ -1,9 +1,9 @@
 "use client";
 
 import { Fragment, useEffect, useMemo, useState } from "react";
-import Image from "next/image";
 import { ArrowRight, Filter, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
+import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
@@ -636,13 +636,12 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                       aria-label={article.title}
                     />
                     <div className="bpm-card-h-image">
-                      <Image
-                        src={article.image}
+                      <AmazonProductImage
+                        asin={amazonAsin}
+                        fallbackSrc={article.image}
                         alt={article.imageAlt}
-                        fill
-                        style={{ objectFit: "cover" }}
+                        objectFit="cover"
                         sizes="(max-width: 768px) 120px, 200px"
-                        loading="lazy"
                       />
                       {savings ? (
                         <span className="bpm-card-h-discount">{savings}</span>

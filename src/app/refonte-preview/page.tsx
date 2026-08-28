@@ -81,7 +81,7 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const homepageDeals = selectDiverse(active, 17);
+  const homepageDeals = selectDiverse(active, 38);
   const heroDeals = selectDiverse(
     active.filter(({ meta }) => hasDirectMerchantCta({
       category: meta.category,
@@ -91,8 +91,8 @@ export default function RefontePreviewPage() {
     })),
     4,
   );
-  const latest = homepageDeals.slice(4, 7);
-  const deals = homepageDeals.slice(8, 17);
+  const latest = homepageDeals.slice(4, 8);
+  const deals = homepageDeals.slice(8, 32);
   const freeTests = active
     .filter((article) => article.meta.category === "test-gratuit" || article.meta.category === "test-produit")
     .slice(0, 4);
@@ -121,16 +121,14 @@ export default function RefontePreviewPage() {
   return (
     <main className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
-      <div className={styles.alert}>NOUVELLES OFFRES VÉRIFIÉES CHAQUE JOUR · SÉLECTION INDÉPENDANTE</div>
-
       {/* Zone à exclure des annonces automatiques AdSense dans le tableau de bord. */}
       <div id="bpm-home-above-fold" className={styles.aboveFold}>
         <Header activePage="/" />
 
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
-            <span className={styles.kicker}>La sélection qui mérite le détour</span>
-            <h1>Les bons plans qui valent <em>vraiment</em> le coup.</h1>
+            <span className={styles.kicker}>La sélection Bons Plans Mania</span>
+            <h1>Bons plans, codes promo et <em>offres du moment</em></h1>
             <p>Promotions, box beauté, tests gratuits et concours : une sélection claire, vérifiée et mise à jour chaque jour.</p>
             <form action="/recherche" className={styles.search}>
               <Search size={17} aria-hidden />
@@ -138,7 +136,6 @@ export default function RefontePreviewPage() {
               <button type="submit">Rechercher</button>
             </form>
           </div>
-
           <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:true, merchantHref:merchantHref(meta.slug, meta.affiliateUrl) }))} />
         </section>
       </div>
@@ -217,7 +214,7 @@ export default function RefontePreviewPage() {
                 <p>{BRAND_OF_THE_WEEK.tagline}</p>
                 <a href={BRAND_OF_THE_WEEK.hubUrl} target="_blank" rel="nofollow sponsored noopener">Découvrir la sélection <ArrowUpRight size={16} /></a>
               </div>
-              <Image src="/images/articles/beauty-of-joseon-relief-sun-creme-solaire-yesstyle-2026.png" alt="Beauty of Joseon Relief Sun SPF50+" width={210} height={190} />
+              <Image src={BRAND_OF_THE_WEEK.imageSrc} alt={BRAND_OF_THE_WEEK.imageAlt} width={210} height={190} />
             </div>
           </article>
         </div>
@@ -227,7 +224,7 @@ export default function RefontePreviewPage() {
 
       <section className={styles.selection} id="selection">
         <header className={styles.sectionHeading}>
-          <div><span>Fraîchement repérés</span><h2>Les offres à ne pas manquer</h2></div>
+          <div><h2>Les offres à regarder de plus près</h2></div>
           <Link href="/bons-plans-en-cours">Voir toutes les offres <ArrowUpRight size={15} /></Link>
         </header>
 

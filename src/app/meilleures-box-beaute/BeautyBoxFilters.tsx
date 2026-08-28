@@ -2,15 +2,19 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { BEAUTY_BOXES_2026 } from "@/lib/beauty-boxes-2026";
+import { BEAUTY_BOXES_2026, type BeautyBox2026 } from "@/lib/beauty-boxes-2026";
 import styles from "./page.module.css";
 
-export default function BeautyBoxFilters() {
+export default function BeautyBoxFilters({ catalog }: { catalog: BeautyBox2026[] }) {
   const [brand, setBrand] = useState("all");
   const [formula, setFormula] = useState("all");
-  const brands = useMemo(() => [...new Set(BEAUTY_BOXES_2026.map((box) => box.brand))].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })), []);
-  const formulas = useMemo(() => [...new Set(BEAUTY_BOXES_2026.flatMap((box) => box.formulas))].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })), []);
-  const boxes = BEAUTY_BOXES_2026.filter((box) => (brand === "all" || box.brand === brand) && (formula === "all" || box.formulas.includes(formula)));
+  const brands = useMemo(() => [...new Set(catalog.map((box) => box.brand))].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })), [catalog]);
+  const formulas = useMemo(() => [...new Set(catalog.flatMap((box) => box.formulas))].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" })), [catalog]);
+  const featuredHrefs = useMemo(() => new Set(BEAUTY_BOXES_2026.map((box) => box.articleHref)), []);
+  const source = brand === "all" && formula === "all"
+    ? catalog.filter((box) => featuredHrefs.has(box.articleHref))
+    : catalog;
+  const boxes = source.filter((box) => (brand === "all" || box.brand === brand) && (formula === "all" || box.formulas.includes(formula)));
 
   return <>
     <div className={styles.filters}>

@@ -5,6 +5,7 @@ out
 .env.local
 .amazon-creators-credentials.csv
 .DS_Store
+.wrangler/
 
 # Pinterest pins (générés en local, uploadés manuellement à Pinterest)
 public/images/pinterest/

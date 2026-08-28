@@ -16,14 +16,23 @@ export type HighlightBrand = {
   color?: string;
   /** emoji d'ambiance (1 seul) */
   emoji?: string;
+  /** libellé personnalisé du bouton */
+  ctaLabel?: string;
+  /** visuel affiché dans le bloc de la page d'accueil */
+  imageSrc: string;
+  /** texte alternatif descriptif du visuel */
+  imageAlt: string;
 };
 
 export const BRAND_OF_THE_WEEK: HighlightBrand = {
-  slug: "beauty-of-joseon",
-  name: "Beauty of Joseon",
-  tagline: "Jusqu'à -30 % sur Beauty of Joseon + le Relief Sun Rice + Probiotics SPF50 10 ml offert dès 35 € d'achat.",
-  hubUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fbeauty-of-joseon%2Foffers%2F",
-  bg: "#F7F1E7",
-  color: "#8C2F39",
-  emoji: "🇰🇷",
+  slug: "biodance",
+  name: "Biodance",
+  tagline: "Les masques hydrogel au collagène et les soins hydratants coréens qui font le succès de Biodance.",
+  hubUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Flist.html%3Fq%3DBiodance%26bpt%3D48",
+  bg: "#FFF1F5",
+  color: "#BE185D",
+  emoji: "🩷",
+  ctaLabel: "Découvrir chez YesStyle",
+  imageSrc: "/images/articles/biodance-bio-collagen-real-deep-mask-2026.png",
+  imageAlt: "Masques hydrogel Biodance Bio-Collagen Real Deep Mask",
 };

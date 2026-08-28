@@ -1,0 +1,20 @@
+{
+  "name": "bonsplansmania-alerts",
+  "main": "src/index.ts",
+  "compatibility_date": "2026-08-26",
+  "workers_dev": true,
+  "triggers": {
+    "crons": ["*/15 * * * *"]
+  },
+  "vars": {
+    "FROM_EMAIL": "alertes@bonsplansmania.fr",
+    "FROM_NAME": "Bons Plans Mania",
+    "SITE_URL": "https://bonsplansmania.fr"
+  },
+  "kv_namespaces": [
+    {
+      "binding": "ALERTS",
+      "id": "d9ca09d2e3b843aa82ef5cb2f01046cc"
+    }
+  ]
+}

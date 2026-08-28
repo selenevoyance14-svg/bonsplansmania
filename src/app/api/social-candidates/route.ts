@@ -6,6 +6,8 @@ export const dynamic = "force-static";
 
 const BLOCKED_IMAGES = new Set([
   "/images/articles/_placeholder-bonsplansmania.png",
+  "/images/articles/_placeholder-neutral.svg",
+  "/images/articles/_placeholder-bonsplansmania-beige.png",
   "/images/articles/_archive-concours-termine.png",
   "/images/articles/_archive-test-produit-termine.png",
   "/images/articles/_archive-offre-expiree.png",

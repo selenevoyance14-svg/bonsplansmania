@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
+import SearchAlertSignup from "@/app/components/SearchAlertSignup";
 
 interface ArticleData {
   slug: string;
@@ -103,6 +104,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
               <p style={{ color: "var(--muted-foreground)", fontSize: "0.9rem" }}>
                 Essayez avec un autre mot-clé ou parcourez les catégories depuis l&apos;accueil.
               </p>
+              <SearchAlertSignup initialQuery={query} />
             </div>
           )}
 
@@ -115,7 +117,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
                 {results.map((article) => (
                   <a key={article.slug} href={`/article/${article.slug}`} className="card" style={{ textDecoration: "none" }}>
                     <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
-                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
+                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />
                     </div>
                     <div className="card-body">
                       <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: "8px" }}>
@@ -135,6 +137,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
                   </a>
                 ))}
               </div>
+              <SearchAlertSignup initialQuery={query} compact />
             </>
           )}
         </div>

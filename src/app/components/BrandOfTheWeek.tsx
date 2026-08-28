@@ -126,7 +126,7 @@ export default function BrandOfTheWeek() {
                 transition: "transform 0.15s, box-shadow 0.15s",
               }}
             >
-              Découvrir chez LOOKFANTASTIC <ArrowRight size={16} aria-hidden />
+              {brand.ctaLabel ?? `Découvrir ${brand.name}`} <ArrowRight size={16} aria-hidden />
             </a>
           </div>
         </div>

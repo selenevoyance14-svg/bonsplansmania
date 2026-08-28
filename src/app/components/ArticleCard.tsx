@@ -1,4 +1,3 @@
-import Image from "next/image";
 import {
     Tag, Gift, Trophy, ShoppingBag, Sparkles, Calendar, TreePine,
     FlaskConical, Percent, ArrowRight, type LucideIcon,
@@ -6,6 +5,7 @@ import {
 import { parsePrice } from "@/lib/price";
 import { DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
+import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { formatCardTitle } from "@/lib/display-title";
 
 export type CardCategoryConfig = {
@@ -85,20 +85,19 @@ export default function ArticleCard({
     // On ne laisse JAMAIS le vrai lien affilié dans le HTML : /go/<slug> côté Cloudflare Function fait le 302
     const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : rawAffiliate;
     const rawImage = article.meta.image ?? "";
-    const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : rawImage;
+    const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : rawImage;
 
     return (
         <article className={`bpm-card bpm-card-${cat.color} ${isExpired ? "bpm-card-expired" : ""}`}>
             <a href={articleHref} className="bpm-card-inner-link">
                 <div className="bpm-card-image">
-                    <Image
-                        src={displayImage}
+                    <AmazonProductImage
+                        asin={article.meta.amazonAsin}
+                        fallbackSrc={displayImage}
                         alt={article.meta.imageAlt}
-                        fill
-                        style={{ objectFit: "cover" }}
+                        objectFit="cover"
                         sizes="(max-width: 768px) 100vw, 33vw"
                         priority={priority}
-                        loading={priority ? undefined : "lazy"}
                     />
                     <span className={`bpm-card-pill bpm-pill-${cat.color}`}>
                         <cat.Icon size={12} aria-hidden /> {cat.label}

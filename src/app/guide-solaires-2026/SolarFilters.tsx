@@ -2,18 +2,22 @@
 
 import { useMemo, useState } from "react";
 import Link from "next/link";
-import { SOLAR_GUIDE_2026 } from "@/lib/solar-guide-2026";
+import { SOLAR_GUIDE_2026, type SolarGuideProduct } from "@/lib/solar-guide-2026";
 import styles from "./page.module.css";
 
-export default function SolarFilters() {
+export default function SolarFilters({ catalog }: { catalog: SolarGuideProduct[] }) {
   const [brand, setBrand] = useState("all");
   const [usage, setUsage] = useState("all");
   const [skin, setSkin] = useState("all");
   const sorted = (values: string[]) => [...new Set(values)].sort((a, b) => a.localeCompare(b, "fr", { sensitivity: "base" }));
-  const brands = useMemo(() => sorted(SOLAR_GUIDE_2026.map((item) => item.brand)), []);
-  const usages = useMemo(() => sorted(SOLAR_GUIDE_2026.flatMap((item) => item.usages)), []);
-  const skins = useMemo(() => sorted(SOLAR_GUIDE_2026.flatMap((item) => item.skinTypes)), []);
-  const products = SOLAR_GUIDE_2026.filter((item) => (brand === "all" || item.brand === brand) && (usage === "all" || item.usages.includes(usage)) && (skin === "all" || item.skinTypes.includes(skin)));
+  const brands = useMemo(() => sorted(catalog.map((item) => item.brand)), [catalog]);
+  const usages = useMemo(() => sorted(catalog.flatMap((item) => item.usages)), [catalog]);
+  const skins = useMemo(() => sorted(catalog.flatMap((item) => item.skinTypes)), [catalog]);
+  const featuredHrefs = useMemo(() => new Set(SOLAR_GUIDE_2026.map((item) => item.articleHref)), []);
+  const source = brand === "all" && usage === "all" && skin === "all"
+    ? catalog.filter((item) => featuredHrefs.has(item.articleHref))
+    : catalog;
+  const products = source.filter((item) => (brand === "all" || item.brand === brand) && (usage === "all" || item.usages.includes(usage)) && (skin === "all" || item.skinTypes.includes(skin)));
 
   return <>
     <div className={styles.filters}>

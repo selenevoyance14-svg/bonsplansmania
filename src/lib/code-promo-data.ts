@@ -21,6 +21,20 @@ export interface CodePromoBrand {
 
 export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
+    slug: "bears-with-benefits",
+    name: "Bears with Benefits",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller",
+    affiliateLabel: "Voir les offres Bears with Benefits",
+    matchTags: ["bears with benefits", "bears-with-benefits", "gummies"],
+    color: "#EAB8CA",
+    currentOffer: {
+      code: "BEARFECT",
+      discount: "12 % supplémentaires",
+      conditions: "BearsDay : jusqu'à 50 % de réduction et un tote bag offert dès 59 € d'achat. Vérifier le cumul et les exclusions au panier.",
+      verifiedAt: "2026-08-25",
+    },
+  },
+  {
     slug: "prescription-lab",
     name: "Prescription Lab",
     affiliateUrl: "https://www.prescriptionlab.com/landing/4pour14?ae=10&aev=https%3A%2F%2Fwww.prescriptionlab.com%2Flanding%2F5pour15%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",
@@ -183,7 +197,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "carte-noire",
     name: "Carte Noire",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr%2Frentreeaubureau",
     affiliateLabel: "Voir les offres Carte Noire",
     matchTags: ["carte-noire", "carte noire"],
     color: "#1F2937",
@@ -633,7 +647,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "miin-cosmetics",
     name: "MiiN Cosmetics",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&ued=https%3A%2F%2Fmiin-cosmetics.fr%2F",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina",
     affiliateLabel: "Voir les offres MiiN Cosmetics",
     matchTags: ["miin-cosmetics", "miin cosmetics", "miin", "k-beauty"],
     color: "#EC4899",
@@ -731,6 +745,12 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les ventes Private Sport Shop",
     matchTags: ["private-sport-shop", "private sport shop", "privatesportshop"],
     color: "#0F766E",
+    currentOffer: {
+      code: "BTS20",
+      discount: "-20 %",
+      conditions: "20 % supplémentaires dès 3 produits de la vente privée Back to Sport, jusqu’au 27 août 2026. Non cumulable avec un autre code.",
+      verifiedAt: "2026-08-21",
+    },
   },
   {
     slug: "rakuten",

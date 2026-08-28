@@ -34,7 +34,7 @@ const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: st
   "test-avis":        { label: "Tests & Avis",          Icon: FlaskConical, desc: "Tests réellement effectués et analyses détaillées de produits", color: "test-avis" },
   "comparatif":       { label: "Comparatifs",           Icon: FlaskConical, desc: "Comparatifs et guides d'achat pour choisir selon tes besoins", color: "test-avis" },
   "concours":         { label: "Concours",              Icon: Trophy,       desc: "Les meilleurs jeux concours avec des lots à gagner", color: "concours" },
-  "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  desc: "Tests et avis complets sur les box beauté du moment", color: "box-beaute" },
+  "box-beaute":       { label: "Box Beauté",            Icon: ShoppingBag,  desc: "Offres, contenus et conditions des box beauté du moment", color: "box-beaute" },
   "beaute":           { label: "Beauté",                Icon: Sparkles,     desc: "Tutos, guides, comparatifs et avis sur les produits beauté", color: "beaute" },
   "selection":        { label: "Sélection",             Icon: Calendar,     desc: "Nos coups de cœur et sélections du moment", color: "selection" },
   "calendrier":       { label: "Calendrier",            Icon: Calendar,     desc: "Calendriers beauté et coffrets à saisir", color: "calendrier" },
@@ -117,7 +117,7 @@ export default async function CategoryPaginatedPage({ params }: PageProps) {
               {pageArticles.map((a) => (
                 <a key={a.meta.slug} href={`/article/${a.meta.slug}`} className={`bpm-card bpm-card-${cat.color} ${isEffectivelyExpired(a.meta) ? "bpm-card-expired" : ""}`}>
                   <div className="bpm-card-image">
-                    <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "contain", padding: "10px" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
+                    <Image src={a.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : a.meta.image} alt={a.meta.imageAlt} fill style={{ objectFit: "contain", padding: "10px" }} sizes="(max-width: 768px) 100vw, 33vw" loading="lazy" />
                   </div>
                   <div className="bpm-card-body">
                     <h3 className="bpm-card-title">{a.meta.title}</h3>

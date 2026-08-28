@@ -30,6 +30,9 @@ export const BON_PLAN_BRANDS: BrandDef[] = [
   // Famille / bébé
   { key: "puericulture", label: "Puériculture", keywords: ["puériculture", "puericulture"] },
   { key: "pampers", label: "Pampers", keywords: ["pampers"] },
+  { key: "pingo", label: "Pingo", keywords: ["pingo"] },
+  { key: "biolane", label: "Biolane", keywords: ["biolane"] },
+  { key: "greenweez", label: "Greenweez", keywords: ["greenweez"] },
   // K-Beauty (catégorie)
   { key: "kbeauty", label: "K-Beauty", keywords: ["k-beauty", "kbeauty", "k beauty"] },
   // Tech
