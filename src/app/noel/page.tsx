@@ -248,6 +248,7 @@ export default function Noel2026Page() {
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(260px, 1fr))", gap: "16px" }}>
               {[
                 { href: "/ete", label: "☀️ Été", desc: "Solaires, vacances, anti-canicule", color: "#F59E0B" },
+                { href: "/calendriers-de-l-avent-concours-2026", label: "🏆 Calendriers concours 2026", desc: "Jeux gratuits et cadeaux à gagner", color: "#991B1B" },
                 { href: "/categorie/calendrier-avent", label: "🎄 Tous les calendriers Avent", desc: "Archives + actuels", color: "#16A34A" },
                 { href: "/categorie/box-beaute", label: "📦 Box beauté", desc: "Blissim, Glowria, Biotyfull…", color: "#86198F" },
                 { href: "/categorie/concours", label: "🎁 Concours en cours", desc: "Jeux gratuits", color: "#7C3AED" },
