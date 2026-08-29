@@ -7,11 +7,6 @@ import { slugifyTag } from "@/lib/tag-pages";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania.png";
-const ARCHIVE_ARTICLE_IMAGES = {
-  concours: "/images/articles/_archive-concours-termine.png",
-  "test-gratuit": "/images/articles/_archive-test-produit-termine.png",
-  default: "/images/articles/_archive-offre-expiree.png",
-} as const;
 const ARTICLE_IMAGES_DIR = path.join(
   process.cwd(),
   "public",
@@ -161,25 +156,6 @@ function resolveArticleImage(image: unknown): string {
     : FALLBACK_ARTICLE_IMAGE;
 }
 
-/**
- * Les archives utilisent un visuel explicite sans écraser l'image d'origine
- * enregistrée dans le frontmatter. Un retrait accidentel du statut `expired`
- * restaure donc automatiquement le véritable visuel de l'article.
- */
-export function getArchiveArticleImage(category: string): string {
-  if (category === "concours") return ARCHIVE_ARTICLE_IMAGES.concours;
-  if (category === "test-gratuit") {
-    return ARCHIVE_ARTICLE_IMAGES["test-gratuit"];
-  }
-  return ARCHIVE_ARTICLE_IMAGES.default;
-}
-
-function getArchiveArticleImageAlt(category: string): string {
-  if (category === "concours") return "Concours terminé";
-  if (category === "test-gratuit") return "Test produit terminé";
-  return "Offre expirée";
-}
-
 // Cache mémoire pour éviter de relire 1105 fichiers à chaque appel
 let _fileMapCache: Map<string, string> | null = null;
 let _allArticlesCache: Article[] | null = null;
@@ -257,7 +233,6 @@ export function getArticleBySlug(slug: string): Article | null {
   const category = data.category || "bon-plan";
   const expired = data.expired === true;
   const endDate = data.endDate;
-  const isExpired = isEffectivelyExpired({ expired, endDate });
   return {
     meta: {
       slug,
@@ -267,14 +242,10 @@ export function getArticleBySlug(slug: string): Article | null {
       updated: data.updated,
       category,
       tags: data.tags || [],
-      image: isExpired
-        ? getArchiveArticleImage(category)
-        : amazonArticle && typeof data.image === "string" && data.image.startsWith("/images/amazon/")
+      image: amazonArticle && typeof data.image === "string" && data.image.startsWith("/images/amazon/")
           ? FALLBACK_ARTICLE_IMAGE
           : resolveArticleImage(data.image),
-      imageAlt: isExpired
-        ? getArchiveArticleImageAlt(category)
-        : (amazonArticle ? sanitizeAmazonClaims(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
+      imageAlt: (amazonArticle ? sanitizeAmazonClaims(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
       rating: amazonArticle ? undefined : data.rating,
       price: amazonArticle ? undefined : data.price,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
