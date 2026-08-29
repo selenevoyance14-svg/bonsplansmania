@@ -40,6 +40,8 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/avis-prix-beaute",         priority: 0.8, changeFrequency: "weekly" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
   { path: "/recherche",                priority: 0.5, changeFrequency: "monthly" },
+  { path: "/archives/concours",        priority: 0.5, changeFrequency: "weekly" },
+  { path: "/archives/tests-produits",  priority: 0.5, changeFrequency: "weekly" },
   { path: "/partenariats",             priority: 0.4, changeFrequency: "monthly" },
   { path: "/guide-gratuit",            priority: 0.4, changeFrequency: "monthly" },
   { path: "/mentions-legales",         priority: 0.2, changeFrequency: "yearly" },

@@ -75,10 +75,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={poppins.className}>
         {children}
-        <p
+        <footer
           style={{
             margin: 0,
-            padding: "12px 20px",
+            padding: "16px 20px",
             background: "#111827",
             color: "#d1d5db",
             fontSize: "0.75rem",
@@ -86,8 +86,17 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             textAlign: "center",
           }}
         >
-          En tant que Partenaire Amazon, Bons Plans Mania réalise un bénéfice sur les achats remplissant les conditions requises.
-        </p>
+          <nav aria-label="Liens de pied de page" style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap", marginBottom: "8px" }}>
+            <a href="/archives/concours" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des concours</a>
+            <a href="/archives/tests-produits" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des tests gratuits</a>
+            <a href="/categorie/concours" style={{ color: "#ffffff" }}>Concours en cours</a>
+            <a href="/mentions-legales" style={{ color: "#ffffff" }}>Mentions légales</a>
+            <a href="/confidentialite" style={{ color: "#ffffff" }}>Confidentialité</a>
+          </nav>
+          <p style={{ margin: 0 }}>
+            En tant que Partenaire Amazon, Bons Plans Mania réalise un bénéfice sur les achats remplissant les conditions requises.
+          </p>
+        </footer>
         <ClientShell />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}

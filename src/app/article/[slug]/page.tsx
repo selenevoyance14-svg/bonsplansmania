@@ -326,7 +326,16 @@ export default async function ArticlePage({ params }: PageProps) {
                   {expiredMessage.title}
                 </p>
                 <p style={{ margin: "6px 0 0", fontSize: "0.88rem", color: "#DC2626" }}>
-                  Cette offre n'est plus disponible. Découvrez nos <a href={expiredMessage.cta.href} style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>{expiredMessage.cta.label}</a>.
+                  {article.meta.endDate && (
+                    <>Fin le {new Date(`${article.meta.endDate}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Paris" })}. </>
+                  )}
+                  Cette offre n'est plus disponible. Découvrez nos <a href={expiredMessage.cta.href} style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>{expiredMessage.cta.label}</a>
+                  {article.meta.category === "concours" && (
+                    <> ou consultez les <a href="/archives/concours" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>archives des concours</a></>
+                  )}
+                  {article.meta.category === "test-gratuit" && (
+                    <> ou consultez les <a href="/archives/tests-produits" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>archives des tests gratuits</a></>
+                  )}.
                 </p>
               </div>
             )}

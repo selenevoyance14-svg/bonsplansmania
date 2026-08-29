@@ -356,6 +356,28 @@ export function getArticlesByCategory(category: string): Article[] {
   });
 }
 
+/**
+ * Retourne les contenus publiés mais archivés d'une catégorie.
+ * Ils restent accessibles par leur URL et peuvent ainsi alimenter une page
+ * d'archives sans revenir dans les listes de contenus actifs.
+ */
+export function getArchivedArticlesByCategory(category: string): Article[] {
+  return getArticleSlugs()
+    .map((slug) => getArticleBySlug(slug))
+    .filter(
+      (article): article is Article =>
+        article !== null &&
+        article.meta.published &&
+        article.meta.category === category &&
+        isEffectivelyExpired(article.meta)
+    )
+    .sort((a, b) => {
+      const aDate = a.meta.endDate || a.meta.updated || a.meta.date;
+      const bDate = b.meta.endDate || b.meta.updated || b.meta.date;
+      return new Date(bDate).getTime() - new Date(aDate).getTime();
+    });
+}
+
 export function getFeaturedArticles(): Article[] {
   return getAllArticles().filter((a) => a.meta.featured);
 }
