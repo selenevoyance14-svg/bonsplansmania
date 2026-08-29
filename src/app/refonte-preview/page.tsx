@@ -26,6 +26,12 @@ const labels: Record<string, string> = {
 };
 
 const FREE_TEST_CATEGORIES = new Set(["test-gratuit", "test-produit"]);
+const HOMEPAGE_EDITORIAL_CATEGORIES = new Set([
+  "test-avis",
+  "comparatif",
+  "selection",
+  "code-promo",
+]);
 
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long" }).format(
@@ -83,7 +89,11 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const offersAndNews = active.filter((article) => !FREE_TEST_CATEGORIES.has(article.meta.category));
+  const offersAndNews = active.filter(
+    (article) =>
+      !FREE_TEST_CATEGORIES.has(article.meta.category) &&
+      !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
+  );
   const homepageDeals = selectDiverse(offersAndNews, 38);
   const heroDeals = selectDiverse(
     active.filter(({ meta }) => hasDirectMerchantCta({
