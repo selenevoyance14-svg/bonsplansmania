@@ -24,6 +24,15 @@ const labels: Record<string, string> = {
   comparatif: "Le guide",
 };
 
+// Les contenus éditoriaux ont leurs propres rubriques et ne doivent pas
+// prendre la place des nouveaux bons plans dans la sélection de l'accueil.
+const HOMEPAGE_EDITORIAL_CATEGORIES = new Set([
+  "test-avis",
+  "comparatif",
+  "selection",
+  "code-promo",
+]);
+
 function formatDate(date: string) {
   return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long" }).format(
     new Date(`${date}T12:00:00`),
@@ -74,7 +83,10 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const homepageDeals = selectDiverse(active, 15);
+  const homepageEligible = active.filter(
+    (article) => !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
+  );
+  const homepageDeals = selectDiverse(homepageEligible, 15);
   const heroDeals = homepageDeals.slice(0, 4);
   const latest = homepageDeals.slice(4, 8);
   const deals = homepageDeals.slice(8, 15);
