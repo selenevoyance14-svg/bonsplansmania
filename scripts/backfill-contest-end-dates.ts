@@ -3,9 +3,18 @@ import path from "path";
 import matter from "gray-matter";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
-const REPORT_PATH = path.join(process.cwd(), "reports/content/contest-end-date-review.csv");
-const DETECTED_PATH = path.join(process.cwd(), "reports/content/contest-end-date-detected.csv");
 const APPLY = process.argv.includes("--apply");
+const CATEGORY = process.argv.find((arg) => arg.startsWith("--category="))?.split("=")[1] ?? "concours";
+const ALLOWED_CATEGORIES = new Set(["concours", "test-gratuit"]);
+
+if (!ALLOWED_CATEGORIES.has(CATEGORY)) {
+  console.error("Catégorie acceptée : concours ou test-gratuit");
+  process.exit(1);
+}
+
+const reportPrefix = CATEGORY === "concours" ? "contest" : "free-product-test";
+const REPORT_PATH = path.join(process.cwd(), `reports/content/${reportPrefix}-end-date-review.csv`);
+const DETECTED_PATH = path.join(process.cwd(), `reports/content/${reportPrefix}-end-date-detected.csv`);
 
 const MONTHS: Record<string, number> = {
   janvier: 1,
@@ -85,7 +94,7 @@ for (const file of fs.readdirSync(CONTENT_DIR).filter((name) => name.endsWith(".
   const raw = fs.readFileSync(fullPath, "utf8");
   const { data, content } = matter(raw);
   if (
-    data.category !== "concours" ||
+    data.category !== CATEGORY ||
     data.published === false ||
     data.expired === true ||
     data.endDate
