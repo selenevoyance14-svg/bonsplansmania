@@ -5,6 +5,7 @@ import Header from "@/app/components/Header";
 import { getAllArticles } from "@/lib/articles";
 import { AFFILIATE_PARTNERS } from "@/lib/affiliate-partners";
 import styles from "./page.module.css";
+import giftStyles from "./monsieur-tshirt.module.css";
 
 export const metadata: Metadata = {
   title: "Idées cadeaux Noël 2026 : sélections par budget et destinataire",
@@ -20,7 +21,7 @@ export const metadata: Metadata = {
 
 const universes = [
   { icon: "✨", title: "Pour elle", text: "Parfums, soins, bijoux, box beauté et accessoires.", href: "/bons-plans-beaute" },
-  { icon: "⌚", title: "Pour lui", text: "Parfums, montres, high-tech, sport et soins.", href: "/categorie/bon-plan" },
+  { icon: "⌚", title: "Pour lui", text: "T-shirts, sweats et cadeaux personnalisés fabriqués en France.", href: "https://monsieurtshirt.com/idee-cadeau-homme?ae=619" },
   { icon: "🧸", title: "Pour les enfants", text: "LEGO, poupées, loisirs créatifs et jeux éducatifs.", href: "/bons-plans-jouets" },
   { icon: "👶", title: "Pour bébé", text: "Coffrets naissance, éveil et cadeaux pour jeunes parents.", href: "/bons-plans-bebe" },
   { icon: "🎧", title: "High-tech", text: "Audio, objets connectés, gaming et accessoires utiles.", href: "/bons-plans-tech" },
@@ -34,6 +35,13 @@ const budgets = [
   { label: "Plus de 100 €", query: "cadeau premium" },
 ];
 
+const monsieurTshirtIdeas = [
+  { title: "T-shirt homme personnalisé", text: "Ajoutez votre texte ou votre visuel pour créer un cadeau vraiment personnel.", price: "33,06 € constatés", href: "https://monsieurtshirt.com/personnalisation/t-shirt-homme/6826-imprime-personnalise?ae=619" },
+  { title: "Sacoche de pétanque personnalisée", text: "Une idée originale pour un papa, un grand-père ou un amateur de pétanque.", price: "28,40 € constatés", href: "https://monsieurtshirt.com/sacoche-boules-de-petanque/41416-la-triplette-de-papy-personnalise?ae=619" },
+  { title: "Sweatshirt Cool Papa brodé", text: "Un sweatshirt personnalisable à offrir à un papa pour Noël.", price: "62,91 € constatés", href: "https://monsieurtshirt.com/sweatshirt-homme/42009-cool-papa-club-brode?ae=619" },
+  { title: "Affiche de couple personnalisée", text: "Une affiche créée avec les prénoms ou les détails du couple.", price: "33,67 € constatés", href: "https://monsieurtshirt.com/affiche/15648-couple-en-scooter-personnalise?ae=619" },
+];
+
 const faqs = [
   ["Quand commencer ses achats de Noël 2026 ?", "Pour les jouets recherchés et les éditions limitées, commencez à surveiller les prix dès septembre ou octobre. Le Black Friday du 27 novembre 2026 peut être intéressant, mais les stocks ne sont pas garantis."],
   ["Quel budget prévoir pour un cadeau de Noël ?", "Fixez d'abord un budget par personne, puis comparez le prix réellement payé, les frais de livraison et les conditions de retour. Une idée utile et bien choisie compte davantage qu'un prix élevé."],
@@ -41,8 +49,17 @@ const faqs = [
 ];
 
 export default function ChristmasGiftHub() {
-  const keywords = /cadeau|coffret|parfum|jouet|lego|barbie|ninja|airpods|casque|montre|beaute|beauté/i;
-  const offers = getAllArticles().filter(({ meta }) => keywords.test(`${meta.title} ${meta.tags.join(" ")}`)).slice(0, 12);
+  const giftCategories = new Set(["bon-plan", "box-beaute", "calendrier-avent"]);
+  const giftKeywords = /cadeau|coffret|parfum|jouet|lego|barbie|poupée|peluche|doudou|livre|ninja|air.?fryer|airpods|casque|écouteurs|montre|bijou|bougie|diffuseur|jeu de société|console/i;
+  const excludedKeywords = /concours|jeu concours|code promo|test gratuit|échantillon|candidature|à gagner/i;
+  const offers = getAllArticles()
+    .filter(({ meta }) => {
+      const searchableText = `${meta.title} ${meta.tags.join(" ")}`;
+      return giftCategories.has(meta.category)
+        && giftKeywords.test(searchableText)
+        && !excludedKeywords.test(searchableText);
+    })
+    .slice(0, 12);
   const giftPartners = AFFILIATE_PARTNERS.filter((partner) => ["Cadeaux & alimentation", "Beauté & bien-être", "Bébé, famille & loisirs", "Maison, courses & high-tech"].includes(partner.category));
   const itemList = {
     "@context": "https://schema.org",
@@ -63,7 +80,7 @@ export default function ChristmasGiftHub() {
         <h1>Idées cadeaux de Noël 2026</h1>
         <p className={styles.intro}>Des idées pour chaque personne et chaque budget, avec des prix à vérifier chez le marchand et uniquement des offres que nous pouvons réellement suivre.</p>
         <div className={styles.heroLinks}><a href="#destinataires">Choisir un destinataire</a><a href="#offres">Voir les premières idées</a></div>
-        <p className={styles.updated}>Dernière mise à jour : 22 août 2026 · nouvelles idées ajoutées au fil des offres</p>
+        <p className={styles.updated}>Dernière mise à jour : 30 août 2026 · nouvelles idées ajoutées au fil des offres</p>
       </div></section>
 
       <section id="destinataires" className={`container ${styles.section}`}>
@@ -71,12 +88,23 @@ export default function ChristmasGiftHub() {
         <div className={styles.universeGrid}>{universes.map((item) => <Link href={item.href} className={styles.universe} key={item.title}><span>{item.icon}</span><h3>{item.title}</h3><p>{item.text}</p><b>Découvrir →</b></Link>)}</div>
       </section>
 
+      <section className={`container ${styles.section}`}>
+        <div className={giftStyles.partnerIntro}>
+          <div><p className={styles.kicker}>Cadeaux personnalisés</p><h2>Quelques idées chez Monsieur TSHIRT</h2><p>Des cadeaux personnalisés pour lui, pour un couple ou pour toute la famille, fabriqués à la demande dans l'atelier bordelais de la marque.</p></div>
+          <a href="https://monsieurtshirt.com/?ae=619" target="_blank" rel="sponsored noopener">Voir tous les cadeaux →</a>
+        </div>
+        <div className={giftStyles.partnerIdeas}>
+          {monsieurTshirtIdeas.map((idea) => <a key={idea.title} href={idea.href} target="_blank" rel="sponsored noopener"><span>Idée cadeau</span><h3>{idea.title}</h3><p>{idea.text}</p><strong>{idea.price}</strong><b>Personnaliser →</b></a>)}
+        </div>
+        <p className={giftStyles.priceNote}>Prix relevés le 30 août 2026, susceptibles d'évoluer. Vérifiez le tarif final avant de commander.</p>
+      </section>
+
       <section className={styles.budgetSection}><div className="container"><p className={styles.kicker}>Sans dépasser son budget</p><h2>Idées cadeaux par prix</h2><div className={styles.budgets}>{budgets.map((budget) => <Link key={budget.label} href={`/recherche?q=${encodeURIComponent(budget.query)}`}>{budget.label}<span>Voir les idées →</span></Link>)}</div></div></section>
 
       <section id="offres" className={`container ${styles.section}`}>
-        <p className={styles.kicker}>Sélection mise à jour</p><h2>Les premières idées cadeaux disponibles</h2>
-        <p className={styles.sectionIntro}>Cette sélection évolue automatiquement avec les offres actives du site. Les prix Amazon sont affichés sur les fiches lorsqu’ils sont disponibles par l’API officielle.</p>
-        <div className={styles.offerGrid}>{offers.map(({ meta }) => <article className={styles.card} key={meta.slug}><Link href={`/article/${meta.slug}`} className={styles.image}><Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 25vw" /></Link><div><p>{meta.tags[0] || "Idée cadeau"}</p><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3>{meta.price ? <strong>{meta.price}</strong> : <span>Prix à vérifier</span>}<Link className={styles.offerLink} href={`/article/${meta.slug}`}>Voir le bon plan</Link></div></article>)}</div>
+        <p className={styles.kicker}>Bons plans cadeaux</p><h2>Nos idées cadeaux du moment</h2>
+        <p className={styles.sectionIntro}>Cette sélection contient uniquement des produits et coffrets pouvant être offerts. Les concours, tests gratuits et simples codes promo en sont exclus.</p>
+        <div className={styles.offerGrid}>{offers.map(({ meta }) => <article className={styles.card} key={meta.slug}><Link href={`/article/${meta.slug}`} className={styles.image}><Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 25vw" /></Link><div><p>Idée cadeau</p><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3>{meta.price ? <strong>{meta.price}</strong> : <span>Tarif sur la fiche</span>}<Link className={styles.offerLink} href={`/article/${meta.slug}`}>Voir le bon plan</Link></div></article>)}</div>
       </section>
 
       <section className={styles.crossLinks}><div className="container"><div><p className={styles.kicker}>À préparer aussi</p><h2>Calendriers de l’Avent 2026</h2><p>Beauté, parfums et soins : comparez les prix, le contenu et les dates de sortie des calendriers déjà annoncés.</p><Link href="/calendriers-de-l-avent-2026">Voir le comparatif des calendriers →</Link></div><div><p className={styles.kicker}>Le grand rendez-vous</p><h2>Black Friday 2026</h2><p>Le vendredi 27 novembre 2026. Les meilleures offres seront reliées à ce guide dès leur annonce.</p><Link href="/bons-plans-en-cours">Voir les offres en cours →</Link></div></div></section>

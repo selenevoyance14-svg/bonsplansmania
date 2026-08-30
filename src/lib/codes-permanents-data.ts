@@ -406,7 +406,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     value: "-10 %",
     title: "-10 % sur la prochaine commande Zooplus après inscription newsletter",
     permanent: true,
-    conditions: "Code envoyé par e-mail après inscription à la newsletter. Zooplus annonce également 333 zooPoints de bienvenue.",
+    conditions: "Code envoyé par e-mail après inscription gratuite à une ou plusieurs newsletters Zooplus.",
     affiliateUrl: "https://tidd.ly/4bvX2g9",
   },
 ];
