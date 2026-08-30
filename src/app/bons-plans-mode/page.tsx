@@ -109,7 +109,7 @@ const BEAUTY_TAGS = new Set([
   "sac-isotherme", "isotherme", "lunch-bag",
 ]);
 
-export function isModeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+function isModeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;

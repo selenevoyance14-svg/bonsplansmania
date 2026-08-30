@@ -92,7 +92,7 @@ const BEAUTY_SLUG_TOKENS = [
   "-maquillage-", "-parfum-", "-soin-visage-", "-soins-visage-",
 ];
 
-export function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
