@@ -87,6 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         >
           <nav aria-label="Liens de pied de page" style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap", marginBottom: "8px" }}>
+            <a href="/archives/bons-plans" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des bons plans</a>
             <a href="/archives/concours" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des concours</a>
             <a href="/archives/tests-produits" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des tests gratuits</a>
             <a href="/categorie/concours" style={{ color: "#ffffff" }}>Concours en cours</a>

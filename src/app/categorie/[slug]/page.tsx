@@ -4,7 +4,7 @@ import LoadMoreGrid from "@/app/components/LoadMoreGrid";
 import BrandFilter from "@/app/components/BrandFilter";
 import { ALL_DEAL_BRANDS, BOX_BEAUTE_BRANDS } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
+import { Archive, ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePine, FlaskConical, Ticket, Sparkles, type LucideIcon } from "lucide-react";
 import { notFound } from "next/navigation";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
@@ -61,7 +61,7 @@ const categoryIntros: Record<string, string> = {
   // d'écran de la promo pour preuve ». Ces deux affirmations ne sont pas
   // tenables sur 2 900 articles et exposaient le site : on décrit désormais ce
   // qui est réellement fait sur chaque fiche.
-  "bon-plan": `<p>Voici <strong>tous nos bons plans</strong>, tous univers confondus : beauté (Sephora, Yves Rocher, Nuxe, Caudalie), bébé et puériculture (Pampers, Béaba, Tidoo), électroménager (Bosch, Philips, Rowenta), high-tech (Amazon, Cdiscount, Fnac), mode (Showroomprivé, Gémo, Petit Bateau), papeterie et rentrée.</p><p>Sur chaque offre, on indique le <strong>prix constaté</strong>, le prix avant réduction quand il existe, le pourcentage de remise et la <strong>date à laquelle le prix a été vérifié</strong>. Les conditions (code promo, minimum d'achat, expéditeur) sont précisées quand elles s'appliquent. Une offre terminée n'est pas supprimée : elle est signalée comme terminée, pour que vous ne tombiez pas sur un prix qui n'existe plus.</p><p>Pour aller plus vite, chaque univers a sa propre page : <a href="/bons-plans-beaute">beauté</a>, <a href="/bons-plans-bebe">bébé</a>, <a href="/bons-plans-maison">maison</a>, <a href="/bons-plans-tech">tech</a>, <a href="/bons-plans-mode">mode</a>, <a href="/bons-plans-jardin">jardin et animaux</a>, <a href="/bons-plans-jouets">jouets</a> et <a href="/bons-plans-rentree">rentrée</a>. Vous pouvez aussi explorer par marque via <a href="/marques">notre annuaire</a>, ou consulter les <a href="/codes-promo-permanents">codes promo valables toute l'année</a>.</p>`,
+  "bon-plan": `<p>Voici <strong>tous nos bons plans</strong>, tous univers confondus : beauté (Sephora, Yves Rocher, Nuxe, Caudalie), bébé et puériculture (Pampers, Béaba, Tidoo), électroménager (Bosch, Philips, Rowenta), high-tech (Amazon, Cdiscount, Fnac), mode (Showroomprivé, Gémo, Petit Bateau), papeterie et rentrée.</p><p>Sur chaque offre, on indique le <strong>prix constaté</strong>, le prix avant réduction quand il existe, le pourcentage de remise et la <strong>date à laquelle le prix a été vérifié</strong>. Les conditions (code promo, minimum d'achat, expéditeur) sont précisées quand elles s'appliquent. Une offre terminée n'est pas supprimée : elle est signalée comme terminée et rangée dans les <a href="/archives/bons-plans">archives des bons plans</a>, pour que vous ne tombiez pas sur un prix qui n'existe plus.</p><p>Pour aller plus vite, chaque univers a sa propre page : <a href="/bons-plans-beaute">beauté</a>, <a href="/bons-plans-bebe">bébé</a>, <a href="/bons-plans-maison">maison</a>, <a href="/bons-plans-tech">tech</a>, <a href="/bons-plans-mode">mode</a>, <a href="/bons-plans-jardin">jardin et animaux</a>, <a href="/bons-plans-jouets">jouets</a> et <a href="/bons-plans-rentree">rentrée</a>. Vous pouvez aussi explorer par marque via <a href="/marques">notre annuaire</a>, ou consulter les <a href="/codes-promo-permanents">codes promo valables toute l'année</a>.</p>`,
 
   "test-produit": `<p>Les <strong>tests produits</strong> regroupent à la fois les <a href="/categorie/test-gratuit">tests gratuits</a> (échantillons offerts contre un avis) et les <a href="/categorie/test-avis">avis détaillés</a> sur les produits qu'on a réellement utilisés.</p><p>Pour les tests gratuits, nous référençons les missions Trustt, Konbini, Sampleo, ConsoBaby, Mamadvisor, BeautéTest, Cosmétique-testing et les missions TikTok / Instagram des marques (Marilou Bio, ACM, Tout Petit Marseillais, etc.). L'inscription est toujours gratuite, et le produit est envoyé chez toi en échange d'un avis honnête.</p><p>Côté tests & avis, nous publions des comparatifs (lisseurs, robots aspirateurs, parfums, planchas) et des avis individuels sur les produits phares (Babycook, Foreo Bear, Yuka, Tiger Balm…). On indique systématiquement les avantages ET les inconvénients, parce qu'on est avant tout consommateurs nous aussi.</p>`,
 
@@ -206,6 +206,14 @@ export default async function CategoryPage({ params }: PageProps) {
             <p style={{ color: "var(--muted-foreground)" }}>
               {cat.desc} — {articles.length} article{articles.length > 1 ? "s" : ""}
             </p>
+            {slug === "bon-plan" && (
+              <a
+                href="/archives/bons-plans"
+                style={{ display: "inline-flex", alignItems: "center", gap: "7px", marginTop: "16px", padding: "10px 18px", borderRadius: "2px", background: "#7F1D1D", color: "white", fontWeight: 800, fontSize: "0.9rem", textDecoration: "none" }}
+              >
+                <Archive size={15} /> Consulter les bons plans terminés
+              </a>
+            )}
             {slug === "concours" && (
               <a
                 href="/calendriers-de-l-avent-concours-2026"
