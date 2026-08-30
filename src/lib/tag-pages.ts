@@ -78,6 +78,17 @@ export const CURATED_TAG_SLUGS = new Set([
   "make-up-for-ever",
   "signal",
   "lancaster",
+  "institut-esthederm",
+  "baija",
+  "loccitane",
+  "cosmopolitan",
+  "nuk",
+  "beaba",
+  "algologie",
+  "maxi-mag",
+  "eclae",
+  "peggy-sage",
+  "famille-mary",
 ]);
 
 export function slugifyTag(tag: string): string {
@@ -116,6 +127,12 @@ const GENERIC_TAG_SLUGS = new Set([
   "machine-a-glace",
   "tire-lait",
   "parfumerie-francaise",
+  "chauffe-biberon",
+  "gel-douche", "masque-cheveux",
+  "offre-flash",
+  "cadeau-homme", "routine-complete", "deodorant", "rasoir",
+  "capsules",
+  "fabrique-en-france",
   "cuisine", "high-tech", "tech", "bebe", "enfant", "homme", "femme",
   "maillot", "mains-libres", "test", "tests", "avis", "comparatif",
   // Doublons exacts d'une /categorie/ : même contenu, même requête, deux URL.
