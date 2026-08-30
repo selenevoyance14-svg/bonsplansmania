@@ -54,6 +54,14 @@ export const CURATED_TAG_SLUGS = new Set([
   "sephora",
   "yves-rocher",
   "amazon",
+  "bebeboutik",
+  "braun",
+  "cattier",
+  "carte-noire",
+  "wonderbox",
+  "my-little-box",
+  "melvita",
+  "the-ordinary",
 ]);
 
 export function slugifyTag(tag: string): string {
@@ -76,12 +84,17 @@ const GENERIC_TAG_SLUGS = new Set([
   "code-promo", "codes-promo", "reduction", "reductions", "remise", "remises",
   "soldes", "offre", "offres", "deal", "deals", "vente-privee", "ventes-privees",
   "pas-cher", "moins-cher", "gratuit", "cadeau", "cadeaux", "concours",
+  "choix-amazon",
   "beaute", "maison", "maison-connectee", "maison-entretien", "mode", "jardin",
+  "skincare-homme", "bb-cream-solaire", "parfum-homme", "serum-cheveux",
+  "brosse-soufflante", "contour-yeux", "chaussures-enfant", "chaussures-enfants",
+  "rasage", "rasoir-homme", "tracteur-tondeuse", "complements-alimentaires",
+  "baume-a-levres", "cadeau-beaute", "humidificateur",
   "cuisine", "high-tech", "tech", "bebe", "enfant", "homme", "femme",
   "maillot", "mains-libres", "test", "tests", "avis", "comparatif",
   // Doublons exacts d'une /categorie/ : même contenu, même requête, deux URL.
   "test-gratuit", "tests-gratuits", "test-produit", "test-produit-gratuit",
-  "test-avis", "box-beaute", "calendrier-avent", "calendrier", "selection",
+  "test-avis", "box-beaute", "coffret-beaute", "calendrier-avent", "calendrier", "selection",
   "bon-plan-beaute", "instant-gagnant", "instants-gagnants", "jeu-concours",
   "jeux-concours", "tirage-au-sort", "echantillon-gratuit", "echantillons-gratuits",
   "archive", "archives", "france",

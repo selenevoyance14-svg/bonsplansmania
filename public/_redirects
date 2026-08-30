@@ -2,15 +2,32 @@
 # 31/07/2026. La catégorie Beauté a été réalimentée (24 guides et tutos) et sert
 # de nouveau la rubrique "Guides & Tests" du menu Beauté.
 
+# Ancienne étiquette thématique prise à tort pour une marque : destination
+# éditoriale équivalente, plus utile qu'une 404 ou qu'un renvoi vers l'accueil.
+/marque/soins-visage /categorie/beaute 301
+/marque/creme-anti-age /article/guide-routine-anti-age-meilleurs-soins-eclatante-tout-age-amazon-2026 301
+/marque/shampooing /article/comparatif-meilleur-shampoing-2026 301
+/marque/coupon /code-promo 301
+/marque/nubiance /article/test-gratuit-nubiance-soins-visage-2026 301
+/marque/french-week /article/bons-plans-amazon-french-week-recap-mai-2026 301
+
 # Dr Pierre Ricaud — page permanente des codes promo (03/08/2026)
 /article/code-promo-dr-pierre-ricaud-mai-2026 /article/code-promo-dr-pierre-ricaud 301
 /article/hub-bons-plans-dr-pierre-ricaud-juillet-2026-10-euros-offerts-des-60-euros /article/code-promo-dr-pierre-ricaud 301
+/article/bon-plan-dr-pierre-ricaud-contour-yeux-defroisseur-12-euros-juillet-2026 /article/bon-plan-dr-pierre-ricaud-trio-soins-cultes-defroisseurs-2026 301
+/article/bon-plan-dr-pierre-ricaud-serum-teint-hyalu-tenue-12h-dore-5-juillet-2026 /article/hub-dr-pierre-ricaud-meilleurs-soins-visage-2026 301
+/article/bon-plan-dr-pierre-ricaud-complement-alimentaire-acide-hyaluronique-vitamine-c-14-euros-juillet-2026 /article/code-promo-dr-pierre-ricaud 301
 
 # Soldes d'été — consolidation vers le guide permanent (03/08/2026)
 /article/hub-meilleurs-soldes-ete-15-marques-jusqu-70-pourcent-cashback-igraal-juin-2026 /article/soldes-ete-2026-dates-astuces-vrais-bons-plans 301
 /article/meilleurs-bons-plans-soldes-ete-2026-guide-complet /article/soldes-ete-2026-dates-astuces-vrais-bons-plans 301
 
 # Consolidation doublons bons plans — 10/07/2026 (nettoyage 22 groupes)
+/article/amazon-aowoka-seche-cheveux-professionnel-ionique-promo-2026 /article/aowoka-seche-cheveux-professionnel-ionique-160000-rpm-59-99-euros-amazon-moins-54-pourcent 301
+/article/code-promo-sephora-bons-plans-beaute-mars-2026 /article/code-promo-sephora-mars-2026 301
+/article/bon-plan-glowria-box-beaute-15-euros-35-produits-682-euros-journee-femme /article/glowria-box-xxl-journee-femme-15-euros-2026 301
+/article/loue-mon-dimanche-jeu-concours-2026 /article/jeu-concours-loue-mon-dimanche-volailles-oeufs-fermiers-2026 301
+/article/chaussea-codes-promo-chaussures-2026 /article/chaussea-chaussures-pas-cher-promo-2026 301
 /article/bon-plan-xiaomi-redmi-note-15-pro-5g-smartphone-amazon-2026 /article/bon-plan-xiaomi-redmi-note-15-pro-5g-12-512go-6580mah-ip68-331-euros 301
 /article/xiaomi-redmi-note-15-pro-5g-299-euros-promo-amazon-avril-2026 /article/bon-plan-xiaomi-redmi-note-15-pro-5g-12-512go-6580mah-ip68-331-euros 301
 /article/amazon-xiaomi-redmi-note-15-pro-5g-512go-promo-2026 /article/bon-plan-xiaomi-redmi-note-15-pro-5g-12-512go-6580mah-ip68-331-euros 301
@@ -206,7 +223,7 @@
 /article/adopt-shopping-days-avril-2026-jusqua-50-pourcent /article/code-promo-adopt-mars-2026 301
 /article/bon-plan-adopt-shopping-days-jusqu-a-50-pourcent-parfums-mars-2026 /article/code-promo-adopt-mars-2026 301
 /article/adopt-parfums-fete-des-meres-coffrets-woman-coolest-mom-2026 /article/code-promo-adopt-mars-2026 301
-/article/concours-adopt-parfums-jeu-fete-des-meres-instant-gagnant-65-lots-mai-2026 /concours 301
+/article/concours-adopt-parfums-jeu-fete-des-meres-instant-gagnant-65-lots-mai-2026 /archives/concours 301
 /article/adopt-parfums-jeu-girl-power-surprise-parfumee-concours /concours 301
 /article/concours-fluidra-adopte-un-zodiac-8174-lots-robots-piscine-mai-juin-2026 /concours 301
 
@@ -438,6 +455,22 @@
 /marque/test-produit-gratuit /categorie/test-gratuit 301
 /marque/test-avis /categorie/test-avis 301
 /marque/box-beaute /categorie/box-beaute 301
+/marque/coffret-beaute /categorie/box-beaute 301
+/marque/skincare-homme /article/routine-visage-homme-guide-complet-8-produits-2026 301
+/marque/choix-amazon /marque/amazon 301
+/marque/bb-cream-solaire /article/selection-meilleures-cremes-solaires-2026 301
+/marque/parfum-homme /article/meilleurs-parfums-hommes-2026-amazon-comparatif-selection 301
+/marque/serum-cheveux /article/comparatif-meilleur-produit-lissant-cheveux-2026 301
+/marque/brosse-soufflante /article/comparatif-meilleurs-seche-cheveux-amazon-2026-guide-achat 301
+/marque/contour-yeux /article/comparatif-meilleures-cremes-contour-des-yeux-2026 301
+/marque/chaussures-enfant /categorie/mode 301
+/marque/rasage /article/comparatif-meilleurs-rasoirs-homme-amazon-2026-guide-achat 301
+/marque/rasoir-homme /article/comparatif-meilleurs-rasoirs-homme-amazon-2026-guide-achat 301
+/marque/tracteur-tondeuse /categorie/jardin 301
+/marque/complements-alimentaires /article/top-10-meilleurs-sites-complements-alimentaires-en-ligne-2026 301
+/marque/baume-a-levres /article/selection-meilleurs-baumes-levres-2026 301
+/marque/cadeau-beaute /idees-cadeaux-noel-2026 301
+/marque/humidificateur /article/meilleurs-brumisateurs-humidificateurs-2026-guide-achat 301
 /marque/calendrier-avent /categorie/calendrier-avent 301
 /marque/calendrier /categorie/calendrier-avent 301
 /marque/selection /categorie/comparatif 301
@@ -447,6 +480,7 @@
 /marque/jeu-concours /categorie/concours 301
 /marque/jeux-concours /categorie/concours 301
 /marque/tirage-au-sort /categorie/concours 301
+/marque/ma-famille-zen /article/mafamillezen-jeux-concours-famille-2026 301
 /marque/echantillon-gratuit /categorie/test-gratuit 301
 /marque/echantillons-gratuits /categorie/test-gratuit 301
 /article/maxpeedingrods-groupe-electrogene-gpl-essence-3500w-895-14-euros-amazon-moins-19-pourcent /article/bon-plan-amazon-maxpeedingrods-groupe-electrogene-3500w-895-euros-2026 301

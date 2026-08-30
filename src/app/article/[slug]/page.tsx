@@ -333,7 +333,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   {article.meta.category === "concours" && (
                     <> ou consultez les <a href="/archives/concours" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>archives des concours</a></>
                   )}
-                  {article.meta.category === "bon-plan" && (
+                  {(article.meta.category === "bon-plan" || article.meta.category === "box-beaute") && (
                     <> ou consultez les <a href="/archives/bons-plans" style={{ color: "#B91C1C", textDecoration: "underline", fontWeight: 600 }}>archives des bons plans</a></>
                   )}
                   {article.meta.category === "test-gratuit" && (
