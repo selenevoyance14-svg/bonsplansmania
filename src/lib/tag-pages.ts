@@ -62,6 +62,22 @@ export const CURATED_TAG_SLUGS = new Set([
   "my-little-box",
   "melvita",
   "the-ordinary",
+  "uriage",
+  "audible",
+  "garancia",
+  "stabilo",
+  "christophe-robin",
+  "lefant",
+  "lancome",
+  "solcotton",
+  "marie-claire",
+  "king-c-gillette",
+  "dr-pierre-ricaud",
+  "mustela",
+  "loreal-professionnel",
+  "make-up-for-ever",
+  "signal",
+  "lancaster",
 ]);
 
 export function slugifyTag(tag: string): string {
@@ -89,11 +105,22 @@ const GENERIC_TAG_SLUGS = new Set([
   "skincare-homme", "bb-cream-solaire", "parfum-homme", "serum-cheveux",
   "brosse-soufflante", "contour-yeux", "chaussures-enfant", "chaussures-enfants",
   "rasage", "rasoir-homme", "tracteur-tondeuse", "complements-alimentaires",
-  "baume-a-levres", "cadeau-beaute", "humidificateur",
+  "baume-a-levres", "cadeau-beaute", "humidificateur", "box-beaute-bio",
+  "smartphone", "tonique", "routine-coreenne", "deal-du-jour", "jeux",
+  "aspirateur-robot", "double-serum", "pouvoir-achat", "ordinateur",
+  "lait-de-chevre", "yuka-excellent", "soins-naturels", "mode-homme",
+  "lifestyle", "ongles", "abonnement-beaute", "huile-prodigieuse",
+  "satisfait-ou-rembourse",
+  "philips-oneblade",
+  "beaute-francaise", "beaute-premium",
+  "machine-a-glace",
+  "tire-lait",
+  "parfumerie-francaise",
   "cuisine", "high-tech", "tech", "bebe", "enfant", "homme", "femme",
   "maillot", "mains-libres", "test", "tests", "avis", "comparatif",
   // Doublons exacts d'une /categorie/ : même contenu, même requête, deux URL.
   "test-gratuit", "tests-gratuits", "test-produit", "test-produit-gratuit",
+  "produits-gratuits", "brume-parfumee", "alimentation-bebe",
   "test-avis", "box-beaute", "coffret-beaute", "calendrier-avent", "calendrier", "selection",
   "bon-plan-beaute", "instant-gagnant", "instants-gagnants", "jeu-concours",
   "jeux-concours", "tirage-au-sort", "echantillon-gratuit", "echantillons-gratuits",
@@ -107,8 +134,11 @@ const MONTH_SLUGS = new Set([
   "aout", "septembre", "octobre", "novembre", "decembre",
 ]);
 
+// Variantes de marques redirigées vers une page canonique unique.
+const BRAND_ALIAS_SLUGS = new Set(["loreal-paris"]);
+
 export function isNonBrandTagSlug(slug: string): boolean {
-  if (GENERIC_TAG_SLUGS.has(slug) || MONTH_SLUGS.has(slug)) return true;
+  if (GENERIC_TAG_SLUGS.has(slug) || MONTH_SLUGS.has(slug) || BRAND_ALIAS_SLUGS.has(slug)) return true;
   // Contient une année : "2026", "juillet-2026", "soldes-ete-2026", "fin-31-juillet-2026"
   if (/(?:^|-)(?:19|20)\d{2}(?:$|-)/.test(slug)) return true;
   // Caractéristique technique : "9000-btu", "2200w", "1000-euros"
