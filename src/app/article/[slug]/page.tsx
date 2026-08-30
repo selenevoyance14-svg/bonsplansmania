@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles, getAffiliateRecommendations, getAllArticles, getPrevNextArticle, isEffectivelyExpired } from "@/lib/articles";
+import { getArticleBySlug, getRelatedArticles, getAffiliateRecommendations, getAllArticles, getAllPublishedArticles, getPrevNextArticle, isEffectivelyExpired } from "@/lib/articles";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-react";
@@ -19,13 +19,13 @@ import { shouldHideAmazonPrice } from "@/lib/article-commerce";
 interface PageProps { params: Promise<{ slug: string }>; }
 
 export async function generateStaticParams() {
-  return getAllArticles().map((a) => ({ slug: a.meta.slug }));
+  return getAllPublishedArticles().map((a) => ({ slug: a.meta.slug }));
 }
 
 const staticTagSlugs = getStaticTagSlugs(
   getAllArticles().map((article) => article.meta.tags || [])
 );
-const articleSlugs = new Set(getAllArticles().map((article) => article.meta.slug));
+const articleSlugs = new Set(getAllPublishedArticles().map((article) => article.meta.slug));
 const validCategorySlugs = new Set([
   "bon-plan",
   "test-gratuit",

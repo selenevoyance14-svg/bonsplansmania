@@ -176,6 +176,7 @@ function resolveArticleImage(image: unknown): string {
 // Cache mémoire pour éviter de relire 1105 fichiers à chaque appel
 let _fileMapCache: Map<string, string> | null = null;
 let _allArticlesCache: Article[] | null = null;
+let _allPublishedArticlesCache: Article[] | null = null;
 
 export interface ArticleMeta {
   slug: string;
@@ -344,6 +345,19 @@ export function getAllArticles(): Article[] {
       return getEffectiveSortDate(b.meta) - getEffectiveSortDate(a.meta);
     });
   return _allArticlesCache;
+}
+
+/**
+ * Retourne tous les articles publiés, y compris ceux qui sont archivés.
+ * Cette liste sert notamment à générer leurs routes statiques afin qu'un
+ * article terminé reste consultable depuis les pages d'archives.
+ */
+export function getAllPublishedArticles(): Article[] {
+  if (_allPublishedArticlesCache) return _allPublishedArticlesCache;
+  _allPublishedArticlesCache = getArticleSlugs()
+    .map((slug) => getArticleBySlug(slug))
+    .filter((article): article is Article => article !== null && article.meta.published);
+  return _allPublishedArticlesCache;
 }
 
 export function getArticlesByCategory(category: string): Article[] {
