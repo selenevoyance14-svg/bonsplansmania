@@ -404,6 +404,8 @@
 /marque/course /article/courses-pas-cheres-2026-comparatif-supermarches-astuces 301
 /test-produit-gratuit-porte-bebe-love-radius/ /archives/tests-produits 301
 /sabon-jusqua-50/ /categorie/beaute 301
+/jeu-pomme-de-terre-dor-2026/ /article/lays-pomme-de-terre-or-instant-gagnant-2026 301
+/grand-jeu-2026-courtepaille/ /article/courtepaille-grand-jeu-musical-ete-airpods-marshall-francofolies-juin-2026 301
 
 # Weleda — pivot unique code-promo-weleda-mars-2026 (consolidation 25/06/2026)
 /article/bon-plan-weleda-spring-days-code-promo-20-pourcent-2026 /article/code-promo-weleda-mars-2026 301
@@ -999,3 +1001,19 @@
 /marque/surligneur /bons-plans-rentree 301
 /marque/wave-3 /article/bon-plan-ecoflow-wave-3-climatiseur-portable-749-euros 301
 /marque/senseo-maestro /article/bon-plan-amazon-philips-senseo-maestro-csa260-machine-cafe-juin-2026 301
+
+# Consolidation des anciennes pages permanentes Bebeboutik (31/08/2026)
+/article/bon-plan-bebeboutik-ventes-privees-bebe-mars-2026 /article/bebeboutik-ventes-privees-bebe-enfant-2026 301
+
+# Ancien hub social consolidé vers la page concours active (31/08/2026)
+/article/hub-jeux-concours-instagram-facebook-2026 /concours 301
+
+# Anciennes pseudo-marques génériques (31/08/2026)
+/marque/hygiene-dentaire /article/bon-plan-amazon-philips-sonicare-ventes-flash-printemps-2026 301
+/marque/test /tests-produits-gratuits-2026 301
+/marque/pores /article/meilleures-cremes-anti-imperfections-top-6-comparatif-2026 301
+/marque/ventes-flash-printemps /archives/bons-plans 301
+
+# Normalisation des marques et libellés génériques (31/08/2026)
+/marque/wc /bons-plans-maison 301
+/marque/loccitane-en-provence /marque/loccitane 301

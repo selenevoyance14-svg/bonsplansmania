@@ -80,7 +80,7 @@ export const CURATED_TAG_SLUGS = new Set([
   "lancaster",
   "institut-esthederm",
   "baija",
-  "loccitane",
+  "loccitane", "magnifaik",
   "cosmopolitan",
   "nuk",
   "beaba",
@@ -341,7 +341,7 @@ const GENERIC_TAG_SLUGS = new Set([
   "jeu-7-differences", "peter-thomas-roth", "guillaume-bichet",
   "lifting-cou", "phb-plus", "brasero",
   "cuisine", "high-tech", "tech", "bebe", "enfant", "homme", "femme",
-  "maillot", "mains-libres", "test", "tests", "avis", "comparatif",
+  "maillot", "mains-libres", "tests", "avis", "comparatif",
   // Doublons exacts d'une /categorie/ : même contenu, même requête, deux URL.
   "test-gratuit", "tests-gratuits", "test-produit", "test-produit-gratuit",
   "produits-gratuits", "brume-parfumee", "alimentation-bebe",
