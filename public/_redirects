@@ -2,6 +2,14 @@
 # 31/07/2026. La catégorie Beauté a été réalimentée (24 guides et tutos) et sert
 # de nouveau la rubrique "Guides & Tests" du menu Beauté.
 
+# Anciennes taxonomies WordPress encore explorées par Google
+/tag/mode-enfant/ /bons-plans-mode 301
+/category/film/ /blog 301
+/category/photography/ /blog 301
+/category/box-beaute/prescription-lab/ /categorie/box-beaute 301
+/category/test-produit/page/5/ /categorie/test-gratuit 301
+/category/bons-plans/idees-cadeaux/ /idees-cadeaux-noel-2026 301
+
 # Ancienne étiquette thématique prise à tort pour une marque : destination
 # éditoriale équivalente, plus utile qu'une 404 ou qu'un renvoi vers l'accueil.
 /marque/soins-visage /categorie/beaute 301
@@ -71,7 +79,7 @@
 /sitemap_index.xml /sitemap.xml 301
 /category-sitemap.xml /sitemap.xml 301
 /article/adopt-dupe-parfums-guide-complet / 301
-/article/adopt-parfums-homme-dupes-2026 / 301
+/article/adopt-parfums-homme-dupes-2026 /article/adopt-parfums-avis-test-eaux-de-parfum-pas-cher-2026 301
 /article/dupes-parfums-pas-cher-adopt-action-zara-2026 / 301
 
 # Envie de Bien Manger — consolidation hub Lactalis
