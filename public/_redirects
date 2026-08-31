@@ -1017,3 +1017,13 @@
 # Normalisation des marques et libellés génériques (31/08/2026)
 /marque/wc /bons-plans-maison 301
 /marque/loccitane-en-provence /marque/loccitane 301
+/article/mammotion-luba-mini-2-awd-1000-robot-tondeuse-1799-euros-amazon-2026 /article/bon-plan-amazon-mammotion-luba-mini-2-awd-robot-tondeuse-sans-fil-mai-2026 301
+/marque/shampoing /article/comparatif-meilleur-shampoing-2026 301
+/marque/coiffure /categorie/beaute 301
+/marque/dermatologie /categorie/beaute 301
+/marque/menage /article/produits-menagers-maison-2026-recettes-faciles-pas-cher 301
+/marque/bien-etre /bons-plans-en-cours 301
+/marque/biberon /bons-plans-bebe 301
+/marque/vichy /article/meilleurs-bons-plans-vichy-2026-selection-amazon-mineral-89-capital-soleil-dermablend 301
+/marque/concours /concours 301
+/marque/lookfantastic /bons-plans-beaute 301
