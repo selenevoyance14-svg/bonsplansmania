@@ -3441,18 +3441,6 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
       "Un bouquet de roses de Grasse porté par la pivoine et l’iris, adouci par le bois de santal et le musc blanc.",
   },
   {
-    slug: "chanel-coco-mademoiselle-eau-de-parfum",
-    gender: "femme",
-    category: "parfums",
-    addedAt: "2026-08-01T16:30:00",
-    brand: "Chanel",
-    name: "Coco Mademoiselle Eau de Parfum",
-    image: "/images/products/chanel-coco-mademoiselle-eau-de-parfum.png",
-    imageAlt: "Flacon Chanel Coco Mademoiselle Eau de Parfum vaporisateur",
-    teaser:
-      "L’oriental frais de Chanel : orange et bergamote, un cœur de rose et de jasmin, un fond de patchouli et de vétiver.",
-  },
-  {
     slug: "sol-de-janeiro-cheirosa-62-perfume-mist-90ml",
     gender: "femme",
     category: "parfums",
