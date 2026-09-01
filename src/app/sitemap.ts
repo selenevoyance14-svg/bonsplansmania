@@ -16,6 +16,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   // leur filtre corrigé.
   { path: "",                          priority: 1.0, changeFrequency: "daily" },
   { path: "/bons-plans-en-cours",      priority: 0.9, changeFrequency: "daily" },
+  { path: "/tenir-son-budget",         priority: 0.9, changeFrequency: "monthly" },
   { path: "/ete",                      priority: 0.9, changeFrequency: "daily" },
   { path: "/noel",                     priority: 0.8, changeFrequency: "weekly" },
   { path: "/calendriers-de-l-avent-concours-2026", priority: 0.9, changeFrequency: "daily" },
