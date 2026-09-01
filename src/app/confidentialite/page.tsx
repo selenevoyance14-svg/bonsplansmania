@@ -21,7 +21,8 @@ export default function Confidentialite() {
               Pour une alerte, le mot-clé, le type (produit, marque ou catégorie) et la fréquence choisis sont également enregistrés. Lors de la
               navigation, des données techniques et des identifiants en ligne peuvent également être traités, notamment l&apos;adresse
               IP, le type d&apos;appareil, le navigateur, les pages consultées et les interactions avec le site, selon tes choix en
-              matière de cookies.
+              matière de cookies. Lorsque tu déposes un commentaire ou proposes un bon plan, le pseudo, le contenu transmis et,
+              si tu le renseignes, ton email sont également enregistrés afin de permettre la modération.
             </p>
           </section>
 
@@ -41,7 +42,8 @@ export default function Confidentialite() {
             <p>
               Les données d&apos;abonnement sont conservées tant que tu restes inscrit·e à la newsletter ou à l&apos;alerte concernée, puis supprimées lors de la
               désinscription. Les alertes sont hébergées dans Cloudflare KV et les emails sont envoyés par Resend. Les durées applicables aux cookies sont indiquées
-              dans le gestionnaire de consentement accessible sur le site.
+              dans le gestionnaire de consentement accessible sur le site. Les commentaires et propositions sont stockés dans Cloudflare KV ;
+              les contributions refusées ou traitées sont supprimées de la file de modération.
             </p>
           </section>
 

@@ -15,6 +15,7 @@ import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
 import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { shouldHideAmazonPrice } from "@/lib/article-commerce";
+import ArticleComments from "@/app/components/ArticleComments";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -223,7 +224,7 @@ export default async function ArticlePage({ params }: PageProps) {
     && staleMessage
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
 
-  const relatedArticles = getRelatedArticles(slug, article.meta.category, 4, article.meta.tags);
+  const relatedArticles = getRelatedArticles(slug, article.meta.category, 3, article.meta.tags);
   const affiliateRecommendations = getAffiliateRecommendations(slug, article.meta.category, article.meta.tags, 3);
   const { prev: prevArticle, next: nextArticle } = getPrevNextArticle(slug, article.meta.category);
 
@@ -443,8 +444,10 @@ export default async function ArticlePage({ params }: PageProps) {
             {/* Pub après le contenu */}
             <AdBlock />
 
+            <ArticleComments articleSlug={slug} articleTitle={article.meta.title} />
+
             {/* Articles connexes AVANT la CTA affilié : si le visiteur ne clique pas sur l'affilié,
-                il doit voir 4 autres articles pertinents avant d'envisager de quitter le site.
+                il doit voir 3 autres articles pertinents avant d'envisager de quitter le site.
                 Position-clé pour réduire le bounce rate (mesuré ~100% au 3 juin 2026). */}
             {relatedArticles.length > 0 && (
               <section className="related-articles" style={{ margin: "32px 0" }}>
@@ -452,7 +455,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 <p style={{ margin: "0 0 16px", color: "var(--text-muted, #6b7280)", fontSize: "0.88rem" }}>
                   Des articles proches pour comparer, vérifier les conditions et trouver la meilleure offre.
                 </p>
-                <div className="articles-grid" style={{ gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: "12px" }}>
+                <div className="articles-grid related-articles-grid">
                   {relatedArticles.map((related) => {
                     const relCat = categoryConfig[related.meta.category];
                     return (

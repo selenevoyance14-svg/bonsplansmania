@@ -30,6 +30,7 @@ export default function PolitiqueConfidentialite() {
             <ul style={{ paddingLeft: "20px", marginTop: "8px", lineHeight: 1.8 }}>
               <li>Adresse e-mail (si inscription à la newsletter ou à une alerte personnalisée)</li>
               <li>Mot-clé, type et fréquence choisis pour chaque alerte</li>
+              <li>Pseudo, commentaire ou bon plan proposé et e-mail facultatif, pour permettre la modération</li>
               <li>Données de navigation anonymisées (via Google Analytics)</li>
               <li>Cookies publicitaires (via Google AdSense)</li>
             </ul>
@@ -40,6 +41,7 @@ export default function PolitiqueConfidentialite() {
             <ul style={{ paddingLeft: "20px", lineHeight: 1.8 }}>
               <li>Envoi de la newsletter (si vous vous êtes inscrite)</li>
               <li>Envoi des alertes personnalisées confirmées par e-mail</li>
+              <li>Vérification et publication éventuelle des contributions de la communauté</li>
               <li>Analyse du trafic pour améliorer le contenu</li>
               <li>Affichage de publicités personnalisées</li>
             </ul>

@@ -86,6 +86,21 @@ const newsletterWorker = {
       if (path === "/reviews/moderate" && request.method === "POST") {
         return await handleModerateReview(request, env);
       }
+      if (path === "/comment" && request.method === "POST") {
+        return await handleArticleComment(request, env);
+      }
+      if (path === "/comments/public" && request.method === "GET") {
+        return await handlePublicComments(url, env);
+      }
+      if (path === "/tip" && request.method === "POST") {
+        return await handleDealTip(request, env);
+      }
+      if (path === "/community/pending" && request.method === "GET") {
+        return await handlePendingCommunity(request, env);
+      }
+      if (path === "/community/moderate" && request.method === "POST") {
+        return await handleModerateCommunity(request, env);
+      }
       return jsonResponse({ error: "Not found" }, 404);
     } catch {
       return jsonResponse({ error: "Internal error" }, 500);
@@ -344,6 +359,236 @@ async function handleModerateReview(request: Request, env: Env): Promise<Respons
     );
   }
 
+  await env.SUBSCRIBERS.delete(pendingKey);
+  return jsonResponse({ success: true });
+}
+
+// --- COMMENTAIRES D'ARTICLES ET BONS PLANS PROPOSÉS ---
+type StoredArticleComment = {
+  id: string;
+  status: "pending" | "published";
+  articleSlug: string;
+  articleTitle: string;
+  nickname: string;
+  email?: string;
+  comment: string;
+  submittedAt: string;
+  publishedAt?: string;
+};
+
+type StoredDealTip = {
+  id: string;
+  status: "pending";
+  kind: string;
+  title: string;
+  url: string;
+  details: string;
+  nickname: string;
+  email?: string;
+  submittedAt: string;
+};
+
+async function sendCommunityNotification(
+  env: Env,
+  subject: string,
+  heading: string,
+  content: string,
+): Promise<void> {
+  try {
+    await fetch("https://api.resend.com/emails", {
+      method: "POST",
+      headers: {
+        Authorization: `Bearer ${env.RESEND_API_KEY}`,
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        from: `${env.FROM_NAME} <${env.FROM_EMAIL}>`,
+        to: ["bonsplansmania@gmail.com"],
+        subject,
+        html: `<h2>${escapeHtml(heading)}</h2>${content}
+          <p style="margin:24px 0">
+            <a href="${env.SITE_URL}/administration/communaute"
+               style="display:inline-block;background:#E63946;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">
+              Ouvrir la modération
+            </a>
+          </p>`,
+      }),
+    });
+  } catch {
+    // La contribution reste enregistrée même si l'alerte e-mail échoue.
+  }
+}
+
+async function handleArticleComment(request: Request, env: Env): Promise<Response> {
+  const body = await request.json<{
+    articleSlug?: string;
+    articleTitle?: string;
+    nickname?: string;
+    email?: string;
+    comment?: string;
+    website?: string;
+  }>();
+  if (body.website) return jsonResponse({ success: true });
+
+  const articleSlug = body.articleSlug?.trim().toLowerCase().slice(0, 160);
+  const articleTitle = body.articleTitle?.trim().slice(0, 180);
+  const nickname = body.nickname?.trim().slice(0, 40);
+  const email = body.email?.trim().toLowerCase().slice(0, 120) || "";
+  const comment = body.comment?.trim().slice(0, 1200);
+
+  if (
+    !articleSlug || !/^[a-z0-9-]{3,160}$/.test(articleSlug) ||
+    !articleTitle || !nickname || nickname.length < 2 ||
+    (email !== "" && !email.includes("@")) ||
+    !comment || comment.length < 10
+  ) {
+    return jsonResponse({ error: "Commentaire incomplet ou invalide" }, 400);
+  }
+
+  // Les liens ne sont pas utiles dans les commentaires et attirent surtout le spam.
+  if (/(?:https?:\/\/|www\.)/i.test(comment)) {
+    return jsonResponse({ error: "Les liens ne sont pas autorisés dans les commentaires" }, 400);
+  }
+
+  const submittedAt = new Date().toISOString();
+  const id = crypto.randomUUID();
+  const stored: StoredArticleComment = {
+    id, status: "pending", articleSlug, articleTitle, nickname, email, comment, submittedAt,
+  };
+  await env.SUBSCRIBERS.put(`comment:pending:${submittedAt}:${id}`, JSON.stringify(stored));
+  await sendCommunityNotification(
+    env,
+    `Nouveau commentaire à valider — ${articleTitle}`,
+    "Nouveau commentaire",
+    `<p><strong>Article :</strong> ${escapeHtml(articleTitle)}</p>
+     <p><strong>Pseudo :</strong> ${escapeHtml(nickname)}</p>
+     <p>${escapeHtml(comment).replace(/\n/g, "<br>")}</p>`,
+  );
+  return jsonResponse({ success: true, message: "Commentaire en attente de validation" }, 201);
+}
+
+async function listArticleComments(env: Env, prefix: string, includeEmail: boolean): Promise<StoredArticleComment[]> {
+  const comments: StoredArticleComment[] = [];
+  let cursor: string | undefined;
+  do {
+    const page = await env.SUBSCRIBERS.list({ prefix, cursor });
+    for (const key of page.keys) {
+      const raw = await env.SUBSCRIBERS.get(key.name);
+      if (!raw) continue;
+      try {
+        const comment = JSON.parse(raw) as StoredArticleComment;
+        if (!includeEmail) delete comment.email;
+        comments.push(comment);
+      } catch { /* ignore invalid legacy data */ }
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return comments.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
+}
+
+async function handlePublicComments(url: URL, env: Env): Promise<Response> {
+  const articleSlug = url.searchParams.get("articleSlug")?.trim().toLowerCase();
+  if (!articleSlug || !/^[a-z0-9-]{3,160}$/.test(articleSlug)) {
+    return jsonResponse({ error: "Article invalide" }, 400);
+  }
+  const comments = await listArticleComments(env, `comment:published:${articleSlug}:`, false);
+  return jsonResponse({ comments, count: comments.length });
+}
+
+async function handleDealTip(request: Request, env: Env): Promise<Response> {
+  const body = await request.json<{
+    kind?: string; title?: string; url?: string; details?: string;
+    nickname?: string; email?: string; website?: string;
+  }>();
+  if (body.website) return jsonResponse({ success: true });
+
+  const kind = body.kind?.trim().slice(0, 40) || "Bon plan";
+  const title = body.title?.trim().slice(0, 160);
+  const submittedUrl = body.url?.trim().slice(0, 500) || "";
+  const details = body.details?.trim().slice(0, 2000);
+  const nickname = body.nickname?.trim().slice(0, 40);
+  const email = body.email?.trim().toLowerCase().slice(0, 120) || "";
+  let validUrl = true;
+  if (submittedUrl) {
+    try { validUrl = ["http:", "https:"].includes(new URL(submittedUrl).protocol); } catch { validUrl = false; }
+  }
+  if (!title || title.length < 5 || !details || details.length < 15 || !nickname || nickname.length < 2 || !validUrl || (email !== "" && !email.includes("@"))) {
+    return jsonResponse({ error: "Proposition incomplète ou invalide" }, 400);
+  }
+
+  const submittedAt = new Date().toISOString();
+  const id = crypto.randomUUID();
+  const tip: StoredDealTip = { id, status: "pending", kind, title, url: submittedUrl, details, nickname, email, submittedAt };
+  await env.SUBSCRIBERS.put(`tip:pending:${submittedAt}:${id}`, JSON.stringify(tip));
+  await sendCommunityNotification(
+    env,
+    `Nouveau bon plan proposé — ${title}`,
+    "Nouveau bon plan proposé",
+    `<p><strong>Type :</strong> ${escapeHtml(kind)}</p>
+     <p><strong>Titre :</strong> ${escapeHtml(title)}</p>
+     <p><strong>Proposé par :</strong> ${escapeHtml(nickname)}</p>
+     ${submittedUrl ? `<p><strong>Lien :</strong> ${escapeHtml(submittedUrl)}</p>` : ""}
+     <p>${escapeHtml(details).replace(/\n/g, "<br>")}</p>`,
+  );
+  return jsonResponse({ success: true, message: "Proposition bien reçue" }, 201);
+}
+
+async function listDealTips(env: Env): Promise<StoredDealTip[]> {
+  const tips: StoredDealTip[] = [];
+  let cursor: string | undefined;
+  do {
+    const page = await env.SUBSCRIBERS.list({ prefix: "tip:pending:", cursor });
+    for (const key of page.keys) {
+      const raw = await env.SUBSCRIBERS.get(key.name);
+      if (!raw) continue;
+      try { tips.push(JSON.parse(raw) as StoredDealTip); } catch { /* ignore */ }
+    }
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return tips.sort((a, b) => new Date(b.submittedAt).getTime() - new Date(a.submittedAt).getTime());
+}
+
+async function handlePendingCommunity(request: Request, env: Env): Promise<Response> {
+  if (!isReviewAdmin(request, env)) return jsonResponse({ error: "Accès refusé" }, 401);
+  const [comments, tips] = await Promise.all([
+    listArticleComments(env, "comment:pending:", true),
+    listDealTips(env),
+  ]);
+  return jsonResponse({ comments, tips });
+}
+
+async function findPendingKey(env: Env, prefix: string, id: string): Promise<string | null> {
+  let cursor: string | undefined;
+  do {
+    const page = await env.SUBSCRIBERS.list({ prefix, cursor });
+    const key = page.keys.find((item) => item.name.endsWith(`:${id}`));
+    if (key) return key.name;
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  return null;
+}
+
+async function handleModerateCommunity(request: Request, env: Env): Promise<Response> {
+  if (!isReviewAdmin(request, env)) return jsonResponse({ error: "Accès refusé" }, 401);
+  const body = await request.json<{ id?: string; type?: "comment" | "tip"; action?: "publish" | "reject" | "done" }>();
+  if (!body.id || !body.type || !body.action) return jsonResponse({ error: "Action invalide" }, 400);
+  if (body.type === "comment" && !["publish", "reject"].includes(body.action)) return jsonResponse({ error: "Action invalide" }, 400);
+  if (body.type === "tip" && !["done", "reject"].includes(body.action)) return jsonResponse({ error: "Action invalide" }, 400);
+
+  const prefix = body.type === "comment" ? "comment:pending:" : "tip:pending:";
+  const pendingKey = await findPendingKey(env, prefix, body.id);
+  if (!pendingKey) return jsonResponse({ error: "Contribution introuvable" }, 404);
+  const raw = await env.SUBSCRIBERS.get(pendingKey);
+  if (!raw) return jsonResponse({ error: "Contribution introuvable" }, 404);
+
+  if (body.type === "comment" && body.action === "publish") {
+    const comment = JSON.parse(raw) as StoredArticleComment;
+    const publishedAt = new Date().toISOString();
+    await env.SUBSCRIBERS.put(
+      `comment:published:${comment.articleSlug}:${comment.submittedAt}:${comment.id}`,
+      JSON.stringify({ ...comment, status: "published", publishedAt }),
+    );
+  }
   await env.SUBSCRIBERS.delete(pendingKey);
   return jsonResponse({ success: true });
 }

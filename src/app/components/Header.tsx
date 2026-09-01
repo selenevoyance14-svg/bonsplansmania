@@ -17,6 +17,7 @@ const menus = [
       ["Marques partenaires", "/marques-partenaires"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
       ["Idées cadeaux Noël 2026", "/idees-cadeaux-noel-2026"],
+      ["Proposer un bon plan", "/proposer-un-bon-plan"],
     ],
   },
   {
