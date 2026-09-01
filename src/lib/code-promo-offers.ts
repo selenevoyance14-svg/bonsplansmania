@@ -28,6 +28,18 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  // ZOOPLUS — offres visibles et vérifiées le 1er septembre 2026, sans date de fin affichée
+  { id: "zooplus-selection-jusqua-40-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-40 %", valueLabel: "JUSQU’À", title: "Jusqu’à 40 % de réduction sur les offres Zooplus du moment", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale sur une sélection de produits pour chiens et chats. Marques, formats, prix et stocks variables. Date de fin non affichée lors de la vérification.", featured: true },
+  { id: "zooplus-royal-canin-15-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "JUSQU’À", title: "Jusqu’à 15 % sur une sélection Royal Canin pour chien", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Réduction maximale sur une sélection d’aliments Royal Canin adaptée à la taille du chien. Produits et stocks variables ; date de fin non affichée.", featured: true },
+  { id: "zooplus-purina-25-livraison-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "+ LIVRAISON OFFERTE", title: "Jusqu’à 25 % sur Felix, Gourmet, Pro Plan et Purina ONE", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale et livraison gratuite annoncées sur une sélection Felix, Gourmet, Pro Plan et Purina ONE. Vérifier les produits, formats, seuils éventuels et conditions de livraison.", featured: true },
+  { id: "zooplus-sheba-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % de réduction sur une sélection Sheba", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale sur une sélection d’aliments Sheba pour chat. Produits, formats et stocks variables ; date de fin non affichée." },
+  { id: "zooplus-hills-science-plan-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % sur les croquettes Hill’s Science Plan pour chat", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale sur une sélection de croquettes Hill’s Science Plan pour chat. Vérifier le produit, le poids du sac et le prix final." },
+  { id: "zooplus-concept-for-life-8kg-2kg-septembre-2026", brandSlug: "zooplus", type: "offre", value: "8 kg + 2 kg", valueLabel: "OFFERTS", title: "Deux kilos offerts sur une sélection Concept for Life pour chat", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Offre 8 kg + 2 kg offerts sur les références Concept for Life pour chat signalées. Vérifier les variétés éligibles et la disponibilité." },
+  { id: "zooplus-zen-15-puis-5", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "PUIS -5 %", title: "Zooplus Zen : 15 % sur la première commande puis 5 % sur les suivantes", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Avantage lié à la souscription Zooplus Zen : 15 % sur la première commande programmée puis 5 % sur les commandes suivantes. Fréquence ajustable, reportable ou annulable selon les modalités du service.", featured: true },
+  { id: "zooplus-zen-marques-15-puis-7", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "PUIS -7 %", title: "Zooplus Zen : jusqu’à 7 % ensuite sur Cosma, Tigerino et Concept for Life", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Avantage annoncé sur les commandes programmées Zooplus Zen de produits Cosma, Tigerino et Concept for Life : 15 % sur la première commande puis 7 % sur les suivantes. Vérifier les références éligibles." },
+  { id: "zooplus-premiere-commande-10-59", brandSlug: "zooplus", type: "offre", value: "-10 %", valueLabel: "DÈS 59 €", title: "10 % sur la première commande Zooplus dès 59 €", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Offre réservée aux nouveaux clients dès 59 € d’achat. Activer l’offre ou utiliser le code proposé par Zooplus avant de valider la commande." },
+  { id: "zooplus-app-nouveau-5-euros", brandSlug: "zooplus", type: "code", value: "5 €", valueLabel: "DANS L’APP", title: "5 € offerts sur la première commande dans l’application", code: "APP-NOUVEAU", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Offre première commande dans l’application Zooplus avec le code APP-NOUVEAU. Vérifier le minimum d’achat et les exclusions dans l’application." },
+  { id: "zooplus-livraison-59", brandSlug: "zooplus", type: "livraison", value: "59 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 59 € chez Zooplus", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Livraison standard offerte dès 59 € selon les modalités Zooplus. Le point relais est annoncé à partir de 0,49 € ; vérifier le poids, la destination et les éventuels suppléments." },
   // DAXON — offres vérifiées le 28 août 2026
   { id: "daxon-code-82310-septembre-2026", brandSlug: "daxon", type: "code", value: "-30 %", valueLabel: "SUR LA COMMANDE", title: "30 % sur la commande avec le code 82310", code: "82310", affiliateUrl: "https://fnty.co/c/r-nCqxZeUT", expires: "2026-09-07", conditions: "Remise limitée à 20 % sur les prix verts. Offre non cumulable, non applicable aux prix rouges et aux articles déjà démarqués.", featured: true },
   { id: "daxon-derniere-chance-septembre-2026", brandSlug: "daxon", type: "offre", value: "-70 %", valueLabel: "JUSQU'À", title: "Jusqu'à 70 % sur la sélection Dernière chance", affiliateUrl: "https://fnty.co/c/r-nCqxZeUT", expires: "2026-09-07", conditions: "Sélection d'articles des collections précédentes signalés « Dernière chance ». Prix déjà remisés, offre non cumulable et valable dans la limite des stocks disponibles." },
@@ -47,8 +59,11 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "news-parfums-offres", brandSlug: "news-parfums", type: "offre", value: "PROMOS", valueLabel: "PARFUMS", title: "Promotions News Parfums sur les parfums et cosmétiques", permanent: true, conditions: "Remises, formats et stocks variables. Comparer le format et vérifier les frais de livraison avant l'achat." },
   // ÉLECTRO DÉPÔT — bons plans variables
   { id: "electro-depot-bons-plans", brandSlug: "electro-depot", type: "offre", value: "BONS PLANS", valueLabel: "HIGH-TECH & MAISON", title: "Offres Électro Dépôt sur le high-tech et l'électroménager", permanent: true, conditions: "Produits, prix et stocks variables selon les magasins et le site. Vérifier le prix final, la disponibilité et le mode de retrait avant de commander.", featured: true },
-  // FAMILLE MARY — promotions variables
-  { id: "famille-mary-promotions", brandSlug: "famille-mary", type: "offre", value: "PROMOS", valueLabel: "PRODUITS DE LA RUCHE", title: "Promotions Famille Mary sur le miel et les produits de la ruche", permanent: true, conditions: "Sélection, remise et disponibilité variables. Vérifier l'offre affichée et ses conditions avant la commande.", featured: true },
+  // FAMILLE MARY — offres communiquées le 1er septembre 2026, sans date de fin annoncée
+  { id: "famille-mary-gelee-royale-4-semaines-septembre-2026", brandSlug: "famille-mary", type: "offre", value: "20 €", valueLabel: "OFFERTS", title: "Deux boîtes d’ampoules de gelée royale 4 000 mg à 39,90 €", conditions: "Programme intensif de quatre semaines à 39,90 € au lieu de 59,90 €. Date de fin non communiquée ; vérifier le prix dans le panier et les précautions d’emploi.", featured: true },
+  { id: "famille-mary-abellie-visage-20-septembre-2026", brandSlug: "famille-mary", type: "offre", value: "-20 %", valueLabel: "SOINS VISAGE", title: "20 % de réduction sur les soins du visage Abellie", conditions: "Remise annoncée sur les soins du visage Abellie. Sélection et date de fin non communiquées ; vérifier les produits éligibles et le prix final.", featured: true },
+  { id: "famille-mary-gelee-royale-35-septembre-2026", brandSlug: "famille-mary", type: "offre", value: "-35 %", valueLabel: "JUSQU’À", title: "Jusqu’à 35 % sur les cures de gelée royale bio", conditions: "Remise maximale sur une sélection de cures de gelée royale bio. Le taux varie selon le produit. Date de fin non communiquée.", featured: true },
+  { id: "famille-mary-vitalite-14-jours-septembre-2026", brandSlug: "famille-mary", type: "offre", value: "10 €", valueLabel: "OFFERTS", title: "Programme vitalité de 14 jours à 19,90 € les deux boîtes", conditions: "Deux boîtes, soit quatorze jours de programme, à 19,90 € au lieu de 29,90 €. Date de fin non communiquée ; vérifier le prix dans le panier et les précautions d’emploi.", featured: true },
   // LABORATOIRES DE BIARRITZ — offres variables
   { id: "laboratoires-biarritz-offres", brandSlug: "laboratoires-biarritz", type: "offre", value: "OFFRES", valueLabel: "SOINS BIO", title: "Offres Laboratoires de Biarritz sur les soins et solaires bio", permanent: true, conditions: "Produits, remises, cadeaux et seuils de livraison susceptibles d'évoluer. Vérifier les conditions affichées sur le site avant de commander.", featured: true },
   // COUPON NETWORK — service permanent, offres variables
@@ -1066,33 +1081,39 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
 
   // ============================================================
   // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
-  // Offre Léa Nature vérifiée le 25/08/2026
+  // Offres Léa Nature vérifiées le 01/09/2026
   // ============================================================
   {
-    id: "lea-nature-green-rentree-beaute-bien-etre-2026",
+    id: "lea-nature-nouveautes-20-septembre-2026",
     brandSlug: "lea-nature",
     type: "offre",
-    value: "-30 %",
-    valueLabel: "GREEN RENTRÉE",
-    title: "-30 % sur Beauté & Hygiène et Bien-être & Santé",
-    starts: "2026-08-23",
-    expires: "2026-08-29",
-    conditions: "Offre Green Rentrée valable du 23 au 29 août 2026 inclus sur les catégories Beauté & Hygiène et Bien-être & Santé. Remise affichée sur le site, selon les produits et stocks disponibles.",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbeaute-et-hygiene.html",
+    value: "-20 %",
+    valueLabel: "NOUVEAUTÉS",
+    title: "20 % de réduction sur toutes les nouveautés Léa Nature",
+    starts: "2026-09-01",
+    expires: "2026-09-05",
+    conditions: "Offre découverte valable du 1er au 5 septembre 2026 inclus sur les nouveautés. Remise automatique dans le panier, non cumulable avec les autres promotions en cours.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans%2Fnouveautes.html",
     featured: true,
   },
   {
-    id: "lea-nature-green-rentree-alimentation-maison-2026",
+    id: "lea-nature-rentree20-septembre-2026",
     brandSlug: "lea-nature",
-    type: "offre",
-    value: "-15 %",
-    valueLabel: "GREEN RENTRÉE",
-    title: "-15 % sur Alimentation et Maison",
-    starts: "2026-08-23",
-    expires: "2026-08-29",
-    conditions: "Offre Green Rentrée valable du 23 au 29 août 2026 inclus sur les catégories Alimentation et Maison. Remise affichée sur le site, selon les produits et stocks disponibles.",
-    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbeaute-et-hygiene.html",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "SÉLECTION RENTRÉE",
+    title: "20 % sur la sélection du mois avec le code RENTREE20",
+    code: "RENTREE20",
+    starts: "2026-09-01",
+    expires: "2026-09-17",
+    conditions: "Du 1er au 17 septembre 2026 inclus sur la sélection signalée Eau Thermale Jonzac, Natessance, Boho Green Beauty, Naturasens et Phyto-Actif. Offre non cumulable, hors Direct Usine, kits et routines.",
+    affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fselections%2Fselection-de-la-rentree.html",
+    featured: true,
   },
+  { id: "lea-nature-so-bio-etic-capillaires-40-2026", brandSlug: "lea-nature", type: "offre", value: "-40 %", valueLabel: "JUSQU’À", title: "Jusqu’à 40 % sur les produits capillaires SO’BiO étic", starts: "2026-09-01", expires: "2026-10-19", conditions: "Du 1er septembre au 19 octobre 2026 inclus sur les produits capillaires SO’BiO étic signalés. Offre non cumulable avec une autre promotion en cours, dans la limite des stocks.", affiliateUrl: "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fnos-marques%2Fso-bio-etic%2Fnos-produits%2Fcapillaires.html", featured: true },
+  { id: "lea-nature-newsletter-10", brandSlug: "lea-nature", type: "newsletter", value: "-10 %", valueLabel: "1RE COMMANDE", title: "10 % sur la première commande avec la newsletter Léa Nature", permanent: true, conditions: "Code envoyé par e-mail après inscription à la newsletter. Offre soumise aux conditions précisées dans l’e-mail de bienvenue ; vérifier la durée et les exclusions." },
+  { id: "lea-nature-livraison-49", brandSlug: "lea-nature", type: "livraison", value: "49 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 49 € d’achat", permanent: true, conditions: "Avantage annoncé sur la boutique Léa Nature. Vérifier le mode de livraison éligible, la destination et le montant du panier après remises." },
+  { id: "lea-nature-fidelite-points", brandSlug: "lea-nature", type: "fidelite", value: "1 € = 1", valueLabel: "POINT FIDÉLITÉ", title: "Un point fidélité gagné pour chaque euro dépensé", permanent: true, conditions: "Compte client et adhésion au programme requis. Vérifier les modalités d’utilisation, la durée de validité et les éventuelles exclusions des points." },
   // MORGAN — offres vérifiées le 13 août 2026
   {
     id: "morgan-deuxieme-article-30",

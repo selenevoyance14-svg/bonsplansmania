@@ -927,12 +927,6 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les codes promo Zooplus",
     matchTags: ["zooplus", "animalerie"],
     color: "#FFA726",
-    currentOffer: {
-      code: "NEWSLETTER",
-      discount: "-10 % sur la prochaine commande",
-      conditions: "Code envoyé après inscription gratuite à une ou plusieurs newsletters Zooplus.",
-      verifiedAt: "30 août 2026",
-    },
   },
   {
     slug: "baija",
