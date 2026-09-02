@@ -4,6 +4,7 @@ import { useState, useEffect, FormEvent } from "react";
 import { Mail, Flame, Lock, CheckCircle, X } from "lucide-react";
 
 const STORAGE_KEY = "bpm_popup_dismissed";
+const SESSION_POPUP_KEY = "bpm_popup_shown_this_session";
 const DISMISS_PERIOD_MS = 14 * 24 * 60 * 60 * 1000;
 const MIN_DELAY_MS = 45000;
 const MIN_SCROLL_PROGRESS = 0.35;
@@ -18,11 +19,15 @@ export default function NewsletterPopup() {
     const dismissedAt = Number(localStorage.getItem(STORAGE_KEY) || 0);
     if (dismissedAt && Date.now() - dismissedAt < DISMISS_PERIOD_MS) return;
     if (localStorage.getItem("bpm_subscribed")) return;
+    if (sessionStorage.getItem(SESSION_POPUP_KEY)) return;
 
     let delayElapsed = false;
     let scrollReached = false;
     const maybeShow = () => {
-      if (delayElapsed || scrollReached) setShow(true);
+      if (!(delayElapsed || scrollReached)) return;
+      if (sessionStorage.getItem(SESSION_POPUP_KEY)) return;
+      sessionStorage.setItem(SESSION_POPUP_KEY, "newsletter");
+      setShow(true);
     };
     const onScroll = () => {
       const scrollable = document.documentElement.scrollHeight - window.innerHeight;
