@@ -209,6 +209,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // PROZIS — code partenaire Bons Plans Mania
   // ============================================================
   {
+    id: "prozis-imback-jusqua-50-septembre-2026",
+    brandSlug: "prozis",
+    type: "code",
+    value: "-50 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à 50 % de réduction avec le code IMBACK",
+    code: "IMBACK",
+    affiliateUrl: "https://prozis.com/1YlNV",
+    conditions: "Offre en cours sur une sélection de vêtements homme et femme et de produits alimentaires. La remise peut atteindre 50 % selon les articles. Vérifier l'éligibilité, le montant réellement déduit et les règles de cumul dans le panier.",
+    featured: true,
+  },
+  {
     id: "prozis-bonsmania-10",
     brandSlug: "prozis",
     type: "code",
@@ -219,7 +231,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     affiliateUrl: "https://prozis.com/1YlNV",
     permanent: true,
     conditions: "Code partenaire Bons Plans Mania actif sur Prozis. Les campagnes et avantages associés peuvent évoluer chaque mois. Vérifier la réduction et les règles de cumul dans le panier avant le paiement.",
-    featured: true,
+    featured: false,
   },
   {
     id: "prozis-big-shot-1-achete-1-offert-aout-2026",
@@ -229,6 +241,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "OFFRE PRODUIT",
     title: "1 Big Shot Pre-Workout acheté = 1 offert",
     affiliateUrl: "https://prozis.com/1YlNV",
+    expires: "2026-08-31",
     conditions: "Offre repérée le 17 août 2026 sur une référence sélectionnée. Stock, variante et cumul avec BONSMANIA à vérifier dans le panier.",
   },
   {
@@ -239,6 +252,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "OFFRE PRODUIT",
     title: "2 boîtes de Zero Protein Bar achetées = 1 offerte",
     affiliateUrl: "https://prozis.com/1YlNV",
+    expires: "2026-08-31",
     conditions: "Offre repérée le 17 août 2026 sur une référence sélectionnée. Stock, parfums et cumul avec BONSMANIA à vérifier dans le panier.",
   },
   {
@@ -249,6 +263,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "OFFRE PRODUIT",
     title: "1 H2O Infusion achetée = 1 offerte",
     affiliateUrl: "https://prozis.com/1YlNV",
+    expires: "2026-08-31",
     conditions: "Offre repérée le 17 août 2026 sur une référence sélectionnée. Stock, parfum et cumul avec BONSMANIA à vérifier dans le panier.",
   },
 
