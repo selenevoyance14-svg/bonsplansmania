@@ -94,7 +94,6 @@ export default function RefontePreviewPage() {
       !FREE_TEST_CATEGORIES.has(article.meta.category) &&
       !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
   );
-  const homepageDeals = selectDiverse(offersAndNews, 38);
   const heroDeals = selectDiverse(
     active.filter(({ meta }) => hasDirectMerchantCta({
       category: meta.category,
@@ -104,8 +103,13 @@ export default function RefontePreviewPage() {
     })),
     4,
   );
-  const latest = homepageDeals.slice(4, 8);
-  const deals = homepageDeals.slice(8, 32);
+  const heroSlugs = new Set(heroDeals.map(({ meta }) => meta.slug));
+  const latest = selectDiverse(offersAndNews, 4, heroSlugs);
+  const topSlugs = new Set([
+    ...heroSlugs,
+    ...latest.map(({ meta }) => meta.slug),
+  ]);
+  const deals = selectDiverse(offersAndNews, 24, topSlugs);
   const freeTests = active
     .filter((article) => FREE_TEST_CATEGORIES.has(article.meta.category))
     .slice(0, 4);
@@ -149,7 +153,7 @@ export default function RefontePreviewPage() {
               <button type="submit">Rechercher</button>
             </form>
           </div>
-          <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:true, merchantHref:merchantHref(meta.slug, meta.affiliateUrl) }))} />
+          <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.updated ?? meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:true, merchantHref:merchantHref(meta.slug, meta.affiliateUrl) }))} />
         </section>
       </div>
 
@@ -188,7 +192,7 @@ export default function RefontePreviewPage() {
                 </b>
               )}
               <span className={styles.latestMeta}>
-                <em>{formatDate(meta.date)}</em>
+                <em>{formatDate(meta.updated ?? meta.date)}</em>
                 <b>{linksToMerchant ? "Voir l’offre" : "Lire l’article"} <ArrowUpRight size={13} /></b>
               </span>
             </span>
@@ -249,7 +253,7 @@ export default function RefontePreviewPage() {
                 <span>{labels[article.meta.category] ?? "Nouveau"}</span>
               </Link>
               <div className={styles.cardCopy}>
-                <small>{article.meta.category.replaceAll("-", " ")} · {formatDate(article.meta.date)}</small>
+                <small>{article.meta.category.replaceAll("-", " ")} · {formatDate(article.meta.updated ?? article.meta.date)}</small>
                 <h3><Link href={`/article/${article.meta.slug}`}>{formatCardTitle(article.meta.title)}</Link></h3>
                 {index === 0 && <p>{article.meta.description}</p>}
                 <div className={styles.cardFooter}>
