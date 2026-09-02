@@ -3820,12 +3820,12 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     seoTitle: "Clarins Double Serum : avis, utilisation et offre",
     seoDescription: "Clarins Double Serum : notre avis, pour quelles peaux, points forts, limites, offre Clarins suivie et avis des utilisatrices Bons Plans Mania.",
     offers: [{
-      merchant: "Clarins",
-      note: "Double Serum 30 ml — boutique officielle Clarins",
-      price: "108 €",
-      checkedAt: "2026-08-14",
-      offer: "Code WELCOME20 : -20 % sur la première commande et cadeaux selon conditions",
-      href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr%2Fdouble-serum---serum-anti-age-raffermissant%2F80103084.html",
+      merchant: "Beauty Success",
+      note: "Double Serum 50 ml — offre vérifiée chez Beauty Success",
+      price: "103,60 €",
+      checkedAt: "2026-09-02",
+      offer: "-30 % au lieu de 148 €",
+      href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fsoin-clarins-double-serum-serum-anti-age-femme-c075725",
     }],
   },
   {
