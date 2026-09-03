@@ -1232,6 +1232,27 @@ body {
   margin-bottom: 24px;
 }
 
+.article-final-cta {
+  text-align: center;
+  margin: 32px 0;
+  padding: 28px;
+  background: linear-gradient(135deg, #fff7ed 0%, #ecfeff 100%);
+  border-radius: 16px;
+  border: 2px solid #fed7aa;
+}
+
+.article-final-cta p {
+  margin: 0 0 14px;
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--foreground);
+}
+
+.article-final-cta .btn {
+  padding: 14px 28px;
+  font-size: 1rem;
+}
+
 .article-hero-image {
   border-radius: var(--radius-lg);
   overflow: hidden;
@@ -1771,6 +1792,34 @@ body {
 }
 
 @media (max-width: 768px) {
+  .ad-desktop-only {
+    display: none !important;
+  }
+
+  .article-rating-bar .article-primary-cta,
+  .article-final-cta .btn {
+    width: 100%;
+    justify-content: center;
+    min-height: 48px;
+  }
+
+  .article-final-cta {
+    padding: 20px 16px;
+  }
+
+  .monetization-bridge-grid {
+    display: flex !important;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    overscroll-behavior-inline: contain;
+    padding-bottom: 6px;
+  }
+
+  .monetization-bridge-grid > a {
+    flex: 0 0 min(78vw, 290px);
+    scroll-snap-align: start;
+  }
+
   .sticky-cta-mobile {
     display: block;
     position: fixed;

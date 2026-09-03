@@ -388,7 +388,15 @@ export default async function ArticlePage({ params }: PageProps) {
                     <span style={{ fontWeight: 700, color: "var(--primary)", fontSize: "1.05rem" }}>{article.meta.price}</span>
                   )}
                   {affiliateUrl !== "#" && !isFreebieCategory && !isExpired && (
-                    <a href={affiliateUrl} className="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">
+                    <a
+                      href={affiliateUrl}
+                      className="btn btn-primary btn-sm article-primary-cta"
+                      target="_blank"
+                      rel="nofollow sponsored noopener"
+                      data-affiliate-position="article_header"
+                      data-affiliate-merchant={affiliateMerchant}
+                      data-affiliate-offer={article.meta.title}
+                    >
                       {affiliateLabel} <ExternalLink size={13} />
                     </a>
                   )}
@@ -421,15 +429,13 @@ export default async function ArticlePage({ params }: PageProps) {
               <AmazonLiveOffer asin={article.meta.amazonAsin} affiliateUrl={affiliateUrl} />
             )}
 
-            {/* Pub après l'image hero (desktop principalement) */}
-            <AdBlock />
+            {/* Une seule pub avant le contenu sur mobile : la seconde reste réservée au desktop. */}
+            <AdBlock className="ad-desktop-only" />
 
             {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
                 qui ne génèrent pas de revenu direct : on capte le visiteur AVANT qu'il clique
                 "Participer" en lui montrant nos vrais bons plans rémunérateurs (Awin, Igraal, Rakuten). */}
             {isFreebieCategory && <TopBonsPlansPremium currentSlug={slug} />}
-
-            <NewsletterInline />
 
             <div className="article-content">
               <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleBeforeComparison, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image) }} />
@@ -440,6 +446,26 @@ export default async function ArticlePage({ params }: PageProps) {
             </div>
             {/* Initialise les blocs AdSense in-article injectés dans le contenu Markdown ci-dessus */}
             <InContentAdsInit />
+
+            {/* CTA principal juste après la réponse éditoriale, avant les commentaires et les recommandations. */}
+            {affiliateUrl !== "#" && !isExpired && (
+              <div className="article-final-cta">
+                <p>Profiter de cette offre</p>
+                <a
+                  href={affiliateUrl}
+                  className="btn btn-primary"
+                  target="_blank"
+                  rel="nofollow sponsored noopener"
+                  data-affiliate-position="article_after_content"
+                  data-affiliate-merchant={affiliateMerchant}
+                  data-affiliate-offer={article.meta.title}
+                >
+                  {affiliateLabel} <ExternalLink size={15} />
+                </a>
+              </div>
+            )}
+
+            <NewsletterInline />
 
             {/* Pub après le contenu */}
             <AdBlock />
@@ -520,14 +546,6 @@ export default async function ArticlePage({ params }: PageProps) {
               </section>
             )}
 
-            {affiliateUrl !== "#" && !isExpired && (
-              <div style={{ textAlign: "center", margin: "40px 0", padding: "32px", background: "linear-gradient(135deg, #ECFEFF 0%, #F0FDFA 100%)", borderRadius: "16px", border: "2px solid #A5F3FC" }}>
-                <p style={{ fontWeight: 800, fontSize: "1.2rem", marginBottom: "16px", color: "var(--foreground)" }}>Profiter de cette offre</p>
-                <a href={affiliateUrl} className="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" style={{ padding: "14px 32px", fontSize: "1rem" }}>
-                  {affiliateLabel} <ExternalLink size={15} />
-                </a>
-              </div>
-            )}
           </article>
 
           {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
@@ -625,7 +643,16 @@ export default async function ArticlePage({ params }: PageProps) {
       {/* CTA sticky mobile (priorité au CTA affilié quand il existe) */}
       {affiliateUrl !== "#" && !isExpired ? (
         <div className="sticky-cta-mobile">
-          <a href={affiliateUrl} className="btn btn-primary" target="_blank" rel="nofollow sponsored noopener" style={{ width: "100%", justifyContent: "center", padding: "14px 24px", fontSize: "1rem" }}>
+          <a
+            href={affiliateUrl}
+            className="btn btn-primary"
+            target="_blank"
+            rel="nofollow sponsored noopener"
+            data-affiliate-position="mobile_sticky"
+            data-affiliate-merchant={affiliateMerchant}
+            data-affiliate-offer={article.meta.title}
+            style={{ width: "100%", justifyContent: "center", padding: "14px 24px", fontSize: "1rem" }}
+          >
             {affiliateLabel} <ExternalLink size={15} />
           </a>
         </div>

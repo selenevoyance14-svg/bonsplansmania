@@ -12,7 +12,8 @@ import { formatCardTitle } from "@/lib/display-title";
  * bons plans rémunérateurs avant de cliquer "Participer" et quitter le site.
  */
 export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: string }) {
-  const articles = getTopPremiumDeals(currentSlug, 6);
+  // Trois choix bien ciblés se lisent mieux sur mobile qu'une longue vitrine.
+  const articles = getTopPremiumDeals(currentSlug, 3);
 
   if (articles.length === 0) return null;
 
@@ -54,6 +55,7 @@ export default function TopBonsPlansPremium({ currentSlug }: { currentSlug: stri
       </div>
 
       <div
+        className="monetization-bridge-grid"
         style={{
           display: "grid",
           gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))",
