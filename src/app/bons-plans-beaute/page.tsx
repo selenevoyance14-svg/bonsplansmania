@@ -250,7 +250,7 @@ const NON_BEAUTE_TOKENS = [
 // code-promo → /categorie/code-promo).
 // Restent : bon-plan (cœur), beaute (conseils/tests), selection (hubs).
 const EXCLUDED_CATEGORIES = new Set<string>([
-  "test-gratuit", "concours", "box-beaute", "test-avis", "comparatif",
+  "test-produit", "test-gratuit", "concours", "box-beaute", "test-avis", "comparatif",
   "calendrier-avent", "code-promo",
 ]);
 
