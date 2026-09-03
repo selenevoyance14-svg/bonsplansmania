@@ -1,5 +1,10 @@
 # BonsPlansMania — consignes de livraison
 
+## Contexte éditorial
+
+- Au début d’une nouvelle conversation consacrée à Bons Plans Mania, lire intégralement `BONS_PLANS_MANIA_CONTEXT.md` avant de modifier le site.
+- Ce fichier décrit les préférences durables de la propriétaire, le flux éditorial, les règles SEO, l’affiliation, les images et les contrôles attendus.
+
 ## Push et mise en production
 
 - Pour ce projet, toute demande utilisateur contenant « push » signifie : intégrer les modifications au dernier `main`, effectuer les vérifications adaptées, puis pousser directement sur `origin/main` afin de déclencher la mise en production.
