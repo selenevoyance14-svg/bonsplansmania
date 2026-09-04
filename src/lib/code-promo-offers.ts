@@ -314,6 +314,23 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // CARREFOUR — première commande septembre 2026
+  // ============================================================
+  {
+    id: "carrefour-cartable20-septembre-2026",
+    brandSlug: "carrefour",
+    type: "code",
+    value: "20 €",
+    valueLabel: "OFFERTS",
+    title: "20 € offerts dès 80 € sur la première commande Carrefour",
+    code: "CARTABLE20",
+    expires: "2026-09-27",
+    conditions: "20 € offerts dès 80 € d'achat sur une première commande Carrefour Drive, Livré chez vous ou Livraison Express avec le code CARTABLE20. Offre valable jusqu'au 27/09/2026, selon les modalités Carrefour.",
+    affiliateUrl: "https://www.carrefour.fr/services/courses-en-ligne/bon-achat/CARTABLE20",
+    featured: true,
+  },
+
+  // ============================================================
   // E.LECLERC — Opération Bébé août / septembre 2026
   // ============================================================
   {

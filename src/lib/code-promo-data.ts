@@ -222,9 +222,15 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "carrefour",
     name: "Carrefour",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
-    affiliateLabel: "Voir les promotions Carrefour",
-    matchTags: ["carrefour"],
+    affiliateLabel: "Utiliser le code CARTABLE20 chez Carrefour",
+    matchTags: ["carrefour", "carrefour drive"],
     color: "#0050AA",
+    currentOffer: {
+      code: "CARTABLE20",
+      discount: "20 € offerts dès 80 € d'achat",
+      conditions: "Première commande Drive, Livré chez vous ou Livraison Express. Offre valable jusqu'au 27 septembre 2026.",
+      verifiedAt: "2026-09-04",
+    },
   },
   {
     slug: "cdiscount",
