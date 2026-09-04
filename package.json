@@ -11,7 +11,8 @@
     "audit:revenue": "npx tsx scripts/audit-revenue-readiness.ts",
     "cockpit:revenue": "npx tsx scripts/build-revenue-cockpit.ts",
     "audit:content": "npx tsx scripts/audit-content-integrity.ts",
-    "audit:affiliate-links": "npx tsx scripts/audit-affiliate-links.ts"
+    "audit:affiliate-links": "npx tsx scripts/audit-affiliate-links.ts",
+    "agent:offres": "npx tsx scripts/prepare-freebie-drafts.ts"
   },
   "dependencies": {
     "@opennextjs/cloudflare": "^1.19.1",
