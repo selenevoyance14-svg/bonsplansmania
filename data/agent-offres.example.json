@@ -1,0 +1,19 @@
+[
+  {
+    "type": "test-gratuit",
+    "title": "Exemple : un soin visage à tester gratuitement",
+    "brand": "Marque exemple",
+    "sourceUrl": "https://example.com/campagne-test",
+    "endDate": "2026-12-31",
+    "summary": "La marque recherche 100 personnes pour tester gratuitement un soin visage et partager un avis sincère.",
+    "conditions": [
+      "Être majeur et résider en France métropolitaine",
+      "Créer un compte gratuit",
+      "Donner un avis sincère après le test"
+    ],
+    "lots": "100 soins visage",
+    "isFree": true,
+    "officialSource": false,
+    "personalData": ["nom", "email", "adresse postale"]
+  }
+]
