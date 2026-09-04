@@ -1979,8 +1979,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // GREENWEEZ — offre vérifiée le 27/07/2026
+  // GREENWEEZ — offres vérifiées le 04/09/2026
   // ============================================================
+  {
+    id: "greenweez-anniversaire-18-ans-2026",
+    brandSlug: "greenweez",
+    type: "offre",
+    value: "-15 %",
+    valueLabel: "18 ANS",
+    title: "-15 % sur les produits de la marque Greenweez",
+    starts: "2026-09-04",
+    conditions: "Offre anniversaire appliquée sur les produits éligibles de la marque Greenweez. Aucun code spécifique n'est annoncé. Vérifier la remise sur la fiche et dans le panier, ainsi que les exclusions et la durée de l'opération.",
+    featured: true,
+  },
   {
     id: "greenweez-bienvenue-2026",
     brandSlug: "greenweez",
