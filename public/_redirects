@@ -664,6 +664,9 @@
 /fete-des-peres-2026 /fete-des-peres 301
 /article/bon-plan-skin1004-centella-ampoule-12-euros-au-lieu-de-21 /article/yesstyle-skin1004-centella-ampoule-2026 301
 
+# The Ordinary Rétinol 0,2 % : consolidation du doublon (04/09/2026).
+/article/bon-plan-lookfantastic-the-ordinary-serum-retinol-0-2-squalane-5-11-euros-juillet-2026 /article/bon-plan-lookfantastic-the-ordinary-retinol-0-2-squalane-30ml-juillet-2026 301
+
 # Pages /marque/ qui n'étaient pas des marques : tags génériques ("bon plan", "promo"),
 # datés ("2026", "juillet 2026") ou techniques ("9000 btu"). 48 pages, 1938 articles pour
 # la seule /marque/2026, et 4 clics cumulés en un an. Elles cannibalisaient /categorie/*
