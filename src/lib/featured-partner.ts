@@ -46,7 +46,7 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   startsAt: "2026-09-05T00:00:00+02:00",
   endsAt: "2026-12-31T23:59:59+01:00",
   primaryCtaLabel: "Voir l’offre Prozis",
-  primaryCtaHref: "https://prozis.com/1Z0Xt",
+  primaryCtaHref: "https://prozis.com/1YlNV",
   copyButtonLabel: "Copier IMBACK",
   theme: {
     background: "#FFFBEA",

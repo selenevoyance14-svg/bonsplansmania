@@ -10,29 +10,23 @@ export type HighlightBrand = {
   tagline: string;
   /** lien affilié vers lequel envoyer les visiteurs */
   hubUrl: string;
+  /** texte du bouton principal */
+  ctaLabel: string;
   /** couleur d'accent utilisée pour le fond du bloc (hex clair pastel) */
   bg?: string;
   /** couleur de texte d'accent (hex saturé) */
   color?: string;
   /** emoji d'ambiance (1 seul) */
   emoji?: string;
-  /** libellé personnalisé du bouton */
-  ctaLabel?: string;
-  /** visuel affiché dans le bloc de la page d'accueil */
-  imageSrc: string;
-  /** texte alternatif descriptif du visuel */
-  imageAlt: string;
 };
 
 export const BRAND_OF_THE_WEEK: HighlightBrand = {
-  slug: "biodance",
-  name: "Biodance",
-  tagline: "Les masques hydrogel au collagène et les soins hydratants coréens qui font le succès de Biodance.",
-  hubUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Flist.html%3Fq%3DBiodance%26bpt%3D48",
-  bg: "#FFF1F5",
-  color: "#BE185D",
-  emoji: "🩷",
-  ctaLabel: "Découvrir chez YesStyle",
-  imageSrc: "/images/articles/biodance-bio-collagen-real-deep-mask-2026.png",
-  imageAlt: "Masques hydrogel Biodance Bio-Collagen Real Deep Mask",
+  slug: "color-wow",
+  name: "Color Wow",
+  tagline: "Jusqu'à -30 % sur les soins capillaires Color Wow : Dream Coat, Dream Filter, Insta-Wow et formats voyage.",
+  hubUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fcolor-wow%2Fflash%2F",
+  ctaLabel: "Découvrir chez LOOKFANTASTIC",
+  bg: "#FFF1F6",
+  color: "#C2185B",
+  emoji: "✨",
 };
