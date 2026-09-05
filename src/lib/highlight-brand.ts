@@ -18,6 +18,10 @@ export type HighlightBrand = {
   color?: string;
   /** emoji d'ambiance (1 seul) */
   emoji?: string;
+  /** visuel affiché dans le bloc de la page d'accueil */
+  imageSrc: string;
+  /** texte alternatif descriptif du visuel */
+  imageAlt: string;
 };
 
 export const BRAND_OF_THE_WEEK: HighlightBrand = {
@@ -29,4 +33,6 @@ export const BRAND_OF_THE_WEEK: HighlightBrand = {
   bg: "#FFF1F6",
   color: "#C2185B",
   emoji: "✨",
+  imageSrc: "/images/articles/bon-plan-lookfantastic-color-wow-jusqu-30-pourcent-septembre-2026.jpg",
+  imageAlt: "Spray Color Wow Dream Coat en promotion chez Lookfantastic",
 };
