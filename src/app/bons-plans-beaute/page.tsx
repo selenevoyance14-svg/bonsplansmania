@@ -6,6 +6,49 @@ import type { Metadata } from "next";
 import { ChevronRight, Sparkles, Gift, Heart } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
+const BEAUTE_PRODUCT_TYPES = [
+  {
+    key: "appareils-beaute",
+    label: "Appareils beauté",
+    keywords: ["appareil-beaute", "seche-cheveux", "sèche-cheveux", "lisseur", "boucleur", "brosse-chauffante", "tondeuse", "rasoir-electrique", "epilateur", "manucure"],
+  },
+  {
+    key: "cheveux",
+    label: "Cheveux",
+    keywords: ["cheveux", "soin-cheveux", "shampoing", "apres-shampoing", "masque-cheveux", "keratine", "coloration"],
+  },
+  {
+    key: "maquillage",
+    label: "Maquillage",
+    keywords: ["maquillage", "makeup", "mascara", "fond-de-teint", "fards-paupieres", "rouge-a-levres", "rouge à lèvres", "lipstick", "vernis-ongles"],
+  },
+  {
+    key: "parfum",
+    label: "Parfum",
+    keywords: ["parfum", "eau-de-parfum", "eau-de-toilette", "brume-parfumee", "perfume-mist"],
+  },
+  {
+    key: "rouge-a-levres",
+    label: "Rouge à lèvres",
+    keywords: ["rouge-a-levres", "rouge à lèvres", "rouge a levres", "lipstick"],
+  },
+  {
+    key: "soin-corps",
+    label: "Soins du corps",
+    keywords: ["soin-corps", "lait-corps", "creme-corps", "gommage-corps", "huile-corps", "deodorant"],
+  },
+  {
+    key: "soin-solaire",
+    label: "Soins solaires",
+    keywords: ["soin-solaire", "creme-solaire", "protection-solaire", "spf", "aftersun", "after-sun", "auto-bronzant"],
+  },
+  {
+    key: "soin-visage",
+    label: "Soins du visage",
+    keywords: ["soin-visage", "creme-visage", "serum-visage", "masque-visage", "nettoyant-visage", "toner", "essence-visage", "anti-age", "anti-rides"],
+  },
+];
+
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
   "bon-plan-beaute":  { label: "Bon Plan",              color: "bon-plan" },
@@ -409,7 +452,12 @@ export default async function BonsPlansBeautePage() {
                 Les bons plans beauté seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={BEAUTE_BRANDS} sortBrandsBy="alpha" />
+              <BrandFilter
+                articles={cards}
+                brands={BEAUTE_BRANDS}
+                productTypes={BEAUTE_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>
