@@ -33,16 +33,16 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   brandName: "Prozis",
   merchant: "prozis",
   badge: "PARTENAIRE À LA UNE",
-  title: "Prozis Protein Snack x 12",
+  title: "Prozis : jusqu’à 50 % de réduction",
   description:
-    "Le lot de 12 barres Protein Snack est affiché à 9,09 € au lieu de 12,99 €, soit 30 % de réduction.",
-  imageSrc: "/images/featured-partner-prozis.webp",
+    "Profitez des offres Prozis sur une sélection de nutrition sportive, bien-être, vêtements et accessoires, avec des réductions pouvant atteindre 50 %.",
+  imageSrc: "/images/featured-partner-prozis-50-v2.webp",
   imageAlt:
-    "Lot de 12 barres protéinées Prozis Protein Snack saveur biscuits et crème",
+    "Prozis jusqu’à 50 % de réduction sur la nutrition sportive et les accessoires",
   promoCode: "IMBACK",
-  promoValidityText: "Prix constaté le 5 septembre 2026",
+  promoValidityText: "Offres consultées le 6 septembre 2026",
   conditionsText:
-    "Prix et disponibilité susceptibles d’évoluer. Livraison gratuite dès 29,99 € d’achat selon les conditions Prozis.",
+    "Réductions variables selon les produits et les périodes. Prix et disponibilité susceptibles d’évoluer sur Prozis.",
   startsAt: "2026-09-05T00:00:00+02:00",
   endsAt: "2026-12-31T23:59:59+01:00",
   primaryCtaLabel: "Voir l’offre Prozis",
