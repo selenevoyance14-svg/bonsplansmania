@@ -60,6 +60,7 @@ const brandDisplayNames: Record<string, string> = {
   "sephora": "Sephora",
   "yves-rocher": "Yves Rocher",
   "amazon": "Amazon",
+  "prozis": "Prozis",
 };
 
 function getDisplayName(slug: string, fallbackTag: string): string {

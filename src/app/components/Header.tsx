@@ -9,16 +9,23 @@ const menus = [
     label: "Bons Plans",
     active: ["/bon-plan", "/bons-plans-"],
     links: [
-      ["Bons plans beauté", "/bons-plans-beaute"], ["Coin Bébé", "/bons-plans-bebe"],
-      ["Guide Air Fryer 2026", "/guide-air-fryer-2026"], ["Air Fryer & Ninja", "/bons-plans-ninja"], ["Coin Tech", "/bons-plans-tech"],
-      ["Coin Maison", "/bons-plans-maison"], ["Jardin & animaux", "/bons-plans-jardin"],
-      ["Coin Mode", "/bons-plans-mode"], ["Coin Jouets", "/bons-plans-jouets"],
-      ["Coin Rentrée", "/bons-plans-rentree"], ["Bons plans en cours", "/bons-plans-en-cours"],
-      ["Tenir son budget", "/tenir-son-budget"],
-      ["Marques partenaires", "/marques-partenaires"],
-      ["Réductions toute l’année", "/codes-promo-permanents"],
+      ["Air Fryer & Ninja", "/bons-plans-ninja"],
+      ["Bons plans beauté", "/bons-plans-beaute"],
+      ["Bons plans en cours", "/bons-plans-en-cours"],
+      ["Bons plans Prozis", "/marque/prozis"],
+      ["Coin Bébé", "/bons-plans-bebe"],
+      ["Coin Jouets", "/bons-plans-jouets"],
+      ["Coin Maison", "/bons-plans-maison"],
+      ["Coin Mode", "/bons-plans-mode"],
+      ["Coin Rentrée", "/bons-plans-rentree"],
+      ["Coin Tech", "/bons-plans-tech"],
+      ["Guide Air Fryer 2026", "/guide-air-fryer-2026"],
       ["Idées cadeaux Noël 2026", "/idees-cadeaux-noel-2026"],
+      ["Jardin & animaux", "/bons-plans-jardin"],
+      ["Marques partenaires", "/marques-partenaires"],
       ["Proposer un bon plan", "/proposer-un-bon-plan"],
+      ["Réductions toute l’année", "/codes-promo-permanents"],
+      ["Tenir son budget", "/tenir-son-budget"],
     ],
   },
   {
@@ -60,7 +67,7 @@ export default function Header({ activePage = "" }: { activePage?: string }) {
           {menus.slice(0, 2).map((menu) => (
             <div className={styles.dropdown} key={menu.label}>
               <button type="button" aria-expanded={openMenu === menu.label} onClick={() => setOpenMenu(openMenu === menu.label ? null : menu.label)} className={menu.active.some((path) => activePage.includes(path)) ? styles.active : ""}>{menu.label}<span>⌄</span></button>
-              {openMenu === menu.label && <div className={styles.dropdownPanel}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
+              {openMenu === menu.label && <div className={`${styles.dropdownPanel} ${menu.label === "Bons Plans" ? styles.dropdownPanelWide : ""}`}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
             </div>
           ))}
           <Link href="/code-promo" className={activePage === "/code-promo" ? styles.active : ""}>Codes promo</Link>
