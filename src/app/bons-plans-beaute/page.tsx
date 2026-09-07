@@ -81,7 +81,7 @@ const EXACT_TAGS = new Set([
   "sephora", "marionnaud", "nocibe", "yves-rocher", "parfumerie",
   "beauty-success", "beautysuccess", "lookfantastic", "notino",
   "perfumes-club", "perfumesclub", "origines-parfums", "originesparfums",
-  "parfums-moins-chers", "mademoiselle-bio",
+  "parfums-moins-chers", "greenweez", "mademoiselle-bio",
   "cocooncenter", "easypara", "easyparapharmacie",
   // Plateformes K-beauty
   "yesstyle", "stylevana",
@@ -96,7 +96,6 @@ const EXACT_TAGS = new Set([
   "cerave", "biotherm", "clinique", "dove", "nuxe", "erborian",
   "kerastase", "kérastase", "olaplex", "mixa", "kiehls", "kiehl-s",
   "elizabeth-arden", "kiko", "kiko-milano", "lierac", "topicrem",
-  "elemis", "cacharel", "collistar", "moroccanoil", "wella", "wella-professionals",
   "the-ordinary", "ordinary", "aveda", "schwarzkopf", "gliss",
   "herbal-essences", "head-shoulders", "franck-provost", "mugler",
   "thierry-mugler", "hermes-parfum", "oulac", "nyx", "makeup-revolution",
@@ -128,7 +127,7 @@ const EXACT_TAGS = new Set([
   "keratine", "argan", "shampoing", "apres-shampoing", "masque-cheveux",
   // Coiffure / hair styling
   "seche-cheveux", "sèche-cheveux", "lisseur", "boucleur",
-  "brosse-chauffante", "brushing", "dyson-airwrap",
+  "brosse-chauffante", "brushing", "dyson", "dyson-airwrap",
   "dyson-corrale", "ghd", "ukliss", "cecotec-bamba", "aowoka",
   "haokoo", "bopcal",
   // Autres
@@ -166,7 +165,7 @@ const SLUG_TOKENS = [
   // Enseignes / parapharmacies
   "beauty-success-", "beautysuccess-", "lookfantastic-", "notino-",
   "perfumes-club-", "perfumesclub-", "origines-parfums-", "originesparfums-",
-  "parfums-moins-chers-", "mademoiselle-bio-",
+  "parfums-moins-chers-", "greenweez-", "mademoiselle-bio-",
   "cocooncenter-", "easypara-", "easyparapharmacie-",
   // Plateformes K-beauty
   "yesstyle-", "-yesstyle-", "stylevana-",
@@ -178,7 +177,6 @@ const SLUG_TOKENS = [
   "dove-", "-dove-", "nuxe-", "-nuxe-", "erborian-", "-erborian-",
   "kerastase-", "-kerastase-", "olaplex-", "mixa-", "-mixa-",
   "kiehls-", "kiehl-s-", "elizabeth-arden-", "kiko-", "lierac-",
-  "elemis-", "cacharel-", "collistar-", "moroccanoil-", "wella-",
   "topicrem-", "the-ordinary-", "-ordinary-", "aveda-",
   "schwarzkopf-", "gliss-", "herbal-essences-", "head-shoulders-",
   "franck-provost-", "mugler-", "thierry-mugler-", "terre-hermes-",
@@ -217,7 +215,7 @@ const SLUG_TOKENS = [
   // Coiffure / hair styling
   "-seche-cheveux-", "seche-cheveux-", "-lisseur-", "lisseur-",
   "-boucleur-", "boucleur-", "-brosse-chauffante-", "-brushing-",
-  "-airwrap-", "dyson-airwrap-",
+  "dyson-", "-dyson-", "-airwrap-", "dyson-airwrap-",
   "dyson-corrale-", "ghd-", "-ghd-", "ukliss-",
   "cecotec-bamba-", "aowoka-", "haokoo-", "bopcal-",
   "rouge-a-levres", "fond-de-teint", "fards-paupieres", "mascara-",
@@ -247,22 +245,8 @@ const SLUG_TOKENS = [
 const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
-  "berceau", "tetine", "landau", "mamadvisor", "consobaby", "couche-",
-  "couches-", "culotte-apprentissage", "lingettes-bebe", "lait-infantile",
-  "sucette-medicament", "trousse-soin-bebe", "chariot-marche", "draisienne",
+  "berceau", "tetine", "landau", "mamadvisor", "consobaby",
 ];
-
-// Un marchand ou une marque de soin ne doit jamais prendre le dessus sur la
-// nature réelle du produit. Par exemple Biolane + Greenweez reste un article
-// bébé lorsqu'il s'agit de couches ou de lingettes.
-const BEBE_TAGS = new Set([
-  "bebe", "bébé", "puericulture", "puériculture", "couche", "couches",
-  "couches-bebe", "couches bébé", "couches-ecologiques", "couches écologiques",
-  "culottes-apprentissage", "culottes apprentissage", "lingettes-bebe",
-  "lingettes bébé", "lait-infantile", "lait infantile", "biberon", "poussette",
-  "siege-auto", "siège auto", "chaise-haute", "chaise haute", "tire-lait",
-  "allaitement", "maternite", "maternité", "grossesse", "babyboom", "babycook",
-]);
 
 // Slugs à exclure : catégories qui matchent par erreur des tokens beauté
 // - isotoner matche "toner-" (K-beauty toner)
@@ -293,20 +277,19 @@ const NON_BEAUTE_TOKENS = [
 // code-promo → /categorie/code-promo).
 // Restent : bon-plan (cœur), beaute (conseils/tests), selection (hubs).
 const EXCLUDED_CATEGORIES = new Set<string>([
-  "test-produit", "test-gratuit", "concours", "box-beaute", "test-avis", "comparatif",
+  "test-gratuit", "concours", "box-beaute", "test-avis", "comparatif",
   "calendrier-avent", "code-promo",
 ]);
 
 function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
-  const tags = (meta.tags || []).map((t) => t.toLowerCase().trim());
   // Exclure d'office si c'est un article bébé/puériculture
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
-  if (tags.some((t) => BEBE_TAGS.has(t))) return false;
   // Exclure les accessoires plage/jardin (faux positifs comme isotoner→toner)
   if (NON_BEAUTE_TOKENS.some((k) => slug.includes(k))) return false;
 
+  const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   return SLUG_TOKENS.some((k) => slug.includes(k));
 }

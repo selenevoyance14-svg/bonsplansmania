@@ -1,7 +1,7 @@
 "use client";
 
 import { Fragment, useEffect, useMemo, useState } from "react";
-import AmazonProductImage, { loadAmazonOffer } from "@/app/components/AmazonProductImage";
+import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import { parsePrice } from "@/lib/price";
@@ -71,23 +71,16 @@ function normalize(s: string): string {
  * On l'utilise comme solution de secours afin que les tris par prix restent
  * fiables pendant la remise à niveau progressive des archives.
  */
-function getFallbackPrice(article: ArticleListItem): string | undefined {
-  const fallbackText = `${article.title} ${article.description}`;
-  const match = fallbackText.match(/(?:^|\s)(\d{1,4}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?)\s*€/);
-  if (!match) return undefined;
-
-  return `${match[1].replace(/\s/g, "\u00a0")} €`;
-}
-
 function getSortablePrice(article: ArticleListItem): number | undefined {
   const structured = parsePrice(article.price).nowAmount;
   if (structured !== undefined) return structured;
 
-  const fallbackPrice = getFallbackPrice(article);
-  if (!fallbackPrice) return undefined;
+  const fallbackText = `${article.title} ${article.description}`;
+  const match = fallbackText.match(/(?:^|\s)(\d{1,4}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?)\s*€/);
+  if (!match) return undefined;
 
   const amount = Number.parseFloat(
-    fallbackPrice.replace(/[\s\u00a0€]/g, "").replace(",", "."),
+    match[1].replace(/[\s\u00a0]/g, "").replace(",", "."),
   );
   return Number.isFinite(amount) ? amount : undefined;
 }
@@ -222,8 +215,9 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
 
     Promise.all(asins.map(async (asin) => {
       try {
-        const offer = await loadAmazonOffer(asin);
-        if (controller.signal.aborted) return;
+        const response = await fetch(`/api/amazon/${encodeURIComponent(asin)}`, { signal: controller.signal });
+        if (!response.ok) return;
+        const offer = await response.json() as { price?: string };
         if (offer.price) {
           document.querySelectorAll<HTMLElement>(`[data-amazon-price="${asin}"]`).forEach((element) => {
             element.textContent = offer.price!;
@@ -362,9 +356,7 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                 || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
               const isAmazonOffer = !!amazonAsin || /(?:amazon\.fr|amzn\.(?:to|eu)|link\.amazon)/i.test(article.affiliateUrl || "");
               const hideAmazonPrice = shouldHideAmazonPrice(article.slug);
-              const fallbackPrice = !isAmazonOffer ? getFallbackPrice(article) : undefined;
-              const displayedPrice = now || fallbackPrice;
-              const isFree = !!displayedPrice && /gratuit/i.test(displayedPrice);
+              const isFree = !!now && /gratuit/i.test(now);
               const showAdAfter = index === 7 || index === 15;
               const hasExternalAffiliate = hasDirectMerchantCta({
                 category: article.category,
@@ -383,7 +375,7 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                       aria-label={article.title}
                     />
                     <div className="bpm-card-h-image">
-                      <AmazonProductImage asin={amazonAsin} fallbackSrc={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.image} alt={article.imageAlt} objectFit="contain" padding="8px" sizes="(max-width: 768px) 120px, 200px" />
+                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "contain", padding: "8px" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
                       {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
                       {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
                       {!article.expired && article.expiresSoon && <span className="bpm-card-h-soon-badge">⏰ Bientôt fini</span>}
@@ -399,10 +391,10 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                       <h2 className="bpm-card-h-title">{formatCardTitle(article.title)}</h2>
                       <p className="bpm-card-h-excerpt">{article.description}</p>
                       <div className="bpm-card-h-footer">
-                        {(displayedPrice || (isAmazonOffer && hasExternalAffiliate && !hideAmazonPrice)) && (
+                        {(now || (isAmazonOffer && hasExternalAffiliate && !hideAmazonPrice)) && (
                           <div className="bpm-card-h-price">
                             <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`} data-amazon-price={amazonAsin?.toUpperCase()}>
-                              {displayedPrice || "Prix sur Amazon"}
+                              {now || "Prix sur Amazon"}
                             </span>
                             {was && <span className="bpm-card-h-price-was">{was}</span>}
                             {savings && <span className="bpm-card-h-chip">{savings}</span>}

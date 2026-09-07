@@ -19,24 +19,19 @@ const menus = [
       ["Coin Mode", "/bons-plans-mode"],
       ["Coin Rentrée", "/bons-plans-rentree"],
       ["Coin Tech", "/bons-plans-tech"],
-      ["Guide Air Fryer 2026", "/guide-air-fryer-2026"],
-      ["Idées cadeaux Noël 2026", "/idees-cadeaux-noel-2026"],
       ["Jardin & animaux", "/bons-plans-jardin"],
-      ["Marques partenaires", "/marques-partenaires"],
-      ["Proposer un bon plan", "/proposer-un-bon-plan"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
-      ["Tenir son budget", "/tenir-son-budget"],
     ],
   },
   {
     label: "Tests Produits",
     active: ["/test-", "/comparatif"],
-    links: [["Tests gratuits 2026", "/tests-produits-gratuits-2026"], ["Tous les tests", "/categorie/test-produit"], ["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
+    links: [["Tous les tests", "/categorie/test-produit"], ["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
   },
   {
     label: "Beauté",
-    active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier", "/guide-solaires"],
-    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Guide d’achat solaires", "/guide-solaires-2026"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les actualités box", "/categorie/box-beaute"], ["Calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Guides & tests", "/categorie/beaute"]],
+    active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier"],
+    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Box beauté", "/categorie/box-beaute"], ["Calendrier de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
   },
 ] as const;
 

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdventCalendarsHub() {
-  const updatedAt = "3 septembre 2026";
+  const updatedAt = "7 septembre 2026";
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
