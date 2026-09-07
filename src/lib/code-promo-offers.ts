@@ -49,6 +49,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "igraal-parrainage-15-aout-2026", brandSlug: "igraal", brandName: "iGraal", type: "parrainage", value: "15 €", valueLabel: "PARRAIN + FILLEUL", title: "15 € pour le filleul et 15 € pour le parrain", starts: "2026-08-24", expires: "2026-08-27", affiliateUrl: "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=raf&utm_source=refer_premium", conditions: "Inscription via un lien de parrainage du 24 au 27 août 2026. Le filleul doit réaliser un achat éligible d'au moins 10 € TTC dans les 90 jours et atteindre au moins 1 € de cashback validé dans les 365 jours. Le bonus est validé après validation du cashback. Auto-parrainage interdit. Dès trois filleuls obtenus pendant l'opération, le parrain participe au tirage au sort permettant à dix gagnants de recevoir 100 € sur leur cagnotte.", featured: true },
   { id: "miin-back-to-school-15-aout-septembre-2026", brandSlug: "miin-cosmetics", type: "code", value: "-15 %", valueLabel: "DÈS 49 €", title: "15 % de réduction dès 49 € d'achat pour la rentrée", code: "BACK15MIIN", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina", starts: "2026-08-20", expires: "2026-09-12", conditions: "Promotion valable du 20 août au 12 septembre 2026 à 23 h 59 (heure de France métropolitaine), sur les commandes passées via le site web ou l'application MiiN Cosmetics, dans la limite des stocks disponibles. Réduction de 15 % dès 49 € d'achat avec le code BACK15MIIN. Offre non cumulable avec d'autres offres ou réductions, à l'exception du programme de fidélité MiiN Club.", featured: true },
   { id: "clarins-welcome20", brandSlug: "clarins", type: "code", value: "-20 %", valueLabel: "+ CADEAUX", title: "20 % sur la première commande + une trousse et deux essentiels beauté dès 60 €", code: "WELCOME20", conditions: "Offre communiquée par Clarins le 13 août 2026. Réservée à la première commande. Une trousse et deux essentiels beauté sont annoncés dès 60 € d'achat, selon les conditions et stocks disponibles. Aucune date de fin précise n'a été communiquée ; vérifier l'application au panier.", featured: true },
+  { id: "clarins-journees-privileges-30", brandSlug: "clarins", type: "offre", value: "-30 %", valueLabel: "SANS MINIMUM", title: "Journées Privilèges : -30 % sur tout le site", affiliateUrl: "https://fnty.co/c/r-UPEIBQIo", conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.", featured: true },
   { id: "zigbuy-bons-plans", brandSlug: "zigbuy", type: "offre", value: "BONS PLANS", valueLabel: "HIGH-TECH & MAISON", title: "Promotions Zigbuy sur le high-tech, la maison et la mobilité", permanent: true, conditions: "Produits, prix, stocks, livraison et facilités de paiement variables. Vérifier chaque fiche et le montant final avant de commander.", featured: true },
   { id: "zigbuy-newsletter", brandSlug: "zigbuy", type: "newsletter", value: "-5 %", valueLabel: "BIENVENUE", title: "Réduction de bienvenue avec la newsletter Zigbuy", permanent: true, conditions: "Une remise de bienvenue peut être proposée après inscription à la newsletter. Vérifier le code reçu, sa durée, les exclusions et son éventuel cumul avant la commande." },
   { id: "belle-au-naturel-summer26", brandSlug: "belle-au-naturel", type: "code", value: "19,90 €", valueLabel: "1ʳᵉ BOX", title: "Première box bio Belle au Naturel à 19,90 €", code: "SUMMER26", expires: "2026-08-31", conditions: "Code annoncé jusqu'au 31 août 2026. Puis abonnement à 34,90 € par mois, sans engagement, livraison incluse. Vérifier les conditions avant validation.", featured: true },
@@ -1116,6 +1117,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // Offres Léa Nature vérifiées le 01/09/2026
   // ============================================================
   {
+    id: "lea-nature-ventes-privees-septembre",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "VENTES PRIVÉES",
+    title: "Ventes privées Léa Nature jusqu'à -30 %",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-15",
+    conditions: "Offre du 6 au 15 septembre 2026 inclus, réservée aux clients connectés ou ayant créé un compte. Remise automatique dans le panier, non cumulable avec les autres promotions en cours.",
+    featured: true,
+  },
+  {
     id: "lea-nature-nouveautes-20-septembre-2026",
     brandSlug: "lea-nature",
     type: "offre",
@@ -1280,6 +1293,31 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "Livraison offerte en point relais dès 49 €",
     permanent: true,
     conditions: "Livraison en point relais annoncée offerte dès 49 € d'achat. Vérifier le mode de livraison, la destination et les éventuelles exclusions dans le panier.",
+  },
+  {
+    id: "uriage-fd25-2026",
+    brandSlug: "uriage",
+    type: "code",
+    value: "-25 %",
+    valueLabel: "DÈS 55 €",
+    title: "French Days : -25 % sur tout le site dès 55 €",
+    code: "FD25",
+    affiliateUrl: "https://lk.gt/aAAps",
+    expires: "2026-09-14",
+    conditions: "Code FD25 : -25 % sur tout le site dès 55 € d'achat pendant les French Days. Vérifier les exclusions, le cumul et la date de fin dans le panier.",
+    featured: true,
+  },
+  {
+    id: "uriage-masque-nuit-offert-89",
+    brandSlug: "uriage",
+    type: "offre",
+    value: "OFFERT",
+    valueLabel: "DÈS 89 €",
+    title: "Un masque de nuit offert dès 89 € d'achat",
+    affiliateUrl: "https://lk.gt/aAAps",
+    expires: "2026-09-14",
+    conditions: "Masque de nuit offert dès 89 € d'achat, dans la limite des stocks. Vérifier son ajout automatique et le cumul avec FD25 dans le panier.",
+    featured: true,
   },
   {
     id: "uriage-creme-offerte-aout-2026",
@@ -2184,6 +2222,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
   // DR PIERRE RICAUD — offres et services vérifiés
   // ============================================================
+  {
+    id: "dpr-french-days-15-60",
+    brandSlug: "dr-pierre-ricaud",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "DÈS 60 €",
+    title: "French Days : -15 % supplémentaires dès 60 €",
+    code: "FRDAYS60",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
+    expires: "2026-09-14",
+    conditions: "Code FRDAYS60 : -15 % supplémentaires dès 60 € d'achat pendant les French Days, jusqu'au 14 septembre 2026 à minuit. Vérifier l'éligibilité et le cumul dans le panier.",
+    featured: true,
+  },
   {
     id: "dpr-livraison-35",
     brandSlug: "dr-pierre-ricaud",
