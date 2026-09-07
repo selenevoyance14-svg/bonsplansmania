@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 675" role="img" aria-labelledby="title desc">
+  <title id="title">Concours Rentrée Créative Perles &amp; Co et Ma Petite Mercerie</title>
+  <desc id="desc">Trois lots de 100 euros de bons d'achat à gagner du 7 au 11 septembre 2026</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fff5f8"/>
+      <stop offset="1" stop-color="#f1e8ff"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#6a1739" flood-opacity=".16"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="675" fill="url(#bg)"/>
+  <circle cx="94" cy="96" r="110" fill="#a40041" opacity=".08"/>
+  <circle cx="1115" cy="590" r="170" fill="#392d76" opacity=".09"/>
+  <g fill="none" stroke="#a40041" stroke-width="5" opacity=".28">
+    <circle cx="1050" cy="105" r="24"/><circle cx="1110" cy="135" r="15"/>
+    <path d="M105 530c70-55 126 55 196 0s126 55 196 0"/>
+  </g>
+  <rect x="90" y="74" width="1020" height="527" rx="34" fill="#fff" filter="url(#shadow)"/>
+  <text x="600" y="152" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" font-weight="700" fill="#392d76">PERLES &amp; CO × MA PETITE MERCERIE</text>
+  <text x="600" y="245" text-anchor="middle" font-family="Arial, sans-serif" font-size="67" font-weight="800" fill="#a40041">RENTRÉE CRÉATIVE</text>
+  <text x="600" y="314" text-anchor="middle" font-family="Arial, sans-serif" font-size="31" fill="#342936">Jeu Memory gratuit</text>
+  <rect x="250" y="350" width="700" height="104" rx="22" fill="#a40041"/>
+  <text x="600" y="397" text-anchor="middle" font-family="Arial, sans-serif" font-size="30" font-weight="700" fill="#fff">3 BONS D’ACHAT DE 100 €</text>
+  <text x="600" y="434" text-anchor="middle" font-family="Arial, sans-serif" font-size="21" fill="#fff">50 € chez chaque partenaire</text>
+  <text x="600" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="27" font-weight="700" fill="#392d76">Du 7 au 11 septembre 2026</text>
+  <text x="600" y="559" text-anchor="middle" font-family="Arial, sans-serif" font-size="20" fill="#655b68">Ouvert aux personnes majeures • 1 participation par personne</text>
+</svg>
