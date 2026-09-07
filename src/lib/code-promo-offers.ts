@@ -2644,8 +2644,32 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CDISCOUNT — offres vérifiées le 12/08/2026
+  // CDISCOUNT — offres mises à jour le 07/09/2026
   // ============================================================
+  {
+    id: "cdiscount-10bebe49",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-10 €",
+    valueLabel: "DÈS 49 €",
+    title: "-10 € dès 49 € d'achat sur l'univers bébé",
+    code: "10BEBE49",
+    conditions: "Remise immédiate de 10 € dès 49 € d'achat hors frais de livraison sur les produits éligibles. Vérifier la remise dans le panier.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
+    featured: true,
+  },
+  {
+    id: "cdiscount-50canape",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-50 €",
+    valueLabel: "DÈS 379 €",
+    title: "-50 € dès 379 € sur les canapés éligibles",
+    code: "50CANAPE",
+    conditions: "Code 50CANAPE : 50 € de remise dès 379 € d'achat sur les canapés éligibles. Vérifier la remise dans le panier.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
+    featured: true,
+  },
   {
     id: "cdiscount-rentree-jusqua-40-aout-2026",
     brandSlug: "cdiscount",
