@@ -54,6 +54,7 @@ export const CURATED_TAG_SLUGS = new Set([
   "sephora",
   "yves-rocher",
   "amazon",
+  "prozis",
 ]);
 
 export function slugifyTag(tag: string): string {

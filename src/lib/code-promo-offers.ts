@@ -609,9 +609,61 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
-  // Offres vérifiées le 27/07/2026
+  // CLARINS
   // ============================================================
+  {
+    id: "clarins-journees-privileges-30",
+    brandSlug: "clarins",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "SANS MINIMUM",
+    title: "Journées Privilèges : -30 % sur tout le site",
+    affiliateUrl: "https://fnty.co/c/r-UPEIBQIo",
+    conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.",
+    featured: true,
+  },
+
+  // ============================================================
+  // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
+  // Offres vérifiées le 07/09/2026
+  // ============================================================
+  {
+    id: "lea-nature-ventes-privees-septembre",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "VENTES PRIVÉES",
+    title: "Ventes privées Léa Nature jusqu'à -30 %",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-15",
+    conditions: "Offre du 6 au 15 septembre 2026 inclus, réservée aux clients connectés ou ayant créé un compte. Remise automatique dans le panier, non cumulable avec les autres promotions en cours.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-rentree20",
+    brandSlug: "lea-nature",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "SÉLECTION",
+    title: "-20 % sur la sélection de la rentrée avec RENTREE20",
+    code: "RENTREE20",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-17",
+    conditions: "Code RENTREE20 valable du 1er au 17 septembre 2026 inclus sur une sélection. Offre non cumulable avec une autre promotion en cours.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-capillaires-sobio-septembre",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-40 %",
+    valueLabel: "CAPILLAIRES",
+    title: "Jusqu'à -40 % sur les capillaires SO'BiO étic",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-30",
+    conditions: "Offre du 1er au 30 septembre 2026 inclus sur les produits capillaires SO'BiO étic. Non cumulable avec une autre promotion en cours.",
+    featured: true,
+  },
   {
     id: "lea-nature-soleil20",
     brandSlug: "lea-nature",
@@ -670,6 +722,31 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "DÈS 49 €",
     title: "Livraison offerte dès 49 €",
     conditions: "Seuil affiché sur Twenty DC le 27/07/2026.",
+  },
+  {
+    id: "uriage-fd25-2026",
+    brandSlug: "uriage",
+    type: "code",
+    value: "-25 %",
+    valueLabel: "DÈS 55 €",
+    title: "French Days : -25 % sur tout le site dès 55 €",
+    code: "FD25",
+    affiliateUrl: "https://lk.gt/aAAps",
+    expires: "2026-09-14",
+    conditions: "Code FD25 : -25 % sur tout le site dès 55 € d'achat pendant les French Days. Vérifier les exclusions, le cumul et la date de fin dans le panier.",
+    featured: true,
+  },
+  {
+    id: "uriage-masque-nuit-offert-89",
+    brandSlug: "uriage",
+    type: "offre",
+    value: "OFFERT",
+    valueLabel: "DÈS 89 €",
+    title: "Un masque de nuit offert dès 89 € d'achat",
+    affiliateUrl: "https://lk.gt/aAAps",
+    expires: "2026-09-14",
+    conditions: "Masque de nuit offert dès 89 € d'achat, dans la limite des stocks. Vérifier son ajout automatique et le cumul avec FD25 dans le panier.",
+    featured: true,
   },
   {
     id: "uriage-bariesun-2026",
@@ -1123,6 +1200,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // DR PIERRE RICAUD — offres et services vérifiés
   // ============================================================
   {
+    id: "dpr-french-days-15-60",
+    brandSlug: "dr-pierre-ricaud",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "DÈS 60 €",
+    title: "French Days : -15 % supplémentaires dès 60 €",
+    code: "FRDAYS60",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2F",
+    expires: "2026-09-14",
+    conditions: "Code FRDAYS60 : -15 % supplémentaires dès 60 € d'achat pendant les French Days, jusqu'au 14 septembre 2026 à minuit. Vérifier l'éligibilité et le cumul dans le panier.",
+    featured: true,
+  },
+  {
     id: "dpr-livraison-35",
     brandSlug: "dr-pierre-ricaud",
     type: "livraison",
@@ -1380,19 +1470,30 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Code valable du 1er au 7 septembre 2026 à 23h59, heure de Paris, sur les articles sélectionnés. Palier minimum de 359 €.",
   },
   // ============================================================
-  // CDISCOUNT — offres vérifiées le 04/08/2026
+  // CDISCOUNT — offres communiquées le 07/09/2026
   // ============================================================
   {
-    id: "cdiscount-canap50",
+    id: "cdiscount-50canape",
     brandSlug: "cdiscount",
     type: "code",
     value: "-50 €",
     valueLabel: "DÈS 379 €",
-    title: "-50 € dès 379 € sur une sélection de canapés",
-    code: "CANAP50",
-    expires: "2026-08-05",
+    title: "-50 € dès 379 € sur les canapés éligibles",
+    code: "50CANAPE",
     featured: true,
-    conditions: "Code CANAP50 valable sur une sélection de canapés Cdiscount jusqu'au 05/08/2026, dès 379 € d'achat. Vérifier l'éligibilité dans le panier.",
+    conditions: "Code 50CANAPE : 50 € de remise dès 379 € d'achat sur les canapés éligibles. Vérifier les conditions et l'éligibilité dans le panier.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
+  },
+  {
+    id: "cdiscount-10bebe49",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-10 €",
+    valueLabel: "DÈS 49 €",
+    title: "-10 € dès 49 € d'achat sur l'univers bébé",
+    code: "10BEBE49",
+    featured: true,
+    conditions: "Code 10BEBE49 : remise immédiate de 10 € dès 49 € d'achat hors frais de livraison sur les produits éligibles. Vérifier les conditions dans le panier.",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
   },
   {

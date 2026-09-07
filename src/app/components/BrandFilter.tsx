@@ -39,6 +39,8 @@ interface BrandDef {
   keywords: string[];
 }
 
+type ProductTypeDef = BrandDef;
+
 const PER_PAGE = 24;
 
 const CTA_BY_COLOR: Record<string, string> = {
@@ -85,9 +87,10 @@ function getSortablePrice(article: ArticleListItem): number | undefined {
 
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
 
-export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }: { articles: ArticleListItem[]; brands: BrandDef[]; sortBrandsBy?: "count" | "alpha" }) {
+export default function BrandFilter({ articles, brands, productTypes = [], sortBrandsBy = "count" }: { articles: ArticleListItem[]; brands: BrandDef[]; productTypes?: ProductTypeDef[]; sortBrandsBy?: "count" | "alpha" }) {
   const [visible, setVisible] = useState(PER_PAGE);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
+  const [selectedProductType, setSelectedProductType] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortBy>("recent");
 
   // Une même marque peut provenir de plusieurs univers (ex. Philips en beauté,
@@ -120,10 +123,18 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
         );
         if (matches) matchedKeys.push(brand.key);
       }
+      const matchedProductTypeKeys = productTypes
+        .filter((productType) => {
+          const normalizedKeywords = productType.keywords.map(normalize);
+          return tagSet.some((tag) =>
+            normalizedKeywords.some((kw) => tag === kw || tag.includes(kw))
+          );
+        })
+        .map((productType) => productType.key);
       const parsed = parsePrice(a.price);
-      return { article: a, matchedKeys, ...parsed, nowNum: getSortablePrice(a) };
+      return { article: a, matchedKeys, matchedProductTypeKeys, ...parsed, nowNum: getSortablePrice(a) };
     });
-  }, [articles, uniqueBrands]);
+  }, [articles, uniqueBrands, productTypes]);
 
   // Marques disponibles (≥ 1 article)
   const availableBrands = useMemo(() => {
@@ -142,12 +153,27 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
       });
   }, [enriched, uniqueBrands, sortBrandsBy]);
 
+  const availableProductTypes = useMemo(() => {
+    const counts = new Map<string, number>();
+    for (const e of enriched) {
+      for (const key of e.matchedProductTypeKeys) {
+        counts.set(key, (counts.get(key) || 0) + 1);
+      }
+    }
+    return productTypes
+      .filter((productType) => (counts.get(productType.key) || 0) > 0)
+      .map((productType) => ({ ...productType, count: counts.get(productType.key) || 0 }));
+  }, [enriched, productTypes]);
+
   const hasPriceData = useMemo(() => enriched.some((e) => e.nowNum !== undefined), [enriched]);
 
   const filtered = useMemo(() => {
     let list = enriched;
     if (selectedBrand) {
       list = list.filter((e) => e.matchedKeys.includes(selectedBrand));
+    }
+    if (selectedProductType) {
+      list = list.filter((e) => e.matchedProductTypeKeys.includes(selectedProductType));
     }
     const sorted = [...list];
     const expiredFirst = (a: typeof sorted[number], b: typeof sorted[number]) => {
@@ -165,11 +191,12 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
       sorted.sort((a, b) => expiredFirst(a, b) || ((b.nowNum ?? -Infinity) - (a.nowNum ?? -Infinity)));
     }
     return sorted.map((e) => e.article);
-  }, [enriched, selectedBrand, sortBy]);
+  }, [enriched, selectedBrand, selectedProductType, sortBy]);
 
-  const activeFilters = (selectedBrand ? 1 : 0) + (sortBy !== "recent" ? 1 : 0);
+  const activeFilters = (selectedBrand ? 1 : 0) + (selectedProductType ? 1 : 0) + (sortBy !== "recent" ? 1 : 0);
   const reset = () => {
     setSelectedBrand("");
+    setSelectedProductType("");
     setSortBy("recent");
     setVisible(PER_PAGE);
   };
@@ -246,6 +273,25 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
             {availableBrands.map((b) => (
               <option key={b.key} value={b.key}>
                 {b.label} ({b.count})
+              </option>
+            ))}
+          </select>
+        )}
+
+        {availableProductTypes.length > 0 && (
+          <select
+            value={selectedProductType}
+            onChange={(e) => {
+              setSelectedProductType(e.target.value);
+              setVisible(PER_PAGE);
+            }}
+            style={selectedProductType ? activeSelectStyle : selectStyle}
+            aria-label="Filtrer par type de produit"
+          >
+            <option value="">Tous les produits</option>
+            {availableProductTypes.map((productType) => (
+              <option key={productType.key} value={productType.key}>
+                {productType.label} ({productType.count})
               </option>
             ))}
           </select>
@@ -396,4 +442,4 @@ export default function BrandFilter({ articles, brands, sortBrandsBy = "count" }
   );
 }
 
-export type { BrandDef };
+export type { BrandDef, ProductTypeDef };
