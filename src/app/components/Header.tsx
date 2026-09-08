@@ -9,6 +9,8 @@ const menus = [
     label: "Bons Plans",
     active: ["/bon-plan", "/bons-plans-"],
     links: [
+      ["Tous les bons plans", "/categorie/bon-plan"],
+      ["Toutes les marques", "/marques"],
       ["Air Fryer & Ninja", "/bons-plans-ninja"],
       ["Bons plans beauté", "/bons-plans-beaute"],
       ["Bons plans en cours", "/bons-plans-en-cours"],
