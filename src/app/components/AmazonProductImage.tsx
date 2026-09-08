@@ -16,7 +16,14 @@ const forcedAmazonImages: Record<string, string> = {
   // Secours immédiat si le chargement dynamique est retardé sur cette fiche.
   B0DM679R7F: "https://m.media-amazon.com/images/I/41COEJVKdbL._SL500_.jpg",
   B0F3WXJ9F8: "https://m.media-amazon.com/images/I/519DNAusbLL._SL500_.jpg",
+  B0FQPH1JVT: "https://m.media-amazon.com/images/I/41TAu2X9gsL._SL500_.jpg",
 };
+
+const GENERIC_FALLBACKS = new Set([
+  "/images/articles/_placeholder-bonsplansmania.png",
+  "/images/articles/_placeholder-bonsplansmania-beige.png",
+  "/images/placeholder.svg",
+]);
 
 export function loadAmazonOffer(asin: string): Promise<AmazonOffer> {
   const key = asin.toUpperCase();
@@ -90,6 +97,23 @@ export default function AmazonProductImage({
         alt={offer.title || alt}
         loading={priority ? "eager" : "lazy"}
         style={{ position: "absolute", inset: 0, width: "100%", height: "100%", objectFit: "contain", padding: padding || "8px" }}
+      />
+    );
+  }
+
+  // Pour les produits Amazon, ne jamais faire apparaître l'ancien visuel rose
+  // pendant que la photo officielle est récupérée par l'API. Un fond neutre
+  // occupe brièvement l'espace et évite tout flash de l'image générique.
+  if (asin && GENERIC_FALLBACKS.has(fallbackSrc)) {
+    return (
+      <div
+        aria-label={alt}
+        role="img"
+        style={{
+          position: "absolute",
+          inset: 0,
+          background: "linear-gradient(135deg, #fff 0%, #faf8f4 100%)",
+        }}
       />
     );
   }
