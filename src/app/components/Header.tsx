@@ -10,7 +10,7 @@ const menus = [
     active: ["/bon-plan", "/bons-plans-"],
     links: [
       ["Tous les bons plans", "/categorie/bon-plan"],
-      ["Toutes les marques", "/marques"],
+      ["Marques", "/marques"],
       ["Air Fryer & Ninja", "/bons-plans-ninja"],
       ["Bons plans beauté", "/bons-plans-beaute"],
       ["Bons plans en cours", "/bons-plans-en-cours"],
@@ -33,7 +33,7 @@ const menus = [
   {
     label: "Beauté",
     active: ["/beaute", "/box-beaute", "/meilleures-box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Calendrier de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
+    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
   },
 ] as const;
 
