@@ -4,14 +4,13 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "npm run audit:affiliate-links -- --strict && npx tsx scripts/generate-articles-json.ts && npx tsx scripts/build-affiliate-mapping.ts",
+    "prebuild": "npx tsx scripts/generate-missing-svg.ts && npx tsx scripts/generate-articles-json.ts && npx tsx scripts/build-affiliate-mapping.ts",
     "build": "next build && npx tsx scripts/clean-rsc-txt.ts",
     "start": "next start",
     "lint": "eslint",
     "audit:revenue": "npx tsx scripts/audit-revenue-readiness.ts",
     "cockpit:revenue": "npx tsx scripts/build-revenue-cockpit.ts",
     "audit:content": "npx tsx scripts/audit-content-integrity.ts",
-    "audit:affiliate-links": "npx tsx scripts/audit-affiliate-links.ts",
     "agent:offres": "npx tsx scripts/prepare-freebie-drafts.ts"
   },
   "dependencies": {

@@ -1,7 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
-import { JOUETS_BRANDS } from "@/lib/brand-filters";
+import { JOUETS_BRANDS, JOUETS_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, ToyBrick, Gift, Sparkles } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -225,7 +225,7 @@ export default async function BonsPlansJouetsPage() {
                 Les bons plans jouets seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={JOUETS_BRANDS} />
+              <BrandFilter articles={cards} brands={JOUETS_BRANDS} productTypes={JOUETS_PRODUCT_TYPES} />
             )}
           </div>
         </section>

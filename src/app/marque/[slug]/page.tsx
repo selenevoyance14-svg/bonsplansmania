@@ -1,6 +1,7 @@
 import { getAllArticles, getArticlesByTag, getArticlesByTagSlug } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
+import ProzisArticleGrid from "@/app/components/ProzisArticleGrid";
 import type { Metadata } from "next";
 import { ChevronRight, ExternalLink, Info, Tag } from "lucide-react";
 import { notFound } from "next/navigation";
@@ -148,6 +149,7 @@ export default async function BrandPage({ params }: PageProps) {
       price: a.meta.price,
       amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
+      tags: a.meta.tags,
     };
   });
 
@@ -313,7 +315,11 @@ export default async function BrandPage({ params }: PageProps) {
                 Aucun article pour cette marque pour le moment.
               </p>
             ) : (
-              <LoadMoreGrid articles={cards} />
+              slug === "prozis" ? (
+                <ProzisArticleGrid articles={cards} />
+              ) : (
+                <LoadMoreGrid articles={cards} />
+              )
             )}
           </div>
         </section>

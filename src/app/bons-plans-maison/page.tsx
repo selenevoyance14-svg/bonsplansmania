@@ -1,7 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
-import { MAISON_BRANDS } from "@/lib/brand-filters";
+import { MAISON_BRANDS, MAISON_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, Home, ChefHat, Wind } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -240,7 +240,7 @@ export default async function BonsPlansMaisonPage() {
                 Les bons plans maison & cuisine seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={MAISON_BRANDS} />
+              <BrandFilter articles={cards} brands={MAISON_BRANDS} productTypes={MAISON_PRODUCT_TYPES} />
             )}
           </div>
         </section>

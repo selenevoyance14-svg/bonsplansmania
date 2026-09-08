@@ -39,6 +39,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/bons-plans-jouets",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/bons-plans-rentree",       priority: 0.9, changeFrequency: "weekly" },
   { path: "/avis-prix-beaute",         priority: 0.8, changeFrequency: "weekly" },
+  { path: "/meilleures-box-beaute",    priority: 0.9, changeFrequency: "daily" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
   { path: "/recherche",                priority: 0.5, changeFrequency: "monthly" },
   { path: "/archives/bons-plans",      priority: 0.5, changeFrequency: "weekly" },

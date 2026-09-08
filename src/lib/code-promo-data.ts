@@ -221,7 +221,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "carrefour",
     name: "Carrefour",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
+    affiliateUrl: "https://www.carrefour.fr/services/courses-en-ligne/bon-achat/CARTABLE20",
     affiliateLabel: "Utiliser le code CARTABLE20 chez Carrefour",
     matchTags: ["carrefour", "carrefour drive"],
     color: "#0050AA",

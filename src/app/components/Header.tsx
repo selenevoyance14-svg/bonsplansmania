@@ -30,8 +30,8 @@ const menus = [
   },
   {
     label: "Beauté",
-    active: ["/beaute", "/box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Box beauté", "/categorie/box-beaute"], ["Calendrier de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
+    active: ["/beaute", "/box-beaute", "/meilleures-box-beaute", "/avis-prix-beaute", "/calendrier"],
+    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Calendrier de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
   },
 ] as const;
 

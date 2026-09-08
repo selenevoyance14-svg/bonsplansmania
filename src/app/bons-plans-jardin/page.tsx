@@ -1,7 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
-import { JARDIN_BRANDS } from "@/lib/brand-filters";
+import { JARDIN_BRANDS, JARDIN_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, TreePine, Waves, Flame } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -252,7 +252,7 @@ export default async function BonsPlansJardinPage() {
                 Les bons plans jardin seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={JARDIN_BRANDS} />
+              <BrandFilter articles={cards} brands={JARDIN_BRANDS} productTypes={JARDIN_PRODUCT_TYPES} />
             )}
           </div>
         </section>

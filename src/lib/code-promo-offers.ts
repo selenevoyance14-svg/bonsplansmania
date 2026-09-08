@@ -332,6 +332,23 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // CARREFOUR — première commande septembre 2026
+  // ============================================================
+  {
+    id: "carrefour-cartable20-septembre-2026",
+    brandSlug: "carrefour",
+    type: "code",
+    value: "20 €",
+    valueLabel: "OFFERTS",
+    title: "20 € offerts dès 80 € sur la première commande Carrefour",
+    code: "CARTABLE20",
+    expires: "2026-09-27",
+    conditions: "20 € offerts dès 80 € d'achat sur une première commande Carrefour Drive, Livré chez vous ou Livraison Express avec le code CARTABLE20. Offre valable jusqu'au 27/09/2026, selon les modalités Carrefour.",
+    affiliateUrl: "https://www.carrefour.fr/services/courses-en-ligne/bon-achat/CARTABLE20",
+    featured: true,
+  },
+
+  // ============================================================
   // E.LECLERC — Opération Bébé août / septembre 2026
   // ============================================================
   {
@@ -1113,11 +1130,75 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
+  // CLARINS
+  // ============================================================
+  {
+    id: "clarins-journees-privileges-30",
+    brandSlug: "clarins",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "SANS MINIMUM",
+    title: "Journées Privilèges : -30 % sur tout le site",
+    affiliateUrl: "https://fnty.co/c/r-UPEIBQIo",
+    conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.",
+    featured: true,
+  },
+
+  // ============================================================
   // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
-  // Offres Léa Nature vérifiées le 01/09/2026
+  // Offres vérifiées le 07/09/2026
   // ============================================================
   {
     id: "lea-nature-ventes-privees-septembre",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "VENTES PRIVÉES",
+    title: "Ventes privées Léa Nature jusqu'à -30 %",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-15",
+    conditions: "Offre du 6 au 15 septembre 2026 inclus, réservée aux clients connectés ou ayant créé un compte. Remise automatique dans le panier, non cumulable avec les autres promotions en cours.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-rentree20",
+    brandSlug: "lea-nature",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "SÉLECTION",
+    title: "-20 % sur la sélection de la rentrée avec RENTREE20",
+    code: "RENTREE20",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-17",
+    conditions: "Code RENTREE20 valable du 1er au 17 septembre 2026 inclus sur une sélection. Offre non cumulable avec une autre promotion en cours.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-capillaires-sobio-septembre",
+    brandSlug: "lea-nature",
+    type: "offre",
+    value: "-40 %",
+    valueLabel: "CAPILLAIRES",
+    title: "Jusqu'à -40 % sur les capillaires SO'BiO étic",
+    affiliateUrl: "https://lk.gt/azPuG",
+    expires: "2026-09-30",
+    conditions: "Offre du 1er au 30 septembre 2026 inclus sur les produits capillaires SO'BiO étic. Non cumulable avec une autre promotion en cours.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-soleil20",
+    brandSlug: "lea-nature",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "SÉLECTION",
+    title: "-20 % sur une sélection avec le code SOLEIL20",
+    code: "SOLEIL20",
+    expires: "2026-07-31",
+    conditions: "Offre du 01/07 au 31/07/2026 sur une sélection. Non cumulable avec une autre promotion, hors direct usine, kits et routines.",
+    featured: true,
+  },
+  {
+    id: "lea-nature-lift-grenade",
     brandSlug: "lea-nature",
     type: "offre",
     value: "-30 %",
@@ -1296,6 +1377,31 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
   {
     id: "uriage-fd25-2026",
+    brandSlug: "uriage",
+    type: "code",
+    value: "-25 %",
+    valueLabel: "DÈS 55 €",
+    title: "French Days : -25 % sur tout le site dès 55 €",
+    code: "FD25",
+    affiliateUrl: "https://lk.gt/aAAps",
+    expires: "2026-09-14",
+    conditions: "Code FD25 : -25 % sur tout le site dès 55 € d'achat pendant les French Days. Vérifier les exclusions, le cumul et la date de fin dans le panier.",
+    featured: true,
+  },
+  {
+    id: "uriage-masque-nuit-offert-89",
+    brandSlug: "uriage",
+    type: "offre",
+    value: "OFFERT",
+    valueLabel: "DÈS 89 €",
+    title: "Un masque de nuit offert dès 89 € d'achat",
+    affiliateUrl: "https://lk.gt/aAAps",
+    expires: "2026-09-14",
+    conditions: "Masque de nuit offert dès 89 € d'achat, dans la limite des stocks. Vérifier son ajout automatique et le cumul avec FD25 dans le panier.",
+    featured: true,
+  },
+  {
+    id: "uriage-bariesun-2026",
     brandSlug: "uriage",
     type: "code",
     value: "-25 %",
@@ -2645,70 +2751,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // BEBEBOUTIK — fonctionnement permanent des ventes privées
+  // CDISCOUNT — offres communiquées le 07/09/2026
   // ============================================================
-  {
-    id: "bebeboutik-ventes-privees",
-    brandSlug: "bebeboutik",
-    type: "offre",
-    value: "VENTES",
-    valueLabel: "PRIVÉES",
-    title: "Ventes privées renouvelées régulièrement pour bébé et enfant",
-    permanent: true,
-    conditions: "Marques, remises, produits, délais et stocks variables selon chaque vente. L'inscription est gratuite ; vérifier le prix final avec les frais de livraison.",
-    featured: true,
-  },
-
-  // ============================================================
-  // VIDAXL — offres vérifiées le 13/08/2026
-  // ============================================================
-  {
-    id: "vidaxl-outdoor-multibuy-2026",
-    brandSlug: "vidaxl",
-    type: "offre",
-    value: "-10 %",
-    valueLabel: "JUSQU'À",
-    title: "Jusqu'à -10 % en achetant plusieurs articles d'extérieur",
-    expires: "2026-09-28",
-    conditions: "Offre valable sur les produits et catégories de la campagne outdoor. Quantité minimale variable selon la sélection, sans montant minimum annoncé.",
-    featured: true,
-  },
-  {
-    id: "vidaxl-newsletter-5",
-    brandSlug: "vidaxl",
-    type: "newsletter",
-    value: "5 €",
-    valueLabel: "OFFERTS",
-    title: "5 € de réduction après inscription à la newsletter",
-    permanent: true,
-    conditions: "Minimum de 70 € affiché sur la page d'accueil le 13/08/2026, uniquement sur les produits de la marque vidaXL. Vérifier les conditions du code reçu par e-mail.",
-  },
-  {
-    id: "vidaxl-plus-points",
-    brandSlug: "vidaxl",
-    type: "fidelite",
-    value: "POINTS",
-    valueLabel: "VIDAXL+",
-    title: "Des points à chaque achat avec le programme vidaXL+",
-    permanent: true,
-    conditions: "Compte vidaXL+ requis. Les points sont attribués sur les achats éligibles de produits vidaXL et peuvent être convertis en remises selon le règlement du programme.",
-  },
-
-  // ============================================================
-  // CDISCOUNT — offres mises à jour le 07/09/2026
-  // ============================================================
-  {
-    id: "cdiscount-10bebe49",
-    brandSlug: "cdiscount",
-    type: "code",
-    value: "-10 €",
-    valueLabel: "DÈS 49 €",
-    title: "-10 € dès 49 € d'achat sur l'univers bébé",
-    code: "10BEBE49",
-    conditions: "Remise immédiate de 10 € dès 49 € d'achat hors frais de livraison sur les produits éligibles. Vérifier la remise dans le panier.",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
-    featured: true,
-  },
   {
     id: "cdiscount-50canape",
     brandSlug: "cdiscount",
@@ -2717,7 +2761,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "DÈS 379 €",
     title: "-50 € dès 379 € sur les canapés éligibles",
     code: "50CANAPE",
-    conditions: "Code 50CANAPE : 50 € de remise dès 379 € d'achat sur les canapés éligibles. Vérifier la remise dans le panier.",
+    featured: true,
+    conditions: "Code 50CANAPE : 50 € de remise dès 379 € d'achat sur les canapés éligibles. Vérifier les conditions et l'éligibilité dans le panier.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
+  },
+  {
+    id: "cdiscount-10bebe49",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-10 €",
+    valueLabel: "DÈS 49 €",
+    title: "-10 € dès 49 € d'achat sur l'univers bébé",
+    code: "10BEBE49",
+    conditions: "Code 10BEBE49 : remise immédiate de 10 € dès 49 € d'achat hors frais de livraison sur les produits éligibles. Vérifier les conditions dans le panier.",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
     featured: true,
   },

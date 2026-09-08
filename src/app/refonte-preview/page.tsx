@@ -26,6 +26,9 @@ const labels: Record<string, string> = {
 };
 
 const FREE_TEST_CATEGORIES = new Set(["test-gratuit", "test-produit"]);
+
+// Les contenus éditoriaux ont leurs propres rubriques et ne doivent pas
+// prendre la place des nouveaux bons plans dans la sélection de l'accueil.
 const HOMEPAGE_EDITORIAL_CATEGORIES = new Set([
   "test-avis",
   "comparatif",
@@ -89,27 +92,13 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
 
 export default function RefontePreviewPage() {
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
-  const offersAndNews = active.filter(
-    (article) =>
-      !FREE_TEST_CATEGORIES.has(article.meta.category) &&
-      !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
+  const homepageEligible = active.filter(
+    (article) => !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
   );
-  const heroDeals = selectDiverse(
-    active.filter(({ meta }) => hasDirectMerchantCta({
-      category: meta.category,
-      affiliateUrl: meta.affiliateUrl,
-      expired: false,
-      endDate: meta.endDate,
-    })),
-    4,
-  );
-  const heroSlugs = new Set(heroDeals.map(({ meta }) => meta.slug));
-  const latest = selectDiverse(offersAndNews, 4, heroSlugs);
-  const topSlugs = new Set([
-    ...heroSlugs,
-    ...latest.map(({ meta }) => meta.slug),
-  ]);
-  const deals = selectDiverse(offersAndNews, 24, topSlugs);
+  const homepageDeals = selectDiverse(homepageEligible, 15);
+  const heroDeals = homepageDeals.slice(0, 4);
+  const latest = homepageDeals.slice(4, 8);
+  const deals = homepageDeals.slice(8, 15);
   const freeTests = active
     .filter((article) => FREE_TEST_CATEGORIES.has(article.meta.category))
     .slice(0, 4);
