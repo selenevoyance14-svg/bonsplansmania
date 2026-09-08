@@ -9,8 +9,6 @@ const menus = [
     label: "Bons Plans",
     active: ["/bon-plan", "/bons-plans-"],
     links: [
-      ["Tous les bons plans", "/categorie/bon-plan"],
-      ["Marques", "/marques"],
       ["Air Fryer & Ninja", "/bons-plans-ninja"],
       ["Bons plans beauté", "/bons-plans-beaute"],
       ["Bons plans en cours", "/bons-plans-en-cours"],
@@ -22,7 +20,9 @@ const menus = [
       ["Coin Rentrée", "/bons-plans-rentree"],
       ["Coin Tech", "/bons-plans-tech"],
       ["Jardin & animaux", "/bons-plans-jardin"],
+      ["Marques", "/marques"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
+      ["Tous les bons plans", "/categorie/bon-plan"],
     ],
   },
   {
