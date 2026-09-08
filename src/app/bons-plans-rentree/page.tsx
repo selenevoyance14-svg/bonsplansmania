@@ -1,7 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
-import { RENTREE_BRANDS } from "@/lib/brand-filters";
+import { RENTREE_BRANDS, RENTREE_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, GraduationCap, Backpack, Sparkles } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -311,7 +311,7 @@ export default async function BonsPlansRentreePage() {
                 Les bons plans rentrée seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={RENTREE_BRANDS} />
+              <BrandFilter articles={cards} brands={RENTREE_BRANDS} productTypes={RENTREE_PRODUCT_TYPES} />
             )}
           </div>
         </section>

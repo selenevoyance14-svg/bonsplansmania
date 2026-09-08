@@ -129,6 +129,26 @@ export const MAISON_BRANDS: BrandDef[] = [
   { key: "lego", label: "LEGO", keywords: ["lego"] },
 ];
 
+// Types de produits proposés dans le second menu de /bons-plans-maison.
+export const MAISON_PRODUCT_TYPES: BrandDef[] = [
+  { key: "lave-linge", label: "Lave-linge", keywords: ["lave-linge", "lave linge", "machine a laver", "machine à laver"] },
+  { key: "seche-linge", label: "Sèche-linge", keywords: ["seche-linge", "sèche-linge", "seche linge", "sèche linge", "pompe a chaleur", "pompe à chaleur"] },
+  { key: "lavante-sechante", label: "Lavantes-séchantes", keywords: ["lavante-sechante", "lavante-séchante", "lavant sechant", "lavant-séchant", "washtower"] },
+  { key: "lave-vaisselle", label: "Lave-vaisselle", keywords: ["lave-vaisselle", "lave vaisselle"] },
+  { key: "refrigerateurs", label: "Réfrigérateurs & congélateurs", keywords: ["refrigerateur", "réfrigérateur", "frigo", "congelateur", "congélateur"] },
+  { key: "fours", label: "Fours & micro-ondes", keywords: ["four encastrable", "mini-four", "mini four", "micro-ondes", "micro ondes"] },
+  { key: "cuisson", label: "Cuisson & multicuiseurs", keywords: ["airfryer", "friteuse", "multicuiseur", "cookeo", "robot cuiseur", "robot-cuiseur", "plaque de cuisson", "cuisiniere", "cuisinière"] },
+  { key: "cafe", label: "Café & petit-déjeuner", keywords: ["machine a cafe", "machine à café", "machine-cafe", "cafetiere", "cafetière", "expresso", "broyeur", "grille-pain", "bouilloire"] },
+  { key: "preparation", label: "Préparation culinaire", keywords: ["blender", "mixeur", "robot cuisine", "robot-cuisine", "extracteur de jus", "extracteur-de-jus", "sorbetiere", "sorbetière", "machine a pain", "machine à pain", "yaourtiere", "yaourtière"] },
+  { key: "ustensiles", label: "Poêles, casseroles & ustensiles", keywords: ["poele", "poêle", "casserole", "batterie de cuisine", "batterie-cuisine", "cocotte", "faitout", "ingenio", "ustensile"] },
+  { key: "aspirateurs", label: "Aspirateurs & robots", keywords: ["aspirateur", "robot laveur", "robot-laveur", "roomba", "deebot", "roborock"] },
+  { key: "entretien", label: "Nettoyage & entretien", keywords: ["nettoyeur vapeur", "nettoyeur-vapeur", "nettoyeur sols", "nettoyeur-sols", "shampouineuse", "fer a repasser", "fer à repasser", "centrale vapeur"] },
+  { key: "air", label: "Ventilation & qualité de l’air", keywords: ["ventilateur", "climatiseur", "purificateur d'air", "purificateur-air", "humidificateur", "deshumidificateur", "déshumidificateur"] },
+  { key: "linge", label: "Linge de maison", keywords: ["linge de maison", "linge-de-maison", "drap", "couette", "oreiller", "housse de couette", "serviette de bain"] },
+  { key: "meubles", label: "Meubles & rangement", keywords: ["meuble", "canape", "canapé", "armoire", "commode", "table basse", "chaise", "rangement", "bibliotheque", "bibliothèque"] },
+  { key: "decoration", label: "Décoration & luminaires", keywords: ["decoration", "décoration", "luminaire", "lampe", "miroir", "tapis salon", "rideau"] },
+];
+
 // Hub /bons-plans-jardin (incl. outdoor, piscine)
 export const JARDIN_BRANDS: BrandDef[] = [
   { key: "bosch-jardin", label: "Bosch", keywords: ["bosch"] },
@@ -168,6 +188,24 @@ export const JARDIN_BRANDS: BrandDef[] = [
   { key: "savic", label: "Savic", keywords: ["savic"] },
   { key: "catit", label: "Catit", keywords: ["catit"] },
   { key: "flamingo", label: "Flamingo", keywords: ["flamingo"] },
+];
+
+// Types de produits proposés dans le second menu de /bons-plans-jardin.
+export const JARDIN_PRODUCT_TYPES: BrandDef[] = [
+  { key: "tondeuses", label: "Tondeuses à gazon", keywords: ["tondeuse a gazon", "tondeuse à gazon", "tondeuse thermique", "tondeuse electrique", "tondeuse électrique", "tondeuse autoportee", "tondeuse autoportée", "tracteur de jardin"] },
+  { key: "robots-tondeuses", label: "Robots tondeuses", keywords: ["robot tondeuse", "robot-tondeuse", "automower", "navimow", "luba", "landroid"] },
+  { key: "outils", label: "Outils de jardin", keywords: ["taille-haie", "taille haie", "debroussailleuse", "débroussailleuse", "coupe-bordure", "coupe bordure", "tronconneuse", "tronçonneuse", "souffleur", "motobineuse", "scarificateur"] },
+  { key: "nettoyeurs", label: "Nettoyeurs haute pression", keywords: ["nettoyeur haute pression", "karcher", "kärcher", "nettoyeur terrasse"] },
+  { key: "piscines", label: "Piscines & spas", keywords: ["piscine tubulaire", "piscine hors sol", "piscine gonflable", "spa gonflable", "jacuzzi", "spa intex", "spa bestway"] },
+  { key: "robots-piscine", label: "Robots de piscine", keywords: ["robot piscine", "robot-piscine", "nettoyeur piscine", "aiper", "beatbot", "wybot", "bwt cosmy"] },
+  { key: "parasols", label: "Parasols & protection solaire", keywords: ["parasol", "voile d'ombrage", "tonnelle", "pergola", "store banne"] },
+  { key: "mobilier", label: "Mobilier de jardin", keywords: ["salon de jardin", "table de jardin", "chaise de jardin", "fauteuil de jardin", "transat", "chaise longue", "balancelle", "hamac", "bain de soleil"] },
+  { key: "barbecue", label: "Barbecues & planchas", keywords: ["barbecue", "bbq", "plancha", "grill exterieur", "grill extérieur", "fumoir"] },
+  { key: "arrosage", label: "Arrosage & pompes", keywords: ["arrosage", "tuyau d'arrosage", "arrosoir", "pompe a eau", "pompe à eau", "pompe immergee", "pompe immergée", "recuperateur d'eau", "récupérateur d'eau"] },
+  { key: "abris", label: "Abris & rangement extérieur", keywords: ["abri de jardin", "coffre de jardin", "rangement exterieur", "rangement extérieur", "serre de jardin", "carport"] },
+  { key: "camping", label: "Camping & plein air", keywords: ["camping", "tente", "sac de couchage", "matelas de camping", "glaciere", "glacière", "chaise de camping", "rechaud", "réchaud"] },
+  { key: "animaux", label: "Animaux & animalerie", keywords: ["chien", "chat", "croquette", "litiere", "litière", "arbre a chat", "arbre à chat", "cage de transport", "remorque velo chien", "remorque vélo chien", "niche", "poulailler"] },
+  { key: "decoration", label: "Décoration extérieure", keywords: ["decoration jardin", "décoration jardin", "luminaire exterieur", "luminaire extérieur", "lampe solaire", "fontaine de jardin", "brasero"] },
 ];
 
 // Hub /bons-plans-beaute : sous-ensemble beauté de BON_PLAN_BRANDS
@@ -282,6 +320,21 @@ export const BEBE_BRANDS: BrandDef[] = [
   { key: "puericulture", label: "Puériculture (autre)", keywords: ["puériculture", "puericulture"] },
 ];
 
+// Types de produits proposés dans le second menu de /bons-plans-bebe.
+// La recherche porte sur le titre, la description, le slug et les tags.
+export const BEBE_PRODUCT_TYPES: BrandDef[] = [
+  { key: "couches", label: "Couches & change", keywords: ["couche", "lingette", "table a langer", "table à langer", "matelas a langer", "matelas à langer"] },
+  { key: "biberons", label: "Biberons & repas", keywords: ["biberon", "tetine", "tétine", "sucette", "babycook", "chauffe-biberon", "repas bebe", "repas bébé", "vaisselle bebe", "vaisselle bébé"] },
+  { key: "allaitement", label: "Allaitement", keywords: ["allaitement", "tire-lait", "coussin d'allaitement", "crevasses"] },
+  { key: "poussettes", label: "Poussettes & sorties", keywords: ["poussette", "landau", "porte-bebe", "porte-bébé", "sac a langer", "sac à langer", "nid d'ange", "nid-dange", "chanceliere", "chancelière"] },
+  { key: "sieges-auto", label: "Sièges auto", keywords: ["siege auto", "siège auto", "siege-auto", "cosi", "coque auto", "rehausseur"] },
+  { key: "sommeil", label: "Sommeil & chambre", keywords: ["lit bebe", "lit bébé", "lit parapluie", "cododo", "berceau", "matelas bebe", "matelas bébé", "veilleuse", "babyphone", "chambre bebe", "chambre bébé"] },
+  { key: "toilette", label: "Toilette & soins", keywords: ["bain bebe", "bain bébé", "baignoire", "thermometre", "thermomètre", "soin bebe", "soin bébé", "gel lavant", "savon bebe", "savon bébé", "liniment", "mouche-bebe", "mouche-bébé"] },
+  { key: "vetements", label: "Vêtements bébé", keywords: ["vetement bebe", "vêtement bébé", "vêtements bébé", "body bebe", "body bébé", "pyjama bebe", "pyjama bébé", "grenouillere", "grenouillère", "chaussons bebe", "chaussons bébé"] },
+  { key: "jouets", label: "Jouets & éveil", keywords: ["jouet bebe", "jouet bébé", "eveil bebe", "éveil bébé", "hochet", "tapis d'eveil", "tapis d'éveil", "doudou", "sophie la girafe", "transat bebe", "transat bébé"] },
+  { key: "mobilier", label: "Mobilier bébé", keywords: ["chaise haute", "chaise-haute", "fauteuil bebe", "fauteuil bébé", "mobilier bebe", "mobilier bébé", "commode bebe", "commode bébé"] },
+];
+
 // Hub /bons-plans-jouets (LEGO, Playmobil, jeux de société, peluches, poupées, jouets éducatifs)
 export const JOUETS_BRANDS: BrandDef[] = [
   { key: "amazon", label: "Amazon", keywords: ["amazon"] },
@@ -313,6 +366,22 @@ export const JOUETS_BRANDS: BrandDef[] = [
   { key: "bandai", label: "Bandai", keywords: ["bandai"] },
   { key: "tiptoi", label: "Tiptoi", keywords: ["tiptoi"] },
   { key: "barbie-extra", label: "Barbie Extra", keywords: ["barbie extra"] },
+];
+
+// Types de jouets proposés dans le second menu de /bons-plans-jouets.
+export const JOUETS_PRODUCT_TYPES: BrandDef[] = [
+  { key: "vehicules", label: "Voitures & véhicules", keywords: ["voiture", "vehicule", "véhicule", "camion", "garage", "circuit", "hot wheels", "train jouet", "tracteur jouet"] },
+  { key: "poupees", label: "Poupées & poupons", keywords: ["poupee", "poupée", "poupon", "barbie", "polly pocket", "maison de poupee", "maison de poupée"] },
+  { key: "construction", label: "Jeux de construction", keywords: ["lego", "playmobil", "jeu de construction", "jeux de construction", "briques", "meccano", "kapla"] },
+  { key: "societe", label: "Jeux de société & cartes", keywords: ["jeu de societe", "jeu de société", "jeux de societe", "jeux de société", "jeu de cartes", "monopoly", "dixit", "catan", "unlock", "trivial pursuit"] },
+  { key: "peluches", label: "Peluches & doudous", keywords: ["peluche", "doudou", "squishmallow"] },
+  { key: "figurines", label: "Figurines & univers", keywords: ["figurine", "funko", "sylvanian", "schleich", "pokemon", "pokémon", "transformers"] },
+  { key: "educatifs", label: "Jeux éducatifs & éveil", keywords: ["jouet educatif", "jouet éducatif", "jeu educatif", "jeu éducatif", "eveil", "éveil", "vtech", "fisher-price", "tiptoi", "montessori"] },
+  { key: "creatifs", label: "Loisirs créatifs", keywords: ["kit creatif", "kit créatif", "loisir creatif", "loisir créatif", "coloriage", "peinture", "pate a modeler", "pâte à modeler", "play-doh", "perles"] },
+  { key: "puzzles", label: "Puzzles", keywords: ["puzzle", "puzzles"] },
+  { key: "plein-air", label: "Jeux de plein air", keywords: ["plein air", "exterieur", "extérieur", "toboggan", "balancoire", "balançoire", "trampoline", "cabane enfant", "bac a sable", "bac à sable", "pistolet a eau", "pistolet à eau"] },
+  { key: "radiocommandes", label: "Jouets télécommandés", keywords: ["telecommande", "télécommande", "radiocommande", "radiocommandé", "drone enfant", "robot jouet"] },
+  { key: "deguisements", label: "Déguisements", keywords: ["deguisement", "déguisement", "costume enfant", "masque enfant"] },
 ];
 
 // Hub /bons-plans-mode (mode, chaussures, montres analogiques, sacs, accessoires)
@@ -360,6 +429,23 @@ export const MODE_BRANDS: BrandDef[] = [
   { key: "private-sport-shop", label: "Private Sport Shop", keywords: ["private sport shop", "private-sport-shop"] },
 ];
 
+// Types de produits proposés dans le second menu de /bons-plans-mode.
+export const MODE_PRODUCT_TYPES: BrandDef[] = [
+  { key: "chaussures", label: "Chaussures & baskets", keywords: ["chaussure", "basket", "sneaker", "running", "sandale", "escarpin", "botte", "bottine", "mocassin", "chausson"] },
+  { key: "sacs", label: "Sacs & bagagerie", keywords: ["sac a main", "sac à main", "sac a dos", "sac à dos", "sac bandouliere", "sac bandoulière", "cabas", "tote bag", "bagagerie", "valise", "maroquinerie"] },
+  { key: "femme", label: "Vêtements femme", keywords: ["mode femme", "vetement femme", "vêtement femme", "robe", "jupe", "chemisier", "blouse femme", "pantalon femme", "manteau femme", "veste femme"] },
+  { key: "homme", label: "Vêtements homme", keywords: ["mode homme", "vetement homme", "vêtement homme", "chemise homme", "pantalon homme", "costume homme", "manteau homme", "veste homme", "polo homme"] },
+  { key: "enfant", label: "Vêtements enfant", keywords: ["mode enfant", "vetement enfant", "vêtement enfant", "fille", "garcon", "garçon", "ado", "kids"] },
+  { key: "sport", label: "Vêtements de sport", keywords: ["vetement sport", "vêtement sport", "legging", "brassiere", "brassière", "survetement", "survêtement", "short sport", "maillot sport", "tenue sport"] },
+  { key: "lingerie", label: "Lingerie & sous-vêtements", keywords: ["lingerie", "sous-vetement", "sous-vêtement", "soutien-gorge", "culotte", "boxer", "slip", "chaussette"] },
+  { key: "manteaux", label: "Manteaux & vestes", keywords: ["manteau", "veste", "blouson", "doudoune", "parka", "impermeable", "imperméable"] },
+  { key: "hauts", label: "T-shirts, pulls & sweats", keywords: ["t-shirt", "tee-shirt", "pull", "sweat", "hoodie", "polo", "debardeur", "débardeur"] },
+  { key: "bas", label: "Jeans, pantalons & shorts", keywords: ["jean", "pantalon", "short", "bermuda", "jogging"] },
+  { key: "montres", label: "Montres", keywords: ["montre analogique", "montre automatique", "montre quartz", "montre homme", "montre femme"] },
+  { key: "bijoux", label: "Bijoux", keywords: ["bijou", "collier", "bracelet", "boucle d'oreille", "boucles d'oreilles", "bague", "pendentif"] },
+  { key: "accessoires", label: "Accessoires de mode", keywords: ["accessoire mode", "lunette de soleil", "lunettes de soleil", "ceinture", "casquette", "bonnet", "echarpe", "écharpe", "foulard", "portefeuille"] },
+];
+
 // Liste manuelle des box beauté présentes sur le site
 export const BOX_BEAUTE_BRANDS: BrandDef[] = [
   { key: "biotyfull", label: "Biotyfull Box", keywords: ["biotyfull", "biotyfull-box", "biotyfull box"] },
@@ -397,6 +483,21 @@ export const RENTREE_BRANDS: BrandDef[] = [
   { key: "roblox", label: "Roblox", keywords: ["roblox"] },
   { key: "casio", label: "Casio", keywords: ["casio"] },
   { key: "texas-instruments", label: "Texas Instruments", keywords: ["texas instruments", "texas-instruments"] },
+];
+
+// Types de produits proposés dans le second menu de /bons-plans-rentree.
+export const RENTREE_PRODUCT_TYPES: BrandDef[] = [
+  { key: "ecriture", label: "Crayons, stylos & feutres", keywords: ["crayon", "stylo", "feutre", "surligneur", "stabilo", "frixion", "porte-mine", "marqueur", "bic"] },
+  { key: "cahiers", label: "Cahiers, feuilles & classeurs", keywords: ["cahier", "feuille", "copie double", "classeur", "intercalaire", "pochette plastique", "bloc note", "bloc-notes", "repertoire", "répertoire"] },
+  { key: "cartables", label: "Cartables & sacs à dos", keywords: ["cartable", "sac a dos", "sac à dos", "sac scolaire", "bagage scolaire"] },
+  { key: "trousses", label: "Trousses & accessoires", keywords: ["trousse", "taille-crayon", "taille crayon", "gomme", "regle", "règle", "compas", "equerre", "équerre", "rapporteur"] },
+  { key: "calculatrices", label: "Calculatrices", keywords: ["calculatrice", "casio", "texas instruments", "texas-instruments"] },
+  { key: "agendas", label: "Agendas & organisation", keywords: ["agenda", "calendrier scolaire", "planning", "organiseur", "planner"] },
+  { key: "arts", label: "Dessin & loisirs créatifs", keywords: ["coloriage", "crayola", "posca", "canson", "peinture", "pastel", "aquarelle", "loisir creatif", "loisir créatif"] },
+  { key: "livres", label: "Livres & révisions", keywords: ["livre scolaire", "cahier de vacances", "revision", "révision", "annales", "dictionnaire", "bescherelle", "parascolaire"] },
+  { key: "informatique", label: "Informatique scolaire", keywords: ["ordinateur portable", "pc portable", "chromebook", "tablette tactile", "imprimante", "cle usb", "clé usb"] },
+  { key: "etiquettes", label: "Étiquettes & protection", keywords: ["etiquette", "étiquette", "protege-cahier", "protège-cahier", "couvre-livre", "couvre livre", "ruban adhesif", "ruban adhésif", "scotch"] },
+  { key: "repas", label: "Goûter & repas scolaire", keywords: ["gourde", "boite a gouter", "boîte à goûter", "lunch box", "lunchbox", "boite repas", "boîte repas"] },
 ];
 
 /**

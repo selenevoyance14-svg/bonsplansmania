@@ -123,12 +123,16 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
         );
         if (matches) matchedKeys.push(brand.key);
       }
+      const productSearchText = normalize([
+        a.title,
+        a.description,
+        a.slug,
+        ...(a.tags || []),
+      ].join(" "));
       const matchedProductTypeKeys = productTypes
         .filter((productType) => {
           const normalizedKeywords = productType.keywords.map(normalize);
-          return tagSet.some((tag) =>
-            normalizedKeywords.some((kw) => tag === kw || tag.includes(kw))
-          );
+          return normalizedKeywords.some((keyword) => productSearchText.includes(keyword));
         })
         .map((productType) => productType.key);
       const parsed = parsePrice(a.price);

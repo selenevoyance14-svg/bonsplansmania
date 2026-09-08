@@ -1,7 +1,7 @@
 import { getAllArticles } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
-import { MODE_BRANDS } from "@/lib/brand-filters";
+import { MODE_BRANDS, MODE_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
 import { ChevronRight, Shirt, Footprints, Watch } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
@@ -254,7 +254,7 @@ export default async function BonsPlansModePage() {
                 Les bons plans mode seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={MODE_BRANDS} />
+              <BrandFilter articles={cards} brands={MODE_BRANDS} productTypes={MODE_PRODUCT_TYPES} />
             )}
           </div>
         </section>
