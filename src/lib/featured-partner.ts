@@ -36,7 +36,7 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   title: "Prozis : 2 achetés + 1 gratuit avec BONSMANIA",
   description:
     "Achetez 2 produits éligibles et recevez 1 pack gratuit, ou profitez du 2+1 sur une sélection de vêtements avec notre code BONSMANIA.",
-  imageSrc: "/images/articles/code-bonsmania-prozis-2-achetes-1-pack-gratuit-septembre-2026.jpg",
+  imageSrc: "/images/featured-partner-prozis-2-plus-1-v2.webp",
   imageAlt:
     "Prozis deux produits achetés et un pack gratuit avec le code BONSMANIA",
   promoCode: "BONSMANIA",
