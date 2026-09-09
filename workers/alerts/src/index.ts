@@ -63,13 +63,11 @@ export default {
 };
 
 async function scanMerchantLinks(env: Env): Promise<void> {
-  const today = new Date().toISOString().slice(0, 10);
-  if (await env.ALERTS.get("monitor:last-day") === today) return;
   const response = await fetch(`${env.SITE_URL}/monitoring-catalog.json`, { headers: { "User-Agent": "BonsPlansMania-Monitor/1.0" } });
   if (!response.ok) throw new Error(`Catalogue monitoring indisponible (${response.status})`);
   const links = await response.json<MonitoredLink[]>();
   const start = Number(await env.ALERTS.get("monitor:cursor") || "0") % Math.max(links.length, 1);
-  const batch = Array.from({ length: Math.min(40, links.length) }, (_, index) => links[(start + index) % links.length]);
+  const batch = Array.from({ length: Math.min(30, links.length) }, (_, index) => links[(start + index) % links.length]);
   const results: LinkCheck[] = [];
   for (const link of batch) {
     try {
@@ -82,7 +80,6 @@ async function scanMerchantLinks(env: Env): Promise<void> {
   }
   await Promise.all(results.map((result) => env.ALERTS.put(`monitor:result:${result.slug}`, JSON.stringify(result), { expirationTtl: 60 * 60 * 24 * 30 })));
   await env.ALERTS.put("monitor:cursor", String(start + batch.length));
-  await env.ALERTS.put("monitor:last-day", today);
   await env.ALERTS.put("monitor:last-run", JSON.stringify({ checkedAt: new Date().toISOString(), checked: results.length, errors: results.filter((item) => !item.ok).length }));
 }
 
