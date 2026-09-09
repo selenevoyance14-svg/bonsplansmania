@@ -38,8 +38,9 @@ function detectMerchant(tags: string[], affiliateUrl?: string): string {
 export default function DealsAdministrationPage() {
   const activeArticles = getAllArticles().filter((article) => DEAL_CATEGORIES.has(article.meta.category));
   const publishedArticles = getAllPublishedArticles().filter((article) => DEAL_CATEGORIES.has(article.meta.category));
+  const homepageSlugs = new Set(activeArticles.slice(0, 15).map(({ meta }) => meta.slug));
 
-  const deals: CockpitDeal[] = activeArticles.slice(0, 300).map(({ meta }) => {
+  const deals: CockpitDeal[] = activeArticles.map(({ meta }) => {
     const missingLink = !meta.affiliateUrl || meta.affiliateUrl === "#";
     const missingImage = (!meta.image || meta.image.includes("placeholder")) && !meta.amazonAsin;
     const missingPrice = !meta.price && !meta.amazonAsin && meta.category !== "code-promo";
@@ -65,6 +66,7 @@ export default function DealsAdministrationPage() {
       updated: meta.updated || meta.date,
       image: meta.image,
       status,
+      onHomepage: homepageSlugs.has(meta.slug),
       amazonAsin: meta.amazonAsin,
       affiliateUrl: meta.affiliateUrl,
       endDate: meta.endDate,
