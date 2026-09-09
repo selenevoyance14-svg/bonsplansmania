@@ -22,13 +22,13 @@ function currentStatus(deal: CockpitDeal): DealStatus {
 
 export default function DealsCockpit({ initialDeals, summary }: { initialDeals: CockpitDeal[]; summary: CockpitSummary }) {
   const [query, setQuery] = useState("");
-  const [status, setStatus] = useState<"all" | DealStatus>("all");
+  const [status, setStatus] = useState<"all" | "issues" | DealStatus>("all");
   const [merchant, setMerchant] = useState("all");
   const [selected, setSelected] = useState<string | null>(initialDeals[0]?.slug || null);
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
   const [linkState, setLinkState] = useState<{ slug?: string; result?: LinkMonitor }>({});
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
-  const filtered = useMemo(() => initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || currentStatus(deal) === status) && (merchant === "all" || deal.merchant === merchant)), [initialDeals, merchant, query, status]);
+  const filtered = useMemo(() => initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || (status === "issues" ? currentStatus(deal) !== "ok" : currentStatus(deal) === status)) && (merchant === "all" || deal.merchant === merchant)), [initialDeals, merchant, query, status]);
   const active = initialDeals.find((deal) => deal.slug === selected) || filtered[0];
   const liveStatuses = initialDeals.map((deal) => currentStatus(deal));
   const issueCount = liveStatuses.filter((dealStatus) => dealStatus !== "ok").length;
@@ -72,18 +72,18 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       <div className={styles.apiCard}><span className={styles.liveDot}/> API Amazon active<strong>Vérification à l’ouverture d’une fiche</strong></div>
     </aside>
     <section className={styles.workspace}>
-      <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "missing-link" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></header>
+      <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "issues" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></header>
       <section className={styles.stats}>
         <article><span className={styles.statIconGreen}><Check size={20}/></span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "ok").length}</strong><small>fiches sans anomalie</small></div></article>
         <article><span className={styles.statIconPink}>€</span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "missing-price").length}</strong><small>prix manquants</small></div></article>
         <article><span className={styles.statIconOrange}><AlertTriangle size={20}/></span><div><strong>{issueCount}</strong><small>points à vérifier</small></div></article>
         <article><span className={styles.statIconBlue}><ShoppingBag size={20}/></span><div><strong>{summary.totalActive}</strong><small>offres actives au total</small></div></article>
       </section>
-      <section className={styles.alertBox}><div><span>CONTRÔLE RÉEL</span><h2>{issueCount ? `${issueCount} fiches demandent ton attention` : "Aucune anomalie dans les fiches affichées"}</h2><p>Le cockpit analyse liens, images, prix renseignés et dates de fin. Amazon est interrogé en direct fiche par fiche.</p></div><button onClick={() => setStatus(issueCount ? "missing-link" : "all")}>Voir les contrôles <ArrowUp size={16}/></button></section>
+      <section className={styles.alertBox}><div><span>CONTRÔLE RÉEL</span><h2>{issueCount ? `${issueCount} fiches demandent ton attention` : "Aucune anomalie dans les fiches affichées"}</h2><p>Le cockpit analyse liens, images, prix renseignés et dates de fin. Amazon est interrogé en direct fiche par fiche.</p></div><button onClick={() => setStatus(issueCount ? "issues" : "all")}>Voir les contrôles <ArrowUp size={16}/></button></section>
       <div className={styles.toolbar}>
         <label><Search size={18}/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher un produit ou une marque…"/></label>
         <div className={styles.selectWrap}><select value={merchant} onChange={(event) => setMerchant(event.target.value)}><option value="all">Tous les marchands</option>{merchants.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={15}/></div>
-        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | DealStatus)}><option value="all">Tous les statuts</option><option value="missing-link">Lien manquant</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
+        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="missing-link">Lien manquant</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
       </div>
       <p className={styles.scopeNote}>{summary.displayed} offres récentes affichées sur {summary.totalActive} offres actives.</p>
       <div className={styles.contentGrid}>
