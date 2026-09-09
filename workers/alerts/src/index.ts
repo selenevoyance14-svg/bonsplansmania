@@ -33,6 +33,9 @@ interface Article {
   date: string;
 }
 
+interface MonitoredLink { slug: string; url: string; merchant: string }
+interface LinkCheck { slug: string; ok: boolean; status: number; checkedAt: string; merchant: string; finalUrl?: string; error?: string }
+
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Headers": "Content-Type, Authorization",
@@ -48,13 +51,50 @@ export default {
     if (request.method === "GET" && url.pathname === "/confirm") return confirmAlert(url, env);
     if (request.method === "GET" && url.pathname === "/unsubscribe") return unsubscribeAlert(url, env);
     if (request.method === "GET" && url.pathname === "/health") return json({ ok: true, service: "bonsplansmania-alerts" });
+    if (request.method === "GET" && url.pathname === "/monitoring/summary") return monitoringSummary(env);
+    if (request.method === "GET" && url.pathname === "/monitoring/status") return monitoringStatus(url, env);
     return json({ error: "Route introuvable." }, 404);
   },
 
   async scheduled(_controller: ScheduledController, env: Env): Promise<void> {
     await scanArticles(env);
+    await scanMerchantLinks(env);
   },
 };
+
+async function scanMerchantLinks(env: Env): Promise<void> {
+  const today = new Date().toISOString().slice(0, 10);
+  if (await env.ALERTS.get("monitor:last-day") === today) return;
+  const response = await fetch(`${env.SITE_URL}/monitoring-catalog.json`, { headers: { "User-Agent": "BonsPlansMania-Monitor/1.0" } });
+  if (!response.ok) throw new Error(`Catalogue monitoring indisponible (${response.status})`);
+  const links = await response.json<MonitoredLink[]>();
+  const start = Number(await env.ALERTS.get("monitor:cursor") || "0") % Math.max(links.length, 1);
+  const batch = Array.from({ length: Math.min(40, links.length) }, (_, index) => links[(start + index) % links.length]);
+  const results: LinkCheck[] = [];
+  for (const link of batch) {
+    try {
+      const checked = await fetch(link.url, { method: "GET", redirect: "follow", headers: { "User-Agent": "Mozilla/5.0 (compatible; BonsPlansManiaMonitor/1.0; +https://bonsplansmania.fr)" } });
+      results.push({ slug: link.slug, ok: checked.status < 400, status: checked.status, checkedAt: new Date().toISOString(), merchant: link.merchant, finalUrl: checked.url });
+      await checked.body?.cancel();
+    } catch (error) {
+      results.push({ slug: link.slug, ok: false, status: 0, checkedAt: new Date().toISOString(), merchant: link.merchant, error: error instanceof Error ? error.message : "Erreur réseau" });
+    }
+  }
+  await Promise.all(results.map((result) => env.ALERTS.put(`monitor:result:${result.slug}`, JSON.stringify(result), { expirationTtl: 60 * 60 * 24 * 30 })));
+  await env.ALERTS.put("monitor:cursor", String(start + batch.length));
+  await env.ALERTS.put("monitor:last-day", today);
+  await env.ALERTS.put("monitor:last-run", JSON.stringify({ checkedAt: new Date().toISOString(), checked: results.length, errors: results.filter((item) => !item.ok).length }));
+}
+
+async function monitoringSummary(env: Env): Promise<Response> {
+  return json(await env.ALERTS.get("monitor:last-run", "json") || { checked: 0, errors: 0, checkedAt: null });
+}
+
+async function monitoringStatus(url: URL, env: Env): Promise<Response> {
+  const slug = (url.searchParams.get("slug") || "").replace(/[^a-z0-9-]/gi, "");
+  if (!slug) return json({ error: "Slug requis" }, 400);
+  return json(await env.ALERTS.get(`monitor:result:${slug}`, "json") || { checkedAt: null });
+}
 
 async function createAlert(request: Request, env: Env): Promise<Response> {
   const body = await request.json<Record<string, unknown>>().catch(() => null);

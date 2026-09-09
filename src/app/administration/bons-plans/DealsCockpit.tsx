@@ -9,6 +9,7 @@ export type DealStatus = "ok" | "missing-image" | "missing-price" | "missing-lin
 export type CockpitDeal = { slug: string; title: string; merchant: string; category: string; price: string; updated: string; image: string; status: DealStatus; amazonAsin?: string; affiliateUrl?: string; endDate?: string };
 export type CockpitSummary = { totalActive: number; totalCodes: number; totalArchived: number; displayed: number };
 type AmazonOffer = { title?: string | null; image?: string | null; price?: string | null; oldPrice?: string | null; savingsPercent?: number | null; availability?: string | null; checkedAt?: string; error?: string };
+type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: string | null; error?: string };
 
 const statusLabel: Record<DealStatus, string> = { ok: "À jour", "missing-image": "Image manquante", "missing-price": "Prix manquant", "missing-link": "Lien manquant", expiring: "Expire bientôt" };
 
@@ -25,6 +26,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [merchant, setMerchant] = useState("all");
   const [selected, setSelected] = useState<string | null>(initialDeals[0]?.slug || null);
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
+  const [linkState, setLinkState] = useState<{ slug?: string; result?: LinkMonitor }>({});
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
   const filtered = useMemo(() => initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || currentStatus(deal) === status) && (merchant === "all" || deal.merchant === merchant)), [initialDeals, merchant, query, status]);
   const active = initialDeals.find((deal) => deal.slug === selected) || filtered[0];
@@ -32,6 +34,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const issueCount = liveStatuses.filter((dealStatus) => dealStatus !== "ok").length;
   const amazonOffer = active?.amazonAsin && amazonState.asin === active.amazonAsin ? amazonState.offer || null : null;
   const amazonLoading = Boolean(active?.amazonAsin && amazonState.asin !== active.amazonAsin);
+  const linkResult = active && linkState.slug === active.slug ? linkState.result : undefined;
 
   useEffect(() => {
     if (!active?.amazonAsin) return;
@@ -42,6 +45,16 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       .catch((error: Error) => { if (error.name !== "AbortError") setAmazonState({ asin: active.amazonAsin, offer: { error: "Vérification momentanément indisponible" } }); });
     return () => controller.abort();
   }, [active?.amazonAsin]);
+
+  useEffect(() => {
+    if (!active || active.amazonAsin) return;
+    const controller = new AbortController();
+    fetch(`https://bonsplansmania-alerts.selenevoyance14.workers.dev/monitoring/status?slug=${encodeURIComponent(active.slug)}`, { signal: controller.signal })
+      .then((response) => response.json() as Promise<LinkMonitor>)
+      .then((result) => setLinkState({ slug: active.slug, result }))
+      .catch((error: Error) => { if (error.name !== "AbortError") setLinkState({ slug: active.slug, result: { error: "Contrôle indisponible" } }); });
+    return () => controller.abort();
+  }, [active]);
 
   const liveImage = amazonOffer?.image || active?.image;
   const livePrice = amazonOffer?.price || active?.price || "Non renseigné";
@@ -86,6 +99,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
           <div className={styles.field}><label>Marchand</label><input value={active.merchant} readOnly/></div><div className={styles.field}><label>{active.amazonAsin ? "Prix Amazon actuel" : "Prix enregistré"}</label><input value={amazonLoading ? "Vérification en cours…" : livePrice} readOnly/></div>
           {active.endDate ? <div className={styles.field}><label>Date de fin</label><input value={new Date(`${active.endDate}T12:00:00`).toLocaleDateString("fr-FR")} readOnly/></div> : null}
           <div className={`${styles.audit} ${amazonOffer?.error ? styles.auditWarning : ""}`}>{amazonLoading ? <LoaderCircle className={styles.spin} size={17}/> : amazonOffer?.error ? <AlertTriangle size={17}/> : <Check size={17}/>}<div><b>{amazonLoading ? "Interrogation de l’API Amazon" : amazonOffer?.error || (active.amazonAsin ? amazonOffer?.availability || "Offre Amazon vérifiée" : "Données éditoriales analysées")}</b><small>{amazonOffer?.checkedAt ? `Vérifié le ${new Date(amazonOffer.checkedAt).toLocaleString("fr-FR")}` : "Aucune estimation inventée"}</small></div></div>
+          {!active.amazonAsin && linkResult?.checkedAt ? <div className={`${styles.audit} ${linkResult.ok ? "" : styles.auditWarning}`}>{linkResult.ok ? <Check size={17}/> : <AlertTriangle size={17}/>}<div><b>{linkResult.ok ? `Lien marchand accessible (${linkResult.status})` : `Lien à vérifier (${linkResult.status || "réseau"})`}</b><small>Contrôlé automatiquement le {new Date(linkResult.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           {amazonOffer?.oldPrice ? <p className={styles.amazonSaving}>Prix précédent affiché : <b>{amazonOffer.oldPrice}</b>{amazonOffer.savingsPercent ? ` · -${amazonOffer.savingsPercent}%` : ""}</p> : null}
           <div className={styles.actionInfo}><b>Actions protégées</b><p>La lecture est réelle. Les modifications seront activées après ajout d’un accès administrateur privé.</p></div>
           <button className={styles.locked} disabled><LockKeyhole size={16}/> Mettre à jour seulement</button><button className={styles.locked} disabled><LockKeyhole size={16}/> Mettre à jour et remonter</button><button className={styles.locked} disabled><LockKeyhole size={16}/> Archiver l’offre</button>
