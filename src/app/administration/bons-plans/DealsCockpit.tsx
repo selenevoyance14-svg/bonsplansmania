@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { AlertTriangle, Archive, ArrowUp, CalendarClock, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, LockKeyhole, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
+import { AlertTriangle, Archive, ArrowUp, CalendarClock, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
 import styles from "./cockpit.module.css";
 
 export type DealStatus = "ok" | "scheduled" | "due" | "unchecked" | "unavailable" | "missing-image" | "missing-price" | "price-check" | "missing-link" | "expiring";
@@ -39,6 +39,8 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
   const [linkResults, setLinkResults] = useState<Record<string, LinkMonitor>>({});
   const [reminders, setReminders] = useState<Record<string, string>>({});
+  const [toast, setToast] = useState("");
+  const [manualPrices, setManualPrices] = useState<Record<string, string>>({});
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
   const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug], reminders[deal.slug]);
   const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
@@ -48,6 +50,12 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const amazonOffer = active?.amazonAsin && amazonState.asin === active.amazonAsin ? amazonState.offer || null : null;
   const amazonLoading = Boolean(active?.amazonAsin && amazonState.asin !== active.amazonAsin);
   const linkResult = active ? linkResults[active.slug] : undefined;
+  const detectedPrice = active?.amazonAsin && amazonState.asin === active.amazonAsin
+    ? amazonState.offer?.price || active.price
+    : active?.price || "";
+  const editablePrice = active
+    ? manualPrices[active.slug] ?? (detectedPrice === "Non renseigné" || detectedPrice === "Prix Amazon en direct" ? "" : detectedPrice)
+    : "";
 
   useEffect(() => {
     const saved = localStorage.getItem(REMINDERS_KEY);
@@ -68,6 +76,32 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     const date = new Date();
     date.setDate(date.getDate() + days);
     saveReminder(slug, date.toLocaleDateString("sv-SE"));
+  }
+
+  async function copyAction(action: "update" | "raise" | "archive") {
+    if (!active) return;
+    const articleUrl = `https://bonsplansmania.fr/article/${active.slug}`;
+    const priceInstruction = editablePrice.trim() ? ` avec le prix ${editablePrice.trim()}` : "";
+    const request = action === "archive"
+      ? `${articleUrl} archive cette offre et retire-la des pages de bons plans actifs (elle doit rester dans les archives)`
+      : action === "raise"
+        ? `${articleUrl} mets cette offre à jour${priceInstruction} et remonte-la`
+        : `${articleUrl} mets cette offre à jour${priceInstruction} sans la remonter`;
+
+    try {
+      await navigator.clipboard.writeText(request);
+    } catch {
+      const textarea = document.createElement("textarea");
+      textarea.value = request;
+      textarea.style.position = "fixed";
+      textarea.style.opacity = "0";
+      document.body.appendChild(textarea);
+      textarea.select();
+      document.execCommand("copy");
+      textarea.remove();
+    }
+    setToast("Demande copiée : colle-la dans Codex pour l’appliquer au site.");
+    window.setTimeout(() => setToast(""), 4500);
   }
 
   useEffect(() => {
@@ -93,8 +127,6 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   }, [initialDeals]);
 
   const liveImage = amazonOffer?.image || active?.image;
-  const livePrice = amazonOffer?.price || active?.price || "Non renseigné";
-
   return <main className={styles.shell}>
     <aside className={styles.sidebar}>
       <a className={styles.logo} href="/">Bons Plans <span>Mania</span></a><p className={styles.sideLabel}>Administration</p>
@@ -132,16 +164,17 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         <aside className={styles.editor}>{active ? <><span className={styles.editorEyebrow}>FICHE SÉLECTIONNÉE</span>
           {liveImage && !liveImage.includes("placeholder") ? <div className={styles.previewImage}><Image src={liveImage} alt="" width={250} height={150}/></div> : null}
           <h2>{amazonOffer?.title || active.title}</h2><a href={`/article/${active.slug}`} target="_blank">Voir l’article <ExternalLink size={14}/></a>
-          <div className={styles.field}><label>Marchand</label><input value={active.merchant} readOnly/></div><div className={styles.field}><label>{active.amazonAsin ? "Prix Amazon actuel" : "Prix enregistré"}</label><input value={amazonLoading ? "Vérification en cours…" : livePrice} readOnly/></div>
+          <div className={styles.field}><label>Marchand</label><input value={active.merchant} readOnly/></div><div className={styles.field}><label>{active.amazonAsin ? "Prix Amazon actuel ou prix à enregistrer" : "Prix à enregistrer"}</label><input value={amazonLoading ? "Vérification en cours…" : editablePrice} disabled={amazonLoading} onChange={(event) => setManualPrices((prices) => ({ ...prices, [active.slug]: event.target.value }))} placeholder="Exemple : 29,99 €"/></div>
           {active.endDate ? <div className={styles.field}><label>Date de fin</label><input value={new Date(`${active.endDate}T12:00:00`).toLocaleDateString("fr-FR")} readOnly/></div> : null}
           <div className={`${styles.audit} ${amazonOffer?.error ? styles.auditWarning : ""}`}>{amazonLoading ? <LoaderCircle className={styles.spin} size={17}/> : amazonOffer?.error ? <AlertTriangle size={17}/> : <Check size={17}/>}<div><b>{amazonLoading ? "Interrogation de l’API Amazon" : amazonOffer?.error || (active.amazonAsin ? amazonOffer?.availability || "Offre Amazon vérifiée" : "Données éditoriales analysées")}</b><small>{amazonOffer?.checkedAt ? `Vérifié le ${new Date(amazonOffer.checkedAt).toLocaleString("fr-FR")}` : "Aucune estimation inventée"}</small></div></div>
           {!active.amazonAsin && linkResult?.checkedAt ? <div className={`${styles.audit} ${linkResult.ok ? "" : styles.auditWarning}`}>{linkResult.ok ? <Check size={17}/> : <AlertTriangle size={17}/>}<div><b>{linkResult.ok ? `Lien marchand accessible (${linkResult.status})` : `Lien à vérifier (${linkResult.status || "réseau"})`}</b><small>Contrôlé automatiquement le {new Date(linkResult.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           {amazonOffer?.oldPrice ? <p className={styles.amazonSaving}>Prix précédent affiché : <b>{amazonOffer.oldPrice}</b>{amazonOffer.savingsPercent ? ` · -${amazonOffer.savingsPercent}%` : ""}</p> : null}
           <div className={styles.reminderBox}><b><CalendarClock size={16}/> Programmer le prochain contrôle</b><div className={styles.reminderPresets}><button onClick={() => scheduleIn(active.slug, 1)}>Demain</button><button onClick={() => scheduleIn(active.slug, 3)}>Dans 3 jours</button><button onClick={() => scheduleIn(active.slug, 7)}>Dans 7 jours</button></div><label>Date précise<input type="date" min={new Date().toLocaleDateString("sv-SE")} value={reminders[active.slug] || ""} onChange={(event) => saveReminder(active.slug, event.target.value || undefined)}/></label>{reminders[active.slug] ? <p>Prochain contrôle le <strong>{new Date(`${reminders[active.slug]}T12:00:00`).toLocaleDateString("fr-FR")}</strong> <button onClick={() => saveReminder(active.slug)}>Annuler</button></p> : null}</div>
-          <div className={styles.actionInfo}><b>Actions protégées</b><p>La lecture est réelle. Les modifications seront activées après ajout d’un accès administrateur privé.</p></div>
-          <button className={styles.locked} disabled><LockKeyhole size={16}/> Mettre à jour seulement</button><button className={styles.locked} disabled><LockKeyhole size={16}/> Mettre à jour et remonter</button><button className={styles.locked} disabled><LockKeyhole size={16}/> Archiver l’offre</button>
+          <div className={styles.actionInfo}><b>Actions de la fiche</b><p>Choisis une action : la demande complète est copiée. Colle-la ensuite dans Codex pour modifier et publier le site.</p></div>
+          <button className={styles.updateOnly} onClick={() => copyAction("update")}><Check size={16}/> Mettre à jour seulement</button><button className={styles.updateAndRaise} onClick={() => copyAction("raise")}><ArrowUp size={16}/> Mettre à jour et remonter</button><button className={styles.archiveButton} onClick={() => copyAction("archive")}><Archive size={16}/> Archiver l’offre</button>
         </> : null}</aside>
       </div>
     </section>
+    {toast ? <div className={styles.toast} role="status">{toast}</div> : null}
   </main>;
 }
