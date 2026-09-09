@@ -53,6 +53,7 @@ export default {
     if (request.method === "GET" && url.pathname === "/health") return json({ ok: true, service: "bonsplansmania-alerts" });
     if (request.method === "GET" && url.pathname === "/monitoring/summary") return monitoringSummary(env);
     if (request.method === "GET" && url.pathname === "/monitoring/status") return monitoringStatus(url, env);
+    if (request.method === "GET" && url.pathname === "/monitoring/statuses") return monitoringStatuses(url, env);
     return json({ error: "Route introuvable." }, 404);
   },
 
@@ -91,6 +92,17 @@ async function monitoringStatus(url: URL, env: Env): Promise<Response> {
   const slug = (url.searchParams.get("slug") || "").replace(/[^a-z0-9-]/gi, "");
   if (!slug) return json({ error: "Slug requis" }, 400);
   return json(await env.ALERTS.get(`monitor:result:${slug}`, "json") || { checkedAt: null });
+}
+
+async function monitoringStatuses(url: URL, env: Env): Promise<Response> {
+  const slugs = (url.searchParams.get("slugs") || "")
+    .split(",")
+    .map((slug) => slug.replace(/[^a-z0-9-]/gi, ""))
+    .filter(Boolean)
+    .slice(0, 100);
+  if (!slugs.length) return json({ results: {} });
+  const entries = await Promise.all(slugs.map(async (slug) => [slug, await env.ALERTS.get<LinkCheck>(`monitor:result:${slug}`, "json")] as const));
+  return json({ results: Object.fromEntries(entries.filter((entry) => Boolean(entry[1]))) });
 }
 
 async function createAlert(request: Request, env: Env): Promise<Response> {
