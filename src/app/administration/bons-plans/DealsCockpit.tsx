@@ -2,18 +2,20 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { AlertTriangle, Archive, ArrowUp, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, LockKeyhole, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
+import { AlertTriangle, Archive, ArrowUp, CalendarClock, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, LockKeyhole, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
 import styles from "./cockpit.module.css";
 
-export type DealStatus = "ok" | "unchecked" | "unavailable" | "missing-image" | "missing-price" | "price-check" | "missing-link" | "expiring";
+export type DealStatus = "ok" | "scheduled" | "due" | "unchecked" | "unavailable" | "missing-image" | "missing-price" | "price-check" | "missing-link" | "expiring";
 export type CockpitDeal = { slug: string; title: string; merchant: string; category: string; price: string; updated: string; image: string; status: DealStatus; amazonAsin?: string; affiliateUrl?: string; endDate?: string };
 export type CockpitSummary = { totalActive: number; totalCodes: number; totalArchived: number; displayed: number };
 type AmazonOffer = { title?: string | null; image?: string | null; price?: string | null; oldPrice?: string | null; savingsPercent?: number | null; availability?: string | null; inStock?: boolean; checkedAt?: string; error?: string };
 type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: string | null; error?: string };
 
-const statusLabel: Record<DealStatus, string> = { ok: "À jour", unchecked: "Non contrôlé", unavailable: "Indisponible", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien inaccessible", expiring: "Expire bientôt" };
+const REMINDERS_KEY = "bonsplansmania:deal-reminders";
+const statusLabel: Record<DealStatus, string> = { ok: "À jour", scheduled: "Contrôle programmé", due: "À contrôler aujourd’hui", unchecked: "Non contrôlé", unavailable: "Indisponible", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien inaccessible", expiring: "Expire bientôt" };
 
-function currentStatus(deal: CockpitDeal, amazonOffer?: AmazonOffer, linkResult?: LinkMonitor): DealStatus {
+function currentStatus(deal: CockpitDeal, amazonOffer?: AmazonOffer, linkResult?: LinkMonitor, reminder?: string): DealStatus {
+  if (reminder) return reminder <= new Date().toLocaleDateString("sv-SE") ? "due" : "scheduled";
   if (["missing-image", "missing-price", "missing-link"].includes(deal.status)) return deal.status;
   if (deal.amazonAsin) {
     if (!amazonOffer) return "price-check";
@@ -36,15 +38,37 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [selected, setSelected] = useState<string | null>(initialDeals[0]?.slug || null);
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
   const [linkResults, setLinkResults] = useState<Record<string, LinkMonitor>>({});
+  const [reminders, setReminders] = useState<Record<string, string>>({});
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
-  const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug]);
-  const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || (status === "issues" ? statusFor(deal) !== "ok" : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
+  const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug], reminders[deal.slug]);
+  const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
   const active = initialDeals.find((deal) => deal.slug === selected) || filtered[0];
   const liveStatuses = initialDeals.map(statusFor);
-  const issueCount = liveStatuses.filter((dealStatus) => dealStatus !== "ok").length;
+  const issueCount = liveStatuses.filter((dealStatus) => !["ok", "scheduled"].includes(dealStatus)).length;
   const amazonOffer = active?.amazonAsin && amazonState.asin === active.amazonAsin ? amazonState.offer || null : null;
   const amazonLoading = Boolean(active?.amazonAsin && amazonState.asin !== active.amazonAsin);
   const linkResult = active ? linkResults[active.slug] : undefined;
+
+  useEffect(() => {
+    const saved = localStorage.getItem(REMINDERS_KEY);
+    if (!saved) return;
+    queueMicrotask(() => {
+      try { setReminders(JSON.parse(saved) as Record<string, string>); } catch { localStorage.removeItem(REMINDERS_KEY); }
+    });
+  }, []);
+
+  function saveReminder(slug: string, date?: string) {
+    const next = { ...reminders };
+    if (date) next[slug] = date; else delete next[slug];
+    setReminders(next);
+    localStorage.setItem(REMINDERS_KEY, JSON.stringify(next));
+  }
+
+  function scheduleIn(slug: string, days: number) {
+    const date = new Date();
+    date.setDate(date.getDate() + days);
+    saveReminder(slug, date.toLocaleDateString("sv-SE"));
+  }
 
   useEffect(() => {
     if (!active?.amazonAsin) return;
@@ -95,7 +119,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       <div className={styles.toolbar}>
         <label><Search size={18}/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher un produit ou une marque…"/></label>
         <div className={styles.selectWrap}><select value={merchant} onChange={(event) => setMerchant(event.target.value)}><option value="all">Tous les marchands</option>{merchants.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={15}/></div>
-        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="missing-link">Lien inaccessible</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="price-check">Prix Amazon à contrôler</option><option value="unavailable">Produit indisponible</option><option value="unchecked">Non contrôlé</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
+        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="due">À contrôler aujourd’hui</option><option value="scheduled">Contrôles programmés</option><option value="missing-link">Lien inaccessible</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="price-check">Prix Amazon à contrôler</option><option value="unavailable">Produit indisponible</option><option value="unchecked">Non contrôlé</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
       </div>
       <p className={styles.scopeNote}>{summary.displayed} offres récentes affichées sur {summary.totalActive} offres actives.</p>
       <div className={styles.contentGrid}>
@@ -113,6 +137,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
           <div className={`${styles.audit} ${amazonOffer?.error ? styles.auditWarning : ""}`}>{amazonLoading ? <LoaderCircle className={styles.spin} size={17}/> : amazonOffer?.error ? <AlertTriangle size={17}/> : <Check size={17}/>}<div><b>{amazonLoading ? "Interrogation de l’API Amazon" : amazonOffer?.error || (active.amazonAsin ? amazonOffer?.availability || "Offre Amazon vérifiée" : "Données éditoriales analysées")}</b><small>{amazonOffer?.checkedAt ? `Vérifié le ${new Date(amazonOffer.checkedAt).toLocaleString("fr-FR")}` : "Aucune estimation inventée"}</small></div></div>
           {!active.amazonAsin && linkResult?.checkedAt ? <div className={`${styles.audit} ${linkResult.ok ? "" : styles.auditWarning}`}>{linkResult.ok ? <Check size={17}/> : <AlertTriangle size={17}/>}<div><b>{linkResult.ok ? `Lien marchand accessible (${linkResult.status})` : `Lien à vérifier (${linkResult.status || "réseau"})`}</b><small>Contrôlé automatiquement le {new Date(linkResult.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           {amazonOffer?.oldPrice ? <p className={styles.amazonSaving}>Prix précédent affiché : <b>{amazonOffer.oldPrice}</b>{amazonOffer.savingsPercent ? ` · -${amazonOffer.savingsPercent}%` : ""}</p> : null}
+          <div className={styles.reminderBox}><b><CalendarClock size={16}/> Programmer le prochain contrôle</b><div className={styles.reminderPresets}><button onClick={() => scheduleIn(active.slug, 1)}>Demain</button><button onClick={() => scheduleIn(active.slug, 3)}>Dans 3 jours</button><button onClick={() => scheduleIn(active.slug, 7)}>Dans 7 jours</button></div><label>Date précise<input type="date" min={new Date().toLocaleDateString("sv-SE")} value={reminders[active.slug] || ""} onChange={(event) => saveReminder(active.slug, event.target.value || undefined)}/></label>{reminders[active.slug] ? <p>Prochain contrôle le <strong>{new Date(`${reminders[active.slug]}T12:00:00`).toLocaleDateString("fr-FR")}</strong> <button onClick={() => saveReminder(active.slug)}>Annuler</button></p> : null}</div>
           <div className={styles.actionInfo}><b>Actions protégées</b><p>La lecture est réelle. Les modifications seront activées après ajout d’un accès administrateur privé.</p></div>
           <button className={styles.locked} disabled><LockKeyhole size={16}/> Mettre à jour seulement</button><button className={styles.locked} disabled><LockKeyhole size={16}/> Mettre à jour et remonter</button><button className={styles.locked} disabled><LockKeyhole size={16}/> Archiver l’offre</button>
         </> : null}</aside>
