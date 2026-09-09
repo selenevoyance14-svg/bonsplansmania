@@ -5,13 +5,13 @@ import Image from "next/image";
 import { AlertTriangle, Archive, ArrowUp, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, LockKeyhole, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
 import styles from "./cockpit.module.css";
 
-export type DealStatus = "ok" | "missing-image" | "missing-price" | "missing-link" | "expiring";
+export type DealStatus = "ok" | "missing-image" | "missing-price" | "price-check" | "missing-link" | "expiring";
 export type CockpitDeal = { slug: string; title: string; merchant: string; category: string; price: string; updated: string; image: string; status: DealStatus; amazonAsin?: string; affiliateUrl?: string; endDate?: string };
 export type CockpitSummary = { totalActive: number; totalCodes: number; totalArchived: number; displayed: number };
 type AmazonOffer = { title?: string | null; image?: string | null; price?: string | null; oldPrice?: string | null; savingsPercent?: number | null; availability?: string | null; checkedAt?: string; error?: string };
 type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: string | null; error?: string };
 
-const statusLabel: Record<DealStatus, string> = { ok: "À jour", "missing-image": "Image manquante", "missing-price": "Prix manquant", "missing-link": "Lien manquant", expiring: "Expire bientôt" };
+const statusLabel: Record<DealStatus, string> = { ok: "À jour", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien manquant", expiring: "Expire bientôt" };
 
 function currentStatus(deal: CockpitDeal): DealStatus {
   if (deal.status !== "ok" && deal.status !== "expiring") return deal.status;
@@ -75,7 +75,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "issues" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></header>
       <section className={styles.stats}>
         <article><span className={styles.statIconGreen}><Check size={20}/></span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "ok").length}</strong><small>fiches sans anomalie</small></div></article>
-        <article><span className={styles.statIconPink}>€</span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "missing-price").length}</strong><small>prix manquants</small></div></article>
+        <article><span className={styles.statIconPink}>€</span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "missing-price" || dealStatus === "price-check").length}</strong><small>prix à contrôler</small></div></article>
         <article><span className={styles.statIconOrange}><AlertTriangle size={20}/></span><div><strong>{issueCount}</strong><small>points à vérifier</small></div></article>
         <article><span className={styles.statIconBlue}><ShoppingBag size={20}/></span><div><strong>{summary.totalActive}</strong><small>offres actives au total</small></div></article>
       </section>
@@ -83,7 +83,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       <div className={styles.toolbar}>
         <label><Search size={18}/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher un produit ou une marque…"/></label>
         <div className={styles.selectWrap}><select value={merchant} onChange={(event) => setMerchant(event.target.value)}><option value="all">Tous les marchands</option>{merchants.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={15}/></div>
-        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="missing-link">Lien manquant</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
+        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="missing-link">Lien manquant</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="price-check">Prix Amazon à contrôler</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
       </div>
       <p className={styles.scopeNote}>{summary.displayed} offres récentes affichées sur {summary.totalActive} offres actives.</p>
       <div className={styles.contentGrid}>

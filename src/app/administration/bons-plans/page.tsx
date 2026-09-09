@@ -43,12 +43,15 @@ export default function DealsAdministrationPage() {
     const missingLink = !meta.affiliateUrl || meta.affiliateUrl === "#";
     const missingImage = (!meta.image || meta.image.includes("placeholder")) && !meta.amazonAsin;
     const missingPrice = !meta.price && !meta.amazonAsin && meta.category !== "code-promo";
+    const amazonPriceToCheck = Boolean(meta.amazonAsin && !meta.price);
     const status: CockpitDeal["status"] = missingLink
       ? "missing-link"
       : missingImage
         ? "missing-image"
         : missingPrice
           ? "missing-price"
+          : amazonPriceToCheck
+            ? "price-check"
           : expiresSoon(meta)
             ? "expiring"
             : "ok";
