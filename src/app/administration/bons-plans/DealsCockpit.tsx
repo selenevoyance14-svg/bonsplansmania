@@ -12,6 +12,13 @@ type AmazonOffer = { title?: string | null; image?: string | null; price?: strin
 
 const statusLabel: Record<DealStatus, string> = { ok: "À jour", "missing-image": "Image manquante", "missing-price": "Prix manquant", "missing-link": "Lien manquant", expiring: "Expire bientôt" };
 
+function currentStatus(deal: CockpitDeal): DealStatus {
+  if (deal.status !== "ok" && deal.status !== "expiring") return deal.status;
+  if (!deal.endDate) return deal.status === "expiring" ? "ok" : deal.status;
+  const remainingDays = (new Date(`${deal.endDate}T23:59:59`).getTime() - Date.now()) / 86_400_000;
+  return remainingDays >= 0 && remainingDays <= 7 ? "expiring" : "ok";
+}
+
 export default function DealsCockpit({ initialDeals, summary }: { initialDeals: CockpitDeal[]; summary: CockpitSummary }) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"all" | DealStatus>("all");
@@ -19,9 +26,10 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [selected, setSelected] = useState<string | null>(initialDeals[0]?.slug || null);
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
-  const filtered = useMemo(() => initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || deal.status === status) && (merchant === "all" || deal.merchant === merchant)), [initialDeals, merchant, query, status]);
+  const filtered = useMemo(() => initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (status === "all" || currentStatus(deal) === status) && (merchant === "all" || deal.merchant === merchant)), [initialDeals, merchant, query, status]);
   const active = initialDeals.find((deal) => deal.slug === selected) || filtered[0];
-  const issueCount = initialDeals.filter((deal) => deal.status !== "ok").length;
+  const liveStatuses = initialDeals.map((deal) => currentStatus(deal));
+  const issueCount = liveStatuses.filter((dealStatus) => dealStatus !== "ok").length;
   const amazonOffer = active?.amazonAsin && amazonState.asin === active.amazonAsin ? amazonState.offer || null : null;
   const amazonLoading = Boolean(active?.amazonAsin && amazonState.asin !== active.amazonAsin);
 
@@ -44,8 +52,8 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       <nav>
         <button className={styles.navActive}><ShoppingBag size={18}/> Bons plans <b>{summary.totalActive}</b></button>
         <button><Tag size={18}/> Codes promo <b>{summary.totalCodes}</b></button><button><ArrowUp size={18}/> Page d’accueil <b>15</b></button>
-        <button onClick={() => setStatus("missing-link")}><Link2Off size={18}/> Liens manquants <b className={styles.dangerCount}>{initialDeals.filter((d) => d.status === "missing-link").length}</b></button>
-        <button onClick={() => setStatus("missing-image")}><ImageOff size={18}/> Images manquantes <b>{initialDeals.filter((d) => d.status === "missing-image").length}</b></button>
+        <button onClick={() => setStatus("missing-link")}><Link2Off size={18}/> Liens manquants <b className={styles.dangerCount}>{liveStatuses.filter((dealStatus) => dealStatus === "missing-link").length}</b></button>
+        <button onClick={() => setStatus("missing-image")}><ImageOff size={18}/> Images manquantes <b>{liveStatuses.filter((dealStatus) => dealStatus === "missing-image").length}</b></button>
         <button><Archive size={18}/> Archives <b>{summary.totalArchived}</b></button>
       </nav>
       <div className={styles.apiCard}><span className={styles.liveDot}/> API Amazon active<strong>Vérification à l’ouverture d’une fiche</strong></div>
@@ -53,8 +61,8 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     <section className={styles.workspace}>
       <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "missing-link" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></header>
       <section className={styles.stats}>
-        <article><span className={styles.statIconGreen}><Check size={20}/></span><div><strong>{initialDeals.filter((d) => d.status === "ok").length}</strong><small>fiches sans anomalie</small></div></article>
-        <article><span className={styles.statIconPink}>€</span><div><strong>{initialDeals.filter((d) => d.status === "missing-price").length}</strong><small>prix manquants</small></div></article>
+        <article><span className={styles.statIconGreen}><Check size={20}/></span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "ok").length}</strong><small>fiches sans anomalie</small></div></article>
+        <article><span className={styles.statIconPink}>€</span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "missing-price").length}</strong><small>prix manquants</small></div></article>
         <article><span className={styles.statIconOrange}><AlertTriangle size={20}/></span><div><strong>{issueCount}</strong><small>points à vérifier</small></div></article>
         <article><span className={styles.statIconBlue}><ShoppingBag size={20}/></span><div><strong>{summary.totalActive}</strong><small>offres actives au total</small></div></article>
       </section>
@@ -69,7 +77,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         <section className={styles.dealList}><div className={styles.listHead}><span>OFFRE</span><span>PRIX</span><span>ÉTAT</span></div>
           {filtered.map((deal) => <button key={deal.slug} className={`${styles.dealRow} ${active?.slug === deal.slug ? styles.selected : ""}`} onClick={() => setSelected(deal.slug)}>
             <div className={styles.thumb}>{deal.image && !deal.image.includes("placeholder") ? <Image src={deal.image} alt="" width={44} height={44}/> : <ShoppingBag size={21}/>}</div>
-            <div className={styles.dealName}><strong>{deal.title}</strong><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{deal.price}</span><span className={`${styles.status} ${styles[deal.status]}`}>{statusLabel[deal.status]}</span>
+            <div className={styles.dealName}><a href={`/article/${deal.slug}`} target="_blank" onClick={(event) => event.stopPropagation()}>{deal.title} <ExternalLink size={12}/></a><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{deal.price}</span><span className={`${styles.status} ${styles[currentStatus(deal)]}`}>{statusLabel[currentStatus(deal)]}</span>
           </button>)}{filtered.length === 0 ? <p className={styles.empty}>Aucune offre ne correspond à ces filtres.</p> : null}
         </section>
         <aside className={styles.editor}>{active ? <><span className={styles.editorEyebrow}>FICHE SÉLECTIONNÉE</span>
