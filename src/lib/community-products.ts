@@ -44,6 +44,24 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "lierac-body-sculpt-creme-morpho-regalbante",
+    category: "soins-corps",
+    addedAt: "2026-09-10T21:00:00",
+    brand: "Lierac",
+    name: "Body-Sculpt Crème Morpho-Regalbante",
+    image: "/images/products/lierac-body-sculpt-creme-morpho-regalbante.jpg",
+    imageAlt: "Pot Lierac Body-Sculpt crème morpho-regalbante raffermissante corps",
+    teaser: "Une crème corps raffermissante à effet tenseur immédiat, affichée à 21,94 € au lieu de 37 € sur Amazon.",
+    lead: "Lierac Body-Sculpt est une crème morpho-regalbante conçue pour raffermir, tonifier et lisser visuellement la silhouette. Sa formule associe notamment un complexe Body-Sculpt, du silicium et de l'écorce d'acajou.",
+    idealFor: ["Les peaux manquant de fermeté", "Les zones relâchées du corps", "Une routine corps tonifiante matin et soir"],
+    strengths: ["Réduction de 41 % lors de notre vérification", "Effet tenseur immédiat annoncé", "Choix d'Amazon", "Vendue et expédiée par Amazon"],
+    watchOut: ["Les résultats raffermissants varient selon les personnes", "Une application régulière matin et soir est conseillée", "La contenance affichée par Amazon semble incohérente : vérifier la fiche avant commande", "Prix susceptible d'évoluer"],
+    editorialNote: "Notre avis : à 21,94 €, cette crème Lierac profite d'une réduction intéressante pour un soin corps premium. Le massage régulier contribuera autant à la routine que la formule ; il faut rester mesuré sur les promesses concernant la cellulite et la fermeté.",
+    seoTitle: "Lierac Body-Sculpt : prix Amazon et avis sur la crème",
+    seoDescription: "Lierac Body-Sculpt crème morpho-regalbante à 21,94 € au lieu de 37 € sur Amazon : réduction, action raffermissante, utilisation et avis.",
+    offers: [{ merchant: "Amazon", price: "21,94 €", checkedAt: "2026-09-10", offer: "-41 % · prix conseillé 37 €", note: "Crème raffermissante corps · vendue et expédiée par Amazon", href: "https://www.amazon.fr/dp/B0CX91R9KL?psc=1&linkCode=ll2&tag=lebrunnathali-21&linkId=ad925957f2f0a0a6bf837f194248599c&ref_=as_li_ss_tl", amazonAsin: "B0CX91R9KL" }],
+  },
+  {
     slug: "biotherm-eau-vitaminee-energie-abricot-100ml",
     category: "parfums",
     gender: "femme",
