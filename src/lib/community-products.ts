@@ -44,6 +44,24 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "melvita-or-vegetal-serum-corps-hydra-perfecteur-100ml",
+    category: "soins-corps",
+    addedAt: "2026-09-10T21:40:00",
+    brand: "Melvita",
+    name: "L'Or Végétal Sérum Corps Hydra-Perfecteur 100 ml",
+    image: "/images/products/melvita-or-vegetal-serum-corps-hydra-perfecteur-100ml.jpg",
+    imageAlt: "Flacon Melvita L'Or Végétal sérum corps Hydra-Perfecteur 100 ml",
+    teaser: "Un sérum corps biphasé à 99 % d'ingrédients d'origine naturelle, affiché à 23,49 € au lieu de 30,87 € sur Amazon.",
+    lead: "Melvita L'Or Végétal Hydra-Perfecteur est un sérum biphasé pour le corps de 100 ml, destiné aux peaux normales à sèches. Sa formule associe notamment des AHA et PHA de pomelo à la feuille de châtaignier pour hydrater et lisser le grain de peau.",
+    idealFor: ["Les peaux normales à sèches", "Lisser visuellement le grain de peau", "Une routine corps hydratante quotidienne"],
+    strengths: ["Réduction de 24 % lors de notre vérification", "99 % d'ingrédients d'origine naturelle annoncés", "Choix d'Amazon", "Texture biphasée"],
+    watchOut: ["Agiter le flacon avant utilisation", "Les acides exfoliants peuvent sensibiliser certaines peaux", "Suivre les précautions d'emploi et protéger les zones exposées au soleil", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : ce sérum Melvita combine soin hydratant et exfoliation douce dans un format corps original. Il conviendra surtout aux personnes qui recherchent une peau plus lisse, à condition d'introduire progressivement les acides si la peau est sensible.",
+    seoTitle: "Melvita L'Or Végétal sérum corps : prix et avis",
+    seoDescription: "Melvita L'Or Végétal sérum corps Hydra-Perfecteur 100 ml à 23,49 € au lieu de 30,87 € sur Amazon : AHA, PHA, prix et avis.",
+    offers: [{ merchant: "Amazon", price: "23,49 €", checkedAt: "2026-09-10", offer: "-24 % · prix conseillé 30,87 €", note: "Sérum corps biphasé 100 ml · vendu et expédié par Amazon", href: "https://www.amazon.fr/dp/B0DF7X7W6Q?psc=1&linkCode=ll2&tag=lebrunnathali-21&linkId=49533fef2fb69d649e3c94b830a52d9d&ref_=as_li_ss_tl", amazonAsin: "B0DF7X7W6Q" }],
+  },
+  {
     slug: "vichy-ideal-soleil-lait-auto-bronzant-100ml",
     category: "soins-corps",
     addedAt: "2026-09-10T21:30:00",
