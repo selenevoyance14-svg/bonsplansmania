@@ -44,6 +44,25 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "roger-gallet-vanille-soleil-eau-bien-etre-30ml",
+    category: "parfums",
+    gender: "femme",
+    addedAt: "2026-09-10T20:10:00",
+    brand: "Roger & Gallet",
+    name: "Vanille Soleil Eau de bien-être 30 ml",
+    image: "/images/products/roger-gallet-vanille-soleil-eau-bien-etre-30ml.jpg",
+    imageAlt: "Flacon Roger et Gallet Vanille Soleil Eau de bien-être 30 ml",
+    teaser: "Une eau parfumée florale et lumineuse à la vanille et au jasmin, proposée à 28,32 € sur Amazon.",
+    lead: "Roger & Gallet Vanille Soleil est une eau de bien-être de 30 ml qui associe la douceur de la vanille à des notes florales de jasmin. Sa formule contient 93 % d'ingrédients d'origine naturelle.",
+    idealFor: ["Les parfums doux et solaires", "Les amateurs de vanille", "Un petit format facile à emporter"],
+    strengths: ["Accord vanille et jasmin", "93 % d'ingrédients d'origine naturelle", "Format nomade 30 ml", "Fragrance florale et lumineuse"],
+    watchOut: ["Tenue plus légère qu'une eau de parfum", "Produit parfumé", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : Vanille Soleil offre une interprétation lumineuse et florale de la vanille, moins gourmande qu'un parfum vanillé classique. Son format 30 ml est pratique pour découvrir la fragrance ou l'emporter avec soi.",
+    seoTitle: "Roger & Gallet Vanille Soleil 30 ml : prix et avis",
+    seoDescription: "Roger & Gallet Vanille Soleil Eau de bien-être 30 ml à 28,32 € sur Amazon : notes de vanille et jasmin, composition, prix et avis.",
+    offers: [{ merchant: "Amazon", price: "28,32 €", checkedAt: "2026-09-10", note: "Eau de bien-être 30 ml", href: "https://www.amazon.fr/dp/B0F3XFLX91?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=d3aa6baaebe784491d759429cdf7ac8b&ref_=as_li_ss_tl", amazonAsin: "B0F3XFLX91" }],
+  },
+  {
     slug: "biotherm-eau-vitaminee-pulsation-berry-100ml",
     category: "parfums",
     gender: "femme",
