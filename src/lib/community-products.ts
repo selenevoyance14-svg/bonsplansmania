@@ -44,6 +44,24 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "lierac-body-sculpt-concentre-cryoactif-150ml",
+    category: "soins-corps",
+    addedAt: "2026-09-10T21:20:00",
+    brand: "Lierac",
+    name: "Body-Sculpt Concentré Cryoactif 150 ml",
+    image: "/images/products/lierac-body-sculpt-concentre-cryoactif-150ml.jpg",
+    imageAlt: "Tube Lierac Body-Sculpt Concentré Cryoactif 150 ml",
+    teaser: "Un soin corps ciblé à effet froid avec caféine et gingembre, affiché à 19,99 € au lieu de 32,70 € sur Amazon.",
+    lead: "Lierac Body-Sculpt Concentré Cryoactif est un soin corps de 150 ml destiné au massage des cuisses, des hanches et du ventre. Sa formule à 90 % d'ingrédients d'origine naturelle associe notamment caféine et gingembre à un effet froid immédiat.",
+    idealFor: ["Une routine de massage ciblée", "Les zones cuisses, hanches et ventre", "Celles qui apprécient un effet froid"],
+    strengths: ["Réduction de 39 % lors de notre vérification", "90 % d'ingrédients d'origine naturelle annoncés", "Choix d'Amazon", "Format 150 ml"],
+    watchOut: ["L'effet froid peut ne pas convenir aux peaux sensibles", "Les résultats sur l'apparence de la cellulite varient selon les personnes", "Une application régulière avec massage est recommandée", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : à 19,99 €, ce soin Lierac bénéficie d'une réduction intéressante. Son principal attrait est l'association d'un massage ciblé et d'un effet froid tonifiant ; les promesses sur la cellulite doivent néanmoins être considérées avec mesure.",
+    seoTitle: "Lierac Body-Sculpt Cryoactif 150 ml : prix et avis",
+    seoDescription: "Lierac Body-Sculpt Concentré Cryoactif 150 ml à 19,99 € au lieu de 32,70 € sur Amazon : effet froid, caféine, utilisation et avis.",
+    offers: [{ merchant: "Amazon", price: "19,99 €", checkedAt: "2026-09-10", offer: "-39 % · prix conseillé 32,70 €", note: "Soin corps cryoactif 150 ml · vendu et expédié par Amazon", href: "https://www.amazon.fr/dp/B0CX22J1S3?psc=1&linkCode=ll2&tag=lebrunnathali-21&linkId=8dcd09339cf0242380cd1b023f335072&ref_=as_li_ss_tl", amazonAsin: "B0CX22J1S3" }],
+  },
+  {
     slug: "lierac-phytolastil-gel-prevention-vergetures-400ml",
     category: "bebe-maman",
     addedAt: "2026-09-10T21:10:00",
