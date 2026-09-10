@@ -44,6 +44,25 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "cacharel-yummy-mist-vanilla-cotta-brume-100ml",
+    category: "parfums",
+    gender: "femme",
+    addedAt: "2026-09-10T20:20:00",
+    brand: "Cacharel",
+    name: "Yummy Mist Vanilla Cotta 100 ml",
+    image: "/images/products/cacharel-yummy-mist-vanilla-cotta-100ml.jpg",
+    imageAlt: "Flacon Cacharel Yummy Mist Vanilla Cotta brume parfumée 100 ml",
+    teaser: "Une brume parfumée gourmande pour le corps et les cheveux, à la vanille crémeuse et aux fleurs solaires, affichée à 24,75 € sur Amazon.",
+    lead: "Cacharel Yummy Mist Vanilla Cotta est une brume parfumée ambrée gourmande de 100 ml pour le corps et les cheveux. Elle mêle fleurs solaires, noisette onctueuse, accord de lait et vanille crémeuse dans une fragrance légère et enveloppante.",
+    idealFor: ["Les parfums vanillés et gourmands", "Parfumer le corps et les cheveux", "Une fragrance légère au quotidien"],
+    strengths: ["Remise de 15 % lors de notre vérification", "Grand format 100 ml", "Utilisation corps et cheveux", "Accords de vanille, noisette et lait"],
+    watchOut: ["Tenue plus légère qu'une eau de parfum", "Vaporiser à environ 15 cm", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : Vanilla Cotta s'adresse aux amatrices de senteurs réconfortantes et gourmandes. Son format généreux et son usage corps et cheveux en font une alternative plus légère à un parfum traditionnel.",
+    seoTitle: "Cacharel Vanilla Cotta 100 ml : prix et avis sur la brume",
+    seoDescription: "Cacharel Yummy Mist Vanilla Cotta 100 ml à 24,75 € sur Amazon : brume corps et cheveux, notes vanillées, prix, réduction et avis.",
+    offers: [{ merchant: "Amazon", price: "24,75 €", checkedAt: "2026-09-10", offer: "-15 %", note: "Brume parfumée corps et cheveux 100 ml · vendue et expédiée par Amazon", href: "https://www.amazon.fr/dp/B0H12JCJXB?psc=1&linkCode=ll2&tag=lebrunnathali-21&linkId=31a8dbf12a3dd054be935788d1b91c7b&ref_=as_li_ss_tl", amazonAsin: "B0H12JCJXB" }],
+  },
+  {
     slug: "roger-gallet-vanille-soleil-eau-bien-etre-30ml",
     category: "parfums",
     gender: "femme",
