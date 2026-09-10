@@ -44,6 +44,25 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "biotherm-eau-vitaminee-impulsion-citron-100ml",
+    category: "parfums",
+    gender: "femme",
+    addedAt: "2026-09-10T20:40:00",
+    brand: "Biotherm",
+    name: "Eau Vitaminée Impulsion Citron 100 ml",
+    image: "/images/products/biotherm-eau-vitaminee-impulsion-citron-100ml.jpg",
+    imageAlt: "Flacon Biotherm Eau Vitaminée Impulsion Citron 100 ml",
+    teaser: "Une eau corporelle fraîche au citron et au jasmin, affichée à 23,29 € au lieu de 39 € sur Amazon.",
+    lead: "Biotherm Eau Vitaminée Impulsion Citron est une eau de toilette corporelle de 100 ml. L'essence de citron acidulée y rencontre des notes florales de jasmin pour une fragrance fraîche et lumineuse à vaporiser sur le corps.",
+    idealFor: ["Les parfums citronnés et frais", "Une brume après la douche ou le sport", "Se rafraîchir au cours de la journée"],
+    strengths: ["Réduction de 40 % lors de notre vérification", "Format généreux 100 ml", "Accord citron et jasmin", "Vendue et expédiée par Amazon"],
+    watchOut: ["Éviter le visage et les yeux", "Tenue plus légère qu'une eau de parfum", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : à 23,29 €, cette eau corporelle Biotherm bénéficie d'une réduction particulièrement intéressante. Son accord citron-jasmin privilégie la fraîcheur et convient bien à une utilisation quotidienne ou après le sport.",
+    seoTitle: "Biotherm Eau Vitaminée Citron 100 ml : prix et avis",
+    seoDescription: "Biotherm Eau Vitaminée Impulsion Citron 100 ml à 23,29 € au lieu de 39 € sur Amazon : réduction, notes de citron et jasmin, prix et avis.",
+    offers: [{ merchant: "Amazon", price: "23,29 €", checkedAt: "2026-09-10", offer: "-40 % · prix conseillé 39 €", note: "Eau de toilette corporelle 100 ml · vendue et expédiée par Amazon", href: "https://www.amazon.fr/dp/B0GWQNJ6TY?linkCode=ll2&tag=lebrunnathali-21&linkId=8913b484376d8ccdd50b5c77ef90b9b6&ref_=as_li_ss_tl", amazonAsin: "B0GWQNJ6TY" }],
+  },
+  {
     slug: "nivea-sun-eau-de-toilette-30ml",
     category: "parfums",
     gender: "femme",
