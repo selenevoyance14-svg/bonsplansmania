@@ -97,15 +97,19 @@ async function scanAmazonPrices(env: Env): Promise<void> {
   const catalog = (await monitoringCatalog(env)).filter((item): item is MonitoredLink & { amazonAsin: string } => Boolean(item.amazonAsin));
   if (!catalog.length) return;
   const start = Number(await env.ALERTS.get("amazon:cursor") || "0") % catalog.length;
-  const batch = Array.from({ length: Math.min(10, catalog.length) }, (_, index) => catalog[(start + index) % catalog.length]);
-  const response = await fetch(`${env.SITE_URL}/api/amazon/batch`, {
-    method: "POST",
-    headers: { Authorization: `Bearer ${env.AMAZON_MONITORING_TOKEN}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ asins: batch.map((item) => item.amazonAsin) }),
-  });
-  if (!response.ok) throw new Error(`API Amazon groupée indisponible (${response.status})`);
-  const payload = await response.json<{ items?: Array<{ asin?: string; title?: string; price?: string; priceAmount?: number; inStock?: boolean; availability?: string; checkedAt?: string }> }>();
-  const itemsByAsin = new Map((payload.items || []).flatMap((item) => item.asin ? [[item.asin, item] as const] : []));
+  const batch = Array.from({ length: Math.min(20, catalog.length) }, (_, index) => catalog[(start + index) % catalog.length]);
+  type AmazonItem = { asin?: string; title?: string; price?: string; priceAmount?: number; inStock?: boolean; availability?: string; checkedAt?: string };
+  const chunks = [batch.slice(0, 10), batch.slice(10, 20)].filter((chunk) => chunk.length);
+  const pages = await Promise.all(chunks.map(async (chunk) => {
+    const response = await fetch(`${env.SITE_URL}/api/amazon/batch`, {
+      method: "POST",
+      headers: { Authorization: `Bearer ${env.AMAZON_MONITORING_TOKEN}`, "Content-Type": "application/json" },
+      body: JSON.stringify({ asins: chunk.map((item) => item.amazonAsin) }),
+    });
+    if (!response.ok) throw new Error(`API Amazon groupée indisponible (${response.status})`);
+    return response.json<{ items?: AmazonItem[] }>();
+  }));
+  const itemsByAsin = new Map(pages.flatMap((page) => page.items || []).flatMap((item) => item.asin ? [[item.asin, item] as const] : []));
   const snapshots: AmazonSnapshot[] = [];
   for (const deal of batch) {
     const item = itemsByAsin.get(deal.amazonAsin);
