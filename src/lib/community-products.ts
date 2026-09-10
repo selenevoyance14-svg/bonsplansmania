@@ -44,6 +44,31 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "biotherm-collagen-fit-lait-corps-raffermissant",
+    category: "soins-corps",
+    addedAt: "2026-09-10T19:20:00",
+    brand: "Biotherm",
+    name: "Collagen Fit Lait Corps Raffermissant",
+    image: "/images/products/biotherm-collagen-fit-lait-corps-raffermissant.jpg",
+    imageAlt: "Flacon Biotherm Collagen Fit lait raffermissant hydratant pour le corps",
+    teaser: "Un lait corps hydratant et raffermissant, affiché à 21,89 € sur Amazon lors de notre vérification.",
+    lead: "Biotherm Collagen Fit est un lait pour le corps conçu pour hydrater la peau jusqu'à 48 heures et améliorer visuellement sa fermeté, son élasticité et sa texture. Il s'applique par massage sur les bras, les jambes ou les zones ciblées.",
+    idealFor: ["Hydrater le corps au quotidien", "Les peaux manquant de fermeté", "Une texture lait facile à masser"],
+    strengths: ["Hydratation annoncée jusqu'à 48 heures", "Action lissante et raffermissante", "Choix d'Amazon lors de notre vérification", "Vendu et expédié par Amazon"],
+    watchOut: ["Les résultats raffermissants varient selon les personnes", "Produit parfumé", "Le prix Amazon peut évoluer rapidement"],
+    editorialNote: "Notre avis : à 21,89 €, cette référence Biotherm présente un positionnement intéressant pour un soin corps premium. L'hydratation est l'effet le plus concret à attendre ; l'amélioration de la fermeté demande une application régulière et reste variable.",
+    seoTitle: "Biotherm Collagen Fit lait corps : avis et prix Amazon",
+    seoDescription: "Biotherm Collagen Fit à 21,89 € sur Amazon : avis, hydratation 48 h, action raffermissante, points forts et lien affilié.",
+    offers: [{
+      merchant: "Amazon",
+      price: "21,89 €",
+      checkedAt: "2026-09-10",
+      note: "Lait hydratant raffermissant · vendu et expédié par Amazon",
+      href: "https://www.amazon.fr/dp/B0F7RT7FR7?psc=1&linkCode=ll2&tag=lebrunnathali-21&linkId=2425db83451ae7e6d087ecde03bcbd9d&ref_=as_li_ss_tl",
+      amazonAsin: "B0F7RT7FR7",
+    }],
+  },
+  {
     slug: "loccitane-gel-douche-cedre-gingembre-250ml",
     category: "soins-corps",
     addedAt: "2026-09-10T19:00:00",
@@ -149,7 +174,7 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     editorialNote: "Notre avis : un soin corps sensoriel et généreux, mais dont le tarif premium se justifie surtout pour les adeptes de la senteur et de l'expérience L'Occitane.",
     seoTitle: "L'Occitane Concentré de Lait Amande 200 ml : prix et avis",
     seoDescription: "Prix Amazon et avis sur le Concentré de Lait Lissant Corps Amande L'Occitane 200 ml, soin hydratant et raffermissant.",
-    offers: [{ merchant: "Amazon", price: "52,00 €", checkedAt: "2026-09-10", note: "Pot 200 ml", href: "https://www.amazon.fr/dp/B0GKN5389V?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=83be4366bd7268ff6f4fec1f2b4ab0d4&ref_=as_li_ss_tl", amazonAsin: "B0GKN5389V" }],
+    offers: [{ merchant: "Amazon", price: "52,00 €", checkedAt: "2026-09-10", note: "Pot 200 ml", href: "https://www.amazon.fr/dp/B0GKN5389V?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=893a70624cc3523aa4328fcb0247f9d8&ref_=as_li_ss_tl", amazonAsin: "B0GKN5389V" }],
   },
   {
     slug: "loccitane-gel-douche-fleurs-de-cerisier-250ml",
