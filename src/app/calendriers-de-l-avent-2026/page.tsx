@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/app/components/Header";
 import { ADVENT_CALENDARS_2026 } from "@/lib/advent-calendars-2026";
+import { getAdventCalendarCatalog } from "@/lib/advent-calendar-catalog";
 import BrandCalendarFilter from "./BrandCalendarFilter";
 import styles from "./page.module.css";
 
@@ -18,12 +19,13 @@ export const metadata: Metadata = {
 
 export default function AdventCalendarsHub() {
   const updatedAt = "10 septembre 2026";
+  const catalog = getAdventCalendarCatalog();
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
     name: "Calendriers de l'Avent 2026",
-    numberOfItems: ADVENT_CALENDARS_2026.length,
-    itemListElement: ADVENT_CALENDARS_2026.map((calendar, index) => ({
+    numberOfItems: catalog.length,
+    itemListElement: catalog.map((calendar, index) => ({
       "@type": "ListItem",
       position: index + 1,
       name: `${calendar.brand} ${calendar.name}`,
@@ -38,10 +40,11 @@ export default function AdventCalendarsHub() {
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(itemList) }} />
         <section className={styles.hero}>
           <div className="container">
-            <p className={styles.eyebrow}>Guide mis à jour au fil des sorties</p>
+            <p className={styles.eyebrow}>Comparateur et agrégateur de calendriers</p>
             <h1>Calendriers de l’Avent 2026 : prix, contenu et comparatif</h1>
             <p className={styles.intro}>Beauté, parfums et soins : nous ajoutons uniquement les calendriers dont le prix et la disponibilité ont été vérifiés. Aucun faux prix, aucun contenu supposé.</p>
-            <p className={styles.updated}>Dernière vérification : {updatedAt} · {ADVENT_CALENDARS_2026.length} calendriers référencés</p>
+            <div className={styles.stats}><span><strong>{catalog.length}</strong> calendriers référencés</span><span><strong>{new Set(catalog.map((item) => item.brand)).size}</strong> marques comparées</span><span><strong>Prix datés</strong> et disponibilités indiquées</span></div>
+            <p className={styles.updated}>Dernière vérification : {updatedAt}</p>
           </div>
         </section>
 
@@ -70,8 +73,9 @@ export default function AdventCalendarsHub() {
         </section>
 
         <section className={`container ${styles.section}`}>
-          <h2>Les calendriers disponibles et annoncés</h2>
-          <BrandCalendarFilter />
+          <h2>Tous les calendriers disponibles et annoncés</h2>
+          <p className={styles.sectionIntro}>Recherchez un calendrier puis filtrez par marque, univers, destinataire ou disponibilité. Les calendriers de bières restent volontairement dans leur hub dédié et ne sont pas intégrés à ce comparatif.</p>
+          <BrandCalendarFilter catalog={catalog} />
         </section>
 
         <section className={`container ${styles.guide}`}>

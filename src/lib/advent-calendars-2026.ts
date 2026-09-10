@@ -11,6 +11,8 @@ export type AdventCalendar2026 = {
   articleHref: string;
   merchantHref: string;
   imageIsEditorial?: boolean;
+  universes?: string[];
+  audiences?: string[];
 };
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
