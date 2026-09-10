@@ -4,6 +4,7 @@ interface Env {
   FROM_EMAIL: string;
   FROM_NAME: string;
   SITE_URL: string;
+  AMAZON_MONITORING_TOKEN: string;
 }
 
 type AlertKind = "product" | "brand" | "category";
@@ -33,8 +34,9 @@ interface Article {
   date: string;
 }
 
-interface MonitoredLink { slug: string; url: string; merchant: string }
+interface MonitoredLink { slug: string; url: string; merchant: string; amazonAsin?: string; price?: string }
 interface LinkCheck { slug: string; ok: boolean; status: number; checkedAt: string; merchant: string; finalUrl?: string; error?: string }
+interface AmazonSnapshot { slug: string; asin: string; title?: string; price: number; displayPrice: string; previousPrice?: number; change?: number; changePercent?: number; inStock: boolean; availability?: string; checkedAt: string }
 
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
@@ -54,19 +56,25 @@ export default {
     if (request.method === "GET" && url.pathname === "/monitoring/summary") return monitoringSummary(env);
     if (request.method === "GET" && url.pathname === "/monitoring/status") return monitoringStatus(url, env);
     if (request.method === "GET" && url.pathname === "/monitoring/statuses") return monitoringStatuses(url, env);
+    if (request.method === "GET" && url.pathname === "/monitoring/amazon-price-drops") return amazonPriceDrops(env);
     return json({ error: "Route introuvable." }, 404);
   },
 
   async scheduled(_controller: ScheduledController, env: Env): Promise<void> {
     await scanArticles(env);
     await scanMerchantLinks(env);
+    await scanAmazonPrices(env);
   },
 };
 
-async function scanMerchantLinks(env: Env): Promise<void> {
+async function monitoringCatalog(env: Env): Promise<MonitoredLink[]> {
   const response = await fetch(`${env.SITE_URL}/monitoring-catalog.json`, { headers: { "User-Agent": "BonsPlansMania-Monitor/1.0" } });
   if (!response.ok) throw new Error(`Catalogue monitoring indisponible (${response.status})`);
-  const links = await response.json<MonitoredLink[]>();
+  return response.json<MonitoredLink[]>();
+}
+
+async function scanMerchantLinks(env: Env): Promise<void> {
+  const links = await monitoringCatalog(env);
   const start = Number(await env.ALERTS.get("monitor:cursor") || "0") % Math.max(links.length, 1);
   const batch = Array.from({ length: Math.min(30, links.length) }, (_, index) => links[(start + index) % links.length]);
   const results: LinkCheck[] = [];
@@ -82,6 +90,60 @@ async function scanMerchantLinks(env: Env): Promise<void> {
   await Promise.all(results.map((result) => env.ALERTS.put(`monitor:result:${result.slug}`, JSON.stringify(result), { expirationTtl: 60 * 60 * 24 * 30 })));
   await env.ALERTS.put("monitor:cursor", String(start + batch.length));
   await env.ALERTS.put("monitor:last-run", JSON.stringify({ checkedAt: new Date().toISOString(), checked: results.length, errors: results.filter((item) => !item.ok).length }));
+}
+
+async function scanAmazonPrices(env: Env): Promise<void> {
+  if (!env.AMAZON_MONITORING_TOKEN) return;
+  const catalog = (await monitoringCatalog(env)).filter((item): item is MonitoredLink & { amazonAsin: string } => Boolean(item.amazonAsin));
+  if (!catalog.length) return;
+  const start = Number(await env.ALERTS.get("amazon:cursor") || "0") % catalog.length;
+  const batch = Array.from({ length: Math.min(10, catalog.length) }, (_, index) => catalog[(start + index) % catalog.length]);
+  const response = await fetch(`${env.SITE_URL}/api/amazon/batch`, {
+    method: "POST",
+    headers: { Authorization: `Bearer ${env.AMAZON_MONITORING_TOKEN}`, "Content-Type": "application/json" },
+    body: JSON.stringify({ asins: batch.map((item) => item.amazonAsin) }),
+  });
+  if (!response.ok) throw new Error(`API Amazon groupée indisponible (${response.status})`);
+  const payload = await response.json<{ items?: Array<{ asin?: string; title?: string; price?: string; priceAmount?: number; inStock?: boolean; availability?: string; checkedAt?: string }> }>();
+  const itemsByAsin = new Map((payload.items || []).flatMap((item) => item.asin ? [[item.asin, item] as const] : []));
+  const snapshots: AmazonSnapshot[] = [];
+  for (const deal of batch) {
+    const item = itemsByAsin.get(deal.amazonAsin);
+    if (!item || typeof item.priceAmount !== "number" || !item.price) continue;
+    const previous = await env.ALERTS.get<AmazonSnapshot>(`amazon:price:${deal.slug}`, "json");
+    const change = previous ? item.priceAmount - previous.price : undefined;
+    const changePercent = previous && previous.price > 0 ? Math.round((change! / previous.price) * 100) : undefined;
+    const snapshot: AmazonSnapshot = {
+      slug: deal.slug,
+      asin: deal.amazonAsin,
+      title: item.title,
+      price: item.priceAmount,
+      displayPrice: item.price,
+      previousPrice: previous?.price,
+      change,
+      changePercent,
+      inStock: item.inStock !== false,
+      availability: item.availability,
+      checkedAt: item.checkedAt || new Date().toISOString(),
+    };
+    await env.ALERTS.put(`amazon:price:${deal.slug}`, JSON.stringify(snapshot), { expirationTtl: 60 * 60 * 24 * 90 });
+    snapshots.push(snapshot);
+  }
+  await env.ALERTS.put("amazon:cursor", String(start + batch.length));
+  await env.ALERTS.put("amazon:last-run", JSON.stringify({ checkedAt: new Date().toISOString(), checked: snapshots.length, cursor: start + batch.length, total: catalog.length }));
+}
+
+async function amazonPriceDrops(env: Env): Promise<Response> {
+  const drops: AmazonSnapshot[] = [];
+  let cursor: string | undefined;
+  do {
+    const page = await env.ALERTS.list({ prefix: "amazon:price:", cursor, limit: 1000 });
+    const values = await Promise.all(page.keys.map((key) => env.ALERTS.get<AmazonSnapshot>(key.name, "json")));
+    drops.push(...values.filter((value): value is AmazonSnapshot => Boolean(value && typeof value.change === "number" && value.change < 0)));
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+  drops.sort((a, b) => (a.changePercent || 0) - (b.changePercent || 0));
+  return json({ drops, lastRun: await env.ALERTS.get("amazon:last-run", "json") });
 }
 
 async function monitoringSummary(env: Env): Promise<Response> {

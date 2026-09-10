@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
-import { AlertTriangle, Archive, ArrowUp, CalendarClock, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
+import { AlertTriangle, Archive, ArrowDown, ArrowUp, CalendarClock, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
 import styles from "./cockpit.module.css";
 
 export type DealStatus = "ok" | "scheduled" | "due" | "unchecked" | "unavailable" | "missing-image" | "missing-price" | "price-check" | "missing-link" | "expiring";
@@ -10,6 +10,7 @@ export type CockpitDeal = { slug: string; title: string; merchant: string; categ
 export type CockpitSummary = { totalActive: number; totalCodes: number; totalArchived: number; displayed: number };
 type AmazonOffer = { title?: string | null; image?: string | null; price?: string | null; oldPrice?: string | null; savingsPercent?: number | null; availability?: string | null; inStock?: boolean; checkedAt?: string; error?: string };
 type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: string | null; error?: string };
+type PriceDrop = { slug: string; asin: string; title?: string; price: number; displayPrice: string; previousPrice?: number; change?: number; changePercent?: number; checkedAt: string };
 
 const REMINDERS_KEY = "bonsplansmania:deal-reminders";
 const statusLabel: Record<DealStatus, string> = { ok: "À jour", scheduled: "Contrôle programmé", due: "À contrôler aujourd’hui", unchecked: "Non contrôlé", unavailable: "Indisponible", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien inaccessible", expiring: "Expire bientôt" };
@@ -34,7 +35,7 @@ function currentStatus(deal: CockpitDeal, amazonOffer?: AmazonOffer, linkResult?
 export default function DealsCockpit({ initialDeals, summary }: { initialDeals: CockpitDeal[]; summary: CockpitSummary }) {
   const [query, setQuery] = useState("");
   const [status, setStatus] = useState<"all" | "issues" | DealStatus>("all");
-  const [section, setSection] = useState<"deals" | "codes" | "homepage">("deals");
+  const [section, setSection] = useState<"deals" | "codes" | "homepage" | "price-drops">("deals");
   const [merchant, setMerchant] = useState("all");
   const [selected, setSelected] = useState<string | null>(initialDeals[0]?.slug || null);
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
@@ -42,15 +43,17 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [reminders, setReminders] = useState<Record<string, string>>({});
   const [toast, setToast] = useState("");
   const [manualPrices, setManualPrices] = useState<Record<string, string>>({});
+  const [priceDrops, setPriceDrops] = useState<Record<string, PriceDrop>>({});
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
   const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug], reminders[deal.slug]);
-  const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (section === "deals" || (section === "codes" ? deal.category === "code-promo" : deal.onHomepage)) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
+  const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (section === "deals" || (section === "codes" ? deal.category === "code-promo" : section === "homepage" ? deal.onHomepage : Boolean(priceDrops[deal.slug]))) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
   const active = filtered.find((deal) => deal.slug === selected) || filtered[0];
   const liveStatuses = initialDeals.map(statusFor);
   const issueCount = liveStatuses.filter((dealStatus) => !["ok", "scheduled"].includes(dealStatus)).length;
   const amazonOffer = active?.amazonAsin && amazonState.asin === active.amazonAsin ? amazonState.offer || null : null;
   const amazonLoading = Boolean(active?.amazonAsin && amazonState.asin !== active.amazonAsin);
   const linkResult = active ? linkResults[active.slug] : undefined;
+  const activePriceDrop = active ? priceDrops[active.slug] : undefined;
   const detectedPrice = active?.amazonAsin && amazonState.asin === active.amazonAsin
     ? amazonState.offer?.price || active.price
     : active?.price || "";
@@ -127,8 +130,17 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     return () => controller.abort();
   }, [initialDeals]);
 
+  useEffect(() => {
+    const controller = new AbortController();
+    fetch("https://bonsplansmania-alerts.selenevoyance14.workers.dev/monitoring/amazon-price-drops", { signal: controller.signal })
+      .then((response) => response.json() as Promise<{ drops?: PriceDrop[] }>)
+      .then((payload) => setPriceDrops(Object.fromEntries((payload.drops || []).map((drop) => [drop.slug, drop]))))
+      .catch((error: Error) => { if (error.name !== "AbortError") setPriceDrops({}); });
+    return () => controller.abort();
+  }, []);
+
   const liveImage = amazonOffer?.image || active?.image;
-  function showSection(nextSection: "deals" | "codes" | "homepage") {
+  function showSection(nextSection: "deals" | "codes" | "homepage" | "price-drops") {
     setSection(nextSection);
     setQuery("");
     setStatus("all");
@@ -142,6 +154,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         <button className={section === "deals" ? styles.navActive : ""} onClick={() => showSection("deals")}><ShoppingBag size={18}/> Bons plans <b>{summary.totalActive}</b></button>
         <button className={section === "codes" ? styles.navActive : ""} onClick={() => showSection("codes")}><Tag size={18}/> Codes promo <b>{summary.totalCodes}</b></button>
         <button className={section === "homepage" ? styles.navActive : ""} onClick={() => showSection("homepage")}><ArrowUp size={18}/> Page d’accueil <b>15</b></button>
+        <button className={section === "price-drops" ? styles.navActive : ""} onClick={() => showSection("price-drops")}><ArrowDown size={18}/> Prix en baisse <b>{Object.keys(priceDrops).length}</b></button>
         <button onClick={() => { showSection("deals"); setStatus("missing-link"); }}><Link2Off size={18}/> Liens manquants <b className={styles.dangerCount}>{liveStatuses.filter((dealStatus) => dealStatus === "missing-link").length}</b></button>
         <button onClick={() => { showSection("deals"); setStatus("missing-image"); }}><ImageOff size={18}/> Images manquantes <b>{liveStatuses.filter((dealStatus) => dealStatus === "missing-image").length}</b></button>
         <a href="/archives/bons-plans"><Archive size={18}/> Archives <b>{summary.totalArchived}</b></a>
@@ -167,7 +180,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         <section className={styles.dealList}><div className={styles.listHead}><span>OFFRE</span><span>PRIX</span><span>ÉTAT</span></div>
           {filtered.map((deal) => <button key={deal.slug} className={`${styles.dealRow} ${active?.slug === deal.slug ? styles.selected : ""}`} onClick={() => setSelected(deal.slug)}>
             <div className={styles.thumb}>{deal.image && !deal.image.includes("placeholder") ? <Image src={deal.image} alt="" width={44} height={44}/> : <ShoppingBag size={21}/>}</div>
-            <div className={styles.dealName}><a href={`/article/${deal.slug}`} target="_blank" onClick={(event) => event.stopPropagation()}>{deal.title} <ExternalLink size={12}/></a><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{deal.price}</span><span className={`${styles.status} ${styles[statusFor(deal)]}`}>{statusLabel[statusFor(deal)]}</span>
+            <div className={styles.dealName}><a href={`/article/${deal.slug}`} target="_blank" onClick={(event) => event.stopPropagation()}>{deal.title} <ExternalLink size={12}/></a><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{priceDrops[deal.slug]?.displayPrice || deal.price}</span><span className={`${styles.status} ${priceDrops[deal.slug] ? styles["price-drop"] : styles[statusFor(deal)]}`}>{priceDrops[deal.slug] ? `${priceDrops[deal.slug].changePercent}%` : statusLabel[statusFor(deal)]}</span>
           </button>)}{filtered.length === 0 ? <p className={styles.empty}>Aucune offre ne correspond à ces filtres.</p> : null}
         </section>
         <aside className={styles.editor}>{active ? <><span className={styles.editorEyebrow}>FICHE SÉLECTIONNÉE</span>
@@ -178,6 +191,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
           <div className={`${styles.audit} ${amazonOffer?.error ? styles.auditWarning : ""}`}>{amazonLoading ? <LoaderCircle className={styles.spin} size={17}/> : amazonOffer?.error ? <AlertTriangle size={17}/> : <Check size={17}/>}<div><b>{amazonLoading ? "Interrogation de l’API Amazon" : amazonOffer?.error || (active.amazonAsin ? amazonOffer?.availability || "Offre Amazon vérifiée" : "Données éditoriales analysées")}</b><small>{amazonOffer?.checkedAt ? `Vérifié le ${new Date(amazonOffer.checkedAt).toLocaleString("fr-FR")}` : "Aucune estimation inventée"}</small></div></div>
           {!active.amazonAsin && linkResult?.checkedAt ? <div className={`${styles.audit} ${linkResult.ok ? "" : styles.auditWarning}`}>{linkResult.ok ? <Check size={17}/> : <AlertTriangle size={17}/>}<div><b>{linkResult.ok ? `Lien marchand accessible (${linkResult.status})` : `Lien à vérifier (${linkResult.status || "réseau"})`}</b><small>Contrôlé automatiquement le {new Date(linkResult.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           {amazonOffer?.oldPrice ? <p className={styles.amazonSaving}>Prix précédent affiché : <b>{amazonOffer.oldPrice}</b>{amazonOffer.savingsPercent ? ` · -${amazonOffer.savingsPercent}%` : ""}</p> : null}
+          {activePriceDrop ? <div className={styles.priceDropCard}><ArrowDown size={18}/><div><b>Vraie baisse constatée : {activePriceDrop.changePercent}%</b><small>{activePriceDrop.previousPrice?.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} → {activePriceDrop.displayPrice} · relevé le {new Date(activePriceDrop.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           <div className={styles.reminderBox}><b><CalendarClock size={16}/> Programmer le prochain contrôle</b><div className={styles.reminderPresets}><button onClick={() => scheduleIn(active.slug, 1)}>Demain</button><button onClick={() => scheduleIn(active.slug, 3)}>Dans 3 jours</button><button onClick={() => scheduleIn(active.slug, 7)}>Dans 7 jours</button></div><label>Date précise<input type="date" min={new Date().toLocaleDateString("sv-SE")} value={reminders[active.slug] || ""} onChange={(event) => saveReminder(active.slug, event.target.value || undefined)}/></label>{reminders[active.slug] ? <p>Prochain contrôle le <strong>{new Date(`${reminders[active.slug]}T12:00:00`).toLocaleDateString("fr-FR")}</strong> <button onClick={() => saveReminder(active.slug)}>Annuler</button></p> : null}</div>
           <div className={styles.actionInfo}><b>Actions de la fiche</b><p>Choisis une action : la demande complète est copiée. Colle-la ensuite dans Codex pour modifier et publier le site.</p></div>
           <button className={styles.updateOnly} onClick={() => copyAction("update")}><Check size={16}/> Mettre à jour seulement</button><button className={styles.updateAndRaise} onClick={() => copyAction("raise")}><ArrowUp size={16}/> Mettre à jour et remonter</button><button className={styles.archiveButton} onClick={() => copyAction("archive")}><Archive size={16}/> Archiver l’offre</button>
