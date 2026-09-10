@@ -55,7 +55,14 @@ export function getBeautyBoxCatalog(): BeautyBox2026[] {
     if (!brand) return [];
     const articleHref = `/article/${meta.slug}`;
     const selected = curated.get(articleHref);
-    if (selected) return [selected];
+    if (selected) return [{
+      ...selected,
+      price: meta.price || selected.price,
+      checkedAt: formatDate(meta.updated || meta.date),
+      image: meta.image || selected.image,
+      imageAlt: meta.imageAlt || selected.imageAlt,
+      merchantHref: meta.affiliateUrl || selected.merchantHref,
+    }];
     return [{
       brand,
       name: meta.title.replace(/^bon plan\s+/i, "").trim(),
