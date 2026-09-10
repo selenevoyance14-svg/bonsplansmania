@@ -178,14 +178,21 @@ async function handleReview(request: Request, env: Env): Promise<Response> {
     submittedAt,
   };
 
-  await env.SUBSCRIBERS.put(
-    `review:pending:${submittedAt}:${reviewId}`,
-    JSON.stringify(review),
-  );
+  // Le quota d'ecriture KV peut etre atteint avant sa remise a zero quotidienne.
+  // Dans ce cas, on transmet quand meme l'avis par e-mail afin de ne jamais
+  // faire perdre un long texte saisi depuis un telephone.
+  const stored = await Promise.race([
+    env.SUBSCRIBERS.put(
+      `review:pending:${submittedAt}:${reviewId}`,
+      JSON.stringify(review),
+    ).then(() => true).catch(() => false),
+    new Promise<false>((resolve) => setTimeout(() => resolve(false), 2_500)),
+  ]);
 
   // Alerte de modération : l'avis reste bien enregistré si l'e-mail échoue.
+  let notified = false;
   try {
-    await fetch("https://api.resend.com/emails", {
+    const emailResponse = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -207,15 +214,34 @@ async function handleReview(request: Request, env: Env): Promise<Response> {
               Ouvrir la modération
             </a>
           </p>
-          <p><small>La clé privée de modération sera demandée sur la page.</small></p>
+          ${stored
+            ? '<p><small>La clé privée de modération sera demandée sur la page.</small></p>'
+            : '<p><strong>Stockage temporairement saturé :</strong> cet avis est sauvegardé dans cet e-mail et devra être publié manuellement.</p>'}
           <p><small>Identifiant : ${reviewId}</small></p>`,
       }),
     });
+    notified = emailResponse.ok;
   } catch {
-    // L'avis est déjà sauvegardé dans KV.
+    // Si KV a fonctionne, l'avis reste disponible dans la moderation.
   }
 
-  return jsonResponse({ success: true, message: "Avis en attente de validation" }, 201);
+  if (!stored && !notified) {
+    return jsonResponse(
+      { error: "L’avis n’a pas pu être envoyé. Merci de réessayer dans quelques minutes." },
+      503,
+    );
+  }
+
+  return jsonResponse(
+    {
+      success: true,
+      stored,
+      message: stored
+        ? "Avis en attente de validation"
+        : "Avis bien transmis à l’équipe pour validation",
+    },
+    201,
+  );
 }
 
 function escapeHtml(value: string): string {

@@ -10,6 +10,7 @@ export default function HelpfulButton({ id }: { id: string }) {
   const [count, setCount] = useState(0);
   const [voted, setVoted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [savedLocally, setSavedLocally] = useState(false);
   const storageKey = `bpm-helpful:${id}`;
 
   useEffect(() => {
@@ -25,6 +26,10 @@ export default function HelpfulButton({ id }: { id: string }) {
   async function vote() {
     if (voted || sending) return;
     setSending(true);
+    // Retour visuel immediat, important sur mobile et connexion lente.
+    setCount((current) => current + 1);
+    setVoted(true);
+    localStorage.setItem(storageKey, "1");
 
     try {
       const response = await fetch(ENDPOINT, {
@@ -35,10 +40,9 @@ export default function HelpfulButton({ id }: { id: string }) {
       if (!response.ok) throw new Error("helpful");
       const data = (await response.json()) as { count: number };
       setCount(data.count);
-      setVoted(true);
-      localStorage.setItem(storageKey, "1");
     } catch {
-      // Le bouton reste disponible pour une nouvelle tentative.
+      // Le vote reste memorise sur l'appareil si le quota central est sature.
+      setSavedLocally(true);
     } finally {
       setSending(false);
     }
@@ -53,6 +57,7 @@ export default function HelpfulButton({ id }: { id: string }) {
     >
       <ThumbsUp size={17} fill={voted ? "currentColor" : "none"} />
       {voted ? "Merci !" : "Utile"} <span>({count})</span>
+      {savedLocally && <span className="sr-only">Vote enregistré sur cet appareil.</span>}
     </button>
   );
 }

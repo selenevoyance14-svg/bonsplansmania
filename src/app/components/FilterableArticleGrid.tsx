@@ -4,7 +4,7 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 import { ArrowRight, Filter, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
-import { parsePrice } from "@/lib/price";
+import { extractPriceAmount, parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 
@@ -289,7 +289,13 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
       const brandCandidates = getBrandCandidates(a);
       const brandSlugs = brandCandidates.map((c) => c.slug);
       const parsed = parsePrice(a.price);
-      return { article: a, brandCandidates, brandSlugs, ...parsed, nowNum: parsed.nowAmount };
+      return {
+        article: a,
+        brandCandidates,
+        brandSlugs,
+        ...parsed,
+        nowNum: parsed.nowAmount ?? extractPriceAmount(`${a.title} ${a.description}`),
+      };
     });
   }, [articles]);
 
@@ -366,9 +372,9 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
     } else if (sortBy === "discount") {
       sorted.sort((a, b) => (b.discountPct || 0) - (a.discountPct || 0));
     } else if (sortBy === "price-asc") {
-      sorted.sort((a, b) => (a.nowNum || Infinity) - (b.nowNum || Infinity));
+      sorted.sort((a, b) => (a.nowNum ?? Infinity) - (b.nowNum ?? Infinity));
     } else if (sortBy === "price-desc") {
-      sorted.sort((a, b) => (b.nowNum || -Infinity) - (a.nowNum || -Infinity));
+      sorted.sort((a, b) => (b.nowNum ?? -Infinity) - (a.nowNum ?? -Infinity));
     }
 
     return sorted.map((e) => e.article);

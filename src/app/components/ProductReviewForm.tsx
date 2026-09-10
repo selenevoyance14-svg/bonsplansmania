@@ -4,6 +4,7 @@ import { FormEvent, useState } from "react";
 
 const REVIEW_ENDPOINT =
   "https://bonsplansmania-newsletter.selenevoyance14.workers.dev/review";
+const REQUEST_TIMEOUT_MS = 20_000;
 
 export default function ProductReviewForm({
   productSlug,
@@ -28,6 +29,8 @@ export default function ProductReviewForm({
     setErrorMessage("");
     setStatus("sending");
     const form = new FormData(formElement);
+    const controller = new AbortController();
+    const timeout = window.setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
 
     try {
       const response = await fetch(REVIEW_ENDPOINT, {
@@ -43,6 +46,7 @@ export default function ProductReviewForm({
           comment: form.get("comment"),
           website: form.get("website"),
         }),
+        signal: controller.signal,
       });
 
       if (!response.ok) {
@@ -54,11 +58,15 @@ export default function ProductReviewForm({
       setStatus("success");
     } catch (error) {
       setErrorMessage(
-        error instanceof Error
+        error instanceof DOMException && error.name === "AbortError"
+          ? "L’envoi prend trop de temps. Vérifiez votre connexion puis réessayez. Votre texte reste dans le formulaire."
+          : error instanceof Error
           ? error.message
           : "L’envoi n’a pas fonctionné. Réessayez dans un instant.",
       );
       setStatus("error");
+    } finally {
+      window.clearTimeout(timeout);
     }
   }
 

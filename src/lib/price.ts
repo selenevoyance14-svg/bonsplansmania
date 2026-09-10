@@ -12,6 +12,19 @@ const LEADING_EURO_AMOUNT =
   /^[(]?\s*(\d{1,3}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)\s*€/;
 const EXPLICIT_DISCOUNT = /[-−]\s*(\d{1,3})\s*%/;
 
+/** Extrait le premier prix monétaire d'un libellé éditorial ancien ou récent. */
+export function extractPriceAmount(text?: string): number | undefined {
+  if (!text) return undefined;
+  const match = text.match(
+    /(\d{1,4}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?)\s*(?:€|euros?)/i,
+  );
+  if (!match) return undefined;
+  const amount = Number.parseFloat(
+    match[1].replace(/[\s\u00a0]/g, "").replace(",", "."),
+  );
+  return Number.isFinite(amount) ? amount : undefined;
+}
+
 function parseLeadingEuroAmount(text: string): {
   amount?: number;
   label?: string;
@@ -56,7 +69,7 @@ export function parsePrice(raw?: string): ParsedPrice {
     const current = parseLeadingEuroAmount(value);
     return {
       now: value,
-      nowAmount: current.amount,
+      nowAmount: current.amount ?? extractPriceAmount(value),
       discountPct: validExplicitDiscount,
       savings:
         validExplicitDiscount !== undefined

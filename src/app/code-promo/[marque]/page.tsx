@@ -38,9 +38,20 @@ const COMMERCIAL_CATEGORIES = new Set([
 ]);
 
 function matchingBrandCount(tags: string[]): number {
-  return CODE_PROMO_BRANDS.filter((candidate) =>
-    matchesBrand(tags, candidate.matchTags),
-  ).length;
+  const lowerTags = new Set(tags.map((tag) => tag.toLowerCase()));
+
+  // Ne compter ici que les identifiants propres aux marques. Les matchTags
+  // contiennent aussi parfois des termes génériques (parfum, beauté, jardin…)
+  // utiles à la recherche, mais qui faisaient disparaître des pages pourtant
+  // correctement étiquetées comme Adopt ou Uriage.
+  return CODE_PROMO_BRANDS.filter((candidate) => {
+    const canonicalTags = [
+      candidate.slug.toLowerCase(),
+      candidate.name.toLowerCase(),
+      candidate.name.toLowerCase().replace(/['’]/g, "").replace(/\s+/g, "-"),
+    ];
+    return canonicalTags.some((tag) => lowerTags.has(tag));
+  }).length;
 }
 
 /**

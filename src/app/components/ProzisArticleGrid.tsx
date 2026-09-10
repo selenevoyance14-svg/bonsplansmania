@@ -2,7 +2,7 @@
 
 import { useMemo, useState } from "react";
 import LoadMoreGrid from "@/app/components/LoadMoreGrid";
-import { parsePrice } from "@/lib/price";
+import { extractPriceAmount, parsePrice } from "@/lib/price";
 
 type ProzisCategory = "all" | "vetements" | "complements" | "alimentation" | "accessoires" | "autres";
 type ProzisSort = "recent" | "price-asc" | "price-desc" | "discount";
@@ -69,8 +69,10 @@ export default function ProzisArticleGrid({ articles }: { articles: ProzisArticl
     return filtered.sort((a, b) => {
       const priceA = parsePrice(a.price);
       const priceB = parsePrice(b.price);
-      if (sort === "price-asc") return (priceA.nowAmount ?? Infinity) - (priceB.nowAmount ?? Infinity);
-      if (sort === "price-desc") return (priceB.nowAmount ?? -Infinity) - (priceA.nowAmount ?? -Infinity);
+      const amountA = priceA.nowAmount ?? extractPriceAmount(`${a.title} ${a.description}`);
+      const amountB = priceB.nowAmount ?? extractPriceAmount(`${b.title} ${b.description}`);
+      if (sort === "price-asc") return (amountA ?? Infinity) - (amountB ?? Infinity);
+      if (sort === "price-desc") return (amountB ?? -Infinity) - (amountA ?? -Infinity);
       if (sort === "discount") return (priceB.discountPct ?? 0) - (priceA.discountPct ?? 0);
       return new Date(b.date).getTime() - new Date(a.date).getTime();
     });

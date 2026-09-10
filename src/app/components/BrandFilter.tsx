@@ -4,7 +4,7 @@ import { Fragment, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
-import { parsePrice } from "@/lib/price";
+import { extractPriceAmount, parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 
@@ -75,14 +75,7 @@ function getSortablePrice(article: ArticleListItem): number | undefined {
   const structured = parsePrice(article.price).nowAmount;
   if (structured !== undefined) return structured;
 
-  const fallbackText = `${article.title} ${article.description}`;
-  const match = fallbackText.match(/(?:^|\s)(\d{1,4}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?)\s*€/);
-  if (!match) return undefined;
-
-  const amount = Number.parseFloat(
-    match[1].replace(/[\s\u00a0]/g, "").replace(",", "."),
-  );
-  return Number.isFinite(amount) ? amount : undefined;
+  return extractPriceAmount(`${article.title} ${article.description}`);
 }
 
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
