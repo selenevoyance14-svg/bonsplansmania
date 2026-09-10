@@ -17,6 +17,19 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: product.seoTitle || `${product.name} ${product.brand} : avis et comparateur de prix`,
     description: product.seoDescription || `${product.name} de ${product.brand} : avis court, marchands, prix constatés et offres disponibles.`,
     alternates: { canonical: `https://bonsplansmania.fr/produit/${slug}` },
+    openGraph: {
+      title: product.seoTitle || `${product.name} ${product.brand} : avis et comparateur de prix`,
+      description: product.seoDescription || product.teaser,
+      url: `https://bonsplansmania.fr/produit/${slug}`,
+      type: "article",
+      images: [{ url: product.image, alt: product.imageAlt }],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: product.seoTitle || `${product.name} ${product.brand} : avis et comparateur de prix`,
+      description: product.seoDescription || product.teaser,
+      images: [product.image],
+    },
     robots: { index: true, follow: true },
   };
 }
@@ -33,6 +46,7 @@ export default async function ProductPage({ params }: PageProps) {
       name={product.name}
       image={product.image}
       imageAlt={product.imageAlt}
+      gallery={product.gallery}
       lead={product.lead}
       idealFor={product.idealFor}
       strengths={product.strengths}

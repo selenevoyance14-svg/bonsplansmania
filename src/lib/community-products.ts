@@ -15,6 +15,7 @@ export interface CommunityProduct {
   name: string;
   image: string;
   imageAlt: string;
+  gallery?: { src: string; alt: string }[];
   /** Rayon du parfum, sert au filtre femme / homme de /avis-prix-beaute */
   gender?: "femme" | "homme";
   category: "parfums" | "maquillage" | "soins-visage" | "soins-corps" | "soins-cheveux" | "k-beauty" | "solaires" | "coffrets" | "box-beaute" | "bebe-maman";
@@ -43,6 +44,39 @@ export interface CommunityMerchantOffer {
 }
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
+  {
+    slug: "anua-kpop-demon-hunters-azelaic-acid-10-hyaluron-serum",
+    category: "k-beauty",
+    addedAt: "2026-09-10T18:10:00",
+    brand: "Anua",
+    name: "KPop Demon Hunters Azelaic Acid 10 + Hyaluron Serum 50 ml",
+    image: "/images/products/anua-kpop-demon-hunters/anua-azelaic-acid-serum-hero.jpg",
+    imageAlt: "Sérum Anua Azelaic Acid 10 + Hyaluron 50 ml avec sa boîte KPop Demon Hunters et son porte-clés gat",
+    gallery: [
+      { src: "/images/products/anua-kpop-demon-hunters/anua-azelaic-acid-serum-keyring.jpg", alt: "Flacon Anua Azelaic Acid 10 + Hyaluron avec le porte-clés gat Saja Boys" },
+      { src: "/images/products/anua-kpop-demon-hunters/anua-azelaic-acid-serum-texture.jpg", alt: "Texture légère du sérum vert Anua à l'acide azélaïque et à l'acide hyaluronique" },
+      { src: "/images/products/anua-kpop-demon-hunters/anua-azelaic-acid-serum-pipette.jpg", alt: "Pipette du sérum apaisant Anua Azelaic Acid 10 + Hyaluron" },
+      { src: "/images/products/anua-kpop-demon-hunters/anua-kpop-demon-hunters-box.jpg", alt: "Boîte édition KPop Demon Hunters du sérum Anua avec porte-clés gat offert" },
+    ],
+    teaser: "Notre test après un mois du sérum Anua à 10 % d'acide azélaïque : une texture agréable et une peau sensible visiblement plus apaisée.",
+    lead: "Nous avons reçu et testé pendant environ un mois cette édition KPop Demon Hunters du sérum Anua Azelaic Acid 10 + Hyaluron. Le flacon grand format de 50 ml est accompagné d'un porte-clés gat inspiré des Saja Boys.",
+    idealFor: ["Peaux sensibles sujettes aux rougeurs", "Imperfections et pores visibles", "Personnes recherchant une texture légère et hydratante"],
+    strengths: ["10 % d'acide azélaïque", "Acide hyaluronique hydratant", "Texture rapidement absorbée", "Grand format 50 ml", "Porte-clés collector inclus"],
+    watchOut: ["Introduire progressivement sur une peau réactive", "Éviter le contour des yeux", "Utiliser une protection solaire la journée", "Les résultats peuvent varier selon la peau"],
+    editorialNote: "Avis personnel après réception et environ un mois d'utilisation : J’adore ce sérum ! Dès la première application, ma peau était bien hydratée et apaisée. Sa texture est très agréable, pénètre rapidement et ne dessèche pas ma peau sensible. Après environ un mois d’utilisation, j’ai remarqué une vraie différence : moins de boutons et de rougeurs, ainsi que des pores moins visibles. Le grand format est également très appréciable. Je suis vraiment satisfaite et je le recommande !",
+    seoTitle: "Avis Anua Azelaic Acid 10 + Hyaluron KPop Demon Hunters",
+    seoDescription: "Test et avis après un mois du sérum Anua Azelaic Acid 10 + Hyaluron 50 ml édition KPop Demon Hunters : texture, résultats, photos et prix YesStyle.",
+    offers: [
+      {
+        merchant: "YesStyle",
+        note: "Lien affilié personnel NATHALIE83",
+        href: "https://www.yesstyle.com/fr/home.html?rco=NATHALIE83&utm_term=NATHALIE83&utm_medium=Influencer&utm_source=dynamic&mcg=influencer",
+        price: "20,14 €",
+        checkedAt: "2026-09-10",
+        offer: "26,86 € avant réduction, soit -25 % lors de notre vérification. Recherchez la référence 1137495930 sur YesStyle.",
+      },
+    ],
+  },
   {
     slug: "melvita-or-vegetal-serum-corps-hydra-perfecteur-100ml",
     category: "soins-corps",

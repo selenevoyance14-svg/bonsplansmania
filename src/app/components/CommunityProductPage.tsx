@@ -35,6 +35,7 @@ export default function CommunityProductPage({
   name,
   image,
   imageAlt,
+  gallery,
   lead,
   idealFor,
   strengths,
@@ -47,6 +48,7 @@ export default function CommunityProductPage({
   name: string;
   image: string;
   imageAlt: string;
+  gallery?: { src: string; alt: string }[];
   lead: string;
   idealFor?: string[];
   strengths?: string[];
@@ -92,6 +94,21 @@ export default function CommunityProductPage({
             </div>
           </div>
         </section>
+
+        {gallery && gallery.length > 0 && (
+          <section className="community-product-section">
+            <div className="container community-product-narrow">
+              <span className="community-section-kicker">Photos du test</span>
+              <h2>Le produit en images</h2>
+              <p className="community-section-intro">Photos réalisées après réception du produit : flacon, texture, pipette et édition collector KPop Demon Hunters.</p>
+              <div className="community-product-gallery">
+                {gallery.map((photo) => (
+                  <Image key={photo.src} src={photo.src} alt={photo.alt} width={520} height={720} sizes="(max-width: 680px) 100vw, 50vw" />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {(idealFor?.length || strengths?.length || watchOut?.length || editorialNote) && (
           <section className="community-product-section">
