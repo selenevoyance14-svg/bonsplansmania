@@ -44,6 +44,25 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "nivea-sun-eau-de-toilette-30ml",
+    category: "parfums",
+    gender: "femme",
+    addedAt: "2026-09-10T20:30:00",
+    brand: "NIVEA",
+    name: "NIVEA SUN Eau de toilette 30 ml",
+    image: "/images/products/nivea-sun-eau-de-toilette-30ml.jpg",
+    imageAlt: "Flacon NIVEA SUN Eau de toilette femme 30 ml",
+    teaser: "Le parfum estival inspiré de l'odeur iconique de la crème solaire NIVEA SUN, affiché à 33 € sur Amazon.",
+    lead: "NIVEA SUN Eau de toilette est une fragrance féminine estivale de 30 ml pour le corps et les cheveux. Elle associe des notes de tête citronnées, un cœur floral et boisé, puis un fond velouté et poudré rappelant la crème solaire emblématique de la marque.",
+    idealFor: ["Retrouver l'odeur de la crème solaire NIVEA SUN", "Les parfums frais et estivaux", "Parfumer le corps et les cheveux"],
+    strengths: ["Choix d'Amazon lors de notre vérification", "Plus de 10 000 évaluations Amazon", "Notes citronnées, florales et poudrées", "Format 30 ml facile à transporter"],
+    watchOut: ["Cette eau de toilette ne protège pas du soleil", "La tenue est jugée légère par certains utilisateurs", "La présentation Amazon de la variante peut prêter à confusion : vérifier le contenu avant de commander", "Prix susceptible d'évoluer"],
+    editorialNote: "Notre avis : cette eau de toilette est surtout intéressante pour son parfum immédiatement reconnaissable de crème solaire et son ambiance vacances. La tenue reste celle d'une fragrance légère ; elle conviendra mieux aux retouches qu'à celles qui recherchent un parfum très persistant.",
+    seoTitle: "NIVEA SUN Eau de toilette 30 ml : prix Amazon et avis",
+    seoDescription: "NIVEA SUN Eau de toilette femme 30 ml à 33 € sur Amazon : parfum de crème solaire, notes estivales, avis, points forts et prix.",
+    offers: [{ merchant: "Amazon", price: "33,00 €", checkedAt: "2026-09-10", note: "Eau de toilette corps et cheveux · vendue et expédiée par Amazon", href: "https://www.amazon.fr/dp/B07NBH69PL?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=2c7861f534b1da875ae13c8866d273f4&ref_=as_li_ss_tl", amazonAsin: "B07NBH69PL" }],
+  },
+  {
     slug: "cacharel-yummy-mist-vanilla-cotta-brume-100ml",
     category: "parfums",
     gender: "femme",
