@@ -1,7 +1,8 @@
 import { isAuthenticated, json, sameOrigin, type AdminEnv } from "./_auth";
 
 type DealAction = "update" | "raise" | "archive";
-type ActionBody = { slug?: string; action?: DealAction; price?: string };
+type DealChange = { slug?: string; action?: DealAction; price?: string };
+type ActionBody = DealChange & { changes?: DealChange[] };
 type GitHubFile = { sha?: string; content?: string; encoding?: string; message?: string };
 
 const OWNER = "selenevoyance14-svg";
@@ -24,15 +25,6 @@ function decodeBase64(value: string): string {
   return new TextDecoder().decode(bytes);
 }
 
-function encodeBase64(value: string): string {
-  const bytes = new TextEncoder().encode(value);
-  let binary = "";
-  for (let offset = 0; offset < bytes.length; offset += 8192) {
-    binary += String.fromCharCode(...bytes.subarray(offset, offset + 8192));
-  }
-  return btoa(binary);
-}
-
 function escapeRegExp(value: string): string {
   return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 }
@@ -40,6 +32,10 @@ function escapeRegExp(value: string): string {
 function readFrontmatterValue(source: string, key: string): string | undefined {
   const match = source.match(new RegExp(`^${escapeRegExp(key)}:\\s*(?:"([^"]*)"|'([^']*)'|(.+?))\\s*$`, "m"));
   return match ? match[1] ?? match[2] ?? match[3] : undefined;
+}
+
+function primaryEuroPrice(value?: string): string | undefined {
+  return value?.match(/\d{1,4}(?:[ .]\d{3})*(?:[,.]\d{1,2})?\s*€/u)?.[0];
 }
 
 function setFrontmatterValue(source: string, key: string, value: string | boolean): string {
@@ -56,8 +52,10 @@ function updateArticle(source: string, action: DealAction, requestedPrice?: stri
   const price = requestedPrice?.trim();
   if (action !== "archive" && price) {
     const previousPrice = readFrontmatterValue(next, "price");
-    if (previousPrice && previousPrice !== price) {
-      next = next.replace(new RegExp(escapeRegExp(previousPrice), "g"), price);
+    const previousPrimaryPrice = primaryEuroPrice(previousPrice) || primaryEuroPrice(readFrontmatterValue(next, "title"));
+    const requestedPrimaryPrice = primaryEuroPrice(price);
+    if (previousPrimaryPrice && requestedPrimaryPrice && previousPrimaryPrice !== requestedPrimaryPrice) {
+      next = next.replace(new RegExp(escapeRegExp(previousPrimaryPrice), "g"), requestedPrimaryPrice);
     }
     next = setFrontmatterValue(next, "price", price);
   }
@@ -84,6 +82,64 @@ async function githubRequest(path: string, token: string, init?: RequestInit): P
   });
 }
 
+async function readArticle(slug: string, token: string): Promise<{ source: string; path: string }> {
+  const path = `content/${slug}.mdx`;
+  const response = await githubRequest(`/contents/${encodeURIComponent(path)}?ref=${BRANCH}`, token);
+  const file = await response.json<GitHubFile>();
+  if (!response.ok || !file.content) {
+    throw new Error(response.status === 404 ? `Article introuvable : ${slug}` : `Lecture impossible : ${slug}`);
+  }
+  return { source: decodeBase64(file.content), path };
+}
+
+async function commitChanges(changes: Array<{ path: string; content: string }>, token: string): Promise<string | undefined> {
+  const refResponse = await githubRequest(`/git/ref/heads/${BRANCH}`, token);
+  const ref = await refResponse.json<{ object?: { sha?: string } }>();
+  const parentSha = ref.object?.sha;
+  if (!refResponse.ok || !parentSha) throw new Error("Impossible de lire la branche principale.");
+
+  const commitResponse = await githubRequest(`/git/commits/${parentSha}`, token);
+  const parentCommit = await commitResponse.json<{ tree?: { sha?: string } }>();
+  const baseTree = parentCommit.tree?.sha;
+  if (!commitResponse.ok || !baseTree) throw new Error("Impossible de préparer la publication.");
+
+  const tree = await Promise.all(changes.map(async (change) => {
+    const blobResponse = await githubRequest("/git/blobs", token, {
+      method: "POST",
+      body: JSON.stringify({ content: change.content, encoding: "utf-8" }),
+    });
+    const blob = await blobResponse.json<{ sha?: string }>();
+    if (!blobResponse.ok || !blob.sha) throw new Error(`Impossible de préparer ${change.path}.`);
+    return { path: change.path, mode: "100644", type: "blob", sha: blob.sha };
+  }));
+
+  const treeResponse = await githubRequest("/git/trees", token, {
+    method: "POST",
+    body: JSON.stringify({ base_tree: baseTree, tree }),
+  });
+  const newTree = await treeResponse.json<{ sha?: string }>();
+  if (!treeResponse.ok || !newTree.sha) throw new Error("Impossible de créer le lot de modifications.");
+
+  const newCommitResponse = await githubRequest("/git/commits", token, {
+    method: "POST",
+    body: JSON.stringify({
+      message: `Publie ${changes.length} modification${changes.length > 1 ? "s" : ""} depuis l’administration`,
+      tree: newTree.sha,
+      parents: [parentSha],
+      committer: { name: "Bons Plans Mania", email: "contact@bonsplansmania.fr" },
+    }),
+  });
+  const newCommit = await newCommitResponse.json<{ sha?: string }>();
+  if (!newCommitResponse.ok || !newCommit.sha) throw new Error("Impossible de créer le commit de publication.");
+
+  const updateRefResponse = await githubRequest(`/git/refs/heads/${BRANCH}`, token, {
+    method: "PATCH",
+    body: JSON.stringify({ sha: newCommit.sha, force: false }),
+  });
+  if (!updateRefResponse.ok) throw new Error("Le site vient d’être modifié ailleurs. Recharge la page et republie le lot.");
+  return newCommit.sha.slice(0, 7);
+}
+
 export const onRequestPost: PagesFunction<AdminEnv> = async ({ request, env }) => {
   if (!sameOrigin(request)) return json({ error: "Requête refusée." }, 403);
   if (!await isAuthenticated(request, env)) return json({ error: "Connexion administrateur requise." }, 401);
@@ -95,53 +151,31 @@ export const onRequestPost: PagesFunction<AdminEnv> = async ({ request, env }) =
   } catch {
     return json({ error: "Requête invalide." }, 400);
   }
-  const slug = body.slug?.trim() || "";
-  const action = body.action;
-  const price = body.price?.trim() || "";
-  if (!/^[a-z0-9-]{3,180}$/.test(slug) || !action || !["update", "raise", "archive"].includes(action)) {
-    return json({ error: "Action ou article invalide." }, 400);
+  const requestedChanges = body.changes?.length ? body.changes : [body];
+  if (requestedChanges.length > 100) return json({ error: "Le lot est limité à 100 modifications." }, 400);
+  const normalized = requestedChanges.map((change) => ({
+    slug: change.slug?.trim() || "",
+    action: change.action,
+    price: change.price?.trim() || "",
+  }));
+  if (normalized.some((change) => !/^[a-z0-9-]{3,180}$/.test(change.slug) || !change.action || !["update", "raise", "archive"].includes(change.action))) {
+    return json({ error: "Une action ou un article du lot est invalide." }, 400);
   }
-  if (price.length > 80) return json({ error: "Le prix saisi est trop long." }, 400);
+  if (normalized.some((change) => change.price.length > 80)) return json({ error: "Un prix saisi est trop long." }, 400);
 
-  const filePath = `content/${slug}.mdx`;
-  const getResponse = await githubRequest(`/contents/${encodeURIComponent(filePath)}?ref=${BRANCH}`, env.GITHUB_TOKEN);
-  const file = await getResponse.json<GitHubFile>();
-  if (!getResponse.ok || !file.sha || !file.content) {
-    return json({ error: getResponse.status === 404 ? "Article introuvable dans le dépôt." : "Impossible de lire l’article sur GitHub." }, getResponse.status === 404 ? 404 : 502);
-  }
-
-  let updatedContent: string;
   try {
-    updatedContent = updateArticle(decodeBase64(file.content), action, price);
-  } catch {
-    return json({ error: "Le format de cet article ne peut pas être modifié automatiquement." }, 422);
+    const files = await Promise.all(normalized.map(async (change) => {
+      const article = await readArticle(change.slug, env.GITHUB_TOKEN);
+      return { path: article.path, content: updateArticle(article.source, change.action!, change.price) };
+    }));
+    const commit = await commitChanges(files, env.GITHUB_TOKEN);
+    return json({
+      ok: true,
+      count: files.length,
+      commit,
+      message: `${files.length} modification${files.length > 1 ? "s" : ""} publiée${files.length > 1 ? "s" : ""} en un seul envoi. La mise en ligne est lancée.`,
+    });
+  } catch (error) {
+    return json({ error: error instanceof Error ? error.message : "La publication GitHub a échoué." }, 502);
   }
-
-  const verb = action === "archive" ? "Archive" : action === "raise" ? "Met à jour et remonte" : "Met à jour";
-  const putResponse = await githubRequest(`/contents/${encodeURIComponent(filePath)}`, env.GITHUB_TOKEN, {
-    method: "PUT",
-    body: JSON.stringify({
-      message: `${verb} ${slug} depuis l’administration`,
-      content: encodeBase64(updatedContent),
-      sha: file.sha,
-      branch: BRANCH,
-      committer: { name: "Bons Plans Mania", email: "contact@bonsplansmania.fr" },
-    }),
-  });
-  const result = await putResponse.json<{ commit?: { sha?: string }; message?: string }>();
-  if (!putResponse.ok) {
-    return json({ error: putResponse.status === 409 ? "L’article vient d’être modifié. Recharge la page et réessaie." : "La publication GitHub a échoué." }, putResponse.status === 409 ? 409 : 502);
-  }
-
-  return json({
-    ok: true,
-    action,
-    slug,
-    commit: result.commit?.sha?.slice(0, 7),
-    message: action === "archive"
-      ? "Offre archivée. La mise en ligne est lancée."
-      : action === "raise"
-        ? "Offre mise à jour et remontée. La mise en ligne est lancée."
-        : "Offre mise à jour. La mise en ligne est lancée.",
-  });
 };

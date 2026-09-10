@@ -11,8 +11,10 @@ export type CockpitSummary = { totalActive: number; totalCodes: number; totalArc
 type AmazonOffer = { title?: string | null; image?: string | null; price?: string | null; oldPrice?: string | null; savingsPercent?: number | null; availability?: string | null; inStock?: boolean; checkedAt?: string; error?: string };
 type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: string | null; error?: string };
 type PriceDrop = { slug: string; asin: string; title?: string; price: number; displayPrice: string; previousPrice?: number; change?: number; changePercent?: number; checkedAt: string };
+type PendingChange = { slug: string; title: string; action: "update" | "raise" | "archive"; price: string };
 
 const REMINDERS_KEY = "bonsplansmania:deal-reminders";
+const PENDING_CHANGES_KEY = "bonsplansmania:pending-changes";
 const statusLabel: Record<DealStatus, string> = { ok: "À jour", scheduled: "Contrôle programmé", due: "À contrôler aujourd’hui", unchecked: "Non contrôlé", unavailable: "Indisponible", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien inaccessible", expiring: "Expire bientôt" };
 
 function currentStatus(deal: CockpitDeal, amazonOffer?: AmazonOffer, linkResult?: LinkMonitor, reminder?: string): DealStatus {
@@ -47,8 +49,9 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [authenticated, setAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [password, setPassword] = useState("");
-  const [actionPending, setActionPending] = useState<"update" | "raise" | "archive" | null>(null);
+  const [actionPending, setActionPending] = useState<"publish" | null>(null);
   const [actionError, setActionError] = useState("");
+  const [pendingChanges, setPendingChanges] = useState<PendingChange[]>([]);
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
   const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug], reminders[deal.slug]);
   const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (section === "deals" || (section === "codes" ? deal.category === "code-promo" : section === "homepage" ? deal.onHomepage : Boolean(priceDrops[deal.slug]))) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
@@ -78,6 +81,14 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     if (!saved) return;
     queueMicrotask(() => {
       try { setReminders(JSON.parse(saved) as Record<string, string>); } catch { localStorage.removeItem(REMINDERS_KEY); }
+    });
+  }, []);
+
+  useEffect(() => {
+    const saved = localStorage.getItem(PENDING_CHANGES_KEY);
+    if (!saved) return;
+    queueMicrotask(() => {
+      try { setPendingChanges(JSON.parse(saved) as PendingChange[]); } catch { localStorage.removeItem(PENDING_CHANGES_KEY); }
     });
   }, []);
 
@@ -120,21 +131,33 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     window.setTimeout(() => setToast(""), 4500);
   }
 
-  async function publishAction(action: "update" | "raise" | "archive") {
-    if (!active || actionPending) return;
-    if (!authenticated) {
-      setActionError("");
-      setShowLogin(true);
-      return;
-    }
-    setActionPending(action);
+  function queueAction(action: "update" | "raise" | "archive") {
+    if (!active) return;
+    const change: PendingChange = { slug: active.slug, title: active.title, action, price: editablePrice.trim() };
+    const next = [...pendingChanges.filter((item) => item.slug !== active.slug), change];
+    setPendingChanges(next);
+    localStorage.setItem(PENDING_CHANGES_KEY, JSON.stringify(next));
+    setToast(action === "archive" ? "Archivage ajouté au lot." : action === "raise" ? "Mise à jour et remontée ajoutées au lot." : "Mise à jour ajoutée au lot.");
+    window.setTimeout(() => setToast(""), 3500);
+  }
+
+  function removePending(slug: string) {
+    const next = pendingChanges.filter((change) => change.slug !== slug);
+    setPendingChanges(next);
+    localStorage.setItem(PENDING_CHANGES_KEY, JSON.stringify(next));
+  }
+
+  async function publishPending() {
+    if (!pendingChanges.length || actionPending) return;
+    if (!authenticated) { setActionError(""); setShowLogin(true); return; }
+    setActionPending("publish");
     setActionError("");
     try {
       const response = await fetch("/api/admin/deal-action", {
         method: "POST",
         credentials: "same-origin",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ slug: active.slug, action, price: editablePrice.trim() }),
+        body: JSON.stringify({ changes: pendingChanges.map(({ slug, action, price }) => ({ slug, action, price })) }),
       });
       const payload = await response.json() as { message?: string; error?: string; commit?: string };
       if (response.status === 401) {
@@ -144,6 +167,8 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       }
       if (!response.ok) throw new Error(payload.error || "La publication a échoué.");
       setToast(`${payload.message || "Publication lancée."}${payload.commit ? ` Commit ${payload.commit}.` : ""}`);
+      setPendingChanges([]);
+      localStorage.removeItem(PENDING_CHANGES_KEY);
       window.setTimeout(() => setToast(""), 7000);
     } catch (error) {
       setActionError(error instanceof Error ? error.message : "La publication a échoué.");
@@ -259,10 +284,11 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
           {amazonOffer?.oldPrice ? <p className={styles.amazonSaving}>Prix précédent affiché : <b>{amazonOffer.oldPrice}</b>{amazonOffer.savingsPercent ? ` · -${amazonOffer.savingsPercent}%` : ""}</p> : null}
           {activePriceDrop ? <div className={styles.priceDropCard}><ArrowDown size={18}/><div><b>Vraie baisse constatée : {activePriceDrop.changePercent}%</b><small>{activePriceDrop.previousPrice?.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} → {activePriceDrop.displayPrice} · relevé le {new Date(activePriceDrop.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           <div className={styles.reminderBox}><b><CalendarClock size={16}/> Programmer le prochain contrôle</b><div className={styles.reminderPresets}><button onClick={() => scheduleIn(active.slug, 1)}>Demain</button><button onClick={() => scheduleIn(active.slug, 3)}>Dans 3 jours</button><button onClick={() => scheduleIn(active.slug, 7)}>Dans 7 jours</button></div><label>Date précise<input type="date" min={new Date().toLocaleDateString("sv-SE")} value={reminders[active.slug] || ""} onChange={(event) => saveReminder(active.slug, event.target.value || undefined)}/></label>{reminders[active.slug] ? <p>Prochain contrôle le <strong>{new Date(`${reminders[active.slug]}T12:00:00`).toLocaleDateString("fr-FR")}</strong> <button onClick={() => saveReminder(active.slug)}>Annuler</button></p> : null}</div>
-          <div className={styles.actionInfo}><b>Actions de la fiche {authenticated ? <span className={styles.connected}>Connectée</span> : null}</b><p>Chaque action modifie directement l’article sur le dépôt principal et lance sa mise en ligne.</p></div>
+          <div className={styles.actionInfo}><b>Actions de la fiche {authenticated ? <span className={styles.connected}>Connectée</span> : null}</b><p>Ajoute tes corrections au lot, puis publie tout en une fois : un seul push et une seule mise en ligne.</p></div>
           {showLogin ? <form className={styles.loginBox} onSubmit={login}><label>Mot de passe administrateur<input type="password" autoFocus value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password"/></label><div><button type="button" onClick={() => { setShowLogin(false); setActionError(""); }}>Annuler</button><button type="submit">Se connecter</button></div></form> : null}
           {actionError ? <p className={styles.actionError}><AlertTriangle size={15}/> {actionError}</p> : null}
-          <button className={styles.updateOnly} disabled={Boolean(actionPending)} onClick={() => publishAction("update")}>{actionPending === "update" ? <LoaderCircle className={styles.spin} size={16}/> : <Check size={16}/>} Mettre à jour seulement</button><button className={styles.updateAndRaise} disabled={Boolean(actionPending)} onClick={() => publishAction("raise")}>{actionPending === "raise" ? <LoaderCircle className={styles.spin} size={16}/> : <ArrowUp size={16}/>} Mettre à jour et remonter</button><button className={styles.archiveButton} disabled={Boolean(actionPending)} onClick={() => publishAction("archive")}>{actionPending === "archive" ? <LoaderCircle className={styles.spin} size={16}/> : <Archive size={16}/>} Archiver l’offre</button>
+          <button className={styles.updateOnly} disabled={Boolean(actionPending)} onClick={() => queueAction("update")}><Check size={16}/> Ajouter : mettre à jour</button><button className={styles.updateAndRaise} disabled={Boolean(actionPending)} onClick={() => queueAction("raise")}><ArrowUp size={16}/> Ajouter : mettre à jour et remonter</button><button className={styles.archiveButton} disabled={Boolean(actionPending)} onClick={() => queueAction("archive")}><Archive size={16}/> Ajouter : archiver</button>
+          {pendingChanges.length ? <div className={styles.pendingBox}><b>{pendingChanges.length} modification{pendingChanges.length > 1 ? "s" : ""} en attente</b><div>{pendingChanges.map((change) => <p key={change.slug}><span>{change.title}</span><button onClick={() => removePending(change.slug)} aria-label={`Retirer ${change.title}`}>×</button></p>)}</div><button disabled={Boolean(actionPending)} onClick={publishPending}>{actionPending === "publish" ? <LoaderCircle className={styles.spin} size={16}/> : <Check size={16}/>} Publier toutes les modifications</button></div> : null}
           <button className={styles.copyFallback} onClick={() => copyAction("update")}>Copier la demande pour Codex</button>
         </> : null}</aside>
       </div>
