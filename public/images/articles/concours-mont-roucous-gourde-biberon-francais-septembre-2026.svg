@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630" role="img" aria-labelledby="title desc">
+  <title id="title">Concours Mont Roucous : 10 gourdes à gagner</title>
+  <desc id="desc">Visuel bleu et rose annonçant dix gourdes Le Biberon Français à gagner avec Mont Roucous.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#eaf8ff"/><stop offset="1" stop-color="#fff1f6"/></linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="12" stdDeviation="14" flood-color="#174c78" flood-opacity=".18"/></filter>
+  </defs>
+  <rect width="1200" height="630" rx="34" fill="url(#bg)"/><circle cx="1080" cy="100" r="170" fill="#e7548a" opacity=".12"/><circle cx="105" cy="565" r="210" fill="#58bce8" opacity=".16"/>
+  <text x="72" y="88" font-family="Arial,Helvetica,sans-serif" font-size="32" font-weight="700" fill="#1677ae">MONT ROUCOUS × LE BIBERON FRANÇAIS</text>
+  <text x="72" y="180" font-family="Arial,Helvetica,sans-serif" font-size="72" font-weight="800" fill="#13253c">10 GOURDES</text><text x="72" y="252" font-family="Arial,Helvetica,sans-serif" font-size="60" font-weight="800" fill="#e33f78">À GAGNER</text>
+  <text x="74" y="318" font-family="Arial,Helvetica,sans-serif" font-size="30" fill="#40536a">Jeu gratuit • Tirage le 16 septembre 2026</text>
+  <g transform="translate(775 95)" filter="url(#shadow)"><rect x="42" y="42" width="210" height="400" rx="78" fill="#fff" stroke="#62bee4" stroke-width="12"/><rect x="82" width="130" height="72" rx="28" fill="#e84d85"/><rect x="102" y="-20" width="90" height="35" rx="16" fill="#f7a6c2"/><path d="M88 178c38-42 78-42 118 0-19 57-97 57-118 0Z" fill="#62bee4" opacity=".82"/><circle cx="146" cy="248" r="42" fill="#f8c6d7"/><path d="M126 245c13 17 28 17 41 0" fill="none" stroke="#e33f78" stroke-width="7" stroke-linecap="round"/><circle cx="130" cy="230" r="5" fill="#173b5a"/><circle cx="163" cy="230" r="5" fill="#173b5a"/><text x="147" y="365" text-anchor="middle" font-family="Arial,Helvetica,sans-serif" font-size="22" font-weight="700" fill="#1677ae">MONT ROUCOUS</text></g>
+  <rect x="72" y="388" width="550" height="112" rx="24" fill="#fff" opacity=".92"/><text x="104" y="437" font-family="Arial,Helvetica,sans-serif" font-size="25" font-weight="700" fill="#13253c">10 GAGNANTS TIRÉS AU SORT</text><text x="104" y="474" font-family="Arial,Helvetica,sans-serif" font-size="24" fill="#40536a">Participation via le formulaire officiel</text>
+</svg>
