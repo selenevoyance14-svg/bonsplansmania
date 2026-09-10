@@ -44,6 +44,24 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "lierac-phytolastil-gel-prevention-vergetures-400ml",
+    category: "bebe-maman",
+    addedAt: "2026-09-10T21:10:00",
+    brand: "Lierac",
+    name: "Phytolastil Gel Prévention Vergetures 400 ml",
+    image: "/images/products/lierac-phytolastil-gel-vergetures-400ml.jpg",
+    imageAlt: "Flacon Lierac Phytolastil gel prévention vergetures 400 ml",
+    teaser: "Un gel corps hydratant conçu pour accompagner les périodes de grossesse ou de variation de poids, à 18,59 € au lieu de 30 € sur Amazon.",
+    lead: "Lierac Phytolastil est un gel hydratant et apaisant de 400 ml destiné aux zones sujettes aux vergetures lors de la grossesse, de la puberté ou de variations de poids. Il s'applique matin et soir par massage jusqu'à absorption.",
+    idealFor: ["Une routine corps pendant la grossesse", "Les périodes de variation de poids", "Les peaux sujettes aux tiraillements"],
+    strengths: ["Réduction de 38 % lors de notre vérification", "Grand format 400 ml", "Choix d'Amazon", "Plus de 200 achats le mois dernier selon Amazon"],
+    watchOut: ["Aucun soin ne garantit l'absence de vergetures", "Les résultats peuvent varier selon la peau et la régularité d'application", "Demander conseil à un professionnel de santé en cas de doute pendant la grossesse", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : à 18,59 €, le grand format 400 ml devient intéressant pour une application régulière sur plusieurs zones. Il faut toutefois présenter ce type de soin comme un accompagnement hydratant et non comme une garantie contre les vergetures.",
+    seoTitle: "Lierac Phytolastil 400 ml : prix Amazon et avis",
+    seoDescription: "Lierac Phytolastil gel prévention vergetures 400 ml à 18,59 € au lieu de 30 € sur Amazon : utilisation, réduction, précautions et avis.",
+    offers: [{ merchant: "Amazon", price: "18,59 €", checkedAt: "2026-09-10", offer: "-38 % · prix conseillé 30 €", note: "Gel hydratant anti-vergetures 400 ml · vendu et expédié par Amazon", href: "https://www.amazon.fr/dp/B0CX925B1R?psc=1&linkCode=ll2&tag=lebrunnathali-21&linkId=5451910ff58813c08df78574c4f12409&ref_=as_li_ss_tl", amazonAsin: "B0CX925B1R" }],
+  },
+  {
     slug: "lierac-body-sculpt-creme-morpho-regalbante",
     category: "soins-corps",
     addedAt: "2026-09-10T21:00:00",
