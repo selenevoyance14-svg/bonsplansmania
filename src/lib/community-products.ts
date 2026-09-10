@@ -44,6 +44,24 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "vichy-ideal-soleil-lait-auto-bronzant-100ml",
+    category: "soins-corps",
+    addedAt: "2026-09-10T21:30:00",
+    brand: "Vichy",
+    name: "Idéal Soleil Lait Auto-Bronzant 100 ml",
+    image: "/images/products/vichy-ideal-soleil-lait-auto-bronzant-100ml.jpg",
+    imageAlt: "Tube Vichy Idéal Soleil lait hydratant auto-bronzant visage et corps 100 ml",
+    teaser: "Un lait auto-bronzant visage et corps pour un hâle progressif sans exposition, affiché à 12,70 € au lieu de 18,74 € sur Amazon.",
+    lead: "Vichy Idéal Soleil est un lait hydratant auto-bronzant de 100 ml pour le visage et le corps. Sa texture fondante vise un résultat uniforme et naturel, avec une hydratation annoncée jusqu'à huit heures.",
+    idealFor: ["Obtenir un hâle sans exposition au soleil", "Le visage et le corps", "Tous les types de peau"],
+    strengths: ["Réduction de 32 % lors de notre vérification", "Hydratation annoncée jusqu'à 8 heures", "Choix d'Amazon", "Plus de 600 achats le mois dernier selon Amazon"],
+    watchOut: ["Ce produit ne protège pas des UV", "Exfolier et hydrater les zones sèches aide à obtenir un résultat uniforme", "Bien estomper puis se laver les mains après application", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : à 12,70 €, ce lait Vichy constitue une option accessible pour obtenir progressivement un hâle sans soleil. Une préparation soignée de la peau et une application régulière restent essentielles pour limiter les traces.",
+    seoTitle: "Vichy Idéal Soleil autobronzant 100 ml : prix et avis",
+    seoDescription: "Vichy Idéal Soleil lait auto-bronzant visage et corps 100 ml à 12,70 € au lieu de 18,74 € sur Amazon : utilisation, prix et avis.",
+    offers: [{ merchant: "Amazon", price: "12,70 €", checkedAt: "2026-09-10", offer: "-32 % · prix conseillé 18,74 €", note: "Lait auto-bronzant visage et corps 100 ml · vendu et expédié par Amazon", href: "https://www.amazon.fr/dp/B000V3IQGQ?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=bb2155c6f7219224b70474c1e5460f11&ref_=as_li_ss_tl", amazonAsin: "B000V3IQGQ" }],
+  },
+  {
     slug: "lierac-body-sculpt-concentre-cryoactif-150ml",
     category: "soins-corps",
     addedAt: "2026-09-10T21:20:00",
