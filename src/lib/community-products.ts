@@ -44,6 +44,25 @@ export interface CommunityMerchantOffer {
 
 export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
   {
+    slug: "biotherm-eau-vitaminee-energie-abricot-100ml",
+    category: "parfums",
+    gender: "femme",
+    addedAt: "2026-09-10T20:50:00",
+    brand: "Biotherm",
+    name: "Eau Vitaminée Énergie Abricot 100 ml",
+    image: "/images/products/biotherm-eau-vitaminee-energie-abricot-100ml.jpg",
+    imageAlt: "Flacon Biotherm Eau Vitaminée Énergie Abricot 100 ml",
+    teaser: "Une eau corporelle fruitée et rafraîchissante aux notes d'abricot, proposée à 41 € sur Amazon.",
+    lead: "Biotherm Eau Vitaminée Énergie Abricot est une eau de toilette corporelle de 100 ml à la senteur fruitée. Ses notes d'abricot juteux créent une fragrance fraîche et lumineuse à vaporiser après la douche, le sport ou au cours de la journée.",
+    idealFor: ["Les parfums fruités", "Les amateurs d'abricot", "Une brume fraîche après la douche ou le sport"],
+    strengths: ["Format généreux 100 ml", "Senteur d'abricot fraîche et fruitée", "Choix d'Amazon lors de notre vérification", "Vendue et expédiée par Amazon"],
+    watchOut: ["Éviter le visage et les yeux", "Tenue plus légère qu'une eau de parfum", "Prix Amazon susceptible d'évoluer"],
+    editorialNote: "Notre avis : cette déclinaison Énergie Abricot mise sur une senteur fruitée, lumineuse et facile à porter. Elle complète bien les versions Citron et Berry pour celles qui préfèrent les accords doux et solaires.",
+    seoTitle: "Biotherm Eau Vitaminée Abricot 100 ml : prix et avis",
+    seoDescription: "Biotherm Eau Vitaminée Énergie Abricot 100 ml à 41 € sur Amazon : senteur fruitée, utilisation, prix, points forts et avis.",
+    offers: [{ merchant: "Amazon", price: "41,00 €", checkedAt: "2026-09-10", note: "Eau de toilette corporelle 100 ml · vendue et expédiée par Amazon", href: "https://www.amazon.fr/dp/B0GWQTLJDK?linkCode=ll2&tag=lebrunnathali-21&linkId=a964a90954c48249d28184220146012a&ref_=as_li_ss_tl", amazonAsin: "B0GWQTLJDK" }],
+  },
+  {
     slug: "biotherm-eau-vitaminee-impulsion-citron-100ml",
     category: "parfums",
     gender: "femme",
