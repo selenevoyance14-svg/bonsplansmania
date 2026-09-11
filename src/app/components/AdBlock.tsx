@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type AdFormat = "display" | "in-article" | "multiplex";
 
@@ -9,7 +9,10 @@ interface AdBlockProps {
   format?: AdFormat;
   slot?: string; // override optionnel
   compactMultiplex?: boolean;
+  collapseWhenEmpty?: boolean;
 }
+
+type AdState = "loading" | "filled" | "empty";
 
 declare global {
   interface Window {
@@ -24,9 +27,17 @@ const SLOTS: Record<AdFormat, string> = {
   "multiplex": "4554643083",     // BPM Multiplex (autorelaxed)
 };
 
-export default function AdBlock({ className = "", format = "display", slot, compactMultiplex = false }: AdBlockProps) {
+export default function AdBlock({
+  className = "",
+  format = "display",
+  slot,
+  compactMultiplex = false,
+  collapseWhenEmpty = false,
+}: AdBlockProps) {
   const adRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
+  const [adState, setAdState] = useState<AdState>("loading");
+  const slotId = slot ?? SLOTS[format];
 
   useEffect(() => {
     if (pushed.current) return;
@@ -38,11 +49,61 @@ export default function AdBlock({ className = "", format = "display", slot, comp
     }
   }, []);
 
-  const slotId = slot ?? SLOTS[format];
+  useEffect(() => {
+    if (!collapseWhenEmpty) return;
+
+    const ad = adRef.current;
+    if (!ad) return;
+    const isLocalPreview = window.location.hostname === "localhost";
+
+    const updateState = () => {
+      if (isLocalPreview) return;
+      const status = ad.dataset.adStatus;
+      if (status === "filled") setAdState("filled");
+      if (status === "unfilled") setAdState("empty");
+    };
+
+    updateState();
+    const observer = new MutationObserver(updateState);
+    observer.observe(ad, {
+      attributes: true,
+      attributeFilter: ["data-ad-status"],
+      childList: true,
+      subtree: true,
+    });
+
+    // Si AdSense est bloqué ou ne répond pas, on évite de conserver un grand
+    // emplacement vide. En local, le délai est raccourci pour la prévisualisation.
+    const timeout = window.setTimeout(() => {
+      const status = ad.dataset.adStatus;
+      if (isLocalPreview) {
+        setAdState("empty");
+        return;
+      }
+      // En production, la présence de l’iframe confirme également qu’une
+      // création publicitaire a été injectée, même si le statut tarde à arriver.
+      const hasCreative = Boolean(ad.querySelector("iframe"));
+      setAdState(status === "filled" || hasCreative ? "filled" : "empty");
+    }, isLocalPreview ? 300 : 6000);
+
+    return () => {
+      observer.disconnect();
+      window.clearTimeout(timeout);
+    };
+  }, [collapseWhenEmpty, slotId]);
+
+  const hidden = collapseWhenEmpty && adState === "empty";
+  const adStateProps = collapseWhenEmpty
+    ? { "data-ad-state": adState, "aria-hidden": hidden || undefined }
+    : {};
 
   if (format === "in-article") {
     return (
-      <div className={`ad-container ad-in-article ${className}`} style={{ textAlign: "center", margin: "32px 0", overflow: "hidden" }}>
+      <div
+        className={`ad-container ad-in-article ${className}`}
+        style={{ textAlign: "center", margin: hidden ? 0 : "32px 0", maxHeight: hidden ? 0 : undefined, overflow: "hidden" }}
+        {...adStateProps}
+      >
         <ins
           className="adsbygoogle"
           style={{ display: "block", textAlign: "center" }}
@@ -58,7 +119,11 @@ export default function AdBlock({ className = "", format = "display", slot, comp
 
   if (format === "multiplex") {
     return (
-      <div className={`ad-container ad-multiplex ${className}`} style={{ margin: "40px 0", overflow: "hidden" }}>
+      <div
+        className={`ad-container ad-multiplex ${className}`}
+        style={{ margin: hidden ? 0 : "40px 0", maxHeight: hidden ? 0 : undefined, overflow: "hidden" }}
+        {...adStateProps}
+      >
         <ins
           className="adsbygoogle"
           style={{ display: "block" }}
@@ -77,7 +142,17 @@ export default function AdBlock({ className = "", format = "display", slot, comp
   }
 
   return (
-    <div className={`ad-container ${className}`} style={{ textAlign: "center", margin: "24px 0", minHeight: "250px", overflow: "hidden" }}>
+    <div
+      className={`ad-container ${className}`}
+      style={{
+        textAlign: "center",
+        margin: hidden ? 0 : "24px 0",
+        minHeight: collapseWhenEmpty ? undefined : "250px",
+        maxHeight: hidden ? 0 : undefined,
+        overflow: "hidden",
+      }}
+      {...adStateProps}
+    >
       <ins
         className="adsbygoogle"
         style={{ display: "block" }}

@@ -2,17 +2,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Search } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
-import { BRAND_OF_THE_WEEK } from "@/lib/highlight-brand";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import Header from "@/app/components/Header";
-import DealCarousel from "./DealCarousel";
 import EditorialNewsletter from "./EditorialNewsletter";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
-import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 import styles from "./refonte.module.css";
 
 const labels: Record<string, string> = {
@@ -33,7 +30,6 @@ const HOMEPAGE_EDITORIAL_CATEGORIES = new Set([
   "test-avis",
   "comparatif",
   "selection",
-  "code-promo",
 ]);
 
 function formatDate(date: string) {
@@ -90,20 +86,18 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
   return selected;
 }
 
-export default function RefontePreviewPage() {
+export default function RefontePreviewPage({ page = 1 }: { page?: number } = {}) {
+  const currentPage = Math.min(3, Math.max(1, page));
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
   const homepageEligible = active.filter(
     (article) => !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
   );
-  const homepageDeals = selectDiverse(homepageEligible, 15);
-  const heroDeals = homepageDeals.slice(0, 4);
-  const latest = homepageDeals.slice(4, 8);
-  const deals = homepageDeals.slice(8, 15);
+  const homepageDeals = selectDiverse(homepageEligible, 120);
+  const deals = homepageDeals.slice((currentPage - 1) * 40, currentPage * 40);
   const freeTests = active
     .filter((article) => FREE_TEST_CATEGORIES.has(article.meta.category))
     .slice(0, 4);
   const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
-  const beautyProducts = COMMUNITY_PRODUCTS.slice(0, 4);
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -133,7 +127,6 @@ export default function RefontePreviewPage() {
 
         <section className={styles.hero}>
           <div className={styles.heroCopy}>
-            <span className={styles.kicker}>La sélection Bons Plans Mania</span>
             <h1>Bons plans, codes promo et <em>offres du moment</em></h1>
             <p>Promotions, box beauté, tests gratuits et concours : une sélection claire, vérifiée et mise à jour chaque jour.</p>
             <form action="/recherche" className={styles.search}>
@@ -142,63 +135,12 @@ export default function RefontePreviewPage() {
               <button type="submit">Rechercher</button>
             </form>
           </div>
-          <DealCarousel slides={heroDeals.map(({ meta }) => ({ slug:meta.slug, title:formatCardTitle(meta.title), image:meta.image, imageAlt:meta.imageAlt, label:labels[meta.category] ?? "Sélection de la rédaction", date:`vérifié le ${formatDate(meta.updated ?? meta.date)}`, price:meta.price, amazonAsin:meta.amazonAsin, directOffer:true, merchantHref:merchantHref(meta.slug, meta.affiliateUrl) }))} />
-        </section>
-      </div>
-
-      <section className={styles.trust} aria-label="Nos engagements">
-        {["Offres sélectionnées", "Mise à jour quotidienne", "Prix clairement affichés", "Liens transparents"].map((item) => (
-          <span key={item}><Check size={15} /> {item}</span>
-        ))}
-      </section>
-
-      <section className={styles.latestStrip} aria-label="Dernières publications">
-        <header><h2>Les dernières nouveautés</h2></header>
-        <div>
-        {latest.map(({ meta }) => {
-          const linksToMerchant = hasDirectMerchantCta({
-            category: meta.category,
-            affiliateUrl: meta.affiliateUrl,
-            expired: false,
-            endDate: meta.endDate,
-          });
-
-          return (
-          <Link
-            href={linksToMerchant ? merchantHref(meta.slug, meta.affiliateUrl) : `/article/${meta.slug}`}
-            key={meta.slug}
-            className={styles.latestItem}
-            target={linksToMerchant ? "_blank" : undefined}
-            rel={linksToMerchant ? "nofollow sponsored noopener" : undefined}
-          >
-            <Image src={meta.image} alt={meta.imageAlt} width={128} height={96} />
-            <span>
-              <small>{labels[meta.category] ?? "Nouveau"}</small>
-              <strong>{formatCardTitle(meta.title)}</strong>
-              {(meta.amazonAsin || meta.price) && (
-                <b className={styles.latestPrice}>
-                  <AmazonCardPrice asin={meta.amazonAsin} fallback={meta.price || "Prix à vérifier"} />
-                </b>
-              )}
-              <span className={styles.latestMeta}>
-                <em>{formatDate(meta.updated ?? meta.date)}</em>
-                <b>{linksToMerchant ? "Voir l’offre" : "Lire l’article"} <ArrowUpRight size={13} /></b>
-              </span>
-            </span>
-          </Link>
-          );
-        })}
-        </div>
-      </section>
-
-      <section className={styles.featureRow}>
-        <div className={styles.featureColumn}>
-          <h2 className={styles.featureLabel}>Partenaire à la une</h2>
-          <article className={styles.partnerFeature} aria-labelledby="partner-feature-title">
+          <article id="partenaire-a-la-une" className={`${styles.partnerFeature} ${styles.heroPartner}`} aria-labelledby="partner-feature-title">
             {partnerActive ? (
               <>
                 <Image src={FEATURED_PARTNER.imageSrc} alt={FEATURED_PARTNER.imageAlt} width={300} height={220} />
                 <div>
+                  <span>Partenaire à la une</span>
                   <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
                   <p>{FEATURED_PARTNER.description}</p>
                   <a href={FEATURED_PARTNER.primaryCtaHref} target="_blank" rel="noopener noreferrer">
@@ -210,23 +152,33 @@ export default function RefontePreviewPage() {
               <div><h2 id="partner-feature-title">Espace partenaire</h2><p>Une mise en avant élégante réservée à une marque sélectionnée.</p></div>
             )}
           </article>
-        </div>
-        <div className={styles.featureColumn}>
-          <h2 className={styles.featureLabel}>Marque du moment</h2>
-          <article className={styles.brandMoment}>
-            <div className={styles.brandMomentContent}>
-              <div>
-                <h2>{BRAND_OF_THE_WEEK.name}</h2>
-                <p>{BRAND_OF_THE_WEEK.tagline}</p>
-                <a href={BRAND_OF_THE_WEEK.hubUrl} target="_blank" rel="nofollow sponsored noopener">Découvrir la sélection <ArrowUpRight size={16} /></a>
-              </div>
-              <Image src={BRAND_OF_THE_WEEK.imageSrc} alt={BRAND_OF_THE_WEEK.imageAlt} width={210} height={190} />
-            </div>
-          </article>
-        </div>
+        </section>
+      </div>
+
+      <section className={styles.trust} aria-label="Nos engagements">
+        {["Offres sélectionnées", "Mise à jour quotidienne", "Prix clairement affichés", "Liens transparents"].map((item) => (
+          <span key={item}><Check size={15} /> {item}</span>
+        ))}
       </section>
 
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" /></div>
+      <nav className={styles.categoryRail} aria-label="Accès rapide aux catégories">
+        <div>
+          {[
+            ["Beauté", "/bons-plans-beaute"],
+            ["Bébé", "/bons-plans-bebe"],
+            ["Maison", "/bons-plans-maison"],
+            ["Tech", "/bons-plans-tech"],
+            ["Jardin", "/bons-plans-jardin"],
+            ["Mode", "/bons-plans-mode"],
+            ["Jouets", "/bons-plans-jouets"],
+            ["Rentrée", "/bons-plans-rentree"],
+          ].map(([label, href]) => (
+            <Link key={href} href={href}>{label}</Link>
+          ))}
+        </div>
+      </nav>
+
+      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" collapseWhenEmpty /></div>
 
       <section className={styles.selection} id="selection">
         <header className={styles.sectionHeading}>
@@ -257,6 +209,18 @@ export default function RefontePreviewPage() {
             </article>
           ))}
         </div>
+        <nav className={styles.pagination} aria-label="Pages des bons plans">
+          {[1, 2, 3].map((pageNumber) => (
+            <Link
+              key={pageNumber}
+              href={pageNumber === 1 ? "/#selection" : `/page/${pageNumber}#selection`}
+              className={pageNumber === currentPage ? styles.paginationActive : ""}
+              aria-current={pageNumber === currentPage ? "page" : undefined}
+            >
+              {pageNumber}
+            </Link>
+          ))}
+        </nav>
       </section>
 
       {freeTests.length > 0 && (
@@ -279,26 +243,7 @@ export default function RefontePreviewPage() {
         </section>
       )}
 
-      <section className={styles.beautyCompare} aria-labelledby="beauty-compare-title">
-        <header>
-          <div><span>Beauté</span><h2 id="beauty-compare-title">Guide d’achat beauté</h2></div>
-          <p>Avis, caractéristiques et offres vérifiées chez plusieurs marchands, sans prix ni promotion inventés.</p>
-        </header>
-        <div className={styles.beautyCompareGrid}>
-          {beautyProducts.map((product) => (
-            <Link href={`/produit/${product.slug}`} key={product.slug} className={styles.beautyCompareCard}>
-              <Image src={product.image} alt={product.imageAlt} width={180} height={180} />
-              <small>{product.category.replaceAll("-", " ")}</small>
-              <strong>{product.brand}</strong>
-              <span>{product.name}</span>
-              <b>Voir le produit <ArrowUpRight size={14} /></b>
-            </Link>
-          ))}
-        </div>
-        <Link href="/avis-prix-beaute" className={styles.beautyCompareCta}>Voir tous les produits <ArrowUpRight size={16} /></Link>
-      </section>
-
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex /></div>
+      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex collapseWhenEmpty /></div>
 
       <EditorialNewsletter />
 
