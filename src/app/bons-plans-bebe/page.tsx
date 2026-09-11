@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { BEBE_BRANDS, BEBE_PRODUCT_TYPES } from "@/lib/brand-filters";
@@ -60,7 +60,7 @@ function isBebeArticle(meta: { slug?: string; tags?: string[]; category?: string
 
 export default async function BonsPlansBebePage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isBebeArticle(a.meta));
+  const articles = all.filter((a) => isBebeArticle(a.meta) && !isEffectivelyExpired(a.meta));
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];
