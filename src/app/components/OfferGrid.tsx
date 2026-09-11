@@ -1,25 +1,10 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import { X } from "lucide-react";
-import type { CodePromoOffer, OfferType } from "@/lib/code-promo-offers";
+import type { CodePromoOffer } from "@/lib/code-promo-offers";
 import { CODE_PROMO_BRANDS, getBrandBySlug } from "@/lib/code-promo-data";
 import OfferCard from "./OfferCard";
-
-type Filter = "all" | OfferType;
-
-const FILTERS: { key: Filter; label: string }[] = [
-  { key: "all", label: "Tous" },
-  { key: "code", label: "Codes promo" },
-  { key: "offre", label: "Offres" },
-  { key: "soldes", label: "Soldes" },
-  { key: "newsletter", label: "Newsletter" },
-  { key: "cashback", label: "Cashback" },
-  { key: "livraison", label: "Livraison" },
-  { key: "cadeau", label: "Cadeaux" },
-  { key: "parrainage", label: "Parrainage" },
-  { key: "fidelite", label: "Fidélité" },
-];
 
 interface Props {
   offers: CodePromoOffer[];
@@ -27,31 +12,7 @@ interface Props {
 }
 
 export default function OfferGrid({ offers, referenceDate }: Props) {
-  const [mounted, setMounted] = useState(false);
-  const [filter, setFilter] = useState<Filter>("all");
   const [brandSlug, setBrandSlug] = useState<string>("");
-
-  // Le catalogue change souvent et peut être mis en cache quelques instants
-  // entre le rendu serveur et l'hydratation. Attendre le montage évite qu'une
-  // ancienne liste HTML désactive tous les filtres côté navigateur.
-  useEffect(() => setMounted(true), []);
-
-  const counts = useMemo(() => {
-    const c: Record<Filter, number> = {
-      all: offers.length,
-      code: 0,
-      offre: 0,
-      soldes: 0,
-      cashback: 0,
-      livraison: 0,
-      newsletter: 0,
-      cadeau: 0,
-      parrainage: 0,
-      fidelite: 0,
-    };
-    offers.forEach((o) => { c[o.type]++; });
-    return c;
-  }, [offers]);
 
   // Registre complet des marques affichées en bas de /code-promo.
   // Le compteur reste limité aux offres actives du mur, mais une marque sans
@@ -71,9 +32,9 @@ export default function OfferGrid({ offers, referenceDate }: Props) {
   }, [offers]);
 
   const filtered = useMemo(() => {
-    let list = offers;
-    if (filter !== "all") list = list.filter((o) => o.type === filter);
-    if (brandSlug) list = list.filter((o) => o.brandSlug === brandSlug);
+    const list = brandSlug
+      ? offers.filter((offer) => offer.brandSlug === brandSlug)
+      : offers;
     // Featured en premier, puis expires proches, puis permanents à la fin.
     return [...list].sort((a, b) => {
       if (a.featured !== b.featured) return a.featured ? -1 : 1;
@@ -82,41 +43,14 @@ export default function OfferGrid({ offers, referenceDate }: Props) {
       if (a.expires && b.expires) return a.expires.localeCompare(b.expires);
       return 0;
     });
-  }, [offers, filter, brandSlug]);
+  }, [offers, brandSlug]);
 
-  const hasActiveFilters = filter !== "all" || brandSlug !== "";
-  const reset = () => { setFilter("all"); setBrandSlug(""); };
-
-  if (!mounted) {
-    return (
-      <div style={{ padding: "28px", textAlign: "center", color: "var(--muted-foreground)" }}>
-        Chargement des codes promo…
-      </div>
-    );
-  }
+  const hasActiveFilters = brandSlug !== "";
+  const reset = () => setBrandSlug("");
 
   return (
     <>
       <div className="offer-toolbar">
-        <div className="offer-filters">
-          {FILTERS.map((f) => {
-            const active = filter === f.key;
-            const count = counts[f.key];
-            if (count === 0 && f.key !== "all") return null;
-            return (
-              <button
-                key={f.key}
-                type="button"
-                onClick={() => setFilter(f.key)}
-                className={`offer-filter ${active ? "offer-filter-active" : ""}`}
-                aria-pressed={active}
-              >
-                {f.label} <span className="offer-filter-count">({count})</span>
-              </button>
-            );
-          })}
-        </div>
-
         <div className="offer-toolbar-right">
           <select
             value={brandSlug}
@@ -177,40 +111,11 @@ export default function OfferGrid({ offers, referenceDate }: Props) {
           border: 1px solid var(--border);
           border-radius: 2px;
         }
-        .offer-filters {
-          display: flex;
-          flex-wrap: wrap;
-          gap: 8px;
-        }
         .offer-toolbar-right {
           display: flex;
           gap: 8px;
           align-items: center;
           margin-left: auto;
-        }
-        .offer-filter {
-          border: 1.5px solid var(--border);
-          background: white;
-          color: var(--foreground);
-          padding: 8px 16px;
-          border-radius: 2px;
-          font-size: 0.85rem;
-          font-weight: 700;
-          cursor: pointer;
-          transition: all 0.15s;
-        }
-        .offer-filter:hover:not(.offer-filter-active) {
-          border-color: #94A3B8;
-        }
-        .offer-filter-active {
-          background: #7D293D;
-          border-color: #7D293D;
-          color: white;
-        }
-        .offer-filter-count {
-          opacity: 0.75;
-          font-weight: 600;
-          font-size: 0.8rem;
         }
         .offer-brand-select {
           padding: 9px 34px 9px 14px;
