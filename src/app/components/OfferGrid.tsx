@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import type { CodePromoOffer, OfferType } from "@/lib/code-promo-offers";
 import { CODE_PROMO_BRANDS, getBrandBySlug } from "@/lib/code-promo-data";
@@ -27,8 +27,14 @@ interface Props {
 }
 
 export default function OfferGrid({ offers, referenceDate }: Props) {
+  const [mounted, setMounted] = useState(false);
   const [filter, setFilter] = useState<Filter>("all");
   const [brandSlug, setBrandSlug] = useState<string>("");
+
+  // Le catalogue change souvent et peut être mis en cache quelques instants
+  // entre le rendu serveur et l'hydratation. Attendre le montage évite qu'une
+  // ancienne liste HTML désactive tous les filtres côté navigateur.
+  useEffect(() => setMounted(true), []);
 
   const counts = useMemo(() => {
     const c: Record<Filter, number> = {
@@ -80,6 +86,14 @@ export default function OfferGrid({ offers, referenceDate }: Props) {
 
   const hasActiveFilters = filter !== "all" || brandSlug !== "";
   const reset = () => { setFilter("all"); setBrandSlug(""); };
+
+  if (!mounted) {
+    return (
+      <div style={{ padding: "28px", textAlign: "center", color: "var(--muted-foreground)" }}>
+        Chargement des codes promo…
+      </div>
+    );
+  }
 
   return (
     <>
