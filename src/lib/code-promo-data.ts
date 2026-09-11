@@ -221,15 +221,15 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "carrefour",
     name: "Carrefour",
-    affiliateUrl: "https://www.carrefour.fr/services/courses-en-ligne/bon-achat/CARTABLE20",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
     affiliateLabel: "Utiliser le code CARTABLE20 chez Carrefour",
     matchTags: ["carrefour", "carrefour drive"],
     color: "#0050AA",
     currentOffer: {
       code: "CARTABLE20",
       discount: "20 € offerts dès 80 € d'achat",
-      conditions: "Première commande Drive, Livré chez vous ou Livraison Express. Offre valable jusqu'au 27 septembre 2026.",
-      verifiedAt: "2026-09-04",
+      conditions: "Nouveaux clients : 20 € de réduction dès 80 € de produits alimentaires éligibles, en Drive ou livraison à domicile. Offre valable jusqu'au 27 septembre 2026 inclus.",
+      verifiedAt: "2026-09-11",
     },
   },
   {
