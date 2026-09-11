@@ -143,7 +143,9 @@ export default function OfferGrid({ offers }: Props) {
             )}
           </p>
         ) : (
-          filtered.map((offer) => <OfferCard key={offer.id} offer={offer} />)
+          filtered.map((offer) => (
+            <OfferCard key={`${offer.brandSlug}:${offer.id}`} offer={offer} />
+          ))
         )}
       </div>
 

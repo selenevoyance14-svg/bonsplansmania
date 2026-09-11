@@ -3091,17 +3091,29 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
 ];
 
 export function getOffersByBrand(brandSlug: string): CodePromoOffer[] {
-  return CODE_PROMO_OFFERS.filter((o) => o.brandSlug === brandSlug);
+  return deduplicateOffers(CODE_PROMO_OFFERS.filter((o) => o.brandSlug === brandSlug));
 }
 
 export function getActiveOffers(today = new Date()): CodePromoOffer[] {
-  return CODE_PROMO_OFFERS.filter((o) => {
+  return deduplicateOffers(CODE_PROMO_OFFERS.filter((o) => {
     const start = o.starts ? new Date(`${o.starts}T00:00:00.000`) : null;
     const end = o.expires ? new Date(`${o.expires}T23:59:59.999`) : null;
     if (start && start > today) return false;
     if (end && end < today) return false;
     return true;
-  });
+  }));
+}
+
+/**
+ * Certaines opérations sont ajoutées plusieurs fois lors des mises à jour
+ * éditoriales. L'identifiant seul n'est pas globalement unique : deux marques
+ * peuvent exceptionnellement partager le même id. On déduplique donc avec la
+ * paire marque + id afin de ne masquer aucune offre d'une autre enseigne.
+ */
+function deduplicateOffers(offers: CodePromoOffer[]): CodePromoOffer[] {
+  const unique = new Map<string, CodePromoOffer>();
+  offers.forEach((offer) => unique.set(`${offer.brandSlug}:${offer.id}`, offer));
+  return [...unique.values()];
 }
 
 export function getOfferAffiliateUrl(offer: CodePromoOffer): string {
