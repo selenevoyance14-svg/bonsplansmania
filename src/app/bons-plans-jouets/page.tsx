@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { JOUETS_BRANDS, JOUETS_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, ToyBrick, Gift, Sparkles } from "lucide-react";
+import { ChevronRight, ToyBrick } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -177,43 +177,6 @@ export default async function BonsPlansJouetsPage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <Gift size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Quand acheter ses jouets au meilleur prix
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>jouets ont des cycles de prix très marqués</strong>. Les meilleures fenêtres : <strong>Prime Days Amazon</strong> (mi-juillet), <strong>Black Friday</strong> (fin novembre), <strong>French Days</strong>, <strong>soldes d&apos;hiver</strong> et <strong>été</strong>, et surtout les <strong>destockages post-Noël</strong> (janvier). Pour Noël, le bon réflexe c&apos;est d&apos;<strong>acheter en septembre-octobre</strong> : les prix montent en décembre quand le stock se raréfie.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Sparkles size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Les marques à suivre
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>LEGO</strong> : sets City, Friends, Star Wars, Marvel, Harry Potter, Technic, Architecture</li>
-              <li><strong>Playmobil</strong> : 1.2.3, City Life, Pirates, Knight, Western</li>
-              <li><strong>Mattel</strong> : Barbie, Hot Wheels, Polly Pocket, Fisher-Price</li>
-              <li><strong>Hasbro</strong> : Monopoly, Trivial Pursuit, Nerf, Play-Doh, Transformers, My Little Pony</li>
-              <li><strong>Ravensburger</strong> : puzzles 100/500/1000/5000 pièces, jeux éducatifs Tiptoi</li>
-              <li><strong>Asmodee</strong> : Dixit, 7 Wonders, Unlock!, Time&apos;s Up, Catan</li>
-              <li><strong>Djeco / Haba</strong> : jouets en bois, jeux éducatifs, créatif</li>
-              <li><strong>Vtech / Fisher-Price</strong> : jouets d&apos;éveil et électroniques pour les petits</li>
-              <li><strong>Schleich</strong> : figurines animaux ultra réalistes</li>
-              <li><strong>Squishmallows / Funko Pop / Sylvanian Families</strong> : collectionnables</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              💡 Conseils pour acheter malin
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li>📈 <strong>Vérifie l&apos;historique de prix</strong> (Keepa, CamelCamelCamel) avant tout achat — les jouets baissent souvent</li>
-              <li>🎁 <strong>Achète à l&apos;avance</strong> : septembre-octobre pour Noël, février-mars pour les cadeaux d&apos;anniversaire d&apos;été</li>
-              <li>📦 <strong>LEGO retiring</strong> : les sets bientôt arrêtés (status &ldquo;Retiring soon&rdquo;) prennent souvent +30 à +50% une fois épuisés</li>
-              <li>♻️ <strong>Set / boîte abîmé(e)</strong> : Amazon Warehouse vend des jouets en boîte ouverte à -20 à -40% — souvent neufs dedans</li>
-              <li>🧒 <strong>Adapte l&apos;âge</strong> : indication âge minimum sur la boîte = <em>légal</em>, pas pédagogique (un enfant peut être prêt avant ou après)</li>
-            </ul>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

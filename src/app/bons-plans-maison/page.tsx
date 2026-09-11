@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { MAISON_BRANDS, MAISON_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, Home, ChefHat, Wind } from "lucide-react";
+import { ChevronRight, Home } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -188,47 +188,6 @@ export default async function BonsPlansMaisonPage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <ChefHat size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Cuisine : les tendances à suivre
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              La cuisine vit une révolution avec l&apos;<strong>airfryer</strong> (Ninja, Tefal, Philips), la <strong>sorbetière maison</strong> (le Ninja CREAMi cartonne) et la <strong>machine à granités</strong> (Ninja SLUSHi parfait pour l&apos;été). Les <strong>machines à café automatiques</strong> avec broyeur (De&apos;Longhi Magnifica) deviennent l&apos;équipement standard. Côté petit électroménager, <strong>Russell Hobbs</strong> et <strong>Bosch</strong> offrent les meilleurs rapports qualité/prix.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              🤖 Robots aspirateurs : l&apos;essentiel à savoir
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>robots aspirateurs avec station Omni</strong> (vidage + lavage serpillère automatique) sont devenus le standard. <strong>Ecovacs T50 Omni</strong>, <strong>Roborock QV 35A</strong>, <strong>Narwal Freo S</strong>… Le prix d&apos;entrée a chuté à ~250-300 € pour des modèles très complets. Pour les sols mixtes (parquet + tapis), choisir un modèle avec <strong>serpillère rotative</strong> et <strong>relevable</strong>. Pour les animaux, viser un modèle <strong>ZeroTangle</strong> (anti-cheveux).
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Wind size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Canicule : les solutions
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li>❄️ <strong>Climatiseur mobile 9000 BTU</strong> : ~220-280 € (couvre ~25 m²)</li>
-              <li>🌪️ <strong>Ventilateur sur pied / colonne</strong> : 30-80 €</li>
-              <li>💧 <strong>Ventilateur nébuliseur</strong> : refroidissement -5 à -7°C, ~70 €</li>
-              <li>🌬️ <strong>Ventilateur de plafond</strong> : silencieux, longue durée, ~80-150 €</li>
-              <li>🌱 <strong>Purificateur d&apos;air HEPA</strong> : anti-pollen + qualité air, ~150-300 €</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              Les marques à suivre en maison & cuisine
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>Ninja</strong> (airfryer Foodi, CREAMi, SLUSHi) — la marque à suivre → <a href="/bons-plans-ninja">voir le Coin Ninja</a></li>
-              <li><strong>Tefal</strong> : Ingenio batterie amovible, airfryers</li>
-              <li><strong>De&apos;Longhi</strong> : machines café Magnifica</li>
-              <li><strong>Philips</strong> : purificateurs d&apos;air, airfryers, batterie de cuisine</li>
-              <li><strong>Ecovacs / Roborock / Narwal</strong> : robots aspirateurs premium</li>
-              <li><strong>Tineco / Bissell</strong> : aspirateurs laveurs + shampouineuses</li>
-              <li><strong>Russell Hobbs / Kenwood / Moulinex</strong> : petit électro accessible</li>
-              <li><strong>Voltman / Kesser / Euhomy</strong> : climatiseurs mobiles bon rapport</li>
-            </ul>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

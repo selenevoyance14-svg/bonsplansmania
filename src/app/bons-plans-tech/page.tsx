@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { TECH_BRANDS } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, Smartphone, Laptop, Headphones } from "lucide-react";
+import { ChevronRight, Smartphone } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -159,43 +159,6 @@ export default async function BonsPlansTechPage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <Laptop size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Quand acheter ta tech au meilleur prix
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Le marché tech a des <strong>cycles de prix très marqués</strong>. Les meilleures fenêtres : <strong>Prime Days Amazon</strong> (mi-juillet), <strong>Black Friday</strong> (fin novembre), <strong>French Days</strong> (avril + septembre), <strong>soldes d&apos;hiver</strong> (janvier). Les nouveaux modèles sortent souvent en septembre (Apple iPhone, Samsung Galaxy mid-year) et créent automatiquement des baisses sur la génération précédente.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Headphones size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Les marques à suivre en tech
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>Apple</strong> : MacBook Air M4, iPad, AirPods 4, Apple Watch</li>
-              <li><strong>Samsung</strong> : Galaxy S26, Galaxy Buds3 Pro, Galaxy A35, Galaxy Watch</li>
-              <li><strong>Google</strong> : Pixel 10 Pro, Pixel Watch 4, Pixel Buds</li>
-              <li><strong>Xiaomi / Redmi</strong> : Redmi Note 15 Pro, Mi Watch</li>
-              <li><strong>Sony / JBL / Bose</strong> : casques Bluetooth ANC</li>
-              <li><strong>LG / Samsung écrans</strong> : moniteurs ultra-larges, OLED</li>
-              <li><strong>Insta360 / GoPro</strong> : caméras 360 et action</li>
-              <li><strong>Amazon Kindle</strong> : Kindle Colorsoft, Paperwhite, Scribe</li>
-              <li><strong>Nintendo / Sony PlayStation</strong> : consoles & accessoires</li>
-              <li><strong>Shokz</strong> : casques conduction osseuse (sport)</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              💡 Conseils pour acheter sa tech
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li>📈 <strong>Vérifie l&apos;historique de prix</strong> (Keepa, CamelCamelCamel) avant tout achat tech</li>
-              <li>🆕 <strong>Génération précédente</strong> = souvent 80% des perfs à -30% du prix</li>
-              <li>🔌 <strong>Pack avec accessoires</strong> (Galaxy S26 + JBL GO3) = top rapport qualité/prix</li>
-              <li>↩️ <strong>30 jours de retour Amazon</strong> = tu testes sans risque</li>
-              <li>⚖️ <strong>Garantie constructeur</strong> = même via Amazon, la garantie marque s&apos;applique</li>
-            </ul>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

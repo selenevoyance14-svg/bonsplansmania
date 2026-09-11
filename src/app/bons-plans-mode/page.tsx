@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { MODE_BRANDS, MODE_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, Shirt, Footprints, Watch } from "lucide-react";
+import { ChevronRight, Shirt } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -204,46 +204,6 @@ export default async function BonsPlansModePage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <Footprints size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Quand acheter ses vêtements et chaussures au meilleur prix
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les meilleures fenêtres mode sont les <strong>soldes d&apos;été (fin juin → début août)</strong>, les <strong>soldes d&apos;hiver (mi-janvier → début février)</strong>, les <strong>Private Sales</strong> et <strong>Black Friday</strong> (novembre). Côté outlet permanent : <strong>Showroomprivé, Private Sport Shop, Veepee</strong> proposent toute l&apos;année des marques à -50 à -80 %. Pour les sneakers premium (Nike, Adidas, Jordan), surveille les <strong>destockages saisonniers</strong>.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Watch size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Montres : analogiques vs connectées
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Ce hub référence les <strong>montres analogiques et automatiques</strong> (Lacoste, Tsar Bomba, etc.). Les <strong>montres connectées</strong> (Apple Watch, Galaxy Watch, Pixel Watch, Fitbit, Garmin) sont dans le <a href="/bons-plans-tech">Coin Tech</a> car ce sont des objets connectés à part entière.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              Les marques à suivre
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>Sneakers / running</strong> : Nike, Adidas, Reebok, Asics, Hoka, Salomon, Puma, New Balance</li>
-              <li><strong>Lifestyle / casual</strong> : Lacoste, Tommy Hilfiger, Calvin Klein, Levi&apos;s, Quiksilver</li>
-              <li><strong>Bagagerie</strong> : Eastpak (sac à dos cuir/canvas), Delsey (valise), Samsonite</li>
-              <li><strong>Lunettes</strong> : Ray-Ban, Oakley</li>
-              <li><strong>Enseignes mode FR</strong> : Showroomprivé, La Halle, Gémo, Blanche Porte, Damart</li>
-              <li><strong>Sport outlet</strong> : Private Sport Shop (Adidas / Asics / Hoka à -60 à -80 %)</li>
-              <li><strong>Made in France</strong> : Le Slip Français, Jott (doudounes), Monsieur Tshirt</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              💡 Conseils pour acheter mode en ligne
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li>📏 <strong>Vérifie les guides des tailles</strong> de la marque, surtout pour les marques US/UK (NB taille petit)</li>
-              <li>↩️ <strong>Retour 30 jours offerts Amazon</strong> + Showroomprivé : test sans risque</li>
-              <li>💰 <strong>Cumul possible</strong> : code promo + cashback iGraal (jusqu&apos;à 20 % en plus)</li>
-              <li>⚡ <strong>Soldes Showroomprivé / Veepee</strong> : nouvelles ventes chaque matin à 7h</li>
-              <li>👟 <strong>Sneakers gradées</strong> = équivalent neuf à -40 %, parfaites pour le quotidien</li>
-            </ul>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

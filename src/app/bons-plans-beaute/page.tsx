@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { BEAUTE_BRANDS } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, Sparkles, Gift, Heart } from "lucide-react";
+import { ChevronRight, Sparkles } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const BEAUTE_PRODUCT_TYPES = [
@@ -380,50 +380,6 @@ export default async function BonsPlansBeautePage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <Heart size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Où trouver les meilleurs bons plans beauté ?
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les prix varient souvent selon la teinte, le format, le vendeur et la durée de la promotion.
-              Chaque article indique la date de vérification disponible ; vérifiez toujours le montant final
-              et les conditions de livraison sur le site marchand avant de commander.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>Les marques à suivre en beauté</h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>L&apos;Oréal Paris</strong> : Revitalift Filler, Elnett, Elsève, Casting Crème</li>
-              <li><strong>Garnier</strong> : Bio, Ultra Doux, Ambre Solaire, Skin Active</li>
-              <li><strong>Caudalie</strong> : Vinopure, Premier Cru, Resveratrol Lift</li>
-              <li><strong>Vichy &amp; La Roche-Posay</strong> : soin visage dermo-cosmétique</li>
-              <li><strong>Kerargan</strong> : kératine + argan, soin cheveux abîmés</li>
-              <li><strong>Hairlust</strong> : compléments alimentaires beauté cheveux</li>
-              <li><strong>Twenty DC</strong> : collagène marin, Cosmetic Food</li>
-              <li><strong>Léa Nature</strong> : Boho Green, So&apos;Bio Étic, Florame, Jonzac</li>
-              <li><strong>Weleda &amp; Embryolisse</strong> : soin naturel français iconique</li>
-              <li><strong>BIODANCE</strong> : sheet masks K-beauty hydrogel</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Gift size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Box beauté : comparez avant de vous abonner
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              Le contenu, le prix et l&apos;engagement diffèrent selon les box. Consultez notre
-              {" "}<a href="/categorie/box-beaute">catégorie Box Beauté</a> pour comparer les sélections
-              publiées, puis contrôlez les conditions d&apos;abonnement et de résiliation sur le site de la marque.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Gift size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Tests gratuits beauté à saisir
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              Des marques et communautés recrutent ponctuellement des testeurs. La sélection n&apos;est
-              jamais garantie et les modalités varient selon chaque campagne. Retrouvez uniquement les
-              campagnes publiées dans la <a href="/categorie/test-gratuit">catégorie Tests produits gratuits</a>.
-            </p>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

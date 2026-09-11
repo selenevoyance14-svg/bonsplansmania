@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { JARDIN_BRANDS, JARDIN_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, TreePine, Waves, Flame } from "lucide-react";
+import { ChevronRight, TreePine } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -203,46 +203,6 @@ export default async function BonsPlansJardinPage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              🌱 Robots tondeuse : la fin du fil périmétrique
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>robots tondeuse sans fil périmétrique</strong> sont devenus accessibles grâce aux technologies <strong>RTK + VSLAM + LiDAR</strong>. <strong>Segway Navimow</strong> (i210 LiDAR Pro, X420), <strong>Worx Vision Cloud</strong>, <strong>Husqvarna Automower</strong> couvrent tous les besoins. Plus besoin d&apos;enterrer un fil dans le jardin. Pour les terrains pentus (jusqu&apos;à 80%), choisir un modèle <strong>4 roues motrices</strong>.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Waves size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Robots piscine : adieu la corvée
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>robots piscine sans fil</strong> remplacent définitivement les robots filaires : autonomie 90-180 min, navigation intelligente, auto-stationnement. <strong>AIPER Scuba SE</strong>, <strong>Wybot A1</strong>, <strong>Medoxa</strong> pour les piscines hors-sol et enterrées jusqu&apos;à 80 m². Pour les très grandes piscines, viser un robot avec couverture <strong>fond + paroi + ligne d&apos;eau</strong>.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Flame size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Barbecues : choisir selon ses besoins
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li>🪵 <strong>BBQ charbon</strong> : authentique, économique, mais long à allumer</li>
-              <li>⚡ <strong>BBQ électrique</strong> : balcon, immeubles, propre, rapide</li>
-              <li>🔥 <strong>BBQ gaz</strong> : confortable, contrôle précis, idéal famille</li>
-              <li>🌲 <strong>BBQ pellet/fumoir</strong> : Ninja Woodfire, Traeger, Weber SmokeFire</li>
-              <li>🥩 <strong>Plancha</strong> : alternative douce, surface lisse</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              🛋️ Mobilier outdoor & terrasse
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>soldes d&apos;été</strong> (juin-juillet) et la <strong>fin de saison</strong> (août-septembre) sont les meilleurs moments pour acheter du mobilier de jardin : -30 à -60% chez Maisons du Monde, Carrefour, Amazon, La Foir&apos;Fouille. Privilégier des matériaux durables : <strong>résine tressée</strong>, <strong>aluminium</strong> ou <strong>teck huilé</strong>.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              💦 Nettoyeurs haute pression
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              <strong>Black+Decker, Karcher, Bosch</strong> dominent. Pour une terrasse + voiture en ville : <strong>100-130 bars</strong> suffisent (~80-150 €). Pour une grande terrasse, façade ou allée : viser <strong>140-160 bars</strong> et un <strong>débit ≥ 450 L/h</strong>.
-            </p>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

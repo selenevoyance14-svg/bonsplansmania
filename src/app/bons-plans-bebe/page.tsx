@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { BEBE_BRANDS, BEBE_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, Baby, Gift, Heart } from "lucide-react";
+import { ChevronRight, Baby } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -140,35 +140,6 @@ export default async function BonsPlansBebePage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <Heart size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Où trouver les meilleurs bons plans bébé ?
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              Les <strong>dépenses bébé</strong> peuvent vite s&apos;accumuler : entre le matériel de puériculture, les vêtements à renouveler tous les 3 mois, les couches, le lait infantile et les soins… il y a de quoi doubler son budget. La bonne nouvelle : de nombreuses <strong>promos récurrentes</strong> existent sur Amazon, Vertbaudet, Bebeboutik (ventes privées) et les grandes enseignes (Leclerc, Carrefour).
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>Les marques à suivre en puériculture</h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>Philips Avent</strong> : biberons Natural Response, tétines, tire-lait</li>
-              <li><strong>MAM</strong> : biberons Easy Active et sucettes ergonomiques</li>
-              <li><strong>Chicco</strong> : berceaux Next2Me cododo, poussettes, accessoires</li>
-              <li><strong>Thermobaby</strong> : rehausseurs, réducteurs WC, mobilier</li>
-              <li><strong>Biolane</strong> : soins bébé bio et naturels</li>
-              <li><strong>Babybio / HIPP</strong> : alimentation bio pour bébé</li>
-              <li><strong>Vulli</strong> : Sophie la Girafe et jouets de dentition</li>
-              <li><strong>Vertbaudet</strong> : vêtements, linge de lit et déco chambre</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Gift size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Les tests gratuits bébé à saisir
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "16px" }}>
-              Plusieurs plateformes proposent régulièrement des <strong>produits bébé à tester gratuitement</strong> : Mamadvisor (Magicmaman), ConsoBaby, Babyboom, Sampleo. Tu reçois le produit à domicile en échange d&apos;un avis sincère. C&apos;est un excellent moyen de découvrir de nouvelles marques sans investir.
-            </p>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">

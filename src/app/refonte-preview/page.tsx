@@ -161,6 +161,8 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
         ))}
       </section>
 
+      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" collapseWhenEmpty /></div>
+
       <nav className={styles.categoryRail} aria-label="Accès rapide aux catégories">
         <div>
           {[
@@ -177,8 +179,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
           ))}
         </div>
       </nav>
-
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" collapseWhenEmpty /></div>
 
       <section className={styles.selection} id="selection">
         <header className={styles.sectionHeading}>

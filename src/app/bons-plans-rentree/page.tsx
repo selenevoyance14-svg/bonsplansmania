@@ -3,7 +3,7 @@ import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { RENTREE_BRANDS, RENTREE_PRODUCT_TYPES } from "@/lib/brand-filters";
 import type { Metadata } from "next";
-import { ChevronRight, GraduationCap, Backpack, Sparkles } from "lucide-react";
+import { ChevronRight, GraduationCap } from "lucide-react";
 import AdBlock from "@/app/components/AdBlock";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
@@ -263,43 +263,6 @@ export default async function BonsPlansRentreePage() {
           <AdBlock />
         </section>
 
-        <section className="section" style={{ paddingTop: "16px" }}>
-          <div className="container" style={{ maxWidth: "820px" }}>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px" }}>
-              <Backpack size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Quand acheter ses fournitures au meilleur prix
-            </h2>
-            <p style={{ color: "var(--muted-foreground)", marginBottom: "12px" }}>
-              La <strong>fenêtre optimale</strong> se situe <strong>mi-juillet à fin août</strong> : les enseignes ont chargé les rayons, les promos tournent en continu et le stock est plein. Attendre septembre est <strong>le pire moment</strong> — les prix remontent, les cartables les plus demandés sont épuisés, les meilleures références de crayons partent. <strong>Amazon, Cdiscount, Fnac et grandes surfaces</strong> font souvent leurs meilleures promos <strong>mi-août</strong>. Les <strong>packs multi-produits</strong> *(BIC Kids 120 pcs, Maped Color&apos;Peps 150 pcs)* écrasent le coût par pièce.
-            </p>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              <Sparkles size={18} style={{ display: "inline", verticalAlign: "middle", marginRight: "6px" }} />
-              Les marques à suivre
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li><strong>BIC / BIC Kids</strong> : stylos, feutres, crayons, boîtes multi-produits — le meilleur rapport qualité/prix français</li>
-              <li><strong>Maped / Color&apos;Peps</strong> : crayons triangulaires ergonomiques, feutres lavables, coffrets créatifs</li>
-              <li><strong>STABILO</strong> : surligneurs BOSS iconiques, pointFine, pastel, NatureCOLORS</li>
-              <li><strong>Clairefontaine / Oxford</strong> : cahiers, agendas, feuilles double-page — la référence française</li>
-              <li><strong>Faber-Castell / Staedtler</strong> : crayons de couleur premium, feutres pinceau, matériel dessin</li>
-              <li><strong>Pilot Frixion / Paper Mate</strong> : stylos effaçables, rollers gel</li>
-              <li><strong>Sharpie / Posca / Canson</strong> : marqueurs permanents, marqueurs peinture, papier dessin</li>
-              <li><strong>Casio / Texas Instruments</strong> : calculatrices scientifiques collège / lycée</li>
-              <li><strong>Licences enfants</strong> : Minecraft, Roblox, Disney pour trousses / cartables / kits coloriage</li>
-            </ul>
-            <h2 style={{ fontSize: "1.35rem", fontWeight: 700, marginBottom: "12px", marginTop: "24px" }}>
-              💡 Conseils pour équiper malin
-            </h2>
-            <ul style={{ color: "var(--muted-foreground)", marginBottom: "16px", paddingLeft: "20px" }}>
-              <li>📋 <strong>Récupère la liste de fournitures</strong> tôt — dès juin de préférence, sinon dès la fin des classes</li>
-              <li>📦 <strong>Privilégie les packs multi-produits</strong> : BIC Kids 120 pcs, Maped Color&apos;Peps 150 pcs, STABILO BOSS 23 pastel/fluo — le coût par pièce s&apos;écroule</li>
-              <li>♻️ <strong>Réutilise l&apos;année précédente</strong> ce qui va bien *(règle, équerre, compas, calculatrice, cartable en bon état).* La rentrée ce n&apos;est pas racheter à zéro</li>
-              <li>🎨 <strong>Les grandes marques françaises</strong> *(BIC, Maped, Clairefontaine)* durent une année scolaire complète — vs premier prix qui casse en octobre</li>
-              <li>💰 <strong>Cashback iGraal</strong> : jusqu&apos;à 3 % rendus sur Amazon, Cdiscount, Fnac — active avant de payer</li>
-              <li>👨‍👩‍👧‍👦 <strong>Foyer plusieurs enfants</strong> = mutualise les gros packs de crayons / feutres au lieu d&apos;acheter individuellement</li>
-            </ul>
-          </div>
-        </section>
 
         <section className="section" style={{ paddingTop: "0" }}>
           <div className="container">
