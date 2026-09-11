@@ -14,6 +14,7 @@ export const metadata: Metadata = {
 
 export default function CodePromoIndexPage() {
   const activeOffers = getActiveOffers();
+  const referenceDate = new Date().toISOString().slice(0, 10);
   const alphabetizedBrands = [...CODE_PROMO_BRANDS].sort((a, b) =>
     a.name.localeCompare(b.name, "fr", { sensitivity: "base" }),
   );
@@ -50,7 +51,7 @@ export default function CodePromoIndexPage() {
         {/* Mur d'offres */}
         <section className="section" style={{ paddingTop: "32px" }}>
           <div className="container">
-            <OfferGrid offers={activeOffers} />
+            <OfferGrid offers={activeOffers} referenceDate={referenceDate} />
           </div>
         </section>
 

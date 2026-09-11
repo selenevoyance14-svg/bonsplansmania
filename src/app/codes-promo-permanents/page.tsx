@@ -74,7 +74,10 @@ export default function CodesPromoPermanentsPage() {
         {/* Mur d'offres permanentes */}
         <section className="section" style={{ paddingTop: "32px" }}>
           <div className="container">
-            <OfferGrid offers={CODES_PERMANENTS_OFFERS} />
+            <OfferGrid
+              offers={CODES_PERMANENTS_OFFERS}
+              referenceDate={new Date().toISOString().slice(0, 10)}
+            />
           </div>
         </section>
 

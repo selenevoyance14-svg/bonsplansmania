@@ -11,10 +11,10 @@ import {
   getOfferBrand,
 } from "@/lib/code-promo-offers";
 
-function formatDate(iso?: string): string | null {
+function formatDate(iso: string | undefined, referenceDate: string): string | null {
   if (!iso) return null;
   const d = new Date(iso);
-  const now = new Date();
+  const now = new Date(`${referenceDate}T12:00:00.000Z`);
   const days = Math.round((d.getTime() - now.getTime()) / (1000 * 60 * 60 * 24));
   if (days < 0) return "Terminée";
   if (days === 0) return "Expire aujourd'hui";
@@ -27,9 +27,10 @@ function formatDate(iso?: string): string | null {
 
 interface Props {
   offer: CodePromoOffer;
+  referenceDate: string;
 }
 
-export default function OfferCard({ offer }: Props) {
+export default function OfferCard({ offer, referenceDate }: Props) {
   const [conditionsOpen, setConditionsOpen] = useState(false);
   const [modalOpen, setModalOpen] = useState(false);
   const [copied, setCopied] = useState(false);
@@ -37,7 +38,7 @@ export default function OfferCard({ offer }: Props) {
   const brand = getOfferBrand(offer);
   const brandDisplayName = offer.brandName ?? brand?.name;
   const affiliateUrl = getOfferAffiliateUrl(offer);
-  const expiryLabel = formatDate(offer.expires);
+  const expiryLabel = formatDate(offer.expires, referenceDate);
   const typeColor = offerTypeColor(offer.type);
 
   // Font-size adaptative pour la value : les longs libellés (GRATUITE, CASHBACK,

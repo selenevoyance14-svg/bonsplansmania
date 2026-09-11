@@ -23,9 +23,10 @@ const FILTERS: { key: Filter; label: string }[] = [
 
 interface Props {
   offers: CodePromoOffer[];
+  referenceDate: string;
 }
 
-export default function OfferGrid({ offers }: Props) {
+export default function OfferGrid({ offers, referenceDate }: Props) {
   const [filter, setFilter] = useState<Filter>("all");
   const [brandSlug, setBrandSlug] = useState<string>("");
 
@@ -144,7 +145,7 @@ export default function OfferGrid({ offers }: Props) {
           </p>
         ) : (
           filtered.map((offer) => (
-            <OfferCard key={`${offer.brandSlug}:${offer.id}`} offer={offer} />
+            <OfferCard key={`${offer.brandSlug}:${offer.id}`} offer={offer} referenceDate={referenceDate} />
           ))
         )}
       </div>
