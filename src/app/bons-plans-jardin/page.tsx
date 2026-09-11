@@ -109,9 +109,11 @@ const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "b
 function isJardinArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
-  if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
-  if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  // Certains accessoires animaliers contiennent « siege-auto » dans leur slug.
+  // Le tag explicite hors-bebe permet de les conserver dans Jardin & animaux.
+  if (!tags.includes("hors-bebe") && BEBE_TOKENS.some((k) => slug.includes(k))) return false;
+  if (EXCLUDED_TOKENS.some((k) => slug.includes(k))) return false;
   if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
   // Exclure par tag les tondeuses cheveux/barbe
   if (tags.some((t) => t.includes("cheveux") || t.includes("barbe") || t.includes("rasoir"))) return false;
