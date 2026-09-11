@@ -51,6 +51,7 @@ const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "b
 function isBebeArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
+  if (tags.includes("hors-bebe")) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
   const slug = (meta.slug || "").toLowerCase();
   if (slug.startsWith("bebe-")) return true;
