@@ -184,6 +184,8 @@ export interface ArticleMeta {
   description: string;
   date: string;
   updated?: string;
+  /** Si false, `updated` reste une date éditoriale mais ne modifie pas l'ordre des listes. */
+  remount?: boolean;
   category: string;
   tags: string[];
   image: string;
@@ -258,6 +260,7 @@ export function getArticleBySlug(slug: string): Article | null {
       description: (amazonArticle ? sanitizeAmazonClaims(data.description) : data.description) || "",
       date: data.date || new Date().toISOString(),
       updated: data.updated,
+      remount: data.remount,
       category,
       tags: data.tags || [],
       image: amazonArticle && typeof data.image === "string" && data.image.startsWith("/images/amazon/")
@@ -315,12 +318,13 @@ export function expiresSoon(meta: Pick<ArticleMeta, "expired" | "endDate">, days
 }
 
 /**
- * Date utilisée pour le tri : max(date, updated).
- * Permet de faire remonter un vieux concours toujours actif en mettant son `updated` à jour.
+ * Date utilisée pour le tri : max(date, updated), sauf si `remount: false`.
+ * Cela permet de corriger une fiche et d'afficher sa date de vérification sans
+ * la faire revenir en tête des listes.
  */
-function getEffectiveSortDate(meta: Pick<ArticleMeta, "date" | "updated">): number {
+function getEffectiveSortDate(meta: Pick<ArticleMeta, "date" | "updated" | "remount">): number {
   const dateTime = new Date(meta.date).getTime();
-  if (meta.updated) {
+  if (meta.updated && meta.remount !== false) {
     const updatedTime = new Date(meta.updated).getTime();
     if (Number.isFinite(updatedTime) && updatedTime > dateTime) return updatedTime;
   }
