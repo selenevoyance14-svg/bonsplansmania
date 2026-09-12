@@ -2,7 +2,7 @@
 
 import { Fragment, useEffect, useMemo, useState } from "react";
 import { ArrowRight, Filter, X } from "lucide-react";
-import AdBlock from "@/app/components/AdBlock";
+import ListAd from "@/app/components/ListAd";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
@@ -622,7 +622,6 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
               const isAmazonOffer = !!amazonAsin || /(?:amazon\.fr|amzn\.(?:to|eu)|link\.amazon)/i.test(article.affiliateUrl || "");
               const hideAmazonPrice = shouldHideAmazonPrice(article.slug);
               const isFree = !!now && /gratuit/i.test(now);
-              const showAdAfter = index === 7 || index === 15;
               const articleHref = `/article/${article.slug}`;
               const hasExternalAffiliate = hasDirectMerchantCta({
                 category: article.category,
@@ -701,9 +700,7 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                       </div>
                     </div>
                   </article>
-                  {showAdAfter && (
-                    <AdBlock format={index === 7 ? "in-article" : "display"} />
-                  )}
+                  <ListAd afterCard={index + 1} />
                 </Fragment>
               );
             })}

@@ -3,7 +3,7 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
-import AdBlock from "@/app/components/AdBlock";
+import ListAd from "@/app/components/ListAd";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
@@ -354,7 +354,6 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
               const isAmazonOffer = !!amazonAsin || /(?:amazon\.fr|amzn\.(?:to|eu)|link\.amazon)/i.test(article.affiliateUrl || "");
               const hideAmazonPrice = shouldHideAmazonPrice(article.slug);
               const isFree = !!now && /gratuit/i.test(now);
-              const showAdAfter = index === 7 || index === 15;
               const hasExternalAffiliate = hasDirectMerchantCta({
                 category: article.category,
                 affiliateUrl: article.affiliateUrl,
@@ -419,9 +418,7 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                       </div>
                     </div>
                   </article>
-                  {showAdAfter && (
-                    <AdBlock format={index === 7 ? "in-article" : "display"} />
-                  )}
+                  <ListAd afterCard={index + 1} />
                 </Fragment>
               );
             })}

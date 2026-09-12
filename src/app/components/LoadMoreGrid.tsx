@@ -3,7 +3,7 @@
 import { Fragment, useState } from "react";
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
-import AdBlock from "@/app/components/AdBlock";
+import ListAd from "@/app/components/ListAd";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
@@ -64,8 +64,6 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
           const badge = BADGE_BY_COLOR[article.categoryColor];
           const { now, was, savings } = parsePrice(article.price);
           const isFree = !!now && /gratuit/i.test(now);
-          // Pub intercalée après les positions 7 et 15 (toutes les 8 cartes) — inchangé
-          const showAdAfter = index === 7 || index === 15;
           const articleHref = `/article/${article.slug}`;
           const hasExternalAffiliate = hasDirectMerchantCta({
             category: article.category,
@@ -150,9 +148,7 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                   </div>
                 </div>
               </article>
-              {showAdAfter && (
-                <AdBlock format={index === 7 ? "in-article" : "display"} />
-              )}
+              <ListAd afterCard={index + 1} />
             </Fragment>
           );
         })}

@@ -1,9 +1,11 @@
+import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Search } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import AdBlock from "@/app/components/AdBlock";
+import ListAd from "@/app/components/ListAd";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import Header from "@/app/components/Header";
 import EditorialNewsletter from "./EditorialNewsletter";
@@ -188,7 +190,8 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
 
         <div className={styles.editorialGrid}>
           {deals.map((article, index) => (
-            <article key={article.meta.slug} className={index === 0 ? styles.featuredCard : styles.card}>
+            <Fragment key={article.meta.slug}>
+            <article className={index === 0 ? styles.featuredCard : styles.card}>
               <Link href={`/article/${article.meta.slug}`} className={styles.imageWrap}>
                 <Image src={article.meta.image} alt={article.meta.imageAlt} fill sizes={index === 0 ? "(max-width: 800px) 90vw, 50vw" : "(max-width: 800px) 75vw, 24vw"} />
                 <span>{labels[article.meta.category] ?? "Nouveau"}</span>
@@ -207,6 +210,8 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
                 </div>
               </div>
             </article>
+            <ListAd afterCard={index + 1} />
+            </Fragment>
           ))}
         </div>
         <nav className={styles.pagination} aria-label="Pages des bons plans">

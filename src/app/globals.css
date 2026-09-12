@@ -3803,6 +3803,11 @@ body {
   display: none !important;
 }
 
+.bpm-list-ad:has(.ad-container[data-ad-state="empty"]),
+.bpm-list-ad:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
 ins.adsbygoogle[data-ad-status="unfilled"] {
   display: none !important;
 }

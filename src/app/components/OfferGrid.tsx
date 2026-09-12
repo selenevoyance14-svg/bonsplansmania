@@ -1,10 +1,11 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { X } from "lucide-react";
 import type { CodePromoOffer } from "@/lib/code-promo-offers";
 import { CODE_PROMO_BRANDS, getBrandBySlug } from "@/lib/code-promo-data";
 import OfferCard from "./OfferCard";
+import ListAd from "./ListAd";
 
 interface Props {
   offers: CodePromoOffer[];
@@ -92,8 +93,11 @@ export default function OfferGrid({ offers, referenceDate }: Props) {
             )}
           </p>
         ) : (
-          filtered.map((offer) => (
-            <OfferCard key={`${offer.brandSlug}:${offer.id}`} offer={offer} referenceDate={referenceDate} />
+          filtered.map((offer, index) => (
+            <Fragment key={`${offer.brandSlug}:${offer.id}`}>
+              <OfferCard offer={offer} referenceDate={referenceDate} />
+              <ListAd afterCard={index + 1} />
+            </Fragment>
           ))
         )}
       </div>
