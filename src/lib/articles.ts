@@ -192,6 +192,8 @@ export interface ArticleMeta {
   imageAlt: string;
   rating?: number;
   price?: string;
+  /** Prix Amazon relevé manuellement quand Creators API ne renvoie aucune offre. */
+  amazonPriceOverride?: boolean;
   affiliateUrl?: string;
   affiliateLabel?: string;
   amazonAsin?: string;
@@ -269,10 +271,11 @@ export function getArticleBySlug(slug: string): Article | null {
       imageAlt: (amazonArticle ? sanitizeAmazonClaims(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
       rating: amazonArticle ? undefined : data.rating,
       price: amazonArticle
-        ? typeof data.price === "string" && /^indisponible/i.test(data.price.trim())
+        ? typeof data.price === "string" && (/^indisponible/i.test(data.price.trim()) || data.amazonPriceOverride === true)
           ? data.price
           : undefined
         : data.price,
+      amazonPriceOverride: amazonArticle && data.amazonPriceOverride === true,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,
       amazonAsin: amazonArticle ? extractAmazonAsin(data, content) : undefined,
