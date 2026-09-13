@@ -4,10 +4,11 @@ import { ADVENT_CALENDARS_2026, type AdventCalendar2026 } from "@/lib/advent-cal
 const EXCLUDED_TERMS = ["comparatif", "jeu concours", "concours", "bière", "biere"];
 const BRAND_ALIASES: Array<[string, string[]]> = [
   ["Adopt Parfums", ["adopt"]], ["Blissim", ["blissim"]], ["Cottage", ["cottage"]],
-  ["Essence", ["essence"]], ["Labello", ["labello"]], ["L'Occitane", ["l'occitane", "loccitane"]],
+  ["Essence", ["essence"]], ["Fleurance Nature", ["fleurance nature", "fleurance-nature"]], ["Labello", ["labello"]], ["L'Occitane", ["l'occitane", "loccitane"]],
   ["L'Oréal Paris", ["l'oréal", "l'oreal"]], ["LOOKFANTASTIC", ["lookfantastic"]],
   ["Marie Claire", ["marie claire", "my beauty factory"]], ["Maybelline New York", ["maybelline"]],
   ["MiiN Cosmetics", ["miin"]], ["Payot", ["payot"]], ["Revolution Beauty", ["revolution"]],
+  ["Weleda", ["weleda"]],
 ];
 
 function formatDate(value: string): string {
