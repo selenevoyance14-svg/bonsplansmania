@@ -5,6 +5,19 @@ import { getAdventCalendarCatalog } from "@/lib/advent-calendar-catalog";
 import BrandCalendarFilter from "./BrandCalendarFilter";
 import styles from "./page.module.css";
 
+const COMPARISON_CALENDAR_HREFS = new Set([
+  "/article/calendrier-avent-adopt-seine-etoilee-2026-24-parfums",
+  "/article/calendrier-avent-fleurance-nature-nuit-etoilee-24-soins-bio-2026",
+  "/article/calendrier-avent-weleda-2026-24-surprises-grands-formats",
+  "/article/calendriers-avent-loccitane-2026-classique-prestige",
+  "/article/calendrier-avent-lookfantastic-beaute-2026-27-produits",
+  "/article/calendrier-avent-marie-claire-2026-24-surprises-74-99-euros",
+  "/article/calendrier-avent-cottage-2026-24-soins-corps-cheveux",
+  "/article/calendrier-avent-miin-cosmetics-kbeauty-2026-24-produits",
+  "/article/calendrier-avent-essence-2026-baked-with-love-24-produits-cosmechic",
+  "/article/calendrier-avent-blissim-2026-sortie-9-septembre",
+]);
+
 export const metadata: Metadata = {
   title: "Calendriers de l'Avent 2026 : prix, contenu et comparatif",
   description: "Comparez les calendriers de l'Avent 2026 : prix vérifiés, valeur annoncée, contenu, date de sortie et liens pour les acheter.",
@@ -20,6 +33,9 @@ export const metadata: Metadata = {
 export default function AdventCalendarsHub() {
   const updatedAt = "13 septembre 2026";
   const catalog = getAdventCalendarCatalog();
+  const comparisonCalendars = ADVENT_CALENDARS_2026.filter((calendar) =>
+    COMPARISON_CALENDAR_HREFS.has(calendar.articleHref),
+  );
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",
@@ -53,7 +69,7 @@ export default function AdventCalendarsHub() {
           <div className={styles.tableWrap}>
             <table>
               <thead><tr><th>Calendrier</th><th>Prix constaté</th><th>Contenu</th><th>Disponibilité</th></tr></thead>
-              <tbody>{ADVENT_CALENDARS_2026.map((calendar) => (
+              <tbody>{comparisonCalendars.map((calendar) => (
                 <tr key={`${calendar.brand}-${calendar.name}`}>
                   <td>
                     <a
