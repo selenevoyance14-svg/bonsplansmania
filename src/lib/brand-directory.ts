@@ -80,8 +80,31 @@ export const BRAND_DEFINITION_BY_SLUG = new Map(
   BRAND_DEFINITIONS.map((brand) => [brand.slug, brand]),
 );
 
+const DIRECT_BRAND_ALIASES: Record<string, string[]> = {
+  "e-leclerc": ["leclerc"],
+  "nescafe-dolce-gusto": ["dolce-gusto"],
+};
+
+function compactBrandTag(value: string): string {
+  return value.replace(/-/g, "");
+}
+
 export function getNormalizedBrandTags(brand: BrandDefinition): Set<string> {
-  return new Set(
-    [...brand.matchTags, brand.slug, brand.name].map(normalizeBrandTag),
-  );
+  const canonicalTags = [brand.slug, brand.name].map(normalizeBrandTag);
+  const directVariants = brand.matchTags
+    .map(normalizeBrandTag)
+    .filter((tag) =>
+      canonicalTags.some(
+        (canonical) =>
+          tag === canonical ||
+          compactBrandTag(tag) === compactBrandTag(canonical) ||
+          tag.startsWith(`${canonical}-`),
+      ),
+    );
+
+  return new Set([
+    ...canonicalTags,
+    ...directVariants,
+    ...(DIRECT_BRAND_ALIASES[brand.slug] || []).map(normalizeBrandTag),
+  ]);
 }
