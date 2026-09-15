@@ -8,6 +8,12 @@ import { notFound } from "next/navigation";
 import AdBlock from "@/app/components/AdBlock";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
 import { BRAND_EDITORIAL_PAGES, getCurrentBrandOffers } from "@/lib/brand-editorial-data";
+import {
+  BRAND_DEFINITION_BY_SLUG,
+  BRAND_DEFINITIONS,
+  getNormalizedBrandTags,
+  normalizeBrandTag,
+} from "@/lib/brand-directory";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
@@ -74,20 +80,41 @@ function getDisplayName(slug: string, fallbackTag: string): string {
 }
 
 export async function generateStaticParams() {
+  const allArticles = getAllArticles();
   const staticSlugs = getStaticTagSlugs(
-    getAllArticles().map((article) => article.meta.tags || [])
+    allArticles.map((article) => article.meta.tags || [])
   );
+
+  for (const brand of BRAND_DEFINITIONS) {
+    const normalizedTags = getNormalizedBrandTags(brand);
+    if (
+      allArticles.some((article) =>
+        article.meta.tags.some((tag) =>
+          normalizedTags.has(normalizeBrandTag(tag)),
+        ),
+      )
+    ) {
+      staticSlugs.add(brand.slug);
+    }
+  }
+
   return [...staticSlugs].map((slug) => ({ slug }));
 }
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
-/**
- * La normalisation est volontairement limitée à Carrefour pour cette migration.
- * Les autres pages marques conservent leur comportement historique jusqu'à ce
- * qu'un audit dédié confirme que le regroupement de leurs variantes est souhaité.
- */
+/** Regroupe les variantes de tags déclarées pour chaque marque du répertoire. */
 function getBrandArticles(slug: string, rawTag: string) {
+  const brand = BRAND_DEFINITION_BY_SLUG.get(slug);
+  if (brand) {
+    const normalizedTags = getNormalizedBrandTags(brand);
+    return getAllArticles().filter((article) =>
+      article.meta.tags.some((tag) =>
+        normalizedTags.has(normalizeBrandTag(tag)),
+      ),
+    );
+  }
+
   return slug === "carrefour"
     ? getArticlesByTagSlug(slug)
     : getArticlesByTag(rawTag);
@@ -96,7 +123,7 @@ function getBrandArticles(slug: string, rawTag: string) {
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params;
   const map = getTagSlugMap();
-  const rawTag = map.get(slug);
+  const rawTag = map.get(slug) ?? BRAND_DEFINITION_BY_SLUG.get(slug)?.name;
   if (!rawTag) return {};
   const display = getDisplayName(slug, rawTag);
   const count = getBrandArticles(slug, rawTag).length;
@@ -123,7 +150,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
 export default async function BrandPage({ params }: PageProps) {
   const { slug } = await params;
   const map = getTagSlugMap();
-  const rawTag = map.get(slug);
+  const rawTag = map.get(slug) ?? BRAND_DEFINITION_BY_SLUG.get(slug)?.name;
   if (!rawTag) notFound();
 
   const display = getDisplayName(slug, rawTag);
