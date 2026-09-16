@@ -14,7 +14,7 @@ const COMPARISON_CALENDAR_HREFS = new Set([
   "/article/calendrier-avent-marie-claire-2026-24-surprises-74-99-euros",
   "/article/calendrier-avent-cottage-2026-24-soins-corps-cheveux",
   "/article/calendrier-avent-miin-cosmetics-kbeauty-2026-24-produits",
-  "/article/calendrier-avent-essence-2026-baked-with-love-24-produits-cosmechic",
+  "/article/calendrier-avent-clarins-2026-24-soins-maquillage",
   "/article/calendrier-avent-blissim-2026-sortie-9-septembre",
 ]);
 
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdventCalendarsHub() {
-  const updatedAt = "13 septembre 2026";
+  const updatedAt = "16 septembre 2026";
   const catalog = getAdventCalendarCatalog();
   const comparisonCalendars = ADVENT_CALENDARS_2026.filter((calendar) =>
     COMPARISON_CALENDAR_HREFS.has(calendar.articleHref),

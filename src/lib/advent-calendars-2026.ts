@@ -17,6 +17,19 @@ export type AdventCalendar2026 = {
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
+    brand: "Clarins",
+    name: "Calendrier de l’Avent 24 jours 2026",
+    price: "154 €",
+    value: "Valeur annoncée : 349 €",
+    contents: "24 produits · 4 formats vente, 17 formats voyage et 3 miniatures · soins et maquillage",
+    status: "Disponible sur Clarins.fr",
+    checkedAt: "16 septembre 2026",
+    image: "/images/articles/calendrier-avent-clarins-2026.webp",
+    imageAlt: "Calendrier de l’Avent Clarins 2026 ouvert avec ses soins et maquillages",
+    articleHref: "/article/calendrier-avent-clarins-2026-24-soins-maquillage",
+    merchantHref: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr%2Fcalendrier-de-l-avent-24-cases%2F80129852.html",
+  },
+  {
     brand: "Adopt Parfums",
     name: "La Maison de Noël",
     price: "36,95 €",
