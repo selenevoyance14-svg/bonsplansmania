@@ -582,7 +582,7 @@ body {
   min-height: 300px;
   overflow: hidden;
   border-left: 1px solid rgba(236, 72, 153, 0.35);
-  background: #fce7f3;
+  background: var(--featured-partner-bg);
 }
 
 .featured-partner__image {
