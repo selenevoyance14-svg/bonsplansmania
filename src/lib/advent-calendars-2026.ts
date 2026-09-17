@@ -17,6 +17,18 @@ export type AdventCalendar2026 = {
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
+    brand: "Rituals",
+    name: "The Ritual of Advent 2026",
+    price: "89,90 €",
+    contents: "24 surprises · bain, corps, cheveux et maison · mini-bougies",
+    status: "En stock chez Beauty Success",
+    checkedAt: "17 septembre 2026",
+    image: "/images/articles/calendrier-avent-rituals-2026-beauty-success.jpg",
+    imageAlt: "Calendrier de l’Avent Rituals 2026 en forme de maison",
+    articleHref: "/article/calendrier-avent-rituals-2026-24-surprises-beauty-success",
+    merchantHref: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fsoin-rituals-calendrier-de-l-avent-24-surprises-bain-corps-maison-femme-7798140a07",
+  },
+  {
     brand: "Clarins",
     name: "Calendrier de l’Avent 24 jours 2026",
     price: "154 €",

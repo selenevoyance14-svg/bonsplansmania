@@ -21,7 +21,7 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     title: "Caroll : -15 % sur votre article préféré après inscription à la newsletter",
     permanent: true,
     featured: true,
-    conditions: "-15 % sur un article préféré lors du prochain achat dans le mois suivant l'inscription. Utilisable une seule fois avec le code reçu par e-mail, hors Points Or et non cumulable.",
+    conditions: "15 % sur un article préféré de la collection en cours pour le prochain achat dans le mois suivant l'inscription. Une seule utilisation, hors Points Or et non cumulable. Sur caroll.com avec le code reçu par e-mail, ou en boutique sur présentation de cet e-mail.",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Caroll15",
   },
   {

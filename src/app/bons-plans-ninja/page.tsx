@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-ninja" },
 };
 
-// Filtre simple : tag "ninja" OU slug contient "ninja"
+// La marque Ninja doit être un mot entier : « Ninjago » est une gamme LEGO.
 const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
@@ -32,7 +32,7 @@ const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "b
 function isNinjaArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
-  if (slug.includes("ninja")) return true;
+  if (/(^|-)ninja(-|$)/.test(slug)) return true;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
   return tags.some((t) => t === "ninja" || t.startsWith("ninja-"));

@@ -358,7 +358,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CAROLL — offres vérifiées le 3 septembre 2026
+  // CAROLL — offres vérifiées le 17 septembre 2026
   // ============================================================
   {
     id: "caroll-30-euros-offerts-150-septembre-2026",
@@ -387,6 +387,42 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
   {
+    id: "caroll-pantalons-30-septembre-2026",
+    brandSlug: "caroll",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "PANTALONS",
+    title: "30 % sur les pantalons Automne-Hiver 2026",
+    starts: "2026-09-15",
+    expires: "2026-09-23",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2F",
+    conditions: "Du 15 au 23 septembre 2026, en boutiques Caroll France et Luxembourg (hors outlets) et sur caroll.com après connexion ou création d'un compte. Sur les pantalons Automne-Hiver 2026, hors Points Or, dans la limite des stocks. Remise automatique, non cumulable avec les autres promotions.",
+    featured: true,
+  },
+  {
+    id: "caroll-vestes-20-septembre-2026",
+    brandSlug: "caroll",
+    type: "offre",
+    value: "-20 %",
+    valueLabel: "VESTES",
+    title: "20 % sur une sélection de vestes Automne-Hiver 2026",
+    starts: "2026-09-16",
+    expires: "2026-09-23",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Ffemme%2Fpret-a-porter%2Fvestes-et-blousons%2Fvestes",
+    conditions: "Du 16 au 23 septembre 2026, en boutiques Caroll France et Luxembourg (hors outlets) et sur caroll.com. Sur une sélection de vestes Automne-Hiver 2026, hors Points Or, dans la limite des stocks. Remise automatique, non cumulable avec les autres promotions.",
+    featured: true,
+  },
+  {
+    id: "caroll-bons-plans-selection",
+    brandSlug: "caroll",
+    type: "offre",
+    value: "BONS PLANS",
+    valueLabel: "SÉLECTION",
+    title: "Sélection Bons Plans Caroll à prix réduits",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Ffemme%2Fpetits-prix",
+    conditions: "Sur les articles étiquetés Bons Plans dans les boutiques Caroll France (hors outlets) ou signalés par le pictogramme Bons Plans sur caroll.com. Sélection, prix et stocks variables. Non cumulable avec les autres promotions. Il ne s'agit pas de l'ancienne remise de 20 % dès deux articles, expirée le 11 septembre 2026.",
+  },
+  {
     id: "caroll-newsletter-15",
     brandSlug: "caroll",
     type: "newsletter",
@@ -395,8 +431,18 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "-15 % sur votre article préféré avec l'inscription à la newsletter",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fjeux-et-offres-en-cours%23Caroll15",
     permanent: true,
-    conditions: "-15 % sur un article préféré pour le prochain achat réalisé dans le mois suivant l'inscription. Utilisable une seule fois avec le code reçu par e-mail, hors Points Or et non cumulable.",
+    conditions: "15 % sur un article préféré de la collection en cours pour le prochain achat dans le mois suivant l'inscription. Une seule utilisation, hors Points Or et non cumulable. Sur caroll.com avec le code reçu par e-mail, ou en boutique sur présentation de cet e-mail.",
     featured: true,
+  },
+  {
+    id: "caroll-avantages-fidelite",
+    brandSlug: "caroll",
+    type: "fidelite",
+    value: "FIDÉLITÉ",
+    valueLabel: "SELON STATUT",
+    title: "Offres anniversaire et journées privilèges Caroll",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2Fprogrammefidelite.html",
+    conditions: "Avantages réservés aux membres éligibles du programme Caroll & Vous, variables selon le statut. Chaque offre est valable une fois sur un article préféré de la collection en cours, hors Points Or et Petits Prix, et n'est pas cumulable avec d'autres promotions. Vérifier le montant et la disponibilité de l'avantage dans votre compte avant achat.",
   },
   {
     id: "caroll-livraison-100",
