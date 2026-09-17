@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SearchAlertSignup from "@/app/components/SearchAlertSignup";
+import { searchArticles } from "@/lib/article-search";
 
 interface ArticleData {
   slug: string;
@@ -34,23 +35,16 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
   const searchParams = useSearchParams();
   const initialQ = searchParams?.get("q") ?? "";
   const [query, setQuery] = useState(initialQ);
-  const q = query.trim().toLowerCase();
+  const q = query.trim();
 
   // Si l'URL change (navigation client), on synchronise le champ
   useEffect(() => {
     const urlQ = searchParams?.get("q") ?? "";
-    if (urlQ && urlQ !== query) setQuery(urlQ);
+    if (urlQ !== query) setQuery(urlQ);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [searchParams]);
 
-  const results = q
-    ? articles.filter((a) =>
-        a.title.toLowerCase().includes(q) ||
-        a.description.toLowerCase().includes(q) ||
-        a.tags.some((t) => t.toLowerCase().includes(q)) ||
-        a.category.toLowerCase().includes(q)
-      ).slice(0, 50)
-    : [];
+  const results = searchArticles(articles, q);
 
   return (
     <main style={{ minHeight: "80vh" }}>
@@ -59,9 +53,11 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
           <h1 style={{ color: "white", fontSize: "clamp(1.5rem,4vw,2rem)", fontWeight: 800, marginBottom: "24px", textAlign: "center" }}>
             Rechercher un bon plan
           </h1>
-          <div style={{ display: "flex", gap: "8px" }}>
+          <form action="/recherche" method="get" role="search" style={{ display: "flex", gap: "8px" }}>
             <input
               type="search"
+              name="q"
+              aria-label="Rechercher un bon plan"
               value={query}
               onChange={(e) => setQuery(e.target.value)}
               placeholder="Ex : biotyfull, concours, test gratuit..."
@@ -73,7 +69,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
               }}
             />
             <button
-              type="button"
+              type="submit"
               style={{
                 padding: "14px 24px", borderRadius: "12px", border: "none",
                 background: "white", color: "var(--primary)", fontWeight: 700,
@@ -84,7 +80,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
               <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
               Rechercher
             </button>
-          </div>
+          </form>
         </div>
       </section>
 
@@ -111,10 +107,10 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
           {q && results.length > 0 && (
             <>
               <p style={{ marginBottom: "28px", color: "var(--muted-foreground)", fontSize: "0.95rem" }}>
-                <strong>{results.length}</strong> résultat{results.length > 1 ? "s" : ""} pour &ldquo;<strong>{query}</strong>&rdquo;
+                <strong>{results.length}</strong> résultat{results.length > 1 ? "s" : ""} pour &ldquo;<strong>{query}</strong>&rdquo;{results.length > 50 ? " — les 50 plus pertinents sont affichés" : ""}
               </p>
               <div className="articles-grid">
-                {results.map((article) => (
+                {results.slice(0, 50).map((article) => (
                   <a key={article.slug} href={`/article/${article.slug}`} className="card" style={{ textDecoration: "none" }}>
                     <div style={{ position: "relative", height: "180px", overflow: "hidden" }}>
                       <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "cover" }} sizes="(max-width: 768px) 100vw, 33vw" />

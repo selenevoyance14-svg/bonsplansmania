@@ -1811,8 +1811,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // BLANCHEPORTE — offres vérifiées le 28 août 2026
+  // BLANCHEPORTE — offre literie vérifiée le 17 septembre 2026
   // ============================================================
+  {
+    id: "blancheporte-app-literie-10-septembre-2026",
+    brandSlug: "blanche-porte",
+    type: "offre",
+    value: "-10 %",
+    valueLabel: "DÈS 2 ARTICLES",
+    title: "10 % supplémentaires sur la sélection literie dans l'application",
+    starts: "2026-09-16",
+    expires: "2026-09-21",
+    conditions: "Du 16 au 21 septembre 2026 uniquement dans l'application Blancheporte, dès 2 articles de la sélection literie. Hors frais d'envoi, non cumulable avec une autre offre promotionnelle. Blancheporte demande de saisir le code en majuscules dans le panier ; consulter le code affiché dans l'application avant de commander.",
+    featured: true,
+  },
   {
     id: "blancheporte-299002-aout-septembre-2026",
     brandSlug: "blanche-porte",
