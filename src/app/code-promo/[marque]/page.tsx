@@ -5,7 +5,9 @@ import { ChevronRight, ExternalLink } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import NewsletterInline from "@/app/components/NewsletterInline";
+import OfferCard from "@/app/components/OfferCard";
 import { CODE_PROMO_BRANDS, getBrandBySlug } from "@/lib/code-promo-data";
+import { getActiveOffers } from "@/lib/code-promo-offers";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 
 interface PageProps { params: Promise<{ marque: string }>; }
@@ -18,6 +20,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { marque } = await params;
   const brand = getBrandBySlug(marque);
   if (!brand) return {};
+  if (brand.slug === "le-petit-ballon") {
+    return {
+      title: "Code promo Le Petit Ballon : abonnements, vin et bière | BonsPlansMania",
+      description: "Codes promo Le Petit Ballon pour les abonnements vin et la bière, offres de la Foire aux vins et conditions à vérifier avant votre commande.",
+      alternates: { canonical: `https://bonsplansmania.fr/code-promo/${brand.slug}` },
+    };
+  }
   return {
     title: `Bons plans et codes promo ${brand.name} ${new Date().getFullYear()} | BonsPlansMania`,
     description: `Tous nos articles bons plans, promos et codes ${brand.name}. Réductions et offres en cours mis à jour régulièrement.`,
@@ -67,6 +76,8 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
   const { marque } = await params;
   const brand = getBrandBySlug(marque);
   if (!brand) notFound();
+  const currentOffers = getActiveOffers().filter((offer) => offer.brandSlug === brand.slug);
+  const referenceDate = new Date().toISOString().slice(0, 10);
 
   const allMatching = getAllArticles().filter((a) => matchesBrand(a.meta.tags, brand.matchTags));
   const directOffers = allMatching.filter((a) =>
@@ -113,8 +124,10 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
               Bons plans et codes promo {brand.name}
             </h1>
             <p style={{ color: "rgba(255,255,255,0.92)", fontSize: "1.05rem", maxWidth: "780px", marginBottom: "20px", lineHeight: 1.5 }}>
-              {active.length > 0 ? (
-                <><strong>{active.length} offre{active.length > 1 ? "s" : ""}</strong> consacrée{active.length > 1 ? "s" : ""} à {brand.name}, plus nos guides et comparatifs utiles.</>
+              {currentOffers.length > 0 ? (
+                <><strong>{currentOffers.length} offre{currentOffers.length > 1 ? "s" : ""} en cours</strong> pour {brand.name}, avec leurs codes et conditions ci-dessous.</>
+              ) : active.length > 0 ? (
+                <><strong>{active.length} article{active.length > 1 ? "s" : ""}</strong> consacré{active.length > 1 ? "s" : ""} à {brand.name}, plus nos guides utiles.</>
               ) : (
                 <>Aucun code promo {brand.name} vérifié actuellement. Retrouve la boutique et nos guides utiles ci-dessous.</>
               )}
@@ -145,6 +158,27 @@ export default async function CodePromoBrandPage({ params }: PageProps) {
         <section className="container" style={{ padding: 0 }}>
           <AdBlock />
         </section>
+
+        {currentOffers.length > 0 && (
+          <section className="section">
+            <div className="container">
+              <div className="section-title">
+                <h2>Codes promo et offres {brand.name} en cours</h2>
+                <p>Consulte les dates, les produits éligibles et les conditions avant de commander.</p>
+              </div>
+              {brand.slug === "le-petit-ballon" && (
+                <p style={{ maxWidth: "780px", marginBottom: "20px", lineHeight: 1.6 }}>
+                  Les offres Le Petit Ballon concernent des achats différents : abonnement vin à offrir, sélection de bières et vins de la Foire aux vins. Une remise « jusqu’à » ne s’applique pas à toutes les bouteilles ; vérifie le prix final au panier.
+                </p>
+              )}
+              <div style={{ display: "grid", gap: "14px" }}>
+                {currentOffers.map((offer) => (
+                  <OfferCard key={offer.id} offer={offer} referenceDate={referenceDate} />
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
 
         {brand.currentOffer && (
           <section className="section-sm">
