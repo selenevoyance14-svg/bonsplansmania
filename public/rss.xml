@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 17 Sep 2026 19:30:28 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 18 Sep 2026 05:15:32 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Calendrier de l’Avent Payot 2026 à 109,01 € : 24 surprises</title>
+      <link>https://bonsplansmania.fr/article/calendrier-avent-payot-2026-24-soins-valeur-326-euros</link>
+      <guid>https://bonsplansmania.fr/article/calendrier-avent-payot-2026-24-soins-valeur-326-euros</guid>
+      <pubDate>Tue, 01 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Le calendrier de l’Avent Payot 2026 réunit 23 soins et un échantillon dans un vanity bleu réutilisable. Prix vérifié à 109,01 € chez Perfume’s Club, pour une valeur annoncée de 326 €.</description>
+      <category>calendrier-avent</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/calendrier-avent-payot-2026.png" type="image/png" length="0"/>
+    </item>
     <item>
       <title>Amazon Echo Dot 5: prix et fonctions de l'enceinte Alexa</title>
       <link>https://bonsplansmania.fr/article/amazon-spring-deals-echo-dot-5-promo-2026</link>
@@ -293,7 +302,7 @@
       <pubDate>Wed, 18 Mar 2026 00:00:00 GMT</pubDate>
       <description>Le Club des Testeuses PAYOT propose des tests de soins gratuits sur sélection. Découvrez comment compléter votre profil beauté et candidater aux prochaines campagnes.</description>
       <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/_placeholder-bonsplansmania.png" type="image/png" length="0"/>
+      <enclosure url="https://bonsplansmania.fr/images/articles/payot-club-testeuses-officiel.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Buzzador : 3 biscuits KoRo à tester gratuitement</title>
@@ -338,7 +347,7 @@
       <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
       <description>Zeeman offre un body bébé en coton biologique aux futurs parents et aux parents éligibles. Demandez votre bon par e-mail et retirez le body en magasin avant la date indiquée.</description>
       <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/_placeholder-bonsplansmania.png" type="image/png" length="0"/>
+      <enclosure url="https://bonsplansmania.fr/images/articles/zeeman-body-bebe-gratuit-officiel.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Calendrier de l’Après Adopt : 6 produits à 26,36 €</title>
@@ -447,15 +456,6 @@
       <description>La machine ScrapCooking Madeleines Factory prépare 6 madeleines maison par fournée. Elle est sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/scrapcooking-madeleines-factory-42-90-euros-amazon.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>ScrapCooking Mini Croissants Factory</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-scrapcooking-mini-croissants-factory-44-90-euros-septembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-scrapcooking-mini-croissants-factory-44-90-euros-septembre-2026</guid>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-      <description>La nouvelle ScrapCooking Mini Croissants Factory prépare six petits croissants en quelques minutes. Elle est disponible sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/scrapcooking-mini-croissants-factory-44-90-euros-amazon.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
