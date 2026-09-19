@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 19 Sep 2026 05:56:59 GMT</lastBuildDate>
+    <lastBuildDate>Sat, 19 Sep 2026 16:17:47 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Meilleures box beauté 2026 : prix, contenu et codes promo</title>
@@ -15,6 +15,24 @@
       <description>Comparez les meilleures box beauté de septembre 2026 : prix, contenu, engagement et liens directs pour Blissim, Glowria, Prescription Lab, Biotyfull Box et plus.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/meilleures-box-beaute-2026-comparatif-complet-avis-codes-promo.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>Test Hill's : des mousses pour chat gratuites sur Sampleo</title>
+      <link>https://bonsplansmania.fr/article/test-produit-hills-mousses-chat-sampleo-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-hills-mousses-chat-sampleo-2026</guid>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Sampleo recherche 300 ambassadeurs pour tester gratuitement une mousse Hill's pour chat. Chaque sélectionné recevra 12 unités de l'une des trois recettes proposées.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-hills-mousses-chat-sampleo-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Test Rians : des fromages blancs gratuits sur Sampleo</title>
+      <link>https://bonsplansmania.fr/article/test-produit-rians-fromages-blancs-sampleo-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-rians-fromages-blancs-sampleo-2026</guid>
+      <pubDate>Sat, 19 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Sampleo recherche 1 500 ambassadeurs pour tester gratuitement un fromage blanc façon faisselle Rians. Un bon de réduction intégrale sera envoyé aux sélectionnés.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-rians-fromages-blancs-sampleo-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Envie de Bien Manger : bons de réduction gratuits</title>
@@ -438,24 +456,6 @@
       <description>Wonderbox sélectionne 10 testeurs par session pour vivre gratuitement des expériences haut de gamme : chute libre, montgolfière, séjour en château, hébergements insolites. 3 sessions ouvertes.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/wonderbox-testeur-de-reves-experiences-gratuites.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Zeeman : un body bébé gratuit à retirer en magasin</title>
-      <link>https://bonsplansmania.fr/article/zeeman-body-bebe-gratuit-coton-bio-2026</link>
-      <guid>https://bonsplansmania.fr/article/zeeman-body-bebe-gratuit-coton-bio-2026</guid>
-      <pubDate>Thu, 17 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Zeeman offre un body bébé en coton biologique aux futurs parents et aux parents éligibles. Demandez votre bon par e-mail et retirez le body en magasin avant la date indiquée.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/zeeman-body-bebe-gratuit-officiel.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Calendrier de l’Après Adopt : 6 produits à 26,36 €</title>
-      <link>https://bonsplansmania.fr/article/adopt-calendrier-apres-6-produits-26-36-euros-septembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/adopt-calendrier-apres-6-produits-26-36-euros-septembre-2026</guid>
-      <pubDate>Wed, 16 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Le Calendrier de l’Après Adopt contient quatre eaux de parfum, une boule de bain et une crème mains. Prix vérifié : 26,36 € au lieu de 32,95 €.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.frhttps://adopt.twic.pics/media/catalog/product/s/t/still_multi_calendrierdelapres_3701429847142_1.jpg?twic=v1" type="image/svg+xml" length="0"/>
     </item>
   </channel>
 </rss>
