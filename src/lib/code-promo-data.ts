@@ -732,14 +732,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "prozis",
     name: "Prozis",
     affiliateUrl: "https://prozis.com/1YlNV",
-    affiliateLabel: "Profiter de l'offre Prozis jusqu'à -50 %",
+    affiliateLabel: "Profiter de l'offre Prozis jusqu'à -40 %",
     matchTags: ["prozis", "bonsmania", "imback"],
     color: "#AEEA00",
     currentOffer: {
       code: "IMBACK",
-      discount: "Jusqu'à -50 %",
-      conditions: "Jusqu'à 50 % de réduction sur une sélection de vêtements homme et femme et de produits alimentaires. Le niveau de remise varie selon les articles ; vérifier le prix final et l'éligibilité du code dans le panier.",
-      verifiedAt: "2026-09-02",
+      discount: "Jusqu'à -40 %",
+      conditions: "Jusqu'à 40 % de réduction sur les catégories Créatine et Collagène. Le niveau de remise varie selon les références ; vérifier le prix final et l'éligibilité du code dans le panier.",
+      verifiedAt: "2026-09-21",
     },
   },
   {

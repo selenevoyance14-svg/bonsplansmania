@@ -210,15 +210,15 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // PROZIS — code partenaire Bons Plans Mania
   // ============================================================
   {
-    id: "prozis-imback-jusqua-50-septembre-2026",
+    id: "prozis-imback-jusqua-40-septembre-2026",
     brandSlug: "prozis",
     type: "code",
-    value: "-50 %",
+    value: "-40 %",
     valueLabel: "JUSQU'À",
-    title: "Jusqu'à 50 % de réduction avec le code IMBACK",
+    title: "Jusqu'à 40 % sur la créatine et le collagène avec IMBACK",
     code: "IMBACK",
     affiliateUrl: "https://prozis.com/1YlNV",
-    conditions: "Offre en cours sur une sélection de vêtements homme et femme et de produits alimentaires. La remise peut atteindre 50 % selon les articles. Vérifier l'éligibilité, le montant réellement déduit et les règles de cumul dans le panier.",
+    conditions: "Offre vérifiée le 21 septembre 2026 sur les catégories Créatine et Collagène. La remise peut atteindre 40 % selon les références. Durée non précisée ; vérifier l'éligibilité, le montant réellement déduit et les règles de cumul dans le panier.",
     featured: true,
   },
   {
