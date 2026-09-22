@@ -1186,6 +1186,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // Offres vérifiées le 07/09/2026
   // ============================================================
   {
+    id: "lea-nature-frenchdays-30-septembre-2026",
+    brandSlug: "lea-nature",
+    type: "code",
+    value: "-30 %",
+    valueLabel: "SUR LE PANIER",
+    title: "30 % sur le panier avec le code FRENCHDAYS",
+    code: "FRENCHDAYS",
+    affiliateUrl: "https://lk.gt/a6tPI",
+    starts: "2026-09-22",
+    expires: "2026-09-28",
+    conditions: "Code FRENCHDAYS valable du 22 au 28 septembre 2026 inclus pour bénéficier de 30 % de remise sur le panier. Vérifier les éventuelles exclusions et l'application de la réduction avant de payer.",
+    featured: true,
+  },
+  {
     id: "lea-nature-ventes-privees-septembre",
     brandSlug: "lea-nature",
     type: "offre",
