@@ -779,6 +779,12 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres Sarenza",
     matchTags: ["sarenza"],
     color: "#1976D2",
+    currentOffer: {
+      code: "FRENCH",
+      discount: "-15 % supplémentaires dès 110 €",
+      conditions: "Valable les 21 et 22 septembre 2026 sur plus de 40 000 produits sélectionnés expédiés par Sarenza, hors marques et produits non participants.",
+      verifiedAt: "2026-09-21",
+    },
   },
   {
     slug: "sans-complexe",
