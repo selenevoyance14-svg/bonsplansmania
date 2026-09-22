@@ -28,13 +28,11 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
-  // ZOOPLUS — offres visibles et vérifiées le 1er septembre 2026, sans date de fin affichée
-  { id: "zooplus-selection-jusqua-40-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-40 %", valueLabel: "JUSQU’À", title: "Jusqu’à 40 % de réduction sur les offres Zooplus du moment", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale sur une sélection de produits pour chiens et chats. Marques, formats, prix et stocks variables. Date de fin non affichée lors de la vérification.", featured: true },
-  { id: "zooplus-royal-canin-15-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "JUSQU’À", title: "Jusqu’à 15 % sur une sélection Royal Canin pour chien", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Réduction maximale sur une sélection d’aliments Royal Canin adaptée à la taille du chien. Produits et stocks variables ; date de fin non affichée.", featured: true },
-  { id: "zooplus-purina-25-livraison-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "+ LIVRAISON OFFERTE", title: "Jusqu’à 25 % sur Felix, Gourmet, Pro Plan et Purina ONE", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale et livraison gratuite annoncées sur une sélection Felix, Gourmet, Pro Plan et Purina ONE. Vérifier les produits, formats, seuils éventuels et conditions de livraison.", featured: true },
-  { id: "zooplus-sheba-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % de réduction sur une sélection Sheba", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale sur une sélection d’aliments Sheba pour chat. Produits, formats et stocks variables ; date de fin non affichée." },
-  { id: "zooplus-hills-science-plan-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % sur les croquettes Hill’s Science Plan pour chat", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Remise maximale sur une sélection de croquettes Hill’s Science Plan pour chat. Vérifier le produit, le poids du sac et le prix final." },
-  { id: "zooplus-concept-for-life-8kg-2kg-septembre-2026", brandSlug: "zooplus", type: "offre", value: "8 kg + 2 kg", valueLabel: "OFFERTS", title: "Deux kilos offerts sur une sélection Concept for Life pour chat", affiliateUrl: "https://tidd.ly/4bvX2g9", conditions: "Offre 8 kg + 2 kg offerts sur les références Concept for Life pour chat signalées. Vérifier les variétés éligibles et la disponibilité." },
+  // ZOOPLUS — French Deals vérifiés le 22 septembre 2026
+  { id: "zooplus-french-deals-30-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-30 %", valueLabel: "JUSQU’À", title: "French Deals : jusqu’à 30 % sur une sélection chien et chat", affiliateUrl: "https://tidd.ly/4bvX2g9", starts: "2026-09-22", expires: "2026-09-28", conditions: "French Deals Zooplus du 22 au 28 septembre 2026 inclus. Remise maximale sur une sélection de marques et de produits pour chiens et chats, dans la limite des stocks.", featured: true },
+  { id: "zooplus-gourmet-gold-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % sur une sélection Gourmet Gold pour chat", affiliateUrl: "https://tidd.ly/4bvX2g9", expires: "2026-09-28", conditions: "Remise maximale sur une sélection de nourriture humide Gourmet Gold pour chat pendant les French Deals. Formats et stocks variables.", featured: true },
+  { id: "zooplus-whiskas-junior-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % sur une sélection Whiskas Junior", affiliateUrl: "https://tidd.ly/4bvX2g9", expires: "2026-09-28", conditions: "Remise maximale sur une sélection d’aliments Whiskas Junior pour chaton pendant les French Deals. Vérifier le format et le prix final.", featured: true },
+  { id: "zooplus-wolf-wilderness-15-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "SÉLECTION", title: "15 % de réduction sur une sélection Wolf of Wilderness", affiliateUrl: "https://tidd.ly/4bvX2g9", expires: "2026-09-28", conditions: "Remise annoncée sur une sélection Wolf of Wilderness pendant les French Deals. Produits, formats et stocks variables.", featured: true },
   { id: "zooplus-zen-15-puis-5", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "PUIS -5 %", title: "Zooplus Zen : 15 % sur la première commande puis 5 % sur les suivantes", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Avantage lié à la souscription Zooplus Zen : 15 % sur la première commande programmée puis 5 % sur les commandes suivantes. Fréquence ajustable, reportable ou annulable selon les modalités du service.", featured: true },
   { id: "zooplus-zen-marques-15-puis-7", brandSlug: "zooplus", type: "offre", value: "-15 %", valueLabel: "PUIS -7 %", title: "Zooplus Zen : jusqu’à 7 % ensuite sur Cosma, Tigerino et Concept for Life", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Avantage annoncé sur les commandes programmées Zooplus Zen de produits Cosma, Tigerino et Concept for Life : 15 % sur la première commande puis 7 % sur les suivantes. Vérifier les références éligibles." },
   { id: "zooplus-premiere-commande-10-59", brandSlug: "zooplus", type: "offre", value: "-10 %", valueLabel: "DÈS 59 €", title: "10 % sur la première commande Zooplus dès 59 €", affiliateUrl: "https://tidd.ly/4bvX2g9", permanent: true, conditions: "Offre réservée aux nouveaux clients dès 59 € d’achat. Activer l’offre ou utiliser le code proposé par Zooplus avant de valider la commande." },
@@ -50,8 +48,12 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "miin-back-to-school-15-aout-septembre-2026", brandSlug: "miin-cosmetics", type: "code", value: "-15 %", valueLabel: "DÈS 49 €", title: "15 % de réduction dès 49 € d'achat pour la rentrée", code: "BACK15MIIN", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina", starts: "2026-08-20", expires: "2026-09-12", conditions: "Promotion valable du 20 août au 12 septembre 2026 à 23 h 59 (heure de France métropolitaine), sur les commandes passées via le site web ou l'application MiiN Cosmetics, dans la limite des stocks disponibles. Réduction de 15 % dès 49 € d'achat avec le code BACK15MIIN. Offre non cumulable avec d'autres offres ou réductions, à l'exception du programme de fidélité MiiN Club.", featured: true },
   { id: "clarins-welcome20", brandSlug: "clarins", type: "code", value: "-20 %", valueLabel: "+ CADEAUX", title: "20 % sur la première commande + une trousse et deux essentiels beauté dès 60 €", code: "WELCOME20", conditions: "Offre communiquée par Clarins le 13 août 2026. Réservée à la première commande. Une trousse et deux essentiels beauté sont annoncés dès 60 € d'achat, selon les conditions et stocks disponibles. Aucune date de fin précise n'a été communiquée ; vérifier l'application au panier.", featured: true },
   { id: "clarins-journees-privileges-30", brandSlug: "clarins", type: "offre", value: "-30 %", valueLabel: "SANS MINIMUM", title: "Journées Privilèges : -30 % sur tout le site", affiliateUrl: "https://fnty.co/c/r-UPEIBQIo", conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.", featured: true },
+  // ZIGBUY — codes communiqués le 22 septembre 2026, sans date de fin annoncée
+  { id: "zigbuy-zbfr2601-septembre-2026", brandSlug: "zigbuy", type: "code", value: "120 €", valueLabel: "DÈS 2 000 €", title: "120 € de réduction dès 2 000 € d’achat chez Zigbuy", code: "ZBFR2601", affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=", conditions: "120 € de remise dès 2 000 € d’achat avec le code ZBFR2601. Date de fin non communiquée ; vérifier l’application du code, les produits éligibles et le montant final dans le panier.", featured: true },
+  { id: "zigbuy-zbfr2602-septembre-2026", brandSlug: "zigbuy", type: "code", value: "70 €", valueLabel: "DÈS 1 000 €", title: "70 € de réduction dès 1 000 € d’achat chez Zigbuy", code: "ZBFR2602", affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=", conditions: "70 € de remise dès 1 000 € d’achat avec le code ZBFR2602. Date de fin non communiquée ; vérifier l’application du code, les produits éligibles et le montant final dans le panier.", featured: true },
+  { id: "zigbuy-zbfr2603-septembre-2026", brandSlug: "zigbuy", type: "code", value: "50 €", valueLabel: "DÈS 700 €", title: "50 € de réduction dès 700 € d’achat chez Zigbuy", code: "ZBFR2603", affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=", conditions: "50 € de remise dès 700 € d’achat avec le code ZBFR2603. Date de fin non communiquée ; vérifier l’application du code, les produits éligibles et le montant final dans le panier.", featured: true },
+  { id: "zigbuy-zbfr2604-septembre-2026", brandSlug: "zigbuy", type: "code", value: "-5 %", valueLabel: "JUSQU’À 25 €", title: "5 % de réduction sur tous les produits Zigbuy, jusqu’à 25 €", code: "ZBFR2604", affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=", conditions: "Remise de 5 % sur tous les produits avec le code ZBFR2604, plafonnée à 25 €. Date de fin non communiquée ; vérifier l’application du code et le montant final dans le panier.", featured: true },
   { id: "zigbuy-bons-plans", brandSlug: "zigbuy", type: "offre", value: "BONS PLANS", valueLabel: "HIGH-TECH & MAISON", title: "Promotions Zigbuy sur le high-tech, la maison et la mobilité", permanent: true, conditions: "Produits, prix, stocks, livraison et facilités de paiement variables. Vérifier chaque fiche et le montant final avant de commander.", featured: true },
-  { id: "zigbuy-newsletter", brandSlug: "zigbuy", type: "newsletter", value: "-5 %", valueLabel: "BIENVENUE", title: "Réduction de bienvenue avec la newsletter Zigbuy", permanent: true, conditions: "Une remise de bienvenue peut être proposée après inscription à la newsletter. Vérifier le code reçu, sa durée, les exclusions et son éventuel cumul avant la commande." },
   { id: "belle-au-naturel-summer26", brandSlug: "belle-au-naturel", type: "code", value: "19,90 €", valueLabel: "1ʳᵉ BOX", title: "Première box bio Belle au Naturel à 19,90 €", code: "SUMMER26", expires: "2026-08-31", conditions: "Code annoncé jusqu'au 31 août 2026. Puis abonnement à 34,90 € par mois, sans engagement, livraison incluse. Vérifier les conditions avant validation.", featured: true },
   { id: "createurs-bio-antigaspi", brandSlug: "createurs-bio", type: "offre", value: "ANTI-GASPI", valueLabel: "COSMÉTIQUES BIO", title: "Sélection anti-gaspi Les Créateurs Bio", permanent: true, conditions: "Produits, remises et stocks variables. Vérifier la date, le format et le prix final sur chaque fiche avant la commande." },
   { id: "laboratoires-bimont-offres", brandSlug: "laboratoires-bimont", type: "offre", value: "OFFRES", valueLabel: "BIEN-ÊTRE", title: "Offres Laboratoires Bimont sur les produits de bien-être", permanent: true, conditions: "Produits, remises et conditions variables. Vérifier la fiche, la composition, les précautions d'emploi et le prix final avant toute commande." },
@@ -707,26 +709,28 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // FRANÇOISE SAGET — offres vérifiées le 13 août 2026
+  // FRANÇOISE SAGET — offres vérifiées le 22 septembre 2026
   // ============================================================
   {
-    id: "fs-selection-40-aout",
+    id: "fs-french-days-french10-septembre-2026",
     brandSlug: "francoise-saget",
-    type: "offre",
-    value: "-40 %",
-    valueLabel: "SÉLECTION",
-    title: "Jusqu'à -40 % sur une sélection signalée",
-    conditions: "Réduction affichée sur la sélection Françoise Saget actuellement mise en avant. Produits concernés et stocks susceptibles d'évoluer ; vérifier le prix affiché avant le paiement.",
+    type: "code",
+    value: "-10 %",
+    valueLabel: "EN PLUS",
+    title: "10 % supplémentaires sur les French Days Françoise Saget",
+    code: "FRENCH10",
+    expires: "2026-09-28",
+    conditions: "Jusqu'à 50 % de réduction sur la sélection French Days, puis 10 % supplémentaires avec le code FRENCH10 jusqu'au 28 septembre 2026 inclus. Vérifier l'éligibilité des articles et la remise dans le panier.",
     featured: true,
   },
   {
-    id: "fs-cadeau-15",
+    id: "fs-petits-prix-70-septembre-2026",
     brandSlug: "francoise-saget",
     type: "offre",
-    value: "CADEAU",
-    valueLabel: "DÈS 15 €",
-    title: "Un cadeau offert à partir de 15 € d'achat",
-    conditions: "Avantage affiché par Françoise Saget à partir de 15 € d'achat. Le cadeau proposé et ses conditions peuvent varier ; vérifier le panier avant validation.",
+    value: "-70 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à 70 % sur les petits prix du blanc de la rentrée",
+    conditions: "Remise maximale sur la sélection « Petits prix du blanc de la rentrée ». Produits et stocks variables ; vérifier le prix final avant le paiement.",
     featured: true,
   },
   {
