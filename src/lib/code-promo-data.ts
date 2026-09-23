@@ -236,14 +236,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "cdiscount",
     name: "Cdiscount",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
-    affiliateLabel: "Utiliser le code COCORICO15 chez Cdiscount",
+    affiliateLabel: "Utiliser le code 15DES129 chez Cdiscount",
     matchTags: ["cdiscount"],
     color: "#0A4FA1",
     currentOffer: {
-      code: "COCORICO15",
+      code: "15DES129",
       discount: "15 € offerts dès 129 € d'achat",
-      conditions: "Code valable sur les produits éligibles jusqu'au 14 septembre 2026 à 23h59. Vérifier l'application de la remise dans le panier.",
-      verifiedAt: "2026-09-08",
+      conditions: "Code valable sur les produits éligibles jusqu'au vendredi 25 septembre 2026 à 23h59. Vérifier l'application de la remise dans le panier.",
+      verifiedAt: "2026-09-23",
     },
   },
   {
