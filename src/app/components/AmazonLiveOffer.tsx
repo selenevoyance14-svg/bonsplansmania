@@ -62,6 +62,16 @@ export default function AmazonLiveOffer({ asin, affiliateUrl }: { asin: string; 
     timeZone: "Europe/Paris",
   });
 
+  const parseEuroAmount = (value: string | null) => {
+    if (!value) return null;
+    const amount = Number(value.replace(/[^\d,.-]/g, "").replace(",", "."));
+    return Number.isFinite(amount) ? amount : null;
+  };
+  const currentPriceAmount = parseEuroAmount(offer.price);
+  const oldPriceAmount = parseEuroAmount(offer.oldPrice);
+  const hasRealDiscount =
+    currentPriceAmount !== null && oldPriceAmount !== null && oldPriceAmount > currentPriceAmount;
+
   return (
     <aside className="amazon-live-offer" aria-label="Prix actuel sur Amazon">
       {offer.image && (
@@ -74,8 +84,8 @@ export default function AmazonLiveOffer({ asin, affiliateUrl }: { asin: string; 
         <span className="amazon-live-label">Prix Amazon actualisé</span>
         <div className="amazon-live-prices">
           <strong>{offer.price}</strong>
-          {offer.oldPrice && <del>{offer.oldPrice}</del>}
-          {offer.savingsPercent ? <span>-{offer.savingsPercent}%</span> : null}
+          {hasRealDiscount && <del>{offer.oldPrice}</del>}
+          {hasRealDiscount && offer.savingsPercent ? <span>-{offer.savingsPercent}%</span> : null}
         </div>
         <small>{offer.availability || (offer.inStock ? "En stock" : "Disponibilité à vérifier")} · vérifié le {checkedAt}</small>
         <a href={affiliateUrl} className="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">
