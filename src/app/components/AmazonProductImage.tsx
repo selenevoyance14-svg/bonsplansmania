@@ -72,16 +72,21 @@ export default function AmazonProductImage({
     const key = asin.toUpperCase();
     return offerCache.get(key) ?? (forcedAmazonImages[key] ? { image: forcedAmazonImages[key] } : null);
   });
+  const [settledAsin, setSettledAsin] = useState<string | null>(null);
 
   useEffect(() => {
     if (!asin) return;
     let active = true;
     loadAmazonOffer(asin)
       .then((nextOffer) => {
-        if (active) setOffer(nextOffer);
+        if (active) {
+          setOffer(nextOffer);
+          setSettledAsin(asin.toUpperCase());
+        }
       })
       .catch(() => {
         // L'image éditoriale reste affichée si Amazon ne répond pas.
+        if (active) setSettledAsin(asin.toUpperCase());
       });
     return () => {
       active = false;
@@ -104,7 +109,9 @@ export default function AmazonProductImage({
   // Pour les produits Amazon, ne jamais faire apparaître l'ancien visuel rose
   // pendant que la photo officielle est récupérée par l'API. Un fond neutre
   // occupe brièvement l'espace et évite tout flash de l'image générique.
-  if (asin && GENERIC_FALLBACKS.has(fallbackSrc)) {
+  const requestSettled = !asin || settledAsin === asin.toUpperCase() || Boolean(offer?.image);
+
+  if (asin && GENERIC_FALLBACKS.has(fallbackSrc) && !requestSettled) {
     return (
       <div
         aria-label={alt}

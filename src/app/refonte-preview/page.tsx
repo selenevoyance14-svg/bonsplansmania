@@ -10,6 +10,7 @@ import StickyAdMobile from "@/app/components/StickyAdMobile";
 import Header from "@/app/components/Header";
 import EditorialNewsletter from "./EditorialNewsletter";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
+import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 import styles from "./refonte.module.css";
@@ -193,7 +194,15 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
             <Fragment key={article.meta.slug}>
             <article className={index === 0 ? styles.featuredCard : styles.card}>
               <Link href={`/article/${article.meta.slug}`} className={styles.imageWrap}>
-                <Image src={article.meta.image} alt={article.meta.imageAlt} fill sizes={index === 0 ? "(max-width: 800px) 90vw, 50vw" : "(max-width: 800px) 75vw, 24vw"} />
+                <AmazonProductImage
+                  asin={article.meta.amazonAsin}
+                  fallbackSrc={article.meta.image}
+                  alt={article.meta.imageAlt}
+                  sizes={index === 0 ? "(max-width: 800px) 90vw, 50vw" : "(max-width: 800px) 75vw, 24vw"}
+                  priority={index === 0}
+                  objectFit="contain"
+                  padding="12px"
+                />
                 <span>{labels[article.meta.category] ?? "Nouveau"}</span>
               </Link>
               <div className={styles.cardCopy}>
