@@ -5,17 +5,8 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 23 Sep 2026 18:25:44 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 23 Sep 2026 19:17:38 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
-    <item>
-      <title>Assurland : comparateur d'assurance gratuit, comment ça marche ?</title>
-      <link>https://bonsplansmania.fr/article/assurland-comparateur-assurance-gratuit-2026</link>
-      <guid>https://bonsplansmania.fr/article/assurland-comparateur-assurance-gratuit-2026</guid>
-      <pubDate>Fri, 06 Mar 2026 00:00:00 GMT</pubDate>
-      <description>Comment utiliser le comparateur Assurland ? Assurances disponibles, fonctionnement, points à vérifier et conseils pour comparer les devis sans engagement.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/assurland-comparateur-assurance-gratuit-2026.webp" type="image/webp" length="0"/>
-    </item>
     <item>
       <title>BIOTYFULL Box × Endro : 10 produits pour 12 €</title>
       <link>https://bonsplansmania.fr/article/biotyfull-box-endro-10-produits-12-euros-2026</link>
@@ -305,15 +296,6 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/french-days-cdiscount-septembre-2026.png" type="image/png" length="0"/>
     </item>
     <item>
-      <title>iPhone reconditionnés Cdiscount : 15 € de remise avec TEL15D99</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-cdiscount-iphone-reconditionne-13-14-15-16-promo-code-tel15d99-mai-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-cdiscount-iphone-reconditionne-13-14-15-16-promo-code-tel15d99-mai-2026</guid>
-      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Le code Cdiscount TEL15D99 enlève 15 € dès 99 € sur une sélection de smartphones et d'iPhone reconditionnés éligibles. Conditions et conseils avant l'achat.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-cdiscount-iphone-reconditionne-13-14-15-16-promo-code-tel15d99-mai-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
       <title>eBuyClub : 3 € offerts avec le parrainage en 2026</title>
       <link>https://bonsplansmania.fr/article/bon-plan-ebuyclub-cashback-2500-marchands-3-euros-offerts-2026</link>
       <guid>https://bonsplansmania.fr/article/bon-plan-ebuyclub-cashback-2500-marchands-3-euros-offerts-2026</guid>
@@ -339,6 +321,15 @@
       <description>Le lave-linge VALBERG WF 714 A-30 F W566C passe à 249,75 € chez Electro Dépôt : capacité 7 kg, classe A, essorage 1 400 tr/min et vapeur.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/_placeholder-bonsplansmania-beige.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Trousse de soin bébé Babymoov reconditionnée : 24,90 € (-29 %)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-greenweez-trousse-soin-bebe-9-accessoires-reconditionnee-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-greenweez-trousse-soin-bebe-9-accessoires-reconditionnee-2026</guid>
+      <pubDate>Sun, 30 Aug 2026 00:00:00 GMT</pubDate>
+      <description>La trousse de soin bébé Babymoov reconditionnée avec 9 accessoires est à 24,90 € au lieu de 34,90 € chez Greenweez. Défaut signalé et contenu détaillé.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-greenweez-trousse-soin-bebe-9-accessoires-reconditionnee-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Tineco Floor One S7 Pro aspirateur laveur sans fil</title>
@@ -456,6 +447,15 @@
       <description>La box LOOKFANTASTIC L’Édition Nouvelle Saison réunit 8 soins et produits de beauté d’une valeur supérieure à 122 €, à 34,50 € au lieu de 46 €.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/lookfantastic-edition-nouvelle-saison-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Lookfantastic Vous le Méritez : 7 produits pour 45 €</title>
+      <link>https://bonsplansmania.fr/article/lookfantastic-edition-vous-le-meritez-7-produits-45-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/lookfantastic-edition-vous-le-meritez-7-produits-45-euros-2026</guid>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+      <description>La box Lookfantastic Vous le Méritez contient 7 produits Color Wow, KIKO, ICONIC London, Manucurist et Sol de Janeiro pour 45 €.</description>
+      <category>box-beaute</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/lookfantastic-edition-vous-le-meritez-7-produits-45-euros-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>

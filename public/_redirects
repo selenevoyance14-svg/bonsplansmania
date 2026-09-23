@@ -11,6 +11,9 @@
 # Doublon Prozis soutien-gorge Triangle Daily : URL source avec ancien prix erroné
 /article/bon-plan-prozis-soutien-gorge-triangle-daily-9-euros-septembre-2026 /article/bon-plan-prozis-soutien-gorge-daily-bleu-aout-2026 301
 
+# Doublon Thermobaby rehausseur 2 en 1 : conserver l'URL sans ancien prix
+/article/thermobaby-rehausseur-chaise-2-en-1-22-euros-promo-amazon-avril-2026 /article/bon-plan-thermobaby-rehausseur-chaise-2-en-1-amazon-2026 301
+
 # Anciennes taxonomies WordPress encore explorées par Google
 /tag/mode-enfant/ /bons-plans-mode 301
 /category/film/ /blog 301
