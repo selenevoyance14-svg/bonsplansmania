@@ -106,11 +106,16 @@ function sanitizeAmazonClaims(value: unknown): string | undefined {
     .trim();
 }
 
-function sanitizeAmazonContent(content: string): string {
+function sanitizeAmazonContent(content: string, preserveManualPrices = false): string {
   const withoutStoredAmazonImages = content.replace(
     /^!?\[[^\]]*\]\(\/images\/amazon\/[^)]+\)\s*$/gimu,
     ""
   );
+  // `amazonPriceOverride` indique qu'un prix (coupon/code compris) a été
+  // vérifié et saisi manuellement. Dans ce cas, on conserve le texte de
+  // l'offre au lieu de le transformer en phrase incomplète.
+  if (preserveManualPrices) return withoutStoredAmazonImages.trim();
+
   return (sanitizeAmazonClaims(withoutStoredAmazonImages) || "")
     // Un ancien prix entouré de Markdown pouvait laisser un marqueur gras
     // orphelin après sa suppression. Le texte reste volontairement sans gras
@@ -250,7 +255,12 @@ export function getArticleBySlug(slug: string): Article | null {
   const fileContent = fs.readFileSync(filePath, "utf-8");
   const { data, content } = matter(fileContent);
   const amazonArticle = isAmazonArticle(data, content);
-  const safeContent = amazonArticle ? sanitizeAmazonContent(content) : content;
+  const preserveManualAmazonPrices = amazonArticle && data.amazonPriceOverride === true;
+  const safeContent = amazonArticle
+    ? sanitizeAmazonContent(content, preserveManualAmazonPrices)
+    : content;
+  const sanitizeAmazonMetadata = (value: unknown) =>
+    preserveManualAmazonPrices ? (typeof value === "string" ? value : undefined) : sanitizeAmazonClaims(value);
   const stats = readingTime(safeContent);
   const category = data.category || "bon-plan";
   const expired = data.expired === true;
@@ -258,8 +268,8 @@ export function getArticleBySlug(slug: string): Article | null {
   return {
     meta: {
       slug,
-      title: (amazonArticle ? sanitizeAmazonClaims(data.title) : data.title) || "",
-      description: (amazonArticle ? sanitizeAmazonClaims(data.description) : data.description) || "",
+      title: (amazonArticle ? sanitizeAmazonMetadata(data.title) : data.title) || "",
+      description: (amazonArticle ? sanitizeAmazonMetadata(data.description) : data.description) || "",
       date: data.date || new Date().toISOString(),
       updated: data.updated,
       remount: data.remount,
@@ -268,7 +278,7 @@ export function getArticleBySlug(slug: string): Article | null {
       image: amazonArticle && typeof data.image === "string" && data.image.startsWith("/images/amazon/")
           ? FALLBACK_ARTICLE_IMAGE
           : resolveArticleImage(data.image),
-      imageAlt: (amazonArticle ? sanitizeAmazonClaims(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
+      imageAlt: (amazonArticle ? sanitizeAmazonMetadata(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
       rating: amazonArticle ? undefined : data.rating,
       price: amazonArticle
         ? typeof data.price === "string" && (/^indisponible/i.test(data.price.trim()) || data.amazonPriceOverride === true)
@@ -282,8 +292,8 @@ export function getArticleBySlug(slug: string): Article | null {
       readingTime: stats.text.replace("min read", "min"),
       published: data.published !== false,
       featured: data.featured || false,
-      seoTitle: amazonArticle ? sanitizeAmazonClaims(data.seoTitle) : data.seoTitle,
-      seoDescription: amazonArticle ? sanitizeAmazonClaims(data.seoDescription) : data.seoDescription,
+      seoTitle: amazonArticle ? sanitizeAmazonMetadata(data.seoTitle) : data.seoTitle,
+      seoDescription: amazonArticle ? sanitizeAmazonMetadata(data.seoDescription) : data.seoDescription,
       expired,
       evergreen: data.evergreen || false,
       endDate,

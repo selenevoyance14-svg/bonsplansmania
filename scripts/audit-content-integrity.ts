@@ -147,6 +147,7 @@ const PROMOTIONAL_TEXT =
 const PRICE_TEXT = /\b\d[\d\s]*(?:[.,]\d{1,2})?\s*€|\b-\s*\d{1,3}\s*%/;
 const LIMITED_CAMPAIGN_TEXT =
   /\b(?:coupon|code promo|vente(?:s)? flash|prime day|french (?:days|week)|black friday|cyber monday|soldes|offre de remboursement|satisfait ou rembours[ée]|odr)\b/i;
+const DANGLING_METADATA_END = /(?:\b(?:à|au|aux|avec|de|des|du|en|et|ou|par|pour|sans|sur)|:)\s*$/i;
 
 function isAmazonUrl(url: string): boolean {
   try {
@@ -225,6 +226,17 @@ const destinationDuplicates = groupDuplicates(
 const discountErrors = articles
   .map(discountError)
   .filter((error): error is NonNullable<typeof error> => error !== null);
+const brokenMetadata = articles.flatMap((article) =>
+  ([
+    ["title", article.title],
+    ["seoTitle", article.seoTitle],
+    ["description", article.description],
+  ] as const).flatMap(([field, value]) =>
+    value && DANGLING_METADATA_END.test(value)
+      ? [{ file: article.file, slug: article.slug, field, value }]
+      : [],
+  ),
+);
 const staleCommercialPages = articles
   .filter((article) => ["bon-plan", "code-promo"].includes(article.category))
   .map((article) => {
@@ -404,6 +416,7 @@ const report = {
     normalizedBodyDuplicates: bodyDuplicates,
     identicalDestinations: destinationDuplicates,
     discountErrors,
+    brokenMetadata,
     staleCommercialPages,
     overdueFreeTrafficPages,
     unprotectedStaleCommercialPages,
@@ -456,6 +469,7 @@ console.log(`  ${exactDescriptions.length} groupes de descriptions identiques`);
 console.log(`  ${bodyDuplicates.length} groupes de corps d’article quasi identiques`);
 console.log(`  ${destinationDuplicates.length} destinations utilisées plusieurs fois`);
 console.log(`  ${discountErrors.length} remises arithmétiquement incohérentes`);
+console.log(`  ${brokenMetadata.length} métadonnées potentiellement coupées`);
 console.log(`  ${unprotectedStaleCommercialPages.length} pages commerciales anciennes sans protection`);
 console.log(`  ${automaticallyProtectedStaleCommercialPages.length} pages commerciales anciennes protégées par avertissement + données OutOfStock`);
 console.log(`  ${unprotectedOverdueFreeTrafficPages.length} concours/tests anciens sans protection`);

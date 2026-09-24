@@ -81,7 +81,7 @@ const EXACT_TAGS = new Set([
   "sephora", "marionnaud", "nocibe", "yves-rocher", "parfumerie",
   "beauty-success", "beautysuccess", "lookfantastic", "notino",
   "perfumes-club", "perfumesclub", "origines-parfums", "originesparfums",
-  "parfums-moins-chers", "greenweez", "mademoiselle-bio",
+  "parfums-moins-chers", "mademoiselle-bio",
   "cocooncenter", "easypara", "easyparapharmacie",
   // Plateformes K-beauty
   "yesstyle", "stylevana",
@@ -127,7 +127,7 @@ const EXACT_TAGS = new Set([
   "keratine", "argan", "shampoing", "apres-shampoing", "masque-cheveux",
   // Coiffure / hair styling
   "seche-cheveux", "sèche-cheveux", "lisseur", "boucleur",
-  "brosse-chauffante", "brushing", "dyson", "dyson-airwrap",
+  "brosse-chauffante", "brushing", "dyson-airwrap",
   "dyson-corrale", "ghd", "ukliss", "cecotec-bamba", "aowoka",
   "haokoo", "bopcal",
   // Autres
@@ -246,6 +246,8 @@ const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
+  "couche-", "couches-", "lingette-bebe", "doudou-", "-doudou-",
+  "pukylino", "puky-", "porteur-", "jouet-eveil", "cadeau-naissance",
 ];
 
 // Slugs à exclure : catégories qui matchent par erreur des tokens beauté
@@ -281,7 +283,7 @@ const EXCLUDED_CATEGORIES = new Set<string>([
   "calendrier-avent", "code-promo",
 ]);
 
-function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+export function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   // Exclure d'office si c'est un article bébé/puériculture

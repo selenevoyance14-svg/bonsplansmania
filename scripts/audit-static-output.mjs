@@ -56,6 +56,7 @@ const routeFiles = new Map(
 );
 const routes = new Set(routeFiles.keys());
 const incomingLinks = new Map([...routes].map((route) => [route, 0]));
+const indexableRoutes = new Set();
 const brokenLinks = new Map();
 const titleRoutes = new Map();
 const descriptionRoutes = new Map();
@@ -76,6 +77,14 @@ for (const [route, file] of routeFiles) {
   );
   const canonical = html.match(/<link[^>]+rel=["']canonical["'][^>]*>/i)?.[0];
   const h1Count = (html.match(/<h1\b/gi) || []).length;
+  const robots = decode(
+    html.match(/<meta[^>]+name=["']robots["'][^>]+content=["']([^"']*)/i)?.[1] ||
+      html.match(/<meta[^>]+content=["']([^"']*)["'][^>]+name=["']robots["']/i)?.[1]
+  );
+
+  if (!/(?:^|[\s,])noindex(?:[\s,]|$)/i.test(robots)) {
+    indexableRoutes.add(route);
+  }
 
   if (!title) missing.title.push(route);
   else titleRoutes.set(title, [...(titleRoutes.get(title) || []), route]);
@@ -111,13 +120,21 @@ const duplicateDescriptions = [...descriptionRoutes.entries()]
   .filter(([, duplicateRoutes]) => duplicateRoutes.length > 1)
   .map(([value, duplicateRoutes]) => ({ value, routes: duplicateRoutes }));
 const orphanRoutes = [...incomingLinks.entries()]
-  .filter(([route, count]) => route !== "/" && count === 0)
+  .filter(
+    ([route, count]) =>
+      route !== "/" &&
+      count === 0 &&
+      indexableRoutes.has(route) &&
+      route !== "/404" &&
+      route !== "/_not-found"
+  )
   .map(([route]) => route);
 
 console.log(
   JSON.stringify(
     {
       pages: htmlFiles.length,
+      indexablePages: indexableRoutes.size,
       brokenLinks: {
         count: brokenLinks.size,
         sample: [...brokenLinks.keys()].slice(0, 40),
@@ -133,7 +150,7 @@ console.log(
       },
       orphanRoutes: {
         count: orphanRoutes.length,
-        sample: orphanRoutes.slice(0, 40),
+        sample: orphanRoutes.slice(0, 200),
       },
     },
     null,

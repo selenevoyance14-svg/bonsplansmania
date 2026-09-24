@@ -24,7 +24,13 @@ function formatDate(value?: string): string {
 export default function BonsPlansArchivesPage() {
   const articles = [
     ...getArchivedArticlesByCategory("bon-plan"),
+    ...getArchivedArticlesByCategory("bon-plan-beaute"),
     ...getArchivedArticlesByCategory("box-beaute"),
+    ...getArchivedArticlesByCategory("code-promo"),
+    ...getArchivedArticlesByCategory("calendrier-avent"),
+    ...getArchivedArticlesByCategory("comparatif"),
+    ...getArchivedArticlesByCategory("beaute"),
+    ...getArchivedArticlesByCategory("selection"),
   ].sort((a, b) => {
     const aDate = a.meta.endDate || a.meta.updated || a.meta.date;
     const bDate = b.meta.endDate || b.meta.updated || b.meta.date;
@@ -67,7 +73,7 @@ export default function BonsPlansArchivesPage() {
               Archives des bons plans
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "760px" }}>
-              Ces {articles.length} bons plans et offres de box beauté sont terminés. Leurs fiches restent consultables pour conserver les informations historiques, mais les prix et les promotions ne sont plus valables.
+              Ces {articles.length} bons plans, codes promo et sélections sont terminés. Leurs fiches restent consultables pour conserver les informations historiques, mais les prix et les promotions ne sont plus valables.
             </p>
             <a href="/categorie/bon-plan" className="btn btn-primary" style={{ marginTop: "16px" }}>
               <Tags size={15} /> Voir les bons plans en cours

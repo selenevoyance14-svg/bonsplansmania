@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { TECH_BRANDS } from "@/lib/brand-filters";
@@ -63,6 +63,17 @@ const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto", "babybjorn",
 ];
 
+// Une caméra, une puce Wi-Fi ou une marque comme LG/Samsung ne suffit pas à
+// transformer un appareil ménager, un robot de jardin ou un accessoire pour
+// animaux en bon plan high-tech.
+const NON_TECH_PRODUCT_TOKENS = [
+  "aspirateur", "robot-laveur", "lave-linge", "lave-vaisselle", "refrigerateur",
+  "congelateur", "airfryer", "friteuse", "robot-cuiseur", "machine-cafe",
+  "robot-tondeuse", "tondeuse-gazon", "robot-piscine", "barbecue", "plancha",
+  "distributeur-croquettes", "croquettes-", "litiere-", "arbre-a-chat",
+  "gamelle-", "collier-gps-chien", "collier-gps-chat",
+];
+
 const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel"]);
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
@@ -71,6 +82,7 @@ function isTechArticle(meta: { slug?: string; tags?: string[]; category?: string
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
+  if (NON_TECH_PRODUCT_TOKENS.some((k) => slug.includes(k))) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;
   if (tags.some((t) => EXACT_TAGS.has(t))) return true;
@@ -79,7 +91,7 @@ function isTechArticle(meta: { slug?: string; tags?: string[]; category?: string
 
 export default async function BonsPlansTechPage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isTechArticle(a.meta));
+  const articles = all.filter((a) => !isEffectivelyExpired(a.meta) && isTechArticle(a.meta));
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];

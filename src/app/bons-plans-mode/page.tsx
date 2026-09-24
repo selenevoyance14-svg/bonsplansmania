@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { MODE_BRANDS, MODE_PRODUCT_TYPES } from "@/lib/brand-filters";
@@ -124,7 +124,7 @@ function isModeArticle(meta: { slug?: string; tags?: string[]; category?: string
 
 export default async function BonsPlansModePage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isModeArticle(a.meta));
+  const articles = all.filter((a) => !isEffectivelyExpired(a.meta) && isModeArticle(a.meta));
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];

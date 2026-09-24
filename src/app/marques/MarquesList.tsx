@@ -82,23 +82,26 @@ export default function MarquesList({ brands }: { brands: BrandData[] }) {
                 transition: "border-color 0.2s",
               }}
             >
-              {/* Header cliquable */}
-              <button
-                onClick={() => setOpenBrand(isOpen ? null : brand.slug)}
+              {/* Le lien vers la page marque reste présent dans le HTML initial :
+                  Google peut ainsi découvrir toutes les pages /marque/*. */}
+              <div
                 style={{
                   width: "100%",
-                  padding: "16px",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  textAlign: "left",
                   gap: "12px",
                 }}
               >
-                <div>
+                <a
+                  href={`/marque/${brand.slug}`}
+                  style={{
+                    flex: 1,
+                    padding: "16px",
+                    color: "inherit",
+                    textDecoration: "none",
+                  }}
+                >
                   <div
                     style={{
                       fontWeight: 700,
@@ -117,7 +120,20 @@ export default function MarquesList({ brands }: { brands: BrandData[] }) {
                   >
                     {brand.count} article{brand.count > 1 ? "s" : ""}
                   </div>
-                </div>
+                </a>
+                <button
+                  type="button"
+                  aria-expanded={isOpen}
+                  aria-label={`${isOpen ? "Masquer" : "Afficher"} les articles ${brand.name}`}
+                  onClick={() => setOpenBrand(isOpen ? null : brand.slug)}
+                  style={{
+                    alignSelf: "stretch",
+                    padding: "0 16px",
+                    background: "none",
+                    border: "none",
+                    cursor: "pointer",
+                  }}
+                >
                 {isOpen ? (
                   <ChevronDown
                     size={18}
@@ -129,7 +145,8 @@ export default function MarquesList({ brands }: { brands: BrandData[] }) {
                     style={{ color: "var(--muted-foreground)", flexShrink: 0 }}
                   />
                 )}
-              </button>
+                </button>
+              </div>
 
               {/* Dropdown articles */}
               {isOpen && (

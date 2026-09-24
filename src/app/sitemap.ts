@@ -39,9 +39,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/bons-plans-jouets",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/bons-plans-rentree",       priority: 0.9, changeFrequency: "weekly" },
   { path: "/avis-prix-beaute",         priority: 0.8, changeFrequency: "weekly" },
-  { path: "/meilleures-box-beaute",    priority: 0.9, changeFrequency: "daily" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
-  { path: "/recherche",                priority: 0.5, changeFrequency: "monthly" },
   { path: "/archives/bons-plans",      priority: 0.5, changeFrequency: "weekly" },
   { path: "/archives/concours",        priority: 0.5, changeFrequency: "weekly" },
   { path: "/archives/tests-produits",  priority: 0.5, changeFrequency: "weekly" },
@@ -69,19 +67,16 @@ const CATEGORY_SLUGS = [
 export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const now = new Date();
   const articles = getAllArticles();
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PAGES.map((p) => ({
     url: `${BASE}${p.path}`,
-    lastModified: now,
     changeFrequency: p.changeFrequency,
     priority: p.priority,
   }));
 
   const categoryEntries: MetadataRoute.Sitemap = CATEGORY_SLUGS.map((slug) => ({
     url: `${BASE}/categorie/${slug}`,
-    lastModified: now,
     changeFrequency: "daily",
     priority: 0.8,
   }));
@@ -116,7 +111,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     .filter(([slug, count]) => shouldGenerateTagPage(slug, count))
     .map(([slug]) => ({
       url: `${BASE}/marque/${slug}`,
-      lastModified: now,
       changeFrequency: "weekly" as const,
       priority: 0.5,
     }));
@@ -128,5 +122,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...categoryEntries, ...articleEntries, ...marqueEntries, ...productEntries];
+  // Dernier garde-fou : une URL ne doit apparaître qu'une fois, même si une
+  // future page est ajoutée par erreur dans plusieurs groupes ci-dessus.
+  const entries = [...staticEntries, ...categoryEntries, ...articleEntries, ...marqueEntries, ...productEntries];
+  return [...new Map(entries.map((entry) => [entry.url, entry])).values()];
 }

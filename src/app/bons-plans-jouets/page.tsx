@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { JOUETS_BRANDS, JOUETS_PRODUCT_TYPES } from "@/lib/brand-filters";
@@ -97,7 +97,7 @@ function isJouetsArticle(meta: { slug?: string; tags?: string[]; category?: stri
 
 export default async function BonsPlansJouetsPage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isJouetsArticle(a.meta));
+  const articles = all.filter((a) => !isEffectivelyExpired(a.meta) && isJouetsArticle(a.meta));
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];

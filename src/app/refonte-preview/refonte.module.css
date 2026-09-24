@@ -49,11 +49,95 @@
 .trust span:last-child { border:0; }
 .trust svg { flex:0 0 auto; color:var(--wine); }
 .categoryRail { width:100%; padding:0 clamp(18px,4.5vw,72px); background:var(--wine); color:#fff; overflow:hidden; }
-.categoryRail>div { display:flex; align-items:center; justify-content:center; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x proximity; scrollbar-width:none; }
+.categoryRail>div { min-height:43px; display:flex; align-items:center; justify-content:center; overflow-x:auto; overscroll-behavior-inline:contain; scroll-snap-type:x proximity; scrollbar-width:none; }
 .categoryRail>div::-webkit-scrollbar { display:none; }
 .categoryRail a { position:relative; flex:0 0 auto; scroll-snap-align:start; padding:15px clamp(14px,2vw,25px); color:#fff; font-size:12px; font-weight:700; letter-spacing:.025em; white-space:nowrap; transition:background .2s; }
 .categoryRail a:not(:last-child)::after { content:""; position:absolute; top:13px; right:0; bottom:13px; width:1px; background:rgba(255,255,255,.22); }
 .categoryRail a:hover { background:rgba(255,255,255,.1); }
+.dealsHub { padding:34px clamp(22px,4.5vw,72px) 38px; border-bottom:1px solid var(--line); background:#fbfaf6; }
+.dealsHubTopline { max-width:1180px; margin:0 auto 17px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
+.dealsHubTopline span { color:var(--wine); font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+.dealsHubTopline h2 { margin:5px 0 0; font:400 clamp(25px,2.3vw,32px)/1.08 Georgia,serif; letter-spacing:-.025em; }
+.dealsHubTopline>a { display:flex; align-items:center; gap:5px; padding-bottom:3px; border-bottom:1px solid; font-size:11px; font-weight:800; white-space:nowrap; }
+.dealsTabs { max-width:1180px; margin:0 auto 18px; display:flex; gap:7px; overflow-x:auto; scrollbar-width:none; }
+.dealsTabs::-webkit-scrollbar { display:none; }
+.dealsTab,.dealsTabActive { flex:0 0 auto; padding:9px 13px; border:1px solid #d9cfc6; border-radius:999px; background:#fff; color:#5e5650; font:700 11px Arial,sans-serif; cursor:pointer; transition:background .2s,color .2s,border-color .2s; }
+.dealsTab:hover { border-color:#a78c92; color:var(--wine); }
+.dealsTabActive { border-color:var(--wine); background:var(--wine); color:#fff; }
+.dealsPanel { max-width:1180px; margin:0 auto; }
+.dealsPanelHeading { display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
+.dealsPanelHeading h3 { flex:0 0 auto; margin:0; font:400 17px/1.2 Georgia,serif; }
+.dealsPanelHeading p { margin:0; color:#746b65; font-size:10px; line-height:1.4; }
+.dealsHubGrid { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:#c2b7af transparent; padding-bottom:7px; }
+.dealsHubCard { flex:0 0 calc((100% - 24px)/3); min-width:0; display:grid; grid-template-columns:145px minmax(0,1fr); min-height:178px; overflow:hidden; border:1px solid #ddd4cb; border-radius:13px; background:#fff; box-shadow:0 3px 10px rgba(45,31,29,.045); scroll-snap-align:start; transition:transform .2s ease,box-shadow .2s ease; }
+.dealsHubCard:hover { transform:translateY(-2px); box-shadow:0 9px 20px rgba(45,31,29,.09); }
+.dealsHubImage { position:relative; display:block; min-height:178px; overflow:hidden; border-right:1px solid #eee8e1; background:#fff; }
+.dealsHubImage img { transition:transform .3s ease; }
+.dealsHubCard:hover .dealsHubImage img { transform:scale(1.025); }
+.dealsHubImage>span { position:absolute; top:8px; left:8px; z-index:2; max-width:calc(100% - 16px); display:flex; align-items:center; gap:3px; padding:5px 7px; overflow:hidden; border-radius:999px; background:var(--wine); color:#fff; font-size:8px; font-weight:800; letter-spacing:.035em; text-overflow:ellipsis; text-transform:uppercase; white-space:nowrap; }
+.dealsHubCard_coupons .dealsHubImage>span { background:#1f6d58; }
+.dealsHubCard_partner .dealsHubImage>span { background:#1559a8; }
+.dealsHubCard_refund .dealsHubImage>span { background:#22624e; }
+.dealsHubCard_small .dealsHubImage>span { background:#9a5a21; }
+.dealsHubCopy { min-width:0; display:flex; flex-direction:column; padding:14px 14px 12px; }
+.dealsHubCopy>small { color:#786e68; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.dealsHubCopy h4 { margin:7px 0 9px; font:400 17px/1.2 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.dealsHubPrice { display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; }
+.dealsHubPrice strong { color:var(--wine); font-size:11px; line-height:1.2; }
+.dealsHubPrice del { color:#837a74; font-size:9px; }
+.dealsHubPrice b { padding:3px 5px; border-radius:999px; background:#e4efe8; color:#1f6d58; font-size:8px; }
+.dealsHubFooter { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:7px; border-top:1px solid #eee8e1; }
+.dealsHubFooter>span { color:#6e655f; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.dealsHubFooter>a { width:24px; height:24px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; color:var(--wine); }
+.dealsHubNotice { margin:8px 0 0; color:#776e68; font-size:9px; line-height:1.4; }
+.curatedSection { padding:38px clamp(22px,4.5vw,72px) 42px; border-bottom:1px solid var(--line); background:#fbfaf6; }
+.curated_refund { background:#f2f5f1; }
+.curated_small { background:#f6f3ed; }
+.curated_contest { background:#f2edf4; }
+.curatedHeading { max-width:1180px; margin:0 auto 18px; display:flex; align-items:flex-end; justify-content:space-between; gap:28px; }
+.curatedHeading>div { max-width:750px; }
+.curatedHeading span { color:var(--wine); font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
+.curatedHeading h2 { margin:5px 0 5px; font:400 clamp(24px,2.3vw,32px)/1.08 Georgia,serif; letter-spacing:-.025em; }
+.curatedHeading p { margin:0; color:#675f59; font-size:12px; line-height:1.5; }
+.curatedHeading>a { display:flex; align-items:center; gap:6px; padding-bottom:4px; border-bottom:1px solid; font-size:12px; font-weight:800; white-space:nowrap; }
+.curatedGrid { max-width:1180px; margin:0 auto; display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:#c2b7af transparent; padding-bottom:7px; }
+.curatedCard { flex:0 0 calc((100% - 28px)/3); min-width:0; display:grid; grid-template-columns:132px minmax(0,1fr); overflow:hidden; border:1px solid #ddd4cb; border-radius:12px; background:#fff; box-shadow:0 3px 10px rgba(45,31,29,.045); scroll-snap-align:start; transition:transform .2s ease,box-shadow .2s ease; }
+.curatedCard:hover { transform:translateY(-3px); box-shadow:0 10px 24px rgba(45,31,29,.1); }
+.curatedImage { position:relative; display:block; height:100%; min-height:154px; overflow:hidden; background:#fff; border-right:1px solid #eee8e1; }
+.curatedImage img { transition:transform .3s ease; }
+.curatedCard:hover .curatedImage img { transform:scale(1.025); }
+.curatedImage>span { position:absolute; top:8px; left:8px; z-index:2; max-width:calc(100% - 16px); padding:5px 7px; border-radius:999px; background:var(--wine); color:#fff; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.curated_refund .curatedImage>span { background:#22624e; }
+.curated_small .curatedImage>span { background:#9a5a21; }
+.curated_contest .curatedImage>span { background:#6c3d7e; }
+.curatedCopy { min-width:0; display:flex; flex-direction:column; padding:14px 14px 12px; }
+.curatedCopy small { color:#766d67; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.curatedCopy h3 { min-height:0; margin:7px 0 10px; font:400 16px/1.18 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.curatedFooter { display:flex; align-items:center; justify-content:space-between; gap:7px; margin-top:auto; padding-top:9px; border-top:1px solid #eee8e1; }
+.curatedFooter strong { color:var(--wine); font-size:11px; line-height:1.2; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.curatedFooter>a { width:25px; height:25px; flex:0 0 25px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; }
+.couponSpotlight { padding:38px clamp(22px,4.5vw,72px) 42px; background:#fbfaf6; border-bottom:1px solid var(--line); }
+.couponHeading { position:relative; display:flex; align-items:flex-end; justify-content:space-between; gap:28px; max-width:1180px; margin:0 auto 18px; }
+.couponHeading>div>span { display:flex; align-items:center; gap:7px; color:var(--wine); font-size:10px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+.couponHeading h2 { margin:5px 0; font:400 clamp(24px,2.3vw,32px)/1.08 Georgia,serif; letter-spacing:-.025em; }
+.couponHeading p { max-width:720px; margin:0; color:#625b55; font-size:12px; line-height:1.5; }
+.couponHeading>a { display:flex; align-items:center; gap:6px; flex:0 0 auto; padding-bottom:4px; border-bottom:1px solid; color:var(--ink); font-size:12px; font-weight:700; }
+.couponGrid { max-width:1180px; margin:0 auto; display:flex; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:#c2b7af transparent; padding-bottom:7px; }
+.couponCard { flex:0 0 calc((100% - 28px)/3); min-width:0; display:grid; grid-template-columns:132px minmax(0,1fr); overflow:hidden; border:1px solid #ded5cd; border-radius:12px; background:#fff; box-shadow:0 3px 10px rgba(46,31,30,.045); scroll-snap-align:start; }
+.couponImage { position:relative; display:block; height:100%; min-height:170px; overflow:hidden; background:#fff; border-right:1px solid #eee8e1; }
+.couponImage img { transition:transform .3s ease; }
+.couponImage:hover img { transform:scale(1.045); }
+.couponImage>span { position:absolute; top:8px; left:8px; z-index:2; display:flex; align-items:center; gap:4px; padding:5px 7px; border-radius:999px; background:#1f6d58; color:#fff; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
+.couponCopy { min-width:0; display:flex; flex-direction:column; padding:14px 14px 12px; }
+.couponCopy h3 { min-height:0; margin:0 0 9px; font:400 16px/1.18 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.couponPrice { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-height:28px; }
+.couponPrice strong { color:var(--wine); font-size:12px; line-height:1.25; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.couponPrice del { color:#837a74; font-size:11px; }
+.couponPrice b { padding:4px 7px; border-radius:999px; background:#e4efe8; color:#1f6d58; font-size:9px; }
+.couponFooter { display:flex; align-items:center; justify-content:space-between; gap:6px; margin-top:auto; padding-top:8px; border-top:1px solid #eee8df; }
+.couponFooter small { display:flex; align-items:center; gap:4px; color:#716a64; font-size:9px; }
+.couponFooter>a { display:flex; align-items:center; gap:3px; color:var(--wine); font-size:8px; font-weight:800; text-transform:uppercase; letter-spacing:.02em; white-space:nowrap; }
+.couponNotice { max-width:1180px; margin:14px auto 0; color:#766f69; font-size:10px; line-height:1.5; }
 .latestStrip { padding:58px clamp(26px,5.5vw,96px) 68px; }
 .latestStrip>header { display:flex; align-items:baseline; justify-content:flex-start; gap:18px; margin-bottom:21px; text-align:left; }
 .latestStrip>header span { color:var(--wine); font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.13em; }
@@ -170,13 +254,16 @@
 .footerLinks a { color:#e0d9d3; font-size:13px; transition:color .2s; }
 .footerLinks a:hover { color:white; }
 .footerBottom { grid-column:1/-1; display:flex; justify-content:space-between; gap:25px; margin-top:25px; padding-top:20px; border-top:1px solid #37322f; color:#aaa29b; font-size:10px; }
-@media(max-width:1180px){.nav{display:none}.mobileNav{display:block}.today{margin-left:0}.latestItem{flex-basis:calc((100% - 22px)/2)}.featureRow{grid-template-columns:1fr}.freeTestsGrid{grid-template-columns:1fr 1fr}.editorialGrid{grid-template-columns:1fr}.featuredCard{grid-column:auto;grid-row:auto}.featuredCard .imageWrap{height:100%}.beautyCompareGrid{grid-template-columns:1fr 1fr}.newsletter{grid-template-columns:auto 1fr}.newsletterForm{grid-column:2}.footer{grid-template-columns:1fr 1fr}.footerBrand{grid-column:1/-1}}
+@media(max-width:1180px){.nav{display:none}.mobileNav{display:block}.today{margin-left:0}.curatedGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.couponGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.latestItem{flex-basis:calc((100% - 22px)/2)}.featureRow{grid-template-columns:1fr}.freeTestsGrid{grid-template-columns:1fr 1fr}.editorialGrid{grid-template-columns:1fr}.featuredCard{grid-column:auto;grid-row:auto}.featuredCard .imageWrap{height:100%}.beautyCompareGrid{grid-template-columns:1fr 1fr}.newsletter{grid-template-columns:auto 1fr}.newsletterForm{grid-column:2}.footer{grid-template-columns:1fr 1fr}.footerBrand{grid-column:1/-1}}
 @media(max-width:760px){
   .header{height:58px;padding:0 14px}.logo{font-size:20px}.today{display:none}.mobileNav summary{padding:8px 10px}
   .hero{grid-template-columns:1fr;min-height:0}.heroCopy{padding:27px 18px 22px}.kicker{font-size:9px}.hero h1{max-width:360px;margin:9px 0 10px;font-size:clamp(32px,9vw,40px);line-height:1}.heroCopy>p{max-width:360px;font-size:13px;line-height:1.48}.search{margin-top:16px;padding:5px 5px 5px 12px;gap:7px}.search button{padding:10px 12px}.search input{font-size:11px}
   .lead{min-height:315px;margin:0 12px 16px}.leadProduct{padding:10px 10px 100px}.leadContent{padding:17px}.leadBadge{padding:6px 8px;font-size:9px}.leadContent small{font-size:9px}.leadContent h2{margin:7px 0 10px;font-size:clamp(21px,6.6vw,27px);line-height:1.04}.leadBottom{align-items:center;gap:8px}.leadBottom>a{padding:9px 10px;background:var(--wine);border:0;font-size:11px}.carouselControls{gap:5px}.carouselControls button{width:29px;height:29px}
   .trust{display:grid;grid-template-columns:1fr 1fr;padding:0}.trust span{min-height:43px;padding:8px 6px;font-size:10px}.trust span:nth-child(2){border-right:0}.trust span:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .categoryRail{padding:0}.categoryRail>div{justify-content:flex-start}.categoryRail a{padding:13px 17px;font-size:11px}
+  .dealsHub{padding:25px 14px 28px}.dealsHubTopline{margin-bottom:13px;align-items:flex-end}.dealsHubTopline h2{font-size:25px}.dealsHubTopline>a{display:flex;font-size:9px}.dealsTabs{margin-bottom:14px;gap:6px}.dealsTab,.dealsTabActive{padding:8px 11px;font-size:10px}.dealsPanelHeading{display:block;margin-bottom:10px}.dealsPanelHeading h3{font-size:16px}.dealsPanelHeading p{margin-top:3px;font-size:9px}.dealsHubGrid{gap:9px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.dealsHubGrid::-webkit-scrollbar{display:none}.dealsHubCard{flex:0 0 100%;grid-template-columns:118px minmax(0,1fr);min-height:165px}.dealsHubImage{min-height:165px}.dealsHubCopy{padding:11px}.dealsHubCopy h4{font-size:16px}.dealsHubNotice{font-size:8px}
+  .curatedSection{padding:28px 14px 32px}.curatedHeading{display:block;margin-bottom:14px}.curatedHeading h2{font-size:25px}.curatedHeading p{font-size:11px}.curatedHeading>a{display:none}.curatedGrid{display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.curatedGrid::-webkit-scrollbar{display:none}.curatedCard{flex:0 0 86%;grid-template-columns:105px minmax(0,1fr);scroll-snap-align:start}.curatedImage{height:100%;min-height:148px}.curatedCopy{padding:11px}.curatedCopy h3{font-size:15px}
+  .couponSpotlight{padding:28px 14px 32px}.couponHeading{display:block;margin-bottom:14px}.couponHeading h2{font-size:25px}.couponHeading p{font-size:11px}.couponHeading>a{display:none}.couponGrid{display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.couponGrid::-webkit-scrollbar{display:none}.couponCard{flex:0 0 86%;grid-template-columns:105px minmax(0,1fr);scroll-snap-align:start}.couponImage{height:100%;min-height:160px}.couponCopy{padding:11px}.couponCopy h3{font-size:15px}.couponPrice strong{font-size:11px}.couponFooter{align-items:flex-end}.couponFooter small{display:none}.couponNotice{margin-top:9px}
   .latestStrip{padding:25px 14px 31px}.latestStrip>header{display:block;margin-bottom:14px}.latestStrip>header h2{margin-top:4px;font-size:25px}.latestStrip>div,.freeTestsGrid,.editorialGrid,.beautyCompareGrid{gap:11px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.latestStrip>div::-webkit-scrollbar,.freeTestsGrid::-webkit-scrollbar,.editorialGrid::-webkit-scrollbar,.beautyCompareGrid::-webkit-scrollbar{display:none}.latestStrip>div{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.latestItem{flex:0 0 91%;grid-template-columns:100px 1fr;gap:12px;min-height:132px;padding:10px;scroll-snap-align:start}.latestItem img{width:100px;height:108px}.latestItem strong{margin:5px 0;font-size:15px;-webkit-line-clamp:2}.latestMeta{padding-top:6px}
   .featureRow{margin:0 14px 34px;gap:16px}.partnerFeature{grid-template-columns:105px 1fr;gap:14px;padding:14px}.heroPartner{margin:12px 12px 16px}.partnerFeature>img{height:118px}.partnerFeature>div,.brandMomentContent>div{height:auto}.partnerFeature h2{margin:5px 0 6px;font-size:25px}.partnerFeature p{font-size:12px;line-height:1.45;-webkit-line-clamp:3;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}.partnerFeature a{margin-top:10px;padding:9px 11px;font-size:11px}.brandMoment{padding:16px}.brandMomentContent{grid-template-columns:1fr 105px}.brandMomentContent>img{width:105px;height:120px;margin:0;transform:scale(1.08)}.brandMoment h2{margin:5px 0;font-size:25px}.brandMoment p{font-size:12px}.brandMoment a{margin-top:10px;padding:9px 11px;font-size:11px}
   .freeTests{padding:0 14px 36px;content-visibility:auto;contain-intrinsic-size:600px}.freeTests>header{align-items:flex-start;margin-bottom:17px;padding-top:25px}.freeTests>header>a{display:none}.freeTests>header h2{font-size:25px}.freeTestsGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.freeTestCard{flex:0 0 68%;scroll-snap-align:start}.freeTestCard>div{padding:12px}.freeTestCard h3{font-size:16px}

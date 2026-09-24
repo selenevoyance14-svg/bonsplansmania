@@ -55,6 +55,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const cat = categoryConfig[slug];
   if (!cat) return {};
+  if (slug === "calendrier") {
+    return {
+      title: cat.seoTitle,
+      description: cat.seoDesc,
+      alternates: { canonical: "https://bonsplansmania.fr/categorie/calendrier-avent" },
+      robots: { index: false, follow: true },
+    };
+  }
   return {
     title: cat.seoTitle,
     description: cat.seoDesc,

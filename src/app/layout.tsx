@@ -91,6 +91,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             <a href="/archives/concours" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des concours</a>
             <a href="/archives/tests-produits" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives des tests gratuits</a>
             <a href="/categorie/concours" style={{ color: "#ffffff" }}>Concours en cours</a>
+            <a href="/guide-air-fryer-2026" style={{ color: "#ffffff" }}>Guide Air Fryer</a>
+            <a href="/idees-cadeaux-noel-2026" style={{ color: "#ffffff" }}>Idées cadeaux</a>
+            <a href="/guide-gratuit" style={{ color: "#ffffff" }}>Guide tests gratuits</a>
+            <a href="/marques-partenaires" style={{ color: "#ffffff" }}>Marques partenaires</a>
             <a href="/mentions-legales" style={{ color: "#ffffff" }}>Mentions légales</a>
             <a href="/confidentialite" style={{ color: "#ffffff" }}>Confidentialité</a>
           </nav>

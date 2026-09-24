@@ -6,7 +6,7 @@ import styles from "./EditorialHeader.module.css";
 
 const menus = [
   {
-    label: "Bons Plans",
+    label: "Catégories",
     active: ["/bon-plan", "/bons-plans-"],
     links: [
       ["Air Fryer & Ninja", "/bons-plans-ninja"],
@@ -22,18 +22,17 @@ const menus = [
       ["Jardin & animaux", "/bons-plans-jardin"],
       ["Marques", "/marques"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
-      ["Tous les bons plans", "/categorie/bon-plan"],
     ],
   },
   {
     label: "Tests Produits",
     active: ["/test-", "/comparatif"],
-    links: [["Tous les tests", "/categorie/test-produit"], ["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
+    links: [["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
   },
   {
     label: "Beauté",
     active: ["/beaute", "/box-beaute", "/meilleures-box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Avis et prix beauté", "/avis-prix-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"]],
+    links: [["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"], ["Avis et prix beauté", "/avis-prix-beaute"]],
   },
 ] as const;
 
@@ -64,7 +63,7 @@ export default function Header({ activePage = "" }: { activePage?: string }) {
           {menus.slice(0, 2).map((menu) => (
             <div className={styles.dropdown} key={menu.label}>
               <button type="button" aria-expanded={openMenu === menu.label} onClick={() => setOpenMenu(openMenu === menu.label ? null : menu.label)} className={menu.active.some((path) => activePage.includes(path)) ? styles.active : ""}>{menu.label}<span>⌄</span></button>
-              {openMenu === menu.label && <div className={`${styles.dropdownPanel} ${menu.label === "Bons Plans" ? styles.dropdownPanelWide : ""}`}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
+              {openMenu === menu.label && <div className={`${styles.dropdownPanel} ${menu.label === "Catégories" ? styles.dropdownPanelWide : ""}`}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
             </div>
           ))}
           <Link href="/code-promo" className={activePage === "/code-promo" ? styles.active : ""}>Codes promo</Link>

@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { MAISON_BRANDS, MAISON_PRODUCT_TYPES } from "@/lib/brand-filters";
@@ -92,11 +92,18 @@ const BEAUTY_SLUG_TOKENS = [
   "-maquillage-", "-parfum-", "-soin-visage-", "-soins-visage-",
 ];
 
+const TOY_TOKENS = [
+  "-lego-", "lego-", "-playmobil-", "playmobil-", "-barbie-", "barbie-",
+  "-poupee-", "poupee-", "-figurine-", "figurine-", "-peluche-", "peluche-",
+  "-jouet-", "jouet-",
+];
+
 function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   if (BEBE_TOKENS.some((k) => slug.includes(k))) return false;
   if (BEAUTY_SLUG_TOKENS.some((k) => slug.includes(k))) return false;
+  if (TOY_TOKENS.some((k) => slug.includes(k))) return false;
   // Exclure jardin / piscine
   if (slug.includes("robot-tondeuse") || slug.includes("robot-piscine") || slug.includes("-piscine-") || slug.includes("-jardin-") || slug.includes("-tondeuse-") || slug.includes("-barbecue-") || slug.includes("-bbq-")) return false;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
@@ -108,7 +115,7 @@ function isMaisonArticle(meta: { slug?: string; tags?: string[]; category?: stri
 
 export default async function BonsPlansMaisonPage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isMaisonArticle(a.meta));
+  const articles = all.filter((a) => !isEffectivelyExpired(a.meta) && isMaisonArticle(a.meta));
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];

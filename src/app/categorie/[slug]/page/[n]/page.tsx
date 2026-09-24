@@ -9,13 +9,22 @@ const PER_PAGE = 24;
 
 export const dynamic = "force-static";
 
+function getCategoryArticles(slug: string) {
+  if (slug === "test-produit") {
+    return [...getArticlesByCategory("test-gratuit"), ...getArticlesByCategory("test-avis")]
+      .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
+  }
+  if (slug === "calendrier") {
+    return getArticlesByCategory("calendrier-avent");
+  }
+  return getArticlesByCategory(slug);
+}
+
 export function generateStaticParams() {
-  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
+  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
   const params: { slug: string; n: string }[] = [];
   for (const slug of slugs) {
-    const articles = slug === "test-produit"
-      ? [...getArticlesByCategory("test-gratuit"), ...getArticlesByCategory("test-avis")]
-      : getArticlesByCategory(slug);
+    const articles = getCategoryArticles(slug);
     const totalPages = Math.ceil(articles.length / PER_PAGE);
     // On commence à 2 (la page 1 = /categorie/[slug])
     for (let n = 2; n <= totalPages; n++) {
@@ -47,9 +56,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const cat = categoryConfig[slug];
   if (!cat) return {};
   const pageNum = parseInt(n, 10);
-  const articles = slug === "test-produit"
-    ? [...getArticlesByCategory("test-gratuit"), ...getArticlesByCategory("test-avis")]
-    : getArticlesByCategory(slug);
+  const articles = getCategoryArticles(slug);
   const totalPages = Math.ceil(articles.length / PER_PAGE);
   if (!Number.isFinite(pageNum) || pageNum < 2 || pageNum > totalPages) return {};
 
@@ -72,10 +79,7 @@ export default async function CategoryPaginatedPage({ params }: PageProps) {
   const cat = categoryConfig[slug];
   if (!cat) notFound();
   const pageNum = parseInt(n, 10);
-  const articles = slug === "test-produit"
-    ? [...getArticlesByCategory("test-gratuit"), ...getArticlesByCategory("test-avis")]
-        .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime())
-    : getArticlesByCategory(slug);
+  const articles = getCategoryArticles(slug);
   const totalPages = Math.ceil(articles.length / PER_PAGE);
   if (!Number.isFinite(pageNum) || pageNum < 2 || pageNum > totalPages) notFound();
 

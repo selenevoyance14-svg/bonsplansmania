@@ -1,8 +1,9 @@
 import { Fragment } from "react";
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Check, Search } from "lucide-react";
-import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired, type Article } from "@/lib/articles";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import AdBlock from "@/app/components/AdBlock";
 import ListAd from "@/app/components/ListAd";
@@ -13,7 +14,15 @@ import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
+import { parsePrice } from "@/lib/price";
+import CuratedDealsTabs, { type CuratedDealGroup } from "./CuratedDealsTabs";
 import styles from "./refonte.module.css";
+
+export const metadata: Metadata = {
+  title: "Aperçu de la page d’accueil",
+  alternates: { canonical: "https://bonsplansmania.fr" },
+  robots: { index: false, follow: true },
+};
 
 const labels: Record<string, string> = {
   "bon-plan": "Bon plan repéré",
@@ -25,7 +34,13 @@ const labels: Record<string, string> = {
   comparatif: "Le guide",
 };
 
-const FREE_TEST_CATEGORIES = new Set(["test-gratuit", "test-produit"]);
+const DEAL_CATEGORIES = new Set([
+  "bon-plan",
+  "bon-plan-beaute",
+  "box-beaute",
+  "code-promo",
+  "calendrier-avent",
+]);
 
 // Les contenus éditoriaux ont leurs propres rubriques et ne doivent pas
 // prendre la place des nouveaux bons plans dans la sélection de l'accueil.
@@ -89,18 +104,125 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
   return selected;
 }
 
+function articleTimestamp(article: Article) {
+  return new Date(`${article.meta.updated ?? article.meta.date}T12:00:00`).getTime();
+}
+
+function isRefundArticle(article: Article) {
+  const searchable = [article.meta.title, article.meta.description, article.meta.price, ...(article.meta.tags ?? [])].join(" ");
+  return /100\s*%\s*(?:rembours|cagnott|crédit)|rembours|cagnott|crédité.+carte|carte.+crédité/i.test(searchable);
+}
+
+function isPartnerArticle(article: Article, merchant: string) {
+  const searchable = [article.meta.title, article.meta.description, article.meta.affiliateUrl, ...(article.meta.tags ?? [])].join(" ");
+  return searchable.toLocaleLowerCase("fr-FR").includes(merchant.toLocaleLowerCase("fr-FR"));
+}
+
 export default function RefontePreviewPage({ page = 1 }: { page?: number } = {}) {
   const currentPage = Math.min(3, Math.max(1, page));
+  const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
   const homepageEligible = active.filter(
     (article) => !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
   );
   const homepageDeals = selectDiverse(homepageEligible, 120);
   const deals = homepageDeals.slice((currentPage - 1) * 40, currentPage * 40);
-  const freeTests = active
-    .filter((article) => FREE_TEST_CATEGORIES.has(article.meta.category))
-    .slice(0, 4);
-  const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
+  const couponLimit = new Date();
+  couponLimit.setDate(couponLimit.getDate() - 21);
+  const amazonCoupons = active
+    .filter((article) => {
+      const checkedAt = new Date(`${article.meta.updated ?? article.meta.date}T12:00:00`);
+      return checkedAt >= couponLimit
+        && article.meta.tags?.some((tag) => tag.toLocaleLowerCase("fr-FR") === "coupon-amazon")
+        && Boolean(article.meta.amazonAsin || article.meta.affiliateUrl?.includes("amazon.fr"));
+    })
+    .sort((a, b) => new Date(b.meta.updated ?? b.meta.date).getTime() - new Date(a.meta.updated ?? a.meta.date).getTime())
+    .slice(0, 6);
+  const sortedDeals = active
+    .filter((article) => DEAL_CATEGORIES.has(article.meta.category) && Boolean(article.meta.affiliateUrl))
+    .sort((a, b) => articleTimestamp(b) - articleTimestamp(a) || Number(Boolean(b.meta.dealOfDay)) - Number(Boolean(a.meta.dealOfDay)));
+  const configuredPartnerDeals = selectDiverse(
+    sortedDeals.filter((article) => isPartnerArticle(article, FEATURED_PARTNER.merchant)),
+    6,
+  );
+  const partnerDeals = partnerActive && configuredPartnerDeals.length > 0
+    ? configuredPartnerDeals
+    : selectDiverse(sortedDeals.filter((article) => isPartnerArticle(article, "carrefour")), 6);
+  const partnerBrand = partnerActive && configuredPartnerDeals.length > 0
+    ? FEATURED_PARTNER.brandName
+    : "Carrefour";
+  const reimbursedDeals = selectDiverse(
+    sortedDeals.filter(isRefundArticle),
+    6,
+  );
+  const excludedSmallDeals = new Set([
+    ...partnerDeals.map((article) => article.meta.slug),
+    ...reimbursedDeals.map((article) => article.meta.slug),
+    ...amazonCoupons.map((article) => article.meta.slug),
+  ]);
+  const smallDeals = selectDiverse(
+    sortedDeals.filter((article) => {
+      const amount = parsePrice(article.meta.price).nowAmount;
+      const isAmazonCoupon = article.meta.tags?.some((tag) => tag.toLocaleLowerCase("fr-FR") === "coupon-amazon");
+      return article.meta.category !== "code-promo"
+        && !isAmazonCoupon
+        && !/^\s*[-−]/.test(article.meta.price ?? "")
+        && !/code promo/i.test(article.meta.title)
+        && amount !== undefined
+        && amount > 0
+        && amount <= 20;
+    }),
+    6,
+    excludedSmallDeals,
+  );
+  const toCuratedItems = (articles: Article[], badge: string) => articles.map((article) => ({
+    slug: article.meta.slug,
+    title: article.meta.title,
+    image: article.meta.image,
+    imageAlt: article.meta.imageAlt,
+    amazonAsin: article.meta.amazonAsin,
+    price: article.meta.price,
+    updated: article.meta.updated ?? article.meta.date,
+    badge,
+  }));
+  const curatedDealGroups: CuratedDealGroup[] = [
+    {
+      id: "partner",
+      label: "Offres partenaire",
+      title: `Les offres ${partnerBrand} à ne pas manquer`,
+      description: `Les offres prioritaires de ${partnerBrand}, sélectionnées et expliquées clairement.`,
+      href: "/offres-du-jour/partenaire",
+      allLabel: `Voir toutes les offres ${partnerBrand}`,
+      items: toCuratedItems(partnerDeals, `Offre ${partnerBrand}`),
+    },
+    {
+      id: "coupons",
+      label: "Coupons Amazon",
+      title: "Coupons Amazon à cocher",
+      description: "Le vrai prix final après le coupon, et le code promotionnel supplémentaire lorsqu’il existe.",
+      href: "/offres-du-jour/coupons",
+      allLabel: "Voir tous les coupons Amazon",
+      items: toCuratedItems(amazonCoupons, "Coupon à cocher"),
+    },
+    {
+      id: "refund",
+      label: "Remboursé / cagnotté",
+      title: "100 % remboursé ou cagnotté",
+      description: "Les opérations qui permettent de récupérer tout ou partie du prix, avec les conditions détaillées.",
+      href: "/offres-du-jour/rembourse",
+      allLabel: "Voir toutes les offres remboursées ou cagnottées",
+      items: toCuratedItems(reimbursedDeals, "Remboursé ou cagnotté"),
+    },
+    {
+      id: "small",
+      label: "Moins de 20 €",
+      title: "Les meilleures offres à moins de 20 €",
+      description: "Des produits utiles et des idées plaisir sélectionnés sans dépasser 20 €.",
+      href: "/offres-du-jour/moins-de-20-euros",
+      allLabel: "Voir toutes les offres à moins de 20 €",
+      items: toCuratedItems(smallDeals, "Moins de 20 €"),
+    },
+  ];
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -166,26 +288,13 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
 
       <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" collapseWhenEmpty /></div>
 
-      <nav className={styles.categoryRail} aria-label="Accès rapide aux catégories">
-        <div>
-          {[
-            ["Beauté", "/bons-plans-beaute"],
-            ["Bébé", "/bons-plans-bebe"],
-            ["Maison", "/bons-plans-maison"],
-            ["Tech", "/bons-plans-tech"],
-            ["Jardin", "/bons-plans-jardin"],
-            ["Mode", "/bons-plans-mode"],
-            ["Jouets", "/bons-plans-jouets"],
-            ["Rentrée", "/bons-plans-rentree"],
-          ].map(([label, href]) => (
-            <Link key={href} href={href}>{label}</Link>
-          ))}
-        </div>
-      </nav>
+      <div className={styles.categoryRail} aria-hidden="true"><div /></div>
+
+      <CuratedDealsTabs groups={curatedDealGroups} />
 
       <section className={styles.selection} id="selection">
         <header className={styles.sectionHeading}>
-          <div><h2>Les offres à regarder de plus près</h2></div>
+          <div><h2>Dernières offres</h2></div>
           <Link href="/bons-plans-en-cours">Voir toutes les offres <ArrowUpRight size={15} /></Link>
         </header>
 
@@ -236,26 +345,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
           ))}
         </nav>
       </section>
-
-      {freeTests.length > 0 && (
-        <section className={styles.freeTests} aria-labelledby="free-tests-title">
-          <header>
-            <div><span>À tester gratuitement</span><h2 id="free-tests-title">Recevez, testez, donnez votre avis</h2></div>
-            <Link href="/categorie/test-gratuit">Voir tous les tests <ArrowUpRight size={15} /></Link>
-          </header>
-          <div className={styles.freeTestsGrid}>
-            {freeTests.map(({ meta }) => (
-              <article key={meta.slug} className={styles.freeTestCard}>
-                <Link href={`/article/${meta.slug}`} className={styles.freeTestImage}>
-                  <Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 760px) 44vw, 22vw" />
-                  <span>100 % gratuit</span>
-                </Link>
-                <div><small>Candidature ouverte</small><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3><Link href={`/article/${meta.slug}`} className={styles.freeTestCta}>Je découvre <ArrowUpRight size={14} /></Link></div>
-              </article>
-            ))}
-          </div>
-        </section>
-      )}
 
       <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex collapseWhenEmpty /></div>
 

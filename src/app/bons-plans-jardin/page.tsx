@@ -1,4 +1,4 @@
-import { getAllArticles } from "@/lib/articles";
+import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import Header from "@/app/components/Header";
 import BrandFilter from "@/app/components/BrandFilter";
 import { JARDIN_BRANDS, JARDIN_PRODUCT_TYPES } from "@/lib/brand-filters";
@@ -100,6 +100,9 @@ const EXCLUDED_TOKENS = [
   "-tondeuse-cheveux-", "-tondeuse-barbe-", "-tondeuse-corps-",
   "-tondeuse-multifonction-", "tondeuse-cheveux", "tondeuse-barbe",
   "-cheveux-", "-barbe-", "-rasoir-",
+  // Jouets qui contiennent par hasard « piscine », « jardin » ou « animaux ».
+  "-lego-", "lego-", "-playmobil-", "playmobil-", "-barbie-", "barbie-",
+  "-poupee-", "poupee-", "-figurine-", "figurine-", "-peluche-", "peluche-",
 ];
 
 const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel", "barbie", "poupee", "mattel"]);
@@ -123,7 +126,7 @@ function isJardinArticle(meta: { slug?: string; tags?: string[]; category?: stri
 
 export default async function BonsPlansJardinPage() {
   const all = getAllArticles();
-  const articles = all.filter((a) => isJardinArticle(a.meta));
+  const articles = all.filter((a) => !isEffectivelyExpired(a.meta) && isJardinArticle(a.meta));
 
   const cards = articles.map((a) => {
     const cl = categoryLabels[a.meta.category];
