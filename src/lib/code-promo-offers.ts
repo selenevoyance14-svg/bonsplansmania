@@ -1037,7 +1037,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // DARTY — vente flash cartes cadeaux du 4 au 6 septembre 2026
+  // DARTY — vente flash cartes cadeaux du 25 au 27 septembre 2026
   // ============================================================
   {
     id: "darty150-carte-cadeau-septembre-2026",
@@ -1047,10 +1047,10 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "PAR TRANCHE DE 150 €",
     title: "15 € en carte cadeau tous les 150 € dès 150 € d’achat",
     code: "DARTY150",
-    starts: "2026-09-04",
-    expires: "2026-09-06",
-    conditions: "Valable du 04/09/2026 à 9 h au 06/09/2026 à 23 h 59 sur Darty.com, en magasin Darty et dans les franchises participantes. Dès 150 € sur le petit électroménager, le son, les objets connectés, la mobilité urbaine, les imprimantes et les tablettes Android. Hors PC Windows. Cumulable avec les promotions en cours, hors offre utilisant un autre code avantage.",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2F",
+    starts: "2026-09-25",
+    expires: "2026-09-27",
+    conditions: "Vente flash valable du 25 septembre 2026 à 18 h au 27 septembre 2026 à 23 h 59. Recevez 15 € en carte cadeau par tranche de 150 € d’achat, dès 150 €, sur le petit électroménager, le son, les objets connectés, la mobilité urbaine, les imprimantes et les tablettes Android. Saisir le code DARTY150 et vérifier les produits éligibles ainsi que le montant de la carte cadeau avant de payer.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2Fnav%2Foperation%2Foffres-flash",
     featured: true,
   },
   {
@@ -1061,10 +1061,36 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "PAR TRANCHE DE 150 €",
     title: "15 € en carte cadeau tous les 150 € dès 450 € d’achat",
     code: "DARTY450",
-    starts: "2026-09-04",
-    expires: "2026-09-06",
-    conditions: "Valable du 04/09/2026 à 9 h au 06/09/2026 à 23 h 59 sur Darty.com, en magasin Darty et dans les franchises participantes. Dès 450 € sur le gros électroménager, la TV-Vidéo, l’informatique Apple et hors Apple, la téléphonie, la prise de vue et le gaming. Hors PC Windows et tablettes Android. Cumulable avec les promotions en cours, hors offre utilisant un autre code avantage.",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2F",
+    starts: "2026-09-25",
+    expires: "2026-09-27",
+    conditions: "Vente flash valable du 25 septembre 2026 à 18 h au 27 septembre 2026 à 23 h 59. Recevez 15 € en carte cadeau par tranche de 150 € d’achat, dès 450 €, sur le gros électroménager, la TV-Vidéo, l’informatique Apple et hors Apple hors tablettes Android, la téléphonie, la prise de vue et le gaming. Saisir le code DARTY450 et vérifier les produits éligibles ainsi que le montant de la carte cadeau avant de payer.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2Fnav%2Foperation%2Foffres-flash",
+    featured: true,
+  },
+  {
+    id: "darty-iphone-17-pro-carte-cadeau-septembre-2026",
+    brandSlug: "darty",
+    type: "offre",
+    value: "120 €",
+    valueLabel: "CARTE CADEAU MINIMUM",
+    title: "iPhone 17 Pro et Pro Max dès 1 229 € au lieu de 1 329 € + carte cadeau",
+    starts: "2026-09-25",
+    expires: "2026-09-27",
+    conditions: "iPhone 17 Pro et iPhone 17 Pro Max à partir de 1 229 € au lieu de 1 329 €. Avec le code DARTY450, recevez au minimum 120 € en carte cadeau, selon le prix du modèle choisi et la mécanique de 15 € offerts par tranche de 150 €. Offre du 25 septembre à 18 h au 27 septembre 2026 à 23 h 59.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2Fnav%2Fextra%2Flist%3Fc%3D1714694-1714695%26cat%3D138552",
+    featured: true,
+  },
+  {
+    id: "darty-iphone-18-pro-carte-cadeau-septembre-2026",
+    brandSlug: "darty",
+    type: "offre",
+    value: "135 €",
+    valueLabel: "CARTE CADEAU MINIMUM",
+    title: "iPhone 18 Pro dès 1 479 € + carte cadeau avec DARTY450",
+    starts: "2026-09-25",
+    expires: "2026-09-27",
+    conditions: "iPhone 18 Pro à partir de 1 479 €. Avec le code DARTY450, recevez au minimum 135 € en carte cadeau, selon le prix du modèle choisi et la mécanique de 15 € offerts par tranche de 150 €. Offre du 25 septembre à 18 h au 27 septembre 2026 à 23 h 59.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2Fnav%2Fachat%2Ftelephonie%2Ftelephone_mobile_seul%2Fiphone%2Ffiltre__iphone_18_pro__1715047.html",
     featured: true,
   },
   {
@@ -2542,6 +2568,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
   // DR PIERRE RICAUD — offres et services vérifiés
   // ============================================================
+  {
+    id: "dpr-duos-capillaires-serviette-offerte-septembre-octobre-2026",
+    brandSlug: "dr-pierre-ricaud",
+    type: "offre",
+    value: "-35 %",
+    valueLabel: "+ CADEAU",
+    title: "Duos capillaires à -35 % avec une serviette cheveux offerte",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Fduo-cheveux-volume-nutrition.htm",
+    starts: "2026-09-22",
+    expires: "2026-10-11",
+    conditions: "Offre valable du 22 septembre au 11 octobre 2026 inclus sur les duos capillaires éligibles. Une serviette cheveux ultra-absorbante est offerte avec le duo, dans la limite des stocks disponibles. Vérifier la remise et le cadeau dans le panier.",
+    featured: true,
+  },
   {
     id: "dpr-french-days-15-60",
     brandSlug: "dr-pierre-ricaud",
