@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import { getArticleBySlug, getRelatedArticles, getAffiliateRecommendations, getAllArticles, getAllPublishedArticles, getPrevNextArticle, isEffectivelyExpired } from "@/lib/articles";
+import { getArticleBySlug, getRelatedArticles, getAffiliateRecommendations, getAllArticles, getAllPublishedArticles, getPrevNextArticle, isEffectivelyExpired, shouldNoIndexArchivedArticle } from "@/lib/articles";
 import Image from "next/image";
 import type { Metadata } from "next";
 import { Clock, ExternalLink, ChevronRight, Star, Scale, Heart } from "lucide-react";
@@ -122,7 +122,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = getArticleBySlug(slug);
   if (!article) return {};
   const BASE_URL = "https://bonsplansmania.fr";
-  const isExpired = isEffectivelyExpired(article.meta);
+  const shouldNoIndex = shouldNoIndexArchivedArticle(article.meta);
   return {
     title: article.meta.seoTitle || article.meta.title,
     description: article.meta.seoDescription || article.meta.description,
@@ -149,8 +149,8 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     // Les anciennes offres restent accessibles afin de ne pas créer de liens
     // morts, mais elles ne doivent pas encombrer l'index Google. Les liens
     // restent suivis pour préserver le maillage vers les contenus actifs.
-    ...((article.meta.noindex || isExpired) && {
-      robots: { index: false, follow: isExpired && !article.meta.noindex },
+    ...(shouldNoIndex && {
+      robots: { index: false, follow: true },
     }),
   };
 }

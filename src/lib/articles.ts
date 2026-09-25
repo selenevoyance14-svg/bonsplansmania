@@ -428,6 +428,33 @@ export function getArchivedArticlesByCategory(category: string): Article[] {
     });
 }
 
+/**
+ * Retourne toutes les offres archivées, quelle que soit leur catégorie.
+ * Cette source unique alimente la pagination de /archives et évite de charger
+ * plusieurs milliers de liens dans le pied de page ou sur une seule page.
+ */
+export function getArchivedArticles(): Article[] {
+  return getAllPublishedArticles()
+    .filter((article) => isEffectivelyExpired(article.meta))
+    .sort((a, b) => {
+      const aDate = a.meta.endDate || a.meta.updated || a.meta.date;
+      const bDate = b.meta.endDate || b.meta.updated || b.meta.date;
+      return new Date(bDate).getTime() - new Date(aDate).getTime();
+    });
+}
+
+/**
+ * Les offres ponctuelles terminées sont désindexées. Un ancien contenu de fond
+ * peut rester indexable lorsqu'il est explicitement permanent (`evergreen`) ou
+ * lorsqu'il s'agit d'un guide/comparatif qui conserve une valeur éditoriale.
+ */
+export function shouldNoIndexArchivedArticle(meta: ArticleMeta): boolean {
+  if (!isEffectivelyExpired(meta)) return Boolean(meta.noindex);
+  if (meta.noindex) return true;
+  if (meta.evergreen) return false;
+  return meta.category !== "comparatif" && meta.category !== "test-avis";
+}
+
 export function getFeaturedArticles(): Article[] {
   return getAllArticles().filter((a) => a.meta.featured);
 }

@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
+import { getAllArticles, getAllPublishedArticles, shouldNoIndexArchivedArticle } from "@/lib/articles";
 // Une seule source de vérité pour les pages /marque/ : le sitemap dupliquait la règle
 // et pouvait donc soumettre à Google des URL que le build ne génère pas (ou l'inverse).
 import { getStaticTagSlugs } from "@/lib/tag-pages";
@@ -47,9 +47,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/avis-prix-beaute",         priority: 0.8, changeFrequency: "weekly" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
   { path: "/qui-suis-je",             priority: 0.4, changeFrequency: "monthly" },
-  { path: "/archives/bons-plans",      priority: 0.5, changeFrequency: "weekly" },
-  { path: "/archives/concours",        priority: 0.5, changeFrequency: "weekly" },
-  { path: "/archives/tests-produits",  priority: 0.5, changeFrequency: "weekly" },
+  { path: "/archives",                 priority: 0.5, changeFrequency: "weekly" },
   { path: "/partenariats",             priority: 0.4, changeFrequency: "monthly" },
   { path: "/guide-gratuit",            priority: 0.4, changeFrequency: "monthly" },
   { path: "/mentions-legales",         priority: 0.2, changeFrequency: "yearly" },
@@ -76,6 +74,7 @@ export const dynamic = "force-static";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const articles = getAllArticles();
+  const publishedArticles = getAllPublishedArticles();
 
   const staticEntries: MetadataRoute.Sitemap = STATIC_PAGES.map((p) => ({
     url: `${BASE}${p.path}`,
@@ -89,11 +88,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.8,
   }));
 
-  // Exclure les articles expirés du sitemap pour économiser le crawl budget Google.
-  // Les articles restent accessibles aux visiteurs (pas dépubliés), mais ne sont plus
-  // recommandés à Google pour re-crawl régulier.
-  const articleEntries: MetadataRoute.Sitemap = articles
-    .filter((a) => !isEffectivelyExpired(a.meta) && !a.meta.noindex && !a.meta.canonical)
+  // Les petites offres expirées restent accessibles mais sortent du sitemap.
+  // Seuls les anciens contenus de fond encore utiles y restent proposés.
+  const articleEntries: MetadataRoute.Sitemap = publishedArticles
+    .filter((a) => !shouldNoIndexArchivedArticle(a.meta) && !a.meta.canonical)
     .map((a) => ({
       url: `${BASE}/article/${a.meta.slug}`,
       lastModified: new Date(a.meta.updated || a.meta.date),

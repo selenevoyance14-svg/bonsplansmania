@@ -1,0 +1,117 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 16px;
+}
+
+.card {
+  display: grid;
+  grid-template-columns: 92px minmax(0, 1fr);
+  min-height: 126px;
+  overflow: hidden;
+  border: 1px solid #e5e7eb;
+  border-radius: 14px;
+  background: #fff;
+  color: inherit;
+  text-decoration: none;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.card:hover {
+  transform: translateY(-2px);
+  border-color: #d1d5db;
+  box-shadow: 0 10px 24px rgb(17 24 39 / 9%);
+}
+
+.imageWrap {
+  position: relative;
+  min-height: 126px;
+  background: #f3f4f6;
+}
+
+.image {
+  object-fit: cover;
+}
+
+.content {
+  padding: 13px 14px;
+}
+
+.badge {
+  display: inline-block;
+  margin-bottom: 7px;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: #b91c1c;
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .02em;
+}
+
+.title {
+  display: -webkit-box;
+  overflow: hidden;
+  margin: 0 0 8px;
+  font-size: .92rem;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.date {
+  margin: 0;
+  color: #6b7280;
+  font-size: .76rem;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin-top: 32px;
+}
+
+.pagination a,
+.current,
+.disabled {
+  display: inline-flex;
+  min-width: 40px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid #d1d5db;
+  border-radius: 9px;
+  padding: 8px 11px;
+  color: #374151;
+  background: #fff;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.pagination a:hover {
+  border-color: #7d293d;
+  color: #7d293d;
+}
+
+.current {
+  border-color: #7d293d;
+  background: #7d293d;
+  color: #fff;
+}
+
+.disabled {
+  color: #9ca3af;
+  background: #f9fafb;
+}
+
+@media (max-width: 560px) {
+  .grid { grid-template-columns: 1fr; }
+  .card { grid-template-columns: 84px minmax(0, 1fr); }
+  .pagination a,
+  .current,
+  .disabled { min-width: 36px; min-height: 36px; padding: 6px 9px; }
+}
