@@ -207,7 +207,10 @@ export interface ArticleMeta {
   featured?: boolean;
   seoTitle?: string;
   seoDescription?: string;
+  /** URL canonique alternative pour regrouper les doublons éditoriaux sans casser leurs anciennes URL. */
+  canonical?: string;
   expired?: boolean;
+  archiveOnly?: boolean;
   /** Bon plan permanent (cashback, parrainage, plateforme durable). Désactive le bandeau "post >3 semaines". */
   evergreen?: boolean;
   /** Date de fin de l'offre/concours au format YYYY-MM-DD. Si dépassée, l'article est considéré comme expiré. */
@@ -306,7 +309,9 @@ export function getArticleBySlug(slug: string): Article | null {
       featured: data.featured || false,
       seoTitle: amazonArticle ? sanitizeAmazonMetadata(data.seoTitle) : data.seoTitle,
       seoDescription: safeSeoDescription,
+      canonical: typeof data.canonical === "string" ? data.canonical : undefined,
       expired,
+      archiveOnly: data.archiveOnly === true,
       evergreen: data.evergreen || false,
       endDate,
       dealOfDay: data.dealOfDay || false,
@@ -390,7 +395,9 @@ export function getAllPublishedArticles(): Article[] {
 }
 
 export function getArticlesByCategory(category: string): Article[] {
-  const articles = getAllArticles().filter((a) => a.meta.category === category);
+  const articles = getAllArticles().filter(
+    (a) => a.meta.category === category && !a.meta.archiveOnly
+  );
   return [...articles].sort((a, b) => {
     const aExp = isEffectivelyExpired(a.meta);
     const bExp = isEffectivelyExpired(b.meta);

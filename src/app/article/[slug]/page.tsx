@@ -126,7 +126,11 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   return {
     title: article.meta.seoTitle || article.meta.title,
     description: article.meta.seoDescription || article.meta.description,
-    alternates: { canonical: `${BASE_URL}/article/${slug}` },
+    alternates: {
+      canonical: article.meta.canonical
+        ? new URL(article.meta.canonical, BASE_URL).toString()
+        : `${BASE_URL}/article/${slug}`,
+    },
     openGraph: {
       title: article.meta.title, description: article.meta.description,
       // Fallback /og-image.png si l'image article est en SVG : Facebook, LinkedIn, Pinterest,
