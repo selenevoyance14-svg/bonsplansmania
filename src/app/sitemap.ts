@@ -2,7 +2,13 @@ import type { MetadataRoute } from "next";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 // Une seule source de vérité pour les pages /marque/ : le sitemap dupliquait la règle
 // et pouvait donc soumettre à Google des URL que le build ne génère pas (ou l'inverse).
-import { shouldGenerateTagPage, slugifyTag } from "@/lib/tag-pages";
+import { getStaticTagSlugs } from "@/lib/tag-pages";
+import {
+  BRAND_DEFINITIONS,
+  getNormalizedBrandTags,
+  normalizeBrandTag,
+} from "@/lib/brand-directory";
+import { CODE_PROMO_BRANDS } from "@/lib/code-promo-data";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 
 const BASE = "https://bonsplansmania.fr";
@@ -40,6 +46,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/bons-plans-rentree",       priority: 0.9, changeFrequency: "weekly" },
   { path: "/avis-prix-beaute",         priority: 0.8, changeFrequency: "weekly" },
   { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
+  { path: "/qui-suis-je",             priority: 0.4, changeFrequency: "monthly" },
   { path: "/archives/bons-plans",      priority: 0.5, changeFrequency: "weekly" },
   { path: "/archives/concours",        priority: 0.5, changeFrequency: "weekly" },
   { path: "/archives/tests-produits",  priority: 0.5, changeFrequency: "weekly" },
@@ -57,6 +64,7 @@ const CATEGORY_SLUGS = [
   "test-produit",
   "comparatif",
   "beaute",
+  "selection",
   "concours",
   "box-beaute",
   "calendrier",
@@ -93,27 +101,35 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: a.meta.featured ? 0.8 : 0.6,
     }));
 
-  // Pages marques : générer les mêmes que dans /marque/[slug] generateStaticParams
-  // (marques avec ≥ 3 articles OU dans la liste curated).
-  // Avant : 0 page /marque dans le sitemap → mauvaise découvrabilité Google.
-  const tagCounts = new Map<string, number>();
-  for (const article of articles) {
-    const seen = new Set<string>();
-    for (const tag of article.meta.tags || []) {
-      const slug = slugifyTag(tag);
-      if (slug && !seen.has(slug)) {
-        seen.add(slug);
-        tagCounts.set(slug, (tagCounts.get(slug) || 0) + 1);
-      }
+  // Reprendre exactement les slugs réellement générés par /marque/[slug].
+  // Cela inclut les partenaires qui ont des articles, même lorsqu'ils restent
+  // sous le seuil général des pages de tags.
+  const marqueSlugs = getStaticTagSlugs(
+    articles.map((article) => article.meta.tags || []),
+  );
+  for (const brand of BRAND_DEFINITIONS) {
+    const normalizedTags = getNormalizedBrandTags(brand);
+    if (
+      articles.some((article) =>
+        article.meta.tags.some((tag) =>
+          normalizedTags.has(normalizeBrandTag(tag)),
+        ),
+      )
+    ) {
+      marqueSlugs.add(brand.slug);
     }
   }
-  const marqueEntries: MetadataRoute.Sitemap = Array.from(tagCounts.entries())
-    .filter(([slug, count]) => shouldGenerateTagPage(slug, count))
-    .map(([slug]) => ({
+  const marqueEntries: MetadataRoute.Sitemap = [...marqueSlugs].map((slug) => ({
       url: `${BASE}/marque/${slug}`,
       changeFrequency: "weekly" as const,
       priority: 0.5,
     }));
+
+  const codePromoEntries: MetadataRoute.Sitemap = CODE_PROMO_BRANDS.map((brand) => ({
+    url: `${BASE}/code-promo/${brand.slug}`,
+    changeFrequency: "weekly" as const,
+    priority: 0.7,
+  }));
 
   const productEntries: MetadataRoute.Sitemap = COMMUNITY_PRODUCTS.map((product) => ({
     url: `${BASE}/produit/${product.slug}`,
@@ -124,6 +140,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   // Dernier garde-fou : une URL ne doit apparaître qu'une fois, même si une
   // future page est ajoutée par erreur dans plusieurs groupes ci-dessus.
-  const entries = [...staticEntries, ...categoryEntries, ...articleEntries, ...marqueEntries, ...productEntries];
+  const entries = [
+    ...staticEntries,
+    ...categoryEntries,
+    ...articleEntries,
+    ...marqueEntries,
+    ...codePromoEntries,
+    ...productEntries,
+  ];
   return [...new Map(entries.map((entry) => [entry.url, entry])).values()];
 }

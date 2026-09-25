@@ -122,6 +122,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const article = getArticleBySlug(slug);
   if (!article) return {};
   const BASE_URL = "https://bonsplansmania.fr";
+  const isExpired = isEffectivelyExpired(article.meta);
   return {
     title: article.meta.seoTitle || article.meta.title,
     description: article.meta.seoDescription || article.meta.description,
@@ -141,7 +142,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: article.meta.description,
       images: [article.meta.image.endsWith('.svg') ? '/og-image.png' : article.meta.image],
     },
-    ...(article.meta.noindex && { robots: { index: false, follow: false } }),
+    // Les anciennes offres restent accessibles afin de ne pas créer de liens
+    // morts, mais elles ne doivent pas encombrer l'index Google. Les liens
+    // restent suivis pour préserver le maillage vers les contenus actifs.
+    ...((article.meta.noindex || isExpired) && {
+      robots: { index: false, follow: isExpired && !article.meta.noindex },
+    }),
   };
 }
 

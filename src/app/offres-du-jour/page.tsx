@@ -2,9 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { ChevronRight, Sparkles } from "lucide-react";
 import Header from "@/app/components/Header";
-import LoadMoreGrid from "@/app/components/LoadMoreGrid";
+import BrandFilter from "@/app/components/BrandFilter";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import { getAllArticles, isEffectivelyExpired, expiresSoon, type Article } from "@/lib/articles";
+import { ALL_DEAL_BRANDS } from "@/lib/brand-filters";
 import { parsePrice } from "@/lib/price";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 
@@ -113,7 +114,10 @@ export function OffersSelectionPage({ selection }: { selection: Selection }) {
     expired: false,
     expiresSoon: expiresSoon(article.meta),
     endDate: article.meta.endDate,
+    featured: article.meta.featured,
+    tags: article.meta.tags,
     price: article.meta.price,
+    amazonAsin: article.meta.amazonAsin,
     affiliateUrl: article.meta.affiliateUrl,
   }));
 
@@ -154,7 +158,11 @@ export function OffersSelectionPage({ selection }: { selection: Selection }) {
               <h2>{articles.length} offre{articles.length > 1 ? "s" : ""} actuellement disponible{articles.length > 1 ? "s" : ""}</h2>
               <p>Les articles sont classés par date de vérification, du plus récent au plus ancien.</p>
             </div>
-            {cards.length > 0 ? <LoadMoreGrid articles={cards} /> : <p>Aucune offre disponible dans cette sélection pour le moment.</p>}
+            {cards.length > 0 ? (
+              <BrandFilter articles={cards} brands={ALL_DEAL_BRANDS} sortBrandsBy="alpha" />
+            ) : (
+              <p>Aucune offre disponible dans cette sélection pour le moment.</p>
+            )}
           </div>
         </section>
       </main>
