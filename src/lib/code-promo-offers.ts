@@ -792,8 +792,21 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // MILAN JEUNESSE — offres vérifiées le 13 août 2026
+  // MILAN JEUNESSE — offres vérifiées le 25 septembre 2026
   // ============================================================
+  {
+    id: "milan-jeunesse-cartable26-septembre-2026",
+    brandSlug: "milan-jeunesse",
+    type: "code",
+    value: "-10 €",
+    valueLabel: "JUSQU’À",
+    title: "Jusqu’à 10 € de réduction sur les formules avec hors-séries",
+    code: "CARTABLE26",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51323F57CD2D171&redir=https%3A%2F%2Fmilan-jeunesse.com%2Fc%2Fmj-offre-du-moment",
+    expires: "2026-10-13",
+    conditions: "Offre spéciale rentrée valable jusqu’au 13 octobre 2026 inclus. Le montant de la remise varie selon l’abonnement choisi : jusqu’à 10 € sur les formules comprenant des hors-séries avec le code CARTABLE26. Vérifier la réduction appliquée, la durée de l’abonnement et son coût total avant de valider.",
+    featured: true,
+  },
   {
     id: "milan-jeunesse-offre-ete-475",
     brandSlug: "milan-jeunesse",

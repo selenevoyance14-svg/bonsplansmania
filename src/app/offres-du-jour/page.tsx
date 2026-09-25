@@ -11,18 +11,18 @@ import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partne
 
 export const metadata: Metadata = {
   title: "Bons plans du jour : coupons Amazon et petits prix",
-  description: "Retrouvez les meilleurs bons plans du jour, les coupons Amazon à cocher, les offres remboursées ou cagnottées et les promotions à moins de 20 euros.",
+  description: "Retrouvez les meilleurs bons plans du jour, les coupons Amazon à cocher, les offres remboursées ou cagnottées et les offres E.Leclerc.",
   alternates: { canonical: "https://bonsplansmania.fr/offres-du-jour/partenaire" },
   robots: { index: false, follow: true },
 };
 
-export type Selection = "partner" | "carrefour" | "coupons" | "refund" | "small";
+export type Selection = "partner" | "carrefour" | "coupons" | "refund" | "leclerc" | "small";
 
 const featuredPartnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
 const currentPartnerBrand = featuredPartnerActive ? FEATURED_PARTNER.brandName : "Carrefour";
 const currentPartnerMerchant = featuredPartnerActive ? FEATURED_PARTNER.merchant : "carrefour";
 
-const selections: Record<Selection, { label: string; title: string; description: string }> = {
+const selections: Record<Selection, { label: string; title: string; description: string; showInNav?: boolean }> = {
   partner: {
     label: "Offres partenaire",
     title: `Toutes les offres ${currentPartnerBrand} du moment`,
@@ -43,10 +43,16 @@ const selections: Record<Selection, { label: string; title: string; description:
     title: "Toutes les offres remboursées ou cagnottées",
     description: "Les offres qui permettent de récupérer tout ou partie du prix en remboursement ou sur une carte fidélité.",
   },
+  leclerc: {
+    label: "E.Leclerc",
+    title: "Toutes les offres E.Leclerc du moment",
+    description: "Promotions, remises immédiates et avantages crédités sur la carte E.Leclerc, avec les conditions de chaque offre.",
+  },
   small: {
     label: "Moins de 20 €",
     title: "Toutes les offres à moins de 20 €",
     description: "Les petits prix réellement exploitables, sans codes abstraits ni remises sans prix final.",
+    showInNav: false,
   },
 };
 
@@ -60,6 +66,11 @@ function isCarrefourArticle(article: Article) {
   return /carrefour/i.test(searchable);
 }
 
+function isLeclercArticle(article: Article) {
+  const searchable = [article.meta.title, article.meta.description, article.meta.affiliateUrl, ...(article.meta.tags ?? [])].join(" ");
+  return /e\.?\s*leclerc|leclerc/i.test(searchable);
+}
+
 function isPartnerArticle(article: Article, merchant: string) {
   const searchable = [article.meta.title, article.meta.description, article.meta.affiliateUrl, ...(article.meta.tags ?? [])].join(" ");
   return searchable.toLocaleLowerCase("fr-FR").includes(merchant.toLocaleLowerCase("fr-FR"));
@@ -71,6 +82,7 @@ function matchesSelection(article: Article, selection: Selection) {
   if (selection === "carrefour") return isCarrefourArticle(article);
   if (selection === "coupons") return hasCoupon;
   if (selection === "refund") return isRefundArticle(article);
+  if (selection === "leclerc") return isLeclercArticle(article);
   if (selection === "small") {
     const amount = parsePrice(article.meta.price).nowAmount;
     return article.meta.category !== "code-promo"
@@ -89,6 +101,7 @@ const selectionHrefs: Record<Selection, string> = {
   carrefour: "/offres-du-jour/carrefour",
   coupons: "/offres-du-jour/coupons",
   refund: "/offres-du-jour/rembourse",
+  leclerc: "/offres-du-jour/leclerc",
   small: "/offres-du-jour/moins-de-20-euros",
 };
 
@@ -108,7 +121,7 @@ export function OffersSelectionPage({ selection }: { selection: Selection }) {
     image: article.meta.image,
     imageAlt: article.meta.imageAlt,
     category: article.meta.category,
-    categoryLabel: selection === "partner" ? `Offre ${currentPartnerBrand}` : selection === "carrefour" ? "Offre Carrefour" : selection === "coupons" ? "Coupon Amazon" : selection === "refund" ? "Remboursé / cagnotté" : selection === "small" ? "Moins de 20 €" : "Bon plan",
+    categoryLabel: selection === "partner" ? `Offre ${currentPartnerBrand}` : selection === "carrefour" ? "Offre Carrefour" : selection === "coupons" ? "Coupon Amazon" : selection === "refund" ? "Remboursé / cagnotté" : selection === "leclerc" ? "Offre E.Leclerc" : selection === "small" ? "Moins de 20 €" : "Bon plan",
     categoryColor: article.meta.category === "code-promo" ? "code-promo" : "bon-plan",
     readingTime: article.meta.readingTime,
     expired: false,
@@ -138,7 +151,7 @@ export function OffersSelectionPage({ selection }: { selection: Selection }) {
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "760px" }}>{current.description}</p>
             <nav aria-label="Types d’offres" style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginTop: "22px" }}>
-              {(Object.entries(selections) as [Selection, typeof selections[Selection]][]).map(([key, item]) => (
+              {(Object.entries(selections) as [Selection, typeof selections[Selection]][]).filter(([, item]) => item.showInNav !== false).map(([key, item]) => (
                 <Link
                   key={key}
                   href={selectionHrefs[key]}

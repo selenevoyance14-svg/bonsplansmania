@@ -6,6 +6,7 @@ const routeSelections: Record<string, Selection> = {
   carrefour: "carrefour",
   coupons: "coupons",
   rembourse: "refund",
+  leclerc: "leclerc",
   "moins-de-20-euros": "small",
 };
 

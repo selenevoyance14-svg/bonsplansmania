@@ -14,7 +14,6 @@ import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
-import { parsePrice } from "@/lib/price";
 import CuratedDealsTabs, { type CuratedDealGroup } from "./CuratedDealsTabs";
 import styles from "./refonte.module.css";
 
@@ -155,26 +154,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
     sortedDeals.filter(isRefundArticle),
     6,
   );
-  const excludedSmallDeals = new Set([
-    ...partnerDeals.map((article) => article.meta.slug),
-    ...reimbursedDeals.map((article) => article.meta.slug),
-    ...amazonCoupons.map((article) => article.meta.slug),
-  ]);
-  const smallDeals = selectDiverse(
-    sortedDeals.filter((article) => {
-      const amount = parsePrice(article.meta.price).nowAmount;
-      const isAmazonCoupon = article.meta.tags?.some((tag) => tag.toLocaleLowerCase("fr-FR") === "coupon-amazon");
-      return article.meta.category !== "code-promo"
-        && !isAmazonCoupon
-        && !/^\s*[-−]/.test(article.meta.price ?? "")
-        && !/code promo/i.test(article.meta.title)
-        && amount !== undefined
-        && amount > 0
-        && amount <= 20;
-    }),
-    6,
-    excludedSmallDeals,
-  );
   const toCuratedItems = (articles: Article[], badge: string) => articles.map((article) => ({
     slug: article.meta.slug,
     title: article.meta.title,
@@ -212,15 +191,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
       href: "/offres-du-jour/rembourse",
       allLabel: "Voir toutes les offres remboursées ou cagnottées",
       items: toCuratedItems(reimbursedDeals, "Remboursé ou cagnotté"),
-    },
-    {
-      id: "small",
-      label: "Moins de 20 €",
-      title: "Les meilleures offres à moins de 20 €",
-      description: "Des produits utiles et des idées plaisir sélectionnés sans dépasser 20 €.",
-      href: "/offres-du-jour/moins-de-20-euros",
-      allLabel: "Voir toutes les offres à moins de 20 €",
-      items: toCuratedItems(smallDeals, "Moins de 20 €"),
     },
   ];
   const websiteJsonLd = {
