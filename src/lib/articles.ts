@@ -261,6 +261,18 @@ export function getArticleBySlug(slug: string): Article | null {
     : content;
   const sanitizeAmazonMetadata = (value: unknown) =>
     preserveManualAmazonPrices ? (typeof value === "string" ? value : undefined) : sanitizeAmazonClaims(value);
+  const sanitizedTitle = amazonArticle ? sanitizeAmazonMetadata(data.title) : data.title;
+  const sanitizedDescription = amazonArticle ? sanitizeAmazonMetadata(data.description) : data.description;
+  const sanitizedSeoDescription = amazonArticle ? sanitizeAmazonMetadata(data.seoDescription) : data.seoDescription;
+  const amazonDescriptionFallback = amazonArticle && typeof sanitizedTitle === "string" && sanitizedTitle
+    ? `Découvrez ${sanitizedTitle} : caractéristiques, conseils et disponibilité actuelle sur Amazon.`
+    : "";
+  // Une phrase composée uniquement d'un prix, d'une note et d'un volume
+  // d'avis peut être entièrement supprimée par le nettoyage Amazon. Dans ce
+  // cas, réutiliser la meilleure description restante évite une balise meta
+  // vide et un sous-titre absent sur la fiche.
+  const safeDescription = sanitizedDescription || sanitizedSeoDescription || amazonDescriptionFallback;
+  const safeSeoDescription = sanitizedSeoDescription || sanitizedDescription || amazonDescriptionFallback || undefined;
   const stats = readingTime(safeContent);
   const category = data.category || "bon-plan";
   const expired = data.expired === true;
@@ -268,8 +280,8 @@ export function getArticleBySlug(slug: string): Article | null {
   return {
     meta: {
       slug,
-      title: (amazonArticle ? sanitizeAmazonMetadata(data.title) : data.title) || "",
-      description: (amazonArticle ? sanitizeAmazonMetadata(data.description) : data.description) || "",
+      title: sanitizedTitle || "",
+      description: safeDescription || "",
       date: data.date || new Date().toISOString(),
       updated: data.updated,
       remount: data.remount,
@@ -293,7 +305,7 @@ export function getArticleBySlug(slug: string): Article | null {
       published: data.published !== false,
       featured: data.featured || false,
       seoTitle: amazonArticle ? sanitizeAmazonMetadata(data.seoTitle) : data.seoTitle,
-      seoDescription: amazonArticle ? sanitizeAmazonMetadata(data.seoDescription) : data.seoDescription,
+      seoDescription: safeSeoDescription,
       expired,
       evergreen: data.evergreen || false,
       endDate,
