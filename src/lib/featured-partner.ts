@@ -44,7 +44,7 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   conditionsText:
     "Remise variable sur les références éligibles des catégories Créatine et Collagène. Durée non précisée par Prozis ; disponibilité et réduction finale à vérifier dans le panier.",
   startsAt: "2026-09-21T00:00:00+02:00",
-  endsAt: "2026-09-24T23:59:59+02:00",
+  endsAt: "2026-10-31T23:59:59+01:00",
   primaryCtaLabel: "Voir l’offre Prozis",
   primaryCtaHref: "https://prozis.com/1YlNV",
   copyButtonLabel: "Copier IMBACK",

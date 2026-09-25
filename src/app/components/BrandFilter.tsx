@@ -3,6 +3,7 @@
 import { Fragment, useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, X } from "lucide-react";
+import AmazonProductImage from "@/app/components/AmazonProductImage";
 import ListAd from "@/app/components/ListAd";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
@@ -371,7 +372,25 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                       aria-label={article.title}
                     />
                     <div className="bpm-card-h-image">
-                      <Image src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image} alt={article.imageAlt} fill style={{ objectFit: "contain", padding: "8px" }} sizes="(max-width: 768px) 120px, 200px" loading="lazy" />
+                      {amazonAsin ? (
+                        <AmazonProductImage
+                          asin={amazonAsin}
+                          fallbackSrc={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image}
+                          alt={article.imageAlt}
+                          objectFit="contain"
+                          padding="8px"
+                          sizes="(max-width: 768px) 120px, 200px"
+                        />
+                      ) : (
+                        <Image
+                          src={article.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania.png" : article.image}
+                          alt={article.imageAlt}
+                          fill
+                          style={{ objectFit: "contain", padding: "8px" }}
+                          sizes="(max-width: 768px) 120px, 200px"
+                          loading="lazy"
+                        />
+                      )}
                       {savings ? <span className="bpm-card-h-discount">{savings}</span> : badge ? <span className={`bpm-card-h-badge bpm-badge-${article.categoryColor}`}>{badge}</span> : null}
                       {article.expired && <span className="bpm-card-h-expired-badge">Terminé</span>}
                       {!article.expired && article.expiresSoon && <span className="bpm-card-h-soon-badge">⏰ Bientôt fini</span>}
