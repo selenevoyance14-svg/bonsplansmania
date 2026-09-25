@@ -182,7 +182,7 @@ export default async function BonsPlansTechPage() {
                 Les bons plans tech seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={TECH_BRANDS} />
+              <BrandFilter articles={cards} brands={TECH_BRANDS} sortBrandsBy="alpha" />
             )}
           </div>
         </section>

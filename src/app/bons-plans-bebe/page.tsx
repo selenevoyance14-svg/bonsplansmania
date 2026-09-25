@@ -151,7 +151,12 @@ export default async function BonsPlansBebePage() {
                 Les bons plans bébé seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={BEBE_BRANDS} productTypes={BEBE_PRODUCT_TYPES} />
+              <BrandFilter
+                articles={cards}
+                brands={BEBE_BRANDS}
+                productTypes={BEBE_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>

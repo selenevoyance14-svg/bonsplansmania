@@ -87,17 +87,20 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
   const [selectedProductType, setSelectedProductType] = useState<string>("");
   const [sortBy, setSortBy] = useState<SortBy>("recent");
 
-  // Une même marque peut provenir de plusieurs univers (ex. Philips en beauté,
-  // maison et tech). On fusionne ses mots-clés pour éviter les options en double.
+  // Une même marque peut provenir de plusieurs univers avec des clés techniques
+  // différentes (ex. `amazon`, `amazon-maison`, `amazon-jardin`). On fusionne
+  // donc par libellé affiché afin de ne jamais proposer plusieurs fois la même
+  // enseigne dans les pages transversales.
   const uniqueBrands = useMemo(() => {
     const merged = new Map<string, BrandDef>();
     for (const brand of brands) {
-      const current = merged.get(brand.key);
+      const labelKey = normalize(brand.label);
+      const current = merged.get(labelKey);
       if (!current) {
-        merged.set(brand.key, brand);
+        merged.set(labelKey, brand);
         continue;
       }
-      merged.set(brand.key, {
+      merged.set(labelKey, {
         ...current,
         keywords: Array.from(new Set([...current.keywords, ...brand.keywords])),
       });

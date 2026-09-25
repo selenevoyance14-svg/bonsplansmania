@@ -188,7 +188,12 @@ export default async function BonsPlansJouetsPage() {
                 Les bons plans jouets seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={JOUETS_BRANDS} productTypes={JOUETS_PRODUCT_TYPES} />
+              <BrandFilter
+                articles={cards}
+                brands={JOUETS_BRANDS}
+                productTypes={JOUETS_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>

@@ -197,8 +197,8 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "carte-noire",
     name: "Carte Noire",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr%2Frentreeaubureau",
-    affiliateLabel: "Voir les offres Carte Noire",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109112&awinaffid=990397&ued=https%3A%2F%2Fwww.cartenoire.fr%2Ffr%2Fpromo-jours-cartenoire-lp-2026",
+    affiliateLabel: "Profiter des Carte Noire Days",
     matchTags: ["carte-noire", "carte noire"],
     color: "#1F2937",
   },
@@ -250,9 +250,15 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "cdiscount-voyages",
     name: "Cdiscount Voyages",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=14021&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2Fvoyages%2F",
-    affiliateLabel: "Voir les offres Cdiscount Voyages",
+    affiliateLabel: "Profiter de 50 € de remise avec QATAR50",
     matchTags: ["cdiscount-voyages", "voyage-cdiscount"],
     color: "#0A4FA1",
+    currentOffer: {
+      code: "QATAR50",
+      discount: "50 € de remise sur les vols Qatar Airways éligibles",
+      conditions: "Code valable du 16 au 30 septembre 2026 sur l'opération Qatar Airways signalée comme éligible. Vérifier l'application des 50 € de remise avant le paiement.",
+      verifiedAt: "2026-09-25",
+    },
   },
   {
     slug: "chaussea",
@@ -563,10 +569,16 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "lookfantastic",
     name: "LOOKFANTASTIC",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2F",
-    affiliateLabel: "Voir les offres LOOKFANTASTIC",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Ffrench-days%2F",
+    affiliateLabel: "Profiter des French Days LOOKFANTASTIC",
     matchTags: ["lookfantastic"],
     color: "#000000",
+    currentOffer: {
+      code: "FRANCE10",
+      discount: "10 % supplémentaires sur une sélection jusqu'à -40 %",
+      conditions: "Code valable les 25 et 26 septembre 2026 sur la sélection French Days éligible. Exclusions et produits participants susceptibles de varier ; vérifier la remise finale dans le panier.",
+      verifiedAt: "2026-09-25",
+    },
   },
   {
     slug: "le-rouge-francais",

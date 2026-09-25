@@ -206,7 +206,12 @@ export default async function BonsPlansMaisonPage() {
                 Les bons plans maison & cuisine seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={MAISON_BRANDS} productTypes={MAISON_PRODUCT_TYPES} />
+              <BrandFilter
+                articles={cards}
+                brands={MAISON_BRANDS}
+                productTypes={MAISON_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>

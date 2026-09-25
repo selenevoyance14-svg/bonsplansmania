@@ -215,7 +215,12 @@ export default async function BonsPlansModePage() {
                 Les bons plans mode seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={MODE_BRANDS} productTypes={MODE_PRODUCT_TYPES} />
+              <BrandFilter
+                articles={cards}
+                brands={MODE_BRANDS}
+                productTypes={MODE_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>

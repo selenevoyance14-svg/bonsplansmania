@@ -217,7 +217,12 @@ export default async function BonsPlansJardinPage() {
                 Les bons plans jardin seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={JARDIN_BRANDS} productTypes={JARDIN_PRODUCT_TYPES} />
+              <BrandFilter
+                articles={cards}
+                brands={JARDIN_BRANDS}
+                productTypes={JARDIN_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>

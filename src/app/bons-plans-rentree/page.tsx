@@ -274,7 +274,12 @@ export default async function BonsPlansRentreePage() {
                 Les bons plans rentrée seront bientôt disponibles.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={RENTREE_BRANDS} productTypes={RENTREE_PRODUCT_TYPES} />
+              <BrandFilter
+                articles={cards}
+                brands={RENTREE_BRANDS}
+                productTypes={RENTREE_PRODUCT_TYPES}
+                sortBrandsBy="alpha"
+              />
             )}
           </div>
         </section>
