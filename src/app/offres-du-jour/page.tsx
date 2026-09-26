@@ -44,7 +44,7 @@ const selections: Record<Selection, { label: string; title: string; description:
     description: "Les offres qui permettent de récupérer tout ou partie du prix en remboursement ou sur une carte fidélité.",
   },
   leclerc: {
-    label: "E.Leclerc",
+    label: "Offres E.Leclerc",
     title: "Toutes les offres E.Leclerc du moment",
     description: "Promotions, remises immédiates et avantages crédités sur la carte E.Leclerc, avec les conditions de chaque offre.",
   },
