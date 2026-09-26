@@ -321,16 +321,48 @@ export function getArticleBySlug(slug: string): Article | null {
   };
 }
 
+const TEMPORARY_OFFER_LIFETIME_MS = 21 * 24 * 60 * 60 * 1000;
+const TEMPORARY_DEAL_CATEGORIES = new Set([
+  "bon-plan",
+  "bon-plan-beaute",
+  "box-beaute",
+  "code-promo",
+  "calendrier-avent",
+]);
+
 /**
  * Détermine si un article doit être considéré comme expiré :
- *   - flag manuel `expired: true` OU
- *   - date `endDate` dépassée (fin de journée incluse)
+ *   - flag manuel `expired: true` ;
+ *   - date `endDate` dépassée (fin de journée incluse) ;
+ *   - coupon Amazon vérifié depuis plus de 21 jours ;
+ *   - offre remboursée ou cagnottée vérifiée depuis plus de 21 jours.
+ *
+ * Une mise à jour éditoriale remet le compteur de l’offre à zéro grâce à
+ * `updated`, ce qui permet de conserver un bon plan réellement revérifié.
  */
-export function isEffectivelyExpired(meta: Pick<ArticleMeta, "expired" | "endDate">): boolean {
+export function isEffectivelyExpired(
+  meta: Pick<ArticleMeta, "expired" | "endDate"> &
+    Partial<Pick<ArticleMeta, "title" | "description" | "price" | "tags" | "date" | "updated" | "category" | "evergreen">>
+): boolean {
   if (meta.expired) return true;
   if (meta.endDate) {
     const end = new Date(meta.endDate + "T23:59:59");
     if (end.getTime() < Date.now()) return true;
+  }
+  const isAmazonCoupon = meta.tags?.some(
+    (tag) => tag.toLocaleLowerCase("fr-FR") === "coupon-amazon"
+  );
+  const searchable = [meta.title, meta.description, meta.price, ...(meta.tags ?? [])]
+    .filter(Boolean)
+    .join(" ");
+  const isRefundOrLoyaltyOffer = Boolean(meta.category && TEMPORARY_DEAL_CATEGORIES.has(meta.category))
+    && /100\s*%\s*(?:rembours|cagnott|crédit)|rembours|cagnott|crédité.+carte|carte.+crédité/i.test(searchable);
+  const checkedAt = meta.updated || meta.date;
+  if (!meta.evergreen && (isAmazonCoupon || isRefundOrLoyaltyOffer) && checkedAt) {
+    const checkedTime = new Date(checkedAt.includes("T") ? checkedAt : `${checkedAt}T12:00:00`).getTime();
+    if (Number.isFinite(checkedTime) && Date.now() - checkedTime > TEMPORARY_OFFER_LIFETIME_MS) {
+      return true;
+    }
   }
   return false;
 }
