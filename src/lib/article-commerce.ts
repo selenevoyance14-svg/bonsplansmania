@@ -10,7 +10,6 @@ export const DIRECT_DEAL_CATEGORIES = new Set([
 const AMAZON_PRICE_HIDDEN_SLUGS = new Set([
   "aowoka-seche-cheveux-professionnel-ionique-160000-rpm-59-99-euros-amazon-moins-54-pourcent",
   "bon-plan-amazon-bioderma-crealine-huile-micellaire-2026",
-  "bon-plan-amazon-medicube-age-r-booster-pro-2026",
   "bon-plan-vivirofex-masque-collagene-hydrogel-hydratation-promo-amazon-2026",
   "bon-plan-masque-led-7-couleurs-nourished-210-euros-amazon-2026",
   "bons-plans-amazon-bebe-mai-2026-hub-puericulture",
