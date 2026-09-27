@@ -105,7 +105,7 @@ const EXCLUDED_TOKENS = [
   "-poupee-", "poupee-", "-figurine-", "figurine-", "-peluche-", "peluche-",
 ];
 
-const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel", "barbie", "poupee", "mattel"]);
+const EXCLUDED_TAGS_FROM_HERE = new Set(["puericulture", "allaitement", "tire-lait", "biberon", "poussette", "siege-auto", "babyphone", "tetine", "chaise-haute", "porte-bebe", "cosy-bebe", "lit-bebe", "table-a-langer", "couche-bebe", "lait-maternel", "barbie", "poupee", "mattel", "beaute", "beauté", "soin-corps"]);
 
 const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "box-beaute"]);
 
