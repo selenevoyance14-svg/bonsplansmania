@@ -70,6 +70,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "bears-with-benefits-bearsday-bearfect-aout-2026", brandSlug: "bears-with-benefits", type: "code", value: "-12 %", valueLabel: "EXTRA", title: "12 % supplémentaires pendant BearsDay", code: "BEARFECT", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", starts: "2026-08-25", conditions: "Offre BearsDay communiquée par la marque le 25 août 2026 : jusqu'à 50 % de réduction sur la sélection, 12 % supplémentaires avec le code BEARFECT et un tote bag offert dès 59 € d'achat. Offre temporaire, dans la limite des stocks. Date de fin non indiquée dans le message reçu ; vérifier l'application du code et du cadeau au panier.", featured: true },
   { id: "bears-with-benefits-newsletter-15", brandSlug: "bears-with-benefits", type: "newsletter", value: "-15 %", valueLabel: "NEWSLETTER", title: "15 % de réduction avec l'inscription à la newsletter", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", permanent: true, conditions: "Avantage proposé après inscription à la newsletter Bears with Benefits. Code envoyé par e-mail. Vérifier sa durée de validité, les exclusions et le cumul avec les promotions en cours avant de commander.", featured: true },
   { id: "igraal-parrainage-15-aout-2026", brandSlug: "igraal", brandName: "iGraal", type: "parrainage", value: "15 €", valueLabel: "PARRAIN + FILLEUL", title: "15 € pour le filleul et 15 € pour le parrain", starts: "2026-08-24", expires: "2026-08-27", affiliateUrl: "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=raf&utm_source=refer_premium", conditions: "Inscription via un lien de parrainage du 24 au 27 août 2026. Le filleul doit réaliser un achat éligible d'au moins 10 € TTC dans les 90 jours et atteindre au moins 1 € de cashback validé dans les 365 jours. Le bonus est validé après validation du cashback. Auto-parrainage interdit. Dès trois filleuls obtenus pendant l'opération, le parrain participe au tirage au sort permettant à dix gagnants de recevoir 100 € sur leur cagnotte.", featured: true },
+  {
+    id: "miin-rated-green-20-plus-5-octobre-2026",
+    brandSlug: "miin-cosmetics",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "+ 5 % AVEC LE CODE",
+    title: "20 % sur Rated Green + 5 % supplémentaires avec MIIN5",
+    code: "MIIN5",
+    expires: "2026-10-04",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&ued=https%3A%2F%2Fmiin-cosmetics.fr%2F",
+    conditions: "Jusqu'au 4 octobre 2026 inclus : 20 % de réduction sur toute la marque capillaire coréenne Rated Green, avec 5 % supplémentaires grâce au code MIIN5. Un format voyage est offert dès 49 € d'achat et un produit en format vente dès 75 € d'achat, selon les produits éligibles et dans la limite des stocks. Vérifier la remise et les cadeaux dans le panier.",
+    featured: true,
+  },
   { id: "miin-back-to-school-15-aout-septembre-2026", brandSlug: "miin-cosmetics", type: "code", value: "-15 %", valueLabel: "DÈS 49 €", title: "15 % de réduction dès 49 € d'achat pour la rentrée", code: "BACK15MIIN", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina", starts: "2026-08-20", expires: "2026-09-12", conditions: "Promotion valable du 20 août au 12 septembre 2026 à 23 h 59 (heure de France métropolitaine), sur les commandes passées via le site web ou l'application MiiN Cosmetics, dans la limite des stocks disponibles. Réduction de 15 % dès 49 € d'achat avec le code BACK15MIIN. Offre non cumulable avec d'autres offres ou réductions, à l'exception du programme de fidélité MiiN Club.", featured: true },
   { id: "clarins-welcome20", brandSlug: "clarins", type: "code", value: "-20 %", valueLabel: "+ CADEAUX", title: "20 % sur la première commande + une trousse et deux essentiels beauté dès 60 €", code: "WELCOME20", conditions: "Offre communiquée par Clarins le 13 août 2026. Réservée à la première commande. Une trousse et deux essentiels beauté sont annoncés dès 60 € d'achat, selon les conditions et stocks disponibles. Aucune date de fin précise n'a été communiquée ; vérifier l'application au panier.", featured: true },
   { id: "clarins-journees-privileges-30", brandSlug: "clarins", type: "offre", value: "-30 %", valueLabel: "SANS MINIMUM", title: "Journées Privilèges : -30 % sur tout le site", affiliateUrl: "https://fnty.co/c/r-UPEIBQIo", conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.", featured: true },
@@ -1062,8 +1075,22 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // DARTY — vente flash cartes cadeaux du 25 au 27 septembre 2026
+  // DARTY — promotions en cours
   // ============================================================
+  {
+    id: "darty-jusqua-30-selection-septembre-novembre-2026",
+    brandSlug: "darty",
+    type: "offre",
+    value: "-30 %",
+    valueLabel: "JUSQU'À",
+    title: "Jusqu'à 30 % sur une sélection Darty",
+    starts: "2026-09-28",
+    expires: "2026-11-01",
+    conditions: "Opération valable du 28 septembre 2026 à 10 h au 1er novembre 2026 à 23 h 59 sur une sélection de produits Darty : gros et petit électroménager, TV, son, informatique et téléphonie. Remise maximale selon les références participantes, dans la limite des stocks. Vérifier le prix final et l'éligibilité du produit avant de commander.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2F",
+    featured: true,
+  },
+  // Vente flash cartes cadeaux du 25 au 27 septembre 2026
   {
     id: "darty150-carte-cadeau-septembre-2026",
     brandSlug: "darty",

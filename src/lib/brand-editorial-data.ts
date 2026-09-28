@@ -69,7 +69,7 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
   carrefour: {
     introduction:
       "Cette page rassemble les articles Bons Plans Mania liés à Carrefour ainsi que les principaux services vérifiés sur les pages officielles de l’enseigne. Les prix, promotions et disponibilités peuvent varier selon le magasin et la zone de livraison.",
-    verifiedAt: "2026-07-27",
+    verifiedAt: "2026-09-28",
     officialSourceUrl: "https://www.carrefour.fr/services",
     services: [
       {
@@ -95,6 +95,12 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
         description:
           "Programme de fidélité donnant accès à des avantages sur certains produits dans les magasins et services participants.",
         officialUrl: "https://www.carrefour.fr/conditions-generales-carte-carrefour",
+      },
+      {
+        name: "MonAvisLeRendGratuit",
+        description:
+          "Programme de la Communauté Carrefour permettant aux membres de tester gratuitement des produits, de donner leur avis et de gagner des crédits.",
+        officialUrl: "https://communaute.carrefour.fr/app/730/channel/tester-des-produits-2238",
       },
     ],
     // À renseigner seulement après vérification d'une offre officielle encore active.
@@ -122,6 +128,10 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
       },
     ],
     internalLinks: [
+      {
+        href: "/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit",
+        label: "Tester des produits gratuitement avec MonAvisLeRendGratuit",
+      },
       {
         href: "/article/guide-comparatif-drives-carrefour-leclerc-auchan-intermarche-2026",
         label: "Comparer Carrefour Drive aux autres enseignes",
