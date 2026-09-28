@@ -1,5 +1,6 @@
 import { FEATURED_PERMANENT_CODES } from "@/lib/permanent-codes-featured";
 import { InfinityIcon, ArrowRight } from "lucide-react";
+import { DEFAULT_OFFER_CTA } from "@/lib/article-commerce";
 
 // Assombrit une couleur hex de ~15 % pour créer un dégradé propre.
 function shade(hex: string, amount = -22) {
@@ -21,7 +22,7 @@ function actionLabel(category: string): string {
   if (normalized.includes("cashback")) return "Activer le cashback";
   if (normalized.includes("newsletter") || normalized.includes("bienvenue")) return "Obtenir l'offre";
   if (normalized.includes("livraison")) return "Voir les conditions";
-  return "Voir l'offre";
+  return DEFAULT_OFFER_CTA;
 }
 
 export default function PermanentCodesTeaser() {

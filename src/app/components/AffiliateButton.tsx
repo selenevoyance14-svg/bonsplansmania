@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import type { ReactNode } from "react";
 import type { AffiliatePosition } from "@/lib/box-beauty-comparison";
+import { DEFAULT_OFFER_CTA } from "@/lib/article-commerce";
 
 type Props = {
   href: string;
@@ -28,9 +29,9 @@ export default function AffiliateButton({
       data-affiliate-merchant={merchant}
       data-affiliate-position={position}
       data-affiliate-offer={offerName}
-      aria-label={`${children || "Voir l'offre"} chez ${merchant} (nouvel onglet)`}
+      aria-label={`${children || DEFAULT_OFFER_CTA} chez ${merchant} (nouvel onglet)`}
     >
-      {children || "Voir l'offre actuelle"}
+      {children || DEFAULT_OFFER_CTA}
       <ExternalLink size={15} aria-hidden />
     </a>
   );

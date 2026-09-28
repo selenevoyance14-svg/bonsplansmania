@@ -7,6 +7,9 @@ export const DIRECT_DEAL_CATEGORIES = new Set([
   "calendrier",
 ]);
 
+/** Libellé commun utilisé lorsqu'un article ne définit pas son propre CTA. */
+export const DEFAULT_OFFER_CTA = "Profiter de l’offre";
+
 const AMAZON_PRICE_HIDDEN_SLUGS = new Set([
   "aowoka-seche-cheveux-professionnel-ionique-160000-rpm-59-99-euros-amazon-moins-54-pourcent",
   "bon-plan-amazon-bioderma-crealine-huile-micellaire-2026",

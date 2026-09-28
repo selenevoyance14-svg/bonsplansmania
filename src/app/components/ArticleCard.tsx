@@ -3,7 +3,7 @@ import {
     FlaskConical, Percent, ArrowRight, type LucideIcon,
 } from "lucide-react";
 import { parsePrice } from "@/lib/price";
-import { DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
+import { DEFAULT_OFFER_CTA, DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { formatCardTitle } from "@/lib/display-title";
@@ -26,8 +26,8 @@ export type CardCategoryConfig = {
 export const DEAL_FIRST_CATEGORIES = DIRECT_DEAL_CATEGORIES;
 
 export const CATEGORY_CONFIG: Record<string, CardCategoryConfig> = {
-    "bon-plan":         { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
-    "bon-plan-beaute":  { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: "Voir l'offre" },
+    "bon-plan":         { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: DEFAULT_OFFER_CTA },
+    "bon-plan-beaute":  { label: "Bon Plan",   Icon: Tag,          color: "bon-plan",         cta: DEFAULT_OFFER_CTA },
     "test-gratuit":     { label: "Test Gratuit", Icon: Gift,       color: "test-gratuit",     cta: "Voir les détails" },
     "test-avis":        { label: "Test & Avis", Icon: FlaskConical, color: "test-avis",       cta: "Lire le test" },
     "comparatif":       { label: "Comparatif",  Icon: FlaskConical, color: "test-avis",       cta: "Lire le comparatif" },

@@ -207,19 +207,31 @@
 .cardFooter { min-height:30px; display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:auto; padding-top:13px; }
 .cardFooter strong { font-size:12px; }
 .cardFooter a { width:30px; height:30px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; }
-.newsletter { display:grid; grid-template-columns:auto minmax(0,1.2fr) minmax(320px,.8fr); align-items:center; gap:30px; padding:48px clamp(22px,5.5vw,90px); background:var(--wine); color:#fff; }
-.newsletterIcon { width:58px; height:58px; display:grid; place-items:center; border:1px solid rgba(255,255,255,.35); border-radius:50%; }
-.newsletterCopy small { color:#efc9d1; text-transform:uppercase; font-size:10px; font-weight:800; letter-spacing:.13em; }
-.newsletterCopy h2 { max-width:680px; margin:9px 0; font:400 clamp(25px,3vw,39px)/1.08 Georgia,serif; }
-.newsletterCopy p { margin:0; color:#ead9dd; font-size:13px; }
-.newsletterForm label { display:block; margin-bottom:7px; font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.08em; }
-.newsletterForm>div { display:flex; border-bottom:1px solid rgba(255,255,255,.7); }
-.newsletterForm input { min-width:0; flex:1; padding:12px 0; border:0; outline:0; background:transparent; color:#fff; font-size:13px; }
-.newsletterForm input::placeholder { color:rgba(255,255,255,.58); }
-.newsletterForm button { width:42px; display:grid; place-items:center; border:0; background:transparent; color:#fff; cursor:pointer; }
-.newsletterForm>small { display:block; margin-top:9px; color:#ead6db; font-size:10px; }
-.newsletterForm>span { display:block; margin-top:8px; color:#fff0c5; font-size:11px; }
-.newsletterThanks { font:italic 23px Georgia,serif; }
+.newsletter { grid-column:1/-1; display:grid; grid-template-columns:auto minmax(0,1.2fr) minmax(290px,.8fr); align-items:center; gap:26px; margin:3px 0; padding:32px 36px; border:1px solid #ded5cd; border-radius:18px; background:linear-gradient(135deg,#fff7f1 0%,#f3f8f4 100%); color:var(--ink); box-shadow:0 7px 22px rgba(46,31,30,.055); }
+.newsletterIcon { width:52px; height:52px; display:grid; place-items:center; border:1px solid #dfc9c0; border-radius:50%; background:rgba(255,255,255,.72); color:var(--wine); }
+.newsletterCopy small { color:var(--wine); text-transform:uppercase; font-size:10px; font-weight:800; letter-spacing:.13em; }
+.newsletterCopy h2 { max-width:620px; margin:7px 0; font:400 clamp(23px,2.4vw,32px)/1.1 Georgia,serif; }
+.newsletterCopy p { margin:0; color:#675f59; font-size:12px; }
+.newsletterForm label { display:block; margin-bottom:7px; color:#4f4742; font-size:11px; font-weight:700; }
+.newsletterForm>div { display:flex; overflow:hidden; border:1px solid #d8cec5; border-radius:11px; background:rgba(255,255,255,.88); box-shadow:0 2px 8px rgba(46,31,30,.04); }
+.newsletterForm input { min-width:0; flex:1; padding:12px 13px; border:0; outline:0; background:transparent; color:var(--ink); font-size:13px; }
+.newsletterForm input::placeholder { color:#918780; }
+.newsletterForm input:focus-visible { box-shadow:inset 0 0 0 2px rgba(125,41,61,.24); }
+.newsletterForm button { width:46px; display:grid; place-items:center; border:0; background:var(--wine); color:#fff; cursor:pointer; transition:background .2s,transform .2s; }
+.newsletterForm button:hover { background:#652032; }
+.newsletterForm button:focus-visible { outline:3px solid rgba(125,41,61,.25); outline-offset:2px; }
+.newsletterForm button:disabled { cursor:wait; opacity:.7; }
+.newsletterForm>small { display:block; margin-top:8px; color:#746a64; font-size:10px; }
+.newsletterForm>span { display:block; margin-top:8px; color:#9f1239; font-size:11px; }
+.newsletterThanks { margin:0; color:#285f4d; font:italic 21px Georgia,serif; }
+.carrefourGuide { grid-column:1/-1; display:flex; align-items:center; justify-content:space-between; gap:28px; margin:3px 0; padding:27px 32px; border:1px solid #d3e0dc; border-radius:18px; background:linear-gradient(135deg,#f2f8f6 0%,#fff8f2 100%); box-shadow:0 7px 22px rgba(46,31,30,.045); }
+.carrefourGuide>div { max-width:750px; }
+.carrefourGuide small { color:#286754; font-size:10px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
+.carrefourGuide h2 { margin:6px 0 8px; color:var(--ink); font:400 clamp(22px,2.3vw,31px)/1.12 Georgia,serif; }
+.carrefourGuide p { margin:0; color:#625b55; font-size:13px; line-height:1.55; }
+.carrefourGuide>a { flex:0 0 auto; display:inline-flex; align-items:center; justify-content:center; gap:7px; padding:12px 16px; border-radius:10px; background:#286754; color:#fff; font-size:12px; font-weight:800; text-align:center; transition:background .2s,transform .2s; }
+.carrefourGuide>a:hover { background:#205443; transform:translateY(-1px); }
+.carrefourGuide>a:focus-visible { outline:3px solid rgba(40,103,84,.24); outline-offset:3px; }
 .beautyCompare { padding:64px clamp(22px,4.5vw,72px) 72px; background:var(--cream); border-top:1px solid var(--line); }
 .beautyCompare>header { display:block; margin-bottom:28px; text-align:left; }
 .beautyCompare>header span { color:var(--wine); font-size:10px; font-weight:800; letter-spacing:.13em; text-transform:uppercase; }
@@ -269,5 +281,5 @@
   .freeTests{padding:0 14px 36px;content-visibility:auto;contain-intrinsic-size:600px}.freeTests>header{align-items:flex-start;margin-bottom:17px;padding-top:25px}.freeTests>header>a{display:none}.freeTests>header h2{font-size:25px}.freeTestsGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.freeTestCard{flex:0 0 68%;scroll-snap-align:start}.freeTestCard>div{padding:12px}.freeTestCard h3{font-size:16px}
   .selection{padding:38px 14px 44px;content-visibility:auto;contain-intrinsic-size:900px}.sectionHeading{align-items:flex-start;margin-bottom:22px}.sectionHeading h2{font-size:29px}.sectionHeading>a{display:none}.editorialGrid{display:grid;grid-template-columns:1fr;gap:11px;overflow:visible}.card,.featuredCard{grid-template-columns:118px minmax(0,1fr);min-height:152px}.featuredCard .imageWrap,.imageWrap{height:100%;min-height:152px}.imageWrap>span{top:8px;left:8px;padding:5px 6px;font-size:8px}.cardCopy{padding:13px 13px 11px}.cardCopy h3,.featuredCard .cardCopy h3{min-height:0;margin:6px 0;font-size:17px}.cardCopy p{display:none}.cardFooter{padding-top:8px}.cardFooter strong{font-size:11px}
   .beautyCompare{padding:38px 14px 42px;content-visibility:auto;contain-intrinsic-size:650px}.beautyCompare>header{margin-bottom:20px}.beautyCompare>header h2{font-size:29px}.beautyCompare>header p{font-size:12px;line-height:1.5}.beautyCompareGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.beautyCompareCard{flex:0 0 66%;padding:12px;scroll-snap-align:start}.beautyCompareCard img{height:145px}.beautyCompareCard strong{font-size:18px}.beautyCompareCta{width:100%;justify-content:center;margin-top:18px}
-  .newsletter{grid-template-columns:1fr;padding:31px 18px;content-visibility:auto;contain-intrinsic-size:400px}.newsletterIcon{width:44px;height:44px}.newsletterCopy h2{font-size:25px}.newsletterForm{grid-column:auto}.partnerSpot{grid-template-columns:1fr;padding:22px}.partnerSpot img{margin-top:20px;width:100%;height:160px}.manifesto p{font-size:25px}.footer{grid-template-columns:1fr;gap:28px;padding:38px 18px 20px}.footerBrand{grid-column:auto}.footerBottom{flex-direction:column;gap:8px}
+  .newsletter{grid-template-columns:44px minmax(0,1fr);gap:10px 13px;padding:20px 17px;border-radius:15px;content-visibility:auto;contain-intrinsic-size:290px}.newsletterIcon{width:44px;height:44px}.newsletterCopy h2{margin:4px 0;font-size:21px}.newsletterCopy p{font-size:11px}.newsletterForm{grid-column:1/-1;margin-top:4px}.carrefourGuide{display:block;padding:20px 17px;border-radius:15px}.carrefourGuide h2{font-size:21px}.carrefourGuide p{font-size:12px}.carrefourGuide>a{width:100%;margin-top:15px}.partnerSpot{grid-template-columns:1fr;padding:22px}.partnerSpot img{margin-top:20px;width:100%;height:160px}.manifesto p{font-size:25px}.footer{grid-template-columns:1fr;gap:28px;padding:38px 18px 20px}.footerBrand{grid-column:auto}.footerBottom{flex-direction:column;gap:8px}
 }

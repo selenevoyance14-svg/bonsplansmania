@@ -5,6 +5,7 @@ import { useSearchParams } from "next/navigation";
 import Image from "next/image";
 import SearchAlertSignup from "@/app/components/SearchAlertSignup";
 import { searchArticles } from "@/lib/article-search";
+import { DEFAULT_OFFER_CTA } from "@/lib/article-commerce";
 
 interface ArticleData {
   slug: string;
@@ -128,7 +129,7 @@ export default function SearchClient({ articles }: { articles: ArticleData[] }) 
                       <p className="card-excerpt">{article.description}</p>
                     </div>
                     <div className="card-footer">
-                      <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.82rem" }}>Voir le bon plan →</span>
+                      <span style={{ color: "var(--primary)", fontWeight: 600, fontSize: "0.82rem" }}>{DEFAULT_OFFER_CTA} →</span>
                     </div>
                   </a>
                 ))}

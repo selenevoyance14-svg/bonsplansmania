@@ -14,7 +14,7 @@ import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
 import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
 import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
-import { shouldHideAmazonPrice } from "@/lib/article-commerce";
+import { DEFAULT_OFFER_CTA, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import ArticleComments from "@/app/components/ArticleComments";
 
 interface PageProps { params: Promise<{ slug: string }>; }
@@ -183,7 +183,7 @@ export default async function ArticlePage({ params }: PageProps) {
   const rawAffiliate = article.meta.affiliateUrl || "";
   const affiliateUrl = /^https?:\/\//i.test(rawAffiliate) ? `/go/${slug}` : "#";
   const affiliateMerchant = getAffiliateMerchant(rawAffiliate);
-  const affiliateLabel = article.meta.affiliateLabel || "Voir l'offre";
+  const affiliateLabel = article.meta.affiliateLabel || DEFAULT_OFFER_CTA;
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
   // et on ajoute un bloc cross-sell "promo flash" après le contenu pour récupérer ce trafic
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
@@ -547,7 +547,7 @@ export default async function ArticlePage({ params }: PageProps) {
                           </strong>
                         )}
                         <span style={{ display: "inline-block", marginTop: "10px", color: "var(--primary)", fontWeight: 700, fontSize: "0.82rem" }}>
-                          {recommended.meta.affiliateLabel || "Voir l’offre"} →
+                          {recommended.meta.affiliateLabel || DEFAULT_OFFER_CTA} →
                         </span>
                       </div>
                     </a>
@@ -713,7 +713,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
       const price = productData.price || "";
       const oldPrice = productData.oldPrice || "";
       const url = productData.url || affiliateUrl || "#";
-      const label = productData.label || "Voir l'offre";
+      const label = productData.label || DEFAULT_OFFER_CTA;
       const badge = productData.badge || "";
       const desc = productData.desc || "";
       const rating = productData.rating || "";
@@ -779,7 +779,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
       // Le push est fait côté client par <InContentAdsInit /> car <script> dans innerHTML ne s'exécute pas.
       prefix = `<ins class="adsbygoogle" style="display:block;text-align:center;margin:32px 0;min-height:250px" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5064203547863113" data-ad-slot="9104262184"></ins>`;
     } else if (affiliateUrl && h2Count % 3 === 0) {
-      prefix = `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || "Voir l\u0027offre"} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>`;
+      prefix = `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || DEFAULT_OFFER_CTA} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>`;
     }
     return `${prefix}<h2>${title}</h2>`;
   });

@@ -4,6 +4,7 @@ import Link from "next/link";
 import Header from "@/app/components/Header";
 import { getAllArticles } from "@/lib/articles";
 import { AFFILIATE_PARTNERS } from "@/lib/affiliate-partners";
+import { DEFAULT_OFFER_CTA } from "@/lib/article-commerce";
 import styles from "./page.module.css";
 import giftStyles from "./monsieur-tshirt.module.css";
 
@@ -104,7 +105,7 @@ export default function ChristmasGiftHub() {
       <section id="offres" className={`container ${styles.section}`}>
         <p className={styles.kicker}>Bons plans cadeaux</p><h2>Nos idées cadeaux du moment</h2>
         <p className={styles.sectionIntro}>Cette sélection contient uniquement des produits et coffrets pouvant être offerts. Les concours, tests gratuits et simples codes promo en sont exclus.</p>
-        <div className={styles.offerGrid}>{offers.map(({ meta }) => <article className={styles.card} key={meta.slug}><Link href={`/article/${meta.slug}`} className={styles.image}><Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 25vw" /></Link><div><p>Idée cadeau</p><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3>{meta.price ? <strong>{meta.price}</strong> : <span>Tarif sur la fiche</span>}<Link className={styles.offerLink} href={`/article/${meta.slug}`}>Voir le bon plan</Link></div></article>)}</div>
+        <div className={styles.offerGrid}>{offers.map(({ meta }) => <article className={styles.card} key={meta.slug}><Link href={`/article/${meta.slug}`} className={styles.image}><Image src={meta.image} alt={meta.imageAlt} fill sizes="(max-width: 700px) 100vw, (max-width: 1000px) 50vw, 25vw" /></Link><div><p>Idée cadeau</p><h3><Link href={`/article/${meta.slug}`}>{meta.title}</Link></h3>{meta.price ? <strong>{meta.price}</strong> : <span>Tarif sur la fiche</span>}<Link className={styles.offerLink} href={`/article/${meta.slug}`}>{DEFAULT_OFFER_CTA}</Link></div></article>)}</div>
       </section>
 
       <section className={styles.crossLinks}><div className="container"><div><p className={styles.kicker}>À préparer aussi</p><h2>Calendriers de l’Avent 2026</h2><p>Beauté, parfums et soins : comparez les prix, le contenu et les dates de sortie des calendriers déjà annoncés.</p><Link href="/calendriers-de-l-avent-2026">Voir le comparatif des calendriers →</Link></div><div><p className={styles.kicker}>Le grand rendez-vous</p><h2>Black Friday 2026</h2><p>Le vendredi 27 novembre 2026. Les meilleures offres seront reliées à ce guide dès leur annonce.</p><Link href="/bons-plans-en-cours">Voir les offres en cours →</Link></div></div></section>

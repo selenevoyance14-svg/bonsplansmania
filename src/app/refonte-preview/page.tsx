@@ -299,6 +299,19 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
               </div>
             </article>
             <ListAd afterCard={index + 1} />
+            {currentPage === 1 && index === 3 ? <EditorialNewsletter /> : null}
+            {currentPage === 1 && index === 7 ? (
+              <aside className={styles.carrefourGuide} aria-labelledby="carrefour-guide-title">
+                <div>
+                  <small>Guide Carrefour</small>
+                  <h2 id="carrefour-guide-title">🛒 Vos produits Carrefour 100% gratuits !</h2>
+                  <p>Économisez sur vos courses et testez gratuitement de grandes marques en magasin grâce au programme officiel <em>MonAvisLeRendGratuit</em>. Découvrez nos astuces et notre guide complet pour en profiter facilement dès aujourd’hui.</p>
+                </div>
+                <Link href="/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit">
+                  Voir le guide &amp; les produits à tester <ArrowUpRight size={16} />
+                </Link>
+              </aside>
+            ) : null}
             </Fragment>
           ))}
         </div>
@@ -317,8 +330,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
       </section>
 
       <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex collapseWhenEmpty /></div>
-
-      <EditorialNewsletter />
 
       <section className={styles.manifesto}>
       </section>

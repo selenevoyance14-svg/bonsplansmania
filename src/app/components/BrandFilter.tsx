@@ -6,7 +6,7 @@ import { ArrowRight, X } from "lucide-react";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import ListAd from "@/app/components/ListAd";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
-import { hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
+import { DEFAULT_OFFER_CTA, hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 
 interface ArticleListItem {
@@ -45,8 +45,8 @@ type ProductTypeDef = BrandDef;
 const PER_PAGE = 24;
 
 const CTA_BY_COLOR: Record<string, string> = {
-  "bon-plan": "Voir l'offre",
-  "bon-plan-beaute": "Voir l'offre",
+  "bon-plan": DEFAULT_OFFER_CTA,
+  "bon-plan-beaute": DEFAULT_OFFER_CTA,
   "test-gratuit": "Voir les détails",
   "test-avis": "Lire le test",
   "comparatif": "Lire le comparatif",
