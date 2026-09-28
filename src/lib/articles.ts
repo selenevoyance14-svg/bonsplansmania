@@ -302,9 +302,9 @@ export function getArticleBySlug(slug: string): Article | null {
           ? data.price
           : undefined
         : data.price,
-      prix_origine: typeof data.prix_origine === "string" && data.prix_origine.trim()
-        ? data.prix_origine.trim()
-        : undefined,
+      prix_origine: [data.prix_origine, data.oldPrice, data.originalPrice]
+        .find((value): value is string => typeof value === "string" && Boolean(value.trim()))
+        ?.trim(),
       amazonPriceOverride: amazonArticle && data.amazonPriceOverride === true,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,

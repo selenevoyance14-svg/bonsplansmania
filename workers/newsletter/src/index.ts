@@ -28,7 +28,7 @@ const PARTNER_BANNER: {
   height: number;
 } = {
   enabled: true,
-  title: "Notre selection partenaire",
+  title: "Notre sélection partenaire",
   imageUrl: "https://bonsplansmania.fr/images/partners/sarenza-728x90.gif",
   link: "https://action.metaffiliation.com/trk.php?mclic=P512D1157CD2D1B19",
   alt: "Sarenza - Les Jours Sarenza",
@@ -890,8 +890,42 @@ async function handleStats(request: Request, env: Env): Promise<Response> {
     return jsonResponse({ error: "Non autorise" }, 403);
   }
 
-  const list = await env.SUBSCRIBERS.list();
-  return jsonResponse({ subscribers: list.keys.length });
+  const emails = await listActiveSubscriberEmails(env);
+  return jsonResponse({ subscribers: emails.length });
+}
+
+function isEmailAddress(value: string): boolean {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value);
+}
+
+async function listActiveSubscriberEmails(env: Env): Promise<string[]> {
+  const emails: string[] = [];
+  let cursor: string | undefined;
+
+  do {
+    const page = await env.SUBSCRIBERS.list({ cursor });
+    const pageEmails = await Promise.all(
+      page.keys
+        .map((key) => key.name)
+        .filter(isEmailAddress)
+        .map(async (email) => {
+          const data = await env.SUBSCRIBERS.get(email);
+          if (!data) return null;
+
+          try {
+            const parsed = JSON.parse(data) as { active?: boolean; subscribedAt?: string };
+            return parsed.active !== false && parsed.subscribedAt ? email : null;
+          } catch {
+            return null;
+          }
+        }),
+    );
+
+    emails.push(...pageEmails.filter((email): email is string => email !== null));
+    cursor = page.list_complete ? undefined : page.cursor;
+  } while (cursor);
+
+  return emails;
 }
 
 // --- CORE: SEND NEWSLETTER ---
@@ -910,7 +944,7 @@ async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
   // 3. Sujet : mettre en avant concours/tests
   let subject = "";
   if (categorized.concours.length > 0) {
-    subject = `${categorized.concours.length} concours a ne pas rater`;
+    subject = `${categorized.concours.length} concours à ne pas rater`;
     if (categorized.testGratuit.length > 0) {
       subject += ` + ${categorized.testGratuit.length} tests gratuits`;
     }
@@ -921,18 +955,7 @@ async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
   }
 
   // 4. Recuperer tous les abonnes
-  const subscriberList = await env.SUBSCRIBERS.list();
-  const emails: string[] = [];
-
-  for (const key of subscriberList.keys) {
-    const data = await env.SUBSCRIBERS.get(key.name);
-    if (data) {
-      const parsed = JSON.parse(data);
-      if (parsed.active !== false) {
-        emails.push(key.name);
-      }
-    }
-  }
+  const emails = await listActiveSubscriberEmails(env);
 
   if (dryRun) {
     return {
@@ -991,6 +1014,8 @@ async function sendNewsletter(env: Env, dryRun = false): Promise<object> {
 interface ArticleInfo {
   title: string;
   url: string;
+  ctaUrl?: string;
+  ctaLabel?: string;
   description: string;
   category: string;
   image: string;
@@ -1010,7 +1035,9 @@ async function fetchLatestArticles(siteUrl: string): Promise<CategorizedArticles
       return {
         concours: data.filter((a) => a.category === "concours").slice(0, 3),
         testGratuit: data.filter((a) => a.category === "test-gratuit" || a.category === "test").slice(0, 3),
-        bonsPlans: data.filter((a) => a.category === "bon-plan" || a.category === "code-promo").slice(0, 3),
+        bonsPlans: data
+          .filter((a) => ["bon-plan", "code-promo", "box-beaute"].includes(a.category))
+          .slice(0, 4),
       };
     }
   } catch {
@@ -1021,27 +1048,49 @@ async function fetchLatestArticles(siteUrl: string): Promise<CategorizedArticles
 }
 
 // --- BUILD NEWSLETTER HTML ---
+function absoluteUrl(value: string, siteUrl: string): string {
+  if (/^https?:\/\//i.test(value)) return value;
+  return `${siteUrl}${value.startsWith("/") ? value : `/${value}`}`;
+}
+
 function buildArticleCards(articles: ArticleInfo[], siteUrl: string): string {
   return articles
-    .map(
-      (a) => `
+    .map((article) => {
+      const title = escapeHtml(article.title);
+      const articleUrl = absoluteUrl(article.url, siteUrl);
+      const ctaUrl = absoluteUrl(article.ctaUrl || article.url, siteUrl);
+      const imageUrl = absoluteUrl(article.image, siteUrl);
+      const ctaLabel = escapeHtml(article.ctaLabel || "Découvrir l'offre");
+
+      return `
     <tr>
-      <td style="padding:12px 0;border-bottom:1px solid #f3f4f6;">
-        <a href="${a.url}" style="text-decoration:none;color:#1f2937;">
-          <table cellpadding="0" cellspacing="0" border="0" width="100%">
-            <tr>
-              <td width="100" style="padding-right:16px;">
-                <img src="${siteUrl}${a.image}" alt="${a.title}" width="100" height="70" style="border-radius:8px;object-fit:cover;display:block;" />
-              </td>
-              <td>
-                <p style="margin:0;font-size:15px;font-weight:700;color:#1f2937;line-height:1.3;">${a.title}</p>
-              </td>
-            </tr>
-          </table>
-        </a>
+      <td style="padding:14px 0;border-bottom:1px solid #eef0f4;">
+        <table cellpadding="0" cellspacing="0" border="0" width="100%">
+          <tr>
+            <td width="112" valign="top" style="padding-right:16px;">
+              <a href="${articleUrl}" target="_blank" style="text-decoration:none;">
+                <img src="${imageUrl}" alt="${title}" width="112" height="82" style="width:112px;height:82px;border-radius:9px;object-fit:cover;display:block;border:0;" />
+              </a>
+            </td>
+            <td valign="top">
+              <a href="${articleUrl}" target="_blank" style="color:#1757a6;text-decoration:underline;font-size:15px;font-weight:700;line-height:1.38;">
+                ${title}&nbsp;➔
+              </a>
+              <table cellpadding="0" cellspacing="0" border="0" style="margin-top:10px;">
+                <tr>
+                  <td style="border-radius:6px;background:#e94b35;">
+                    <a href="${ctaUrl}" target="_blank" style="display:inline-block;padding:8px 13px;color:#ffffff;text-decoration:none;font-size:12px;font-weight:700;line-height:1;">
+                      ${ctaLabel}
+                    </a>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+        </table>
       </td>
-    </tr>`
-    )
+    </tr>`;
+    })
     .join("");
 }
 
@@ -1093,12 +1142,16 @@ function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string):
   const concoursSection = buildSection("Concours en cours", "🎁", "#DCFCE7", "#166534", categorized.concours, siteUrl);
   const testSection = buildSection("Tests produits gratuits", "🧴", "#F3E8FF", "#7C3AED", categorized.testGratuit, siteUrl);
   const partnerSection = buildPartnerSection();
-  const bonsPlansSection = buildSection("Bons plans du moment", "🔥", "#FEE2E2", "#DC2626", categorized.bonsPlans, siteUrl);
+  const bonsPlansSection = buildSection("Bons plans Amazon & box", "🔥", "#FEE2E2", "#DC2626", categorized.bonsPlans, siteUrl);
+  const totalSelections = categorized.concours.length + categorized.testGratuit.length + categorized.bonsPlans.length;
 
   return `<!DOCTYPE html>
 <html lang="fr">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"></head>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>La sélection Bons Plans Mania</title></head>
 <body style="margin:0;padding:0;background:#f9fafb;font-family:Arial,Helvetica,sans-serif;">
+  <div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">
+    ${totalSelections} bons plans, concours et tests sélectionnés pour vous cette semaine.
+  </div>
   <table cellpadding="0" cellspacing="0" border="0" width="100%" style="background:#f9fafb;">
     <tr><td align="center" style="padding:20px;">
       <table cellpadding="0" cellspacing="0" border="0" width="600" style="max-width:600px;background:white;border-radius:16px;overflow:hidden;box-shadow:0 1px 3px rgba(0,0,0,0.1);">
@@ -1107,7 +1160,13 @@ function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string):
         <tr>
           <td style="background:linear-gradient(135deg,#DC2626,#F97316);padding:32px 24px;text-align:center;">
             <h1 style="margin:0;color:white;font-size:24px;">Bons Plans Mania</h1>
-            <p style="margin:8px 0 0;color:rgba(255,255,255,0.85);font-size:14px;">Concours, tests gratuits et bons plans de la semaine</p>
+            <p style="margin:9px auto 0;max-width:480px;color:#fff4ed;font-size:14px;line-height:1.5;">Cette semaine, je vous ai déniché de nouveaux concours, des tests beauté et de belles offres Amazon et box&nbsp;!</p>
+          </td>
+        </tr>
+
+        <tr>
+          <td style="padding:20px 24px 2px;color:#374151;font-size:14px;line-height:1.65;">
+            Bonjour 👋<br />Voici ma sélection des offres qui valent vraiment le clic, vérifiées et classées pour vous faire gagner du temps.
           </td>
         </tr>
 
@@ -1128,9 +1187,10 @@ function buildNewsletterHTML(categorized: CategorizedArticles, siteUrl: string):
         <!-- Footer -->
         <tr>
           <td style="padding:24px;background:#f3f4f6;text-align:center;font-size:12px;color:#6b7280;">
-            <p style="margin:0;">Vous recevez cet email car vous etes inscrit a la newsletter Bons Plans Mania.</p>
+            <p style="margin:0;">Vous recevez cet email car vous êtes inscrit à la newsletter Bons Plans Mania.</p>
+            <p style="margin:7px 0 0;">Certains liens sont affiliés : ils peuvent soutenir Bons Plans Mania sans changer votre prix.</p>
             <p style="margin:8px 0 0;">
-              <a href="{{UNSUB_URL}}" style="color:#6b7280;text-decoration:underline;">Se desabonner</a>
+              <a href="{{UNSUB_URL}}" style="color:#6b7280;text-decoration:underline;">Se désabonner</a>
               &nbsp;|&nbsp;
               <a href="${siteUrl}" style="color:#6b7280;text-decoration:underline;">Visiter le site</a>
             </p>

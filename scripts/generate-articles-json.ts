@@ -9,21 +9,51 @@ const OUTPUT_PATH = path.join(process.cwd(), "public", "articles.json");
 interface ArticleInfo {
   title: string;
   url: string;
+  ctaUrl: string;
+  ctaLabel: string;
   description: string;
   category: string;
   image: string;
   date: string;
 }
 
+function getNewsletterCta(meta: ReturnType<typeof getSanitizedArticles>[number]["meta"]): {
+  ctaUrl: string;
+  ctaLabel: string;
+} {
+  const articleUrl = `https://bonsplansmania.fr/article/${meta.slug}`;
+  const ctaUrl = meta.affiliateUrl
+    ? `https://bonsplansmania.fr/go/${meta.slug}`
+    : articleUrl;
+  const isAmazon = Boolean(
+    meta.amazonAsin ||
+      meta.affiliateUrl?.includes("amazon.") ||
+      meta.affiliateUrl?.includes("amzn."),
+  );
+
+  if (isAmazon) return { ctaUrl, ctaLabel: "Voir sur Amazon" };
+  if (meta.category === "box-beaute") return { ctaUrl, ctaLabel: "Découvrir la box" };
+  if (meta.category === "concours") return { ctaUrl, ctaLabel: "Participer au concours" };
+  if (meta.category === "test-gratuit" || meta.category === "test") {
+    return { ctaUrl, ctaLabel: "Voir le test gratuit" };
+  }
+  if (meta.category === "code-promo") return { ctaUrl, ctaLabel: "Profiter du code" };
+  return { ctaUrl, ctaLabel: "Profiter de l'offre" };
+}
+
 function getLatestArticles(): ArticleInfo[] {
-  return getSanitizedArticles().slice(0, 50).map(({ meta }) => ({
-    title: meta.title,
-    url: `https://bonsplansmania.fr/article/${meta.slug}`,
-    description: meta.description,
-    category: meta.category,
-    image: meta.image || "/images/placeholder.svg",
-    date: meta.date,
-  }));
+  return getSanitizedArticles().slice(0, 50).map(({ meta }) => {
+    const cta = getNewsletterCta(meta);
+    return {
+      title: meta.title,
+      url: `https://bonsplansmania.fr/article/${meta.slug}`,
+      ...cta,
+      description: meta.description,
+      category: meta.category,
+      image: meta.image || "/images/placeholder.svg",
+      date: meta.date,
+    };
+  });
 }
 
 const articles = getLatestArticles();

@@ -63,12 +63,28 @@
   line-height: 1.5;
 }
 
-.partnerIdeas strong {
+.partnerPrice {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 5px 8px;
+  margin-top: 4px;
+}
+
+.partnerPrice strong {
   font-size: 1.05rem;
 }
 
+.partnerPrice small {
+  color: #766d68;
+  font-size: 0.72rem;
+}
+
 .partnerIdeas b {
-  margin-top: 14px;
+  display: block;
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #e7ded4;
   color: #87253f;
 }
 
