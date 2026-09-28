@@ -16,6 +16,7 @@ type Article = {
         image: string;
         imageAlt: string;
         price?: string;
+        prix_origine?: string;
         expired?: boolean;
         endDate?: string;
         affiliateUrl?: string;
@@ -50,6 +51,7 @@ export default function ArticleCardHorizontal({
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
     const isExpired = isOfferExpired(article.meta);
     const { now, was, savings: savingsPct, savingsEur } = parsePrice(article.meta.price);
+    const originalPrice = article.meta.prix_origine || was;
     const isFree = !!now && /gratuit/i.test(now);
     // "content-first" (concours, test-gratuit, test-avis, comparatif, beaute…) :
     // le CTA reste sur l'article, pas d'ouverture affiliée.
@@ -106,7 +108,7 @@ export default function ArticleCardHorizontal({
                         {now && (
                             <>
                                 <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>{now}</span>
-                                {was && <span className="bpm-card-h-price-was">{was}</span>}
+                                {originalPrice && <del className="bpm-card-h-price-was">{originalPrice}</del>}
                                 {savingsEur && <span className="bpm-card-h-chip">{savingsEur}</span>}
                             </>
                         )}

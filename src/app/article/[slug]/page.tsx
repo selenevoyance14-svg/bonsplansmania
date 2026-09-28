@@ -16,6 +16,7 @@ import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { DEFAULT_OFFER_CTA, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import ArticleComments from "@/app/components/ArticleComments";
+import { extractPriceAmount } from "@/lib/price";
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
@@ -264,37 +265,58 @@ export default async function ArticlePage({ params }: PageProps) {
     },
   };
 
-  // Schema Product pour les articles avec prix (rich snippets Google)
-  // IMPORTANT : on extrait le 1er nombre du price (ex: "13€ au lieu de 987€" -> "13").
-  // Si le price ne contient AUCUN chiffre exploitable (ex: "Gratuit", "Sur devis"),
-  // on n'émet PAS le bloc Product du tout — sinon GSC remonte "price manquant dans offers".
-  //
-  // aggregateRating + review : PAS émis. Le frontmatter.rating vient de scrapes (avis Amazon),
-  // pas d'un vrai review BonsPlansMania → "Spammy structured data" côté Google (audit SEO 26/07/2026).
-  // Si on veut réintroduire des reviews, il faudra un vrai système de notes rédactionnelles
-  // (champ dédié userReview + ratingCount réel > 1 basé sur des sources vérifiables).
+  // Schema Product pour les prix et les tests éditoriaux (rich snippets Google).
+  // Les notes ne sont balisées comme Review que dans les catégories éditoriales :
+  // cela exclut les campagnes de tests gratuits qui ne constituent pas un avis rédigé.
+  // Une note éditoriale unique est une Review, pas un AggregateRating.
   //
   // availability : bascule OutOfStock si expired ou catégorie expirée. Sinon Google flag "misleading"
   // quand un deal terminé est encore annoncé InStock.
-  const priceMatch = article.meta.price?.match(/[\d]+([.,][\d]+)?/)?.[0];
-  const cleanPrice = priceMatch ? priceMatch.replace(",", ".") : null;
+  const priceAmount = extractPriceAmount(article.meta.price);
+  const cleanPrice = priceAmount !== undefined ? String(priceAmount) : null;
   const productName = (article.meta.seoTitle ?? article.meta.title).slice(0, 150);
   const productAvailability = (isExpired || isStale)
     ? "https://schema.org/OutOfStock"
     : "https://schema.org/InStock";
-  const productJsonLd = cleanPrice && affiliateUrl !== "#" ? {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    name: productName,
-    description: article.meta.description,
-    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}`,
-    offers: {
+  const editorialRating = typeof article.meta.rating === "number"
+    && article.meta.rating >= 1
+    && article.meta.rating <= 5
+    && ["test-avis", "test-produit"].includes(article.meta.category)
+      ? article.meta.rating
+      : null;
+  const productReviewJsonLd = editorialRating !== null ? {
+    "@type": "Review",
+    name: `Avis de Bons Plans Mania sur ${productName}`,
+    reviewBody: article.meta.description,
+    datePublished: article.meta.updated || article.meta.date,
+    author: {
+      "@type": "Person",
+      name: "Nathalie",
+      url: "https://bonsplansmania.fr/qui-suis-je",
+    },
+    reviewRating: {
+      "@type": "Rating",
+      ratingValue: editorialRating,
+      bestRating: 5,
+      worstRating: 1,
+    },
+  } : null;
+  const productOfferJsonLd = cleanPrice && affiliateUrl !== "#" ? {
       "@type": "Offer",
       url: `https://bonsplansmania.fr/article/${slug}`,
       price: cleanPrice,
       priceCurrency: "EUR",
       availability: productAvailability,
-    },
+  } : null;
+  const productJsonLd = productOfferJsonLd || productReviewJsonLd ? {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "@id": `https://bonsplansmania.fr/article/${slug}#product`,
+    name: productName,
+    description: article.meta.description,
+    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}`,
+    ...(productOfferJsonLd ? { offers: productOfferJsonLd } : {}),
+    ...(productReviewJsonLd ? { review: productReviewJsonLd } : {}),
   } : null;
 
   const breadcrumbJsonLd = {
@@ -395,7 +417,12 @@ export default async function ArticlePage({ params }: PageProps) {
                     </div>
                   )}
                   {article.meta.price && (
-                    <span style={{ fontWeight: 700, color: "var(--primary)", fontSize: "1.05rem" }}>{article.meta.price}</span>
+                    <span className="article-price-group">
+                      <span className="article-price-current">{article.meta.price}</span>
+                      {article.meta.prix_origine && (
+                        <del className="article-price-original">{article.meta.prix_origine}</del>
+                      )}
+                    </span>
                   )}
                   {affiliateUrl !== "#" && !isFreebieCategory && !isExpired && (
                     <a
@@ -788,7 +815,17 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/(?<!\*)\*([^*\n]+?)\*(?!\*)/g, "<em>$1</em>");
   html = html.replace(/!\[([^\]]*)\]\(([^)]+)\)/g, '<figure style="margin:24px 0;text-align:center;background:#fff;border-radius:12px;overflow:hidden;padding:12px"><img src="$2" alt="$1" loading="lazy" style="max-width:100%;max-height:500px;height:auto;object-fit:contain;border-radius:8px;margin:0 auto;display:block" /><figcaption style="font-size:0.82rem;color:#6b7280;margin-top:8px">$1</figcaption></figure>');
   html = html.replace(/\[(.+?)\]\((.+?)\)/g, (_match, text, url) => {
-    // Liens internes (relatifs, ancres, ou bonsplansmania.fr) : suivis par Google, pas de nofollow/sponsored, navigation dans le même onglet
+    // Les redirections /go/ restent des liens affiliés même si elles utilisent
+    // le domaine du site : Google demande donc rel="sponsored" ou "nofollow".
+    const isAffiliateRedirect = /^\/go\//i.test(url)
+      || /^https?:\/\/(?:www\.)?bonsplansmania\.fr\/go\//i.test(url);
+    if (isAffiliateRedirect) {
+      const normalizedUrl = normalizeContentInternalUrl(url);
+      return normalizedUrl
+        ? `<a href="${normalizedUrl}" target="_blank" rel="nofollow sponsored noopener">${text}</a>`
+        : text;
+    }
+    // Autres liens internes : suivis par Google et ouverts dans le même onglet.
     const isInternal = /^(\/|#|https?:\/\/(?:www\.)?bonsplansmania\.fr)/i.test(url);
     if (isInternal) {
       const normalizedUrl = normalizeContentInternalUrl(url);

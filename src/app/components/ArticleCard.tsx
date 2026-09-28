@@ -50,6 +50,7 @@ type Article = {
         image: string;
         imageAlt: string;
         price?: string;
+        prix_origine?: string;
         expired?: boolean;
         endDate?: string;
         affiliateUrl?: string;
@@ -73,6 +74,7 @@ export default function ArticleCard({
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
     const isExpired = isOfferExpired(article.meta);
     const { now, was, savings } = parsePrice(article.meta.price);
+    const originalPrice = article.meta.prix_origine || was;
     const articleHref = `/article/${article.meta.slug}`;
     const rawAffiliate = article.meta.affiliateUrl;
     // "content-first" (test-avis, comparatif, beaute…) : le footer reste sur l'article même si affiliateUrl existe.
@@ -117,7 +119,7 @@ export default function ArticleCard({
                     {now && (
                         <div className="bpm-card-price">
                             <span className="bpm-card-price-now">{now}</span>
-                            {was && <span className="bpm-card-price-was">{was}</span>}
+                            {originalPrice && <del className="bpm-card-price-was">{originalPrice}</del>}
                         </div>
                     )}
                     {!now && article.meta.amazonAsin && (

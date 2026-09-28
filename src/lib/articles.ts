@@ -197,6 +197,8 @@ export interface ArticleMeta {
   imageAlt: string;
   rating?: number;
   price?: string;
+  /** Prix habituel affiché barré à côté du prix promotionnel. */
+  prix_origine?: string;
   /** Prix Amazon relevé manuellement quand Creators API ne renvoie aucune offre. */
   amazonPriceOverride?: boolean;
   affiliateUrl?: string;
@@ -300,6 +302,9 @@ export function getArticleBySlug(slug: string): Article | null {
           ? data.price
           : undefined
         : data.price,
+      prix_origine: typeof data.prix_origine === "string" && data.prix_origine.trim()
+        ? data.prix_origine.trim()
+        : undefined,
       amazonPriceOverride: amazonArticle && data.amazonPriceOverride === true,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateLabel: data.affiliateLabel,
