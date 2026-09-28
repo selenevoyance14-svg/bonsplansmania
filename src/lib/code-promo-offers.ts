@@ -28,6 +28,31 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  // AMAZON — avantages réservés aux membres Prime
+  {
+    id: "amazon-prime-5-euros-des-50",
+    brandSlug: "amazon",
+    type: "code",
+    value: "5 €",
+    valueLabel: "DÈS 50 €",
+    title: "5 € offerts dès 50 € d'achat pour les membres Prime",
+    code: "FRPRIME5",
+    affiliateUrl: "https://www.amazon.fr/dp/B0CP429HCH?tag=lebrunnathali-21&linkCode=ogi&th=1",
+    conditions: "Avantage réservé aux membres Amazon Prime et aux comptes éligibles. Saisir le code FRPRIME5 lors de la commande et vérifier son application ainsi que les produits participants avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "amazon-prime-15-euros-des-100",
+    brandSlug: "amazon",
+    type: "code",
+    value: "15 €",
+    valueLabel: "DÈS 100 €",
+    title: "15 € offerts dès 100 € d'achat pour les membres Prime",
+    code: "FRPRIME15",
+    affiliateUrl: "https://www.amazon.fr/dp/B0CP429HCH?tag=lebrunnathali-21&linkCode=ogi&th=1",
+    conditions: "Avantage réservé aux membres Amazon Prime et aux comptes éligibles. Saisir le code FRPRIME15 lors de la commande et vérifier son application ainsi que les produits participants avant le paiement.",
+    featured: true,
+  },
   // ZOOPLUS — French Deals vérifiés le 22 septembre 2026
   { id: "zooplus-french-deals-30-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-30 %", valueLabel: "JUSQU’À", title: "French Deals : jusqu’à 30 % sur une sélection chien et chat", affiliateUrl: "https://tidd.ly/4bvX2g9", starts: "2026-09-22", expires: "2026-09-28", conditions: "French Deals Zooplus du 22 au 28 septembre 2026 inclus. Remise maximale sur une sélection de marques et de produits pour chiens et chats, dans la limite des stocks.", featured: true },
   { id: "zooplus-gourmet-gold-25-septembre-2026", brandSlug: "zooplus", type: "offre", value: "-25 %", valueLabel: "JUSQU’À", title: "Jusqu’à 25 % sur une sélection Gourmet Gold pour chat", affiliateUrl: "https://tidd.ly/4bvX2g9", expires: "2026-09-28", conditions: "Remise maximale sur une sélection de nourriture humide Gourmet Gold pour chat pendant les French Deals. Formats et stocks variables.", featured: true },

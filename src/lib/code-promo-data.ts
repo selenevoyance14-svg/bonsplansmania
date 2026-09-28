@@ -99,6 +99,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#FF4500",
   },
   {
+    slug: "amazon",
+    name: "Amazon",
+    affiliateUrl: "https://www.amazon.fr/dp/B0CP429HCH?tag=lebrunnathali-21&linkCode=ogi&th=1",
+    affiliateLabel: "Voir les offres Amazon",
+    matchTags: ["amazon"],
+    color: "#FF9900",
+  },
+  {
     slug: "atelier-du-sourcil",
     name: "L'Atelier du Sourcil",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=33057&awinaffid=990397&ued=https%3A%2F%2Fwww.atelierdusourcil.com%2F",
