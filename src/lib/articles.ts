@@ -202,6 +202,8 @@ export interface ArticleMeta {
   /** Prix Amazon relevé manuellement quand Creators API ne renvoie aucune offre. */
   amazonPriceOverride?: boolean;
   affiliateUrl?: string;
+  /** Alias court utilisé par la Pages Function pour générer le lien /go/<alias>. */
+  affiliateAlias?: string;
   affiliateLabel?: string;
   amazonAsin?: string;
   readingTime: string;
@@ -261,6 +263,9 @@ export function getArticleBySlug(slug: string): Article | null {
   const { data, content } = matter(fileContent);
   const amazonArticle = isAmazonArticle(data, content);
   const preserveManualAmazonPrices = amazonArticle && data.amazonPriceOverride === true;
+  const configuredPrice = [data.price, data.prix]
+    .find((value): value is string => typeof value === "string" && Boolean(value.trim()))
+    ?.trim();
   const safeContent = amazonArticle
     ? sanitizeAmazonContent(content, preserveManualAmazonPrices)
     : content;
@@ -298,15 +303,18 @@ export function getArticleBySlug(slug: string): Article | null {
       imageAlt: (amazonArticle ? sanitizeAmazonMetadata(data.imageAlt || data.title) : data.imageAlt || data.title) || "",
       rating: amazonArticle ? undefined : data.rating,
       price: amazonArticle
-        ? typeof data.price === "string" && (/^indisponible/i.test(data.price.trim()) || data.amazonPriceOverride === true)
-          ? data.price
+        ? configuredPrice && (/^indisponible/i.test(configuredPrice) || data.amazonPriceOverride === true)
+          ? configuredPrice
           : undefined
-        : data.price,
+        : configuredPrice,
       prix_origine: [data.prix_origine, data.oldPrice, data.originalPrice]
         .find((value): value is string => typeof value === "string" && Boolean(value.trim()))
         ?.trim(),
       amazonPriceOverride: amazonArticle && data.amazonPriceOverride === true,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
+      affiliateAlias: typeof data.affiliateAlias === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.affiliateAlias.trim())
+        ? data.affiliateAlias.trim()
+        : undefined,
       affiliateLabel: data.affiliateLabel,
       amazonAsin: amazonArticle ? extractAmazonAsin(data, content) : undefined,
       readingTime: stats.text.replace("min read", "min"),

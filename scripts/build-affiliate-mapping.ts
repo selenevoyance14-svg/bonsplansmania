@@ -43,6 +43,16 @@ function collectMdx(mapping: Record<string, Row>): number {
       url: secureAmazonAffiliateUrl(url),
       ...(typeof data.affiliateLabel === "string" ? { label: data.affiliateLabel } : {}),
     };
+    const alias = typeof data.affiliateAlias === "string" ? data.affiliateAlias.trim() : "";
+    if (alias) {
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(alias)) {
+        throw new Error(`[affiliate-mapping] Alias invalide dans ${file} : ${alias}`);
+      }
+      if (mapping[alias]) {
+        throw new Error(`[affiliate-mapping] Alias déjà utilisé dans ${file} : ${alias}`);
+      }
+      mapping[alias] = mapping[slug];
+    }
     count++;
   }
   return count;
@@ -73,12 +83,13 @@ function main() {
   const mapping: Record<string, Row> = {};
   const mdxCount = collectMdx(mapping);
   const codeCount = collectPermanentCodes(mapping);
+  const entryCount = Object.keys(mapping).length;
 
   fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
   fs.writeFileSync(OUT_FILE, JSON.stringify(mapping, null, 0));
 
   console.log(
-    `[affiliate-mapping] ${mdxCount} MDX + ${codeCount} codes permanents = ${mdxCount + codeCount} entrées écrites dans ${path.relative(process.cwd(), OUT_FILE)}`,
+    `[affiliate-mapping] ${mdxCount} fichiers MDX + ${codeCount} codes permanents = ${entryCount} entrées écrites dans ${path.relative(process.cwd(), OUT_FILE)}`,
   );
 }
 

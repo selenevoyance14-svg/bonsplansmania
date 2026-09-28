@@ -179,10 +179,11 @@ export default async function ArticlePage({ params }: PageProps) {
   const cat = categoryConfig[article.meta.category];
   const categoryHref =
     normalizeContentInternalUrl(`/categorie/${article.meta.category}`) || "/";
-  // Le vrai lien affilié n'est PAS injecté dans le HTML : on renvoie /go/<slug>
+  // Le vrai lien affilié n'est PAS injecté dans le HTML : on renvoie /go/<alias-ou-slug>
   // et Cloudflare Function (functions/go/[slug].ts) fait le 302 vers la vraie destination.
   const rawAffiliate = article.meta.affiliateUrl || "";
-  const affiliateUrl = /^https?:\/\//i.test(rawAffiliate) ? `/go/${slug}` : "#";
+  const affiliateRedirectSlug = article.meta.affiliateAlias || slug;
+  const affiliateUrl = /^https?:\/\//i.test(rawAffiliate) ? `/go/${affiliateRedirectSlug}` : "#";
   const affiliateMerchant = getAffiliateMerchant(rawAffiliate);
   const affiliateLabel = article.meta.affiliateLabel || DEFAULT_OFFER_CTA;
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
