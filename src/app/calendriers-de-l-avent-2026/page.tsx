@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Header from "@/app/components/Header";
 import { ADVENT_CALENDARS_2026 } from "@/lib/advent-calendars-2026";
 import { getAdventCalendarCatalog } from "@/lib/advent-calendar-catalog";
@@ -61,6 +62,11 @@ export default function AdventCalendarsHub() {
             <p className={styles.intro}>Beauté, parfums et soins : nous ajoutons uniquement les calendriers dont le prix et la disponibilité ont été vérifiés. Aucun faux prix, aucun contenu supposé.</p>
             <div className={styles.stats}><span><strong>{catalog.length}</strong> calendriers référencés</span><span><strong>{new Set(catalog.map((item) => item.brand)).size}</strong> marques comparées</span><span><strong>Prix datés</strong> et disponibilités indiquées</span></div>
             <p className={styles.updated}>Dernière vérification : {updatedAt}</p>
+            <Link href="/calendriers-de-l-avent-lego-2026" className={styles.legoSpotlight}>
+              <span>🧱</span>
+              <span><strong>Page spéciale LEGO 2026</strong>Comparez City, Friends, Disney, Marvel, Star Wars et Harry Potter.</span>
+              <span aria-hidden>→</span>
+            </Link>
           </div>
         </section>
 
