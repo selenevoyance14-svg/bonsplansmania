@@ -250,8 +250,8 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     currentOffer: {
       code: "15DES129",
       discount: "15 € offerts dès 129 € d'achat",
-      conditions: "Code valable sur les produits éligibles jusqu'au vendredi 25 septembre 2026 à 23h59. Vérifier l'application de la remise dans le panier.",
-      verifiedAt: "2026-09-23",
+      conditions: "Code valable sur les produits éligibles jusqu'au mercredi 30 septembre 2026 à 23h59. Exclusions applicables : vérifier l'application de la remise dans le panier.",
+      verifiedAt: "2026-09-29",
     },
   },
   {
@@ -648,9 +648,15 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "magnifaik",
     name: "Magnifaïk",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=112600&awinaffid=990397&ued=https%3A%2F%2Fwww.magnifaik.com%2F",
-    affiliateLabel: "Voir les offres Magnifaïk",
+    affiliateLabel: "Utiliser le code FD25 chez Magnifaïk",
     matchTags: ["magnifaik"],
     color: "#9333EA",
+    currentOffer: {
+      code: "FD25",
+      discount: "25 % de réduction",
+      conditions: "Code cumulable avec les remises et les coffrets. Date de fin non communiquée : vérifier l'application du code dans le panier.",
+      verifiedAt: "2026-09-29",
+    },
   },
   {
     slug: "lagrange-vacances",
