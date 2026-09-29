@@ -2520,8 +2520,51 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // YESSTYLE — Nourish Your Glow, vérifié le 23/09/2026
+  // YESSTYLE — Beauty on a Budget, vérifié le 29/09/2026
   // ============================================================
+  {
+    id: "yesstyle-beauty-on-a-budget-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "soldes",
+    value: "-50 %",
+    valueLabel: "JUSQU'AU 5 OCT.",
+    title: "Beauty on a Budget : jusqu'à -50 % sur une sélection beauté",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-09-29",
+    expires: "2026-10-05",
+    conditions: "Offre Beauty on a Budget du 29 septembre au 5 octobre 2026 : jusqu'à 50 % de réduction sur une sélection de marques et de produits beauté. Le taux de remise varie selon les références et les stocks disponibles.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-save26-septembre-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "JUSQU'À EXTRA",
+    title: "Jusqu'à -15 % supplémentaires avec le code SAVE26",
+    code: "SAVE26",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-09-29",
+    expires: "2026-10-02",
+    conditions: "Code annoncé du 29 septembre au 2 octobre 2026. Jusqu'à 15 % de réduction supplémentaire selon le montant du panier, les marques, les produits et les exclusions YesStyle. Vérifier la remise appliquée avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-finds26-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "JUSQU'À EXTRA",
+    title: "Jusqu'à -15 % supplémentaires avec le code FINDS26",
+    code: "FINDS26",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-10-02",
+    expires: "2026-10-05",
+    conditions: "Code annoncé du 2 au 5 octobre 2026. Jusqu'à 15 % de réduction supplémentaire selon le montant du panier, les marques, les produits et les exclusions YesStyle. Vérifier la remise appliquée avant le paiement.",
+    featured: true,
+  },
+
+  // Anciennes offres YesStyle conservées pour l'historique ; elles sont masquées après expiration.
   {
     id: "yesstyle-nourish-your-glow-septembre-2026",
     brandSlug: "yesstyle",
