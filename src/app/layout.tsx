@@ -239,7 +239,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={poppins.className}>
         {children}
-        <AdBlock moneytizerFormat="19" className="moneytizer-footer-ad" />
+        <AdBlock moneytizerFormat="6" className="moneytizer-footer-ad" />
         <footer
           style={{
             margin: 0,

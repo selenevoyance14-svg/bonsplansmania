@@ -216,6 +216,7 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
   return (
     <main className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
+      <AdBlock moneytizerFormat="4" className="moneytizer-side-rail" />
       {/* Zone éditoriale principale au-dessus de la publicité. */}
       <div id="bpm-home-above-fold" className={styles.aboveFold}>
         <Header activePage="/" />
@@ -255,8 +256,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
           <span key={item}><Check size={15} /> {item}</span>
         ))}
       </section>
-
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock /></div>
 
       <div className={styles.categoryRail} aria-hidden="true"><div /></div>
 

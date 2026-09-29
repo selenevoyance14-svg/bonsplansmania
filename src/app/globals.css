@@ -3839,6 +3839,18 @@ body {
   text-align: center;
 }
 
+.moneytizer-side-rail {
+  height: 0;
+  margin: 0;
+  overflow: visible;
+}
+
+@media (max-width: 1023px) {
+  .moneytizer-side-rail {
+    display: none;
+  }
+}
+
 /* CTA color per category (reuse footer colors) */
 .bpm-cta-bon-plan { color: #7D293D; }
 .bpm-card-h-bon-plan .bpm-card-h-price-now {
