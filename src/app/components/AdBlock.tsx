@@ -10,13 +10,13 @@ interface AdBlockProps {
   slot?: string;
   compactMultiplex?: boolean;
   collapseWhenEmpty?: boolean;
-  moneytizerFormat?: "1" | "4" | "15";
+  moneytizerFormat?: "2" | "15" | "19";
 }
 
 const MONEYTIZER_SITE_ID = "143369";
 const activeMoneytizerContainers = new Map<string, HTMLDivElement>();
 
-export default function AdBlock({ className = "", moneytizerFormat = "4" }: AdBlockProps) {
+export default function AdBlock({ className = "", moneytizerFormat = "2" }: AdBlockProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {

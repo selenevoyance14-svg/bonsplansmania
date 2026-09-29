@@ -461,7 +461,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <AmazonLiveOffer asin={article.meta.amazonAsin} affiliateUrl={affiliateUrl} />
             )}
 
-            {/* Un seul tag Moneytizer format 4 par page, juste avant le contenu. */}
+            {/* Un encart Moneytizer 300 × 250 par page, juste avant le contenu. */}
             <AdBlock />
 
             {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
