@@ -16,6 +16,7 @@ const AMAZON_PRICE_HIDDEN_SLUGS = new Set([
   "bon-plan-vivirofex-masque-collagene-hydrogel-hydratation-promo-amazon-2026",
   "bon-plan-masque-led-7-couleurs-nourished-210-euros-amazon-2026",
   "bons-plans-amazon-bebe-mai-2026-hub-puericulture",
+  "bons-plans-coupons-amazon-mardi-29-septembre-2026",
   "guide-malin-bebe-equiper-sans-se-ruiner-2026",
 ]);
 
