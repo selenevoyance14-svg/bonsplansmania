@@ -240,6 +240,7 @@ export default async function CategoryPage({ params }: PageProps) {
 
         <section className="container" style={{ paddingTop: "0", paddingBottom: "24px" }}>
           <AdBlock format="in-article" />
+          {(slug === "concours" || slug === "test-gratuit") && <AdBlock moneytizerFormat="15" />}
         </section>
       </main>
 

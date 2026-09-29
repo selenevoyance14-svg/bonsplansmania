@@ -181,8 +181,6 @@
 .freeTestCard h3 { margin:7px 0 14px; font:400 18px/1.12 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .freeTestCta { display:flex; align-items:center; justify-content:space-between; padding-top:11px; border-top:1px solid var(--line); color:var(--wine); font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
 .adSlot { padding:0 clamp(22px,4.5vw,72px); background:var(--paper); overflow:hidden; }
-.adSlot:has(.ad-container[data-ad-state="empty"]),
-.adSlot:has(.ad-container>ins.adsbygoogle[data-ad-status="unfilled"]) { display:none; }
 .selection { padding:90px clamp(26px,5.5vw,96px) 110px; background:#f1eee7; border-top:1px solid var(--line); }
 .sectionHeading { position:relative; display:flex; align-items:flex-end; justify-content:space-between; gap:25px; margin-bottom:34px; text-align:left; }
 .sectionHeading>div { text-align:left; }

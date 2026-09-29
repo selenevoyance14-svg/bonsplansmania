@@ -69,7 +69,7 @@ export default function Confidentialite() {
           <section style={{ marginBottom: "32px" }}>
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Services tiers &amp; cookies</h2>
             <p>
-              Le site utilise Google Analytics (statistiques anonymisées) et Google AdSense
+              Le site utilise Google Analytics (statistiques anonymisées) et The Moneytizer
               (publicités personnalisées). Ces services peuvent déposer des cookies analytiques
               et publicitaires uniquement selon les choix exprimés dans le gestionnaire de consentement. Certains liens affiliés
               peuvent également comporter des paramètres de suivi permettant d&apos;attribuer une vente ou une visite au site. Tu peux

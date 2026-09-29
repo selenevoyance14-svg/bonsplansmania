@@ -32,7 +32,7 @@ export default function PolitiqueConfidentialite() {
               <li>Mot-clé, type et fréquence choisis pour chaque alerte</li>
               <li>Pseudo, commentaire ou bon plan proposé et e-mail facultatif, pour permettre la modération</li>
               <li>Données de navigation anonymisées (via Google Analytics)</li>
-              <li>Cookies publicitaires (via Google AdSense)</li>
+              <li>Cookies publicitaires (via The Moneytizer et ses partenaires publicitaires)</li>
             </ul>
           </section>
 
@@ -51,7 +51,7 @@ export default function PolitiqueConfidentialite() {
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Cookies et technologies publicitaires</h2>
             <p>
               Ce site utilise des cookies pour améliorer votre expérience et afficher des publicités pertinentes.
-              Notre partenaire publicitaire Google AdSense peut utiliser des cookies pour diffuser
+              Notre partenaire publicitaire The Moneytizer et les régies qu&apos;il met en concurrence peuvent utiliser des cookies pour diffuser
               des annonces basées sur vos visites précédentes sur ce site et sur d&apos;autres sites.
             </p>
             <p style={{ marginTop: "12px" }}>

@@ -1,9 +1,7 @@
 const MONEYTIZER_ADS_URL =
   "https://ads.themoneytizer.com/ads_txt.php?site_id=143369&id=133102";
 
-const OWN_ADS_LINES = [
-  "google.com, pub-5064203547863113, DIRECT, f08c47fec0942fa0",
-];
+const MONEYTIZER_FALLBACK_LINE = "themoneytizer.com, 133102, DIRECT";
 
 const RESPONSE_HEADERS = {
   "Content-Type": "text/plain; charset=utf-8",
@@ -24,7 +22,7 @@ function normalizeLine(line: string): string {
 }
 
 function mergeAdsTxt(moneytizerText: string): string {
-  const lines = [...moneytizerText.split(/\r?\n/), ...OWN_ADS_LINES]
+  const lines = moneytizerText.split(/\r?\n/)
     .map(normalizeLine)
     .filter(Boolean);
 
@@ -32,11 +30,11 @@ function mergeAdsTxt(moneytizerText: string): string {
 }
 
 function fallbackResponse(): Response {
-  return new Response(`${OWN_ADS_LINES.join("\n")}\n`, {
+  return new Response(`${MONEYTIZER_FALLBACK_LINE}\n`, {
     headers: {
       ...RESPONSE_HEADERS,
       "Cache-Control": "no-store, max-age=0",
-      "X-Ads-Txt-Source": "adsense-fallback",
+      "X-Ads-Txt-Source": "moneytizer-fallback",
     },
   });
 }

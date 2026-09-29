@@ -7,7 +7,6 @@ import Header from "@/app/components/Header";
 import NewsletterInline from "@/app/components/NewsletterInline";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
-import InContentAdsInit from "@/app/components/InContentAdsInit";
 import IgraalConcoursCTA from "@/app/components/IgraalConcoursCTA";
 import TopBonsPlansPremium from "@/app/components/TopBonsPlansPremium";
 import { getStaticTagSlugs, slugifyTag } from "@/lib/tag-pages";
@@ -442,11 +441,6 @@ export default async function ArticlePage({ params }: PageProps) {
               )}
             </div>
 
-            {/* Pub mobile-only above the fold (avant l'image hero) — boost RPM mobile (70-80% du trafic) */}
-            <div className="ad-mobile-only" style={{ display: "none" }}>
-              <AdBlock />
-            </div>
-
             <div className="article-hero-image" style={{ position: "relative", width: "100%", minHeight: "clamp(260px, 45vw, 450px)", background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
               {article.meta.amazonAsin ? (
                 <AmazonProductImage
@@ -467,8 +461,8 @@ export default async function ArticlePage({ params }: PageProps) {
               <AmazonLiveOffer asin={article.meta.amazonAsin} affiliateUrl={affiliateUrl} />
             )}
 
-            {/* Une seule pub avant le contenu sur mobile : la seconde reste réservée au desktop. */}
-            <AdBlock className="ad-desktop-only" />
+            {/* Un seul tag Moneytizer format 4 par page, juste avant le contenu. */}
+            <AdBlock />
 
             {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
                 qui ne génèrent pas de revenu direct : on capte le visiteur AVANT qu'il clique
@@ -482,9 +476,6 @@ export default async function ArticlePage({ params }: PageProps) {
                 <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleAfterComparison, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined) }} />
               )}
             </div>
-            {/* Initialise les blocs AdSense in-article injectés dans le contenu Markdown ci-dessus */}
-            <InContentAdsInit />
-
             {/* CTA principal juste après la réponse éditoriale, avant les commentaires et les recommandations. */}
             {affiliateUrl !== "#" && !isExpired && (
               <div className="article-final-cta">
@@ -504,9 +495,6 @@ export default async function ArticlePage({ params }: PageProps) {
             )}
 
             <NewsletterInline />
-
-            {/* Pub après le contenu */}
-            <AdBlock />
 
             <ArticleComments articleSlug={slug} articleTitle={article.meta.title} />
 
@@ -589,8 +577,8 @@ export default async function ArticlePage({ params }: PageProps) {
           {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
           {article.meta.category === "concours" && <IgraalConcoursCTA />}
 
-          {/* Multiplex (recommandations natives AdSense) avant les articles liés — RPM nettement plus haut que display ici */}
-          <AdBlock format="multiplex" />
+          {/* Interstitiel Moneytizer réservé aux concours et tests produits gratuits. */}
+          {isFreebieCategory && <AdBlock moneytizerFormat="15" />}
 
           {/* Navigation séquentielle prev/next dans la même catégorie — renforce le maillage SEO chronologique */}
           {(prevArticle || nextArticle) && (
@@ -695,7 +683,7 @@ export default async function ArticlePage({ params }: PageProps) {
           </a>
         </div>
       ) : (
-        /* Pas d'affilié → on place une pub sticky AdSense à la place pour monétiser quand même */
+        /* Aucun bouton affilié à afficher sur mobile. */
         <StickyAdMobile />
       )}
 
@@ -801,12 +789,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   html = html.replace(/^## (.+)$/gm, (_match, title) => {
     h2Count++;
     let prefix = "";
-    if (h2Count % 4 === 0) {
-      // Bloc AdSense in-article tous les 4 H2 (réduction depuis "% 2" le 11/06/2026 pour améliorer la lisibilité
-      // et favoriser le CTR vers les liens affiliés Amazon. Format fluid = RPM plus élevé que display sur les contenus longs).
-      // Le push est fait côté client par <InContentAdsInit /> car <script> dans innerHTML ne s'exécute pas.
-      prefix = `<ins class="adsbygoogle" style="display:block;text-align:center;margin:32px 0;min-height:250px" data-ad-layout="in-article" data-ad-format="fluid" data-ad-client="ca-pub-5064203547863113" data-ad-slot="9104262184"></ins>`;
-    } else if (affiliateUrl && h2Count % 3 === 0) {
+    if (affiliateUrl && h2Count % 3 === 0) {
       prefix = `<div class="cta-inline"><a href="${affiliateUrl}" class="btn btn-primary btn-sm" target="_blank" rel="nofollow sponsored noopener">${affiliateLabel || DEFAULT_OFFER_CTA} <svg xmlns="http://www.w3.org/2000/svg" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg></a></div>`;
     }
     return `${prefix}<h2>${title}</h2>`;

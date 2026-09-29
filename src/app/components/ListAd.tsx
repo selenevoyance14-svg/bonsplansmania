@@ -1,9 +1,9 @@
 import AdBlock from "@/app/components/AdBlock";
 
-const AD_POSITIONS = new Set([10, 20, 30]);
+const AD_POSITION = 10;
 
 export default function ListAd({ afterCard }: { afterCard: number }) {
-  if (!AD_POSITIONS.has(afterCard)) return null;
+  if (afterCard !== AD_POSITION) return null;
 
   return (
     <div
@@ -11,10 +11,7 @@ export default function ListAd({ afterCard }: { afterCard: number }) {
       aria-label={`Publicité après l'offre ${afterCard}`}
       style={{ width: "100%", minWidth: 0, gridColumn: "1 / -1" }}
     >
-      <AdBlock
-        format={afterCard === 10 ? "in-article" : "display"}
-        collapseWhenEmpty
-      />
+      <AdBlock />
     </div>
   );
 }

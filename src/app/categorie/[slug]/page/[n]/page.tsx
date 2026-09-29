@@ -3,6 +3,7 @@ import Image from "next/image";
 import { notFound } from "next/navigation";
 import { ChevronRight, ChevronLeft, type LucideIcon, Tag, FlaskConical, Gift, Trophy, ShoppingBag, Sparkles, TreePine, Calendar, Ticket } from "lucide-react";
 import Header from "@/app/components/Header";
+import AdBlock from "@/app/components/AdBlock";
 import { getArticlesByCategory, isEffectivelyExpired } from "@/lib/articles";
 
 const PER_PAGE = 24;
@@ -147,6 +148,7 @@ export default async function CategoryPaginatedPage({ params }: PageProps) {
             </nav>
           </div>
         </section>
+        {(slug === "concours" || slug === "test-gratuit") && <AdBlock moneytizerFormat="15" />}
       </main>
     </>
   );

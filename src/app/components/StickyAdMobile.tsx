@@ -1,6 +1,5 @@
-// Désactivée : le format responsive AdSense pouvait être agrandi à plus de
-// 400 px de haut sur mobile et masquer une grande partie de la page dès
-// l'arrivée. Les blocs publicitaires intégrés dans le contenu restent actifs.
+// Le format sticky mobile reste volontairement désactivé : il masquait une
+// grande partie de la page dès l'arrivée.
 export default function StickyAdMobile() {
   return null;
 }

@@ -216,7 +216,7 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
   return (
     <main className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
-      {/* Zone à exclure des annonces automatiques AdSense dans le tableau de bord. */}
+      {/* Zone éditoriale principale au-dessus de la publicité. */}
       <div id="bpm-home-above-fold" className={styles.aboveFold}>
         <Header activePage="/" />
 
@@ -256,7 +256,7 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
         ))}
       </section>
 
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="in-article" collapseWhenEmpty /></div>
+      <div className={styles.adSlot} aria-label="Publicité"><AdBlock /></div>
 
       <div className={styles.categoryRail} aria-hidden="true"><div /></div>
 
@@ -328,8 +328,6 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
           ))}
         </nav>
       </section>
-
-      <div className={styles.adSlot} aria-label="Publicité"><AdBlock format="multiplex" compactMultiplex collapseWhenEmpty /></div>
 
       <section className={styles.manifesto}>
       </section>

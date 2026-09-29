@@ -3,6 +3,7 @@ import { Poppins } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ClientShell from "@/app/components/ClientShell";
+import AdBlock from "@/app/components/AdBlock";
 
 const GA_MEASUREMENT_ID = "G-HH3TT98TED";
 
@@ -71,10 +72,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="fr" className={poppins.variable}>
       <head>
         <meta name="msvalidate.01" content="1E74255D934E3CCDB2B46C09841223E0" />
-        <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5064203547863113" crossOrigin="anonymous" />
       </head>
       <body className={poppins.className}>
         {children}
+        <AdBlock moneytizerFormat="1" className="moneytizer-footer-ad" />
         <footer
           style={{
             margin: 0,
