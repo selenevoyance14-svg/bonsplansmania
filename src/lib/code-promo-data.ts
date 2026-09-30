@@ -791,14 +791,6 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     },
   },
   {
-    slug: "rakuten",
-    name: "Rakuten",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23252090&url=https%3A%2F%2Ffr.shopping.rakuten.com",
-    affiliateLabel: "Voir les offres Rakuten",
-    matchTags: ["rakuten"],
-    color: "#BF0000",
-  },
-  {
     slug: "sarenza",
     name: "Sarenza",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P512D1157CD2D191&redir=https%3A%2F%2Fwww.sarenza.com%2Ffr%2Ffr",

@@ -321,17 +321,6 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     affiliateUrl: "https://lb.affilae.com/r/?p=6814b22bc71e1ba3064b7ebb&af=978&lp=https%3A%2F%2Fpranarom.fr%2F",
   },
   {
-    id: "perm-rakuten",
-    brandSlug: "rakuten",
-    type: "cashback",
-    value: "CLUB R",
-    valueLabel: "GRATUIT",
-    title: "Rakuten Club R : cashback gratuit toute l'année + Rakuten Points convertibles",
-    permanent: true,
-    conditions: "Inscription gratuite au Club R. Cashback crédité après validation de la commande. Cumulable avec codes promo. Opérations boostées Mega Peak Days.",
-    affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23252090&url=https%3A%2F%2Ffr.shopping.rakuten.com",
-  },
-  {
     id: "perm-rougier-ple",
     brandSlug: "rougier-ple",
     brandName: "Rougier & Plé",

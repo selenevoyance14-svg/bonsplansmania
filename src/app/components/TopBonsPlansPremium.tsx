@@ -6,7 +6,7 @@ import { formatCardTitle } from "@/lib/display-title";
 /**
  * Bloc "Top bons plans" affiché en haut des articles freebies (concours, test-gratuit)
  * pour rediriger le trafic SEO non-rémunérateur vers les bons plans à forte commission
- * (Awin, Igraal, Rakuten...).
+ * (Awin, Igraal...).
  *
  * Le visiteur arrive sur un concours qui ne paie pas, il voit immédiatement nos vrais
  * bons plans rémunérateurs avant de cliquer "Participer" et quitter le site.

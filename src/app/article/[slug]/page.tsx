@@ -466,7 +466,7 @@ export default async function ArticlePage({ params }: PageProps) {
 
             {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
                 qui ne génèrent pas de revenu direct : on capte le visiteur AVANT qu'il clique
-                "Participer" en lui montrant nos vrais bons plans rémunérateurs (Awin, Igraal, Rakuten). */}
+                "Participer" en lui montrant nos vrais bons plans rémunérateurs (Awin, Igraal). */}
             {isFreebieCategory && <TopBonsPlansPremium currentSlug={slug} />}
 
             <div className="article-content">

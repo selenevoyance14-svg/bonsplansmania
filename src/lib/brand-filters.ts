@@ -53,7 +53,6 @@ export const BON_PLAN_BRANDS: BrandDef[] = [
   { key: "pranarom", label: "Pranarôm", keywords: ["pranarôm", "pranarom"] },
   { key: "le-rouge-francais", label: "Le Rouge Français", keywords: ["le rouge français", "rouge français", "le-rouge-francais", "rouge-francais", "le rouge francais"] },
   { key: "mademoiselle-bio", label: "Mademoiselle Bio", keywords: ["mademoiselle bio", "mademoiselle-bio"] },
-  { key: "rakuten", label: "Rakuten", keywords: ["rakuten"] },
   { key: "famille-mary", label: "Famille Mary", keywords: ["famille mary", "famille-mary"] },
   { key: "afibel", label: "Afibel", keywords: ["afibel"] },
   { key: "beaute-produit", label: "Beauté Produit", keywords: ["beauté produit", "beaute produit", "beaute-produit", "beauteproduit", "beaute-produit.com"] },

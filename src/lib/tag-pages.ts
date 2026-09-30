@@ -219,7 +219,6 @@ const GENERIC_TAG_SLUGS = new Set([
   "centella-asiatica", "crayons-effacables", "marvel", "vacances-mer",
   "huile-amande", "filtre-xxl", "6-mois-plus", "fer-vapeur",
   "super-serum", "village-club", "tous-types-peau", "soldes-mode",
-  "rakuten-points",
   "de-aurea", "jackery", "client-mystre", "purina-one",
   "jeu-7-differences", "peter-thomas-roth", "guillaume-bichet",
   "lifting-cou", "phb-plus", "brasero",
