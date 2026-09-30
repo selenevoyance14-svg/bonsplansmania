@@ -363,20 +363,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CARREFOUR — première commande septembre 2026
+  // CARREFOUR — première commande Drive et livraison, automne 2026
   // ============================================================
   {
-    id: "carrefour-cartable20-septembre-2026",
+    id: "carrefour-bingo20-novembre-2026",
     brandSlug: "carrefour",
     type: "code",
     value: "20 €",
     valueLabel: "OFFERTS",
     title: "20 € offerts dès 80 € sur la première commande Carrefour",
-    code: "CARTABLE20",
-    starts: "2026-08-31",
-    expires: "2026-09-27",
-    conditions: "Nouveaux clients : 20 € de réduction immédiate dès 80 € d'achat sur les produits alimentaires éligibles, en Drive ou livraison à domicile, avec le code CARTABLE20. Offre valable du 31/08 au 27/09/2026 inclus, selon les modalités Carrefour.",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
+    code: "BINGO20",
+    starts: "2026-09-30",
+    expires: "2026-11-01",
+    conditions: "20 € de remise immédiate dès 80 € pour une première commande Carrefour Drive, Livré Chez Vous ou Livraison Express, une seule fois par utilisateur. Montant minimum calculé hors remises immédiates, sacs consignés et frais de livraison. Hors Maison & Loisirs et Marketplace. Offre non cumulable, valable jusqu'au 1er novembre 2026 inclus.",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcourses",
     featured: true,
   },
 

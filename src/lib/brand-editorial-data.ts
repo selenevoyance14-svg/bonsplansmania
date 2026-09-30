@@ -60,16 +60,16 @@ export function getCurrentBrandOffers(
 /**
  * Contenu éditorial permanent et factuel des pages marques.
  *
- * Règles Carrefour x Kwanko :
+ * Règles Carrefour :
  * - aucune offre n'est ajoutée sans source officielle vérifiée ;
- * - commercialUrl reste absent tant qu'un lien Kwanko valide n'est pas fourni ;
+ * - les liens commerciaux utilisent une redirection /go/ dédiée ;
  * - la mention commerciale ne s'affiche qu'après activation explicite.
  */
 export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
   carrefour: {
     introduction:
       "Cette page rassemble les articles Bons Plans Mania liés à Carrefour ainsi que les principaux services vérifiés sur les pages officielles de l’enseigne. Les prix, promotions et disponibilités peuvent varier selon le magasin et la zone de livraison.",
-    verifiedAt: "2026-09-28",
+    verifiedAt: "2026-09-30",
     officialSourceUrl: "https://www.carrefour.fr/services",
     services: [
       {
@@ -103,8 +103,16 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
         officialUrl: "https://communaute.carrefour.fr/app/730/channel/tester-des-produits-2238",
       },
     ],
-    // À renseigner seulement après vérification d'une offre officielle encore active.
-    activeOffers: [],
+    activeOffers: [
+      {
+        title: "20 € offerts dès 80 € avec le code BINGO20",
+        conditions:
+          "Offre réservée à une première commande Carrefour Drive, Livré Chez Vous ou Livraison Express, utilisable une fois par utilisateur jusqu'au 1er novembre 2026 inclus. Hors remises immédiates, sacs consignés, frais de livraison, Maison & Loisirs et Marketplace. Non cumulable.",
+        endDate: "2026-11-01",
+        officialUrl: "https://www.carrefour.fr/courses",
+        commercialUrl: "/go/carrefour-bingo20",
+      },
+    ],
     faq: [
       {
         question: "Les prix Carrefour sont-ils identiques partout ?",
@@ -124,7 +132,7 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
       {
         question: "Les liens Carrefour de cette page sont-ils commerciaux ?",
         answer:
-          "Les liens vers les sources officielles ne sont pas affiliés. Si une collaboration commerciale est activée, elle sera signalée visiblement et les liens concernés seront identifiés comme sponsorisés.",
+          "La collaboration commerciale avec Carrefour est signalée visiblement. Les liens affiliés sont identifiés comme sponsorisés, sans coût supplémentaire pour le visiteur.",
       },
     ],
     internalLinks: [
@@ -145,7 +153,7 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
         label: "Voir les concours en cours",
       },
     ],
-    commercialPartnershipActive: false,
+    commercialPartnershipActive: true,
   },
 };
 

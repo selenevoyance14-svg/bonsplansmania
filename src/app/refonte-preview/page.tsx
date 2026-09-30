@@ -239,7 +239,14 @@ export default function RefontePreviewPage({ page = 1 }: { page?: number } = {})
                   <span>Partenaire à la une</span>
                   <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
                   <p>{FEATURED_PARTNER.description}</p>
-                  <a href={FEATURED_PARTNER.primaryCtaHref} target="_blank" rel="noopener noreferrer">
+                  <a
+                    href={FEATURED_PARTNER.primaryCtaHref}
+                    target="_blank"
+                    rel="nofollow sponsored noopener noreferrer"
+                    data-affiliate-position="homepage_featured_partner"
+                    data-affiliate-merchant={FEATURED_PARTNER.merchant}
+                    data-affiliate-offer={FEATURED_PARTNER.promoCode}
+                  >
                     {FEATURED_PARTNER.primaryCtaLabel} <ArrowUpRight size={16} />
                   </a>
                 </div>

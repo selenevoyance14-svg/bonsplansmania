@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 700" role="img" aria-labelledby="title desc">
+  <title id="title">Offre Carrefour BINGO20</title>
+  <desc id="desc">20 euros offerts dès 80 euros pour une première commande Carrefour</desc>
+  <rect width="1000" height="700" fill="#fff1f1"/>
+  <circle cx="500" cy="160" r="84" fill="#ffffff" opacity="0.9"/>
+  <text x="500" y="190" text-anchor="middle" fill="#e30613" font-family="Arial, Helvetica, sans-serif" font-size="118" font-weight="900">20 €</text>
+  <text x="500" y="295" text-anchor="middle" fill="#d90819" font-family="Arial, Helvetica, sans-serif" font-size="43" font-weight="800">OFFERTS DÈS 80 € D’ACHAT</text>
+  <text x="500" y="350" text-anchor="middle" fill="#d90819" font-family="Arial, Helvetica, sans-serif" font-size="35" font-weight="700">Première commande Drive ou livraison</text>
+  <rect x="240" y="410" width="520" height="132" rx="18" fill="#ffffff" stroke="#e5e7eb" stroke-width="3"/>
+  <text x="500" y="495" text-anchor="middle" fill="#0067c5" font-family="Arial, Helvetica, sans-serif" font-size="70" font-weight="900" letter-spacing="4">BINGO20</text>
+  <text x="500" y="615" text-anchor="middle" fill="#4b5563" font-family="Arial, Helvetica, sans-serif" font-size="27">Valable jusqu’au 1er novembre 2026 inclus</text>
+</svg>

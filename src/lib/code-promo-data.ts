@@ -229,15 +229,15 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "carrefour",
     name: "Carrefour",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2F",
-    affiliateLabel: "Utiliser le code CARTABLE20 chez Carrefour",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcourses",
+    affiliateLabel: "Utiliser le code BINGO20 chez Carrefour",
     matchTags: ["carrefour", "carrefour drive"],
     color: "#0050AA",
     currentOffer: {
-      code: "CARTABLE20",
+      code: "BINGO20",
       discount: "20 € offerts dès 80 € d'achat",
-      conditions: "Nouveaux clients : 20 € de réduction dès 80 € de produits alimentaires éligibles, en Drive ou livraison à domicile. Offre valable jusqu'au 27 septembre 2026 inclus.",
-      verifiedAt: "2026-09-11",
+      conditions: "Première commande Carrefour Drive, Livré Chez Vous ou Livraison Express. Offre valable une fois par utilisateur jusqu'au 1er novembre 2026 inclus, hors Maison & Loisirs, Marketplace, remises immédiates, sacs consignés et frais de livraison. Non cumulable.",
+      verifiedAt: "2026-09-30",
     },
   },
   {
