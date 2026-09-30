@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 30 Sep 2026 12:33:02 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 30 Sep 2026 14:15:31 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>PETKIT distributeur de croquettes avec caméra à 107,39 €</title>
@@ -32,7 +32,16 @@
       <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
       <description>La conteuse réveil Story'Clock VTech est à 27,49 € au lieu de 54,99 € chez Carrefour. Les versions rose et bleue profitent de 50 % de remise.</description>
       <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/_placeholder-bonsplansmania.png" type="image/png" length="0"/>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-carrefour-vtech-story-clock-rose-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Bons plans et coupons jouets Amazon du mercredi 30 septembre 2026</title>
+      <link>https://bonsplansmania.fr/article/bons-plans-coupons-jouets-amazon-mercredi-30-septembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/bons-plans-coupons-jouets-amazon-mercredi-30-septembre-2026</guid>
+      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Dobble, Pokémon, Disney, poupées et jeux éducatifs : 10 promotions jouets Amazon vérifiées ce mercredi 30 septembre 2026 avec les prix avant et après remise.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/jouets-jeux-enfants-amazon-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Carrefour : épilateur Venus et doudoune 100 % remboursés</title>
@@ -447,15 +456,6 @@
       <description>Le sérum Eucerin Anti-Pigment Dual Serum 30 ml est proposé sur Amazon, contre un ancien prix de, soit 20 % de réduction.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-eucerin-anti-pigment-dual-serum-30ml-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>GHD Chronos Curve Conical Wand</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-ghd-chronos-curve-conical-wand-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-ghd-chronos-curve-conical-wand-2026</guid>
-      <pubDate>Sun, 27 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Le boucleur professionnel GHD Chronos Curve Conical Wand est proposé sur Amazon. Son corps conique permet de créer des boucles naturelles et un effet wavy.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-ghd-chronos-curve-conical-wand-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
