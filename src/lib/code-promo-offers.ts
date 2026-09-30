@@ -2682,6 +2682,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // DR PIERRE RICAUD — offres et services vérifiés
   // ============================================================
   {
+    id: "dpr-deux-cadeaux-octobre-2026",
+    brandSlug: "dr-pierre-ricaud",
+    type: "offre",
+    value: "2 CADEAUX",
+    valueLabel: "DÈS 25 € / 50 €",
+    title: "Deux cadeaux au choix selon le montant du panier",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Fcadeaux%2F",
+    starts: "2026-09-28",
+    expires: "2026-10-11",
+    conditions: "Un premier cadeau au choix dès 25 € d'achat, puis un deuxième cadeau au choix dès 50 € d'achat. Valeur totale annoncée jusqu'à 74 € selon les cadeaux disponibles. Offre valable jusqu'au 11/10/2026 inclus, sous réserve des stocks et des conditions affichées dans le panier.",
+    featured: true,
+  },
+  {
     id: "dpr-duos-capillaires-serviette-offerte-septembre-octobre-2026",
     brandSlug: "dr-pierre-ricaud",
     type: "offre",
@@ -2740,15 +2753,16 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
   {
-    id: "dpr-trousses-ete-45",
+    id: "dpr-selection-produits-45-septembre-octobre-2026",
     brandSlug: "dr-pierre-ricaud",
     type: "offre",
     value: "-45 %",
-    valueLabel: "TROUSSES ÉTÉ",
-    title: "Trousses d'été Dr Pierre Ricaud jusqu'à -45 %",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Fessentiels-ete.htm",
-    expires: "2026-08-24",
-    conditions: "Offre flash trousses d'été Dr Pierre Ricaud : jusqu'à -45 % sur la sélection essentiels été. Valable du 29/07/2026 au 24/08/2026 sur ricaud.com.",
+    valueLabel: "SÉLECTION",
+    title: "Jusqu'à -45 % sur une sélection de produits Dr Pierre Ricaud",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr%2Foffres-speciales.htm",
+    starts: "2026-09-28",
+    expires: "2026-10-11",
+    conditions: "Offre valable du 28/09/2026 au 11/10/2026 inclus sur une sélection de produits Dr Pierre Ricaud. Produits éligibles et stocks à vérifier sur ricaud.com.",
     featured: true,
   },
   {

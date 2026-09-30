@@ -5,19 +5,19 @@ import { Gift, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const STORAGE_KEY = "bpm_featured_offer_igraal_september_2026";
+const STORAGE_KEY = "bpm_featured_offer_carrefour_venus_september_2026";
 const SESSION_POPUP_KEY = "bpm_popup_shown_this_session";
 const DISMISS_PERIOD_MS = 7 * 24 * 60 * 60 * 1000;
 const DISPLAY_DELAY_MS = 25 * 1000;
 const MIN_SCROLL_PROGRESS = 0.5;
 
 const offer = {
-  eyebrow: "Offre du moment",
-  title: "10 € offerts avec iGraal",
-  description: "Inscrivez-vous et récupérez aussi du cashback sur vos achats en ligne.",
-  buttonLabel: "Découvrir l’offre",
-  href: "/article/igraal-cashback-parrainage-15-euros-offerts-inscription-2026",
-  image: "/images/articles/igraal-parrainage-10-euros-septembre-2026.png",
+  eyebrow: "Offre Carrefour",
+  title: "Épilateur Venus 100 % remboursé",
+  description: "55 € offerts en bon d’achat avec le Club Carrefour, sous conditions.",
+  buttonLabel: "Voir l’offre Carrefour",
+  href: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcatalogue%2Fcarrefour%2Fhypermarche-6340_000_2026-NLiSEv82%3Fpage%3D10",
+  image: "/images/articles/carrefour-epilateur-venus-100-rembourse-popup-2026.webp",
   endDate: "2026-09-30T23:59:59+02:00",
 };
 
@@ -72,7 +72,7 @@ export default function FeaturedOfferPopup() {
   function handleClick() {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
     window.gtag?.("event", "featured_offer_click", {
-      offer_name: "igraal_september_2026",
+      offer_name: "carrefour_venus_100_rembourse_september_2026",
       page_path: window.location.pathname,
     });
   }
@@ -80,17 +80,17 @@ export default function FeaturedOfferPopup() {
   if (!show) return null;
 
   return (
-    <aside className="featured-offer-popup" aria-label="Offre iGraal du moment">
+    <aside className="featured-offer-popup" aria-label="Offre Carrefour : épilateur Venus 100 % remboursé">
       <button className="featured-offer-close" onClick={handleClose} aria-label="Fermer cette offre">
         <X size={18} />
       </button>
 
       <Image
         src={offer.image}
-        alt=""
-        width={1672}
-        height={941}
-        sizes="(max-width: 560px) 82px, 112px"
+        alt="Épilateur Venus à 55 euros remboursé à 100 % en bon d'achat chez Carrefour"
+        width={924}
+        height={552}
+        sizes="(max-width: 560px) 110px, 145px"
         className="featured-offer-image"
       />
 
@@ -101,10 +101,10 @@ export default function FeaturedOfferPopup() {
         </span>
         <strong>{offer.title}</strong>
         <p>{offer.description}</p>
-        <a href={offer.href} onClick={handleClick}>
+        <a href={offer.href} onClick={handleClick} target="_blank" rel="nofollow sponsored noopener">
           {offer.buttonLabel}
         </a>
-        <small>Lien de parrainage · Offre soumise à conditions</small>
+        <small>Lien affilié · Remboursement en bon d’achat · offre limitée</small>
       </div>
 
       <style jsx>{`
@@ -114,13 +114,13 @@ export default function FeaturedOfferPopup() {
           bottom: 20px;
           z-index: 9997;
           display: grid;
-          grid-template-columns: 112px minmax(0, 1fr);
+          grid-template-columns: 145px minmax(0, 1fr);
           width: min(410px, calc(100vw - 32px));
           overflow: hidden;
-          border: 1px solid #99e5e7;
+          border: 1px solid #fdba74;
           border-radius: 18px;
-          background: linear-gradient(135deg, #ecfeff 0%, #ffffff 58%, #fdf2f8 100%);
-          box-shadow: 0 18px 45px rgba(15, 118, 110, 0.2);
+          background: linear-gradient(135deg, #fff7ed 0%, #ffffff 58%, #eff6ff 100%);
+          box-shadow: 0 18px 45px rgba(0, 82, 155, 0.2);
           animation: offerSlideIn 0.35s ease-out;
         }
 
@@ -143,8 +143,9 @@ export default function FeaturedOfferPopup() {
         .featured-offer-image {
           width: 100%;
           height: 100%;
-          min-height: 172px;
+          min-height: 185px;
           object-fit: cover;
+          object-position: center;
         }
 
         .featured-offer-content {
@@ -160,7 +161,7 @@ export default function FeaturedOfferPopup() {
           align-items: center;
           gap: 5px;
           margin-bottom: 7px;
-          color: #0b8a8e;
+          color: #00529b;
           font-size: 0.72rem;
           font-weight: 800;
           letter-spacing: 0.04em;
@@ -184,7 +185,7 @@ export default function FeaturedOfferPopup() {
           display: inline-flex;
           justify-content: center;
           border-radius: 10px;
-          background: linear-gradient(135deg, #0ea5a9 0%, #fb7185 100%);
+          background: linear-gradient(135deg, #00529b 0%, #f59e0b 100%);
           padding: 9px 14px;
           color: #fff;
           font-size: 0.8rem;
@@ -214,13 +215,13 @@ export default function FeaturedOfferPopup() {
           .featured-offer-popup {
             right: 12px;
             bottom: 12px;
-            grid-template-columns: 82px minmax(0, 1fr);
+            grid-template-columns: 110px minmax(0, 1fr);
             width: calc(100vw - 24px);
             border-radius: 15px;
           }
 
           .featured-offer-image {
-            min-height: 154px;
+            min-height: 172px;
           }
 
           .featured-offer-content {

@@ -50,6 +50,11 @@ function isAmazonUrl(value: unknown): boolean {
 }
 
 function isAmazonArticle(data: Record<string, unknown>, content: string): boolean {
+  // Certains comparatifs renvoient vers une enseigne principale tout en citant
+  // des alternatives Amazon dans leur contenu. Ils ne doivent pas afficher
+  // l'encart de prix Amazon avec le lien affilié de l'enseigne principale.
+  if (data.amazonArticle === false) return false;
+
   const tags = Array.isArray(data.tags) ? data.tags : [];
   return (
     isAmazonUrl(data.affiliateUrl) ||
