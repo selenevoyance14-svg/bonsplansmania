@@ -1260,10 +1260,15 @@ body {
 }
 
 .article-price-original {
-  color: var(--muted-foreground, #6b7280);
+  color: #999999;
   font-size: 0.86rem;
   font-weight: 500;
   text-decoration-thickness: 1.5px;
+}
+
+.article-date-updated {
+  font-size: 0.82rem;
+  color: var(--text-muted, #6b7280);
 }
 
 .article-final-cta {
@@ -1449,7 +1454,7 @@ body {
 .amazon-live-label { color: #8a4b08; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; }
 .amazon-live-prices { display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap; }
 .amazon-live-prices strong { font-size: clamp(1.65rem, 4vw, 2.25rem); color: #7d293d; line-height: 1; }
-.amazon-live-prices del { color: var(--muted-foreground); }
+.amazon-live-prices del { color: #999999; }
 .amazon-live-prices span { padding: 3px 8px; background: #fee2e2; color: #b91c1c; border-radius: 999px; font-size: 0.78rem; font-weight: 800; }
 .amazon-live-copy small { color: var(--muted-foreground); }
 .amazon-live-offer-loading { justify-content: center; min-height: 90px; color: var(--muted-foreground); }
@@ -2018,7 +2023,7 @@ body {
 
 .product-card-old-price {
   font-size: 0.82rem;
-  color: var(--muted-foreground);
+  color: #999999;
   text-decoration: line-through;
 }
 
@@ -3099,7 +3104,7 @@ body {
 
 .bpm-card-price-was {
   font-size: 0.95rem;
-  color: var(--muted-foreground);
+  color: #999999;
   text-decoration: line-through;
   font-weight: 500;
 }
@@ -3405,7 +3410,7 @@ body {
 
 .bpm-deal-price-was {
   font-size: 1.15rem;
-  color: var(--muted-foreground);
+  color: #999999;
   text-decoration: line-through;
   opacity: 0.7;
 }
@@ -3795,7 +3800,7 @@ body {
 
 .bpm-card-h-price-was {
   font-size: 0.9rem;
-  color: var(--muted-foreground);
+  color: #999999;
   text-decoration: line-through;
   font-weight: 500;
 }

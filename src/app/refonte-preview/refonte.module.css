@@ -84,7 +84,7 @@
 .dealsHubCopy h4 { margin:7px 0 9px; font:400 17px/1.2 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .dealsHubPrice { display:flex; align-items:baseline; gap:6px; flex-wrap:wrap; }
 .dealsHubPrice strong { color:var(--wine); font-size:11px; line-height:1.2; }
-.dealsHubPrice del { color:#837a74; font-size:9px; }
+.dealsHubPrice del { color:#999999; font-size:9px; }
 .dealsHubPrice b { padding:3px 5px; border-radius:999px; background:#e4efe8; color:#1f6d58; font-size:8px; }
 .dealsHubFooter { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:7px; border-top:1px solid #eee8e1; }
 .dealsHubFooter>span { color:#6e655f; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
@@ -132,7 +132,7 @@
 .couponCopy h3 { min-height:0; margin:0 0 9px; font:400 16px/1.18 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .couponPrice { display:flex; align-items:baseline; gap:8px; flex-wrap:wrap; min-height:28px; }
 .couponPrice strong { color:var(--wine); font-size:12px; line-height:1.25; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
-.couponPrice del { color:#837a74; font-size:11px; }
+.couponPrice del { color:#999999; font-size:11px; }
 .couponPrice b { padding:4px 7px; border-radius:999px; background:#e4efe8; color:#1f6d58; font-size:9px; }
 .couponFooter { display:flex; align-items:center; justify-content:space-between; gap:6px; margin-top:auto; padding-top:8px; border-top:1px solid #eee8df; }
 .couponFooter small { display:flex; align-items:center; gap:4px; color:#716a64; font-size:9px; }

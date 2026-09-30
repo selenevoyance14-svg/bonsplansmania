@@ -7,6 +7,7 @@ import { DEFAULT_OFFER_CTA, DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOffe
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { formatCardTitle } from "@/lib/display-title";
+import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 
 export type CardCategoryConfig = {
     label: string;
@@ -46,6 +47,7 @@ type Article = {
         title: string;
         description: string;
         date: string;
+        updated?: string;
         category: string;
         image: string;
         imageAlt: string;
@@ -57,12 +59,6 @@ type Article = {
         amazonAsin?: string;
     };
 };
-
-function formatDate(iso: string): string {
-    return new Date(iso + "T12:00:00").toLocaleDateString("fr-FR", {
-        day: "numeric", month: "short", timeZone: "Europe/Paris",
-    });
-}
 
 export default function ArticleCard({
     article,
@@ -137,14 +133,14 @@ export default function ArticleCard({
                     rel="nofollow noopener sponsored"
                     className={`bpm-card-footer bpm-footer-${cat.color}`}
                 >
-                    <time className="bpm-card-date">{formatDate(article.meta.date)}</time>
+                    <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} />
                     <span className="bpm-card-cta">
                         {cat.cta} <ArrowRight size={14} aria-hidden />
                     </span>
                 </a>
             ) : (
                 <a href={articleHref} className={`bpm-card-footer bpm-footer-${cat.color}`}>
-                    <time className="bpm-card-date">{formatDate(article.meta.date)}</time>
+                    <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} />
                     <span className="bpm-card-cta">
                         {cat.cta} <ArrowRight size={14} aria-hidden />
                     </span>

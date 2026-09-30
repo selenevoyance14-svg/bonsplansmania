@@ -15,6 +15,7 @@ import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { DEFAULT_OFFER_CTA, shouldHideAmazonPrice } from "@/lib/article-commerce";
 import ArticleComments from "@/app/components/ArticleComments";
+import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 import { extractPriceAmount } from "@/lib/price";
 
 interface PageProps { params: Promise<{ slug: string }>; }
@@ -388,14 +389,12 @@ export default async function ArticlePage({ params }: PageProps) {
             <div className="article-header">
               <div className="article-meta-top">
                 <span className={`pill pill-${article.meta.category}`}>{cat?.emoji} {cat?.label}</span>
-                <time dateTime={article.meta.date}>
-                  {new Date(article.meta.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Paris" })}
-                </time>
-                {article.meta.updated && (
-                  <span style={{ fontSize: "0.82rem", color: "var(--text-muted, #6b7280)" }}>
-                    (mis à jour le {new Date(article.meta.updated + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric", timeZone: "Europe/Paris" })})
-                  </span>
-                )}
+                <ArticleDateLabel
+                  date={article.meta.date}
+                  updated={article.meta.updated}
+                  format="long"
+                  showUpdated
+                />
                 <span style={{ display: "flex", alignItems: "center", gap: "4px" }}>
                   <Clock size={13} /> {article.meta.readingTime}
                 </span>

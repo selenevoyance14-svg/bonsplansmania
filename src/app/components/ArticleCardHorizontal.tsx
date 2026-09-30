@@ -5,6 +5,7 @@ import { CATEGORY_CONFIG } from "./ArticleCard";
 import { parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
+import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 
 type Article = {
     meta: {
@@ -12,6 +13,7 @@ type Article = {
         title: string;
         description: string;
         date: string;
+        updated?: string;
         category: string;
         image: string;
         imageAlt: string;
@@ -22,24 +24,6 @@ type Article = {
         affiliateUrl?: string;
     };
 };
-
-/**
- * Date absolue, jamais relative.
- *
- * Le frontmatter ne stocke qu'un JOUR (`date: "2026-07-31"`), pas une heure.
- * L'ancien libellé « il y a Xh » devait donc inventer une heure — il prenait
- * midi — et affichait « il y a 9h » à 21 h sur un article publié le soir même.
- * Une précision que la donnée n'a pas. On affiche donc la date, point.
- */
-function formatArticleDate(iso: string): string {
-    const d = new Date(iso + "T12:00:00");
-    if (Number.isNaN(d.getTime())) return "";
-    return d.toLocaleDateString("fr-FR", {
-        day: "numeric",
-        month: "short",
-        timeZone: "Europe/Paris",
-    });
-}
 
 export default function ArticleCardHorizontal({
     article,
@@ -95,9 +79,7 @@ export default function ArticleCardHorizontal({
                         <cat.Icon size={11} aria-hidden /> {cat.label}
                     </span>
                     <span className="bpm-card-h-sep" aria-hidden>·</span>
-                    <time className="bpm-card-h-date" dateTime={article.meta.date}>
-                        {formatArticleDate(article.meta.date)}
-                    </time>
+                    <ArticleDateLabel className="bpm-card-h-date" date={article.meta.date} updated={article.meta.updated} />
                 </div>
 
                 <h3 className="bpm-card-h-title">{formatCardTitle(article.meta.title)}</h3>

@@ -7,6 +7,7 @@ import ListAd from "@/app/components/ListAd";
 import { parsePrice } from "@/lib/price";
 import { DEFAULT_OFFER_CTA, hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
+import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 
 interface ArticleListItem {
   slug: string;
@@ -108,9 +109,7 @@ export default function LoadMoreGrid({ articles }: { articles: ArticleListItem[]
                       {article.categoryLabel}
                     </span>
                     <span className="bpm-card-h-sep" aria-hidden>·</span>
-                    <time className="bpm-card-h-date">
-                      {new Date(article.date + "T12:00:00").toLocaleDateString("fr-FR", { day: "numeric", month: "short", timeZone: "Europe/Paris" })}
-                    </time>
+                    <ArticleDateLabel className="bpm-card-h-date" date={article.date} />
                   </div>
 
                   <h2 className="bpm-card-h-title">{formatCardTitle(article.title)}</h2>
