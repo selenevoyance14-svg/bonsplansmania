@@ -16,6 +16,13 @@ type Listing = {
   };
 };
 
+function isListingInStock(listing: Listing | undefined): boolean {
+  if (listing?.availability?.type === "IN_STOCK") return true;
+  const message = listing?.availability?.message || "";
+  if (/indisponible|rupture|pas en stock/i.test(message)) return false;
+  return Boolean(listing?.price?.money?.amount) && /en stock|reste plus|disponible/i.test(message);
+}
+
 let accessToken: { value: string; expiresAt: number } | null = null;
 
 function json(body: unknown, status = 200, cacheControl = "no-store"): Response {
@@ -124,7 +131,7 @@ export const onRequestGet: PagesFunction<Env> = async ({ params, env, request })
         savings: listing?.price?.savings?.money?.displayAmount || null,
         savingsPercent: listing?.price?.savings?.percentage ?? null,
         availability: listing?.availability?.message || null,
-        inStock: listing?.availability?.type === "IN_STOCK",
+        inStock: isListingInStock(listing),
         checkedAt: new Date().toISOString(),
       },
       200,

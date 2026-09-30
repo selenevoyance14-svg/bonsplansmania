@@ -8,6 +8,23 @@ type Env = {
 
 let accessToken: { value: string; expiresAt: number } | null = null;
 
+type AmazonListing = {
+  isBuyBoxWinner?: boolean;
+  availability?: { message?: string; type?: string };
+  price?: {
+    money?: { amount?: number; currency?: string; displayAmount?: string };
+    savingBasis?: { money?: { displayAmount?: string } };
+    savings?: { percentage?: number };
+  };
+};
+
+function isListingInStock(listing: AmazonListing | undefined): boolean {
+  if (listing?.availability?.type === "IN_STOCK") return true;
+  const message = listing?.availability?.message || "";
+  if (/indisponible|rupture|pas en stock/i.test(message)) return false;
+  return Boolean(listing?.price?.money?.amount) && /en stock|reste plus|disponible/i.test(message);
+}
+
 function json(body: unknown, status = 200): Response {
   return Response.json(body, {
     status,
@@ -84,11 +101,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
       itemsResult?: { items?: Array<{
         asin?: string;
         itemInfo?: { title?: { displayValue?: string } };
-        offersV2?: { listings?: Array<{
-          isBuyBoxWinner?: boolean;
-          availability?: { message?: string; type?: string };
-          price?: { money?: { amount?: number; currency?: string; displayAmount?: string }; savingBasis?: { money?: { displayAmount?: string } }; savings?: { percentage?: number } };
-        }> };
+        offersV2?: { listings?: AmazonListing[] };
       }> };
     }>();
     const checkedAt = new Date().toISOString();
@@ -104,7 +117,7 @@ export const onRequestPost: PagesFunction<Env> = async (context) => {
         amazonReferencePrice: listing?.price?.savingBasis?.money?.displayAmount || null,
         amazonSavingsPercent: listing?.price?.savings?.percentage ?? null,
         availability: listing?.availability?.message || null,
-        inStock: listing?.availability?.type === "IN_STOCK",
+        inStock: isListingInStock(listing),
         checkedAt,
       };
     });
