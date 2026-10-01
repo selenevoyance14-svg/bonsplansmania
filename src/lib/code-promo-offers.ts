@@ -699,6 +699,17 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // C-MONETIQUETTE — rentrée 2026
   // ============================================================
   {
+    id: "c-mon-etiquette-fun-15-octobre-2026",
+    brandSlug: "c-mon-etiquette",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "SUR TOUT LE SITE",
+    title: "15 % de réduction sur tout le site C-MonEtiquette",
+    code: "FUN",
+    conditions: "Code annoncé pour bénéficier de 15 % de réduction sur tout le site C-MonEtiquette. Date de fin non communiquée ; vérifier l’application du code FUN, les éventuelles exclusions et le montant final dans le panier.",
+    featured: true,
+  },
+  {
     id: "c-mon-etiquette-rhef-20",
     brandSlug: "c-mon-etiquette",
     type: "code",
