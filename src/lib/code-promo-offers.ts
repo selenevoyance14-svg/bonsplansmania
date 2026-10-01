@@ -1765,8 +1765,21 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // LOOKFANTASTIC — programme partenaire septembre 2026
+  // LOOKFANTASTIC — offres en cours et programme partenaire
   // ============================================================
+  {
+    id: "lookfantastic-newsletter-25-octobre-2026",
+    brandSlug: "lookfantastic",
+    type: "newsletter",
+    value: "-25 %",
+    valueLabel: "NEWSLETTER",
+    title: "25 % de remise avec l'inscription à la newsletter",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2F",
+    starts: "2026-10-01",
+    permanent: true,
+    conditions: "Avantage proposé après inscription à la newsletter LOOKFANTASTIC. Vérifier dans l'e-mail reçu la durée de validité, les exclusions, les produits éligibles et le cumul avec les promotions en cours avant de commander.",
+    featured: true,
+  },
   {
     id: "lookfantastic-french-days-lfxfrance-septembre-2026",
     brandSlug: "lookfantastic",
