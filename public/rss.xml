@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 01 Oct 2026 15:35:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 01 Oct 2026 16:34:09 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Jeux concours Aubert 2026 : cadeaux pour bébé et parents</title>
@@ -251,6 +251,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/ninja-crispi-friteuse-sans-huile-3-8l-4-en-1-amazon-promo-2026.png" type="image/png" length="0"/>
     </item>
     <item>
+      <title>Programme ambassadeur JUST France : testez des produits gratuitement</title>
+      <link>https://bonsplansmania.fr/article/programme-ambassadeur-just-france-tests-produits-2026</link>
+      <guid>https://bonsplansmania.fr/article/programme-ambassadeur-just-france-tests-produits-2026</guid>
+      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Inscrivez-vous au programme ambassadeur JUST France pour candidater aux tests de soins beauté et bien-être naturels, recevoir un produit en format complet et partager votre avis.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/programme-ambassadeur-just-france-tests-produits-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
       <title>Test produit Coslys : 20 crèmes lavantes mains à tester</title>
       <link>https://bonsplansmania.fr/article/test-produit-coslys-creme-lavante-mains-consoude-octobre-2026</link>
       <guid>https://bonsplansmania.fr/article/test-produit-coslys-creme-lavante-mains-consoude-octobre-2026</guid>
@@ -447,15 +456,6 @@
       <description>Découvrez les jeux Envie de Plus actuellement proposés : séjours, week-ends, cadeaux capillaires, lots Gillette, Braun et Oral-B Kids.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-envie-de-plus-jeux-loteries-procter-gamble-obligation-achat-mai-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Concours Avni : 5 exemplaires du tome 13 à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-familiscope-avni-tome-13-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-familiscope-avni-tome-13-octobre-2026</guid>
-      <pubDate>Wed, 30 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Familiscope fait gagner 5 exemplaires d'Avni tome 13, Avni fan club, d'une valeur de 11 € chacun. Concours gratuit jusqu'au 25 octobre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-familiscope-avni-tome-13-octobre-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
