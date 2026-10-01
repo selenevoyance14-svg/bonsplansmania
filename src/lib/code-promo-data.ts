@@ -577,16 +577,10 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "lookfantastic",
     name: "LOOKFANTASTIC",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Ffrench-days%2F",
-    affiliateLabel: "Profiter des French Days LOOKFANTASTIC",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2F",
+    affiliateLabel: "S'inscrire à la newsletter LOOKFANTASTIC",
     matchTags: ["lookfantastic"],
     color: "#000000",
-    currentOffer: {
-      code: "FRANCE10",
-      discount: "10 % supplémentaires sur une sélection jusqu'à -40 %",
-      conditions: "Code valable les 25 et 26 septembre 2026 sur la sélection French Days éligible. Exclusions et produits participants susceptibles de varier ; vérifier la remise finale dans le panier.",
-      verifiedAt: "2026-09-25",
-    },
   },
   {
     slug: "le-rouge-francais",
