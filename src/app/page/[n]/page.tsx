@@ -1,5 +1,5 @@
 import { notFound } from "next/navigation";
-import RefontePreviewPage from "@/app/refonte-preview/page";
+import RefontePreviewContent from "@/app/refonte-preview/RefontePreviewContent";
 
 export const dynamicParams = false;
 
@@ -17,5 +17,5 @@ export default async function PaginatedHomePage({
 
   if (page !== 2 && page !== 3) notFound();
 
-  return <RefontePreviewPage searchParams={Promise.resolve({ page: String(page) })} />;
+  return <RefontePreviewContent page={page} />;
 }
