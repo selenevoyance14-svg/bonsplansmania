@@ -17,5 +17,5 @@ export default async function PaginatedHomePage({
 
   if (page !== 2 && page !== 3) notFound();
 
-  return <RefontePreviewPage page={page} />;
+  return <RefontePreviewPage searchParams={Promise.resolve({ page: String(page) })} />;
 }

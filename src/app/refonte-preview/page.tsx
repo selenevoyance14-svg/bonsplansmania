@@ -117,8 +117,13 @@ function isPartnerArticle(article: Article, merchant: string) {
   return searchable.toLocaleLowerCase("fr-FR").includes(merchant.toLocaleLowerCase("fr-FR"));
 }
 
-export default function RefontePreviewPage({ page = 1 }: { page?: number } = {}) {
-  const currentPage = Math.min(3, Math.max(1, page));
+export default async function RefontePreviewPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ page?: string }>;
+}) {
+  const { page = "1" } = await searchParams;
+  const currentPage = Math.min(3, Math.max(1, Number(page) || 1));
   const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
   const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
   const homepageEligible = active.filter(
