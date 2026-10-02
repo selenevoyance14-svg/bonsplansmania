@@ -283,7 +283,7 @@ const EXCLUDED_CATEGORIES = new Set<string>([
   "calendrier-avent", "code-promo",
 ]);
 
-export function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
+function isBeauteArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
   // Exclure d'office si c'est un article bébé/puériculture
