@@ -23,6 +23,44 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
   "code-promo":       { label: "Code Promo",            color: "code-promo" },
 };
 
+const ADVENT_CALENDAR_UNIVERSES = [
+  {
+    key: "beaute",
+    label: "Beauté",
+    keywords: ["beauté", "cosmétique", "maquillage", "soin", "parfum", "skincare", "vernis", "nuxe", "clarins", "rituals", "lookfantastic", "blissim", "weleda"],
+  },
+  {
+    key: "enfant",
+    label: "Enfant",
+    keywords: ["enfant", "kids", "junior", "fille", "garçon", "bébé", "disney", "pat patrouille", "gabby", "licorne"],
+  },
+  {
+    key: "jouets-loisirs",
+    label: "Jouets & loisirs",
+    keywords: ["jouet", "lego", "playmobil", "figurine", "puzzle", "jeu", "pokemon", "barbie", "hot wheels", "créatif"],
+  },
+  {
+    key: "gourmand",
+    label: "Chocolat & gourmandises",
+    keywords: ["chocolat", "confiserie", "bonbon", "gourmand", "biscuit", "thé", "café", "alimentaire"],
+  },
+  {
+    key: "homme",
+    label: "Homme",
+    keywords: ["homme", "grooming", "barbe", "rasage"],
+  },
+  {
+    key: "maison-bien-etre",
+    label: "Maison & bien-être",
+    keywords: ["maison", "bougie", "décoration", "bien-être", "aromathérapie", "huiles essentielles"],
+  },
+  {
+    key: "animaux",
+    label: "Animaux",
+    keywords: ["animal", "animaux", "chien", "chat"],
+  },
+];
+
 
 export async function generateStaticParams() {
   return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "selection", "concours", "box-beaute", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
@@ -128,6 +166,7 @@ export default async function CategoryPage({ params }: PageProps) {
   // Filtres : liste blanche dédiée par catégorie (box-beaute, bon-plan)
   const useBoxFilter = slug === "box-beaute";
   const useBonPlanFilter = slug === "bon-plan";
+  const useAdventFilter = slug === "calendrier-avent" || slug === "calendrier";
   // Tri seul (sans dropdown marques) pour faciliter le nettoyage des vieilles entrées
   const useSortOnlyFilter = ["concours", "test-produit", "test-gratuit", "test-avis"].includes(slug);
 
@@ -219,6 +258,8 @@ export default async function CategoryPage({ params }: PageProps) {
               <BrandFilter articles={cards} brands={BOX_BEAUTE_BRANDS} />
             ) : useBonPlanFilter ? (
               <BrandFilter articles={cards} brands={ALL_DEAL_BRANDS} sortBrandsBy="alpha" />
+            ) : useAdventFilter ? (
+              <BrandFilter articles={cards} brands={[]} productTypes={ADVENT_CALENDAR_UNIVERSES} />
             ) : useSortOnlyFilter ? (
               <BrandFilter articles={cards} brands={[]} />
             ) : (

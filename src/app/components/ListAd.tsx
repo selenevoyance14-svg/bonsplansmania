@@ -1,8 +1,9 @@
 import AdBlock from "@/app/components/AdBlock";
 
-const AD_FORMATS_BY_POSITION = new Map<number, "2" | "19">([
+const AD_FORMATS_BY_POSITION = new Map<number, "1" | "2" | "19">([
   [5, "2"],
   [10, "19"],
+  [15, "1"],
 ]);
 
 export default function ListAd({ afterCard }: { afterCard: number }) {

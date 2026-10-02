@@ -10,7 +10,7 @@ interface AdBlockProps {
   slot?: string;
   compactMultiplex?: boolean;
   collapseWhenEmpty?: boolean;
-  moneytizerFormat?: "2" | "4" | "6" | "15" | "19";
+  moneytizerFormat?: "1" | "2" | "4" | "6" | "15" | "19";
 }
 
 const MONEYTIZER_SITE_ID = "143369";

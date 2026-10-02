@@ -11,7 +11,7 @@ const COMPARISON_CALENDAR_HREFS = new Set([
   "/article/calendrier-avent-fleurance-nature-nuit-etoilee-24-soins-bio-2026",
   "/article/calendrier-avent-weleda-2026-24-surprises-grands-formats",
   "/article/calendriers-avent-loccitane-2026-classique-prestige",
-  "/article/calendrier-avent-lookfantastic-beaute-2026-27-produits",
+  "/article/bon-plan-lookfantastic-offres-semaine-10-mars-2026",
   "/article/calendrier-avent-marie-claire-2026-24-surprises-74-99-euros",
   "/article/calendrier-avent-cottage-2026-24-soins-corps-cheveux",
   "/article/calendrier-avent-miin-cosmetics-kbeauty-2026-24-produits",
