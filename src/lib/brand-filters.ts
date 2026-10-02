@@ -313,7 +313,6 @@ export const BEAUTE_BRANDS: BrandDef[] = [
   { key: "clarins", label: "Clarins", keywords: ["clarins"] },
   { key: "clinique", label: "Clinique", keywords: ["clinique"] },
   { key: "cosrx", label: "CosRX", keywords: ["cosrx"] },
-  { key: "cosmechic", label: "CosméChic", keywords: ["cosmechic", "cosméchic", "cosme chic"] },
   { key: "dr-pierre-ricaud", label: "Dr Pierre Ricaud", keywords: ["dr pierre ricaud", "dr-pierre-ricaud", "pierre ricaud", "pierre-ricaud"] },
   { key: "dyson", label: "Dyson", keywords: ["dyson"] },
   { key: "dior", label: "Dior", keywords: ["dior", "dior-parfum"] },

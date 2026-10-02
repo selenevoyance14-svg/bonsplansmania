@@ -285,14 +285,6 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#C9302C",
   },
   {
-    slug: "cosmechic",
-    name: "Cosmé'Chic",
-    affiliateUrl: "https://cosmechic.fr/fr/?utm_source=bonsplansmania&utm_medium=affiliation&utm_campaign=comparatif_beaute_2026&utm_content=code-promo",
-    affiliateLabel: "Voir les offres Cosmé'Chic",
-    matchTags: ["cosmechic", "cosme-chic", "cosmé-chic"],
-    color: "#E91E63",
-  },
-  {
     slug: "coupon-network",
     name: "Coupon Network",
     affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249363&url=https%3A%2F%2Fwww.couponnetwork.fr",
@@ -707,6 +699,20 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     affiliateLabel: "Voir les offres One Watch Company",
     matchTags: ["one-watch-company", "one-watch", "one watch company"],
     color: "#111827",
+  },
+  {
+    slug: "oscaro",
+    name: "Oscaro",
+    affiliateUrl: "https://lk.gt/aIgoW",
+    affiliateLabel: "Profiter du code promo Oscaro",
+    matchTags: ["oscaro", "pièces auto", "voiture", "entretien auto"],
+    color: "#00549F",
+    currentOffer: {
+      code: "OSCARO2OCTOBRE",
+      discount: "2 % de réduction immédiate",
+      conditions: "2 % de réduction immédiate sur l'ensemble du site, sans minimum d'achat. Vérifier l'application du code et les éventuelles exclusions dans le panier.",
+      verifiedAt: "2026-10-02",
+    },
   },
   {
     slug: "mileade",
