@@ -765,7 +765,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
       code: "IMBACK",
       discount: "Jusqu'à -40 %",
       conditions: "Jusqu'à 40 % de réduction sur les catégories Créatine et Collagène. Le niveau de remise varie selon les références ; vérifier le prix final et l'éligibilité du code dans le panier.",
-      verifiedAt: "2026-09-21",
+      verifiedAt: "2026-10-02",
     },
   },
   {

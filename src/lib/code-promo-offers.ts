@@ -260,7 +260,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     title: "Jusqu'à 40 % sur la créatine et le collagène avec IMBACK",
     code: "IMBACK",
     affiliateUrl: "https://prozis.com/1YlNV",
-    conditions: "Offre vérifiée le 21 septembre 2026 sur les catégories Créatine et Collagène. La remise peut atteindre 40 % selon les références. Durée non précisée ; vérifier l'éligibilité, le montant réellement déduit et les règles de cumul dans le panier.",
+    conditions: "Offre vérifiée le 2 octobre 2026 sur les catégories Créatine et Collagène. La remise peut atteindre 40 % selon les références. Durée non précisée ; vérifier l'éligibilité, le montant réellement déduit et les règles de cumul dans le panier.",
     featured: true,
   },
   {
