@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 02 Oct 2026 09:13:04 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 02 Oct 2026 10:23:00 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>BIOTYFULL Box : 6 routines et 16 produits pour 12 €</title>
@@ -42,6 +42,15 @@
       <description>Running, trail, randonnée, bivouac et fitness : découvrez les ventes privées sport Private Sport Shop et leurs remises jusqu'à -80 % en octobre 2026.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/private-sport-shop-ventes-privees-sport-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>VT PDRN Essence 100 : découverte de cette essence coréenne reçue pour test</title>
+      <link>https://bonsplansmania.fr/article/vt-pdrn-essence-100-decouverte-essence-coreenne</link>
+      <guid>https://bonsplansmania.fr/article/vt-pdrn-essence-100-decouverte-essence-coreenne</guid>
+      <pubDate>Fri, 02 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Découverte de la VT PDRN Essence 100 reçue gratuitement pour test : formule au PDRN de ginseng, utilisation, texture à observer et prix YesStyle.</description>
+      <category>test-avis</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/vt-pdrn-essence-100-decouverte-test-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Jeux concours Aubert 2026 : cadeaux pour bébé et parents</title>
@@ -447,15 +456,6 @@
       <description>Le Club des testeurs Easypara ouvre une campagne pour essayer la nouveauté Erborian Triple Care BB Milk 75 ml. Découvrez comment accéder à la candidature.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-easypara-erborian-triple-care-bb-milk-octobre-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Test produit Kiabi : ensembles enfant Marvel et Stitch gratuits</title>
-      <link>https://bonsplansmania.fr/article/test-produit-kiabi-ensembles-enfant-marvel-stitch-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-kiabi-ensembles-enfant-marvel-stitch-octobre-2026</guid>
-      <pubDate>Thu, 01 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Kiabi Community recherche des familles en France pour tester un ensemble enfant Marvel ou Stitch, partager des photos et un avis, puis garder le produit.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-kiabi-ensembles-enfant-marvel-stitch-octobre-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
