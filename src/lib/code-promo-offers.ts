@@ -3374,32 +3374,6 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // COSMÉ'CHIC — partenariat direct (BPM10 + newsletter)
-  // ============================================================
-  {
-    id: "cosmechic-bpm10",
-    brandSlug: "cosmechic",
-    type: "code",
-    value: "-10 %",
-    title: "-10 % sur cosmechic.fr avec le code partenaire",
-    code: "BPM10",
-    affiliateUrl: "https://cosmechic.fr/fr/?utm_source=bonsplansmania&utm_medium=affiliation&utm_campaign=comparatif_beaute_2026&utm_content=code-bpm10",
-    expires: "2026-10-20",
-    conditions: "Code partenaire bonsplansmania valable du 20/07/2026 au 20/10/2026. Sans minimum d'achat. Uniquement sur les produits vendus et expédiés par Cosmé'Chic (hors vendeurs partenaires marketplace). Non cumulable avec l'offre newsletter.",
-    featured: true,
-  },
-  {
-    id: "cosmechic-newsletter-10",
-    brandSlug: "cosmechic",
-    type: "newsletter",
-    value: "-10 %",
-    valueLabel: "1ʳᵉ CDE",
-    title: "-10 % sur la 1ʳᵉ commande en s'inscrivant à la newsletter",
-    affiliateUrl: "https://cosmechic.fr/fr/?utm_source=bonsplansmania&utm_medium=affiliation&utm_campaign=comparatif_beaute_2026&utm_content=newsletter-cosmechic",
-    conditions: "Offre permanente pour toute première commande sur cosmechic.fr. Inscription à la newsletter requise. Non cumulable avec le code BPM10.",
-  },
-
-  // ============================================================
   // A DEMAIN — offre newsletter permanente
   // ============================================================
   {

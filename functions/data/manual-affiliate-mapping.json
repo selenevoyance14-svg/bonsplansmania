@@ -1,10 +1,4 @@
 {
-  "cosmechic-accueil": {
-    "url": "https://cosmechic.fr/fr/?utm_source=bonsplansmania&utm_medium=affiliation&utm_campaign=comparatif_beaute_2026&utm_content=accueil",
-    "label": "Découvrir Cosmechic",
-    "startsAt": "2026-07-28T00:00:00+02:00",
-    "endsAt": "2026-10-20T23:59:59+02:00"
-  },
   "beauty-success-accueil": {
     "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2F",
     "label": "Découvrir Beauty Success",
