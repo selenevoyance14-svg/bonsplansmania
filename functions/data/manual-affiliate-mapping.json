@@ -20,5 +20,13 @@
     "label": "Profiter de 20 € de remise avec le code BINGO20",
     "startsAt": "2026-09-30T00:00:00+02:00",
     "endsAt": "2026-11-01T23:59:59+01:00"
+  },
+  "amazon-ninja-flexdrawer": {
+    "url": "https://www.amazon.fr/dp/B0GSS34ZYM?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=e2d53748967c53d3206476cdc0a61a0c&ref_=as_li_ss_tl",
+    "label": "Voir le Ninja Foodi FlexDrawer sur Amazon"
+  },
+  "amazon-ninja-staysharp": {
+    "url": "https://www.amazon.fr/dp/B0CLP64KY7?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=4d3405c5bc0e771bea81d3d867a91864&ref_=as_li_ss_tl",
+    "label": "Voir le bloc Ninja StaySharp sur Amazon"
   }
 }
