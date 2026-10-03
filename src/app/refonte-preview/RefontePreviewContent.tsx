@@ -13,6 +13,7 @@ import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
+import { extractPriceAmount, parsePrice } from "@/lib/price";
 import CuratedDealsTabs, { type CuratedDealGroup } from "./CuratedDealsTabs";
 import styles from "./refonte.module.css";
 
@@ -33,6 +34,27 @@ const DEAL_CATEGORIES = new Set([
   "code-promo",
   "calendrier-avent",
 ]);
+
+const BON_PLAN_CATEGORIES = new Set(["bon-plan", "bon-plan-beaute"]);
+
+function getHomepagePriceDetails(article: Article) {
+  if (!BON_PLAN_CATEGORIES.has(article.meta.category)) {
+    return { originalPrice: undefined, discountPct: undefined };
+  }
+
+  const parsedPrice = parsePrice(article.meta.price);
+  const originalPrice = article.meta.prix_origine || parsedPrice.was;
+  const promoAmount = parsedPrice.nowAmount ?? extractPriceAmount(article.meta.price);
+  const originalAmount = extractPriceAmount(originalPrice);
+  const discountPct =
+    promoAmount !== undefined &&
+    originalAmount !== undefined &&
+    originalAmount > promoAmount
+      ? Math.round(((originalAmount - promoAmount) / originalAmount) * 100)
+      : parsedPrice.discountPct;
+
+  return { originalPrice, discountPct };
+}
 
 // Les contenus éditoriaux ont leurs propres rubriques et ne doivent pas
 // prendre la place des nouveaux bons plans dans la sélection de l'accueil.
@@ -268,7 +290,10 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
         </header>
 
         <div className={styles.editorialGrid}>
-          {deals.map((article, index) => (
+          {deals.map((article, index) => {
+            const { originalPrice, discountPct } = getHomepagePriceDetails(article);
+
+            return (
             <Fragment key={article.meta.slug}>
             <article className={index === 0 ? styles.featuredCard : styles.card}>
               <Link href={`/article/${article.meta.slug}`} className={styles.imageWrap}>
@@ -288,7 +313,15 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                 <h3><Link href={`/article/${article.meta.slug}`}>{formatCardTitle(article.meta.title)}</Link></h3>
                 {index === 0 && <p>{article.meta.description}</p>}
                 <div className={styles.cardFooter}>
-                  <strong><AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} /></strong>
+                  <div className={styles.priceGroup}>
+                    <strong><AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} /></strong>
+                    {originalPrice ? (
+                      <span className={styles.priceComparison}>
+                        <del>{originalPrice}</del>
+                        {discountPct ? <span>−{discountPct}%</span> : null}
+                      </span>
+                    ) : null}
+                  </div>
                   {hasDirectMerchantCta({ category:article.meta.category, affiliateUrl:article.meta.affiliateUrl, expired:false, endDate:article.meta.endDate }) ? (
                     <a href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}><ArrowUpRight size={17} /></a>
                   ) : (
@@ -312,7 +345,8 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
               </aside>
             ) : null}
             </Fragment>
-          ))}
+            );
+          })}
         </div>
         <nav className={styles.pagination} aria-label="Pages des bons plans">
           {[1, 2, 3].map((pageNumber) => (
