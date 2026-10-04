@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Header from "@/app/components/Header";
 import { ADVENT_CALENDARS_2026 } from "@/lib/advent-calendars-2026";
-import { getAdventCalendarCatalog } from "@/lib/advent-calendar-catalog";
+import { getAdventCalendarCatalog, getArticleMerchantRedirect } from "@/lib/advent-calendar-catalog";
 import BrandCalendarFilter from "./BrandCalendarFilter";
 import styles from "./page.module.css";
 
@@ -35,9 +35,12 @@ export const metadata: Metadata = {
 export default function AdventCalendarsHub() {
   const updatedAt = "4 octobre 2026";
   const catalog = getAdventCalendarCatalog();
-  const comparisonCalendars = ADVENT_CALENDARS_2026.filter((calendar) =>
-    COMPARISON_CALENDAR_HREFS.has(calendar.articleHref),
-  );
+  const comparisonCalendars = ADVENT_CALENDARS_2026
+    .filter((calendar) => COMPARISON_CALENDAR_HREFS.has(calendar.articleHref))
+    .map((calendar) => ({
+      ...calendar,
+      merchantHref: getArticleMerchantRedirect(calendar.articleHref, calendar.merchantHref),
+    }));
   const itemList = {
     "@context": "https://schema.org",
     "@type": "ItemList",

@@ -16,3 +16,12 @@
 - Quand l’utilisateur demande un prix Amazon, vérifier et reprendre le prix Amazon actuellement affiché pour la variante concernée.
 - Respecter strictement « remonte » et « ne remonte pas » : ne modifier la date de publication ou l’ordre d’affichage que si l’utilisateur le demande.
 - Ne pas générer de preview éditoriale avant publication lorsque l’utilisateur demande un push direct.
+
+## Liens affiliés et redirections
+
+- Le lien affilié réel doit rester dans le frontmatter `affiliateUrl` afin d’alimenter le mapping serveur, mais il ne doit jamais être recopié tel quel dans le corps public d’un article.
+- Dans le contenu Markdown, tous les boutons et liens commerciaux doivent utiliser `/go/<affiliateAlias-ou-slug>`.
+- Les composants, tableaux, comparatifs et recommandations doivent également exposer une URL `/go/...`, jamais une URL de tracking brute.
+- Les redirections commerciales passent par la Cloudflare Function `/go/[slug]`, répondent en 302 et les liens rendus conservent `rel="nofollow sponsored noopener"`.
+- Lorsqu’un article contient plusieurs destinations commerciales différentes, créer un alias dédié pour chaque destination dans le mapping manuel au lieu d’insérer les URL affiliées dans le HTML.
+- Le rendu des articles remplace automatiquement toute occurrence du `affiliateUrl` principal encore présente dans le Markdown par sa redirection `/go/...` ; cette sécurité ne dispense pas d’écrire directement l’alias propre dans les nouveaux contenus.

@@ -184,6 +184,14 @@ export default async function ArticlePage({ params }: PageProps) {
   const rawAffiliate = article.meta.affiliateUrl || "";
   const affiliateRedirectSlug = article.meta.affiliateAlias || slug;
   const affiliateUrl = /^https?:\/\//i.test(rawAffiliate) ? `/go/${affiliateRedirectSlug}` : "#";
+  // Filet de sécurité global : un lien principal collé en clair dans le Markdown
+  // est remplacé avant rendu par la redirection interne. On couvre aussi la
+  // variante Markdown où les esperluettes ont été échappées (`\&`).
+  const articleContent = affiliateUrl !== "#" && rawAffiliate
+    ? article.content
+        .split(rawAffiliate).join(affiliateUrl)
+        .split(rawAffiliate.replaceAll("&", "\\&")).join(affiliateUrl)
+    : article.content;
   const affiliateMerchant = getAffiliateMerchant(rawAffiliate);
   const affiliateLabel = article.meta.affiliateLabel || DEFAULT_OFFER_CTA;
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)
@@ -194,10 +202,10 @@ export default async function ArticlePage({ params }: PageProps) {
     "meilleures-box-beaute-2026-comparatif-complet-avis-codes-promo",
     "meilleures-box-beaute-juin-2026-comparatif-biotyfull-glowria-prescription-lab-blissim-avantages",
   ]);
-  const hasBoxComparison = boxComparisonSlugs.has(slug) && article.content.includes(boxComparisonMarker);
+  const hasBoxComparison = boxComparisonSlugs.has(slug) && articleContent.includes(boxComparisonMarker);
   const [articleBeforeComparison, articleAfterComparison = ""] = hasBoxComparison
-    ? article.content.split(boxComparisonMarker, 2)
-    : [article.content, ""];
+    ? articleContent.split(boxComparisonMarker, 2)
+    : [articleContent, ""];
 
   // Bandeau "post de + de 3 semaines" pour les contenus dont la disponibilité
   // change vite. Les bons plans n'en ont plus besoin : leur prix Amazon est
@@ -544,7 +552,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   {affiliateRecommendations.map((recommended) => (
                     <a
                       key={recommended.meta.slug}
-                      href={recommended.meta.affiliateUrl}
+                      href={`/go/${recommended.meta.affiliateAlias || recommended.meta.slug}`}
                       target="_blank"
                       rel="nofollow sponsored noopener"
                       data-affiliate-position="similar_products"

@@ -33,6 +33,11 @@ function availabilityFor(searchable: string): string {
   return "Disponible";
 }
 
+export function getArticleMerchantRedirect(articleHref: string, fallback: string): string {
+  const match = articleHref.match(/^\/article\/([a-z0-9]+(?:-[a-z0-9]+)*)$/);
+  return match ? `/go/${match[1]}` : fallback;
+}
+
 export function getAdventCalendarCatalog(): AdventCalendar2026[] {
   const curatedHrefs = new Set(ADVENT_CALENDARS_2026.map((item) => item.articleHref));
   const discovered = getAllArticles().flatMap(({ meta }): AdventCalendar2026[] => {
@@ -42,12 +47,16 @@ export function getAdventCalendarCatalog(): AdventCalendar2026[] {
     const articleHref = `/article/${meta.slug}`;
     if (curatedHrefs.has(articleHref)) return [];
     const classification = classify(searchable);
-    return [{ brand: brandFor(searchable, meta.title), name: meta.title.replace(/^bon plan\s+/i, "").trim(), price: meta.price || "Voir le prix actuel", contents: meta.description, status: availabilityFor(searchable), checkedAt: formatDate(meta.updated || meta.date), image: meta.image, imageAlt: meta.imageAlt, articleHref, merchantHref: meta.affiliateUrl, ...classification }];
+    return [{ brand: brandFor(searchable, meta.title), name: meta.title.replace(/^bon plan\s+/i, "").trim(), price: meta.price || "Voir le prix actuel", contents: meta.description, status: availabilityFor(searchable), checkedAt: formatDate(meta.updated || meta.date), image: meta.image, imageAlt: meta.imageAlt, articleHref, merchantHref: `/go/${meta.affiliateAlias || meta.slug}`, ...classification }];
   });
   const catalog = new Map<string, AdventCalendar2026>();
   for (const item of ADVENT_CALENDARS_2026) {
     const searchable = `${item.brand} ${item.name} ${item.contents}`.toLocaleLowerCase("fr");
-    catalog.set(`${item.articleHref}::${item.name}`, { ...item, ...classify(searchable) });
+    catalog.set(`${item.articleHref}::${item.name}`, {
+      ...item,
+      merchantHref: getArticleMerchantRedirect(item.articleHref, item.merchantHref),
+      ...classify(searchable),
+    });
   }
   for (const item of discovered) catalog.set(`${item.articleHref}::${item.name}`, item);
   return [...catalog.values()].sort((a, b) => a.brand.localeCompare(b.brand, "fr", { sensitivity: "base" }) || a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
