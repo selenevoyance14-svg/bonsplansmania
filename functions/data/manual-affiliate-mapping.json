@@ -22,5 +22,53 @@
   "amazon-ninja-staysharp": {
     "url": "https://www.amazon.fr/dp/B0CLP64KY7?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=4d3405c5bc0e771bea81d3d867a91864&ref_=as_li_ss_tl",
     "label": "Voir le bloc Ninja StaySharp sur Amazon"
+  },
+  "amazon-luxeol-shampooing-croissance": {
+    "url": "https://www.amazon.fr/dp/B0CWB5CRSQ?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=7121640b3cb028fc7ac0c6ce766ca428&ref_=as_li_ss_tl",
+    "label": "Voir le shampooing Croissance Luxéol sur Amazon"
+  },
+  "amazon-luxeol-masque-epaississant": {
+    "url": "https://www.amazon.fr/dp/B0G92P3D3J?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=a72329703ee5d5cbaf07936d2e065fc2&ref_=as_li_ss_tl",
+    "label": "Voir le masque Épaississant Luxéol sur Amazon"
+  },
+  "amazon-luxeol-shampooing-densite": {
+    "url": "https://www.amazon.fr/dp/B0FQ692LH9?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=e46e272aaf1c129d5c081ffbb29ab2ce&ref_=as_li_ss_tl",
+    "label": "Voir le shampooing Densité Luxéol sur Amazon"
+  },
+  "amazon-luxeol-shampooing-boucles": {
+    "url": "https://www.amazon.fr/dp/B0F9L9QNTS?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=9b908d50e8c895bb318e011e4a409860&ref_=as_li_ss_tl",
+    "label": "Voir le shampooing Boucles Luxéol sur Amazon"
+  },
+  "amazon-luxeol-masque-keratine": {
+    "url": "https://www.amazon.fr/dp/B0D87QWHS5?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=58c7811dccd69b9a8bf71615fcc00d3e&ref_=as_li_ss_tl",
+    "label": "Voir le masque Kératine Luxéol sur Amazon"
+  },
+  "amazon-luxeol-soin-ongles": {
+    "url": "https://www.amazon.fr/dp/B0BH983WMS?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=d5e52bfd35a995d119f84e7c1e97d1d1&ref_=as_li_ss_tl",
+    "label": "Voir le soin Ongles fortifiant Luxéol sur Amazon"
+  },
+  "amazon-luxeol-coloration-chatain": {
+    "url": "https://www.amazon.fr/dp/B0D87PKF2V?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=e50f02ab9b04a7bd2c4359a5e397862f&ref_=as_li_ss_tl",
+    "label": "Voir la coloration Châtain naturel Luxéol sur Amazon"
+  },
+  "amazon-luxeol-serum-anti-imperfections": {
+    "url": "https://www.amazon.fr/dp/B0DRYS6NS3?linkCode=ll2&tag=lebrunnathali-21&linkId=509d417a9eef8e4812f55981c4173f78&ref_=as_li_ss_tl",
+    "label": "Voir le sérum Anti-imperfections Luxéol sur Amazon"
+  },
+  "amazon-luxeol-huile-seche": {
+    "url": "https://www.amazon.fr/dp/B07QMMSN7G?linkCode=ll2&tag=lebrunnathali-21&linkId=ae23c47c3918672602523d3857c6c396&ref_=as_li_ss_tl",
+    "label": "Voir l’huile sèche Luxéol sur Amazon"
+  },
+  "amazon-luxeol-huile-ricin": {
+    "url": "https://www.amazon.fr/dp/B096XGVVBR?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=a80bf1012f43ca2835c3023940bd2a4d&ref_=as_li_ss_tl",
+    "label": "Voir l’huile de ricin Luxéol sur Amazon"
+  },
+  "amazon-prime-luxeol": {
+    "url": "https://www.amazon.fr/gp/subs/primeclub/signup/main.html?linkCode=ll2&tag=lebrunnathali-21&linkId=3290a27fce033aa1b4b0385c61302cc4&ref_=as_li_ss_tl",
+    "label": "Découvrir Amazon Prime"
+  },
+  "amazon-luxeol-promos": {
+    "url": "https://www.amazon.fr/deals?discounts-widget=%2522%257B%255C%2522state%255C%2522%253A%257B%255C%2522refinementFilters%255C%2522%253A%257B%255C%2522departments%255C%2522%253A%255B%255C%2522197859031%255C%2522%255D%252C%255C%2522accessType%255C%2522%253A%255B%255C%25221%255C%2522%255D%252C%255C%2522brands%255C%2522%253A%255B%255C%2522553425%257CLux%25C3%25A9ol%255C%2522%255D%257D%257D%252C%255C%2522version%255C%2522%253A1%257D%2522&linkCode=ll2&tag=lebrunnathali-21&linkId=548a4b6a88bbce21286ec9808e58407f&ref_=as_li_ss_tl",
+    "label": "Voir toutes les promotions Luxéol sur Amazon"
   }
 }
