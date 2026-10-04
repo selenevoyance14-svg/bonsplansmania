@@ -17,6 +17,19 @@ export type AdventCalendar2026 = {
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
+    brand: "BIOTYfull Box",
+    name: "La Majestueuse Malle de Noël",
+    price: "79 € au lieu de 199 €",
+    value: "Valeur annoncée : plus de 600 €",
+    contents: "27 produits · 27 marques · 100 % formats vente · visage, corps, cheveux et maquillage",
+    status: "Disponible · édition limitée",
+    checkedAt: "4 octobre 2026",
+    image: "/images/articles/calendrier-avent-biotyfull-box-2026-majestueuse-malle.webp",
+    imageAlt: "Calendrier de l’Avent BIOTYfull Box 2026 La Majestueuse Malle de Noël à 79 euros",
+    articleHref: "/article/calendrier-avent-biotyfull-box-2026-majestueuse-malle-noel-27-produits",
+    merchantHref: "https://xno.biotyfullbox.fr/?P51362157CD2D1D1&redir=https%3A%2F%2Fpage.biotyfullbox.fr%2Fcalendrieravent%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",
+  },
+  {
     brand: "Rituals",
     name: "The Ritual of Advent 2026",
     price: "89,90 €",
