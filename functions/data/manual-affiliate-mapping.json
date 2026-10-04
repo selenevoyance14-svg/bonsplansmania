@@ -134,5 +134,9 @@
   "amazon-prime": {
     "url": "https://www.amazon.fr/gp/subs/primeclub/signup/main.html?linkCode=ll2&tag=lebrunnathali-21&linkId=3290a27fce033aa1b4b0385c61302cc4&ref_=as_li_ss_tl",
     "label": "Découvrir Amazon Prime"
+  },
+  "carrefour-poupee-lina-fraise": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fp%2Fpoupee-bebe-cabrioles-lina-fraise-lansay-3181860550854",
+    "label": "Voir la poupée Lina Fraise chez Carrefour"
   }
 }

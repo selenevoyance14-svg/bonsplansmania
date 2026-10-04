@@ -5,20 +5,20 @@ import { Gift, X } from "lucide-react";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-const STORAGE_KEY = "bpm_featured_offer_carrefour_venus_september_2026";
+const STORAGE_KEY = "bpm_featured_offer_carrefour_lina_fraise_october_2026";
 const SESSION_POPUP_KEY = "bpm_popup_shown_this_session";
 const DISMISS_PERIOD_MS = 7 * 24 * 60 * 60 * 1000;
-const DISPLAY_DELAY_MS = 25 * 1000;
+const DISPLAY_DELAY_MS = 10 * 1000;
 const MIN_SCROLL_PROGRESS = 0.5;
 
 const offer = {
-  eyebrow: "Offre Carrefour",
-  title: "Épilateur Venus 100 % remboursé",
-  description: "55 € offerts en bon d’achat avec le Club Carrefour, sous conditions.",
+  eyebrow: "Club Carrefour · 50 % d’économies",
+  title: "Poupée Lina Fraise à 19,99 €",
+  description: "10 € crédités sur la carte Club Carrefour, soit 9,99 € après avantage fidélité.",
   buttonLabel: "Voir l’offre Carrefour",
-  href: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcatalogue%2Fcarrefour%2Fhypermarche-6340_000_2026-NLiSEv82%3Fpage%3D10",
-  image: "/images/articles/carrefour-epilateur-venus-100-rembourse-popup-2026.webp",
-  endDate: "2026-09-30T23:59:59+02:00",
+  href: "/go/carrefour-poupee-lina-fraise",
+  image: "/images/articles/carrefour-poupee-lina-fraise-popup-2026.jpg",
+  endDate: "2026-10-06T23:59:00+02:00",
 };
 
 export default function FeaturedOfferPopup() {
@@ -72,7 +72,7 @@ export default function FeaturedOfferPopup() {
   function handleClick() {
     localStorage.setItem(STORAGE_KEY, Date.now().toString());
     window.gtag?.("event", "featured_offer_click", {
-      offer_name: "carrefour_venus_100_rembourse_september_2026",
+      offer_name: "carrefour_poupee_lina_fraise_october_2026",
       page_path: window.location.pathname,
     });
   }
@@ -80,16 +80,16 @@ export default function FeaturedOfferPopup() {
   if (!show) return null;
 
   return (
-    <aside className="featured-offer-popup" aria-label="Offre Carrefour : épilateur Venus 100 % remboursé">
+    <aside className="featured-offer-popup" aria-label="Offre Carrefour : poupée Lina Fraise avec 10 euros crédités sur la carte Club">
       <button className="featured-offer-close" onClick={handleClose} aria-label="Fermer cette offre">
         <X size={18} />
       </button>
 
       <Image
         src={offer.image}
-        alt="Épilateur Venus à 55 euros remboursé à 100 % en bon d'achat chez Carrefour"
-        width={924}
-        height={552}
+        alt="Poupée bébé Cabrioles Lina Fraise Lansay à 19,99 euros chez Carrefour"
+        width={1500}
+        height={1500}
         sizes="(max-width: 560px) 110px, 145px"
         className="featured-offer-image"
       />
@@ -104,7 +104,7 @@ export default function FeaturedOfferPopup() {
         <a href={offer.href} onClick={handleClick} target="_blank" rel="nofollow sponsored noopener">
           {offer.buttonLabel}
         </a>
-        <small>Lien affilié · Remboursement en bon d’achat · offre limitée</small>
+        <small>Lien affilié · 10 € crédités sur la carte Club · magasins participants</small>
       </div>
 
       <style jsx>{`
