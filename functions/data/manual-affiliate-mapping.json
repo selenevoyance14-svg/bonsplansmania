@@ -70,5 +70,69 @@
   "amazon-luxeol-promos": {
     "url": "https://www.amazon.fr/deals?discounts-widget=%2522%257B%255C%2522state%255C%2522%253A%257B%255C%2522refinementFilters%255C%2522%253A%257B%255C%2522departments%255C%2522%253A%255B%255C%2522197859031%255C%2522%255D%252C%255C%2522accessType%255C%2522%253A%255B%255C%25221%255C%2522%255D%252C%255C%2522brands%255C%2522%253A%255B%255C%2522553425%257CLux%25C3%25A9ol%255C%2522%255D%257D%257D%252C%255C%2522version%255C%2522%253A1%257D%2522&linkCode=ll2&tag=lebrunnathali-21&linkId=548a4b6a88bbce21286ec9808e58407f&ref_=as_li_ss_tl",
     "label": "Voir toutes les promotions Luxéol sur Amazon"
+  },
+  "amazon-pampers-premium-taille-2": {
+    "url": "https://www.amazon.fr/dp/B0GNNGMTD8?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=1c9ab9e98a3dc5b9d2a966c82b760273&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Premium Protection Taille 2 sur Amazon"
+  },
+  "amazon-pampers-premium-taille-3": {
+    "url": "https://www.amazon.fr/dp/B0GNNPCS7Z?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=fdb7a0a694ee3ab386ead8360de28d00&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Premium Protection Taille 3 sur Amazon"
+  },
+  "amazon-pampers-premium-taille-4": {
+    "url": "https://www.amazon.fr/dp/B0GNN2KKQW?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=dbe353499bf58e82e2f58b6344197f8e&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Premium Protection Taille 4 sur Amazon"
+  },
+  "amazon-pampers-premium-taille-5": {
+    "url": "https://www.amazon.fr/dp/B0GNN2GDWZ?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=6f5eda54f465d4e41104e4aab532b94b&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Premium Protection Taille 5 sur Amazon"
+  },
+  "amazon-pampers-babydry-pants-taille-5": {
+    "url": "https://www.amazon.fr/dp/B0BLW7L6S5?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=74217ef538cf5c92739d0f52739af1cb&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Baby-Dry Pants Taille 5 sur Amazon"
+  },
+  "amazon-pampers-babydry-pants-taille-6": {
+    "url": "https://www.amazon.fr/dp/B0BLW7Z2RF?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=ceab851b106b9ad283865295bb4e0146&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Baby-Dry Pants Taille 6 sur Amazon"
+  },
+  "amazon-pampers-babydry-pants-taille-4": {
+    "url": "https://www.amazon.fr/dp/B0BLW5QB49?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=5eb007e55722259ad1a689991010fcd0&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Baby-Dry Pants Taille 4 sur Amazon"
+  },
+  "amazon-pampers-babydry-taille-3": {
+    "url": "https://www.amazon.fr/dp/B0BT7GLJZS?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=ce959acb76ded147d12dd9f46089803d&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Baby-Dry Taille 3 sur Amazon"
+  },
+  "amazon-pampers-babydry-taille-5": {
+    "url": "https://www.amazon.fr/dp/B0C74Q6QCG?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=9ddf107f1cb127e2060ad1633a76fba0&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Baby-Dry Taille 5 sur Amazon"
+  },
+  "amazon-pampers-babydry-taille-6": {
+    "url": "https://www.amazon.fr/dp/B0C74ST3J1?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=79d1fd0d3bc1acb255944d324a6076e8&ref_=as_li_ss_tl",
+    "label": "Voir les Pampers Baby-Dry Taille 6 sur Amazon"
+  },
+  "amazon-robot-tondeuse-ecovacs-o800": {
+    "url": "https://www.amazon.fr/dp/B0G57XY1TP?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=f25b8ea7e3ffa2fd2ae8bf12c4b3982e&ref_=as_li_ss_tl",
+    "label": "Voir le robot tondeuse ECOVACS GOAT O800 sur Amazon"
+  },
+  "amazon-robot-tondeuse-mova-lidax-1600": {
+    "url": "https://www.amazon.fr/dp/B0GD21LQFJ?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=08da9038d32eae98c98d086f3c97de86&ref_=as_li_ss_tl",
+    "label": "Voir le robot tondeuse MOVA LiDAX Ultra 1600 sur Amazon"
+  },
+  "amazon-robot-tondeuse-worx-wr304e": {
+    "url": "https://www.amazon.fr/dp/B0FVG277K8?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=15541242312067a80c1d245dcaad195a&ref_=as_li_ss_tl",
+    "label": "Voir le robot tondeuse WORX WR304E sur Amazon"
+  },
+  "amazon-robot-tondeuse-dreame-a2-1200": {
+    "url": "https://www.amazon.fr/dp/B0GH7HVQV4?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=434d0b2cf8f0b2ff18a94d7636d1e86d&ref_=as_li_ss_tl",
+    "label": "Voir le robot tondeuse DREAME A2 1200 sur Amazon"
+  },
+  "amazon-robot-tondeuse-ecovacs-a1600": {
+    "url": "https://www.amazon.fr/dp/B0G62SN141?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=e0f64026dfb09222232c322676e40bcb&ref_=as_li_ss_tl",
+    "label": "Voir le robot tondeuse ECOVACS GOAT A1600 sur Amazon"
+  },
+  "amazon-prime": {
+    "url": "https://www.amazon.fr/gp/subs/primeclub/signup/main.html?linkCode=ll2&tag=lebrunnathali-21&linkId=3290a27fce033aa1b4b0385c61302cc4&ref_=as_li_ss_tl",
+    "label": "Découvrir Amazon Prime"
   }
 }
