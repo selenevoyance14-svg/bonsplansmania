@@ -28,6 +28,12 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  // EDISAC — EdiDays du 2 au 12 octobre 2026 et avantages complémentaires
+  { id: "edisac-edidays-edi50-octobre-2026", brandSlug: "edisac", type: "code", value: "-50 €", valueLabel: "DÈS 200 €", title: "50 € de réduction dès 200 € d’achat", code: "EDI50", starts: "2026-10-02", expires: "2026-10-12", conditions: "Offre EdiDays valable du 2 au 12 octobre 2026. Non applicable sur Longchamp, Paul Marius, Gérard Darel, les marques Second Life et les promotions en cours. Vérifier l’application du code dans le panier.", featured: true },
+  { id: "edisac-edidays-edi30-octobre-2026", brandSlug: "edisac", type: "code", value: "-30 €", valueLabel: "DÈS 150 €", title: "30 € de réduction dès 150 € d’achat", code: "EDI30", starts: "2026-10-02", expires: "2026-10-12", conditions: "Offre EdiDays valable du 2 au 12 octobre 2026. Non applicable sur Longchamp, Paul Marius, Gérard Darel, les marques Second Life et les promotions en cours. Vérifier l’application du code dans le panier.", featured: true },
+  { id: "edisac-edidays-edi15-octobre-2026", brandSlug: "edisac", type: "code", value: "-15 €", valueLabel: "DÈS 100 €", title: "15 € de réduction dès 100 € d’achat", code: "EDI15", starts: "2026-10-02", expires: "2026-10-12", conditions: "Offre EdiDays valable du 2 au 12 octobre 2026. Non applicable sur Longchamp, Paul Marius, Gérard Darel, les marques Second Life et les promotions en cours. Vérifier l’application du code dans le panier.", featured: true },
+  { id: "edisac-guess-30-octobre-2026", brandSlug: "edisac", type: "offre", value: "-30 %", valueLabel: "SÉLECTION GUESS", title: "30 % de réduction sur une sélection Guess", starts: "2026-10-02", expires: "2026-10-12", conditions: "Remise annoncée jusqu’au 12 octobre 2026 sur une sélection d’articles Guess. Les produits, coloris et stocks éligibles peuvent varier ; vérifier le prix remisé sur la fiche et dans le panier.", featured: true },
+  { id: "edisac-newsletter-10-premiere-commande", brandSlug: "edisac", type: "newsletter", value: "-10 %", valueLabel: "1ʳᵉ COMMANDE", title: "10 % offerts sur la première commande avec la newsletter", permanent: true, conditions: "Avantage annoncé après inscription à la newsletter Edisac et réservé à la première commande. Vérifier dans l’e-mail reçu la durée du code, le minimum d’achat, les exclusions et le cumul avec les promotions en cours.", featured: true },
   // AMAZON — avantages réservés aux membres Prime
   {
     id: "amazon-prime-5-euros-des-50",

@@ -373,6 +373,20 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#0050A4",
   },
   {
+    slug: "edisac",
+    name: "Edisac",
+    affiliateUrl: "https://www.edisac.com/",
+    affiliateLabel: "Voir les offres Edisac",
+    matchTags: ["edisac", "edi days", "sacs", "maroquinerie"],
+    color: "#2476A8",
+    currentOffer: {
+      code: "EDI50 / EDI30 / EDI15",
+      discount: "Jusqu’à 50 € offerts",
+      conditions: "EdiDays du 2 au 12 octobre 2026 : 15 € dès 100 €, 30 € dès 150 € ou 50 € dès 200 €. Hors Longchamp, Paul Marius, Gérard Darel, marques Second Life et promotions en cours.",
+      verifiedAt: "2026-10-05",
+    },
+  },
+  {
     slug: "electro-depot",
     name: "Électro Dépôt",
     affiliateUrl: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23260341&url=https%3A%2F%2Fwww.electrodepot.fr",
