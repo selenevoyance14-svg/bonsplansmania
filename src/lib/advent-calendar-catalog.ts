@@ -8,6 +8,7 @@ const BRAND_ALIASES: Array<[string, string[]]> = [
   ["L'Oréal Paris", ["l'oréal", "l'oreal"]], ["LOOKFANTASTIC", ["lookfantastic"]],
   ["Marie Claire", ["marie claire", "my beauty factory"]], ["Maybelline New York", ["maybelline"]],
   ["MiiN Cosmetics", ["miin"]], ["Payot", ["payot"]], ["Revolution Beauty", ["revolution"]],
+  ["Dr Pierre Ricaud", ["dr pierre ricaud", "pierre ricaud"]],
   ["Weleda", ["weleda"]],
 ];
 

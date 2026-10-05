@@ -8,6 +8,7 @@ import { Archive, ChevronRight, Tag, Gift, Trophy, ShoppingBag, Calendar, TreePi
 import { notFound } from "next/navigation";
 import AdBlock from "@/app/components/AdBlock";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
+import { getAdventCalendarUniverses } from "@/lib/advent-calendar-universe";
 
 const categoryLabels: Record<string, { label: string; color: string }> = {
   "bon-plan":         { label: "Bon Plan",              color: "bon-plan" },
@@ -159,6 +160,13 @@ export default async function CategoryPage({ params }: PageProps) {
       price: a.meta.price,
       amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
+      productTypes: (slug === "calendrier-avent" || slug === "calendrier")
+        ? getAdventCalendarUniverses({
+            title: a.meta.title,
+            slug: a.meta.slug,
+            tags: a.meta.tags,
+          })
+        : undefined,
     };
   });
 

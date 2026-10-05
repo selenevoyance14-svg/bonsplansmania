@@ -28,6 +28,8 @@ interface ArticleListItem {
   price?: string;
   amazonAsin?: string;
   affiliateUrl?: string;
+  /** Univers éditoriaux déjà déterminés côté serveur. */
+  productTypes?: string[];
 }
 
 interface BrandDef {
@@ -126,12 +128,14 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
         a.slug,
         ...(a.tags || []),
       ].join(" "));
-      const matchedProductTypeKeys = productTypes
-        .filter((productType) => {
-          const normalizedKeywords = productType.keywords.map(normalize);
-          return normalizedKeywords.some((keyword) => productSearchText.includes(keyword));
-        })
-        .map((productType) => productType.key);
+      const matchedProductTypeKeys = a.productTypes
+        ? a.productTypes.filter((key) => productTypes.some((productType) => productType.key === key))
+        : productTypes
+            .filter((productType) => {
+              const normalizedKeywords = productType.keywords.map(normalize);
+              return normalizedKeywords.some((keyword) => productSearchText.includes(keyword));
+            })
+            .map((productType) => productType.key);
       const parsed = parsePrice(a.price);
       return { article: a, matchedKeys, matchedProductTypeKeys, ...parsed, nowNum: getSortablePrice(a) };
     });

@@ -17,6 +17,18 @@ export type AdventCalendar2026 = {
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
+    brand: "Dr Pierre Ricaud",
+    name: "Calendrier de l’Avent 2026 — réédition 2025",
+    price: "89 €",
+    contents: "24 produits · 17 formats vente et 7 formats voyage · 12 soins et 12 maquillages-soin",
+    status: "Disponible · réédition du calendrier 2025",
+    checkedAt: "5 octobre 2026",
+    image: "/images/articles/calendrier-avent-dr-pierre-ricaud-2026-reedition-2025.png",
+    imageAlt: "Calendrier de l’Avent Dr Pierre Ricaud 2026, réédition du coffret 2025",
+    articleHref: "/article/calendrier-avent-dr-pierre-ricaud-2026-reedition-2025",
+    merchantHref: "/go/calendrier-avent-dr-pierre-ricaud-2026",
+  },
+  {
     brand: "BIOTYfull Box",
     name: "La Majestueuse Malle de Noël",
     price: "79 € au lieu de 199 €",
