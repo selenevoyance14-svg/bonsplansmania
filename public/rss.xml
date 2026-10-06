@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 06 Oct 2026 08:26:16 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 06 Oct 2026 08:46:59 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Disney Stitch Mission 626 chez Amazon</title>
@@ -141,6 +141,15 @@
       <description>Dix offres Amazon Prime pour chats, chiens et poissons : alimentation, antiparasitaires, arbres à chat et aquarium dès 3,43 €, jusqu’à 40 % de remise.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-offres-animaux-chien-chat-septembre-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Carrefour : 20 € offerts dès 80 € avec BINGO20</title>
+      <link>https://bonsplansmania.fr/article/carrefour-promotions-courses-maison-high-tech-2026</link>
+      <guid>https://bonsplansmania.fr/article/carrefour-promotions-courses-maison-high-tech-2026</guid>
+      <pubDate>Tue, 06 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Carrefour Drive, livraison à domicile, Livraison 1h et Club Carrefour : le guide pour économiser sur ses courses avec 20 € offerts dès 80 € grâce au code BINGO20.</description>
+      <category>code-promo</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/carrefour-promotions-courses-maison-high-tech-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Calendrier Glowria Shine ON : 25 produits à 39 €</title>
@@ -447,15 +456,6 @@
       <description>La Vitamine D3 Prozis en flacon de 360 capsules molles passe à 13,12 € au lieu de 18,74 € avec IMBACK, soit 30 % de réduction.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-prozis-vitamine-d3-360-capsules-9-37-euros-septembre-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Bons de réduction Milleret : 7 coupons jusqu'à 1,80 €</title>
-      <link>https://bonsplansmania.fr/article/bons-reduction-fromagerie-milleret-club-2026</link>
-      <guid>https://bonsplansmania.fr/article/bons-reduction-fromagerie-milleret-club-2026</guid>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Le Club Fromagerie Milleret propose 7 bons de réduction de 0,70 € à 1,80 € sur L'Ortolan, Roucoulons et les gammes Milleret et Le Francomtois.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.frhttps://ck44-backend-milleret.web.oxv.fr/slider/67efd4973d2ac-SLIDER_MOBILE_%283%29.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
