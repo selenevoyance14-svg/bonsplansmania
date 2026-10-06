@@ -3175,8 +3175,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CDISCOUNT — offres mises à jour le 29/09/2026
+  // CDISCOUNT — offres mises à jour le 06/10/2026
   // ============================================================
+  {
+    id: "cdiscount-has10d30-octobre-2026",
+    brandSlug: "cdiscount",
+    type: "code",
+    value: "-10 €",
+    valueLabel: "DÈS 30 €",
+    title: "10 € de remise dès 30 € d’achat chez Cdiscount",
+    code: "HAS10D30",
+    featured: true,
+    conditions: "Code HAS10D30 valable sur les produits éligibles dès 30 € d’achat. Date de fin non communiquée et exclusions possibles : vérifier l’éligibilité des articles et l’application des 10 € de remise dans le panier.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
+  },
   {
     id: "cdiscount-voyages-qatar50-septembre-2026",
     brandSlug: "cdiscount-voyages",
