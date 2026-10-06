@@ -11,6 +11,7 @@ const OUT_FILE = path.join(process.cwd(), "functions", "data", "affiliate-mappin
 const AMAZON_PARTNER_TAG = "lebrunnathali-21";
 
 type Row = { url: string; label?: string };
+type ExtraAffiliateLink = { alias?: unknown; url?: unknown; label?: unknown };
 
 function secureAmazonAffiliateUrl(value: string): string {
   try {
@@ -52,6 +53,25 @@ function collectMdx(mapping: Record<string, Row>): number {
         throw new Error(`[affiliate-mapping] Alias déjà utilisé dans ${file} : ${alias}`);
       }
       mapping[alias] = mapping[slug];
+    }
+
+    const extraLinks = Array.isArray(data.affiliateLinks)
+      ? (data.affiliateLinks as ExtraAffiliateLink[])
+      : [];
+    for (const extraLink of extraLinks) {
+      const extraAlias = typeof extraLink?.alias === "string" ? extraLink.alias.trim() : "";
+      const extraUrl = typeof extraLink?.url === "string" ? extraLink.url.trim() : "";
+      if (!extraAlias || !extraUrl || !/^https?:\/\//i.test(extraUrl)) continue;
+      if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(extraAlias)) {
+        throw new Error(`[affiliate-mapping] Alias secondaire invalide dans ${file} : ${extraAlias}`);
+      }
+      if (mapping[extraAlias]) {
+        throw new Error(`[affiliate-mapping] Alias secondaire déjà utilisé dans ${file} : ${extraAlias}`);
+      }
+      mapping[extraAlias] = {
+        url: secureAmazonAffiliateUrl(extraUrl),
+        ...(typeof extraLink.label === "string" ? { label: extraLink.label } : {}),
+      };
     }
     count++;
   }
