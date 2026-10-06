@@ -36,11 +36,14 @@
 ### Titre principal H1
 
 - Utiliser un seul H1 contenant le produit, la marque et le prix promotionnel principal lorsque ce prix a été vérifié.
+- Privilégier un ton éditorial vivant et accrocheur, proche d'un titre de magazine de bons plans : `Bons plans [marque] d'[mois année] : [produit phare] à [prix ou remise vérifiée] !`.
+- Lorsque plusieurs produits sont regroupés, mettre en avant dans le H1 l'offre la plus forte ou le produit principal, puis présenter les autres offres dans le contenu.
+- Les formulations dynamiques comme « chute de prix », « prix choc » ou « belle remise » ne doivent être utilisées que si la baisse est réellement vérifiée. Éviter « s'effondre », « imbattable » ou tout autre superlatif lorsque les données disponibles ne permettent pas de le justifier.
 - Pour une offre ponctuelle, ajouter le mois et l'année lorsque cela aide réellement à situer l'offre.
 - Pour un guide permanent ou un test produit, privilégier un titre durable.
 - Ne jamais actualiser une date uniquement pour donner une impression de fraîcheur : vérifier et actualiser réellement le contenu avant de modifier sa date.
 - Si le titre de l'article génère déjà le H1, ne jamais ajouter un deuxième H1 dans le corps du contenu.
-- Exemple de structure : « Ninja Foodi MAX à 179 € : le bon plan d'octobre 2026 ».
+- Exemples de structure : « Bons plans Blink d'octobre 2026 : le pack de 3 caméras extérieures passe à 129,99 € ! » ou « Ninja Foodi MAX à 179 € : le bon plan d'octobre 2026 ».
 
 ### Introduction
 

@@ -17,6 +17,18 @@ export type AdventCalendar2026 = {
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
+    brand: "Stylevana",
+    name: "Calendrier de l’Avent K-Beauty 2026",
+    price: "192 € au lieu de 211,20 €",
+    contents: "25 surprises · soins coréens, maquillage, cheveux, corps et bougie parfumée",
+    status: "Disponible · expédition habituellement annoncée sous 24 heures",
+    checkedAt: "6 octobre 2026",
+    image: "/images/articles/calendrier-avent-stylevana-2026-kbeauty.jpg",
+    imageAlt: "Calendrier de l’Avent Stylevana 2026 rose et bleu entouré de ses produits K-Beauty",
+    articleHref: "/article/calendrier-avent-stylevana-2026-25-produits-kbeauty",
+    merchantHref: "/go/calendrier-avent-stylevana-2026",
+  },
+  {
     brand: "Dr Pierre Ricaud",
     name: "Calendrier de l’Avent 2026 — réédition 2025",
     price: "89 €",
