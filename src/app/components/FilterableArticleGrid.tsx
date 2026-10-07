@@ -35,7 +35,7 @@ const CTA_BY_COLOR: Record<string, string> = {
   "bon-plan-beaute": DEFAULT_OFFER_CTA,
   "test-gratuit": "Voir les détails",
   "test-avis": "Lire le test",
-  "comparatif": "Lire le comparatif",
+  "comparatif": "Voir l’article",
   "concours": "Voir le concours",
   "box-beaute": "Voir la box",
   "code-promo": "Voir le code",
@@ -613,7 +613,9 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
         <>
           <div className="bpm-card-h-grid">
             {shown.map((article, index) => {
-              const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
+              const cta = article.category === "comparatif"
+                ? "Voir l’article"
+                : CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
               const amazonAsin = article.amazonAsin

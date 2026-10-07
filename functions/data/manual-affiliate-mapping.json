@@ -35,10 +35,6 @@
     "url": "https://www.amazon.fr/dp/B0FPXFS1Y3?linkCode=ll2&tag=lebrunnathali-21&linkId=af82229baaeff77560f13b031d5d90ee&ref_=as_li_ss_tl",
     "label": "Voir le LEGO Fortnite La Bamboche sur Amazon"
   },
-  "amazon-lego-poudlard-tour-principale-76454": {
-    "url": "https://www.amazon.fr/dp/B0DHZ5B366?linkCode=ll2&tag=lebrunnathali-21&linkId=4ccdc0dd7504b6a1015fa9da4f1c4f22&ref_=as_li_ss_tl",
-    "label": "Voir la Tour principale de Poudlard LEGO sur Amazon"
-  },
   "amazon-lego-lilo-stitch-maison-plage-43268": {
     "url": "https://www.amazon.fr/dp/B0DHSDSWW4?linkCode=ll2&tag=lebrunnathali-21&linkId=883e9288b703080032d1b39336d738c6&ref_=as_li_ss_tl",
     "label": "Voir la maison de Lilo et Stitch LEGO sur Amazon"
@@ -255,6 +251,26 @@
     "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fyves-saint-laurent-couture-mini-clutch-pallet-various-shades%2F14865794%2F",
     "label": "Voir la palette YSL Couture Mini Clutch chez Lookfantastic"
   },
+  "amazon-moulinex-companion-pro": {
+    "url": "https://www.amazon.fr/dp/B0G4QCLLCD?tag=lebrunnathali-21",
+    "label": "Voir le Moulinex Companion Pro sur Amazon"
+  },
+  "amazon-moulinex-i-companion-touch-pro": {
+    "url": "https://www.amazon.fr/dp/B0F32RPM3R?tag=lebrunnathali-21",
+    "label": "Voir le Moulinex i-Companion Touch Pro sur Amazon"
+  },
+  "amazon-magimix-cook-expert-rouge": {
+    "url": "https://www.amazon.fr/dp/B00UNJ35KU?tag=lebrunnathali-21",
+    "label": "Voir le Magimix Cook Expert rouge sur Amazon"
+  },
+  "amazon-ufesa-totalchef-rk7": {
+    "url": "https://www.amazon.fr/dp/B09MWMJG76?tag=lebrunnathali-21",
+    "label": "Voir l’Ufesa TotalChef RK7 sur Amazon"
+  },
+  "amazon-cecotec-mambo-touch": {
+    "url": "https://www.amazon.fr/dp/B0BGSQZW3Q?tag=lebrunnathali-21",
+    "label": "Voir le Cecotec Mambo Touch sur Amazon"
+  },
   "lookfantastic-ysl-all-hours-glow": {
     "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fysl-all-hours-glow-foundation-various-shades%2F17175903%2F",
     "label": "Voir le fond de teint YSL All Hours Glow chez Lookfantastic"
@@ -262,5 +278,65 @@
   "lookfantastic-ysl-offres-vite": {
     "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fysl%2Fon-offer%2F%3FpageNumber%3D3",
     "label": "Voir toutes les offres Yves Saint Laurent chez Lookfantastic"
+  },
+  "amazon-dreame-h15-pro": {
+    "url": "https://www.amazon.fr/dp/B0DT9Y8RWH?tag=lebrunnathali-21",
+    "label": "Voir le Dreame H15 Pro sur Amazon"
+  },
+  "amazon-tineco-stretch-s6": {
+    "url": "https://www.amazon.fr/dp/B0CW1QDRVV?tag=lebrunnathali-21",
+    "label": "Voir le Tineco Floor One Stretch S6 sur Amazon"
+  },
+  "amazon-rowenta-x-clean-10": {
+    "url": "https://www.amazon.fr/dp/B0DHHG7P99?tag=lebrunnathali-21",
+    "label": "Voir le Rowenta X-Clean 10 sur Amazon"
+  },
+  "amazon-roborock-f25-ace-pro": {
+    "url": "https://www.amazon.fr/dp/B0FSZNC4NV?tag=lebrunnathali-21",
+    "label": "Voir le Roborock F25 ACE Pro sur Amazon"
+  },
+  "amazon-bissell-crosswave-hydrosteam": {
+    "url": "https://www.amazon.fr/dp/B0CBMJ6SBN?tag=lebrunnathali-21",
+    "label": "Voir le Bissell CrossWave HydroSteam Pet sur Amazon"
+  },
+  "amazon-dyson-washg1": {
+    "url": "https://www.amazon.fr/dp/B0DBMM565M?tag=lebrunnathali-21",
+    "label": "Voir le Dyson WashG1 sur Amazon"
+  },
+  "amazon-moulinex-easy-fry-pop": {
+    "url": "https://www.amazon.fr/dp/B0FVYG89BT?tag=lebrunnathali-21",
+    "label": "Voir le Moulinex Easy Fry POP sur Amazon"
+  },
+  "amazon-philips-hd9270-70": {
+    "url": "https://www.amazon.fr/dp/B0D66S871H?tag=lebrunnathali-21",
+    "label": "Voir le Philips Airfryer XL HD9270/70 sur Amazon"
+  },
+  "amazon-cosori-dual-blaze-64l": {
+    "url": "https://www.amazon.fr/dp/B0FGNLGWTF?tag=lebrunnathali-21",
+    "label": "Voir le Cosori Dual Blaze 6,4 L sur Amazon"
+  },
+  "amazon-moulinex-dual-flex-9l": {
+    "url": "https://www.amazon.fr/dp/B0F6Y4SQX6?tag=lebrunnathali-21",
+    "label": "Voir le Moulinex Easy Fry Dual Flex 9 L sur Amazon"
+  },
+  "amazon-ninja-flexdrawer-af500eu": {
+    "url": "https://www.amazon.fr/dp/B0CJVNGMFL?tag=lebrunnathali-21",
+    "label": "Voir le Ninja Foodi FlexDrawer AF500EU sur Amazon"
+  },
+  "amazon-tefal-ingenio-serenity-11-pieces": {
+    "url": "https://www.amazon.fr/dp/B0FGY3HQ2Q?tag=lebrunnathali-21",
+    "label": "Voir le Tefal Ingenio Serenity 11 pièces sur Amazon"
+  },
+  "amazon-tefal-ingenio-emotion-10-pieces": {
+    "url": "https://www.amazon.fr/dp/B0CKLR9WKZ?tag=lebrunnathali-21",
+    "label": "Voir le Tefal Ingenio Emotion 10 pièces sur Amazon"
+  },
+  "amazon-tefal-ingenio-emotion-13-pieces": {
+    "url": "https://www.amazon.fr/dp/B0B5VNZ7V1?tag=lebrunnathali-21",
+    "label": "Voir le Tefal Ingenio Emotion 13 pièces sur Amazon"
+  },
+  "amazon-tefal-ingenio-preference-13-pieces": {
+    "url": "https://www.amazon.fr/dp/B09TL9VJHC?tag=lebrunnathali-21",
+    "label": "Voir le Tefal Ingenio Préférence 13 pièces sur Amazon"
   }
 }

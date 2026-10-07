@@ -353,7 +353,9 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
         <>
           <div className="bpm-card-h-grid">
             {shown.map((article, index) => {
-              const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
+              const cta = article.category === "comparatif"
+                ? "Voir l’article"
+                : CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
               const amazonAsin = article.amazonAsin

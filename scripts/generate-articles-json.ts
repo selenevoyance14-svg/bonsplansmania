@@ -37,6 +37,7 @@ function getNewsletterCta(meta: ReturnType<typeof getSanitizedArticles>[number][
   if (meta.category === "test-gratuit" || meta.category === "test") {
     return { ctaUrl, ctaLabel: "Voir le test gratuit" };
   }
+  if (meta.category === "comparatif") return { ctaUrl: articleUrl, ctaLabel: "Voir l’article" };
   if (meta.category === "code-promo") return { ctaUrl, ctaLabel: "Profiter du code" };
   return { ctaUrl, ctaLabel: "Profiter de l'offre" };
 }
