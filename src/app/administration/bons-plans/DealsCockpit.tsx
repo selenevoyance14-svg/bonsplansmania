@@ -10,12 +10,21 @@ export type CockpitDeal = { slug: string; title: string; merchant: string; categ
 export type CockpitSummary = { totalActive: number; totalCodes: number; totalArchived: number; displayed: number };
 type AmazonOffer = { title?: string | null; image?: string | null; price?: string | null; oldPrice?: string | null; savingsPercent?: number | null; availability?: string | null; inStock?: boolean; checkedAt?: string; error?: string };
 type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: string | null; error?: string };
-type PriceDrop = { slug: string; asin: string; title?: string; price: number; displayPrice: string; previousPrice?: number; change?: number; changePercent?: number; checkedAt: string };
+type PriceDrop = { slug: string; asin: string; title?: string; price: number; displayPrice: string; previousPrice?: number; change?: number; changePercent?: number; articlePrice?: number; differenceFromArticle?: number; differenceFromArticlePercent?: number; checkedAt: string };
+type AmazonScanItem = { slug?: string; asin?: string; title?: string | null; price?: string | null; priceAmount?: number | null; referencePrice?: string | null; savingsPercent?: number | null; availability?: string | null; inStock?: boolean; checkedAt?: string };
 type PendingChange = { slug: string; title: string; action: "update" | "raise" | "archive"; price: string };
 
 const REMINDERS_KEY = "bonsplansmania:deal-reminders";
 const PENDING_CHANGES_KEY = "bonsplansmania:pending-changes";
 const statusLabel: Record<DealStatus, string> = { ok: "À jour", scheduled: "Contrôle programmé", due: "À contrôler aujourd’hui", unchecked: "Non contrôlé", unavailable: "Indisponible", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien inaccessible", expiring: "Expire bientôt" };
+
+function euroAmount(value?: string): number | undefined {
+  if (!value) return undefined;
+  const match = value.replace(/\u202f/g, " ").match(/(\d[\d .]*)(?:[,.](\d{1,2}))?\s*€/u);
+  if (!match) return undefined;
+  const amount = Number(`${match[1].replace(/[ .]/g, "")}.${(match[2] || "0").padEnd(2, "0")}`);
+  return Number.isFinite(amount) ? amount : undefined;
+}
 
 function currentStatus(deal: CockpitDeal, amazonOffer?: AmazonOffer, linkResult?: LinkMonitor, reminder?: string): DealStatus {
   if (reminder) return reminder <= new Date().toLocaleDateString("sv-SE") ? "due" : "scheduled";
@@ -52,6 +61,9 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [actionPending, setActionPending] = useState<"publish" | null>(null);
   const [actionError, setActionError] = useState("");
   const [pendingChanges, setPendingChanges] = useState<PendingChange[]>([]);
+  const [amazonScanPending, setAmazonScanPending] = useState(false);
+  const [amazonScanCursor, setAmazonScanCursor] = useState(0);
+  const [amazonScanSummary, setAmazonScanSummary] = useState("");
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
   const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug], reminders[deal.slug]);
   const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (section === "deals" || (section === "codes" ? deal.category === "code-promo" : section === "homepage" ? deal.onHomepage : Boolean(priceDrops[deal.slug]))) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
@@ -62,6 +74,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const amazonLoading = Boolean(active?.amazonAsin && amazonState.asin !== active.amazonAsin);
   const linkResult = active ? linkResults[active.slug] : undefined;
   const activePriceDrop = active ? priceDrops[active.slug] : undefined;
+  const amazonDeals = useMemo(() => initialDeals.filter((deal) => Boolean(deal.amazonAsin)), [initialDeals]);
   const detectedPrice = active?.amazonAsin && amazonState.asin === active.amazonAsin
     ? amazonState.offer?.price || active.price
     : active?.price || "";
@@ -199,6 +212,61 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     }
   }
 
+  async function scanAmazon() {
+    if (amazonScanPending || !amazonDeals.length) return;
+    if (!authenticated) { setActionError(""); setShowLogin(true); return; }
+    setAmazonScanPending(true);
+    setActionError("");
+    const start = amazonScanCursor >= amazonDeals.length ? 0 : amazonScanCursor;
+    const batch = [...amazonDeals.slice(start, start + 50), ...amazonDeals.slice(0, Math.max(0, start + 50 - amazonDeals.length))].slice(0, Math.min(50, amazonDeals.length));
+    try {
+      const response = await fetch("/api/admin/amazon-scan", {
+        method: "POST",
+        credentials: "same-origin",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ deals: batch.map((deal) => ({ slug: deal.slug, asin: deal.amazonAsin })) }),
+      });
+      const payload = await response.json() as { items?: AmazonScanItem[]; requested?: number; received?: number; error?: string };
+      if (response.status === 401) {
+        setAuthenticated(false);
+        setShowLogin(true);
+        throw new Error("Ta session a expiré. Reconnecte-toi.");
+      }
+      if (!response.ok) throw new Error(payload.error || "L’analyse Amazon a échoué.");
+
+      const dealsBySlug = new Map(batch.map((deal) => [deal.slug, deal]));
+      const opportunities = (payload.items || []).flatMap((item): PriceDrop[] => {
+        if (!item.slug || !item.asin || typeof item.priceAmount !== "number" || !item.price || item.inStock === false) return [];
+        const deal = dealsBySlug.get(item.slug);
+        const articlePrice = euroAmount(deal?.price);
+        if (typeof articlePrice === "number" && item.priceAmount >= articlePrice - 0.005) return [];
+        const difference = typeof articlePrice === "number" ? item.priceAmount - articlePrice : undefined;
+        return [{
+          slug: item.slug,
+          asin: item.asin,
+          title: item.title || deal?.title,
+          price: item.priceAmount,
+          displayPrice: item.price,
+          articlePrice,
+          differenceFromArticle: difference,
+          differenceFromArticlePercent: typeof articlePrice === "number" && articlePrice > 0 ? Math.round((difference! / articlePrice) * 100) : undefined,
+          checkedAt: item.checkedAt || new Date().toISOString(),
+        }];
+      });
+      setPriceDrops((current) => ({ ...current, ...Object.fromEntries(opportunities.map((item) => [item.slug, item])) }));
+      const nextCursor = (start + batch.length) % amazonDeals.length;
+      setAmazonScanCursor(nextCursor);
+      const summaryText = `${payload.received || 0} prix reçus sur ${payload.requested || batch.length} produits · ${opportunities.length} opportunité${opportunities.length > 1 ? "s" : ""}`;
+      setAmazonScanSummary(summaryText);
+      setToast(`Analyse Amazon terminée : ${summaryText}.`);
+      window.setTimeout(() => setToast(""), 6000);
+    } catch (error) {
+      setActionError(error instanceof Error ? error.message : "L’analyse Amazon a échoué.");
+    } finally {
+      setAmazonScanPending(false);
+    }
+  }
+
   useEffect(() => {
     if (!active?.amazonAsin) return;
     const controller = new AbortController();
@@ -245,7 +313,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         <button className={section === "deals" ? styles.navActive : ""} onClick={() => showSection("deals")}><ShoppingBag size={18}/> Bons plans <b>{summary.totalActive}</b></button>
         <button className={section === "codes" ? styles.navActive : ""} onClick={() => showSection("codes")}><Tag size={18}/> Codes promo <b>{summary.totalCodes}</b></button>
         <button className={section === "homepage" ? styles.navActive : ""} onClick={() => showSection("homepage")}><ArrowUp size={18}/> Page d’accueil <b>15</b></button>
-        <button className={section === "price-drops" ? styles.navActive : ""} onClick={() => showSection("price-drops")}><ArrowDown size={18}/> Prix en baisse <b>{Object.keys(priceDrops).length}</b></button>
+        <button className={section === "price-drops" ? styles.navActive : ""} onClick={() => showSection("price-drops")}><ArrowDown size={18}/> Opportunités Amazon <b>{Object.keys(priceDrops).length}</b></button>
         <button onClick={() => { showSection("deals"); setStatus("missing-link"); }}><Link2Off size={18}/> Liens manquants <b className={styles.dangerCount}>{liveStatuses.filter((dealStatus) => dealStatus === "missing-link").length}</b></button>
         <button onClick={() => { showSection("deals"); setStatus("missing-image"); }}><ImageOff size={18}/> Images manquantes <b>{liveStatuses.filter((dealStatus) => dealStatus === "missing-image").length}</b></button>
         <a href="/archives/bons-plans"><Archive size={18}/> Archives <b>{summary.totalArchived}</b></a>
@@ -253,14 +321,14 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       <div className={styles.apiCard}><span className={styles.liveDot}/> API Amazon active<strong>Vérification à l’ouverture d’une fiche</strong></div>
     </aside>
     <section className={styles.workspace}>
-      <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "issues" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></header>
+      <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><div className={styles.headerActions}><button className={styles.amazonScanButton} disabled={amazonScanPending} onClick={scanAmazon}>{amazonScanPending ? <LoaderCircle className={styles.spin} size={17}/> : <RefreshCw size={17}/>} {amazonScanPending ? "Analyse en cours…" : "Scanner 50 produits Amazon"}</button><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "issues" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></div></header>
       <section className={styles.stats}>
         <article><span className={styles.statIconGreen}><Check size={20}/></span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "ok").length}</strong><small>fiches sans anomalie</small></div></article>
         <article><span className={styles.statIconPink}>€</span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "missing-price" || dealStatus === "price-check").length}</strong><small>prix à contrôler</small></div></article>
         <article><span className={styles.statIconOrange}><AlertTriangle size={20}/></span><div><strong>{issueCount}</strong><small>points à vérifier</small></div></article>
         <article><span className={styles.statIconBlue}><ShoppingBag size={20}/></span><div><strong>{summary.totalActive}</strong><small>offres actives au total</small></div></article>
       </section>
-      <section className={styles.alertBox}><div><span>CONTRÔLE RÉEL</span><h2>{issueCount ? `${issueCount} fiches demandent ton attention` : "Aucune anomalie dans les fiches affichées"}</h2><p>Le cockpit analyse liens, images, prix renseignés et dates de fin. Amazon est interrogé en direct fiche par fiche.</p></div><button onClick={() => setStatus(issueCount ? "issues" : "all")}>Voir les contrôles <ArrowUp size={16}/></button></section>
+      <section className={styles.alertBox}><div><span>{section === "price-drops" ? "SCANNER AMAZON" : "CONTRÔLE RÉEL"}</span><h2>{section === "price-drops" ? `${Object.keys(priceDrops).length} opportunité${Object.keys(priceDrops).length > 1 ? "s" : ""} Amazon à vérifier` : issueCount ? `${issueCount} fiches demandent ton attention` : "Aucune anomalie dans les fiches affichées"}</h2><p>{section === "price-drops" ? amazonScanSummary || `Le scanner compare par lots de 50 les prix Amazon actuels aux ${amazonDeals.length} articles Amazon connus.` : "Le cockpit analyse liens, images, prix renseignés et dates de fin. Amazon est interrogé en direct fiche par fiche."}</p></div><button disabled={amazonScanPending} onClick={section === "price-drops" ? scanAmazon : () => setStatus(issueCount ? "issues" : "all")}>{section === "price-drops" ? "Analyser le lot suivant" : "Voir les contrôles"} <ArrowUp size={16}/></button></section>
       <div className={styles.toolbar}>
         <label><Search size={18}/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher un produit ou une marque…"/></label>
         <div className={styles.selectWrap}><select value={merchant} onChange={(event) => setMerchant(event.target.value)}><option value="all">Tous les marchands</option>{merchants.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={15}/></div>
@@ -271,7 +339,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         <section className={styles.dealList}><div className={styles.listHead}><span>OFFRE</span><span>PRIX</span><span>ÉTAT</span></div>
           {filtered.map((deal) => <button key={deal.slug} className={`${styles.dealRow} ${active?.slug === deal.slug ? styles.selected : ""}`} onClick={() => setSelected(deal.slug)}>
             <div className={styles.thumb}>{deal.image && !deal.image.includes("placeholder") ? <Image src={deal.image} alt="" width={44} height={44}/> : <ShoppingBag size={21}/>}</div>
-            <div className={styles.dealName}><a href={`/article/${deal.slug}`} target="_blank" onClick={(event) => event.stopPropagation()}>{deal.title} <ExternalLink size={12}/></a><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{priceDrops[deal.slug]?.displayPrice || deal.price}</span><span className={`${styles.status} ${priceDrops[deal.slug] ? styles["price-drop"] : styles[statusFor(deal)]}`}>{priceDrops[deal.slug] ? `${priceDrops[deal.slug].changePercent}%` : statusLabel[statusFor(deal)]}</span>
+            <div className={styles.dealName}><a href={`/article/${deal.slug}`} target="_blank" onClick={(event) => event.stopPropagation()}>{deal.title} <ExternalLink size={12}/></a><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{priceDrops[deal.slug]?.displayPrice || deal.price}</span><span className={`${styles.status} ${priceDrops[deal.slug] ? styles["price-drop"] : styles[statusFor(deal)]}`}>{priceDrops[deal.slug] ? typeof (priceDrops[deal.slug].differenceFromArticlePercent ?? priceDrops[deal.slug].changePercent) === "number" ? `${priceDrops[deal.slug].differenceFromArticlePercent ?? priceDrops[deal.slug].changePercent}%` : "Baisse" : statusLabel[statusFor(deal)]}</span>
           </button>)}{filtered.length === 0 ? <p className={styles.empty}>Aucune offre ne correspond à ces filtres.</p> : null}
         </section>
         <aside className={styles.editor}>{active ? <><span className={styles.editorEyebrow}>FICHE SÉLECTIONNÉE</span>
@@ -282,7 +350,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
           <div className={`${styles.audit} ${amazonOffer?.error ? styles.auditWarning : ""}`}>{amazonLoading ? <LoaderCircle className={styles.spin} size={17}/> : amazonOffer?.error ? <AlertTriangle size={17}/> : <Check size={17}/>}<div><b>{amazonLoading ? "Interrogation de l’API Amazon" : amazonOffer?.error || (active.amazonAsin ? amazonOffer?.availability || "Offre Amazon vérifiée" : "Données éditoriales analysées")}</b><small>{amazonOffer?.checkedAt ? `Vérifié le ${new Date(amazonOffer.checkedAt).toLocaleString("fr-FR")}` : "Aucune estimation inventée"}</small></div></div>
           {!active.amazonAsin && linkResult?.checkedAt ? <div className={`${styles.audit} ${linkResult.ok ? "" : styles.auditWarning}`}>{linkResult.ok ? <Check size={17}/> : <AlertTriangle size={17}/>}<div><b>{linkResult.ok ? `Lien marchand accessible (${linkResult.status})` : `Lien à vérifier (${linkResult.status || "réseau"})`}</b><small>Contrôlé automatiquement le {new Date(linkResult.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           {amazonOffer?.oldPrice ? <p className={styles.amazonSaving}>Prix précédent affiché : <b>{amazonOffer.oldPrice}</b>{amazonOffer.savingsPercent ? ` · -${amazonOffer.savingsPercent}%` : ""}</p> : null}
-          {activePriceDrop ? <div className={styles.priceDropCard}><ArrowDown size={18}/><div><b>Vraie baisse constatée : {activePriceDrop.changePercent}%</b><small>{activePriceDrop.previousPrice?.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} → {activePriceDrop.displayPrice} · relevé le {new Date(activePriceDrop.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
+          {activePriceDrop ? <div className={styles.priceDropCard}><ArrowDown size={18}/><div><b>{typeof activePriceDrop.differenceFromArticlePercent === "number" ? `Prix inférieur de ${Math.abs(activePriceDrop.differenceFromArticlePercent)} % à l’article` : `Vraie baisse constatée : ${activePriceDrop.changePercent}%`}</b><small>{(activePriceDrop.articlePrice ?? activePriceDrop.previousPrice)?.toLocaleString("fr-FR", { style: "currency", currency: "EUR" }) || "Prix non renseigné"} → {activePriceDrop.displayPrice} · relevé le {new Date(activePriceDrop.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           <div className={styles.actionDock}>
             <div className={styles.actionInfo}><b>Actions {authenticated ? <span className={styles.connected}>Connectée</span> : null}</b><p>Ajoute la correction au lot.</p></div>
             {showLogin ? <form className={styles.loginBox} onSubmit={login}><label>Mot de passe administrateur<input type="password" autoFocus value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password"/></label><div><button type="button" onClick={() => { setShowLogin(false); setActionError(""); }}>Annuler</button><button type="submit">Se connecter</button></div></form> : null}

@@ -18,3 +18,4 @@
 .actionButtons button:disabled{cursor:wait;opacity:.65}
 @media(max-width:1050px){.editor{position:relative;top:auto;max-height:80vh}}
 @media(max-width:700px){.editor{max-height:85vh}.actionButtons{grid-template-columns:1fr}.actionButtons .archiveButton{grid-column:auto}}
+.headerActions{display:flex;align-items:center;gap:8px}.amazonScanButton{border:0;border-radius:11px;padding:11px 15px;background:#163b3e;color:#fff;font-weight:800;display:flex;align-items:center;gap:8px}.amazonScanButton:disabled,.alertBox button:disabled{cursor:wait;opacity:.65}@media(max-width:1050px){.headerActions{align-items:flex-end;flex-direction:column}}@media(max-width:700px){.headerActions{align-items:center;flex-direction:row}.amazonScanButton{font-size:0;padding:11px}}
