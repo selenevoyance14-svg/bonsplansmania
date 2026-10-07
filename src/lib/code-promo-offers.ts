@@ -2582,8 +2582,65 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // YESSTYLE — Beauty on a Budget, vérifié le 29/09/2026
+  // YESSTYLE — Mid-Season Sale anniversaire, communiqué pour le 6 au 13/10/2026
   // ============================================================
+  {
+    id: "yesstyle-mid-season-sale-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "soldes",
+    value: "-51 %",
+    valueLabel: "JUSQU'AU 12 OCT.",
+    title: "Mid-Season Sale : jusqu'à 51 % sur une sélection beauté",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-10-06",
+    expires: "2026-10-12",
+    conditions: "Mid-Season Sale organisée pour le 20e anniversaire de YesStyle du 6 au 12 octobre 2026. Jusqu'à 51 % de réduction sur une sélection de marques et de produits beauté. La remise maximale ne concerne pas nécessairement tous les articles ; vérifier le prix et les conditions sur chaque fiche.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-mids26-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "JUSQU'À EXTRA",
+    title: "Jusqu'à 15 % supplémentaires avec le code MIDS26",
+    code: "MIDS26",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-10-06",
+    expires: "2026-10-09",
+    conditions: "Code annoncé du 6 au 9 octobre 2026 pour jusqu'à 15 % de réduction supplémentaire. Le taux dépend du panier, des marques, des produits et des exclusions YesStyle. Vérifier la remise appliquée avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-wow26-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "JUSQU'À EXTRA",
+    title: "Jusqu'à 15 % supplémentaires avec le code WOW26",
+    code: "WOW26",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-10-09",
+    expires: "2026-10-12",
+    conditions: "Code annoncé du 9 au 12 octobre 2026 pour jusqu'à 15 % de réduction supplémentaire. Le taux dépend du panier, des marques, des produits et des exclusions YesStyle. Vérifier la remise appliquée avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-1010vibes-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "96 HEURES",
+    title: "15 % supplémentaires avec le code 1010VIBES",
+    code: "1010VIBES",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
+    starts: "2026-10-09",
+    expires: "2026-10-13",
+    conditions: "Coupon de 96 heures annoncé du 9 au 13 octobre 2026 pour 15 % de réduction supplémentaire sur les commandes éligibles. Vérifier les exclusions et l'application du code dans le panier YesStyle.",
+    featured: true,
+  },
+
+  // Anciennes offres YesStyle conservées pour l'historique ; elles sont masquées après expiration.
   {
     id: "yesstyle-beauty-on-a-budget-octobre-2026",
     brandSlug: "yesstyle",
@@ -2626,7 +2683,6 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
 
-  // Anciennes offres YesStyle conservées pour l'historique ; elles sont masquées après expiration.
   {
     id: "yesstyle-nourish-your-glow-septembre-2026",
     brandSlug: "yesstyle",
