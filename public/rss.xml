@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 07 Oct 2026 11:16:55 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 11:56:18 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Audible: 30 jours gratuits ou 3 mois</title>
@@ -431,6 +431,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/maped-creativ-noel-2026-jusqua-8-euros-rembourses.jpeg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Mon Avis Le Rend Gratuit Carrefour : comment ça marche en 2026 ?</title>
+      <link>https://bonsplansmania.fr/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit</guid>
+      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Mon Avis Le Rend Gratuit permet de tester des produits chez Carrefour en échange d’un avis. Voici l’inscription, les crédits et la condition d’achat de 30 € en 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>Test KidsBrush Y-Brush : une brosse à dents sonique pour les enfants de 4 à 12 ans</title>
       <link>https://bonsplansmania.fr/article/test-produit-kidsbrush-y-brush-mamadvisor-octobre-2026</link>
       <guid>https://bonsplansmania.fr/article/test-produit-kidsbrush-y-brush-mamadvisor-octobre-2026</guid>
@@ -447,15 +456,6 @@
       <description>Free Cosmetic Testing propose 12 coffrets skincare Japan Sakura de LAIKOU à tester gratuitement. Inscription requise et tirage au sort le 14 octobre 2026.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-laikou-japan-sakura-free-cosmetic-testing-octobre-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Test Mezamé : le tapis de vie évolutif dès la naissance à tester avec Mama Advisor</title>
-      <link>https://bonsplansmania.fr/article/test-produit-tapis-vie-mezame-mamadvisor-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-tapis-vie-mezame-mamadvisor-octobre-2026</guid>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Mama Advisor recherche des familles pour tester le tapis de vie Mezamé et ses housses d’activités, un espace évolutif utilisable dès la naissance.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-tapis-vie-mezame-mamadvisor-octobre-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
