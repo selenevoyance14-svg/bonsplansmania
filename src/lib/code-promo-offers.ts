@@ -3159,8 +3159,44 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // PRIVATE SPORT SHOP — offres vérifiées le 21/08/2026
+  // PRIVATE SPORT SHOP — offres vérifiées le 07/10/2026
   // ============================================================
+  {
+    id: "private-sport-shop-asics20-octobre-2026",
+    brandSlug: "private-sport-shop",
+    type: "code",
+    code: "ASICS20",
+    value: "-20 %",
+    valueLabel: "EXTRA",
+    title: "Jusqu’à 20 % supplémentaires sur la sélection ASICS",
+    expires: "2026-10-13",
+    conditions: "Code valable sans minimum d’achat sur la sélection de produits ASICS éligibles jusqu’au 13 octobre 2026 inclus. Le montant de la remise peut varier selon le produit : vérifier le taux accordé et l’application du code dans le panier. Non cumulable sauf mention contraire.",
+    featured: true,
+  },
+  {
+    id: "private-sport-shop-snow10-octobre-2026",
+    brandSlug: "private-sport-shop",
+    type: "code",
+    code: "SNOW10",
+    value: "-10 %",
+    valueLabel: "DÈS 100 €",
+    title: "10 % supplémentaires dès 100 € sur la sélection ski et snow",
+    expires: "2026-10-08",
+    conditions: "Code valable jusqu’au 8 octobre 2026 inclus dès 100 € d’achat sur la sélection Ski / Snow éligible. Vérifier les exclusions et l’application de la remise dans le panier. Non cumulable sauf mention contraire.",
+    featured: true,
+  },
+  {
+    id: "private-sport-shop-snow20-octobre-2026",
+    brandSlug: "private-sport-shop",
+    type: "code",
+    code: "SNOW20",
+    value: "-20 %",
+    valueLabel: "DÈS 250 €",
+    title: "20 % supplémentaires dès 250 € sur la sélection ski et snow",
+    expires: "2026-10-08",
+    conditions: "Code valable jusqu’au 8 octobre 2026 inclus dès 250 € d’achat sur la sélection Ski / Snow éligible. Vérifier les exclusions et l’application de la remise dans le panier. Non cumulable sauf mention contraire.",
+    featured: true,
+  },
   {
     id: "private-sport-shop-bts20-aout-2026",
     brandSlug: "private-sport-shop",
