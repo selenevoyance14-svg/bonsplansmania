@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 07 Oct 2026 09:37:24 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 10:32:00 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Audible: 30 jours gratuits ou 3 mois</title>
@@ -395,6 +395,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/isinwheel-s7-trottinette-enfant-aout-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Jeu concours Carte Noire : 5 machines Aroma Signature à gagner</title>
+      <link>https://bonsplansmania.fr/article/jeu-concours-carte-noire-aroma-signature-2026</link>
+      <guid>https://bonsplansmania.fr/article/jeu-concours-carte-noire-aroma-signature-2026</guid>
+      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Tentez de gagner l’un des 5 coffrets Carte Noire comprenant une machine à café en grains Aroma Signature et 900 g de café, jusqu’au 1er novembre 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/jeu-concours-carte-noire-aroma-signature-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>LEGO F1 Oracle Red Bull RB20 à 17,49 € : la Speed Champions chute de 35 %</title>
       <link>https://bonsplansmania.fr/article/lego-speed-champions-f1-oracle-red-bull-rb20-17-17-euros</link>
       <guid>https://bonsplansmania.fr/article/lego-speed-champions-f1-oracle-red-bull-rb20-17-17-euros</guid>
@@ -447,15 +456,6 @@
       <description>Mama Advisor recherche des familles pour tester le tapis de vie Mezamé et ses housses d’activités, un espace évolutif utilisable dès la naissance.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-tapis-vie-mezame-mamadvisor-octobre-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Test Yankee Candle : 150 bougies parfumées à découvrir avec Sampleo</title>
-      <link>https://bonsplansmania.fr/article/test-produit-yankee-candle-bougies-parfumees-sampleo-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-yankee-candle-bougies-parfumees-sampleo-octobre-2026</guid>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Sampleo recherche 150 ambassadeurs pour tester gratuitement une bougie Yankee Candle parmi trois fragrances. Ouverture annoncée autour du 12 octobre 2026.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-yankee-candle-sampleo-octobre-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
