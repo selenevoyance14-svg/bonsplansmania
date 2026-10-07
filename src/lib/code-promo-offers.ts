@@ -202,7 +202,35 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Pourcentage maximal constaté le 13 août 2026 sur une sélection de séjours. Les remises, dates, villes de départ, disponibilités et tarifs à partir de varient selon le dossier.",
     featured: true,
   },
-  // ATIDA — offres vérifiées le 20 août 2026
+  // ATIDA — offres vérifiées le 7 octobre 2026
+  {
+    id: "atida-atida7-octobre-2026", brandSlug: "atida", type: "code",
+    value: "-7 %", valueLabel: "DÈS 70 €",
+    title: "7 % de réduction dès 70 € d'achat avec le code ATIDA7", code: "ATIDA7",
+    expires: "2026-10-08",
+    conditions: "Code affiché par Atida le 7 octobre 2026, valable dès 70 € d'achat sur les produits éligibles. Vérifier les exclusions, le cumul éventuel et l'application de la remise dans le panier. Offre présentée pendant les Atida Days du 2 au 8 octobre 2026.", featured: true,
+  },
+  {
+    id: "atida-days-jusqu-a-30-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-30 %", valueLabel: "JUSQU'À",
+    title: "Jusqu'à 30 % sur 8 000 produits pendant les Atida Days",
+    starts: "2026-10-02", expires: "2026-10-08",
+    conditions: "Offre sans minimum d'achat, valable du 2 au 8 octobre 2026 sur une sélection de produits et dans la limite des stocks. Les visuels Atida annoncent notamment jusqu'à 30 % sur des sélections Jonzac, Codifra, Elmex, Saforelle, Weleda et Modilac. Vérifier la remise propre à chaque article.", featured: true,
+  },
+  {
+    id: "atida-avene-hyaluron-activ-15-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-15 %", valueLabel: "AVÈNE",
+    title: "15 % de remise immédiate sur la sélection Avène Hyaluron Activ Procedure",
+    starts: "2026-10-02", expires: "2026-10-08",
+    conditions: "Remise immédiate constatée pendant les Atida Days sur la sélection Avène Hyaluron Activ Procedure éligible. Offre valable dans la limite des stocks ; vérifier le prix final et les produits participants.",
+  },
+  {
+    id: "atida-roc-20-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-20 %", valueLabel: "ROC",
+    title: "20 % de remise sur la sélection de soins RoC",
+    starts: "2026-10-02", expires: "2026-10-08",
+    conditions: "Remise constatée pendant les Atida Days sur une sélection de soins RoC. Offre valable sur les articles signalés et dans la limite des stocks ; vérifier le prix affiché avant la commande.",
+  },
   {
     id: "atida-big5foru-aout-2026", brandSlug: "atida", type: "code",
     value: "-5 %", valueLabel: "DÈS 49 €",
@@ -228,6 +256,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "-10 %", valueLabel: "SÉLECTION",
     title: "10 % de réduction sur une sélection de produits chouchous",
     affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fselection-evenementielle%2Fvos-chouchous-de-l-ete.html",
+    expires: "2026-08-31",
     conditions: "Remise affichée sur les produits participants. La sélection, les prix et les stocks peuvent évoluer ; vérifier le prix final dans le panier.",
   },
   // ============================================================
@@ -959,7 +988,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "-60 %",
     valueLabel: "JUSQU'À",
     title: "Jusqu'à 60 % de remise sur certains sacs et accessoires signalés",
+    expires: "2026-08-31",
     conditions: "Remise maximale observée sur une partie de la sélection d'été le 13 août 2026. Elle ne concerne pas toute la collection ; stocks, modèles et prix susceptibles d'évoluer.",
+    featured: true,
+  },
+  {
+    id: "lollipops-archives-automne-50-octobre-2026",
+    brandSlug: "lollipops",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "JUSQU'À",
+    title: "Archives d'automne : jusqu'à 50 % sur une sélection",
+    starts: "2026-10-07",
+    expires: "2026-10-25",
+    conditions: "Offre valable du 7 au 25 octobre 2026 sur une sélection de sacs et accessoires signalés, dans la limite des stocks. La remise varie selon l'article ; vérifier le prix barré et le montant final avant la commande.",
     featured: true,
   },
   {

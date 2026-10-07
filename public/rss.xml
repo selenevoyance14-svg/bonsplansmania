@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 07 Oct 2026 09:24:58 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 07 Oct 2026 09:37:24 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Audible: 30 jours gratuits ou 3 mois</title>
@@ -404,6 +404,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/lego-speed-champions-red-bull-rb20-amazon.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Lollipops Archives d’automne : jusqu’à -50 % du 7 au 25 octobre</title>
+      <link>https://bonsplansmania.fr/article/lollipops-bon-plan-sacs-accessoires-mode-paris-2026</link>
+      <guid>https://bonsplansmania.fr/article/lollipops-bon-plan-sacs-accessoires-mode-paris-2026</guid>
+      <pubDate>Wed, 22 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Les Archives d’automne Lollipops proposent jusqu’à 50 % de réduction sur une sélection de sacs, bijoux et accessoires du 7 au 25 octobre 2026.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/lollipops-bon-plan-sacs-accessoires-mode-paris-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>Maped Creativ Noël 2026 : jusqu’à 8 € remboursés</title>
       <link>https://bonsplansmania.fr/article/maped-creativ-noel-2026-jusqua-8-euros-rembourses</link>
       <guid>https://bonsplansmania.fr/article/maped-creativ-noel-2026-jusqua-8-euros-rembourses</guid>
@@ -447,15 +456,6 @@
       <description>Sampleo recherche 150 ambassadeurs pour tester gratuitement une bougie Yankee Candle parmi trois fragrances. Ouverture annoncée autour du 12 octobre 2026.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-yankee-candle-sampleo-octobre-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Top 10 livres audio Audible d’automne 2026: les nouveautés à écouter</title>
-      <link>https://bonsplansmania.fr/article/top-10-livres-audio-audible-ete-2026</link>
-      <guid>https://bonsplansmania.fr/article/top-10-livres-audio-audible-ete-2026</guid>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Dracula, Te retrouver en automne, Médée et Atalante… Découvrez 10 livres audio Audible à écouter ou à surveiller durant l’automne 2026.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/top-10-livres-audio-audible-automne-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
