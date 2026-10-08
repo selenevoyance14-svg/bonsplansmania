@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 08 Oct 2026 14:18:57 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 14:40:25 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>8 brumes parfumées à moins de 10 € : les pépites beauté à petit prix</title>
@@ -33,6 +33,15 @@
       <description>Bon plan Darty : le Samsung Galaxy S25 Edge 5G 256 Go noir passe à 515 € au lieu de 1 252 €. Écran AMOLED 120 Hz, Snapdragon 8 Elite et capteur 200 Mpx.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-darty-samsung-galaxy-s25-edge-256-go-noir-septembre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Concours Entremont : 200 sweats raclette collector à gagner</title>
+      <link>https://bonsplansmania.fr/article/jeu-concours-entremont-je-peux-pas-jai-raclette-200-sweats-2026</link>
+      <guid>https://bonsplansmania.fr/article/jeu-concours-entremont-je-peux-pas-jai-raclette-200-sweats-2026</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Le jeu Je peux pas, j’ai raclette d’Entremont se déroule du 12 octobre au 29 novembre 2026 et met en jeu 200 sweats collector.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/jeu-concours-entremont-raclette-sweats-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Audible à prix mini: 30 jours gratuits ou trois mois en promotion</title>
@@ -447,15 +456,6 @@
       <description>Tournez chaque jour la roue du jeu Le Mois du Gruyère AOP suisse pour gagner une vache Trauffer de 250 €, des livres, bonnets, lunch box et frisbees.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/jeu-mois-gruyere-aop-suisse-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Rugby Shop : le maillot Crunch du XV de France à gagner</title>
-      <link>https://bonsplansmania.fr/article/jeu-rugby-shop-maillot-crunch-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/jeu-rugby-shop-maillot-crunch-octobre-2026</guid>
-      <pubDate>Wed, 07 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Retrouvez les 10 joueurs cachés dans les mots mêlés Rugby Shop et tentez de gagner le maillot Crunch du XV de France jusqu'au 15 octobre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/jeu-rugby-shop-maillot-crunch-octobre-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
