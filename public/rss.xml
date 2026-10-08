@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 08 Oct 2026 11:24:01 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 08 Oct 2026 13:52:26 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>8 brumes parfumées à moins de 10 € : les pépites beauté à petit prix</title>
@@ -15,6 +15,15 @@
       <description>Monoï, vanille, cerise ou lavande-coco : découvrez huit brumes et coffrets parfumés proposés de 4,99 € à 8,99 €.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/8-brumes-parfumees-moins-10-euros-octobre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Samsung Galaxy S25 Edge 256 Go à 515 € chez Darty (−59 %)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-darty-samsung-galaxy-s25-edge-256-go-noir-septembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-darty-samsung-galaxy-s25-edge-256-go-noir-septembre-2026</guid>
+      <pubDate>Thu, 08 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Bon plan Darty : le Samsung Galaxy S25 Edge 5G 256 Go noir passe à 515 € au lieu de 1 252 €. Écran AMOLED 120 Hz, Snapdragon 8 Elite et capteur 200 Mpx.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-darty-samsung-galaxy-s25-edge-256-go-noir-septembre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Audible à prix mini: 30 jours gratuits ou trois mois en promotion</title>
@@ -447,15 +456,6 @@
       <description>Maped rembourse 5 € ou 8 € sur sept jouets Creativ achetés du 4 octobre au 24 décembre 2026, dans la limite de 400 demandes.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/maped-creativ-noel-2026-jusqua-8-euros-rembourses.jpeg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Mon Avis Le Rend Gratuit Carrefour : comment ça marche en 2026 ?</title>
-      <link>https://bonsplansmania.fr/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit</guid>
-      <pubDate>Mon, 28 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Mon Avis Le Rend Gratuit permet de tester des produits chez Carrefour en échange d’un avis. Voici l’inscription, les crédits et la condition d’achat de 30 € en 2026.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
