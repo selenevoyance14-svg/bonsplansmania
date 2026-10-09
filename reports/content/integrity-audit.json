@@ -1,7 +1,7 @@
 {
-  "generatedAt": "2026-10-08T18:29:38.517Z",
+  "generatedAt": "2026-10-09T05:40:04.820Z",
   "totals": {
-    "articles": 6285
+    "articles": 6286
   },
   "alerts": {
     "exactTitles": [
@@ -1960,6 +1960,7 @@
           "content/test-gratuit-minimaliste-duo-baume-nutri-nettoyant-creme-super-ingredients-juillet-2026.mdx",
           "content/test-gratuit-minimaliste-essence-duo-baume-aout-2026.mdx",
           "content/test-gratuit-minimaliste-masque-led-visage-280-leds-juillet-2026.mdx",
+          "content/test-minimaliste-baume-reparateur-multiusage-octobre-2026.mdx",
           "content/test-produit-minimaliste-masque-led-visage-9-modes-ambassadeurs-juillet-2026.mdx"
         ]
       },
@@ -21847,6 +21848,17 @@
         "category": "test-gratuit",
         "ageDays": 183,
         "internalArticleLinks": 0,
+        "hasInlineCommercialBridge": false,
+        "hasAutomaticCommercialBridge": true,
+        "reason": "Passerelle commerciale contextuelle injectée par le modèle d’article"
+      },
+      {
+        "file": "content/test-minimaliste-baume-reparateur-multiusage-octobre-2026.mdx",
+        "slug": "test-minimaliste-baume-reparateur-multiusage-octobre-2026",
+        "title": "Test Minimaliste : 10 baumes réparateurs offerts aux ambassadeurs",
+        "category": "test-gratuit",
+        "ageDays": -1,
+        "internalArticleLinks": 3,
         "hasInlineCommercialBridge": false,
         "hasAutomaticCommercialBridge": true,
         "reason": "Passerelle commerciale contextuelle injectée par le modèle d’article"

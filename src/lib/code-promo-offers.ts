@@ -2627,6 +2627,19 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // YESSTYLE — Mid-Season Sale anniversaire, communiqué pour le 6 au 13/10/2026
   // ============================================================
   {
+    id: "yesstyle-nathalie83-moins-20-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-20 %",
+    valueLabel: "CODE EXCLUSIF",
+    title: "20 % de réduction avec le code NATHALIE83",
+    code: "NATHALIE83",
+    affiliateUrl: "https://ystyle.co/kqCm2",
+    starts: "2026-10-09",
+    conditions: "Code promotionnel YesStyle communiqué le 9 octobre 2026. Saisir NATHALIE83 dans le panier et vérifier la remise appliquée, les marques ou produits exclus, le cumul avec les promotions et le montant final avant de payer. Date de fin non communiquée.",
+    featured: true,
+  },
+  {
     id: "yesstyle-mid-season-sale-octobre-2026",
     brandSlug: "yesstyle",
     type: "soldes",

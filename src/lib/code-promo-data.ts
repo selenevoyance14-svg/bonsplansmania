@@ -957,7 +957,7 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "yesstyle",
     name: "YesStyle",
-    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fhome.html",
+    affiliateUrl: "https://ystyle.co/kqCm2",
     affiliateLabel: "Voir les offres YesStyle",
     matchTags: ["yesstyle"],
     color: "#FF6B9D",
