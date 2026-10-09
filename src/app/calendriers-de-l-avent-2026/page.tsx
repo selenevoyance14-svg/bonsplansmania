@@ -9,6 +9,7 @@ import styles from "./page.module.css";
 const COMPARISON_CALENDAR_HREFS = new Set([
   "/article/calendrier-avent-dr-pierre-ricaud-2026-reedition-2025",
   "/article/calendrier-avent-biotyfull-box-2026-majestueuse-malle-noel-27-produits",
+  "/article/calendrier-apres-prescription-lab-25-produits-59-euros-mai-2026",
   "/article/glowria-calendrier-apres-shine-on-39-euros-2026",
   "/article/calendrier-avent-adopt-seine-etoilee-2026-24-parfums",
   "/article/calendrier-avent-fleurance-nature-nuit-etoilee-24-soins-bio-2026",
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdventCalendarsHub() {
-  const updatedAt = "6 octobre 2026";
+  const updatedAt = "9 octobre 2026";
   const catalog = getAdventCalendarCatalog();
   const comparisonCalendars = ADVENT_CALENDARS_2026
     .filter((calendar) => COMPARISON_CALENDAR_HREFS.has(calendar.articleHref))
