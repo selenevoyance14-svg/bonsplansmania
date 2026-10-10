@@ -3838,22 +3838,19 @@ body {
 
 .moneytizer-ad {
   width: 100%;
+  min-height: 1px;
   min-width: 0;
   margin: 24px auto;
   overflow: hidden;
   text-align: center;
 }
 
-.moneytizer-side-rail {
-  height: 0;
-  margin: 0;
-  overflow: visible;
-}
-
-@media (max-width: 1023px) {
-  .moneytizer-side-rail {
-    display: none;
-  }
+.moneytizer-article-ad {
+  clear: both;
+  display: grid;
+  place-items: center;
+  margin: 30px auto;
+  scroll-margin-top: 96px;
 }
 
 /* CTA color per category (reuse footer colors) */

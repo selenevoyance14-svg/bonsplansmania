@@ -11,29 +11,41 @@ interface AdBlockProps {
   compactMultiplex?: boolean;
   collapseWhenEmpty?: boolean;
   moneytizerFormat?: "1" | "2" | "4" | "6" | "15" | "19";
+  eager?: boolean;
 }
 
 const MONEYTIZER_SITE_ID = "143369";
 const activeMoneytizerContainers = new Map<string, HTMLDivElement>();
 
-export default function AdBlock({ className = "", moneytizerFormat = "2" }: AdBlockProps) {
+const IMMEDIATE_FORMATS = new Set(["6", "15"]);
+
+export default function AdBlock({ className = "", moneytizerFormat = "2", eager = false }: AdBlockProps) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const container = containerRef.current;
     if (!container) return;
 
-    const activeContainer = activeMoneytizerContainers.get(moneytizerFormat);
-    if (activeContainer && activeContainer !== container) {
-      container.style.display = "none";
-      return;
-    }
+    let observer: IntersectionObserver | undefined;
+    let ownsFormat = false;
 
-    activeMoneytizerContainers.set(moneytizerFormat, container);
-    container.id = `${MONEYTIZER_SITE_ID}-${moneytizerFormat}`;
-    container.removeAttribute("aria-hidden");
+    const requestAd = () => {
+      if (ownsFormat) return;
 
-    if (container.childNodes.length === 0) {
+      const activeContainer = activeMoneytizerContainers.get(moneytizerFormat);
+      if (activeContainer && activeContainer !== container) {
+        container.style.display = "none";
+        return;
+      }
+
+      ownsFormat = true;
+      activeMoneytizerContainers.set(moneytizerFormat, container);
+      container.id = `${MONEYTIZER_SITE_ID}-${moneytizerFormat}`;
+      container.dataset.adState = "requested";
+      container.removeAttribute("aria-hidden");
+
+      if (container.childNodes.length > 0) return;
+
       const generator = document.createElement("script");
       generator.src = `https://ads.themoneytizer.com/s/gen.js?type=${moneytizerFormat}`;
       generator.async = false;
@@ -44,14 +56,33 @@ export default function AdBlock({ className = "", moneytizerFormat = "2" }: AdBl
 
       generator.addEventListener("load", () => container.appendChild(request), { once: true });
       container.appendChild(generator);
+    };
+
+    // Les formats ancrés et interstitiels doivent être disponibles dès
+    // l'ouverture. Les encarts intégrés ne sont demandés que lorsque le
+    // lecteur s'en approche : cela évite de comptabiliser des impressions
+    // situées loin sous la ligne de flottaison et améliore leur visibilité.
+    if (eager || IMMEDIATE_FORMATS.has(moneytizerFormat) || !("IntersectionObserver" in window)) {
+      requestAd();
+    } else {
+      observer = new IntersectionObserver(
+        (entries) => {
+          if (!entries.some((entry) => entry.isIntersecting)) return;
+          observer?.disconnect();
+          requestAd();
+        },
+        { rootMargin: "300px 0px", threshold: 0.01 },
+      );
+      observer.observe(container);
     }
 
     return () => {
-      if (activeMoneytizerContainers.get(moneytizerFormat) === container) {
+      observer?.disconnect();
+      if (ownsFormat && activeMoneytizerContainers.get(moneytizerFormat) === container) {
         activeMoneytizerContainers.delete(moneytizerFormat);
       }
     };
-  }, [moneytizerFormat]);
+  }, [eager, moneytizerFormat]);
 
   return (
     <div

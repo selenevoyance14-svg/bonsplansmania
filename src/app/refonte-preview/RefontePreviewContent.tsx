@@ -4,7 +4,6 @@ import Link from "next/link";
 import { ArrowUpRight, Check, Search } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired, type Article } from "@/lib/articles";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
-import AdBlock from "@/app/components/AdBlock";
 import ListAd from "@/app/components/ListAd";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
 import Header from "@/app/components/Header";
@@ -231,7 +230,6 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
   return (
     <main className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
-      <AdBlock moneytizerFormat="4" className="moneytizer-side-rail" />
       {/* Zone éditoriale principale au-dessus de la publicité. */}
       <div id="bpm-home-above-fold" className={styles.aboveFold}>
         <Header activePage="/" />

@@ -206,6 +206,9 @@ export default async function ArticlePage({ params }: PageProps) {
   const [articleBeforeComparison, articleAfterComparison = ""] = hasBoxComparison
     ? articleContent.split(boxComparisonMarker, 2)
     : [articleContent, ""];
+  const [articleIntroduction, articleMainFirst, articleMainRest] = splitArticleForAds(articleBeforeComparison);
+  const introductionH2Count = countMarkdownH2(articleIntroduction);
+  const mainFirstH2Count = countMarkdownH2(articleMainFirst);
 
   // Bandeau "post de + de 3 semaines" pour les contenus dont la disponibilité
   // change vite. Les bons plans n'en ont plus besoin : leur prix Amazon est
@@ -468,16 +471,29 @@ export default async function ArticlePage({ params }: PageProps) {
               <AmazonLiveOffer asin={article.meta.amazonAsin} affiliateUrl={affiliateUrl} />
             )}
 
-            {/* Un encart Moneytizer 300 × 250 par page, juste avant le contenu. */}
-            <AdBlock />
-
             {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
                 qui ne génèrent pas de revenu direct : on capte le visiteur AVANT qu'il clique
                 "Participer" en lui montrant nos vrais bons plans rémunérateurs (Awin, Igraal). */}
             {isFreebieCategory && <TopBonsPlansPremium currentSlug={slug} />}
 
             <div className="article-content">
-              <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleBeforeComparison, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image) }} />
+              {articleIntroduction && (
+                <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleIntroduction, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image) }} />
+              )}
+              {/* Le premier encart est demandé seulement lorsque le lecteur a
+                  passé l'introduction, au lieu de charger sous la hero dès l'arrivée. */}
+              <AdBlock moneytizerFormat="2" className="moneytizer-article-ad" />
+              {articleMainFirst && (
+                <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleMainFirst, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image, introductionH2Count) }} />
+              )}
+              {articleMainRest && (
+                <>
+                  {/* Second encart uniquement sur les articles assez longs pour
+                      disposer d'au moins trois sections éditoriales. */}
+                  <AdBlock moneytizerFormat="19" className="moneytizer-article-ad" />
+                  <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleMainRest, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image, introductionH2Count + mainFirstH2Count) }} />
+                </>
+              )}
               {hasBoxComparison && <BoxBeautyComparison />}
               {hasBoxComparison && (
                 <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleAfterComparison, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined) }} />
@@ -584,8 +600,9 @@ export default async function ArticlePage({ params }: PageProps) {
           {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
           {article.meta.category === "concours" && <IgraalConcoursCTA />}
 
-          {/* Interstitiel Moneytizer réservé aux concours et tests produits gratuits. */}
-          {isFreebieCategory && <AdBlock moneytizerFormat="15" />}
+          {/* L'interstitiel est le format le plus visible et le mieux valorisé.
+              La régie applique elle-même son plafonnement d'affichage. */}
+          {!isExpired && <AdBlock moneytizerFormat="15" eager />}
 
           {/* Navigation séquentielle prev/next dans la même catégorie — renforce le maillage SEO chronologique */}
           {(prevArticle || nextArticle) && (
@@ -705,7 +722,34 @@ export default async function ArticlePage({ params }: PageProps) {
   );
 }
 
-function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?: string, heroImage?: string): string {
+function splitArticleForAds(content: string): [string, string, string] {
+  const headings = Array.from(content.matchAll(/^##\s+.+$/gm));
+
+  if (headings.length === 0) {
+    const firstBreak = content.search(/\n\s*\n/);
+    return firstBreak > 0
+      ? [content.slice(0, firstBreak), content.slice(firstBreak), ""]
+      : [content, "", ""];
+  }
+
+  const introductionEnd = headings[0].index ?? 0;
+  const secondAdHeading = headings.length >= 3
+    ? headings[Math.max(2, Math.floor(headings.length / 2))]
+    : undefined;
+  const secondAdIndex = secondAdHeading?.index ?? content.length;
+
+  return [
+    content.slice(0, introductionEnd).trim(),
+    content.slice(introductionEnd, secondAdIndex).trim(),
+    secondAdHeading ? content.slice(secondAdIndex).trim() : "",
+  ];
+}
+
+function countMarkdownH2(content: string): number {
+  return Array.from(content.matchAll(/^##\s+.+$/gm)).length;
+}
+
+function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?: string, heroImage?: string, h2Offset = 0): string {
   // Supprime la 1ère image du MDX si elle correspond à l'image de mise en avant (évite le doublon avec la hero)
   let cleaned = content;
   if (heroImage) {
@@ -719,7 +763,7 @@ function renderMarkdown(content: string, affiliateUrl?: string, affiliateLabel?:
   let inProduct = false;
   let inBlockquote = false;
   let productData: Record<string, string> = {};
-  let h2Count = 0;
+  let h2Count = h2Offset;
 
   for (const rawLine of lines) {
     const line = rawLine.trim();
