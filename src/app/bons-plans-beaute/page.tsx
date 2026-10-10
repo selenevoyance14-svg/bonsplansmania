@@ -256,6 +256,8 @@ const BEBE_TOKENS = [
 // - jouets Barbie/Monster High/Rainbow High : univers jouet, pas beauté
 // - électroménager (fer à repasser, aspirateur, etc.)
 const NON_BEAUTE_TOKENS = [
+  // Rentrée scolaire (Greenweez vend aussi des articles hors beauté)
+  "cartable-", "-cartable-",
   // Accessoires plage/jardin
   "isotoner", "parasol-plage", "-parasol-", "parasol-jardin",
   "tente-plage", "tente-jardin", "-hamac-", "hamac-",
@@ -264,6 +266,7 @@ const NON_BEAUTE_TOKENS = [
   "-poupee-", "poupee-", "-jouet-", "jouet-",
   // Électroménager
   "fer-repasser", "fer-a-repasser", "easygliss", "aspirateur",
+  "spot-scrub", "aspirateur-robot", "robot-aspirateur", "robot-laveur",
   "lave-linge", "lave-vaisselle", "refrigerateur", "congelateur",
   "micro-ondes", "cuisiniere", "hotte-", "-hotte-",
   "climatiseur", "ventilateur-",
