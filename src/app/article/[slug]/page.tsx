@@ -600,9 +600,8 @@ export default async function ArticlePage({ params }: PageProps) {
           {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
           {article.meta.category === "concours" && <IgraalConcoursCTA />}
 
-          {/* L'interstitiel est le format le plus visible et le mieux valorisé.
-              La régie applique elle-même son plafonnement d'affichage. */}
-          {!isExpired && <AdBlock moneytizerFormat="15" eager />}
+          {/* Interstitiel Moneytizer réservé aux concours et tests produits gratuits. */}
+          {isFreebieCategory && <AdBlock moneytizerFormat="15" />}
 
           {/* Navigation séquentielle prev/next dans la même catégorie — renforce le maillage SEO chronologique */}
           {(prevArticle || nextArticle) && (
