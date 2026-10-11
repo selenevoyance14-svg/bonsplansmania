@@ -211,7 +211,7 @@
 .cardFooter .articleButton:hover { border-color:#245443; background:#245443; transform:translateY(-1px); }
 .priceGroup { min-width:0; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; }
 .priceComparison { display:inline-flex; align-items:center; gap:6px; font-size:10px; line-height:1; }
-.priceComparison del { color:#999999; font-weight:500; text-decoration-thickness:1px; }
+.priceComparison del { color:#8a8a8a; font-weight:500; text-decoration-line:line-through; text-decoration-color:#666666; text-decoration-thickness:1.5px; }
 .priceComparison>span { padding:3px 6px; border-radius:999px; background:#7d293d; color:#fff; font-weight:800; letter-spacing:.02em; }
 .merchantName { padding:3px 6px; border:1px solid #ddd5cb; border-radius:999px; background:#f3efe9; color:#5c554f; font-size:10px; font-weight:800; line-height:1; white-space:nowrap; }
 .deliveryPrice { display:inline-flex; align-items:center; gap:4px; color:#666; font-size:11px; font-weight:700; line-height:1; white-space:nowrap; }
