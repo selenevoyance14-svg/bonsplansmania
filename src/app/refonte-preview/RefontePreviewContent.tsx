@@ -325,12 +325,12 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                     ) : null}
                   </div>
                   {hasDirectMerchantCta({ category:article.meta.category, affiliateUrl:article.meta.affiliateUrl, expired:false, endDate:article.meta.endDate }) ? (
-                    <a href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}>
+                    <a className={styles.offerButton} href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}>
                       <span>Voir l’offre</span><ArrowUpRight size={15} />
                     </a>
                   ) : (
-                    <Link href={`/article/${article.meta.slug}`} aria-label={`Découvrir ${article.meta.title}`}>
-                      <span>Voir le détail</span><ArrowUpRight size={15} />
+                    <Link className={styles.articleButton} href={`/article/${article.meta.slug}`} aria-label={`Lire l’article ${article.meta.title}`}>
+                      <span>Lire l’article</span><ArrowUpRight size={15} />
                     </Link>
                   )}
                 </div>
