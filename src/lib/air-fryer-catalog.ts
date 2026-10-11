@@ -17,7 +17,8 @@ const AIR_FRYER_TERMS = ["air-fryer", "air fryer", "airfryer", "friteuse-sans-hu
 const EXCLUDED_TERMS = [
   "accessoire", "moule", "papier-air-fryer", "papier air fryer", "concours",
   "jeu-concours", "jeu concours", "comparatif", "meilleur airfryer", "sélection",
-  "ventes flash", "spring deals", "friteuse classique",
+  "ventes flash", "spring deals", "friteuse classique", "bons-plans-airfryers",
+  "bons plans airfryers",
 ];
 
 function findBrand(searchable: string): string | undefined {
