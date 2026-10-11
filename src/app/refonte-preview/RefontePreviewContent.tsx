@@ -10,6 +10,7 @@ import Header from "@/app/components/Header";
 import EditorialNewsletter from "./EditorialNewsletter";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
+import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
@@ -62,12 +63,6 @@ const HOMEPAGE_EDITORIAL_CATEGORIES = new Set([
   "comparatif",
   "selection",
 ]);
-
-function formatDate(date: string) {
-  return new Intl.DateTimeFormat("fr-FR", { day: "numeric", month: "long" }).format(
-    new Date(`${date}T12:00:00`),
-  );
-}
 
 function merchantHref(slug: string, affiliateUrl?: string) {
   return process.env.NODE_ENV === "development" && affiliateUrl
@@ -313,7 +308,12 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                 <span>{labels[article.meta.category] ?? "Nouveau"}</span>
               </Link>
               <div className={styles.cardCopy}>
-                <small>{article.meta.category.replaceAll("-", " ")} · {formatDate(article.meta.updated ?? article.meta.date)}</small>
+                <ArticleDateLabel
+                  className={styles.postedBadge}
+                  date={article.meta.date}
+                  updated={article.meta.updated}
+                  variant="posted"
+                />
                 <h3><Link href={`/article/${article.meta.slug}`}>{formatCardTitle(article.meta.title)}</Link></h3>
                 <p>{article.meta.description}</p>
                 <div className={styles.cardFooter}>

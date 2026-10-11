@@ -153,14 +153,14 @@ export default function ArticleCard({
                     rel="nofollow noopener sponsored"
                     className={`bpm-card-footer bpm-footer-${cat.color}`}
                 >
-                    <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} />
+                    <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} variant="posted" />
                     <span className="bpm-card-cta">
                         {ctaLabel} <ArrowRight size={14} aria-hidden />
                     </span>
                 </a>
             ) : (
                 <a href={articleHref} className={`bpm-card-footer bpm-footer-${cat.color}`}>
-                    <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} />
+                    <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} variant="posted" />
                     <span className="bpm-card-cta">
                         {cat.cta} <ArrowRight size={14} aria-hidden />
                     </span>
