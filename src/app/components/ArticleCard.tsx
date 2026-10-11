@@ -58,6 +58,7 @@ type Article = {
         expired?: boolean;
         endDate?: string;
         affiliateUrl?: string;
+        affiliateLabel?: string;
         amazonAsin?: string;
     };
 };
@@ -84,6 +85,9 @@ export default function ArticleCard({
     });
     // On ne laisse JAMAIS le vrai lien affilié dans le HTML : /go/<slug> côté Cloudflare Function fait le 302
     const affiliateHref = hasExternalAffiliate ? `/go/${article.meta.slug}` : rawAffiliate;
+    const ctaLabel = hasExternalAffiliate && article.meta.affiliateLabel
+        ? article.meta.affiliateLabel
+        : cat.cta;
     const rawImage = article.meta.image ?? "";
     const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : rawImage;
 
@@ -151,7 +155,7 @@ export default function ArticleCard({
                 >
                     <ArticleDateLabel className="bpm-card-date" date={article.meta.date} updated={article.meta.updated} />
                     <span className="bpm-card-cta">
-                        {cat.cta} <ArrowRight size={14} aria-hidden />
+                        {ctaLabel} <ArrowRight size={14} aria-hidden />
                     </span>
                 </a>
             ) : (
