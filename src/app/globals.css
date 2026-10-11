@@ -2974,6 +2974,14 @@ body {
   border-color: rgba(0, 0, 0, 0.12);
 }
 
+.bpm-card-inner-link {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  color: inherit;
+  text-decoration: none;
+}
+
 .bpm-card-expired {
   opacity: 0.55;
   filter: grayscale(40%);
@@ -3097,6 +3105,14 @@ body {
   flex-wrap: wrap;
 }
 
+.bpm-card-commerce {
+  padding: 0 20px 12px;
+}
+
+.bpm-card-commerce .bpm-card-price {
+  margin-top: 0;
+}
+
 .bpm-card-price-now {
   font-size: 1.35rem;
   font-weight: 800;
@@ -3121,6 +3137,20 @@ body {
   font-weight: 800;
   line-height: 1;
   white-space: nowrap;
+}
+
+.bpm-card-merchant-link {
+  cursor: pointer;
+  text-decoration: none;
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+
+.bpm-card-merchant-link:hover,
+.bpm-card-merchant-link:focus-visible {
+  border-color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, var(--surface));
+  color: var(--primary);
+  outline: none;
 }
 
 .bpm-card-delivery {

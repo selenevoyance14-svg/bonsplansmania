@@ -88,6 +88,23 @@ export default function ArticleCard({
     const ctaLabel = hasExternalAffiliate && article.meta.affiliateLabel
         ? article.meta.affiliateLabel
         : cat.cta;
+    const merchant = article.meta.merchant;
+    const merchantBadge = merchant
+        ? hasExternalAffiliate
+            ? (
+                <a
+                    href={affiliateHref!}
+                    target="_blank"
+                    rel="nofollow noopener sponsored"
+                    className="bpm-card-merchant bpm-card-merchant-link"
+                    aria-label={`Voir l’offre chez ${merchant}`}
+                    title={`Voir l’offre chez ${merchant}`}
+                >
+                    {merchant}
+                </a>
+            )
+            : <span className="bpm-card-merchant">{merchant}</span>
+        : null;
     const rawImage = article.meta.image ?? "";
     const displayImage = rawImage.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : rawImage;
 
@@ -117,34 +134,26 @@ export default function ArticleCard({
                 <div className="bpm-card-body">
                     <h3 className="bpm-card-title">{formatCardTitle(article.meta.title)}</h3>
                     <p className="bpm-card-excerpt">{article.meta.description}</p>
-
-                    {now && (
-                        <div className="bpm-card-price">
-                            <span className="bpm-card-price-now">{now}</span>
-                            {originalPrice && <del className="bpm-card-price-was">{originalPrice}</del>}
-                            {article.meta.deliveryPrice && (
-                                <span className="bpm-card-delivery" aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
-                                    <Truck size={17} aria-hidden />
-                                    <span>{article.meta.deliveryPrice}</span>
-                                </span>
-                            )}
-                            {article.meta.merchant && <span className="bpm-card-merchant">{article.meta.merchant}</span>}
-                        </div>
-                    )}
-                    {!now && article.meta.amazonAsin && (
-                        <div className="bpm-card-price">
-                            <span className="bpm-card-price-now"><AmazonCardPrice asin={article.meta.amazonAsin} fallback="" /></span>
-                            {article.meta.deliveryPrice && (
-                                <span className="bpm-card-delivery" aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
-                                    <Truck size={17} aria-hidden />
-                                    <span>{article.meta.deliveryPrice}</span>
-                                </span>
-                            )}
-                            {article.meta.merchant && <span className="bpm-card-merchant">{article.meta.merchant}</span>}
-                        </div>
-                    )}
                 </div>
             </a>
+
+            {(now || article.meta.amazonAsin) && (
+                <div className="bpm-card-commerce">
+                    <div className="bpm-card-price">
+                        <span className="bpm-card-price-now">
+                            {now || <AmazonCardPrice asin={article.meta.amazonAsin!} fallback="" />}
+                        </span>
+                        {now && originalPrice && <del className="bpm-card-price-was">{originalPrice}</del>}
+                        {article.meta.deliveryPrice && (
+                            <span className="bpm-card-delivery" aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
+                                <Truck size={17} aria-hidden />
+                                <span>{article.meta.deliveryPrice}</span>
+                            </span>
+                        )}
+                        {merchantBadge}
+                    </div>
+                </div>
+            )}
 
             {hasExternalAffiliate && !isExpired ? (
                 <a
