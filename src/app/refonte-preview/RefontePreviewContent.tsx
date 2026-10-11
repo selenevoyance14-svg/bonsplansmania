@@ -309,7 +309,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
               <div className={styles.cardCopy}>
                 <small>{article.meta.category.replaceAll("-", " ")} · {formatDate(article.meta.updated ?? article.meta.date)}</small>
                 <h3><Link href={`/article/${article.meta.slug}`}>{formatCardTitle(article.meta.title)}</Link></h3>
-                {index === 0 && <p>{article.meta.description}</p>}
+                <p>{article.meta.description}</p>
                 <div className={styles.cardFooter}>
                   <div className={styles.priceGroup}>
                     <strong>
@@ -325,9 +325,13 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                     ) : null}
                   </div>
                   {hasDirectMerchantCta({ category:article.meta.category, affiliateUrl:article.meta.affiliateUrl, expired:false, endDate:article.meta.endDate }) ? (
-                    <a href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}><ArrowUpRight size={17} /></a>
+                    <a href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}>
+                      <span>Voir l’offre</span><ArrowUpRight size={15} />
+                    </a>
                   ) : (
-                    <Link href={`/article/${article.meta.slug}`} aria-label={`Découvrir ${article.meta.title}`}><ArrowUpRight size={17} /></Link>
+                    <Link href={`/article/${article.meta.slug}`} aria-label={`Découvrir ${article.meta.title}`}>
+                      <span>Voir le détail</span><ArrowUpRight size={15} />
+                    </Link>
                   )}
                 </div>
               </div>
