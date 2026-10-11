@@ -360,9 +360,14 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                   <h2 id="carrefour-guide-title">🛒 Vos produits Carrefour 100% gratuits !</h2>
                   <p>Économisez sur vos courses et testez gratuitement de grandes marques en magasin grâce au programme officiel <em>MonAvisLeRendGratuit</em>. Découvrez nos astuces et notre guide complet pour en profiter facilement dès aujourd’hui.</p>
                 </div>
-                <Link href="/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit">
-                  Voir le guide &amp; les produits à tester <ArrowUpRight size={16} />
-                </Link>
+                <a
+                  href="https://communaute.carrefour.fr/app/730/channel/tester-des-produits-2238"
+                  target="_blank"
+                  rel="noopener"
+                  aria-label="Voir les produits à tester sur le site officiel MonAvisLeRendGratuit"
+                >
+                  Voir les produits à tester <ArrowUpRight size={16} />
+                </a>
               </aside>
             ) : null}
             </Fragment>

@@ -10,6 +10,7 @@ const menus = [
     active: ["/bon-plan", "/bons-plans-"],
     links: [
       ["Air Fryer & Ninja", "/bons-plans-ninja"],
+      ["Bons plans Amazon", "/bons-plans-amazon"],
       ["Bons plans beauté", "/bons-plans-beaute"],
       ["Bons plans en cours", "/bons-plans-en-cours"],
       ["Bons plans Prozis", "/marque/prozis"],

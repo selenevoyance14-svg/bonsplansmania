@@ -35,6 +35,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/marques-partenaires",        priority: 0.8, changeFrequency: "weekly" },
   { path: "/codes-promo-permanents",   priority: 0.8, changeFrequency: "weekly" },
   { path: "/code-promo",               priority: 0.8, changeFrequency: "weekly" },
+  { path: "/bons-plans-amazon",        priority: 0.9, changeFrequency: "daily" },
   { path: "/bons-plans-beaute",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/bons-plans-bebe",          priority: 0.8, changeFrequency: "weekly" },
   { path: "/bons-plans-ninja",         priority: 0.8, changeFrequency: "weekly" },
