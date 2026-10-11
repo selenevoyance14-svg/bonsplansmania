@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check, Search } from "lucide-react";
+import { ArrowUpRight, Check, Search, Truck } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired, type Article } from "@/lib/articles";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import ListAd from "@/app/components/ListAd";
@@ -290,6 +290,12 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
         <div className={styles.editorialGrid}>
           {deals.map((article, index) => {
             const { originalPrice, discountPct } = getHomepagePriceDetails(article);
+            const directMerchantCta = hasDirectMerchantCta({
+              category: article.meta.category,
+              affiliateUrl: article.meta.affiliateUrl,
+              expired: false,
+              endDate: article.meta.endDate,
+            });
 
             return (
             <Fragment key={article.meta.slug}>
@@ -323,8 +329,17 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                         {discountPct ? <span>−{discountPct}%</span> : null}
                       </span>
                     ) : null}
+                    {article.meta.deliveryPrice ? (
+                      <span className={styles.deliveryPrice} aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
+                        <Truck size={17} aria-hidden />
+                        <span>{article.meta.deliveryPrice}</span>
+                      </span>
+                    ) : null}
+                    {directMerchantCta && article.meta.merchant ? (
+                      <span className={styles.merchantName}>{article.meta.merchant}</span>
+                    ) : null}
                   </div>
-                  {hasDirectMerchantCta({ category:article.meta.category, affiliateUrl:article.meta.affiliateUrl, expired:false, endDate:article.meta.endDate }) ? (
+                  {directMerchantCta ? (
                     <a className={styles.offerButton} href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}>
                       <span>Voir l’offre</span><ArrowUpRight size={15} />
                     </a>

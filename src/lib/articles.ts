@@ -4,6 +4,7 @@ import matter from "gray-matter";
 import readingTime from "reading-time";
 import { parsePrice } from "@/lib/price";
 import { slugifyTag } from "@/lib/tag-pages";
+import { getMerchantName } from "@/lib/merchant";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const FALLBACK_ARTICLE_IMAGE = "/images/articles/_placeholder-bonsplansmania.png";
@@ -204,6 +205,10 @@ export interface ArticleMeta {
   price?: string;
   /** Prix habituel affiché barré à côté du prix promotionnel. */
   prix_origine?: string;
+  /** Frais de livraison affichés à côté du prix (ex. "Gratuit" ou "4,99 €"). */
+  deliveryPrice?: string;
+  /** Nom de l'enseigne affiché avec le prix. Déduit automatiquement du lien affilié. */
+  merchant?: string;
   /** Prix Amazon relevé manuellement quand Creators API ne renvoie aucune offre. */
   amazonPriceOverride?: boolean;
   affiliateUrl?: string;
@@ -315,6 +320,10 @@ export function getArticleBySlug(slug: string): Article | null {
       prix_origine: [data.prix_origine, data.oldPrice, data.originalPrice]
         .find((value): value is string => typeof value === "string" && Boolean(value.trim()))
         ?.trim(),
+      deliveryPrice: [data.deliveryPrice, data.shippingPrice, data.livraison]
+        .find((value): value is string => typeof value === "string" && Boolean(value.trim()))
+        ?.trim(),
+      merchant: getMerchantName(data.affiliateUrl, data.merchant),
       amazonPriceOverride: amazonArticle && data.amazonPriceOverride === true,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateAlias: typeof data.affiliateAlias === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.affiliateAlias.trim())

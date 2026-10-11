@@ -3109,6 +3109,34 @@ body {
   font-weight: 500;
 }
 
+.bpm-card-merchant {
+  padding: 3px 7px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--muted);
+  color: var(--muted-foreground);
+  font-size: 0.7rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.bpm-card-delivery {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  color: #666;
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.bpm-card-delivery svg {
+  flex: 0 0 auto;
+  stroke-width: 1.8;
+}
+
 .bpm-card-footer {
   margin-top: auto;
   padding: 12px 20px 14px;

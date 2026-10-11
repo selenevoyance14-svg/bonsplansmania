@@ -1,6 +1,6 @@
 import {
     Tag, Gift, Trophy, ShoppingBag, Sparkles, Calendar, TreePine,
-    FlaskConical, Percent, ArrowRight, type LucideIcon,
+    FlaskConical, Percent, ArrowRight, Truck, type LucideIcon,
 } from "lucide-react";
 import { parsePrice } from "@/lib/price";
 import { DEFAULT_OFFER_CTA, DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
@@ -53,6 +53,8 @@ type Article = {
         imageAlt: string;
         price?: string;
         prix_origine?: string;
+        deliveryPrice?: string;
+        merchant?: string;
         expired?: boolean;
         endDate?: string;
         affiliateUrl?: string;
@@ -116,11 +118,25 @@ export default function ArticleCard({
                         <div className="bpm-card-price">
                             <span className="bpm-card-price-now">{now}</span>
                             {originalPrice && <del className="bpm-card-price-was">{originalPrice}</del>}
+                            {article.meta.deliveryPrice && (
+                                <span className="bpm-card-delivery" aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
+                                    <Truck size={17} aria-hidden />
+                                    <span>{article.meta.deliveryPrice}</span>
+                                </span>
+                            )}
+                            {article.meta.merchant && <span className="bpm-card-merchant">{article.meta.merchant}</span>}
                         </div>
                     )}
                     {!now && article.meta.amazonAsin && (
                         <div className="bpm-card-price">
                             <span className="bpm-card-price-now"><AmazonCardPrice asin={article.meta.amazonAsin} fallback="" /></span>
+                            {article.meta.deliveryPrice && (
+                                <span className="bpm-card-delivery" aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
+                                    <Truck size={17} aria-hidden />
+                                    <span>{article.meta.deliveryPrice}</span>
+                                </span>
+                            )}
+                            {article.meta.merchant && <span className="bpm-card-merchant">{article.meta.merchant}</span>}
                         </div>
                     )}
                 </div>
