@@ -26,6 +26,7 @@ interface ArticleListItem {
   featured?: boolean;
   tags?: string[];
   price?: string;
+  prix_origine?: string;
   amazonAsin?: string;
   affiliateUrl?: string;
   /** Univers éditoriaux déjà déterminés côté serveur. */
@@ -356,6 +357,7 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
               const cta = CTA_BY_COLOR[article.categoryColor] ?? "Lire l'article";
               const badge = BADGE_BY_COLOR[article.categoryColor];
               const { now, was, savings } = parsePrice(article.price);
+              const originalPrice = article.prix_origine || was;
               const amazonAsin = article.amazonAsin
                 || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
                 || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
@@ -418,7 +420,7 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                             <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`} data-amazon-price={amazonAsin?.toUpperCase()}>
                               {now || "Prix sur Amazon"}
                             </span>
-                            {was && <span className="bpm-card-h-price-was">{was}</span>}
+                            {originalPrice && <span className="bpm-card-h-price-was">{originalPrice}</span>}
                             {savings && <span className="bpm-card-h-chip">{savings}</span>}
                           </div>
                         )}

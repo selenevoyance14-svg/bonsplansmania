@@ -62,6 +62,7 @@ export default function BonsPlansEnCoursPage() {
       featured: a.meta.featured,
       tags: a.meta.tags,
       price: a.meta.price,
+      prix_origine: a.meta.prix_origine,
       amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
     };
