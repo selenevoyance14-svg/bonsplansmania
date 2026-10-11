@@ -58,6 +58,12 @@ function getAffiliateMerchant(value: string): string {
   }
 }
 
+function getStructuredImageUrl(value: string): string {
+  const fallback = "/images/articles/_placeholder-bonsplansmania-beige.png";
+  const image = value.toLowerCase().endsWith(".svg") ? fallback : value;
+  return /^https?:\/\//i.test(image) ? image : `https://bonsplansmania.fr${image}`;
+}
+
 function normalizeContentInternalUrl(value: string): string | null {
   let url = value;
 
@@ -258,7 +264,7 @@ export default async function ArticlePage({ params }: PageProps) {
     description: article.meta.description,
     datePublished: article.meta.date,
     dateModified: article.meta.updated || article.meta.date,
-    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}`,
+    image: getStructuredImageUrl(article.meta.image),
     mainEntityOfPage: {
       "@type": "WebPage",
       "@id": `https://bonsplansmania.fr/article/${slug}`,
@@ -326,7 +332,7 @@ export default async function ArticlePage({ params }: PageProps) {
     "@id": `https://bonsplansmania.fr/article/${slug}#product`,
     name: productName,
     description: article.meta.description,
-    image: `https://bonsplansmania.fr${article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}`,
+    image: getStructuredImageUrl(article.meta.image),
     ...(productOfferJsonLd ? { offers: productOfferJsonLd } : {}),
     ...(productReviewJsonLd ? { review: productReviewJsonLd } : {}),
   } : null;
