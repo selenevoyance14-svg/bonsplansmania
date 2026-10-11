@@ -312,7 +312,11 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                 {index === 0 && <p>{article.meta.description}</p>}
                 <div className={styles.cardFooter}>
                   <div className={styles.priceGroup}>
-                    <strong><AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} /></strong>
+                    <strong>
+                      {article.meta.amazonPriceOverride
+                        ? article.meta.price || "Voir le bon plan"
+                        : <AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} />}
+                    </strong>
                     {originalPrice ? (
                       <span className={styles.priceComparison}>
                         <del>{originalPrice}</del>
