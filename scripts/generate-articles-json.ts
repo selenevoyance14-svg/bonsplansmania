@@ -33,6 +33,9 @@ function getNewsletterCta(meta: ReturnType<typeof getSanitizedArticles>[number][
 
   if (isAmazon) return { ctaUrl, ctaLabel: "Voir sur Amazon" };
   if (meta.category === "box-beaute") return { ctaUrl, ctaLabel: "Découvrir la box" };
+  if (meta.category === "concours" && meta.title.startsWith("Jeu M6+ : retrouvez les paires")) {
+    return { ctaUrl, ctaLabel: "Jouer gratuitement" };
+  }
   if (meta.category === "concours") return { ctaUrl, ctaLabel: "Participer au concours" };
   if (meta.category === "test-gratuit" || meta.category === "test") {
     return { ctaUrl, ctaLabel: "Voir le test gratuit" };
