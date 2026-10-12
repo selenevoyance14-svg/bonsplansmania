@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 12 Oct 2026 10:07:31 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 11:19:06 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Cosori TwinFry 10 L : l’air fryer passe à 209,99 € avec coupon</title>
@@ -89,6 +89,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-decor-discount-defi-deco-17-lots-octobre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Concours Garancia × EPISOD : un lot de 520,79 € à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-garancia-episod-lot-520-euros-octobre-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-garancia-episod-lot-520-euros-octobre-2026</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Garancia et EPISOD offrent à une personne un lot beauté et sport de 520,79 €, comprenant des soins Garancia et 10 séances EPISOD.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-garancia-episod-lot-520-euros-octobre-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>Jeu Intermarché : 100 000 cartes carburant de 20 € à gagner</title>
       <link>https://bonsplansmania.fr/article/concours-intermarche-application-100000-cartes-carburant-20-euros-2026</link>
       <guid>https://bonsplansmania.fr/article/concours-intermarche-application-100000-cartes-carburant-20-euros-2026</guid>
@@ -114,6 +123,15 @@
       <description>M6+ met en jeu des places de cinéma pour découvrir Karma, le nouveau film de Guillaume Canet avec Marion Cotillard. Participation gratuite jusqu’au 25 octobre 2026.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-m6-karma-places-cinema-octobre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Jeu Président Cœur en Or : jusqu’à 1 000 € à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-president-coeur-en-or-cheques-1000-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-president-coeur-en-or-cheques-1000-euros-2026</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Achetez un Cœur de Meule Président et tentez de gagner l’un des 7 chèques mis en jeu, dont un chèque de 1 000 €, jusqu’au 31 décembre 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-president-coeur-en-or-cheques-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Concours Tefal 70 ans : 70 cadeaux cuisine à gagner</title>
@@ -438,24 +456,6 @@
       <description>Le doudou lapin Éveil &amp; Nature en coton bio velours 30 cm est à 24,90 € au lieu de 39,90 € chez Greenweez, soit 15 € économisés.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-greenweez-doudou-lapin-coton-bio-velours-eveil-nature-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Tronçonneuse télescopique Rinoxar 2-en-1 à 139,99 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-manomano-rinoxar-tronconneuse-telescopique-2-en-1-septembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-manomano-rinoxar-tronconneuse-telescopique-2-en-1-septembre-2026</guid>
-      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Bon plan ManoMano : la tronçonneuse télescopique Rinoxar 8 pouces avec moteur brushless, deux batteries 4 Ah et perche est à 139,99 € au lieu de 189,99 €.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-manomano-rinoxar-tronconneuse-telescopique-2-en-1-septembre-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Monsieur TSHIRT : -40 % sur le 2e article, -70 % sur le 3e</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-monsieur-tshirt-paques-codes-promo-fun50-fun80-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-monsieur-tshirt-paques-codes-promo-fun50-fun80-2026</guid>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Monsieur TSHIRT propose jusqu’à minuit -40 % sur le 2e article avec FUN40 ou -70 % sur le 3e avec FUN70, sur une sélection de cadeaux personnalisés.</description>
-      <category>code-promo</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-monsieur-tshirt-paques-codes-promo-fun50-fun80-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
