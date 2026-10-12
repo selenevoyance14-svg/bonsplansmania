@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 12 Oct 2026 13:49:31 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 14:10:08 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Cosori TwinFry 10 L : l’air fryer passe à 209,99 € avec coupon</title>
@@ -51,6 +51,15 @@
       <description>Le pack de 3 lames authentiques Philips OneBlade 360 QP430/60 passe à 27,99 € au lieu de 37,99 € sur Amazon, soit 9,33 € la lame.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-philips-oneblade-360-lames-rechange-qp430-60.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>VTech chez Carrefour : 25 € cagnottés sur Storio Max et KidiCom Max</title>
+      <link>https://bonsplansmania.fr/article/carrefour-vtech-25-euros-cagnotte-storio-kidicom-2026</link>
+      <guid>https://bonsplansmania.fr/article/carrefour-vtech-25-euros-cagnotte-storio-kidicom-2026</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Du 13 octobre au 7 décembre 2026, Carrefour crédite 25 € sur la carte Club pour la tablette Storio Max 2.0 et le KidiCom Max 3.0 VTech.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/carrefour-vtech-25-euros-cagnotte-octobre-decembre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Concours 20 Minutes : 10 machines NEO Dolce Gusto à gagner</title>
@@ -447,15 +456,6 @@
       <description>Le Ninja Double Stack SL300EU 7,5 L passe à 209,99 € au lieu de 229,99 € chez Carrefour, soit 20 € de remise sur cet airfryer à deux tiroirs.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.frhttps://media.carrefour.fr/media/referential/media/fc93e03f620e46f0a09e081e2994eabe/p_1500x1500/0622356297868_0.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Ninja Foodi FlexDrawer AF500EUWH à 169,99 € chez Carrefour</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-carrefour-ninja-foodi-flexdrawer-af500euwh-169-99-euros-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-carrefour-ninja-foodi-flexdrawer-af500euwh-169-99-euros-octobre-2026</guid>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Le Ninja Foodi FlexDrawer AF500EUWH 10,4 L passe à 169,99 € au lieu de 269,99 € chez Carrefour, soit 100 € de remise sur cet airfryer modulable.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.frhttps://media.carrefour.fr/media/referential/media/12ed47506dbc4402ac1c8190c5388cae/p_1500x1500/0622356303842_0.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
