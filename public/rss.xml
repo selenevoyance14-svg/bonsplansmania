@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 12 Oct 2026 08:07:19 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 12 Oct 2026 08:49:34 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Cosori TwinFry 10 L : l’air fryer passe à 209,99 € avec coupon</title>
@@ -60,6 +60,15 @@
       <description>Participez au concours Catit My Cat d’octobre 2026 et tentez de gagner l’un des 3 coffrets gourmands de friandises pour chat, d’une valeur de 42,84 € chacun.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-catit-coffrets-gourmands-friandises-chat-octobre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Concours Cosmopolitan : une Box Glow Therapy à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-cosmopolitan-box-glow-therapy-203-89-euros-octobre-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-cosmopolitan-box-glow-therapy-203-89-euros-octobre-2026</guid>
+      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Cosmopolitan met en jeu une Box Glow Therapy contenant 12 produits de beauté, d’une valeur de 203,89 €. Participez gratuitement jusqu’au 23 octobre 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/my-beauty-factory-box-glow-therapy-cosmopolitan-octobre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Concours Décor Discount : 17 lots avec le Défi Déco</title>
@@ -447,15 +456,6 @@
       <description>E.Leclerc propose 25 % en Tickets avec la Carte sur une sélection Playmobil. Découvrez les modèles repérés, leurs prix et les conditions de l'offre.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/eleclerc-playmobil-hydravion-pompier-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Oral-B chez E.Leclerc : jusqu'à 50 % en Tickets du 13 au 24 octobre</title>
-      <link>https://bonsplansmania.fr/article/eleclerc-oral-b-50-pourcent-tickets-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/eleclerc-oral-b-50-pourcent-tickets-octobre-2026</guid>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-      <description>E.Leclerc propose jusqu'à 50 % en Tickets sur une brosse à dents Oral-B iO2 et des brossettes du 13 au 24 octobre 2026. Prix et montants crédités.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/eleclerc-oral-b-io2-50-ticket-octobre-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
