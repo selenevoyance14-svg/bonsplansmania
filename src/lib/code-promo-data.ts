@@ -957,10 +957,16 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "yesstyle",
     name: "YesStyle",
-    affiliateUrl: "https://ystyle.co/kqCm2",
+    affiliateUrl: "/go/permanent-yesstyle",
     affiliateLabel: "Voir les offres YesStyle",
     matchTags: ["yesstyle"],
     color: "#FF6B9D",
+    currentOffer: {
+      code: "FALL26",
+      discount: "Jusqu’à 15 % supplémentaires",
+      conditions: "Valable du 13 au 16 octobre 2026 sur les commandes éligibles. L’opération Fall for Treats propose aussi jusqu’à 50 % sur une sélection beauté jusqu’au 19 octobre.",
+      verifiedAt: "2026-10-13",
+    },
   },
   {
     slug: "yves-rocher",

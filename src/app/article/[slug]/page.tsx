@@ -193,11 +193,19 @@ export default async function ArticlePage({ params }: PageProps) {
   // Filet de sécurité global : un lien principal collé en clair dans le Markdown
   // est remplacé avant rendu par la redirection interne. On couvre aussi la
   // variante Markdown où les esperluettes ont été échappées (`\&`).
-  const articleContent = affiliateUrl !== "#" && rawAffiliate
+  let articleContent = affiliateUrl !== "#" && rawAffiliate
     ? article.content
         .split(rawAffiliate).join(affiliateUrl)
         .split(rawAffiliate.replaceAll("&", "\\&")).join(affiliateUrl)
     : article.content;
+  // Les sélections multi-produits peuvent déclarer plusieurs destinations.
+  // Chacune est remplacée côté serveur par /go/<alias> avant le rendu HTML.
+  for (const link of article.meta.affiliateLinks || []) {
+    const redirectUrl = `/go/${link.alias}`;
+    articleContent = articleContent
+      .split(link.url).join(redirectUrl)
+      .split(link.url.replaceAll("&", "\\&")).join(redirectUrl);
+  }
   const affiliateMerchant = getAffiliateMerchant(rawAffiliate);
   const affiliateLabel = article.meta.affiliateLabel || DEFAULT_OFFER_CTA;
   // Articles "gratuit" : on cache le CTA en haut (l'utilisateur veut juste participer/recevoir)

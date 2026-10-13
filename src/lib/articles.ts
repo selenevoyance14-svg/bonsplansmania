@@ -214,6 +214,8 @@ export interface ArticleMeta {
   affiliateUrl?: string;
   /** Alias court utilisé par la Pages Function pour générer le lien /go/<alias>. */
   affiliateAlias?: string;
+  /** Liens affiliés secondaires, rendus eux aussi via /go/<alias>. */
+  affiliateLinks?: Array<{ alias: string; url: string }>;
   affiliateLabel?: string;
   amazonAsin?: string;
   readingTime: string;
@@ -328,6 +330,17 @@ export function getArticleBySlug(slug: string): Article | null {
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateAlias: typeof data.affiliateAlias === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.affiliateAlias.trim())
         ? data.affiliateAlias.trim()
+        : undefined,
+      affiliateLinks: Array.isArray(data.affiliateLinks)
+        ? data.affiliateLinks.flatMap((link: unknown) => {
+            if (!link || typeof link !== "object") return [];
+            const candidate = link as { alias?: unknown; url?: unknown };
+            const alias = typeof candidate.alias === "string" ? candidate.alias.trim() : "";
+            const url = typeof candidate.url === "string" ? candidate.url.trim() : "";
+            return /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(alias) && /^https?:\/\//i.test(url)
+              ? [{ alias, url }]
+              : [];
+          })
         : undefined,
       affiliateLabel: data.affiliateLabel,
       amazonAsin: amazonArticle ? extractAmazonAsin(data, content) : undefined,

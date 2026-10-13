@@ -2624,8 +2624,49 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // YESSTYLE — Mid-Season Sale anniversaire, communiqué pour le 6 au 13/10/2026
+  // YESSTYLE — Fall for Treats, communiqué pour le 13 au 19/10/2026
   // ============================================================
+  {
+    id: "yesstyle-fall-for-treats-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "soldes",
+    value: "-50 %",
+    valueLabel: "JUSQU'AU 19 OCT.",
+    title: "Fall for Treats : jusqu’à 50 % sur une sélection beauté",
+    affiliateUrl: "/go/permanent-yesstyle",
+    starts: "2026-10-13",
+    expires: "2026-10-19",
+    conditions: "Offre Fall for Treats, Not Tricks valable du 13 au 19 octobre 2026 sur une sélection beauté. Remises annoncées : SKIN1004 jusqu’à 46 %, iUNIK, Isntree, AROMATICA, lilyeve, TTVV, NAMING, ENTROPY et oganacell jusqu’à 50 % ; epii, Beauty of Joseon, Mary&May, Kao et ongredients jusqu’à 40 % ; APRILSKIN jusqu’à 34 %, Florasis jusqu’à 30 %, JOOCYEE jusqu’à 25 % et KAMINOMOTO jusqu’à 20 %. Les taux varient selon les références et les stocks ; vérifier le prix final dans le panier.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-fall26-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "JUSQU'À EXTRA",
+    title: "Jusqu’à 15 % supplémentaires avec le code FALL26",
+    code: "FALL26",
+    affiliateUrl: "/go/permanent-yesstyle",
+    starts: "2026-10-13",
+    expires: "2026-10-16",
+    conditions: "Code FALL26 valable du 13 au 16 octobre 2026 pour obtenir jusqu’à 15 % de réduction supplémentaire sur les commandes éligibles. Le taux dépend du montant du panier, des marques et des exclusions YesStyle. Vérifier l’application du code avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "yesstyle-cool26-octobre-2026",
+    brandSlug: "yesstyle",
+    type: "code",
+    value: "-15 %",
+    valueLabel: "JUSQU'À EXTRA",
+    title: "Jusqu’à 15 % supplémentaires avec le code COOL26",
+    code: "COOL26",
+    affiliateUrl: "/go/permanent-yesstyle",
+    starts: "2026-10-16",
+    expires: "2026-10-19",
+    conditions: "Code COOL26 valable du 16 au 19 octobre 2026 pour obtenir jusqu’à 15 % de réduction supplémentaire sur les commandes éligibles. Le taux dépend du montant du panier, des marques et des exclusions YesStyle. Vérifier l’application du code avant le paiement.",
+    featured: true,
+  },
   {
     id: "yesstyle-nathalie83-moins-20-octobre-2026",
     brandSlug: "yesstyle",
@@ -2636,7 +2677,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     code: "NATHALIE83",
     affiliateUrl: "https://ystyle.co/kqCm2",
     starts: "2026-10-09",
-    conditions: "Code promotionnel YesStyle communiqué le 9 octobre 2026. Saisir NATHALIE83 dans le panier et vérifier la remise appliquée, les marques ou produits exclus, le cumul avec les promotions et le montant final avant de payer. Date de fin non communiquée.",
+    expires: "2026-10-12",
+    conditions: "Code promotionnel YesStyle communiqué le 9 octobre 2026 et remplacé par la campagne Fall for Treats à partir du 13 octobre. Cette ancienne offre est conservée dans l’historique.",
     featured: true,
   },
   {
@@ -2690,8 +2732,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     code: "1010VIBES",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=15447&awinaffid=990397&ued=https%3A%2F%2Fwww.yesstyle.com%2Ffr%2Fbeauty-beauty%2Flist.html%2Fbcc.15478_bpt.46%3Fsb%3D165",
     starts: "2026-10-09",
-    expires: "2026-10-13",
-    conditions: "Coupon de 96 heures annoncé du 9 au 13 octobre 2026 pour 15 % de réduction supplémentaire sur les commandes éligibles. Vérifier les exclusions et l'application du code dans le panier YesStyle.",
+    expires: "2026-10-12",
+    conditions: "Ancien coupon de 96 heures, remplacé le 13 octobre 2026 par le code FALL26. Cette offre est conservée dans l’historique et n’est plus affichée parmi les codes actifs.",
     featured: true,
   },
 
