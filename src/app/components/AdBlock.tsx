@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 type AdFormat = "display" | "in-article" | "multiplex";
 
@@ -10,86 +10,155 @@ interface AdBlockProps {
   slot?: string;
   compactMultiplex?: boolean;
   collapseWhenEmpty?: boolean;
-  moneytizerFormat?: "1" | "2" | "4" | "6" | "15" | "19";
-  eager?: boolean;
 }
 
-const MONEYTIZER_SITE_ID = "143369";
-const activeMoneytizerContainers = new Map<string, HTMLDivElement>();
+type AdState = "loading" | "filled" | "empty";
 
-const IMMEDIATE_FORMATS = new Set(["6", "15"]);
+declare global {
+  interface Window {
+    adsbygoogle: unknown[];
+  }
+}
 
-export default function AdBlock({ className = "", moneytizerFormat = "2", eager = false }: AdBlockProps) {
-  const containerRef = useRef<HTMLDivElement>(null);
+const ADSENSE_CLIENT = "ca-pub-5064203547863113";
+
+const SLOTS: Record<AdFormat, string> = {
+  display: "5683891928",
+  "in-article": "9104262184",
+  multiplex: "4554643083",
+};
+
+export default function AdBlock({
+  className = "",
+  format = "display",
+  slot,
+  compactMultiplex = false,
+  collapseWhenEmpty = false,
+}: AdBlockProps) {
+  const adRef = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
+  const [adState, setAdState] = useState<AdState>("loading");
+  const slotId = slot ?? SLOTS[format];
 
   useEffect(() => {
-    const container = containerRef.current;
-    if (!container) return;
+    if (pushed.current) return;
+    pushed.current = true;
 
-    let observer: IntersectionObserver | undefined;
-    let ownsFormat = false;
+    try {
+      (window.adsbygoogle = window.adsbygoogle || []).push({});
+    } catch {
+      // Le script peut être retardé par le consentement ou un bloqueur.
+    }
+  }, []);
 
-    const requestAd = () => {
-      if (ownsFormat) return;
+  useEffect(() => {
+    if (!collapseWhenEmpty) return;
 
-      const activeContainer = activeMoneytizerContainers.get(moneytizerFormat);
-      if (activeContainer && activeContainer !== container) {
-        container.style.display = "none";
+    const ad = adRef.current;
+    if (!ad) return;
+    const isLocalPreview = window.location.hostname === "localhost";
+
+    const updateState = () => {
+      if (isLocalPreview) return;
+      const status = ad.dataset.adStatus;
+      if (status === "filled") setAdState("filled");
+      if (status === "unfilled") setAdState("empty");
+    };
+
+    updateState();
+    const observer = new MutationObserver(updateState);
+    observer.observe(ad, {
+      attributes: true,
+      attributeFilter: ["data-ad-status"],
+      childList: true,
+      subtree: true,
+    });
+
+    const timeout = window.setTimeout(() => {
+      if (isLocalPreview) {
+        setAdState("empty");
         return;
       }
-
-      ownsFormat = true;
-      activeMoneytizerContainers.set(moneytizerFormat, container);
-      container.id = `${MONEYTIZER_SITE_ID}-${moneytizerFormat}`;
-      container.dataset.adState = "requested";
-      container.removeAttribute("aria-hidden");
-
-      if (container.childNodes.length > 0) return;
-
-      const generator = document.createElement("script");
-      generator.src = `https://ads.themoneytizer.com/s/gen.js?type=${moneytizerFormat}`;
-      generator.async = false;
-
-      const request = document.createElement("script");
-      request.src = `https://ads.themoneytizer.com/s/requestform.js?siteId=${MONEYTIZER_SITE_ID}&formatId=${moneytizerFormat}`;
-      request.async = false;
-
-      generator.addEventListener("load", () => container.appendChild(request), { once: true });
-      container.appendChild(generator);
-    };
-
-    // Les formats ancrés et interstitiels doivent être disponibles dès
-    // l'ouverture. Les encarts intégrés ne sont demandés que lorsque le
-    // lecteur s'en approche : cela évite de comptabiliser des impressions
-    // situées loin sous la ligne de flottaison et améliore leur visibilité.
-    if (eager || IMMEDIATE_FORMATS.has(moneytizerFormat) || !("IntersectionObserver" in window)) {
-      requestAd();
-    } else {
-      observer = new IntersectionObserver(
-        (entries) => {
-          if (!entries.some((entry) => entry.isIntersecting)) return;
-          observer?.disconnect();
-          requestAd();
-        },
-        { rootMargin: "300px 0px", threshold: 0.01 },
-      );
-      observer.observe(container);
-    }
+      const hasCreative = Boolean(ad.querySelector("iframe"));
+      setAdState(ad.dataset.adStatus === "filled" || hasCreative ? "filled" : "empty");
+    }, isLocalPreview ? 300 : 6000);
 
     return () => {
-      observer?.disconnect();
-      if (ownsFormat && activeMoneytizerContainers.get(moneytizerFormat) === container) {
-        activeMoneytizerContainers.delete(moneytizerFormat);
-      }
+      observer.disconnect();
+      window.clearTimeout(timeout);
     };
-  }, [eager, moneytizerFormat]);
+  }, [collapseWhenEmpty, slotId]);
+
+  const hidden = collapseWhenEmpty && adState === "empty";
+  const adStateProps = collapseWhenEmpty
+    ? { "data-ad-state": adState, "aria-hidden": hidden || undefined }
+    : {};
+
+  if (format === "in-article") {
+    return (
+      <div
+        className={`ad-container ad-in-article ${className}`.trim()}
+        style={{ textAlign: "center", margin: hidden ? 0 : "32px 0", maxHeight: hidden ? 0 : undefined, overflow: "hidden" }}
+        {...adStateProps}
+      >
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block", textAlign: "center" }}
+          data-ad-layout="in-article"
+          data-ad-format="fluid"
+          data-ad-client={ADSENSE_CLIENT}
+          data-ad-slot={slotId}
+          ref={adRef}
+        />
+      </div>
+    );
+  }
+
+  if (format === "multiplex") {
+    return (
+      <div
+        className={`ad-container ad-multiplex ${className}`.trim()}
+        style={{ margin: hidden ? 0 : "40px 0", maxHeight: hidden ? 0 : undefined, overflow: "hidden" }}
+        {...adStateProps}
+      >
+        <ins
+          className="adsbygoogle"
+          style={{ display: "block" }}
+          data-ad-format="autorelaxed"
+          data-ad-client={ADSENSE_CLIENT}
+          data-ad-slot={slotId}
+          {...(compactMultiplex ? {
+            "data-matched-content-ui-type": "image_stacked,image_stacked",
+            "data-matched-content-rows-num": "1,1",
+            "data-matched-content-columns-num": "2,4",
+          } : {})}
+          ref={adRef}
+        />
+      </div>
+    );
+  }
 
   return (
     <div
-      ref={containerRef}
-      className={`ad-container moneytizer-ad ${className}`.trim()}
-      aria-label="Publicité"
-      aria-hidden="true"
-    />
+      className={`ad-container ${className}`.trim()}
+      style={{
+        textAlign: "center",
+        margin: hidden ? 0 : "24px 0",
+        minHeight: collapseWhenEmpty ? undefined : "250px",
+        maxHeight: hidden ? 0 : undefined,
+        overflow: "hidden",
+      }}
+      {...adStateProps}
+    >
+      <ins
+        className="adsbygoogle"
+        style={{ display: "block" }}
+        data-ad-client={ADSENSE_CLIENT}
+        data-ad-slot={slotId}
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+        ref={adRef}
+      />
+    </div>
   );
 }

@@ -1,14 +1,9 @@
 import AdBlock from "@/app/components/AdBlock";
 
-const AD_FORMATS_BY_POSITION = new Map<number, "1" | "2" | "19">([
-  [3, "2"],
-  [7, "19"],
-  [12, "1"],
-]);
+const AD_POSITIONS = new Set([10, 20, 30]);
 
 export default function ListAd({ afterCard }: { afterCard: number }) {
-  const moneytizerFormat = AD_FORMATS_BY_POSITION.get(afterCard);
-  if (!moneytizerFormat) return null;
+  if (!AD_POSITIONS.has(afterCard)) return null;
 
   return (
     <div
@@ -18,11 +13,12 @@ export default function ListAd({ afterCard }: { afterCard: number }) {
         width: "100%",
         minWidth: 0,
         gridColumn: "1 / -1",
-        display: "grid",
-        placeItems: "center",
       }}
     >
-      <AdBlock moneytizerFormat={moneytizerFormat} />
+      <AdBlock
+        format={afterCard === 10 ? "in-article" : "display"}
+        collapseWhenEmpty
+      />
     </div>
   );
 }

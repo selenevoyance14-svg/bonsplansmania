@@ -3904,21 +3904,19 @@ body {
 
 .bpm-card-h:hover .bpm-card-h-cta { gap: 8px; }
 
-.moneytizer-ad {
-  width: 100%;
-  min-height: 1px;
-  min-width: 0;
-  margin: 24px auto;
-  overflow: hidden;
-  text-align: center;
+/* AdSense marque officiellement les unités sans annonce avec data-ad-status.
+   Leur conteneur disparaît pour ne laisser ni marge ni espace vide. */
+.ad-container:has(> ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
 }
 
-.moneytizer-article-ad {
-  clear: both;
-  display: grid;
-  place-items: center;
-  margin: 30px auto;
-  scroll-margin-top: 96px;
+.bpm-list-ad:has(.ad-container[data-ad-state="empty"]),
+.bpm-list-ad:has(ins.adsbygoogle[data-ad-status="unfilled"]) {
+  display: none !important;
+}
+
+ins.adsbygoogle[data-ad-status="unfilled"] {
+  display: none !important;
 }
 
 /* CTA color per category (reuse footer colors) */

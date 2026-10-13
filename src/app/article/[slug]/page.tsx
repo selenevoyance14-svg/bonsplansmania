@@ -457,6 +457,10 @@ export default async function ArticlePage({ params }: PageProps) {
               )}
             </div>
 
+            <div className="ad-mobile-only" style={{ display: "none" }}>
+              <AdBlock collapseWhenEmpty />
+            </div>
+
             <div className="article-hero-image" style={{ position: "relative", width: "100%", minHeight: "clamp(260px, 45vw, 450px)", background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
               {article.meta.amazonAsin ? (
                 <AmazonProductImage
@@ -477,6 +481,8 @@ export default async function ArticlePage({ params }: PageProps) {
               <AmazonLiveOffer asin={article.meta.amazonAsin} affiliateUrl={affiliateUrl} />
             )}
 
+            <AdBlock className="ad-desktop-only" collapseWhenEmpty />
+
             {/* Cross-sell PREMIUM en haut pour les articles freebies (concours / test-gratuit)
                 qui ne génèrent pas de revenu direct : on capte le visiteur AVANT qu'il clique
                 "Participer" en lui montrant nos vrais bons plans rémunérateurs (Awin, Igraal). */}
@@ -486,17 +492,13 @@ export default async function ArticlePage({ params }: PageProps) {
               {articleIntroduction && (
                 <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleIntroduction, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image) }} />
               )}
-              {/* Le premier encart est demandé seulement lorsque le lecteur a
-                  passé l'introduction, au lieu de charger sous la hero dès l'arrivée. */}
-              <AdBlock moneytizerFormat="2" className="moneytizer-article-ad" />
+              <AdBlock format="in-article" collapseWhenEmpty />
               {articleMainFirst && (
                 <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleMainFirst, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image, introductionH2Count) }} />
               )}
               {articleMainRest && (
                 <>
-                  {/* Second encart uniquement sur les articles assez longs pour
-                      disposer d'au moins trois sections éditoriales. */}
-                  <AdBlock moneytizerFormat="19" className="moneytizer-article-ad" />
+                  <AdBlock format="in-article" collapseWhenEmpty />
                   <div dangerouslySetInnerHTML={{ __html: renderMarkdown(articleMainRest, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateUrl : undefined, affiliateUrl !== "#" && !isFreebieCategory && !isExpired ? affiliateLabel : undefined, article.meta.image, introductionH2Count + mainFirstH2Count) }} />
                 </>
               )}
@@ -524,6 +526,8 @@ export default async function ArticlePage({ params }: PageProps) {
             )}
 
             <NewsletterInline />
+
+            <AdBlock collapseWhenEmpty />
 
             <ArticleComments articleSlug={slug} articleTitle={article.meta.title} />
 
@@ -606,8 +610,7 @@ export default async function ArticlePage({ params }: PageProps) {
           {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
           {article.meta.category === "concours" && <IgraalConcoursCTA />}
 
-          {/* Interstitiel Moneytizer réservé aux concours et tests produits gratuits. */}
-          {isFreebieCategory && <AdBlock moneytizerFormat="15" />}
+          <AdBlock format="multiplex" compactMultiplex collapseWhenEmpty />
 
           {/* Navigation séquentielle prev/next dans la même catégorie — renforce le maillage SEO chronologique */}
           {(prevArticle || nextArticle) && (
