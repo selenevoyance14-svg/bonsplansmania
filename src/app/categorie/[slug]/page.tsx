@@ -269,7 +269,11 @@ export default async function CategoryPage({ params }: PageProps) {
             ) : useAdventFilter ? (
               <BrandFilter articles={cards} brands={[]} productTypes={ADVENT_CALENDAR_UNIVERSES} />
             ) : useSortOnlyFilter ? (
-              <BrandFilter articles={cards} brands={[]} />
+              <BrandFilter
+                articles={cards}
+                brands={[]}
+                adEvery={["concours", "test-produit", "test-gratuit", "test-avis"].includes(slug) ? 4 : undefined}
+              />
             ) : (
               <LoadMoreGrid articles={cards} />
             )}

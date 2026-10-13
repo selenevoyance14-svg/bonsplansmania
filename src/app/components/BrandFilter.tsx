@@ -84,7 +84,7 @@ function getSortablePrice(article: ArticleListItem): number | undefined {
 
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
 
-export default function BrandFilter({ articles, brands, productTypes = [], sortBrandsBy = "count" }: { articles: ArticleListItem[]; brands: BrandDef[]; productTypes?: ProductTypeDef[]; sortBrandsBy?: "count" | "alpha" }) {
+export default function BrandFilter({ articles, brands, productTypes = [], sortBrandsBy = "count", adEvery }: { articles: ArticleListItem[]; brands: BrandDef[]; productTypes?: ProductTypeDef[]; sortBrandsBy?: "count" | "alpha"; adEvery?: number }) {
   const [visible, setVisible] = useState(PER_PAGE);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [selectedProductType, setSelectedProductType] = useState<string>("");
@@ -446,7 +446,7 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
                       </div>
                     </div>
                   </article>
-                  <ListAd afterCard={index + 1} />
+                  <ListAd afterCard={index + 1} every={adEvery} />
                 </Fragment>
               );
             })}

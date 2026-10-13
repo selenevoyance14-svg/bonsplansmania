@@ -1,9 +1,19 @@
 import AdBlock from "@/app/components/AdBlock";
 
-const AD_POSITIONS = new Set([10, 20, 30]);
+const DEFAULT_AD_POSITIONS = new Set([10, 20, 30]);
 
-export default function ListAd({ afterCard }: { afterCard: number }) {
-  if (!AD_POSITIONS.has(afterCard)) return null;
+export default function ListAd({
+  afterCard,
+  every,
+}: {
+  afterCard: number;
+  every?: number;
+}) {
+  const shouldShow = every
+    ? afterCard > 0 && afterCard % every === 0
+    : DEFAULT_AD_POSITIONS.has(afterCard);
+
+  if (!shouldShow) return null;
 
   return (
     <div
@@ -16,7 +26,7 @@ export default function ListAd({ afterCard }: { afterCard: number }) {
       }}
     >
       <AdBlock
-        format={afterCard === 10 ? "in-article" : "display"}
+        format={every !== undefined || afterCard === 10 ? "in-article" : "display"}
         collapseWhenEmpty
       />
     </div>
