@@ -598,11 +598,11 @@ export const COMMUNITY_PRODUCTS: CommunityProduct[] = [
     seoTitle: "Chanel Rouge Coco Crush édition limitée : avis et prix",
     seoDescription: "Rouge Coco Chanel édition limitée Crush 3,5 g à 56,90 € : teinte, texture fondante, raisin gravé, points forts et avis.",
     offers: [{
-      merchant: "Beauty Success",
+      merchant: "Chanel",
       note: "Teinte Crush · rouge à lèvres édition limitée 3,5 g",
       price: "56,90 €",
       checkedAt: "2026-09-02",
-      href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fmaquillage-chanel-rouge-coco-edition-limitee-rouge-a-levres-femme-184419a185",
+      href: "https://www.chanel.com/fr/maquillage/p/153165/rouge-coco-crush-le-rouge-satine-soin-hydratant-et-lissant-longue-tenue/",
     }],
   },
   {
