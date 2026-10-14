@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 14 Oct 2026 09:44:56 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 14 Oct 2026 12:18:53 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Philips SENSEO Vibe à 79,99 € : la machine compacte baisse de 20 €</title>
@@ -42,6 +42,15 @@
       <description>Huit brosses à dents électriques Philips Sonicare sont en promotion sur Amazon dès 47,99 €, avec jusqu’à 52 % de remise sur la DiamondClean Smart 9400.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-philips-sonicare-diamondclean-smart-9400-hx9918-89-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>6 coffrets Florame à moins de 15 € : les petits cadeaux de Noël qui font plaisir</title>
+      <link>https://bonsplansmania.fr/article/coffrets-florame-noel-moins-15-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/coffrets-florame-noel-moins-15-euros-2026</guid>
+      <pubDate>Wed, 14 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Six idées cadeaux Florame à moins de 15 € pour Noël : duos mains et lèvres dès 9,03 € et coffret diffusion Douceurs de Noël à 12,90 €.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/florame-coffrets-noel-moins-15-euros-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Concours Journée du Chausson : 800 € de cartes cadeaux spa à gagner</title>
@@ -447,15 +456,6 @@
       <description>Garancia et EPISOD offrent à une personne un lot beauté et sport de 520,79 €, comprenant des soins Garancia et 10 séances EPISOD.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-garancia-episod-lot-520-euros-octobre-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Jeu Intermarché : 100 000 cartes carburant de 20 € à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-intermarche-application-100000-cartes-carburant-20-euros-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-intermarche-application-100000-cartes-carburant-20-euros-2026</guid>
-      <pubDate>Mon, 12 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Participez chaque semaine dans l’application Intermarché pour tenter de gagner l’une des 100 000 cartes carburant de 20 €, du 10 octobre au 6 novembre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-intermarche-application-cartes-carburant-20-euros-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
