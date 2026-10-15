@@ -92,7 +92,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
   { id: "miin-back-to-school-15-aout-septembre-2026", brandSlug: "miin-cosmetics", type: "code", value: "-15 %", valueLabel: "DÈS 49 €", title: "15 % de réduction dès 49 € d'achat pour la rentrée", code: "BACK15MIIN", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&campaign=&ued=https%3A%2F%2Fmiin-cosmetics.fr%2Fcontent%2F190-vuelta-a-la-rutina", starts: "2026-08-20", expires: "2026-09-12", conditions: "Promotion valable du 20 août au 12 septembre 2026 à 23 h 59 (heure de France métropolitaine), sur les commandes passées via le site web ou l'application MiiN Cosmetics, dans la limite des stocks disponibles. Réduction de 15 % dès 49 € d'achat avec le code BACK15MIIN. Offre non cumulable avec d'autres offres ou réductions, à l'exception du programme de fidélité MiiN Club.", featured: true },
   { id: "clarins-welcome20", brandSlug: "clarins", type: "code", value: "-20 %", valueLabel: "+ CADEAUX", title: "20 % sur la première commande + une trousse et deux essentiels beauté dès 60 €", code: "WELCOME20", conditions: "Offre communiquée par Clarins le 13 août 2026. Réservée à la première commande. Une trousse et deux essentiels beauté sont annoncés dès 60 € d'achat, selon les conditions et stocks disponibles. Aucune date de fin précise n'a été communiquée ; vérifier l'application au panier.", featured: true },
-  { id: "clarins-journees-privileges-30", brandSlug: "clarins", type: "offre", value: "-30 %", valueLabel: "SANS MINIMUM", title: "Journées Privilèges : -30 % sur tout le site", affiliateUrl: "https://fnty.co/c/r-UPEIBQIo", conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.", featured: true },
+  { id: "clarins-app30-octobre-2026", brandSlug: "clarins", type: "code", value: "-30 %", valueLabel: "DANS L’APPLICATION", title: "30 % de réduction sur toute commande dans l’application Clarins", code: "APP30", starts: "2026-10-15", expires: "2026-10-20", conditions: "Offre valable du 15 au 20 octobre 2026 inclus, uniquement pour les commandes passées dans l’application Clarins avec le code APP30. Vérifier les produits éligibles, les éventuelles exclusions et l’application de la remise avant le paiement.", featured: true },
   // ZIGBUY — codes communiqués le 22 septembre 2026, sans date de fin annoncée
   { id: "zigbuy-zbfr2601-septembre-2026", brandSlug: "zigbuy", type: "code", value: "120 €", valueLabel: "DÈS 2 000 €", title: "120 € de réduction dès 2 000 € d’achat chez Zigbuy", code: "ZBFR2601", affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=", conditions: "120 € de remise dès 2 000 € d’achat avec le code ZBFR2601. Date de fin non communiquée ; vérifier l’application du code, les produits éligibles et le montant final dans le panier.", featured: true },
   { id: "zigbuy-zbfr2602-septembre-2026", brandSlug: "zigbuy", type: "code", value: "70 €", valueLabel: "DÈS 1 000 €", title: "70 € de réduction dès 1 000 € d’achat chez Zigbuy", code: "ZBFR2602", affiliateUrl: "https://ttanalytics.zigbuy.fr/c?c=40833&m=12&a=511692&r=&u=", conditions: "70 € de remise dès 1 000 € d’achat avec le code ZBFR2602. Date de fin non communiquée ; vérifier l’application du code, les produits éligibles et le montant final dans le panier.", featured: true },
@@ -1325,21 +1325,6 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     code: "BSBEAUTY30",
     expires: "2026-08-30",
     conditions: "Offre valable du 06/07/2026 au 30/08/2026, une fois par personne, sur beautysuccess.fr et parfumeries participantes. Hors marques points rouges et petit prix. Non cumulable avec produits déjà remisés.",
-    featured: true,
-  },
-
-  // ============================================================
-  // CLARINS
-  // ============================================================
-  {
-    id: "clarins-journees-privileges-30",
-    brandSlug: "clarins",
-    type: "offre",
-    value: "-30 %",
-    valueLabel: "SANS MINIMUM",
-    title: "Journées Privilèges : -30 % sur tout le site",
-    affiliateUrl: "https://fnty.co/c/r-UPEIBQIo",
-    conditions: "Journées Privilèges Clarins : -30 % sans minimum d'achat sur tout le site, sous réserve des exclusions indiquées par Clarins. Vérifier la remise et sa date de fin dans le panier.",
     featured: true,
   },
 
@@ -3160,6 +3145,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     permanent: true,
     conditions: "Les services, produits, prix et avantages disponibles peuvent évoluer. Vérifier les conditions affichées par IOMA Paris avant de commander.",
     affiliateUrl: "https://www.awin1.com/cread.php?awinmid=26447&awinaffid=990397&ued=https%3A%2F%2Fioma-paris.com%2F",
+    featured: true,
+  },
+  {
+    id: "isinwheel-bf8-octobre-novembre-2026",
+    brandSlug: "isinwheel",
+    type: "code",
+    value: "-8 %",
+    valueLabel: "TOUTES COMMANDES",
+    title: "8 % de réduction sur toutes les commandes iSinwheel",
+    code: "BF8%",
+    starts: "2026-10-19",
+    expires: "2026-11-30",
+    conditions: "Offre valable du 19 octobre au 30 novembre 2026 inclus (heure de Paris), sur toutes les commandes iSinwheel avec le code BF8%. Saisir le code exactement comme indiqué, signe % compris, puis vérifier l'application de la remise avant le paiement.",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=59757&awinaffid=990397&ued=https%3A%2F%2Fwww.isinwheel.fr%2F",
     featured: true,
   },
   {

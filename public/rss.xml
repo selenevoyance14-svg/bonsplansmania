@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 15 Oct 2026 11:57:50 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 14:03:58 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Cercle Nubiance : devenez ambassadrice et testez des soins gratuitement</title>
+      <link>https://bonsplansmania.fr/article/cercle-nubiance-programme-ambassadrice-tests-produits-gratuits-2026</link>
+      <guid>https://bonsplansmania.fr/article/cercle-nubiance-programme-ambassadrice-tests-produits-gratuits-2026</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Rejoignez le Cercle Nubiance pour candidater aux campagnes de tests, recevoir des soins à domicile et partager un avis sincère sur les produits testés.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/cercle-nubiance-programme-ambassadrice-test-produit-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
     <item>
       <title>Concours Fnac Noël Kids : gagnez votre wishlist de jouets</title>
       <link>https://bonsplansmania.fr/article/concours-fnac-wishlist-noel-kids-jouets-cartes-cadeaux-2026</link>
@@ -60,6 +69,15 @@
       <description>Cattier recherche 15 ambassadeurs pour tester gratuitement sa nouvelle routine double nettoyage et partager une vidéo sur les réseaux sociaux.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-cattier-routine-double-nettoyage-15-ambassadeurs-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test Kalios avec Veepee : 20 ambassadeurs recherchés</title>
+      <link>https://bonsplansmania.fr/article/test-produit-kalios-veepee-20-ambassadeurs-octobre-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-kalios-veepee-20-ambassadeurs-octobre-2026</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Le Club Veepee recherche 20 membres pour tester une sélection de produits grecs Kalios. Sélection le 23 octobre et résultats le 26 octobre 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-kalios-veepee-20-ambassadeurs-octobre-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Bébé Boutik jusqu’à -85 % : Éveil &amp; Nature, Vilac et Lilliputiens en promo</title>
@@ -438,24 +456,6 @@
       <description>GUM recherche 10 ambassadeurs TikTok pour tester gratuitement le coffret SONIC SENSITIVE spécial Nomade et publier une vidéo entre novembre et décembre.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gum-sonic-sensitive-nomade-tiktok-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Test Payot : tentez de recevoir la Crème Cachemire 15 ml</title>
-      <link>https://bonsplansmania.fr/article/test-produit-payot-creme-cachemire-apaisante-15ml-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-payot-creme-cachemire-apaisante-15ml-2026</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Le Club des Testeuses Payot propose de tenter de recevoir gratuitement une miniature de 15 ml de la Crème Cachemire Apaisante pour peau sensible.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-payot-creme-cachemire-apaisante-15ml-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Test I Love Kéfir : 1 200 ambassadeurs recherchés</title>
-      <link>https://bonsplansmania.fr/article/test-produit-sampleo-i-love-kefir-1200-ambassadeurs-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-sampleo-i-love-kefir-1200-ambassadeurs-2026</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Sampleo recherche 1 200 ambassadeurs pour découvrir gratuitement la gamme I Love Kéfir à boire ou à la cuillère grâce à un bon d'achat intégral.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/sampleo-i-love-kefir-gamme-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
