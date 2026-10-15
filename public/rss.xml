@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 15 Oct 2026 14:03:58 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 14:25:58 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Cercle Nubiance : devenez ambassadrice et testez des soins gratuitement</title>
@@ -51,6 +51,15 @@
       <description>OUATE fait gagner 12 flacons de Ma Chantilly Lavante 250 ml, soit un an de soins lavants pour enfant d’une valeur totale de 178,80 €.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-ouate-1-an-chantilly-lavante-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Prozis jusqu’à -50 % : whey à 34 €, snacks dès 2 € et 1 acheté = 1 offert</title>
+      <link>https://bonsplansmania.fr/article/offres-prozis-15-octobre-2026-jusqu-a-50-pourcent</link>
+      <guid>https://bonsplansmania.fr/article/offres-prozis-15-octobre-2026-jusqu-a-50-pourcent</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Les offres Prozis du 15 octobre 2026 : whey hydrolysée à 34 €, snacks dès 2 €, pâte d’amande à 3,50 € et deux lots de barres en 1 acheté = 1 offert. Code BONSMANIA : -10 %.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/prozis-offres-15-octobre-2026-cacahuetes-chocolat-noir.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Test produit Cattier : 15 routines hydratation à découvrir</title>
@@ -447,15 +456,6 @@
       <description>GUM recherche 10 ambassadeurs Instagram pour tester gratuitement le coffret de Noël SONIC SENSITIVE et publier du contenu entre novembre et décembre.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gum-sonic-sensitive-noel-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Test GUM SONIC SENSITIVE Nomade : 10 coffrets à recevoir</title>
-      <link>https://bonsplansmania.fr/article/test-produit-gum-sonic-sensitive-coffret-nomade-tiktok-10-ambassadeurs-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-gum-sonic-sensitive-coffret-nomade-tiktok-10-ambassadeurs-2026</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-      <description>GUM recherche 10 ambassadeurs TikTok pour tester gratuitement le coffret SONIC SENSITIVE spécial Nomade et publier une vidéo entre novembre et décembre.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gum-sonic-sensitive-nomade-tiktok-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
