@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 15 Oct 2026 17:21:59 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 15 Oct 2026 19:04:27 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>SEB Multi Délices Express à 114,99 € : le coupon Amazon fait baisser la yaourtière 12 pots</title>
@@ -69,6 +69,15 @@
       <description>Les offres Prozis du 15 octobre 2026 : whey hydrolysée à 34 €, snacks dès 2 €, pâte d’amande à 3,50 € et deux lots de barres en 1 acheté = 1 offert. Code BONSMANIA : -10 %.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-prozis-bonsmania-10-pourcent-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>PLAYMOBIL : 2 jouets achetés, le 3e remboursé à 100 %</title>
+      <link>https://bonsplansmania.fr/article/operation-playmobil-2026-3eme-jouet-rembourse-cdiscount</link>
+      <guid>https://bonsplansmania.fr/article/operation-playmobil-2026-3eme-jouet-rembourse-cdiscount</guid>
+      <pubDate>Thu, 15 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Du 1er octobre au 23 novembre 2026, achetez simultanément 3 jouets PLAYMOBIL et obtenez le remboursement intégral du moins cher. Deux calendriers de l’Avent dès 21,11 € chez Cdiscount.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/cdiscount-playmobil-71952-calendrier-avent-patisserie-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Test produit Cattier : 15 routines hydratation à découvrir</title>
@@ -447,15 +456,6 @@
       <description>GUM recherche 10 ambassadeurs Instagram pour recevoir et tester gratuitement le coffret SONIC DAILY spécial Nomade, puis publier une vidéo.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gum-sonic-daily-nomade-instagram-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Test GUM SONIC SENSITIVE : 10 coffrets de Noël à recevoir</title>
-      <link>https://bonsplansmania.fr/article/test-produit-gum-sonic-sensitive-coffret-noel-10-ambassadeurs-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-gum-sonic-sensitive-coffret-noel-10-ambassadeurs-2026</guid>
-      <pubDate>Tue, 13 Oct 2026 00:00:00 GMT</pubDate>
-      <description>GUM recherche 10 ambassadeurs Instagram pour tester gratuitement le coffret de Noël SONIC SENSITIVE et publier du contenu entre novembre et décembre.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-gum-sonic-sensitive-noel-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
