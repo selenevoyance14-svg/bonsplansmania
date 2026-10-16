@@ -1,9 +1,15 @@
-// Génère functions/data/affiliate-mapping.json à partir des frontmatters MDX + codes promo permanents.
+// Génère functions/data/affiliate-mapping.json à partir des frontmatters MDX,
+// des offres de la page codes promo et des codes promo permanents.
 // Le mapping est lu côté serveur par functions/go/[slug].ts pour rediriger sans exposer le lien affilié dans le HTML.
 
 import fs from "node:fs";
 import path from "node:path";
 import matter from "gray-matter";
+import {
+  CODE_PROMO_OFFERS,
+  getOfferAffiliateAlias,
+  getOfferDestinationUrl,
+} from "../src/lib/code-promo-offers";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
 const PERMANENTS_DATA = path.join(process.cwd(), "src", "lib", "codes-permanents-data.ts");
@@ -99,9 +105,36 @@ function collectPermanentCodes(mapping: Record<string, Row>): number {
   return count;
 }
 
+function collectCodePromoOffers(mapping: Record<string, Row>): number {
+  let count = 0;
+  const uniqueOffers = new Map(
+    CODE_PROMO_OFFERS.map((offer) => [getOfferAffiliateAlias(offer), offer]),
+  );
+
+  for (const [alias, offer] of uniqueOffers) {
+    const url = getOfferDestinationUrl(offer).trim();
+    if (!/^https?:\/\//i.test(url)) continue;
+    if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(alias)) {
+      throw new Error(`[affiliate-mapping] Alias code promo invalide : ${alias}`);
+    }
+    if (mapping[alias]) {
+      throw new Error(`[affiliate-mapping] Alias code promo déjà utilisé : ${alias}`);
+    }
+
+    mapping[alias] = {
+      url: secureAmazonAffiliateUrl(url),
+      label: offer.title,
+    };
+    count++;
+  }
+
+  return count;
+}
+
 function main() {
   const mapping: Record<string, Row> = {};
   const mdxCount = collectMdx(mapping);
+  const offerCount = collectCodePromoOffers(mapping);
   const codeCount = collectPermanentCodes(mapping);
   const entryCount = Object.keys(mapping).length;
 
@@ -109,7 +142,7 @@ function main() {
   fs.writeFileSync(OUT_FILE, JSON.stringify(mapping, null, 0));
 
   console.log(
-    `[affiliate-mapping] ${mdxCount} fichiers MDX + ${codeCount} codes permanents = ${entryCount} entrées écrites dans ${path.relative(process.cwd(), OUT_FILE)}`,
+    `[affiliate-mapping] ${mdxCount} fichiers MDX + ${offerCount} offres codes promo + ${codeCount} codes permanents = ${entryCount} entrées écrites dans ${path.relative(process.cwd(), OUT_FILE)}`,
   );
 }
 

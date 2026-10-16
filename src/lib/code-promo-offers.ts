@@ -81,6 +81,66 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "bears-with-benefits-newsletter-15", brandSlug: "bears-with-benefits", type: "newsletter", value: "-15 %", valueLabel: "NEWSLETTER", title: "15 % de réduction avec l'inscription à la newsletter", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", permanent: true, conditions: "Avantage proposé après inscription à la newsletter Bears with Benefits. Code envoyé par e-mail. Vérifier sa durée de validité, les exclusions et le cumul avec les promotions en cours avant de commander.", featured: true },
   { id: "igraal-parrainage-15-aout-2026", brandSlug: "igraal", brandName: "iGraal", type: "parrainage", value: "15 €", valueLabel: "PARRAIN + FILLEUL", title: "15 € pour le filleul et 15 € pour le parrain", starts: "2026-08-24", expires: "2026-08-27", affiliateUrl: "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=raf&utm_source=refer_premium", conditions: "Inscription via un lien de parrainage du 24 au 27 août 2026. Le filleul doit réaliser un achat éligible d'au moins 10 € TTC dans les 90 jours et atteindre au moins 1 € de cashback validé dans les 365 jours. Le bonus est validé après validation du cashback. Auto-parrainage interdit. Dès trois filleuls obtenus pendant l'opération, le parrain participe au tirage au sort permettant à dix gagnants de recevoir 100 € sur leur cagnotte.", featured: true },
   {
+    id: "miin-cosmetics-25-tout-site-octobre-2026",
+    brandSlug: "miin-cosmetics",
+    type: "offre",
+    value: "-25 %",
+    valueLabel: "SUR TOUT LE SITE",
+    title: "25 % de réduction sur tout le site MiiN Cosmetics",
+    starts: "2026-10-16",
+    expires: "2026-10-18",
+    affiliateUrl: "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&ued=https%3A%2F%2Fmiin-cosmetics.fr%2F",
+    conditions: "Offre annoncée jusqu’au 18 octobre 2026 sur le site MiiN Cosmetics. Aucun code n’a été communiqué : vérifier que la remise de 25 % s’affiche directement sur les produits et dans le panier, ainsi que les éventuelles exclusions et le cumul avec les autres avantages.",
+    featured: true,
+  },
+  {
+    id: "miin-cosmetics-halloween-20-octobre-novembre-2026",
+    brandSlug: "miin-cosmetics",
+    type: "offre",
+    value: "-20 %",
+    valueLabel: "SÉLECTION HALLOWEEN",
+    title: "20 % de réduction sur une sélection de produits pour Halloween",
+    starts: "2026-10-26",
+    expires: "2026-11-01",
+    conditions: "Promotion Halloween annoncée du 26 octobre 2026 à 00 h 01 au 1er novembre 2026 à 23 h 59. Remise de 20 % sur une sélection de produits MiiN Cosmetics. Vérifier les références participantes, le prix remisé et les éventuelles exclusions avant le paiement.",
+    featured: true,
+  },
+  {
+    id: "miin-cosmetics-best-sellers-15-octobre-2026",
+    brandSlug: "miin-cosmetics",
+    type: "offre",
+    value: "-15 %",
+    valueLabel: "MARQUES POPULAIRES",
+    title: "15 % de réduction sur les marques les plus populaires",
+    starts: "2026-10-19",
+    expires: "2026-10-25",
+    conditions: "Offre annoncée du 19 octobre 2026 à 00 h 01 au 25 octobre 2026 à 23 h 59 sur une sélection de best-sellers, notamment Medicube, SEOUL 1988, Arencia et mixsoon. Vérifier les marques et produits éligibles ainsi que le prix final dans le panier.",
+    featured: true,
+  },
+  {
+    id: "miin-cosmetics-essentiels-coreens-10-juillet-octobre-2026",
+    brandSlug: "miin-cosmetics",
+    type: "offre",
+    value: "-10 %",
+    valueLabel: "ESSENTIELS K-BEAUTY",
+    title: "10 % de réduction sur une sélection d’essentiels coréens",
+    starts: "2026-07-20",
+    expires: "2026-10-31",
+    conditions: "Offre active jusqu’au 31 octobre 2026 à 23 h 59 sur une sélection d’essentiels K-beauty. La remise ne concerne pas nécessairement tout le catalogue : vérifier les produits participants et le prix final avant de commander.",
+    featured: true,
+  },
+  {
+    id: "miin-cosmetics-newsletter-10",
+    brandSlug: "miin-cosmetics",
+    type: "newsletter",
+    value: "-10 %",
+    valueLabel: "NEWSLETTER",
+    title: "10 % de réduction après inscription à la newsletter",
+    permanent: true,
+    conditions: "Avantage annoncé après inscription à la newsletter MiiN Cosmetics. Vérifier dans l’e-mail reçu la durée de validité, le minimum d’achat, les exclusions et le cumul éventuel avec les promotions en cours.",
+    featured: true,
+  },
+  {
     id: "miin-rated-green-20-plus-5-octobre-2026",
     brandSlug: "miin-cosmetics",
     type: "code",
@@ -1788,17 +1848,17 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // BIOTYFULL BOX — offre exclusive 6 routines 13 € + baseline
+  // BIOTYFULL BOX — offre exclusive vérifiée le 16 octobre 2026 + baseline
   // ============================================================
   {
-    id: "biotyfull-box-6-routines-13",
+    id: "biotyfull-box-6-routines-12-octobre-2026",
     brandSlug: "biotyfull-box",
     type: "offre",
-    value: "13 €",
-    valueLabel: "17 PRODUITS",
-    title: "6 nouvelles routines beauté à 13 € (17 produits, valeur 353 €) sans engagement",
-    affiliateUrl: "https://xno.biotyfullbox.fr/?P51362157CD2D1D1&redir=https%3A%2F%2Fpage.biotyfullbox.fr%2F6pour13",
-    conditions: "Offre de bienvenue Biotyfull Box : 6 routines beauté + 17 produits (valeur 353 €) pour 13 € + 6,90 € de livraison en France. Abonnement sans engagement — la box d'août 2026 est facturée 39,90 € sauf résiliation depuis l'espace client avant le 29/07/2026 inclus. 1ères arrivées 1ères servies.",
+    value: "12 €",
+    valueLabel: "16 PRODUITS",
+    title: "6 nouvelles routines beauté à 12 € (valeur annoncée 248 €)",
+    affiliateUrl: "https://xno.biotyfullbox.fr/?P51362157CD2D1D1&redir=https%3A%2F%2Fpage.biotyfullbox.fr%2F6pour12%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",
+    conditions: "Offre vérifiée le 16 octobre 2026 : 6 routines et 16 produits ou accessoires pour 12 €, plus 4,90 € de livraison au premier envoi. Abonnement sans engagement, puis 39,90 € par box tant qu'il reste actif. Pour éviter la box suivante, résiliation depuis l'espace client jusqu'à deux jours avant la fin du mois. Offre limitée aux stocks disponibles.",
     featured: true,
   },
   {
@@ -3855,6 +3915,14 @@ function deduplicateOffers(offers: CodePromoOffer[]): CodePromoOffer[] {
 }
 
 export function getOfferAffiliateUrl(offer: CodePromoOffer): string {
+  return `/go/${getOfferAffiliateAlias(offer)}`;
+}
+
+export function getOfferAffiliateAlias(offer: CodePromoOffer): string {
+  return `code-promo-${offer.brandSlug}-${offer.id}`;
+}
+
+export function getOfferDestinationUrl(offer: CodePromoOffer): string {
   if (offer.affiliateUrl) return offer.affiliateUrl;
   const brand = getBrandBySlug(offer.brandSlug);
   return brand?.affiliateUrl ?? "#";

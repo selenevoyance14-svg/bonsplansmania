@@ -24,7 +24,7 @@ export const BEAUTY_BOXES_2026: BeautyBox2026[] = [
     contents: "6 routines · 16 produits et accessoires",
     commitment: "Abonnement sans engagement, puis 39,90 €/mois sauf résiliation",
     formulas: ["Abonnement", "Sans engagement", "Offre découverte", "Bio et naturel"],
-    checkedAt: "2 octobre 2026",
+    checkedAt: "16 octobre 2026",
     image: "/images/articles/biotyfull-box-6-routines-12-euros-octobre-2026.png",
     imageAlt: "Les six routines Biotyfull Box et leurs seize produits proposés pour 12 euros",
     articleHref: "/article/biotyfull-box-6-routines-13-euros-sans-engagement-juin-2026",
