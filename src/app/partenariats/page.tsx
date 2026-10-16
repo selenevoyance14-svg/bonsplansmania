@@ -1,4 +1,5 @@
 import Header from "@/app/components/Header";
+import Image from "next/image";
 import type { Metadata } from "next";
 import styles from "./page.module.css";
 
@@ -33,11 +34,22 @@ const benefits = [
   },
 ];
 
-const formats = [
+type PartnershipFormat = {
+  label: string;
+  title: string;
+  text: string;
+  image?: string;
+  imageAlt?: string;
+};
+
+const formats: PartnershipFormat[] = [
   {
     label: "Visibilité",
     title: "Partenaire à la une",
-    text: "Une présence visible sur la page d’accueil pour valoriser votre marque ou une offre du moment.",
+    text: "Une mise en avant premium sur la page d’accueil avec votre visuel, une présentation dédiée et un bouton vers votre offre ou votre lien de suivi officiel.",
+    image: "/images/partenariats/exemple-carrefour-jouets-noel-2026.webp",
+    imageAlt:
+      "Exemple de campagne partenaire Carrefour pour une sélection de jouets de Noël",
   },
   {
     label: "Contenu sur mesure",
@@ -139,10 +151,26 @@ export default function Partenariats() {
             </div>
             <div className={styles.formatGrid}>
               {formats.map((format) => (
-                <article className={styles.formatCard} key={format.title}>
-                  <p className={styles.formatLabel}>{format.label}</p>
-                  <h3>{format.title}</h3>
-                  <p>{format.text}</p>
+                <article
+                  className={`${styles.formatCard} ${format.image ? styles.featuredFormatCard : ""}`}
+                  key={format.title}
+                >
+                  {format.image && format.imageAlt ? (
+                    <div className={styles.formatImage}>
+                      <Image
+                        src={format.image}
+                        alt={format.imageAlt}
+                        width={886}
+                        height={1108}
+                        sizes="(max-width: 620px) 100vw, 430px"
+                      />
+                    </div>
+                  ) : null}
+                  <div className={format.image ? styles.formatCardContent : undefined}>
+                    <p className={styles.formatLabel}>{format.label}</p>
+                    <h3>{format.title}</h3>
+                    <p>{format.text}</p>
+                  </div>
                 </article>
               ))}
             </div>

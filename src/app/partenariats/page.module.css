@@ -178,6 +178,7 @@
 
 .benefitCard p,
 .formatCard > p:last-child,
+.formatCardContent > p:last-child,
 .step p,
 .commitmentText p {
   margin: 0;
@@ -217,8 +218,32 @@
   gap: 18px;
 }
 
-.formatCard:last-child {
+.featuredFormatCard {
   grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(280px, 0.78fr) minmax(0, 1.22fr);
+  align-items: center;
+  padding: 0;
+  overflow: hidden;
+}
+
+.formatImage {
+  align-self: stretch;
+  padding: 20px;
+  background: #f8fafc;
+  border-right: 1px solid #e5e7eb;
+}
+
+.formatImage img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-height: 540px;
+  object-fit: contain;
+}
+
+.formatCardContent {
+  padding: 36px;
 }
 
 .formatLabel {
@@ -363,8 +388,24 @@
     grid-template-columns: 1fr;
   }
 
-  .formatCard:last-child {
+  .featuredFormatCard {
     grid-column: auto;
+    grid-template-columns: 1fr;
+  }
+
+  .formatImage {
+    padding: 14px;
+    border-right: 0;
+    border-bottom: 1px solid #e5e7eb;
+  }
+
+  .formatImage img {
+    height: auto;
+    max-height: none;
+  }
+
+  .formatCardContent {
+    padding: 28px;
   }
 
   .topicSection,
