@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 16 Oct 2026 11:51:57 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 16 Oct 2026 12:30:32 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>BIOTYFULL Box à 12 € : 6 routines et 16 produits beauté</title>
@@ -24,6 +24,15 @@
       <description>Le chauffage mural connecté Dreo 2000 W passe de 119,99 € à 109,99 € sur Amazon grâce à un coupon de 10 €, avec télécommande, application et Alexa.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-dreo-chauffage-mural-2000w-coupon-109-99-euros-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Envie de Plus : jusqu’à 40 % remboursés sur vos courses</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-envie-de-plus-bons-reduction-coupons-100-rembourse-mai-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-envie-de-plus-bons-reduction-coupons-100-rembourse-mai-2026</guid>
+      <pubDate>Sun, 10 May 2026 00:00:00 GMT</pubDate>
+      <description>Envie de Plus rembourse une partie de vos achats P&amp;G : jusqu’à 40 % sur certaines offres et un produit offert selon l’opération en cours.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-envie-de-plus-bons-reduction-coupons-100-rembourse-mai-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Monsieur TSHIRT : -40 % sur le 2e article, -70 % sur le 3e</title>
@@ -447,15 +456,6 @@
       <description>Carrefour Drive permet de préparer ses courses en ligne, profiter des promotions et du Club Carrefour, puis retirer son panier sans frais de préparation.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/carrefour-drive-meme-prix-magasin-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Envie de Plus : les produits 100 % satisfait ou remboursé</title>
-      <link>https://bonsplansmania.fr/article/envie-de-plus-satisfait-ou-100-pourcent-rembourse-procter-gamble-2026</link>
-      <guid>https://bonsplansmania.fr/article/envie-de-plus-satisfait-ou-100-pourcent-rembourse-procter-gamble-2026</guid>
-      <pubDate>Thu, 30 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Venus, Satin Care, King C. Gillette et Fixodent : les produits actuellement couverts par la garantie Envie de Plus 100 % satisfait ou remboursé.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/envie-de-plus-satisfait-ou-100-pourcent-rembourse-procter-gamble-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
