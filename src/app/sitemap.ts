@@ -53,7 +53,6 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/guide-gratuit",            priority: 0.4, changeFrequency: "monthly" },
   { path: "/mentions-legales",         priority: 0.2, changeFrequency: "yearly" },
   { path: "/confidentialite",          priority: 0.2, changeFrequency: "yearly" },
-  { path: "/politique-de-confidentialite", priority: 0.2, changeFrequency: "yearly" },
 ];
 
 const CATEGORY_SLUGS = [

@@ -3,6 +3,11 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Politique de confidentialité — Bons Plans Mania",
+  description:
+    "Politique de confidentialité de Bons Plans Mania : données personnelles, cookies, affiliation, publicité et droits RGPD.",
+  alternates: {
+    canonical: "/confidentialite",
+  },
   robots: { index: false },
 };
 
@@ -81,6 +86,7 @@ export default function Confidentialite() {
             <h2 style={{ fontSize: "1.2rem", fontWeight: 700, marginBottom: "12px" }}>Responsable du traitement</h2>
             <p>
               Nathalie Lebrun — Entrepreneur individuel<br />
+              SIRET : 101 331 585 00014<br />
               524 rue de la Tourrache<br />
               83600 Fréjus — France
             </p>
@@ -91,6 +97,7 @@ export default function Confidentialite() {
             <p>
               Pour toute question : <a href="mailto:bonsplansmania@gmail.com" style={{ color: "var(--primary)" }}>bonsplansmania@gmail.com</a>
             </p>
+            <p style={{ marginTop: "12px" }}>Dernière mise à jour : octobre 2026.</p>
           </section>
         </div>
       </main>

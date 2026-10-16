@@ -61,11 +61,11 @@ export default function GuideGratuit() {
               <Gift size={16} /> GUIDE GRATUIT
             </span>
             <h1 style={{ fontSize: "clamp(1.8rem, 4vw, 2.5rem)", fontWeight: 800, lineHeight: 1.2, marginBottom: "16px" }}>
-              100+ sites pour tester des produits gratuits
+              96 liens pour tester des produits gratuitement
             </h1>
             <p style={{ fontSize: "1.1rem", color: "var(--muted-foreground)", maxWidth: "600px", margin: "0 auto" }}>
-              Le guide le plus complet pour recevoir des <strong>produits gratuits</strong> chez vous.
-              Plateformes, programmes de marques, astuces pour être sélectionnée.
+              Un guide pratique qui réunit des <strong>plateformes de tests</strong> et des programmes de marques.
+              Découvrez 10 conseils pour améliorer votre candidature et vos chances d&apos;être sélectionnée.
             </p>
           </div>
 
@@ -75,9 +75,9 @@ export default function GuideGratuit() {
             marginBottom: "48px"
           }}>
             {[
-              { icon: <BookOpen size={22} />, value: "100+", label: "Plateformes listées" },
-              { icon: <Star size={22} />, value: "50+", label: "Marques beauté" },
-              { icon: <Users size={22} />, value: "10", label: "Astuces testées" },
+              { icon: <BookOpen size={22} />, value: "96", label: "Liens uniques recensés" },
+              { icon: <Star size={22} />, value: "26", label: "Grandes plateformes" },
+              { icon: <Users size={22} />, value: "10", label: "Conseils pratiques" },
               { icon: <Gift size={22} />, value: "13", label: "Pages de guide" },
             ].map((stat, i) => (
               <div key={i} style={{
@@ -107,7 +107,7 @@ export default function GuideGratuit() {
                 "7 marques grandes surfaces (L'Oréal, Nivea, Yves Rocher...)",
                 "19 marques bio et naturelles (Weleda, Cattier, Melvita...)",
                 "28 marques soins visage et corps",
-                "10 astuces pour être sélectionnée à chaque fois",
+                "10 conseils pour améliorer votre candidature et vos chances d’être sélectionnée",
                 "Calendrier d'organisation et checklist du profil idéal",
               ].map((item, i) => (
                 <li key={i} style={{ display: "flex", alignItems: "flex-start", gap: "10px" }}>

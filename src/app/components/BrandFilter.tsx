@@ -84,7 +84,23 @@ function getSortablePrice(article: ArticleListItem): number | undefined {
 
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
 
-export default function BrandFilter({ articles, brands, productTypes = [], sortBrandsBy = "count", adEvery }: { articles: ArticleListItem[]; brands: BrandDef[]; productTypes?: ProductTypeDef[]; sortBrandsBy?: "count" | "alpha"; adEvery?: number }) {
+export default function BrandFilter({
+  articles,
+  brands,
+  productTypes = [],
+  productTypeAllLabel = "Tous les produits",
+  productTypeAriaLabel = "Filtrer par type de produit",
+  sortBrandsBy = "count",
+  adEvery,
+}: {
+  articles: ArticleListItem[];
+  brands: BrandDef[];
+  productTypes?: ProductTypeDef[];
+  productTypeAllLabel?: string;
+  productTypeAriaLabel?: string;
+  sortBrandsBy?: "count" | "alpha";
+  adEvery?: number;
+}) {
   const [visible, setVisible] = useState(PER_PAGE);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [selectedProductType, setSelectedProductType] = useState<string>("");
@@ -292,9 +308,9 @@ export default function BrandFilter({ articles, brands, productTypes = [], sortB
               setVisible(PER_PAGE);
             }}
             style={selectedProductType ? activeSelectStyle : selectStyle}
-            aria-label="Filtrer par type de produit"
+            aria-label={productTypeAriaLabel}
           >
-            <option value="">Tous les produits</option>
+            <option value="">{productTypeAllLabel}</option>
             {availableProductTypes.map((productType) => (
               <option key={productType.key} value={productType.key}>
                 {productType.label} ({productType.count})

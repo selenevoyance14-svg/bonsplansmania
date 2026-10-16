@@ -62,6 +62,34 @@ const ADVENT_CALENDAR_UNIVERSES = [
   },
 ];
 
+const CONTEST_MECHANICS = [
+  {
+    key: "instant-gagnant",
+    label: "Instants gagnants",
+    keywords: [],
+  },
+  {
+    key: "tirage-au-sort",
+    label: "Tirages au sort",
+    keywords: [],
+  },
+];
+
+const INSTANT_WIN_PATTERN = /instant(?:s)?[ -]?gagnant(?:s)?|100\s*%\s*gagnant|gagn(?:e|ez|er)[a-zà-ÿ ]{0,20}immédiatement|résultat immédiat|roue gagnante|ticket gagnant|jeu à gratter/i;
+const DRAW_PATTERN = /tirage au sort|tiré(?:e|s|es)? au sort|gagnant(?:e|s|es)? (?:sera|seront) (?:désigné|désignés|sélectionné|sélectionnés)/i;
+
+function getContestMechanics(article: { title: string; description: string; tags?: string[] }): string[] {
+  const searchableText = [article.title, article.description, ...(article.tags || [])].join(" ");
+  const mechanics: string[] = [];
+  if (INSTANT_WIN_PATTERN.test(searchableText)) mechanics.push("instant-gagnant");
+  if (DRAW_PATTERN.test(searchableText)) mechanics.push("tirage-au-sort");
+
+  // La grande majorité des concours classiques se terminent par un tirage.
+  // Quand aucune mécanique instantanée n'est annoncée, ils restent donc
+  // accessibles dans le filtre « Tirages au sort ».
+  return mechanics.length > 0 ? mechanics : ["tirage-au-sort"];
+}
+
 
 export async function generateStaticParams() {
   return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "selection", "concours", "box-beaute", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
@@ -160,13 +188,19 @@ export default async function CategoryPage({ params }: PageProps) {
       price: a.meta.price,
       amazonAsin: a.meta.amazonAsin,
       affiliateUrl: a.meta.affiliateUrl,
-      productTypes: (slug === "calendrier-avent" || slug === "calendrier")
-        ? getAdventCalendarUniverses({
+      productTypes: slug === "concours"
+        ? getContestMechanics({
             title: a.meta.title,
-            slug: a.meta.slug,
+            description: a.meta.description,
             tags: a.meta.tags,
           })
-        : undefined,
+        : (slug === "calendrier-avent" || slug === "calendrier")
+          ? getAdventCalendarUniverses({
+              title: a.meta.title,
+              slug: a.meta.slug,
+              tags: a.meta.tags,
+            })
+          : undefined,
     };
   });
 
@@ -175,8 +209,9 @@ export default async function CategoryPage({ params }: PageProps) {
   const useBoxFilter = slug === "box-beaute";
   const useBonPlanFilter = slug === "bon-plan";
   const useAdventFilter = slug === "calendrier-avent" || slug === "calendrier";
+  const useContestFilter = slug === "concours";
   // Tri seul (sans dropdown marques) pour faciliter le nettoyage des vieilles entrées
-  const useSortOnlyFilter = ["concours", "test-produit", "test-gratuit", "test-avis"].includes(slug);
+  const useSortOnlyFilter = ["test-produit", "test-gratuit", "test-avis"].includes(slug);
 
   return (
     <>
@@ -268,11 +303,20 @@ export default async function CategoryPage({ params }: PageProps) {
               <BrandFilter articles={cards} brands={ALL_DEAL_BRANDS} sortBrandsBy="alpha" />
             ) : useAdventFilter ? (
               <BrandFilter articles={cards} brands={[]} productTypes={ADVENT_CALENDAR_UNIVERSES} />
+            ) : useContestFilter ? (
+              <BrandFilter
+                articles={cards}
+                brands={[]}
+                productTypes={CONTEST_MECHANICS}
+                productTypeAllLabel="Tous les concours"
+                productTypeAriaLabel="Filtrer par type de concours"
+                adEvery={4}
+              />
             ) : useSortOnlyFilter ? (
               <BrandFilter
                 articles={cards}
                 brands={[]}
-                adEvery={["concours", "test-produit", "test-gratuit", "test-avis"].includes(slug) ? 4 : undefined}
+                adEvery={4}
               />
             ) : (
               <LoadMoreGrid articles={cards} />
