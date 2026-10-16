@@ -755,8 +755,8 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
   {
     slug: "monsieur-tshirt",
     name: "Monsieur TSHIRT",
-    affiliateUrl: "https://monsieurtshirt.com/?ae=619",
-    affiliateLabel: "Voir les cadeaux Monsieur TSHIRT",
+    affiliateUrl: "/go/monsieur-tshirt-promotions",
+    affiliateLabel: "Voir les promotions Monsieur TSHIRT",
     matchTags: ["monsieur-tshirt", "monsieur tshirt", "cadeau personnalisé"],
     color: "#111827",
   },
