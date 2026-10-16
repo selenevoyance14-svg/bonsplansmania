@@ -213,7 +213,6 @@ export default async function ArticlePage({ params }: PageProps) {
   const isFreebieCategory = article.meta.category === "concours" || article.meta.category === "test-gratuit";
   const boxComparisonMarker = "<!-- BOX_BEAUTY_COMPARISON -->";
   const boxComparisonSlugs = new Set([
-    "meilleures-box-beaute-2026-comparatif-complet-avis-codes-promo",
     "meilleures-box-beaute-juin-2026-comparatif-biotyfull-glowria-prescription-lab-blissim-avantages",
   ]);
   const hasBoxComparison = boxComparisonSlugs.has(slug) && articleContent.includes(boxComparisonMarker);

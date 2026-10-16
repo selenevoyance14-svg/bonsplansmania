@@ -23,6 +23,12 @@
     "startsAt": "2026-09-30T00:00:00+02:00",
     "endsAt": "2026-11-01T23:59:59+01:00"
   },
+  "carrefour-jouets-noel-20-pourcent-2026": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fr%2Fjeux-jouets%3Ffilters%255BFacet_vendeurs%255D%255B0%255D%3DVendu%2520par%2520Carrefour%26filters%255Bfacet_promotions%255D%255B0%255D%3DAvantage%2520Fid%25C3%25A9lit%25C3%25A9",
+    "label": "Voir les jouets de Noël avec avantage Club Carrefour",
+    "startsAt": "2026-10-16T00:00:00+02:00",
+    "endsAt": "2026-12-24T23:59:59+01:00"
+  },
   "carrefour-hightech": {
     "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fedito%2Fhigh-tech-electromenager",
     "label": "Voir les offres high-tech et électroménager Carrefour"

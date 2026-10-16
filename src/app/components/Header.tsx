@@ -76,14 +76,14 @@ export default function Header({ activePage = "" }: { activePage?: string }) {
             </div>
           ))}
         </nav>
-        <Link className={styles.today} href="/partenariats">Partenariats</Link>
+        <a className={styles.today} href="mailto:bonsplansmania@gmail.com?subject=Proposition%20de%20partenariat">Partenariats</a>
         <button type="button" className={styles.burger} aria-expanded={mobileOpen} aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"} onClick={() => setMobileOpen(!mobileOpen)}><span /><span /><span /></button>
       </div>
       {mobileOpen && (
         <nav className={styles.mobilePanel} aria-label="Navigation mobile">
           <Link href="/">Accueil</Link>
           {menus.map((menu) => <div key={menu.label}><strong>{menu.label}</strong>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>)}
-          <Link href="/code-promo">Codes promo</Link><Link href="/categorie/concours">Concours</Link><Link href="/partenariats">Partenariats</Link>
+          <Link href="/code-promo">Codes promo</Link><Link href="/categorie/concours">Concours</Link><a href="mailto:bonsplansmania@gmail.com?subject=Proposition%20de%20partenariat">Partenariats</a>
         </nav>
       )}
     </header>

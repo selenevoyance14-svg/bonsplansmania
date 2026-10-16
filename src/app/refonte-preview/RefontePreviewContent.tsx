@@ -5,7 +5,6 @@ import { ArrowUpRight, Check, Search, Truck } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired, type Article } from "@/lib/articles";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import ListAd from "@/app/components/ListAd";
-import StickyAdMobile from "@/app/components/StickyAdMobile";
 import Header from "@/app/components/Header";
 import EditorialNewsletter from "./EditorialNewsletter";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
@@ -294,14 +293,6 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
 
             return (
             <Fragment key={article.meta.slug}>
-            {index >= 4 && (index - 4) % 5 === 0 ? (
-              <ListAd
-                afterCard={index}
-                every={5}
-                force
-                ariaLabel={`Publicité avant l'offre ${index + 1}`}
-              />
-            ) : null}
             <article className={index === 0 ? styles.featuredCard : styles.card}>
               <Link href={`/article/${article.meta.slug}`} className={styles.imageWrap}>
                 <AmazonProductImage
@@ -359,6 +350,14 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                 </div>
               </div>
             </article>
+            {(index + 1) % 5 === 0 ? (
+              <ListAd
+                afterCard={index + 1}
+                every={5}
+                force
+                ariaLabel={`Publicité après l'offre ${index + 1}`}
+              />
+            ) : null}
             {currentPage === 1 && index === 3 ? <EditorialNewsletter /> : null}
             {currentPage === 1 && index === 7 ? (
               <aside className={styles.carrefourGuide} aria-labelledby="carrefour-guide-title">
@@ -420,7 +419,6 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
           <span>Certains liens peuvent être affiliés, sans coût supplémentaire pour vous.</span>
         </div>
       </footer>
-      <StickyAdMobile />
     </main>
   );
 }
