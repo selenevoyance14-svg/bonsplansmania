@@ -2,6 +2,7 @@ import { getAllArticles } from "@/lib/articles";
 import { ADVENT_CALENDARS_2026, type AdventCalendar2026 } from "@/lib/advent-calendars-2026";
 
 const EXCLUDED_TERMS = ["comparatif", "jeu concours", "concours", "bière", "biere"];
+const FEATURED_LAST_BRANDS = ["biotyfull box", "glowria"];
 const BRAND_ALIASES: Array<[string, string[]]> = [
   ["Adopt Parfums", ["adopt"]], ["Blissim", ["blissim"]], ["Clarins", ["clarins"]], ["Cottage", ["cottage"]],
   ["Essence", ["essence"]], ["Fleurance Nature", ["fleurance nature", "fleurance-nature"]], ["Labello", ["labello"]], ["L'Occitane", ["l'occitane", "loccitane"]],
@@ -39,6 +40,19 @@ export function getArticleMerchantRedirect(articleHref: string, fallback: string
   return match ? `/go/${match[1]}` : fallback;
 }
 
+export function sortAdventCalendarsForFeatured<T extends AdventCalendar2026>(items: T[]): T[] {
+  return [...items].sort((a, b) => {
+    const aLastIndex = FEATURED_LAST_BRANDS.indexOf(a.brand.toLocaleLowerCase("fr"));
+    const bLastIndex = FEATURED_LAST_BRANDS.indexOf(b.brand.toLocaleLowerCase("fr"));
+    const aRank = aLastIndex === -1 ? 0 : aLastIndex + 1;
+    const bRank = bLastIndex === -1 ? 0 : bLastIndex + 1;
+
+    if (aRank !== bRank) return aRank - bRank;
+    return a.brand.localeCompare(b.brand, "fr", { sensitivity: "base" })
+      || a.name.localeCompare(b.name, "fr", { sensitivity: "base" });
+  });
+}
+
 export function getAdventCalendarCatalog(): AdventCalendar2026[] {
   const curatedHrefs = new Set(ADVENT_CALENDARS_2026.map((item) => item.articleHref));
   const discovered = getAllArticles().flatMap(({ meta }): AdventCalendar2026[] => {
@@ -60,5 +74,5 @@ export function getAdventCalendarCatalog(): AdventCalendar2026[] {
     });
   }
   for (const item of discovered) catalog.set(`${item.articleHref}::${item.name}`, item);
-  return [...catalog.values()].sort((a, b) => a.brand.localeCompare(b.brand, "fr", { sensitivity: "base" }) || a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+  return sortAdventCalendarsForFeatured([...catalog.values()]);
 }
