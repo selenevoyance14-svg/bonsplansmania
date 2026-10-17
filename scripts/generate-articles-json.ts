@@ -142,6 +142,10 @@ function imageMimeType(imagePath: string): string {
   return "image/svg+xml";
 }
 
+function absoluteImageUrl(imagePath: string): string {
+  return /^https?:\/\//i.test(imagePath) ? imagePath : `${SITE_URL}${imagePath}`;
+}
+
 function generateRss(items: ArticleInfo[]): string {
   const rssItems = items.map((a) => `    <item>
       <title>${escapeXml(a.title)}</title>
@@ -150,7 +154,7 @@ function generateRss(items: ArticleInfo[]): string {
       <pubDate>${new Date(a.date).toUTCString()}</pubDate>
       <description>${escapeXml(a.description)}</description>
       <category>${escapeXml(a.category)}</category>
-      <enclosure url="${SITE_URL}${a.image}" type="${imageMimeType(a.image)}" length="0"/>
+      <enclosure url="${escapeXml(absoluteImageUrl(a.image))}" type="${imageMimeType(a.image)}" length="0"/>
     </item>`).join("\n");
 
   return `<?xml version="1.0" encoding="UTF-8"?>
