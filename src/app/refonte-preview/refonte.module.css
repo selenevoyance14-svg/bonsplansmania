@@ -159,7 +159,7 @@
 .partnerFeature { position:relative; flex:1; display:grid; grid-template-columns:minmax(250px,315px) 1fr; align-items:center; gap:clamp(20px,2.5vw,38px); padding:22px; border:1px solid var(--line); background:#fff; overflow:hidden; }
 .partnerFeature>img { width:100%; height:260px; object-fit:contain; background:#fff; }
 .partnerFeature>div { height:200px; display:flex; flex-direction:column; text-align:left; }
-.partnerFeature>div>span { color:#716a64; font-size:10px; font-weight:700; letter-spacing:.1em; text-transform:uppercase; }
+.partnerFeature>div>span { display:inline-flex; align-items:center; width:fit-content; padding:6px 9px; border:1px solid #e5e7e9; border-radius:7px; background:#f4f5f6; color:#686d70; box-shadow:0 1px 2px rgba(25,28,30,.05); font-size:11px; font-weight:700; line-height:1; white-space:nowrap; }
 .partnerFeature h2 { margin:0 0 10px; font:400 36px/1 Georgia,serif; }
 .partnerFeature p { max-width:680px; margin:0; color:#625b55; font-size:14px; line-height:1.65; }
 .partnerFeature a { align-self:flex-start; display:inline-flex; align-items:center; gap:7px; margin:auto 0 0; padding:11px 15px; background:var(--wine); color:#fff; font-size:12px; font-weight:800; white-space:nowrap; }

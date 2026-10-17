@@ -243,7 +243,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
               <>
                 <Image src={FEATURED_PARTNER.imageSrc} alt={FEATURED_PARTNER.imageAlt} width={300} height={220} />
                 <div>
-                  <span>Partenaire à la une</span>
+                  <span>{FEATURED_PARTNER.badge}</span>
                   <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
                   <p>{FEATURED_PARTNER.description}</p>
                   <a
