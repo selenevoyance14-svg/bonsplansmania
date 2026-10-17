@@ -32,7 +32,7 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   id: "carrefour-jouets-noel-20-pourcent-2026",
   brandName: "Carrefour",
   merchant: "carrefour",
-  badge: "PARTENAIRE À LA UNE",
+  badge: "Partenaire à la une",
   title: "Carrefour : jusqu’à 20 % d’économies sur les jouets de Noël",
   description:
     "Préparez Noël avec jusqu’à 20 % d’économies Club Carrefour sur une sélection de jouets participants.",
