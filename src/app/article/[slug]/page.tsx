@@ -14,7 +14,6 @@ import BoxBeautyComparison from "@/app/components/BoxBeautyComparison";
 import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { DEFAULT_OFFER_CTA, shouldHideAmazonPrice } from "@/lib/article-commerce";
-import ArticleComments from "@/app/components/ArticleComments";
 import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 import { extractPriceAmount } from "@/lib/price";
 
@@ -261,7 +260,15 @@ export default async function ArticlePage({ params }: PageProps) {
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
 
   const relatedArticles = getRelatedArticles(slug, article.meta.category, 3, article.meta.tags);
-  const affiliateRecommendations = getAffiliateRecommendations(slug, article.meta.category, article.meta.tags, 3);
+  const relatedArticleSlugs = new Set(relatedArticles.map((related) => related.meta.slug));
+  const affiliateRecommendations = getAffiliateRecommendations(
+    slug,
+    article.meta.category,
+    article.meta.tags,
+    3 + relatedArticles.length,
+  )
+    .filter((recommended) => !relatedArticleSlugs.has(recommended.meta.slug))
+    .slice(0, 3);
   const { prev: prevArticle, next: nextArticle } = getPrevNextArticle(slug, article.meta.category);
 
   const jsonLd = {
@@ -535,8 +542,6 @@ export default async function ArticlePage({ params }: PageProps) {
             <NewsletterInline />
 
             <AdBlock collapseWhenEmpty />
-
-            <ArticleComments articleSlug={slug} articleTitle={article.meta.title} />
 
             {/* Articles connexes AVANT la CTA affilié : si le visiteur ne clique pas sur l'affilié,
                 il doit voir 3 autres articles pertinents avant d'envisager de quitter le site.
