@@ -1,4 +1,6 @@
-import { type ReactNode } from "react";
+"use client";
+
+import { type ReactNode, useEffect, useMemo, useState } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Check } from "lucide-react";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
@@ -34,12 +36,41 @@ function formatDate(date: string) {
 }
 
 export default function CuratedDealsTabs({ groups, featuredCard }: { groups: CuratedDealGroup[]; featuredCard?: ReactNode }) {
-  const activeGroup = groups.find((group) => group.items.length > 0);
+  const availableGroups = useMemo(
+    () => groups.filter((group) => group.items.length > 0),
+    [groups],
+  );
+  const [activeIndex, setActiveIndex] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const activeGroup = availableGroups[activeIndex] ?? availableGroups[0];
+
+  useEffect(() => {
+    if (isPaused || availableGroups.length < 2) return;
+
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
+
+    const interval = window.setInterval(() => {
+      if (document.visibilityState !== "visible") return;
+      setActiveIndex((current) => (current + 1) % availableGroups.length);
+    }, 7_000);
+
+    return () => window.clearInterval(interval);
+  }, [availableGroups.length, isPaused]);
 
   if (!activeGroup) return null;
 
   return (
-    <section className={styles.dealsHub} aria-labelledby="deals-hub-title">
+    <section
+      className={styles.dealsHub}
+      aria-labelledby="deals-hub-title"
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
+      onFocusCapture={() => setIsPaused(true)}
+      onBlurCapture={(event) => {
+        if (!event.currentTarget.contains(event.relatedTarget)) setIsPaused(false);
+      }}
+    >
       <div className={styles.dealsHubTopline}>
         <div>
           <h2 id="deals-hub-title">À ne pas manquer aujourd’hui</h2>
@@ -50,13 +81,15 @@ export default function CuratedDealsTabs({ groups, featuredCard }: { groups: Cur
       </div>
 
       <div
+        key={activeGroup.id}
         id={`deals-panel-${activeGroup.id}`}
         role="region"
-        aria-label="Sélection de bons plans"
+        aria-label={activeGroup.label}
+        aria-live="polite"
         className={styles.dealsPanel}
       >
         <div className={styles.dealsHubGrid}>
-          {featuredCard}
+          {activeGroup.id === "partner" && featuredCard}
           {activeGroup.items.map((article) => {
             const { now, was, savings } = parsePrice(article.price);
             return (
