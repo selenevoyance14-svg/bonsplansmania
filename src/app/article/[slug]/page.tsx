@@ -622,8 +622,6 @@ export default async function ArticlePage({ params }: PageProps) {
           {/* CTA cashback iGraal sur articles concours uniquement (profil concouriste = profil cashback) */}
           {article.meta.category === "concours" && <IgraalConcoursCTA />}
 
-          <AdBlock format="multiplex" compactMultiplex collapseWhenEmpty />
-
           {/* Navigation séquentielle prev/next dans la même catégorie — renforce le maillage SEO chronologique */}
           {(prevArticle || nextArticle) && (
             <nav aria-label="Navigation entre articles" style={{ margin: "32px 0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
