@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sun, 18 Oct 2026 08:19:16 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2026 09:04:46 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>5 coffrets de blocs magnétiques à moins de 15 € sur Amazon</title>
@@ -71,6 +71,15 @@
       <enclosure url="https://m.media-amazon.com/images/I/81mOqis1znL._AC_SL1500_.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>The Ordinary Rétinol 0,2 % à 5,11 € chez Lookfantastic (-40 %)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-lookfantastic-the-ordinary-retinol-0-2-squalane-30ml-juillet-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-lookfantastic-the-ordinary-retinol-0-2-squalane-30ml-juillet-2026</guid>
+      <pubDate>Fri, 04 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Le sérum The Ordinary Rétinol 0,2 % dans du Squalane 30 ml est à 5,11 € au lieu de 8,51 € chez Lookfantastic. Offre et disponibilité vérifiées le 18 octobre 2026.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-lookfantastic-the-ordinary-retinol-0-2-squalane-30ml-juillet-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>LEGO Ideas La Catrina 21372 : 1 212 pièces à 99,78 €</title>
       <link>https://bonsplansmania.fr/article/lego-ideas-la-catrina-21372-1212-pieces-amazon-2026</link>
       <guid>https://bonsplansmania.fr/article/lego-ideas-la-catrina-21372-1212-pieces-amazon-2026</guid>
@@ -78,6 +87,15 @@
       <description>Le LEGO Ideas La Catrina 21372 est disponible à partir de 99,78 € sur Amazon. Ce set pour adultes de 1 212 pièces rend hommage au Día de los Muertos.</description>
       <category>bon-plan</category>
       <enclosure url="https://m.media-amazon.com/images/I/81cjs-30+KL._AC_SL1500_.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test Kiabi Home : recevez et gardez un plaid jaune gaufré</title>
+      <link>https://bonsplansmania.fr/article/test-produit-kiabi-home-plaid-jaune-gaufre-octobre-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-kiabi-home-plaid-jaune-gaufre-octobre-2026</guid>
+      <pubDate>Sun, 18 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Kiabi Community recherche des personnes en France pour tester gratuitement un plaid Kiabi Home jaune gaufré, partager des photos et un avis, puis conserver le produit.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-kiabi-home-plaid-jaune-gaufre-octobre-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>YesStyle : 6 grandes marques K-Beauty jusqu’à -50 % aujourd’hui</title>
@@ -438,24 +456,6 @@
       <description>Participez gratuitement au concours Lisez et tentez de gagner une box Pocket New Horror avec deux romans, deux bougies, des stickers et des surprises.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-lisez-pocket-new-horror-box-livres-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Concours MAE : 800 € en carte cadeau Decathlon à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-mae-securite-routiere-carte-cadeau-decathlon-800-euros-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-mae-securite-routiere-carte-cadeau-decathlon-800-euros-2026</guid>
-      <pubDate>Fri, 16 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Répondez correctement aux 4 questions du quiz Sécurité routière MAE et tentez de gagner une carte cadeau Decathlon dématérialisée de 800 €.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/mae-jeu-concours-securite-routiere-800-euros-cartes-cadeaux-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Glowria : 3 box beauté pour 19,90 € sans engagement</title>
-      <link>https://bonsplansmania.fr/article/glowria-3-box-beaute-24-90-euros-2-offertes-septembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/glowria-3-box-beaute-24-90-euros-2-offertes-septembre-2026</guid>
-      <pubDate>Fri, 11 Sep 2026 00:00:00 GMT</pubDate>
-      <description>L'offre Glowria évolue : 3 box beauté et 15 produits d'une valeur annoncée de 264 € pour 19,90 €, plus 4,90 € de livraison. Abonnement sans engagement.</description>
-      <category>box-beaute</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/glowria-routines-visage-corps-makeup-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
