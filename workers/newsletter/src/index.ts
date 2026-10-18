@@ -419,9 +419,10 @@ async function sendCommunityNotification(
   subject: string,
   heading: string,
   content: string,
-): Promise<void> {
+  storageFallback = false,
+): Promise<boolean> {
   try {
-    await fetch("https://api.resend.com/emails", {
+    const response = await fetch("https://api.resend.com/emails", {
       method: "POST",
       headers: {
         Authorization: `Bearer ${env.RESEND_API_KEY}`,
@@ -437,12 +438,30 @@ async function sendCommunityNotification(
                style="display:inline-block;background:#E63946;color:#fff;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:700">
               Ouvrir la modération
             </a>
-          </p>`,
+          </p>
+          ${storageFallback
+            ? '<p><strong>Stockage temporairement saturé :</strong> cette contribution est sauvegardée dans cet e-mail et devra être traitée manuellement.</p>'
+            : ""}`,
       }),
     });
+    return response.ok;
   } catch {
     // La contribution reste enregistrée même si l'alerte e-mail échoue.
+    return false;
   }
+}
+
+async function storeCommunityContribution(
+  env: Env,
+  key: string,
+  value: string,
+): Promise<boolean> {
+  // Le namespace KV partage un quota quotidien avec les inscriptions, avis et
+  // votes utiles. L'envoi ne doit pas rester bloqué si ce quota est atteint.
+  return Promise.race([
+    env.SUBSCRIBERS.put(key, value).then(() => true).catch(() => false),
+    new Promise<false>((resolve) => setTimeout(() => resolve(false), 2_500)),
+  ]);
 }
 
 async function handleArticleComment(request: Request, env: Env): Promise<Response> {
@@ -481,16 +500,27 @@ async function handleArticleComment(request: Request, env: Env): Promise<Respons
   const stored: StoredArticleComment = {
     id, status: "pending", articleSlug, articleTitle, nickname, email, comment, submittedAt,
   };
-  await env.SUBSCRIBERS.put(`comment:pending:${submittedAt}:${id}`, JSON.stringify(stored));
-  await sendCommunityNotification(
+  const storedInKv = await storeCommunityContribution(
+    env,
+    `comment:pending:${submittedAt}:${id}`,
+    JSON.stringify(stored),
+  );
+  const notified = await sendCommunityNotification(
     env,
     `Nouveau commentaire à valider — ${articleTitle}`,
     "Nouveau commentaire",
     `<p><strong>Article :</strong> ${escapeHtml(articleTitle)}</p>
      <p><strong>Pseudo :</strong> ${escapeHtml(nickname)}</p>
      <p>${escapeHtml(comment).replace(/\n/g, "<br>")}</p>`,
+    !storedInKv,
   );
-  return jsonResponse({ success: true, message: "Commentaire en attente de validation" }, 201);
+  if (!storedInKv && !notified) {
+    return jsonResponse(
+      { error: "Le commentaire n’a pas pu être envoyé. Merci de réessayer dans quelques minutes." },
+      503,
+    );
+  }
+  return jsonResponse({ success: true, stored: storedInKv, message: "Commentaire en attente de validation" }, 201);
 }
 
 async function listArticleComments(env: Env, prefix: string, includeEmail: boolean): Promise<StoredArticleComment[]> {
@@ -545,8 +575,12 @@ async function handleDealTip(request: Request, env: Env): Promise<Response> {
   const submittedAt = new Date().toISOString();
   const id = crypto.randomUUID();
   const tip: StoredDealTip = { id, status: "pending", kind, title, url: submittedUrl, details, nickname, email, submittedAt };
-  await env.SUBSCRIBERS.put(`tip:pending:${submittedAt}:${id}`, JSON.stringify(tip));
-  await sendCommunityNotification(
+  const stored = await storeCommunityContribution(
+    env,
+    `tip:pending:${submittedAt}:${id}`,
+    JSON.stringify(tip),
+  );
+  const notified = await sendCommunityNotification(
     env,
     `Nouveau bon plan proposé — ${title}`,
     "Nouveau bon plan proposé",
@@ -555,8 +589,15 @@ async function handleDealTip(request: Request, env: Env): Promise<Response> {
      <p><strong>Proposé par :</strong> ${escapeHtml(nickname)}</p>
      ${submittedUrl ? `<p><strong>Lien :</strong> ${escapeHtml(submittedUrl)}</p>` : ""}
      <p>${escapeHtml(details).replace(/\n/g, "<br>")}</p>`,
+    !stored,
   );
-  return jsonResponse({ success: true, message: "Proposition bien reçue" }, 201);
+  if (!stored && !notified) {
+    return jsonResponse(
+      { error: "La proposition n’a pas pu être envoyée. Merci de réessayer dans quelques minutes." },
+      503,
+    );
+  }
+  return jsonResponse({ success: true, stored, message: "Proposition bien reçue" }, 201);
 }
 
 async function listDealTips(env: Env): Promise<StoredDealTip[]> {

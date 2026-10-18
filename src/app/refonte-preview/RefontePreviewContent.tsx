@@ -362,9 +362,8 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
             {currentPage === 1 && index === 7 ? (
               <aside className={styles.carrefourGuide} aria-labelledby="carrefour-guide-title">
                 <div>
-                  <small>Guide Carrefour</small>
                   <h2 id="carrefour-guide-title">🛒 Vos produits Carrefour 100% gratuits !</h2>
-                  <p>Économisez sur vos courses et testez gratuitement de grandes marques en magasin grâce au programme officiel <em>MonAvisLeRendGratuit</em>. Découvrez nos astuces et notre guide complet pour en profiter facilement dès aujourd’hui.</p>
+                  <p>Économisez sur vos courses et testez gratuitement de grandes marques en magasin grâce au programme officiel <em>MonAvisLeRendGratuit</em>. Consultez les produits disponibles et les conditions de participation directement sur Carrefour.</p>
                 </div>
                 <a
                   href="https://communaute.carrefour.fr/app/730/channel/tester-des-produits-2238"
