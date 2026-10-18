@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { Search } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import styles from "./EditorialHeader.module.css";
 
@@ -50,15 +51,13 @@ export default function Header({ activePage = "" }: { activePage?: string }) {
     return () => document.removeEventListener("mousedown", close);
   }, []);
 
-  useEffect(() => {
-    setOpenMenu(null);
-    setMobileOpen(false);
-  }, [activePage]);
-
   return (
     <header className={styles.header} ref={headerRef}>
       <div className={styles.inner}>
         <Link href="/" className={styles.logo} aria-label="Bons Plans Mania, accueil">Bons Plans <em>Mania</em></Link>
+        <a className={styles.today} href="mailto:bonsplansmania@gmail.com?subject=Proposition%20de%20partenariat">Partenariats</a>
+      </div>
+      <div className={styles.navBar}>
         <nav className={styles.desktopNav} aria-label="Navigation principale">
           <Link href="/" className={activePage === "/" ? styles.active : ""}>Accueil</Link>
           {menus.slice(0, 2).map((menu) => (
@@ -75,15 +74,17 @@ export default function Header({ activePage = "" }: { activePage?: string }) {
               {openMenu === menu.label && <div className={styles.dropdownPanel}>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>}
             </div>
           ))}
+          <Link href="/recherche" className={styles.searchLink} aria-label="Rechercher sur Bons Plans Mania" title="Rechercher">
+            <Search size={17} aria-hidden="true" />
+          </Link>
         </nav>
-        <a className={styles.today} href="mailto:bonsplansmania@gmail.com?subject=Proposition%20de%20partenariat">Partenariats</a>
         <button type="button" className={styles.burger} aria-expanded={mobileOpen} aria-label={mobileOpen ? "Fermer le menu" : "Ouvrir le menu"} onClick={() => setMobileOpen(!mobileOpen)}><span /><span /><span /></button>
       </div>
       {mobileOpen && (
         <nav className={styles.mobilePanel} aria-label="Navigation mobile">
           <Link href="/">Accueil</Link>
           {menus.map((menu) => <div key={menu.label}><strong>{menu.label}</strong>{menu.links.map(([label, href]) => <Link key={href} href={href}>{label}</Link>)}</div>)}
-          <Link href="/code-promo">Codes promo</Link><Link href="/categorie/concours">Concours</Link><a href="mailto:bonsplansmania@gmail.com?subject=Proposition%20de%20partenariat">Partenariats</a>
+          <Link href="/code-promo">Codes promo</Link><Link href="/categorie/concours">Concours</Link><Link href="/recherche">Rechercher</Link><a href="mailto:bonsplansmania@gmail.com?subject=Proposition%20de%20partenariat">Partenariats</a>
         </nav>
       )}
     </header>

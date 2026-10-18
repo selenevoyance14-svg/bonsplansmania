@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Check, Search, Truck } from "lucide-react";
+import { ArrowUpRight, Truck } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired, type Article } from "@/lib/articles";
 import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import ListAd from "@/app/components/ListAd";
@@ -227,53 +227,43 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
       {/* Zone éditoriale principale au-dessus de la publicité. */}
       <div id="bpm-home-above-fold" className={styles.aboveFold}>
         <Header activePage="/" />
-
-        <section className={styles.hero}>
-          <div className={styles.heroCopy}>
-            <h1>Bons plans, codes promo et <em>offres du moment</em></h1>
-            <p>Promotions, box beauté, tests gratuits et concours : une sélection claire, vérifiée et mise à jour chaque jour.</p>
-            <form action="/recherche" className={styles.search}>
-              <Search size={17} aria-hidden />
-              <input name="q" aria-label="Rechercher" placeholder="Une marque, un produit, une réduction…" />
-              <button type="submit">Rechercher</button>
-            </form>
-          </div>
-          <article id="partenaire-a-la-une" className={`${styles.partnerFeature} ${styles.heroPartner}`} aria-labelledby="partner-feature-title">
-            {partnerActive ? (
-              <>
-                <Image src={FEATURED_PARTNER.imageSrc} alt={FEATURED_PARTNER.imageAlt} width={300} height={220} />
-                <div>
-                  <span>{FEATURED_PARTNER.badge}</span>
-                  <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
-                  <p>{FEATURED_PARTNER.description}</p>
-                  <a
-                    href={FEATURED_PARTNER.primaryCtaHref}
-                    target="_blank"
-                    rel="nofollow sponsored noopener noreferrer"
-                    data-affiliate-position="homepage_featured_partner"
-                    data-affiliate-merchant={FEATURED_PARTNER.merchant}
-                    data-affiliate-offer={FEATURED_PARTNER.promoCode}
-                  >
-                    {FEATURED_PARTNER.primaryCtaLabel} <ArrowUpRight size={16} />
-                  </a>
-                </div>
-              </>
-            ) : (
-              <div><h2 id="partner-feature-title">Espace partenaire</h2><p>Une mise en avant élégante réservée à une marque sélectionnée.</p></div>
-            )}
-          </article>
-        </section>
       </div>
 
-      <section className={styles.trust} aria-label="Nos engagements">
-        {["Offres sélectionnées", "Mise à jour quotidienne", "Prix clairement affichés", "Liens transparents"].map((item) => (
-          <span key={item}><Check size={15} /> {item}</span>
-        ))}
-      </section>
+      <h1 className={styles.visuallyHidden}>Bons plans, codes promo, tests gratuits et concours</h1>
 
-      <div className={styles.categoryRail} aria-hidden="true"><div /></div>
-
-      <CuratedDealsTabs groups={curatedDealGroups} />
+      <div className={styles.topDealsLayout}>
+        <CuratedDealsTabs
+          groups={curatedDealGroups}
+          featuredCard={(
+            <article id="partenaire-a-la-une" className={styles.partnerAside} aria-labelledby="partner-feature-title">
+              {partnerActive ? (
+                <>
+                  <div className={styles.partnerAsideImage}>
+                    <Image src={FEATURED_PARTNER.imageSrc} alt={FEATURED_PARTNER.imageAlt} fill sizes="(max-width: 760px) 68vw, 25vw" />
+                    <span className={styles.partnerAsideBadge}>Partenaire à la une</span>
+                  </div>
+                  <div className={styles.partnerAsideCopy}>
+                    <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
+                    <p>{FEATURED_PARTNER.description}</p>
+                    <a
+                      href={FEATURED_PARTNER.primaryCtaHref}
+                      target="_blank"
+                      rel="nofollow sponsored noopener noreferrer"
+                      data-affiliate-position="homepage_featured_partner"
+                      data-affiliate-merchant={FEATURED_PARTNER.merchant}
+                      data-affiliate-offer={FEATURED_PARTNER.promoCode}
+                    >
+                      {FEATURED_PARTNER.primaryCtaLabel} <ArrowUpRight size={16} />
+                    </a>
+                  </div>
+                </>
+              ) : (
+                <div className={styles.partnerAsideCopy}><h2 id="partner-feature-title">Espace partenaire</h2><p>Une mise en avant élégante réservée à une marque sélectionnée.</p></div>
+              )}
+            </article>
+          )}
+        />
+      </div>
 
       <section className={styles.selection} id="selection">
         <header className={styles.sectionHeading}>

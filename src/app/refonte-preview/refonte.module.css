@@ -30,6 +30,16 @@
 .search { width:100%; display:flex; align-items:center; gap:12px; margin:30px auto 0; max-width:520px; padding:7px 7px 7px 16px; background:white; border:1px solid var(--line); text-align:left; }
 .search input { min-width:0; flex:1; background:transparent; border:0; outline:0; font-size:12px; }
 .search button { border:0; padding:12px 18px; background:var(--ink); color:white; font-weight:700; font-size:12px; cursor:pointer; }
+.heroIntro { display:grid; grid-template-columns:minmax(0,1fr) minmax(360px,520px); align-items:center; gap:clamp(34px,5vw,90px); padding:30px clamp(28px,5.5vw,96px); border-bottom:1px solid var(--line); background:var(--cream); }
+.heroIntroCopy h1 { max-width:650px; margin:0 0 12px; font:400 clamp(34px,3.3vw,48px)/.98 Georgia,serif; letter-spacing:-.04em; }
+.heroIntroCopy h1 em { color:var(--wine); }
+.heroIntroCopy p { max-width:610px; margin:0; color:#635c56; font-size:14px; line-height:1.55; }
+.heroSearch { max-width:none; margin:0; box-shadow:0 5px 18px rgba(54,39,35,.055); }
+.visuallyHidden { position:absolute!important; width:1px!important; height:1px!important; padding:0!important; margin:-1px!important; overflow:hidden!important; clip:rect(0,0,0,0)!important; white-space:nowrap!important; border:0!important; }
+.discoveryBar { display:flex; align-items:center; justify-content:center; padding:13px clamp(28px,5.5vw,96px); border-bottom:1px solid var(--line); background:var(--cream); }
+.discoveryCopy h1 { margin:0 0 4px; font:400 clamp(27px,2.6vw,38px)/1 Georgia,serif; letter-spacing:-.035em; }
+.discoveryCopy p { margin:0; color:#6c645e; font-size:12px; line-height:1.4; }
+.discoverySearch { max-width:780px; margin:0; box-shadow:0 4px 15px rgba(54,39,35,.05); }
 .lead { position:relative; width:100%; min-width:0; min-height:420px; overflow:hidden; }
 .leadBackdrop { object-fit:cover; filter:blur(22px) brightness(.68) saturate(.78); transform:scale(1.09); }
 .leadProduct { object-fit:contain; object-position:center; padding:18px 22px 118px; transition:transform .45s ease; z-index:1; }
@@ -54,23 +64,34 @@
 .categoryRail a { position:relative; flex:0 0 auto; scroll-snap-align:start; padding:15px clamp(14px,2vw,25px); color:#fff; font-size:12px; font-weight:700; letter-spacing:.025em; white-space:nowrap; transition:background .2s; }
 .categoryRail a:not(:last-child)::after { content:""; position:absolute; top:13px; right:0; bottom:13px; width:1px; background:rgba(255,255,255,.22); }
 .categoryRail a:hover { background:rgba(255,255,255,.1); }
+.topDealsLayout { padding:28px clamp(22px,4.5vw,72px) 38px; border-bottom:1px solid var(--line); background:#fbfaf6; }
+.topDealsLayout>.dealsHub { min-width:0; padding:0; border-bottom:0; }
+.topDealsLayout .dealsHubTopline,.topDealsLayout .dealsPanel { max-width:none; }
+.topDealsLayout .dealsHubGrid { align-items:stretch; }
+.topDealsLayout .dealsHubCard,.topDealsLayout .partnerAside { flex:0 0 calc((100% - 36px)/4); }
+.topDealsLayout .dealsHubCard { grid-template-columns:1fr; grid-template-rows:148px minmax(164px,1fr); min-height:330px; }
+.topDealsLayout .dealsHubImage { height:148px; min-height:0; border-right:0; border-bottom:1px solid #eee8e1; background:#f5f1ea; }
+.topDealsLayout .dealsHubCopy { min-height:164px; padding:14px 14px 12px; }
+.topDealsLayout .dealsHubCopy h4 { margin:7px 0 9px; font-size:16px; line-height:1.18; -webkit-line-clamp:3; }
+.topDealsLayout .dealsHubPrice strong { font-size:10px; }
+.topDealsLayout .dealsHubFooter { padding:10px 12px; border-top:0; background:var(--wine); }
+.topDealsLayout .dealsHubFooter>span { color:#fff; font-size:11px; text-transform:none; }
+.topDealsLayout .dealsHubFooter>a { width:auto; height:auto; border:0; color:#fff; }
+.partnerAside { min-width:0; min-height:330px; display:grid; grid-template-rows:148px minmax(164px,1fr); overflow:hidden; border:1px solid #d9d1c8; border-radius:14px; background:#fff; box-shadow:0 4px 14px rgba(46,31,30,.05); scroll-snap-align:start; }
+.partnerAsideImage { position:relative; height:148px; overflow:hidden; border-bottom:1px solid #ece5dd; background:#f5f1ea; }
+.partnerAsideImage img { object-fit:contain; padding:13px; }
+.partnerAsideCopy { display:flex; min-height:164px; flex-direction:column; padding:14px 14px 12px; }
+.partnerAsideBadge { position:absolute; top:8px; left:8px; z-index:2; max-width:calc(100% - 16px); padding:5px 7px; overflow:hidden; border-radius:999px; background:var(--wine); color:#fff; font-size:8px; font-weight:800; letter-spacing:.035em; line-height:1; text-overflow:ellipsis; text-transform:uppercase; white-space:nowrap; }
+.partnerAsideCopy h2 { margin:0 0 7px; font:400 27px/1 Georgia,serif; }
+.partnerAsideCopy p { display:-webkit-box; margin:0 0 15px; overflow:hidden; color:#625b55; font-size:11px; line-height:1.45; -webkit-box-orient:vertical; -webkit-line-clamp:3; }
+.partnerAsideCopy>a { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding:10px 12px; background:var(--wine); color:#fff; font-size:11px; font-weight:800; }
 .dealsHub { padding:34px clamp(22px,4.5vw,72px) 38px; border-bottom:1px solid var(--line); background:#fbfaf6; }
 .dealsHubTopline { max-width:1180px; margin:0 auto 17px; display:flex; align-items:flex-end; justify-content:space-between; gap:24px; }
 .dealsHubTopline span { color:var(--wine); font-size:10px; font-weight:800; letter-spacing:.14em; text-transform:uppercase; }
 .dealsHubTopline h2 { margin:5px 0 0; font:400 clamp(25px,2.3vw,32px)/1.08 Georgia,serif; letter-spacing:-.025em; }
-.dealsHubTopline>a { display:flex; align-items:center; gap:5px; padding-bottom:3px; border-bottom:1px solid; font-size:11px; font-weight:800; white-space:nowrap; }
-.dealsTabs { max-width:1180px; margin:0 auto 18px; display:flex; gap:7px; overflow-x:auto; scrollbar-width:none; }
-.dealsTabs::-webkit-scrollbar { display:none; }
-.dealsTab,.dealsTabActive { flex:0 0 auto; padding:9px 13px; border:1px solid #d9cfc6; border-radius:999px; background:#fff; color:#5e5650; font:700 11px Arial,sans-serif; cursor:pointer; transition:background .2s,color .2s,border-color .2s; }
-.dealsTab:hover { border-color:#a78c92; color:var(--wine); }
-.dealsTabActive { border-color:var(--wine); background:var(--wine); color:#fff; }
-.dealsRotationToggle { flex:0 0 auto; display:flex; align-items:center; gap:4px; margin-left:auto; padding:9px 11px; border:0; background:transparent; color:#746b65; font:700 10px Arial,sans-serif; cursor:pointer; }
-.dealsRotationToggle:hover { color:var(--wine); }
+.dealsHubTopline>a { display:flex; align-items:center; gap:6px; padding:10px 13px; border:0; border-radius:2px; background:var(--wine); color:#fff; font-size:11px; font-weight:800; white-space:nowrap; }
 .dealsPanel { max-width:1180px; margin:0 auto; animation:dealsPanelFade .32s ease; }
 @keyframes dealsPanelFade { from { opacity:.35; transform:translateY(3px); } to { opacity:1; transform:translateY(0); } }
-.dealsPanelHeading { display:flex; align-items:baseline; gap:14px; margin-bottom:12px; }
-.dealsPanelHeading h3 { flex:0 0 auto; margin:0; font:400 17px/1.2 Georgia,serif; }
-.dealsPanelHeading p { margin:0; color:#746b65; font-size:10px; line-height:1.4; }
 .dealsHubGrid { display:flex; gap:12px; overflow-x:auto; scroll-snap-type:x mandatory; scrollbar-width:thin; scrollbar-color:#c2b7af transparent; padding-bottom:7px; }
 .dealsHubCard { flex:0 0 calc((100% - 24px)/3); min-width:0; display:grid; grid-template-columns:145px minmax(0,1fr); min-height:178px; overflow:hidden; border:1px solid #ddd4cb; border-radius:13px; background:#fff; box-shadow:0 3px 10px rgba(45,31,29,.045); scroll-snap-align:start; transition:transform .2s ease,box-shadow .2s ease; }
 .dealsHubCard:hover { transform:translateY(-2px); box-shadow:0 9px 20px rgba(45,31,29,.09); }
@@ -92,7 +113,6 @@
 .dealsHubFooter { display:flex; align-items:center; justify-content:space-between; gap:8px; margin-top:auto; padding-top:7px; border-top:1px solid #eee8e1; }
 .dealsHubFooter>span { color:#6e655f; font-size:8px; font-weight:800; letter-spacing:.04em; text-transform:uppercase; }
 .dealsHubFooter>a { width:24px; height:24px; display:grid; place-items:center; border:1px solid var(--line); border-radius:50%; color:var(--wine); }
-.dealsHubNotice { margin:8px 0 0; color:#776e68; font-size:9px; line-height:1.4; }
 .curatedSection { padding:38px clamp(22px,4.5vw,72px) 42px; border-bottom:1px solid var(--line); background:#fbfaf6; }
 .curated_refund { background:#f2f5f1; }
 .curated_small { background:#f6f3ed; }
@@ -167,6 +187,13 @@
 .partnerFeature p { max-width:680px; margin:0; color:#625b55; font-size:14px; line-height:1.65; }
 .partnerFeature a { align-self:flex-start; display:inline-flex; align-items:center; gap:7px; margin:auto 0 0; padding:11px 15px; background:var(--wine); color:#fff; font-size:12px; font-weight:800; white-space:nowrap; }
 .heroPartner { align-self:stretch; margin:24px; border-radius:16px; }
+.partnerBanner { display:grid; grid-template-columns:118px minmax(0,1fr) auto; align-items:center; gap:22px; margin:18px clamp(22px,4.5vw,72px); padding:12px 16px; border:1px solid var(--line); border-radius:14px; background:#fff; box-shadow:0 5px 18px rgba(54,39,35,.045); }
+.partnerBanner>img { width:118px; height:104px; object-fit:contain; border-radius:9px; background:#fff; }
+.partnerBannerCopy { min-width:0; text-align:left; }
+.partnerBannerCopy>span { display:inline-flex; width:fit-content; padding:5px 8px; border:1px solid #e5e7e9; border-radius:999px; background:#f4f5f6; color:#686d70; font-size:10px; font-weight:700; line-height:1; }
+.partnerBannerCopy h2 { margin:5px 0 5px; font:400 27px/1 Georgia,serif; }
+.partnerBannerCopy p { max-width:760px; margin:0; color:#625b55; font-size:12px; line-height:1.45; }
+.partnerBanner>a { display:inline-flex; align-items:center; gap:7px; padding:11px 15px; background:var(--wine); color:#fff; font-size:12px; font-weight:800; white-space:nowrap; }
 .freeTests { padding:0 clamp(22px,4.5vw,72px) 62px; background:var(--paper); }
 .freeTests>header { position:relative; display:flex; align-items:flex-end; justify-content:space-between; gap:25px; margin-bottom:24px; padding-top:34px; border-top:1px solid var(--line); text-align:left; }
 .freeTests>header>div { text-align:left; }
@@ -184,11 +211,11 @@
 .freeTestCard h3 { margin:7px 0 14px; font:400 18px/1.12 Georgia,serif; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
 .freeTestCta { display:flex; align-items:center; justify-content:space-between; padding-top:11px; border-top:1px solid var(--line); color:var(--wine); font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; }
 .adSlot { padding:0 clamp(22px,4.5vw,72px); background:var(--paper); overflow:hidden; }
-.selection { padding:90px clamp(26px,5.5vw,96px) 110px; background:#f1eee7; border-top:1px solid var(--line); }
+.selection { padding:58px clamp(26px,5.5vw,96px) 110px; background:#f1eee7; border-top:1px solid var(--line); }
 .sectionHeading { position:relative; display:flex; align-items:flex-end; justify-content:space-between; gap:25px; margin-bottom:34px; text-align:left; }
 .sectionHeading>div { text-align:left; }
 .sectionHeading h2 { margin:0; font:400 clamp(29px,3vw,42px)/1.08 Georgia,serif; letter-spacing:-.025em; }
-.sectionHeading>a { position:absolute; right:0; bottom:4px; display:flex; align-items:center; gap:7px; padding-bottom:4px; border-bottom:1px solid; font-size:12px; font-weight:700; }
+.sectionHeading>a { position:absolute; right:0; bottom:0; display:flex; align-items:center; gap:7px; padding:10px 13px; border-radius:2px; background:var(--wine); color:#fff; font-size:11px; font-weight:800; }
 .editorialGrid { max-width:1180px; margin:0 auto; display:grid; grid-template-columns:1fr; gap:16px; align-items:stretch; }
 .featuredCard { grid-row:auto; }
 .card,.featuredCard { min-width:0; min-height:210px; display:grid; grid-template-columns:220px minmax(0,1fr); overflow:hidden; border:1px solid #ded5cd; border-radius:14px; background:#fff; box-shadow:0 4px 14px rgba(46,31,30,.05); }
@@ -279,19 +306,22 @@
 .footerLinks a:hover { color:white; }
 .footerBottom { grid-column:1/-1; display:flex; justify-content:space-between; gap:25px; margin-top:25px; padding-top:20px; border-top:1px solid #37322f; color:#aaa29b; font-size:10px; }
 @media(max-width:1180px){.nav{display:none}.mobileNav{display:block}.today{margin-left:0}.curatedGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.couponGrid{grid-template-columns:repeat(3,minmax(0,1fr))}.latestItem{flex-basis:calc((100% - 22px)/2)}.featureRow{grid-template-columns:1fr}.freeTestsGrid{grid-template-columns:1fr 1fr}.editorialGrid{grid-template-columns:1fr}.featuredCard{grid-column:auto;grid-row:auto}.featuredCard .imageWrap{height:100%}.beautyCompareGrid{grid-template-columns:1fr 1fr}.newsletter{grid-template-columns:auto 1fr}.newsletterForm{grid-column:2}.footer{grid-template-columns:1fr 1fr}.footerBrand{grid-column:1/-1}}
+@media(max-width:940px){.heroIntro{grid-template-columns:1fr;gap:18px;padding-top:25px;padding-bottom:25px}.heroIntroCopy{text-align:center}.heroIntroCopy h1,.heroIntroCopy p{margin-left:auto;margin-right:auto}.heroSearch{width:min(100%,620px);margin:0 auto}.discoverySearch{width:min(100%,680px);margin:0 auto}.topDealsLayout{grid-template-columns:1fr}.topDealsLayout .dealsHubCard{flex-basis:calc((100% - 12px)/2)}.partnerAside{display:grid;grid-template-columns:150px 1fr}.partnerAsideImage{height:100%;min-height:160px;border-right:1px solid #ece5dd;border-bottom:0}.partnerAsideCopy{min-height:160px}.partnerBanner{grid-template-columns:96px minmax(0,1fr) auto;gap:15px}.partnerBanner>img{width:96px;height:90px}.partnerBannerCopy p{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}}
+@media(min-width:761px) and (max-width:940px){.topDealsLayout .dealsHubCard,.topDealsLayout .partnerAside{flex-basis:calc((100% - 36px)/4)}.partnerAside{min-height:330px;grid-template-columns:1fr;grid-template-rows:148px minmax(164px,1fr)}.partnerAsideImage{height:148px;min-height:0;border-right:0;border-bottom:1px solid #ece5dd}.partnerAsideCopy{min-height:164px}}
 @media(max-width:760px){
   .header{height:58px;padding:0 14px}.logo{font-size:20px}.today{display:none}.mobileNav summary{padding:8px 10px}
+  .heroIntro{gap:15px;padding:22px 14px}.heroIntroCopy h1{margin-bottom:9px;font-size:clamp(31px,8.8vw,38px)}.heroIntroCopy p{font-size:12px}.heroSearch{padding-left:12px}.heroSearch button{padding:10px 12px}.discoveryBar{padding:11px 14px}.discoverySearch{padding-left:12px}.discoverySearch button{padding:10px 12px}.topDealsLayout{padding:22px 14px 30px}.topDealsLayout .dealsHubCard,.topDealsLayout .partnerAside{flex:0 0 78%;grid-template-columns:1fr;grid-template-rows:140px minmax(158px,1fr);min-height:310px}.topDealsLayout .dealsHubImage,.partnerAsideImage{height:140px;min-height:0;border-right:0;border-bottom:1px solid #ece5dd}.partnerAsideCopy{min-height:158px;padding:14px}.partnerAsideCopy h2{font-size:23px}.partnerAsideCopy p{-webkit-line-clamp:2}.partnerBanner{grid-template-columns:78px minmax(0,1fr);gap:12px;margin:12px 14px;padding:11px}.partnerBanner>img{width:78px;height:84px}.partnerBannerCopy h2{font-size:23px}.partnerBannerCopy p{font-size:11px;-webkit-line-clamp:2}.partnerBanner>a{grid-column:1/-1;justify-content:center;width:100%;padding:10px 12px;font-size:11px}
   .hero{grid-template-columns:1fr;min-height:0}.heroCopy{padding:27px 18px 22px}.kicker{font-size:9px}.hero h1{max-width:360px;margin:9px 0 10px;font-size:clamp(32px,9vw,40px);line-height:1}.heroCopy>p{max-width:360px;font-size:13px;line-height:1.48}.search{margin-top:16px;padding:5px 5px 5px 12px;gap:7px}.search button{padding:10px 12px}.search input{font-size:11px}
   .lead{min-height:315px;margin:0 12px 16px}.leadProduct{padding:10px 10px 100px}.leadContent{padding:17px}.leadBadge{padding:6px 8px;font-size:9px}.leadContent small{font-size:9px}.leadContent h2{margin:7px 0 10px;font-size:clamp(21px,6.6vw,27px);line-height:1.04}.leadBottom{align-items:center;gap:8px}.leadBottom>a{padding:9px 10px;background:var(--wine);border:0;font-size:11px}.carouselControls{gap:5px}.carouselControls button{width:29px;height:29px}
   .trust{display:grid;grid-template-columns:1fr 1fr;padding:0}.trust span{min-height:43px;padding:8px 6px;font-size:10px}.trust span:nth-child(2){border-right:0}.trust span:nth-child(-n+2){border-bottom:1px solid var(--line)}
   .categoryRail{padding:0}.categoryRail>div{justify-content:flex-start}.categoryRail a{padding:13px 17px;font-size:11px}
-  .dealsHub{padding:25px 14px 28px}.dealsHubTopline{margin-bottom:13px;align-items:flex-end}.dealsHubTopline h2{font-size:25px}.dealsHubTopline>a{display:flex;font-size:9px}.dealsTabs{margin-bottom:14px;gap:6px}.dealsTab,.dealsTabActive{padding:8px 11px;font-size:10px}.dealsRotationToggle{margin-left:0;padding:8px 6px;font-size:9px}.dealsPanelHeading{display:block;margin-bottom:10px}.dealsPanelHeading h3{font-size:16px}.dealsPanelHeading p{margin-top:3px;font-size:9px}.dealsHubGrid{gap:9px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.dealsHubGrid::-webkit-scrollbar{display:none}.dealsHubCard{flex:0 0 100%;grid-template-columns:118px minmax(0,1fr);min-height:165px}.dealsHubImage{min-height:165px}.dealsHubCopy{padding:11px}.dealsHubCopy h4{font-size:16px}.dealsHubNotice{font-size:8px}
+  .dealsHub{padding:25px 14px 28px}.dealsHubTopline{display:grid;justify-items:start;margin-bottom:13px;gap:10px}.dealsHubTopline h2{font-size:25px}.dealsHubTopline>a{display:flex;padding:9px 12px;border-radius:2px;font-size:10px}.dealsHubGrid{gap:9px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.dealsHubGrid::-webkit-scrollbar{display:none}.dealsHubCard{flex:0 0 100%;grid-template-columns:118px minmax(0,1fr);min-height:165px}.dealsHubImage{min-height:165px}.dealsHubCopy{padding:11px}.dealsHubCopy h4{font-size:16px}
   .curatedSection{padding:28px 14px 32px}.curatedHeading{display:block;margin-bottom:14px}.curatedHeading h2{font-size:25px}.curatedHeading p{font-size:11px}.curatedHeading>a{display:none}.curatedGrid{display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.curatedGrid::-webkit-scrollbar{display:none}.curatedCard{flex:0 0 86%;grid-template-columns:105px minmax(0,1fr);scroll-snap-align:start}.curatedImage{height:100%;min-height:148px}.curatedCopy{padding:11px}.curatedCopy h3{font-size:15px}
   .couponSpotlight{padding:28px 14px 32px}.couponHeading{display:block;margin-bottom:14px}.couponHeading h2{font-size:25px}.couponHeading p{font-size:11px}.couponHeading>a{display:none}.couponGrid{display:flex;gap:9px;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch}.couponGrid::-webkit-scrollbar{display:none}.couponCard{flex:0 0 86%;grid-template-columns:105px minmax(0,1fr);scroll-snap-align:start}.couponImage{height:100%;min-height:160px}.couponCopy{padding:11px}.couponCopy h3{font-size:15px}.couponPrice strong{font-size:11px}.couponFooter{align-items:flex-end}.couponFooter small{display:none}.couponNotice{margin-top:9px}
   .latestStrip{padding:25px 14px 31px}.latestStrip>header{display:block;margin-bottom:14px}.latestStrip>header h2{margin-top:4px;font-size:25px}.latestStrip>div,.freeTestsGrid,.editorialGrid,.beautyCompareGrid{gap:11px;scrollbar-width:none;-webkit-overflow-scrolling:touch}.latestStrip>div::-webkit-scrollbar,.freeTestsGrid::-webkit-scrollbar,.editorialGrid::-webkit-scrollbar,.beautyCompareGrid::-webkit-scrollbar{display:none}.latestStrip>div{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.latestItem{flex:0 0 91%;grid-template-columns:100px 1fr;gap:12px;min-height:132px;padding:10px;scroll-snap-align:start}.latestItem img{width:100px;height:108px}.latestItem strong{margin:5px 0;font-size:15px;-webkit-line-clamp:2}.latestMeta{padding-top:6px}
   .featureRow{margin:0 14px 34px;gap:16px}.partnerFeature{grid-template-columns:105px 1fr;gap:14px;padding:14px}.heroPartner{margin:12px 12px 16px}.partnerFeature>img{height:118px}.partnerFeature>div,.brandMomentContent>div{height:auto}.partnerFeature h2{margin:5px 0 6px;font-size:25px}.partnerFeature p{font-size:12px;line-height:1.45;-webkit-line-clamp:3;display:-webkit-box;-webkit-box-orient:vertical;overflow:hidden}.partnerFeature a{margin-top:10px;padding:9px 11px;font-size:11px}.brandMoment{padding:16px}.brandMomentContent{grid-template-columns:1fr 105px}.brandMomentContent>img{width:105px;height:120px;margin:0;transform:scale(1.08)}.brandMoment h2{margin:5px 0;font-size:25px}.brandMoment p{font-size:12px}.brandMoment a{margin-top:10px;padding:9px 11px;font-size:11px}
   .freeTests{padding:0 14px 36px;content-visibility:auto;contain-intrinsic-size:600px}.freeTests>header{align-items:flex-start;margin-bottom:17px;padding-top:25px}.freeTests>header>a{display:none}.freeTests>header h2{font-size:25px}.freeTestsGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.freeTestCard{flex:0 0 68%;scroll-snap-align:start}.freeTestCard>div{padding:12px}.freeTestCard h3{font-size:16px}
-  .selection{padding:38px 14px 44px;content-visibility:auto;contain-intrinsic-size:900px}.sectionHeading{align-items:flex-start;margin-bottom:22px}.sectionHeading h2{font-size:29px}.sectionHeading>a{display:none}.editorialGrid{display:grid;grid-template-columns:1fr;gap:11px;overflow:visible}.card,.featuredCard{grid-template-columns:118px minmax(0,1fr);min-height:176px}.featuredCard .imageWrap,.imageWrap{height:100%;min-height:176px}.imageWrap>span{top:8px;left:8px;padding:5px 6px;font-size:8px}.cardCopy{padding:13px 13px 11px}.cardCopy h3,.featuredCard .cardCopy h3{min-height:0;margin:6px 0;font-size:17px}.cardCopy p{display:-webkit-box;margin-bottom:5px;font-size:11px;line-height:1.35;-webkit-line-clamp:2}.cardFooter{align-items:flex-end;padding-top:7px}.cardFooter strong{font-size:16px}.cardFooter a{min-height:34px;padding:7px 9px;font-size:11px}.priceGroup{gap:4px 6px}.priceComparison{gap:5px;font-size:9px}.priceComparison>span{padding:2px 5px}.deliveryPrice{font-size:10px}.deliveryPrice svg{width:15px;height:15px}
+  .selection{padding:38px 14px 44px;content-visibility:auto;contain-intrinsic-size:900px}.sectionHeading{display:grid;justify-items:start;align-items:start;margin-bottom:22px;gap:10px}.sectionHeading h2{font-size:29px}.sectionHeading>a{position:static;display:flex;padding:9px 12px;font-size:10px}.editorialGrid{display:grid;grid-template-columns:1fr;gap:11px;overflow:visible}.card,.featuredCard{grid-template-columns:118px minmax(0,1fr);min-height:176px}.featuredCard .imageWrap,.imageWrap{height:100%;min-height:176px}.imageWrap>span{top:8px;left:8px;padding:5px 6px;font-size:8px}.cardCopy{padding:13px 13px 11px}.cardCopy h3,.featuredCard .cardCopy h3{min-height:0;margin:6px 0;font-size:17px}.cardCopy p{display:-webkit-box;margin-bottom:5px;font-size:11px;line-height:1.35;-webkit-line-clamp:2}.cardFooter{align-items:flex-end;padding-top:7px}.cardFooter strong{font-size:16px}.cardFooter a{min-height:34px;padding:7px 9px;font-size:11px}.priceGroup{gap:4px 6px}.priceComparison{gap:5px;font-size:9px}.priceComparison>span{padding:2px 5px}.deliveryPrice{font-size:10px}.deliveryPrice svg{width:15px;height:15px}
   .beautyCompare{padding:38px 14px 42px;content-visibility:auto;contain-intrinsic-size:650px}.beautyCompare>header{margin-bottom:20px}.beautyCompare>header h2{font-size:29px}.beautyCompare>header p{font-size:12px;line-height:1.5}.beautyCompareGrid{display:flex;overflow-x:auto;scroll-snap-type:x mandatory}.beautyCompareCard{flex:0 0 66%;padding:12px;scroll-snap-align:start}.beautyCompareCard img{height:145px}.beautyCompareCard strong{font-size:18px}.beautyCompareCta{width:100%;justify-content:center;margin-top:18px}
   .newsletter{grid-template-columns:44px minmax(0,1fr);gap:10px 13px;padding:20px 17px;border-radius:15px;content-visibility:auto;contain-intrinsic-size:290px}.newsletterIcon{width:44px;height:44px}.newsletterCopy h2{margin:4px 0;font-size:21px}.newsletterCopy p{font-size:11px}.newsletterForm{grid-column:1/-1;margin-top:4px}.carrefourGuide{display:block;padding:20px 17px;border-radius:15px}.carrefourGuide h2{font-size:21px}.carrefourGuide p{font-size:12px}.carrefourGuide>a{width:100%;margin-top:15px}.partnerSpot{grid-template-columns:1fr;padding:22px}.partnerSpot img{margin-top:20px;width:100%;height:160px}.manifesto p{font-size:25px}.footer{grid-template-columns:1fr;gap:28px;padding:38px 18px 20px}.footerBrand{grid-column:auto}.footerBottom{flex-direction:column;gap:8px}
 }
