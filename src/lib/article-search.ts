@@ -1,9 +1,13 @@
+import { extractPriceAmount, parsePrice } from "@/lib/price";
+
 export interface SearchableArticle {
   slug: string;
   title: string;
   description: string;
   category: string;
   tags: string[];
+  price?: string;
+  expired?: boolean;
 }
 
 export function normalizeSearchText(value: string): string {
@@ -19,13 +23,71 @@ export function normalizeSearchText(value: string): string {
 }
 
 const SEARCH_STOP_WORDS = new Set(["a", "au", "aux", "de", "des", "du", "en", "et", "la", "le", "les", "l", "d", "pour", "sur", "un", "une"]);
+const BUDGET_WORDS = new Set(["euro", "euros", "entre", "moins", "plus", "jusqua", "maximum", "minimum"]);
+const GIFT_SHOPPING_CATEGORIES = new Set([
+  "bon-plan",
+  "bon-plan-beaute",
+  "box-beaute",
+  "calendrier",
+  "calendrier-avent",
+]);
+
+type SearchBudget = {
+  min?: number;
+  max?: number;
+  minInclusive: boolean;
+  maxInclusive: boolean;
+};
+
+function parseSearchBudget(normalizedQuery: string): SearchBudget | null {
+  if (!/\beuros?\b/.test(normalizedQuery)) return null;
+
+  const amounts = Array.from(normalizedQuery.matchAll(/\b\d+(?:[.,]\d+)?\b/g))
+    .map((match) => Number.parseFloat(match[0].replace(",", ".")))
+    .filter(Number.isFinite);
+  if (amounts.length === 0) return null;
+
+  if (/\bmoins\b/.test(normalizedQuery)) {
+    return { max: amounts[0], minInclusive: true, maxInclusive: false };
+  }
+  if (/\bplus\b/.test(normalizedQuery)) {
+    return { min: amounts[0], minInclusive: false, maxInclusive: true };
+  }
+  if (amounts.length >= 2) {
+    return {
+      min: Math.min(amounts[0], amounts[1]),
+      max: Math.max(amounts[0], amounts[1]),
+      minInclusive: true,
+      maxInclusive: true,
+    };
+  }
+  return null;
+}
+
+function matchesBudget(article: SearchableArticle, budget: SearchBudget): boolean {
+  const amount = parsePrice(article.price).nowAmount
+    ?? extractPriceAmount(`${article.title} ${article.description}`);
+  if (amount === undefined) return false;
+  if (budget.min !== undefined) {
+    if (budget.minInclusive ? amount < budget.min : amount <= budget.min) return false;
+  }
+  if (budget.max !== undefined) {
+    if (budget.maxInclusive ? amount > budget.max : amount >= budget.max) return false;
+  }
+  return true;
+}
 
 export function searchArticles<T extends SearchableArticle>(articles: T[], query: string): T[] {
   const normalizedQuery = normalizeSearchText(query);
   if (!normalizedQuery) return [];
 
+  const budget = parseSearchBudget(normalizedQuery);
+  const isGiftBudgetSearch = !!budget && /\bcadeaux?\b/.test(normalizedQuery);
   const words = normalizedQuery.split(" ");
-  const terms = words.filter((word) => !SEARCH_STOP_WORDS.has(word));
+  const terms = words.filter((word) =>
+    !SEARCH_STOP_WORDS.has(word)
+    && (!budget || (!BUDGET_WORDS.has(word) && !/^\d+(?:[.,]\d+)?$/.test(word)))
+  );
   const searchedTerms = terms.length ? terms : words;
 
   return articles
@@ -36,6 +98,14 @@ export function searchArticles<T extends SearchableArticle>(articles: T[], query
       const category = normalizeSearchText(article.category);
       const slug = normalizeSearchText(article.slug);
       const all = `${title} ${description} ${tags} ${category} ${slug}`;
+
+      // Une recherche « cadeau + budget » doit proposer des articles que le
+      // lecteur peut réellement acheter dans cette tranche de prix. On écarte
+      // donc les concours, tests, guides, comparatifs et codes promo génériques.
+      if (isGiftBudgetSearch && (article.expired || !GIFT_SHOPPING_CATEGORIES.has(article.category))) {
+        return null;
+      }
+      if (budget && !matchesBudget(article, budget)) return null;
 
       // Chaque mot peut se trouver dans un champ différent et une recherche au
       // pluriel retrouve aussi la forme singulière (ex. « glaçons »).

@@ -184,6 +184,7 @@ export default function BonsPlansAmazonPage() {
                 productTypes={AMAZON_PRODUCT_TYPES}
                 productTypeAllLabel="Tous les rayons"
                 productTypeAriaLabel="Filtrer les offres Amazon par rayon"
+                showPriceFilter
               />
             )}
           </div>

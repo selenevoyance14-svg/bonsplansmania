@@ -20,6 +20,8 @@ export default function RecherchePage() {
     image: a.meta.image,
     imageAlt: a.meta.imageAlt,
     date: a.meta.date,
+    price: a.meta.price,
+    expired: a.meta.expired,
   }));
 
   return (

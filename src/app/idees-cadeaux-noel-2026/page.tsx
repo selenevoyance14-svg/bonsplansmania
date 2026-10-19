@@ -34,7 +34,7 @@ const budgets = [
   { label: "Moins de 20 €", query: "cadeau moins de 20 euros" },
   { label: "De 20 à 50 €", query: "cadeau 20 50 euros" },
   { label: "De 50 à 100 €", query: "cadeau 50 100 euros" },
-  { label: "Plus de 100 €", query: "cadeau premium" },
+  { label: "Plus de 100 €", query: "cadeau plus de 100 euros" },
 ];
 
 const monsieurTshirtIdeas = [

@@ -83,6 +83,7 @@ function getSortablePrice(article: ArticleListItem): number | undefined {
 }
 
 type SortBy = "recent" | "oldest" | "price-asc" | "price-desc";
+type PriceRange = "all" | "lt20" | "20to50" | "50to100" | "gt100";
 
 export default function BrandFilter({
   articles,
@@ -92,6 +93,7 @@ export default function BrandFilter({
   productTypeAriaLabel = "Filtrer par type de produit",
   sortBrandsBy = "count",
   adEvery,
+  showPriceFilter = false,
 }: {
   articles: ArticleListItem[];
   brands: BrandDef[];
@@ -100,10 +102,12 @@ export default function BrandFilter({
   productTypeAriaLabel?: string;
   sortBrandsBy?: "count" | "alpha";
   adEvery?: number;
+  showPriceFilter?: boolean;
 }) {
   const [visible, setVisible] = useState(PER_PAGE);
   const [selectedBrand, setSelectedBrand] = useState<string>("");
   const [selectedProductType, setSelectedProductType] = useState<string>("");
+  const [priceRange, setPriceRange] = useState<PriceRange>("all");
   const [sortBy, setSortBy] = useState<SortBy>("recent");
 
   // Une même marque peut provenir de plusieurs univers avec des clés techniques
@@ -197,6 +201,15 @@ export default function BrandFilter({
     if (selectedProductType) {
       list = list.filter((e) => e.matchedProductTypeKeys.includes(selectedProductType));
     }
+    if (showPriceFilter && priceRange !== "all") {
+      list = list.filter((e) => {
+        if (e.nowNum === undefined) return false;
+        if (priceRange === "lt20") return e.nowNum < 20;
+        if (priceRange === "20to50") return e.nowNum >= 20 && e.nowNum < 50;
+        if (priceRange === "50to100") return e.nowNum >= 50 && e.nowNum <= 100;
+        return e.nowNum > 100;
+      });
+    }
     const sorted = [...list];
     const expiredFirst = (a: typeof sorted[number], b: typeof sorted[number]) => {
       const aExp = a.article.expired ? 1 : 0;
@@ -213,12 +226,13 @@ export default function BrandFilter({
       sorted.sort((a, b) => expiredFirst(a, b) || ((b.nowNum ?? -Infinity) - (a.nowNum ?? -Infinity)));
     }
     return sorted.map((e) => e.article);
-  }, [enriched, selectedBrand, selectedProductType, sortBy]);
+  }, [enriched, selectedBrand, selectedProductType, priceRange, sortBy, showPriceFilter]);
 
-  const activeFilters = (selectedBrand ? 1 : 0) + (selectedProductType ? 1 : 0) + (sortBy !== "recent" ? 1 : 0);
+  const activeFilters = (selectedBrand ? 1 : 0) + (selectedProductType ? 1 : 0) + (priceRange !== "all" ? 1 : 0) + (sortBy !== "recent" ? 1 : 0);
   const reset = () => {
     setSelectedBrand("");
     setSelectedProductType("");
+    setPriceRange("all");
     setSortBy("recent");
     setVisible(PER_PAGE);
   };
@@ -316,6 +330,24 @@ export default function BrandFilter({
                 {productType.label} ({productType.count})
               </option>
             ))}
+          </select>
+        )}
+
+        {showPriceFilter && hasPriceData && (
+          <select
+            value={priceRange}
+            onChange={(e) => {
+              setPriceRange(e.target.value as PriceRange);
+              setVisible(PER_PAGE);
+            }}
+            style={priceRange !== "all" ? activeSelectStyle : selectStyle}
+            aria-label="Filtrer par budget"
+          >
+            <option value="all">Tous les prix</option>
+            <option value="lt20">Moins de 20 €</option>
+            <option value="20to50">De 20 € à 50 €</option>
+            <option value="50to100">De 50 € à 100 €</option>
+            <option value="gt100">Plus de 100 €</option>
           </select>
         )}
 

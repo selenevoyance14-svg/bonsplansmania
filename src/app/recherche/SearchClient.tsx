@@ -16,6 +16,8 @@ interface ArticleData {
   image: string;
   imageAlt: string;
   date: string;
+  price?: string;
+  expired?: boolean;
 }
 
 const categoryLabels: Record<string, string> = {
