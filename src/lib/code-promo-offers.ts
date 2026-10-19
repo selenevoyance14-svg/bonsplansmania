@@ -266,7 +266,61 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     conditions: "Pourcentage maximal constaté le 13 août 2026 sur une sélection de séjours. Les remises, dates, villes de départ, disponibilités et tarifs à partir de varient selon le dossier.",
     featured: true,
   },
-  // ATIDA — offres vérifiées le 7 octobre 2026
+  // ATIDA — offres communiquées le 19 octobre 2026
+  {
+    id: "atida-cool-baby-octobre-2026", brandSlug: "atida", type: "code",
+    value: "BOX", valueLabel: "OFFERTE DÈS 59 €",
+    title: "Une box offerte dès 59 € d’achat avec le code COOL-BABY", code: "COOL-BABY",
+    conditions: "Ajouter au moins 59 € de produits éligibles au panier, puis saisir le code COOL-BABY. Offre soumise aux stocks disponibles et aux éventuelles exclusions indiquées par Atida ; vérifier l’ajout de la box avant le paiement.", featured: true,
+  },
+  {
+    id: "atida-cozy49-octobre-2026", brandSlug: "atida", type: "code",
+    value: "-5 %", valueLabel: "DÈS 49 €",
+    title: "5 % de réduction dès 49 € d’achat avec le code COZY49", code: "COZY49",
+    conditions: "Code valable dès 49 € d’achat sur les produits éligibles. Date de fin non communiquée ; vérifier les exclusions, le cumul éventuel et l’application de la remise dans le panier.", featured: true,
+  },
+  {
+    id: "atida-furterer-10-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-10 %", valueLabel: "RENÉ FURTERER",
+    title: "10 % de réduction sur la sélection René Furterer",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fpromotion%2F1673749-10-sur-la-marque-ren-furterer.html",
+    conditions: "Remise affichée directement sur les produits René Furterer participants. Sélection et stocks susceptibles d’évoluer ; vérifier le prix final sur la fiche produit et dans le panier.", featured: true,
+  },
+  {
+    id: "atida-avene-15-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-15 %", valueLabel: "AVÈNE",
+    title: "15 % de réduction sur la sélection Avène",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fpromotion%2F5277515-15-sur-la-marque-av-ne.html",
+    conditions: "Remise affichée directement sur les produits Avène participants. Sélection et stocks susceptibles d’évoluer ; vérifier le prix final sur la fiche produit et dans le panier.", featured: true,
+  },
+  {
+    id: "atida-klorane-10-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-10 %", valueLabel: "KLORANE",
+    title: "10 % de réduction sur la sélection Klorane",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fpromotion%2F6636434-10-sur-la-marque-klorane.html",
+    conditions: "Remise affichée directement sur les produits Klorane participants. Sélection et stocks susceptibles d’évoluer ; vérifier le prix final sur la fiche produit et dans le panier.", featured: true,
+  },
+  {
+    id: "atida-serelys-15-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-15 %", valueLabel: "SÉRÉLYS",
+    title: "15 % de réduction sur la sélection Sérélys",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fpromotion%2F7144483-10-sur-la-marque-serelys.html",
+    conditions: "Remise annoncée sur la sélection Sérélys participante. Sélection et stocks susceptibles d’évoluer ; vérifier le pourcentage et le prix final sur la fiche produit et dans le panier.", featured: true,
+  },
+  {
+    id: "atida-vichy-15-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-15 %", valueLabel: "VICHY",
+    title: "15 % de réduction sur la sélection Vichy",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fselection-evenementielle%2Fsoins-dermo-cosmetiques.html%3Fbrand%3D29903",
+    conditions: "Remise annoncée sur la sélection Vichy participante. Sélection et stocks susceptibles d’évoluer ; vérifier le pourcentage et le prix final sur la fiche produit et dans le panier.", featured: true,
+  },
+  {
+    id: "atida-avene-20-octobre-2026", brandSlug: "atida", type: "offre",
+    value: "-20 %", valueLabel: "AVÈNE",
+    title: "20 % de réduction sur une sélection de soins Avène",
+    affiliateUrl: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fselection-evenementielle%2Fsoins-dermo-cosmetiques.html%3Fbrand%3D27637",
+    conditions: "Remise annoncée sur une sélection de soins Avène distincte de l’offre à -15 %. Sélection et stocks susceptibles d’évoluer ; vérifier le pourcentage et le prix final sur la fiche produit et dans le panier.", featured: true,
+  },
   {
     id: "atida-atida7-octobre-2026", brandSlug: "atida", type: "code",
     value: "-7 %", valueLabel: "DÈS 70 €",
@@ -305,9 +359,9 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   {
     id: "atida-newsletter-5-euros", brandSlug: "atida", type: "newsletter",
     value: "5 €", valueLabel: "1ʳᵉ COMMANDE",
-    title: "5 € offerts dès 50 € sur la première commande avec la newsletter",
+    title: "5 € offerts sur votre première commande",
     permanent: true,
-    conditions: "Inscription à la newsletter requise. Code envoyé par e-mail, selon les exclusions communiquées par Atida.", featured: true,
+    conditions: "Avantage réservé à la première commande. Vérifier le minimum d’achat, les modalités d’obtention et les exclusions communiquées par Atida avant de commander.", featured: true,
   },
   {
     id: "atida-livraison-49-euros", brandSlug: "atida", type: "livraison",
