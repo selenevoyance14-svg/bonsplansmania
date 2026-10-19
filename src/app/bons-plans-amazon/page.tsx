@@ -34,6 +34,49 @@ const ALLOWED_CATEGORIES = new Set([
   "selection",
 ]);
 
+const AMAZON_PRODUCT_TYPES = [
+  {
+    key: "jouets",
+    label: "Jouets & jeux",
+    keywords: ["jouet", "jeu", "lego", "playmobil", "poupee", "puzzle", "play-doh", "magnetique", "gabby", "peppa pig"],
+  },
+  {
+    key: "beaute",
+    label: "Beauté & soins",
+    keywords: ["beaute", "soin", "maquillage", "serum", "creme", "parfum", "shampoing", "rasoir", "brosse a dents", "nivea", "maybelline"],
+  },
+  {
+    key: "maison-cuisine",
+    label: "Maison & cuisine",
+    keywords: ["maison", "cuisine", "air fryer", "friteuse", "ninja", "tefal", "cafe", "bougie", "linge", "aspirateur", "electromenager"],
+  },
+  {
+    key: "high-tech",
+    label: "High-tech",
+    keywords: ["high-tech", "ordinateur", "pc portable", "smartphone", "tablette", "ecouteur", "casque", "camera", "montre connectee", "television"],
+  },
+  {
+    key: "bebe-enfant",
+    label: "Bébé & enfant",
+    keywords: ["bebe", "enfant", "puericulture", "naissance", "tour d'observation", "chaise haute", "poussette", "siege auto"],
+  },
+  {
+    key: "mode",
+    label: "Mode & accessoires",
+    keywords: ["mode", "vetement", "chaussure", "basket", "sac", "montre", "bijou", "accessoire mode"],
+  },
+  {
+    key: "jardin-bricolage",
+    label: "Jardin & bricolage",
+    keywords: ["jardin", "bricolage", "outil", "barbecue", "tondeuse", "terrasse", "exterieur"],
+  },
+  {
+    key: "sport-loisirs",
+    label: "Sport & loisirs",
+    keywords: ["sport", "fitness", "velo", "camping", "loisir", "voyage"],
+  },
+];
+
 function isAmazonOffer(meta: {
   amazonAsin?: string;
   affiliateUrl?: string;
@@ -135,7 +178,13 @@ export default function BonsPlansAmazonPage() {
                 Aucun bon plan Amazon actif pour le moment.
               </p>
             ) : (
-              <BrandFilter articles={cards} brands={[]} />
+              <BrandFilter
+                articles={cards}
+                brands={[]}
+                productTypes={AMAZON_PRODUCT_TYPES}
+                productTypeAllLabel="Tous les rayons"
+                productTypeAriaLabel="Filtrer les offres Amazon par rayon"
+              />
             )}
           </div>
         </section>
