@@ -69,7 +69,7 @@ function isAmazonArticle(data: Record<string, unknown>, content: string): boolea
  * Les prix, notes et volumes d'avis Amazon ne sont pas publiés sans PA-API.
  * Les liens affiliés et l'analyse éditoriale restent intacts.
  */
-function sanitizeAmazonClaims(value: unknown): string | undefined {
+export function sanitizeAmazonClaims(value: unknown): string | undefined {
   if (typeof value !== "string") return undefined;
   return value
     .replace(
@@ -96,8 +96,27 @@ function sanitizeAmazonClaims(value: unknown): string | undefined {
     )
     .replace(/\s*\((?:\*{1,2})?(?:−|-)?\s*\d{1,2}\s*%(?:\*{1,2})?[^)]*\)/giu, "")
     .replace(/(?:\*{1,2})?(?:−|-)\s*\d{1,2}\s*%(?:\*{1,2})?/giu, "")
-    .replace(/\b(?:passent|tombent)\s+sur Amazon/giu, "sont disponibles sur Amazon")
-    .replace(/\b(?:passe|tombe)\s+sur Amazon/giu, "est disponible sur Amazon")
+    .replace(/,?\s+soit\s+\d{1,2}\s*%\s+d['’]?économie/giu, "")
+    .replace(/\b(?:passent|tombent)\s+(?:sur|chez) Amazon/giu, "sont disponibles sur Amazon")
+    .replace(/\b(?:passe|tombe)\s+(?:sur|chez) Amazon/giu, "est disponible sur Amazon")
+    // Le retrait d'un prix placé juste après un verbe ne doit jamais laisser
+    // un titre ou une phrase tronqués (ex. « le produit tombe »).
+    .replace(/\b(?:passent|tombent)(?=\s*(?:$|[.!?:,;|\n]))/giu, "sont en promotion sur Amazon")
+    .replace(/\b(?:passe|tombe)(?=\s*(?:$|[.!?:,;|\n]))/giu, "est en promotion sur Amazon")
+    .replace(/\bsont proposé(?:e)?s?(?=\s*(?:$|[.!?:,;|\n]))/giu, "sont disponibles sur Amazon")
+    .replace(/\best proposé(?:e)?(?=\s*(?:$|[.!?:,;|\n]))/giu, "est disponible sur Amazon")
+    .replace(
+      /\b[Ll]e prix de(?=\s+(?:apparaît|semble|reste|est)\b)/giu,
+      "Le tarif affiché sur Amazon"
+    )
+    .replace(
+      /\bface à (?:son|le|un) prix (?:normal|habituel|conseillé|de comparaison) de(?=\s*[.,;:!?]|$)/giu,
+      "par rapport au prix de comparaison affiché sur Amazon"
+    )
+    .replace(
+      /\b(?:son|le|un) prix (?:normal|habituel|conseillé|de comparaison) de(?=\s*[.,;:!?]|$)/giu,
+      "le prix de comparaison affiché sur Amazon"
+    )
     .replace(/\bprix actuel à vérifier(?:\s+sur Amazon)?/giu, "offre actuelle sur Amazon")
     .replace(/,?[ \t]+ce qui revient à seulement[ \t]+(?:la paire)?\*{0,2}/giu, "")
     .replace(/^-[ \t]+(?:\*{0,2})?(?:de réduction|la paire)(?:\*{0,2})?[ \t]+—.*$/gimu, "")
@@ -112,7 +131,7 @@ function sanitizeAmazonClaims(value: unknown): string | undefined {
     .trim();
 }
 
-function sanitizeAmazonContent(content: string, preserveManualPrices = false): string {
+export function sanitizeAmazonContent(content: string, preserveManualPrices = false): string {
   const withoutStoredAmazonImages = content.replace(
     /^!?\[[^\]]*\]\(\/images\/amazon\/[^)]+\)\s*$/gimu,
     ""
@@ -128,7 +147,10 @@ function sanitizeAmazonContent(content: string, preserveManualPrices = false): s
     // plutôt que de casser tout le rendu de l'article.
     .replace(/\*{1,3}/g, "")
     .replace(/[ \t]*\(au lieu de[ \t]*,[ \t]*(?:soit[ \t]*)?(?:sur Amazon)?[.,]?[ \t]*\)/giu, "")
-    .replace(/^\|[ \t]*Prix Amazon[ \t]*\|[ \t]*\|$/gimu, "| Prix Amazon | Voir le prix actuel sur Amazon |")
+    .replace(
+      /^\|([ \t]*[^|\n]*\bPrix\b[^|\n]*[ \t]*)\|[ \t]*\|$/gimu,
+      "|$1| Voir le prix actuel sur Amazon |"
+    )
     .replace(/(💰[ \t]*Prix[ \t]*:)[ \t]*[.,]/giu, "$1 voir le prix actuel sur Amazon.")
     .replace(/[ \t]+au lieu de(?=[ \t]*[.,;:!?])/giu, "")
     .replace(/,?[ \t]+soit(?=[ \t]*[.,;:!?])/giu, "")
