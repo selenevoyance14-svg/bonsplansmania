@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 21 Oct 2026 15:53:45 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 16:02:25 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Code promo Baïja : -10 % et livraison offerte dès 50 €</title>
@@ -42,6 +42,15 @@
       <description>Beauty of Joseon Relief Sun — Crème solaire SPF 50+ non grasse 50 ml, probiotique au riz (2 pcs) à 12 € sur Cdiscount. Code HELLO10 -10€ dès 50€ + cashback iGraal cumulables.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-cdiscount-beauty-of-joseon-relief-sun-creme-solaire-spf50-probiotique-riz-juillet-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>COSRX Advanced Snail 96 Mucin Essence Duo à 32 € chez YesStyle</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-cosrx-advanced-snail-96-mucin-essence-bundle-yesstyle-juillet-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-cosrx-advanced-snail-96-mucin-essence-bundle-yesstyle-juillet-2026</guid>
+      <pubDate>Tue, 14 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Le duo COSRX Advanced Snail 96 Mucin Power Essence réunit deux flacons de 100 ml pour compléter une routine hydratante K-beauty.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-cosrx-advanced-snail-96-mucin-essence-bundle-yesstyle-juillet-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>COSRX Ultra Light Invisible Sunscreen : duo 2 × 50 ml à 19,21 €</title>
@@ -447,15 +456,6 @@
       <description>Carrefour Mobile propose trois forfaits 4G Orange sans engagement : 20 Go, 130 Go et 300 Go, avec jusqu'à 3 € cagnottés chaque mois pour les membres Club.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/comparatif-forfaits-mobile-2026-v2.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Concours Albin Michel × Kusmi Tea : des livres et des thés à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-albin-michel-kusmi-tea-livres-thes-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-albin-michel-kusmi-tea-livres-thes-2026</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Tentez de gagner cinq romans Albin Michel et une sélection de thés et infusions Kusmi Tea. Concours gratuit jusqu’au 25 octobre 2026 à 23 h 59.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-albin-michel-kusmi-tea-livres-thes-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
