@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 21 Oct 2026 15:17:42 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 15:44:19 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Code promo Baïja : -10 % et livraison offerte dès 50 €</title>
+      <link>https://bonsplansmania.fr/article/baija-cosmetiques-bons-plans-newsletter-10-pourcent-livraison-offerte-juin-2026</link>
+      <guid>https://bonsplansmania.fr/article/baija-cosmetiques-bons-plans-newsletter-10-pourcent-livraison-offerte-juin-2026</guid>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Profitez de 10 % sur votre première commande Baïja après inscription à la newsletter, de la livraison offerte dès 50 € et d’un produit offert dès 80 €.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/baija-cosmetiques-bons-plans-newsletter-10-pourcent-livraison-offerte-juin-2026.png" type="image/png" length="0"/>
+    </item>
     <item>
       <title>BaByliss Curl Secret 2 à 111,07 € sur Amazon</title>
       <link>https://bonsplansmania.fr/article/bon-plan-amazon-babyliss-curl-secret-boucleur-automatique-ionic-2-mai-2026</link>
@@ -42,6 +51,15 @@
       <description>Le duo COSRX Ultra Light Invisible Sunscreen SPF50+ de 2 × 50 ml passe à 19,21 € chez YesStyle, soit environ 9,61 € par flacon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-cosrx-ultra-light-invisible-sunscreen-bundle-yesstyle-juillet-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Coffret Elizabeth Arden : 3 parfums miniatures à 17,25 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-elizabeth-arden-prestige-fragrance-coffret-3-piece-1725-euros-mai-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-elizabeth-arden-prestige-fragrance-coffret-3-piece-1725-euros-mai-2026</guid>
+      <pubDate>Fri, 10 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Coffret Elizabeth Arden Prestige Fragrance 3-Piece à 17,25€ au lieu de 28,75€ (-40%). Red Door EDT 10ml + White Tea EDT 10ml + Green Tea Scent Spray. Format voyage, économise 11,50€.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-elizabeth-arden-prestige-fragrance-coffret-3-piece-1725-euros-mai-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Calendrier BIOTYfull Box 2026 : 27 produits à 59 €</title>
@@ -438,24 +456,6 @@
       <description>Habitat et Garancia offrent un bon d’achat de 250 € et une routine beauté Garancia de 260 €. Participez gratuitement jusqu’au 26 octobre 2026.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-habitat-garancia-510-euros-octobre-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Grand Jeu Intermarché × L’Oréal : 303 lots à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-intermarche-loreal-sejours-steampod-box-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-intermarche-loreal-sejours-steampod-box-2026</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Grand Jeu fidélité Intermarché et L’Oréal : 3 séjours sportifs, 20 Steampod 4.0, 80 bons d’achat et 200 box de produits à gagner jusqu’au 25 octobre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-intermarche-loreal-sejours-steampod-box-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Concours Maxi × Futuroscope : 4 lots de 4 entrées à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-maxi-futuroscope-futuroween-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-maxi-futuroscope-futuroween-2026</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Participez gratuitement au concours Maxi Futuroscope et tentez de gagner l’un des 4 lots de 4 entrées pour une journée au parc. Fin le 25 octobre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-maxi-futuroscope-futuroween-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
