@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 21 Oct 2026 16:02:25 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 16:08:30 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Code promo Baïja : -10 % et livraison offerte dès 50 €</title>
@@ -24,6 +24,15 @@
       <description>Le BaByliss Curl Secret 2 Ionic avec deux têtes interchangeables est affiché à 111,07 € au lieu de 129,90 € sur Amazon, soit 14 % de réduction.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-babyliss-curl-secret-boucleur-automatique-ionic-2-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Garnier Hyaluron Fresh &amp; Plump, crème sorbet 85 ml</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-amazon-garnier-hyaluron-creme-sorbet-fresh-plump-hydratante</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-garnier-hyaluron-creme-sorbet-fresh-plump-hydratante</guid>
+      <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Garnier Hyaluron Crème Sorbet Hydratante Repulpante Fresh &amp; Plump à l'acide hyaluronique, +60 % hydratation peau rebondie et lissée, 85 ml tous types de peaux, sur Amazon (au lieu de ).</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-garnier-hyaluron-creme-sorbet-fresh-plump-hydratante.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Makeup Revolution Reloaded Iconic 3.0 à 3,55 € (-41 %)</title>
@@ -447,15 +456,6 @@
       <description>Carrefour propose 15 % de remise sur une sélection LEGO Spidey, Bluey, Gabby et La Reine des Neiges du 19 au 25 octobre 2026 en livraison à domicile.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/carrefour-lego-15-pourcent-remise-19-25-octobre-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Carrefour Mobile : des forfaits dès 6,90 € avec cagnotte Club</title>
-      <link>https://bonsplansmania.fr/article/carrefour-mobile-forfaits-sans-engagement-cagnotte-club-2026</link>
-      <guid>https://bonsplansmania.fr/article/carrefour-mobile-forfaits-sans-engagement-cagnotte-club-2026</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Carrefour Mobile propose trois forfaits 4G Orange sans engagement : 20 Go, 130 Go et 300 Go, avec jusqu'à 3 € cagnottés chaque mois pour les membres Club.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/comparatif-forfaits-mobile-2026-v2.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
