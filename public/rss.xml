@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 21 Oct 2026 15:44:19 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 21 Oct 2026 15:53:45 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Code promo Baïja : -10 % et livraison offerte dès 50 €</title>
@@ -60,6 +60,24 @@
       <description>Coffret Elizabeth Arden Prestige Fragrance 3-Piece à 17,25€ au lieu de 28,75€ (-40%). Red Door EDT 10ml + White Tea EDT 10ml + Green Tea Scent Spray. Format voyage, économise 11,50€.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-elizabeth-arden-prestige-fragrance-coffret-3-piece-1725-euros-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>L'Oréal Men Expert coffret trio gel douche + soin : 15,81 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-lookfantastic-l-oreal-men-expert-energising-essentials-gift-set-juillet-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-lookfantastic-l-oreal-men-expert-energising-essentials-gift-set-juillet-2026</guid>
+      <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
+      <description>L'Oréal Men Expert Energising Essentials coffret cadeau à 15,81 € sur Lookfantastic : trio grooming homme gel douche + gel nettoyant + hydratant, idéal cadeau père, ami.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-lookfantastic-l-oreal-men-expert-energising-essentials-gift-set-juillet-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>L'Oréal Men Expert sérum vitamine C 10 % : 11,50 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-lookfantastic-l-oreal-men-expert-hydra-energetic-serum-vitamine-c-10-juillet-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-lookfantastic-l-oreal-men-expert-hydra-energetic-serum-vitamine-c-10-juillet-2026</guid>
+      <pubDate>Mon, 13 Jul 2026 00:00:00 GMT</pubDate>
+      <description>L'Oréal Men Expert Hydra Energetic sérum 10 % vitamine C pure 30 ml à 11,50 € sur Lookfantastic : anti-fatigue, éclat, énergie visage homme, texture non grasse.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/loreal-men-expert-hydra-energetic-serum-vitamine-c-30ml.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Calendrier BIOTYfull Box 2026 : 27 produits à 59 €</title>
@@ -438,24 +456,6 @@
       <description>Tentez de gagner cinq romans Albin Michel et une sélection de thés et infusions Kusmi Tea. Concours gratuit jusqu’au 25 octobre 2026 à 23 h 59.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-albin-michel-kusmi-tea-livres-thes-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Concours Besson Halloween : 18 cartes cadeaux de 50 € à gagner</title>
-      <link>https://bonsplansmania.fr/article/concours-besson-pinata-halloween-cartes-cadeaux-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-besson-pinata-halloween-cartes-cadeaux-2026</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Cassez la piñata Halloween Besson et tentez de gagner l’une des 18 cartes cadeaux de 50 €. Instant gagnant gratuit jusqu’au 31 octobre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-besson-pinata-halloween-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Concours Habitat × Garancia : 510 € à gagner jusqu’au 26 octobre</title>
-      <link>https://bonsplansmania.fr/article/concours-habitat-garancia-510-euros-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-habitat-garancia-510-euros-octobre-2026</guid>
-      <pubDate>Mon, 19 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Habitat et Garancia offrent un bon d’achat de 250 € et une routine beauté Garancia de 260 €. Participez gratuitement jusqu’au 26 octobre 2026.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-habitat-garancia-510-euros-octobre-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
