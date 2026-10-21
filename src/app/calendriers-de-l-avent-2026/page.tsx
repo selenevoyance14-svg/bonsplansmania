@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdventCalendarsHub() {
-  const updatedAt = "9 octobre 2026";
+  const updatedAt = "21 octobre 2026";
   const catalog = getAdventCalendarCatalog();
   const comparisonCalendars = sortAdventCalendarsForFeatured(ADVENT_CALENDARS_2026
     .filter((calendar) => COMPARISON_CALENDAR_HREFS.has(calendar.articleHref))
