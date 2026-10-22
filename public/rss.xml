@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 22 Oct 2026 19:43:22 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 22 Oct 2026 19:56:32 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Bose QuietComfort Ultra noir à 277,68 € sur Amazon</title>
@@ -33,6 +33,15 @@
       <description>La montre connectée CASCHO rose avec écran 1,85 pouce, appels Bluetooth, 115 modes sportifs et étanchéité IP68 coûte 19,99 € sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-cascho-montre-connectee-1-85-pouces-rose-30j-ip68-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Moulinex Blendforce LM420510 : blender 600 W à 44,99 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-amazon-moulinex-blendforce-lm420510-blender-juin-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-moulinex-blendforce-lm420510-blender-juin-2026</guid>
+      <pubDate>Thu, 11 Jun 2026 00:00:00 GMT</pubDate>
+      <description>Le blender Moulinex Blendforce LM420510 rouge coûte 44,99 € sur Amazon, soit -18 % par rapport au prix conseillé de 54,99 €. Bol utile 1,25 L, deux vitesses et Pulse.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-moulinex-blendforce-lm420510-blender-juin-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Moulinex Frutelia Plus : centrifugeuse 350 W à 34,99 € (-42 %)</title>
@@ -447,15 +456,6 @@
       <description>Le coffret Énigmes à Hauntlywood JBG81 réunit Frankie Stein, un dressing et plus de 19 surprises, avec une enquête en trois étapes pour révéler la poupée.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/monster-high-frankie-hauntlywood-jbg81.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>PURITO Wonder Releaf Centella SPF50+ 60 ml à 9,99 € au lieu de 22 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-purito-wonder-releaf-centella-solaire-spf50-60ml</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-purito-wonder-releaf-centella-solaire-spf50-60ml</guid>
-      <pubDate>Wed, 21 Oct 2026 00:00:00 GMT</pubDate>
-      <description>La lotion solaire PURITO Wonder Releaf Centella Daily Sun Lotion Urban SPF50+ PA++++ en tube de 60 ml est proposée à 9,99 € en achat ponctuel.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/purito-wonder-releaf-centella-sun-lotion-60ml.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
