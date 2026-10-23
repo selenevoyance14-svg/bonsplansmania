@@ -256,6 +256,7 @@ export default async function ArticlePage({ params }: PageProps) {
   const isStale = !isExpired
     && !article.meta.evergreen
     && !article.meta.amazonAsin
+    && affiliateMerchant !== "Amazon"
     && staleMessage
     && (Date.now() - referenceMs) > STALE_DAYS * 24 * 60 * 60 * 1000;
 
@@ -385,6 +386,14 @@ export default async function ArticlePage({ params }: PageProps) {
             data-content-title={article.meta.title}
             data-affiliate-merchant={affiliateMerchant}
           >
+            {isStale && staleMessage && (
+              <aside role="note" style={{ background: "#FFF7ED", border: "1px solid #FDBA74", borderRadius: "12px", padding: "16px 20px", marginBottom: "20px" }}>
+                <p style={{ margin: 0, fontWeight: 700, color: "#9A3412" }}>{staleMessage.title}</p>
+                <p style={{ margin: "6px 0 0" }}>
+                  Consultez nos <a href={staleMessage.cta.href} style={{ textDecoration: "underline", fontWeight: 600 }}>{staleMessage.cta.label}</a>.
+                </p>
+              </aside>
+            )}
             {isExpired && (
               <div style={{ background: "#FEE2E2", border: "2px solid #F87171", borderRadius: "12px", padding: "16px 20px", marginBottom: "20px", textAlign: "center" }}>
                 <p style={{ margin: 0, fontWeight: 700, fontSize: "1.05rem", color: "#B91C1C" }}>
