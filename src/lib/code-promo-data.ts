@@ -28,10 +28,10 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     matchTags: ["bears with benefits", "bears-with-benefits", "gummies"],
     color: "#EAB8CA",
     currentOffer: {
-      code: "COZYBEARS",
-      discount: "20 % de réduction",
-      conditions: "Valable du 1er au 7 octobre 2026 inclus dès 25 € d'achat, sans limite d'utilisation annoncée. Vérifier les exclusions et l'application au panier.",
-      verifiedAt: "2026-10-01",
+      code: "BEARSAUTUMN",
+      discount: "3 pour 2 + 15 % de remise supplémentaire",
+      conditions: "Offre transmise par le programme partenaire : 3 pour 2 et 15 % supplémentaires avec BEARSAUTUMN sur les produits éligibles. Date de fin et exclusions non communiquées. Vérifier le cumul au panier.",
+      verifiedAt: "2026-10-23",
     },
   },
   {
