@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 23 Oct 2026 20:17:17 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 23 Oct 2026 20:30:53 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Biotyfull Box : 5 routines et 14 produits pour 15 €</title>
@@ -177,6 +177,15 @@
       <description>Robot aspirateur laveur Vexilar W15 à 198,54 € sur Amazon. 10 000 Pa, station d'auto-vidage sans sac, navigation LiDAR, cartographie, 180 min d'autonomie et contrôle app/Alexa.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-vexilar-w15-robot-aspirateur-laveur-10000pa-260-euros-mai-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Montre connectée Blackview W70 Pro à 34,19 € sur Amazon</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-blackview-montre-connectee-homme-100-jours-autonomie-promo-amazon-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-blackview-montre-connectee-homme-100-jours-autonomie-promo-amazon-2026</guid>
+      <pubDate>Fri, 23 Oct 2026 00:00:00 GMT</pubDate>
+      <description>La montre connectée Blackview W70 Pro coûte 34,19 € sur Amazon. Batterie 900 mAh, appels Bluetooth, boussole, lampe et étanchéité IP68.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-blackview-montre-connectee-homme-100-jours-autonomie-promo-amazon-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Box Marie Claire × Sanoflore : 5 soins visage à 20 €</title>
@@ -447,15 +456,6 @@
       <description>Zooplus : alimentation, litière et accessoires pour chien et chat. Nos conseils pour comparer les formats, choisir les équipements et vérifier livraison et promotions.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/zooplus-avis-meilleurs-produits-chien-chat-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Pack Blink Outdoor 4 et sonnette vidéo à 79,99 € (-41 %)</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-blink-outdoor-4-sonnette-video-camera-surveillance-40-euros-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-blink-outdoor-4-sonnette-video-camera-surveillance-40-euros-2026</guid>
-      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
-      <description>Le pack Blink Outdoor 4 avec sonnette vidéo noire et Sync Module Core est à 79,99 € au lieu de 134,98 € sur Amazon, soit 41 % de réduction.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/blink-outdoor-4-sonnette-video-pack-amazon.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
