@@ -131,9 +131,9 @@ export default function CommunityProductPage({
               <span className="community-section-kicker">Où l’acheter</span>
               <h2>Voir le produit chez nos partenaires</h2>
               <p className="community-section-intro">
-                Les prix sont datés lorsqu’ils ont été contrôlés. Pour Amazon,
-                aucun prix n’est saisi à la main : il provient uniquement de
-                l’API officielle. Le tarif affiché chez le marchand au moment
+                Les prix vérifiés manuellement sont datés. Les offres Amazon
+                automatiques utilisent l’API officielle lorsqu’un tarif est disponible.
+                Le tarif affiché chez le marchand au moment
                 de la commande reste celui qui fait foi.
               </p>
               <div className="merchant-comparison" role="list">

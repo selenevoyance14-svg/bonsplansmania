@@ -2485,6 +2485,40 @@ body {
   background: linear-gradient(135deg, #f8f3eb 0%, #fff 100%);
 }
 
+/* Même gabarit pour les offres des fiches produit, quel que soit le marchand. */
+.merchant-offer > .amazon-live-offer,
+.merchant-offer > .merchant-live-offer {
+  box-sizing: border-box;
+  flex: 0 0 min(100%, 430px);
+  width: min(100%, 430px);
+  min-width: 0;
+  min-height: 220px;
+  margin: 0;
+  padding: 20px 24px;
+  justify-content: center;
+}
+
+.merchant-offer > .amazon-live-offer {
+  gap: 14px;
+}
+
+.merchant-offer .amazon-live-image-link {
+  flex-basis: 88px;
+}
+
+.merchant-offer .amazon-live-image {
+  width: 88px;
+  height: 88px;
+}
+
+@media (max-width: 768px) {
+  .merchant-offer > .amazon-live-offer,
+  .merchant-offer > .merchant-live-offer {
+    flex-basis: auto;
+    width: 100%;
+  }
+}
+
 .merchant-live-label {
   color: #7d293d;
   font-size: .78rem;
