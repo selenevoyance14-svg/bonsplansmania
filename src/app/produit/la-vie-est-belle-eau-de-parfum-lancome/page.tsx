@@ -24,28 +24,28 @@ export default function LaVieEstBelleProductPage() {
       idealFor={["Les amateurs de parfums floraux gourmands", "Les personnes qui aiment l’iris, la vanille et la praline", "Un parfum généreux pour le soir ou les saisons fraîches"]}
       strengths={["Une signature à l’iris facilement reconnaissable", "Un accord gourmand équilibré par le patchouli", "Plusieurs contenances et des flacons rechargeables selon le format"]}
       watchOut={["Son côté sucré est marqué et peut déplaire si vous préférez les parfums frais", "Ne pas le confondre avec La Vie Est Belle L’Elixir, Vanille Nude ou les autres déclinaisons", "Le prix varie fortement selon la contenance et le vendeur"]}
-      editorialNote="Notre avis : La Vie Est Belle reste une valeur sûre pour qui recherche un parfum féminin floral, gourmand et tenace. Au moment de notre vérification, le flacon de 75 ml était même moins cher que le 50 ml chez Perfume’s Club : vérifiez donc toujours les contenances avant de commander."
+      editorialNote="Notre avis : La Vie Est Belle s’adresse aux amateurs de parfums floraux gourmands à l’iris. Comparez les contenances et le contenu de chaque offre : Beauty Success propose le parfum seul, tandis que le coffret Amazon réunit une eau de parfum rechargeable de 30 ml et un mascara Hypnôse de 2 ml."
       offers={[
-        {
-          merchant: "Perfume’s Club",
-          note: "Eau de parfum vaporisateur 75 ml",
-          price: "66,02 €",
-          checkedAt: "2026-09-19",
-          href: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2Ffr%2Flancome%2Fla-vie-est-belle-eau-de-parfum-vaporisateur%2Fp_35520%2F",
-        },
-        {
-          merchant: "Perfume’s Club",
-          note: "Eau de parfum vaporisateur 50 ml",
-          price: "70,15 €",
-          checkedAt: "2026-09-19",
-          href: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2Ffr%2Flancome%2Fla-vie-est-belle-eau-de-parfum-vaporisateur%2Fp_35520%2F",
-        },
         {
           merchant: "Beauty Success",
           note: "Eau de parfum vaporisateur 15 ml",
           price: "39,90 €",
-          checkedAt: "2026-09-19",
-          href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fparfum-lancome-la-vie-est-belle-eau-de-parfum-femme-c002321",
+          checkedAt: "2026-10-23",
+          href: "/go/la-vie-est-belle-beauty-success",
+        },
+        {
+          merchant: "Beauty Success",
+          note: "Eau de parfum vaporisateur 30 ml — sélectionner cette contenance",
+          price: "74,90 €",
+          checkedAt: "2026-10-23",
+          href: "/go/la-vie-est-belle-beauty-success",
+        },
+        {
+          merchant: "Amazon — coffret parfum et mascara",
+          note: "Eau de parfum rechargeable 30 ml + mascara Hypnôse 2 ml, Noir Hypnotic",
+          offer: "Vendu par Lancôme France et expédié par Amazon lors de la vérification du 23 octobre 2026.",
+          amazonAsin: "B0GV19KZ92",
+          href: "/go/la-vie-est-belle-coffret-30ml-amazon",
         },
       ]}
     />

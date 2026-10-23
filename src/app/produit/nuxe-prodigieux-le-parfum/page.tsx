@@ -27,15 +27,14 @@ export default function ProdigieuxProductPage() {
         "Un parfum facile à emporter grâce au format 30 ml",
       ]}
       strengths={["Un accord solaire de fleur d’oranger, magnolia et vanille", "Une senteur proche de l’Huile Prodigieuse", "Un flacon compact de 30 ml facile à emporter"]}
-      watchOut={["La vanille peut sembler trop présente si vous préférez les parfums très frais", "Ne pas le confondre avec l’Huile Prodigieuse ou Prodigieux Floral Le Parfum", "Le prix actuel est supérieur à celui relevé lors de notre précédente vérification"]}
-      editorialNote="Notre avis : Nuxe Prodigieux Le Parfum convient surtout aux personnes qui apprécient les senteurs solaires, florales et vanillées. Attention au faux sentiment de promotion : le 30 ml est actuellement affiché à 27,99 €, contre 25,99 € lors de notre vérification du 14 août 2026."
+      watchOut={["La vanille peut sembler trop présente si vous préférez les parfums très frais", "Ne pas le confondre avec l’Huile Prodigieuse ou Prodigieux Floral Le Parfum", "Comparer les prix pour une même contenance : cette offre concerne le flacon de 30 ml"]}
+      editorialNote="Notre avis : Nuxe Prodigieux Le Parfum convient surtout aux personnes qui apprécient les senteurs solaires, florales et vanillées. Le flacon de 30 ml coûte 24,79 € chez Atida lors de notre vérification du 23 octobre 2026."
       offers={[
         {
           merchant: "Atida",
           note: "Eau de parfum 30 ml",
-          price: "27,99 €",
-          checkedAt: "2026-09-19",
-          offer: "Prix en hausse de 2 € depuis notre vérification du 14 août 2026",
+          price: "24,79 €",
+          checkedAt: "2026-10-23",
           href: "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2Fnuxe-prodigieux-le-parfum-30ml.html%3Fmsclkid%3Db190adcc3f4216533c9ac7b33fcf4054%26utm_source%3Dbing%26utm_medium%3Dcpc%26utm_campaign%3Dint_fr_atida_shopping_bing_long_medium%26utm_term%3D4584001470394067%26utm_content%3DLong%2520Medium",
         },
       ]}

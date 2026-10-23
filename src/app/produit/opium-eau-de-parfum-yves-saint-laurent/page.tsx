@@ -23,29 +23,29 @@ export default function OpiumProductPage() {
       lead="Opium est un parfum ambré et épicé construit autour de la myrrhe, de la vanille, de l’ambre et du patchouli. Cette fiche compare les prix des formats disponibles et rassemble les avis de la communauté."
       idealFor={["Les amateurs de parfums ambrés, orientaux et épicés", "Les personnes qui apprécient les senteurs chaudes et enveloppantes", "Un parfum affirmé pour le soir et les saisons fraîches"]}
       strengths={["Accord ambré autour de la myrrhe", "Fond chaud de vanille, ambre et patchouli", "Formats 30, 50 et 90 ml selon les marchands"]}
-      watchOut={["Ne pas confondre Opium avec Black Opium", "Son caractère intense peut sembler trop opulent si vous préférez les parfums légers", "Les prix et les disponibilités varient fortement selon la contenance"]}
-      editorialNote="Notre avis : Opium s’adresse surtout aux personnes qui recherchent un parfum ambré très affirmé. La myrrhe et les épices lui donnent davantage de caractère qu’un parfum gourmand classique. Le format 50 ml offre actuellement un meilleur rapport quantité-prix que le 30 ml."
+      watchOut={["Ne pas confondre Opium avec Black Opium", "Son caractère intense peut sembler trop opulent si vous préférez les parfums légers", "Les prix et les disponibilités varient fortement selon la contenance", "L’offre Amazon est une eau de toilette 50 ml, différente de l’eau de parfum"]}
+      editorialNote="Notre avis : Opium s’adresse surtout aux personnes qui recherchent un parfum ambré très affirmé. La myrrhe et les épices lui donnent davantage de caractère qu’un parfum gourmand classique. Comparez une même contenance et une même concentration : l’offre Amazon ajoutée ici est une eau de toilette 50 ml, tandis que YSL Beauté propose l’eau de parfum 50 ml à 96 € lors de notre vérification du 23 octobre 2026."
       offers={[
         {
-          merchant: "Perfume’s Club",
-          note: "Eau de parfum vaporisateur 50 ml",
-          price: "71,88 €",
-          checkedAt: "2026-09-19",
-          href: "https://clk.tradedoubler.com/click?p=401959&a=3421259&url=https%3A%2F%2Fwww.perfumesclub.fr%2Ffr%2Fyves-saint-laurent%2Fopium-eau-de-parfum-vaporisateur%2Fp_44520%2F",
+          merchant: "Amazon — Eau de toilette",
+          note: "Opium Eau de Toilette 50 ml : concentration différente de l’Eau de Parfum comparée chez YSL Beauté",
+          offer: "Offre consultée le 23 octobre 2026 : achat ponctuel, vendu par Pluzen et expédié par Amazon. Livraison gratuite sur l’offre consultée. Le vendeur peut évoluer.",
+          amazonAsin: "B073VMFK2L",
+          href: "/go/opium-edt-50ml-amazon",
         },
         {
           merchant: "YSL Beauté",
           note: "Eau de parfum vaporisateur 50 ml",
-          price: "115,00 €",
-          checkedAt: "2026-09-19",
-          href: "https://www.yslbeauty.fr/parfums/parfum-femme/opium/opium-eau-de-parfum-spray/231YSL.html",
+          price: "96,00 €",
+          checkedAt: "2026-10-23",
+          offer: "Ancien prix affiché 120 € · remise de 20 % · livraison offerte dès 50 € selon conditions",
+          href: "/go/opium-edp-50ml-ysl-beaute",
         },
         {
           merchant: "Beauty Success",
           note: "Eau de parfum vaporisateur 30 ml",
-          price: "144,00 €",
-          checkedAt: "2026-09-19",
-          href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fparfum-yves-saint-laurent-opium-eau-de-parfum-femme-c000806",
+          offer: "Prix à consulter sur la fiche du marchand : ancien relevé retiré",
+          href: "/go/opium-edp-beauty-success",
         },
       ]}
     />

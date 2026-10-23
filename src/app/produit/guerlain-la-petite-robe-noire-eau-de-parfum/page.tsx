@@ -29,8 +29,8 @@ export default function PetiteRobeNoireProductPage() {
         {
           merchant: "Beauty Success",
           note: "Eau de parfum vaporisateur rechargeable 20 ml",
-          price: "59,90 €",
-          checkedAt: "2026-08-14",
+          price: "64,90 €",
+          checkedAt: "2026-10-23",
           href: "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2Fparfum-guerlain-la-petite-robe-noire-eau-de-parfum-femme-c001009",
         },
       ]}
