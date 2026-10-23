@@ -407,16 +407,6 @@ export default async function ArticlePage({ params }: PageProps) {
                 </p>
               </div>
             )}
-            {isStale && staleMessage && (
-              <div style={{ background: "#FEF3C7", border: "2px solid #F59E0B", borderRadius: "12px", padding: "14px 20px", marginBottom: "20px", textAlign: "center" }}>
-                <p style={{ margin: 0, fontWeight: 700, fontSize: "1rem", color: "#92400E" }}>
-                  ⚠️ {staleMessage.title}
-                </p>
-                <p style={{ margin: "6px 0 0", fontSize: "0.85rem", color: "#B45309" }}>
-                  Retrouve nos <a href={staleMessage.cta.href} style={{ color: "#92400E", textDecoration: "underline", fontWeight: 600 }}>{staleMessage.cta.label}</a>.
-                </p>
-              </div>
-            )}
             <div className="article-header">
               <div className="article-meta-top">
                 <span className={`pill pill-${article.meta.category}`}>{cat?.emoji} {cat?.label}</span>

@@ -236,20 +236,9 @@ export default async function BrandPage({ params }: PageProps) {
           <section className="section-sm">
             <div className="container">
               {editorialPage.commercialPartnershipActive && (
-                <div
-                  role="note"
-                  style={{
-                    padding: "14px 18px",
-                    marginBottom: "18px",
-                    border: "2px solid #1D4ED8",
-                    borderRadius: "12px",
-                    background: "#EFF6FF",
-                    color: "#1E3A8A",
-                    fontWeight: 700,
-                  }}
-                >
-                  Collaboration commerciale avec {display}
-                </div>
+                <p style={{ margin: "0 0 18px", color: "var(--muted-foreground)", fontSize: "0.85rem" }}>
+                  Liens affiliés : Bons Plans Mania peut percevoir une commission sur les achats éligibles, sans surcoût pour vous.
+                </p>
               )}
 
               <div style={{ padding: "24px", border: "1px solid var(--border)", borderRadius: "16px", background: "white" }}>

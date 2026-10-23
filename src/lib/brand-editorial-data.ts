@@ -68,7 +68,7 @@ export function getCurrentBrandOffers(
 export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
   carrefour: {
     introduction:
-      "Cette page rassemble les articles Bons Plans Mania liés à Carrefour ainsi que les principaux services vérifiés sur les pages officielles de l’enseigne. Les prix, promotions et disponibilités peuvent varier selon le magasin et la zone de livraison.",
+      "Retrouvez les bons plans Carrefour pour vos courses, la maison et les jouets. Comparez les remises immédiates, les avantages Club et les offres Drive ou livraison en sélectionnant votre magasin. Une somme créditée sur la carte fidélité se distingue d’une réduction déduite immédiatement du panier.",
     verifiedAt: "2026-09-30",
     officialSourceUrl: "https://www.carrefour.fr/services",
     services: [
@@ -132,10 +132,18 @@ export const BRAND_EDITORIAL_PAGES: Record<string, BrandEditorialPage> = {
       {
         question: "Les liens Carrefour de cette page sont-ils commerciaux ?",
         answer:
-          "La collaboration commerciale avec Carrefour est signalée visiblement. Les liens affiliés sont identifiés comme sponsorisés, sans coût supplémentaire pour le visiteur.",
+          "Certains liens sont affiliés : Bons Plans Mania peut percevoir une commission sur les achats éligibles, sans surcoût pour vous. Cette information figure sur la page et les liens concernés sont identifiés comme sponsorisés.",
       },
     ],
     internalLinks: [
+      {
+        href: "/article/courses-pas-cheres-2026-comparatif-supermarches-astuces",
+        label: "Comparer son budget courses entre supermarchés",
+      },
+      {
+        href: "/article/lego-moins-15-euros-carrefour-octobre-2026",
+        label: "Découvrir la sélection de LEGO à moins de 15 €",
+      },
       {
         href: "/article/test-produit-gratuit-carrefour-mon-avis-le-rend-gratuit",
         label: "Tester des produits gratuitement avec MonAvisLeRendGratuit",
