@@ -138,6 +138,17 @@ function main() {
   const codeCount = collectPermanentCodes(mapping);
   const entryCount = Object.keys(mapping).length;
 
+  const manualFile = path.join(path.dirname(OUT_FILE), "manual-affiliate-mapping.json");
+  if (fs.existsSync(manualFile)) {
+    const manualMapping = JSON.parse(fs.readFileSync(manualFile, "utf8")) as Record<string, unknown>;
+    const collisions = Object.keys(manualMapping).filter((slug) => slug in mapping);
+    if (collisions.length > 0) {
+      throw new Error(
+        `[affiliate-mapping] Collision entre les mappings généré et manuel : ${collisions.join(", ")}`,
+      );
+    }
+  }
+
   fs.mkdirSync(path.dirname(OUT_FILE), { recursive: true });
   fs.writeFileSync(OUT_FILE, JSON.stringify(mapping, null, 0));
 
