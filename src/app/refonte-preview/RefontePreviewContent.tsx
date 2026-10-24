@@ -1,3 +1,4 @@
+import HomeOfferPrice from "./HomeOfferPrice";
 import { Fragment } from "react";
 import Image from "next/image";
 import Link from "next/link";
@@ -273,7 +274,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
 
         <div className={styles.editorialGrid}>
           {deals.map((article, index) => {
-            const { originalPrice, discountPct } = getHomepagePriceDetails(article);
+            const { originalPrice } = getHomepagePriceDetails(article);
             const directMerchantCta = hasDirectMerchantCta({
               category: article.meta.category,
               affiliateUrl: article.meta.affiliateUrl,
@@ -303,21 +304,11 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                   updated={article.meta.updated}
                   variant="posted"
                 />
-                <h3><Link href={`/article/${article.meta.slug}`}>{formatCardTitle(article.meta.title)}</Link></h3>
+                <h3><Link href={`/article/${article.meta.slug}`}>{BON_PLAN_CATEGORIES.has(article.meta.category) ? <HomeOfferPrice mode="title" title={article.meta.title} originalPrice={originalPrice} price={article.meta.price} asin={article.meta.amazonPriceOverride ? undefined : article.meta.amazonAsin} /> : formatCardTitle(article.meta.title)}</Link></h3>
                 <p>{article.meta.description}</p>
                 <div className={styles.cardFooter}>
                   <div className={styles.priceGroup}>
-                    <strong>
-                      {article.meta.amazonPriceOverride
-                        ? article.meta.price || "Voir le bon plan"
-                        : <AmazonCardPrice asin={article.meta.amazonAsin} fallback={article.meta.price || "Voir le bon plan"} />}
-                    </strong>
-                    {originalPrice ? (
-                      <span className={styles.priceComparison}>
-                        <del>{originalPrice}</del>
-                        {discountPct ? <span>−{discountPct}%</span> : null}
-                      </span>
-                    ) : null}
+                    <HomeOfferPrice mode="price" price={article.meta.price} originalPrice={originalPrice} asin={article.meta.amazonPriceOverride ? undefined : article.meta.amazonAsin} />
                     {article.meta.deliveryPrice ? (
                       <span className={styles.deliveryPrice} aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
                         <Truck size={17} aria-hidden />
@@ -325,7 +316,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                       </span>
                     ) : null}
                     {directMerchantCta && article.meta.merchant ? (
-                      <span className={styles.merchantName}>{article.meta.merchant}</span>
+                      <a className={styles.merchantName} href={`/go/${article.meta.slug}`} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre chez ${article.meta.merchant}`}>{article.meta.merchant}</a>
                     ) : null}
                   </div>
                   {directMerchantCta ? (

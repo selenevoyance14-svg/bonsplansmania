@@ -327,3 +327,20 @@
 }
 
 @media (prefers-reduced-motion:reduce){.dealsPanel{animation:none}.dealsHubCard,.dealsHubImage img{transition:none}}
+
+/* Les liens marchands conservent le format compact de leur bulle. */
+.cardFooter a.merchantName {
+  min-height:0;
+  padding:3px 6px;
+  border-color:#ddd5cb;
+  background:#f3efe9;
+  color:#5c554f;
+  font-size:10px;
+  text-decoration:none;
+}
+.cardFooter a.merchantName:hover,
+.cardFooter a.merchantName:focus-visible {
+  border-color:var(--wine);
+  color:var(--wine);
+  text-decoration:underline;
+}
