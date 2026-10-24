@@ -282,5 +282,61 @@
   "la-vie-est-belle-coffret-30ml-amazon": "https://www.amazon.fr/dp/B0GV19KZ92?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=2528377de98eeb3722898be229c9e5d5&ref_=as_li_ss_tl",
   "beauty-of-joseon-aqua-fresh-amazon": "https://www.amazon.fr/dp/B0DFMGBZ9Z?linkCode=ll2&tag=lebrunnathali-21&linkId=deac156497b5b93d0e5d0cf016178fbb&gaOptInStatus=true&ref_=as_li_ss_tl",
   "la-favorite-50ml-amazon": "https://www.amazon.fr/dp/B0HHQG492V?linkCode=ll2&tag=lebrunnathali-21&linkId=668ee96e80610d68bdb01eaa008abfae&ref_=as_li_ss_tl",
-  "la-favorite-100ml-amazon": "https://www.amazon.fr/dp/B0HHQQSNDK?linkCode=ll2&tag=lebrunnathali-21&linkId=ba0b0a393334f084cf97f676bd5e3ae9&ref_=as_li_ss_tl"
+  "la-favorite-100ml-amazon": "https://www.amazon.fr/dp/B0HHQQSNDK?linkCode=ll2&tag=lebrunnathali-21&linkId=ba0b0a393334f084cf97f676bd5e3ae9&ref_=as_li_ss_tl",
+  "test-produit-capricare-2eme-age-mymarketfree-octobre-2026": {
+    "url": "https://www.mymarketfree.com/Vue/page-produit.php",
+    "label": "Voir le test Capricare sur MyMarketFree"
+  },
+  "comparatif-brosses-tangle-teezer-lookfantastic": {
+    "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Ftangle-teezer-the-original-hairbrush-pink-fizz%2F10796068%2F",
+    "label": "Voir la Tangle Teezer Original sur Lookfantastic"
+  },
+  "comparatif-brosses-olivia-garden-officiel": {
+    "url": "https://www.oliviagarden.eu/en/catalog/hairbrushes/fingerbrush/",
+    "label": "Comparer les versions Fingerbrush"
+  },
+  "comparatif-brosses-denman-d3": {
+    "url": "https://www.laboutiqueducoiffeur.com/fr-fr/p/A31258.html",
+    "label": "Voir la Denman D3 noire"
+  },
+  "comparatif-brosses-wet-brush-amazon": {
+    "url": "https://www.amazon.fr/s?k=wet+brush+original&tag=lebrunnathali-21",
+    "label": "Voir Wet Brush sur Amazon"
+  },
+  "comparatif-brosses-kent-amazon": {
+    "url": "https://www.amazon.fr/s?k=kent+brushes&tag=lebrunnathali-21",
+    "label": "Voir les brosses Kent sur Amazon"
+  },
+  "comparatif-brosses-lynaya": {
+    "url": "https://lynaya.fr/products/brosse-demelante-anti-casse-et-sans-douleurs-violet-lilas-copie",
+    "label": "Découvrir la brosse Lynaya"
+  },
+  "comparatif-brosses-tangle-teezer-officiel": {
+    "url": "https://tangleteezer.com/products/the-original",
+    "label": "Fiche officielle Tangle Teezer Original"
+  },
+  "comparatif-brosses-denman-officiel": {
+    "url": "https://denmanbrush.com/products/d3-original-styler-7-row",
+    "label": "Fiche officielle Denman D3"
+  },
+  "comparatif-brosses-wet-brush-officiel": {
+    "url": "https://wetbrush.com/products/original-detangler-frost-black",
+    "label": "Fiche officielle Wet Brush Original Detangler"
+  },
+  "livraison-courses-carrefour-domicile-frais-minimum-commande-2026": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fservices%2Flivraison-domicile",
+    "label": "Vérifier la livraison Carrefour à mon adresse"
+  },
+  "carrefour-livraison-gratuite-publics-eligibles": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fservices%2Flivraison-domicile%2Fgratuite-commandes",
+    "label": "Conditions de livraison offerte Carrefour"
+  },
+  "carrefour-livraison-minimum-frais": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Ffaq%3Fquestion%3Dcombien-s-elevent-frais-preparation-livraison-domicile-le-minimum-commande",
+    "label": "Minimum et frais de livraison Carrefour"
+  },
+  "carrefour-livraison-produits-remplaces": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Ffaq%3Fquestion%3Dest-ce-un-produit-indisponible-comment-le-faire-rembourser-24202",
+    "label": "Produits indisponibles ou remplacés Carrefour"
+  }
 }
