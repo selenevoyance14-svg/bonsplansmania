@@ -17,8 +17,8 @@ function loadOffer(asin: string) {
   return request;
 }
 
-export default function HomeOfferPrice({ asin, price, originalPrice, title, mode }: {
-  asin?: string; price?: string; originalPrice?: string; title?: string; mode: "title" | "price";
+export default function HomeOfferPrice({ asin, price, originalPrice, title, mode, hideReferencePriceInTitle }: {
+  asin?: string; price?: string; originalPrice?: string; title?: string; mode: "title" | "price"; hideReferencePriceInTitle?: boolean;
 }) {
   const [live, setLive] = useState<Offer | null>(null);
   useEffect(() => {
@@ -33,14 +33,16 @@ export default function HomeOfferPrice({ asin, price, originalPrice, title, mode
   const oldAmount = extractPriceAmount(before);
   const validBefore = amount !== undefined && oldAmount !== undefined && oldAmount > amount;
   if (mode === "title") {
+    // Percentage offers and labels are not monetary prices to append to a title.
+    if (amount === undefined) return <>{formatCardTitle(title || "")}</>;
     const base = formatCardTitle(title || "").replace(/\s+au lieu de\s+\d[\d\s\u00a0\u202f]*(?:[.,]\d{1,2})?\s*(?:€|euros?)(?:\s*\([^)]*\))?/i, "");
     if (!now) return <>{base}</>;
-    const titlePrice = amount === undefined ? now : `${new Intl.NumberFormat("fr-FR", { maximumFractionDigits: 2 }).format(amount)} €`;
+    const titlePrice = amount === undefined ? now : `${new Intl.NumberFormat("fr-FR", { minimumFractionDigits: Number.isInteger(amount) ? 0 : 2, maximumFractionDigits: 2 }).format(amount)} €`;
     // Keep the current amount in the title, including titles shortened by the card formatter.
     const display = /€|\beuros?\b/i.test(base)
       ? base.replace(/\d[\d\s\u00a0\u202f]*(?:[.,]\d{1,2})?\s*(?:€|euros?)/i, titlePrice)
       : `${base.replace(/…$/, "")} ${/^dès\b/i.test(now) ? "dès" : "à"} ${titlePrice}`;
-    return <>{display}{validBefore ? ` au lieu de ${before}` : ""}</>;
+    return <>{display}{validBefore && !hideReferencePriceInTitle ? ` au lieu de ${before}` : ""}</>;
   }
   return <>
     <strong>{now || price || "Voir le bon plan"}</strong>

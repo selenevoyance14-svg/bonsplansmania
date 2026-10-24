@@ -233,6 +233,7 @@ export interface ArticleMeta {
   merchant?: string;
   /** Prix Amazon relevé manuellement quand Creators API ne renvoie aucune offre. */
   amazonPriceOverride?: boolean;
+  hideReferencePriceInTitle?: boolean;
   affiliateUrl?: string;
   /** Alias court utilisé par la Pages Function pour générer le lien /go/<alias>. */
   affiliateAlias?: string;
@@ -349,6 +350,7 @@ export function getArticleBySlug(slug: string): Article | null {
         ?.trim(),
       merchant: getMerchantName(data.affiliateUrl, data.merchant),
       amazonPriceOverride: amazonArticle && data.amazonPriceOverride === true,
+      hideReferencePriceInTitle: data.hideReferencePriceInTitle === true,
       affiliateUrl: secureAmazonAffiliateUrl(data.affiliateUrl),
       affiliateAlias: typeof data.affiliateAlias === "string" && /^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(data.affiliateAlias.trim())
         ? data.affiliateAlias.trim()

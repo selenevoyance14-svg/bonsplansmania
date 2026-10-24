@@ -304,7 +304,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                   updated={article.meta.updated}
                   variant="posted"
                 />
-                <h3><Link href={`/article/${article.meta.slug}`}>{BON_PLAN_CATEGORIES.has(article.meta.category) ? <HomeOfferPrice mode="title" title={article.meta.title} originalPrice={originalPrice} price={article.meta.price} asin={article.meta.amazonPriceOverride ? undefined : article.meta.amazonAsin} /> : formatCardTitle(article.meta.title)}</Link></h3>
+                <h3><Link href={`/article/${article.meta.slug}`}>{BON_PLAN_CATEGORIES.has(article.meta.category) ? <HomeOfferPrice mode="title" hideReferencePriceInTitle={article.meta.hideReferencePriceInTitle} title={article.meta.title} originalPrice={originalPrice} price={article.meta.price} asin={article.meta.amazonPriceOverride ? undefined : article.meta.amazonAsin} /> : formatCardTitle(article.meta.title)}</Link></h3>
                 <p>{article.meta.description}</p>
                 <div className={styles.cardFooter}>
                   <div className={styles.priceGroup}>
