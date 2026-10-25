@@ -2,7 +2,7 @@ import {
     Tag, Gift, Trophy, ShoppingBag, Sparkles, Calendar, TreePine,
     FlaskConical, Percent, ArrowRight, Truck, type LucideIcon,
 } from "lucide-react";
-import { parsePrice } from "@/lib/price";
+import { formatPriceLabel, parsePrice } from "@/lib/price";
 import { DEFAULT_OFFER_CTA, DIRECT_DEAL_CATEGORIES, hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
@@ -73,7 +73,7 @@ export default function ArticleCard({
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
     const isExpired = isOfferExpired(article.meta);
     const { now, was, savings } = parsePrice(article.meta.price);
-    const originalPrice = article.meta.prix_origine || was;
+    const originalPrice = formatPriceLabel(article.meta.prix_origine || was);
     const articleHref = `/article/${article.meta.slug}`;
     const rawAffiliate = article.meta.affiliateUrl;
     // "content-first" (test-avis, comparatif, beaute…) : le footer reste sur l'article même si affiliateUrl existe.

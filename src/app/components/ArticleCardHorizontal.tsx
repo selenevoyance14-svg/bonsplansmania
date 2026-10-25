@@ -2,7 +2,7 @@
 import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { CATEGORY_CONFIG } from "./ArticleCard";
-import { parsePrice } from "@/lib/price";
+import { formatPriceLabel, parsePrice } from "@/lib/price";
 import { hasDirectMerchantCta, isOfferExpired } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 import ArticleDateLabel from "@/app/components/ArticleDateLabel";
@@ -35,7 +35,7 @@ export default function ArticleCardHorizontal({
     const cat = CATEGORY_CONFIG[article.meta.category] ?? CATEGORY_CONFIG["bon-plan"];
     const isExpired = isOfferExpired(article.meta);
     const { now, was, savings: savingsPct, savingsEur } = parsePrice(article.meta.price);
-    const originalPrice = article.meta.prix_origine || was;
+    const originalPrice = formatPriceLabel(article.meta.prix_origine || was);
     const isFree = !!now && /gratuit/i.test(now);
     // "content-first" (concours, test-gratuit, test-avis, comparatif, beaute…) :
     // le CTA reste sur l'article, pas d'ouverture affiliée.

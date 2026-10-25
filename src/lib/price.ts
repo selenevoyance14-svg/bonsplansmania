@@ -9,18 +9,30 @@ export interface ParsedPrice {
 }
 
 const LEADING_EURO_AMOUNT =
-  /^[(]?\s*(\d{1,3}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)\s*€/;
+  /^[(]?\s*(\d{1,3}(?:[\s\u00a0\u202f]\d{3})*(?:[.,]\d{1,2})?|\d+(?:[.,]\d{1,2})?)\s*€/;
 const EXPLICIT_DISCOUNT = /[-−]\s*(\d{1,3})\s*%/;
+
+/** Formate les montants bruts du catalogue, sans modifier les libellés d'offres. */
+export function formatPriceLabel(raw?: string): string | undefined {
+  if (!raw) return undefined;
+  const value = raw.trim();
+  if (!/^\d+(?:[.,]\d{1,2})?$/.test(value)) return value;
+  const amount = Number(value.replace(",", "."));
+  return `${new Intl.NumberFormat("fr-FR", {
+    minimumFractionDigits: Number.isInteger(amount) ? 0 : 2,
+    maximumFractionDigits: 2,
+  }).format(amount)} €`;
+}
 
 /** Extrait le premier prix monétaire d'un libellé éditorial ancien ou récent. */
 export function extractPriceAmount(text?: string): number | undefined {
   if (!text) return undefined;
-  const match = text.match(
-    /(\d{1,4}(?:[\s\u00a0]\d{3})*(?:[.,]\d{1,2})?)\s*(?:€|euros?)/i,
+  const match = formatPriceLabel(text)?.match(
+    /(\d{1,4}(?:[\s\u00a0\u202f]\d{3})*(?:[.,]\d{1,2})?)\s*(?:€|euros?)/i,
   );
   if (!match) return undefined;
   const amount = Number.parseFloat(
-    match[1].replace(/[\s\u00a0]/g, "").replace(",", "."),
+    match[1].replace(/[\s\u00a0\u202f]/g, "").replace(",", "."),
   );
   return Number.isFinite(amount) ? amount : undefined;
 }
@@ -33,7 +45,7 @@ function parseLeadingEuroAmount(text: string): {
   if (!match) return {};
 
   const amount = Number.parseFloat(
-    match[1].replace(/[\s\u00a0]/g, "").replace(",", "."),
+    match[1].replace(/[\s\u00a0\u202f]/g, "").replace(",", "."),
   );
 
   return {
@@ -52,7 +64,7 @@ function parseLeadingEuroAmount(text: string): {
 export function parsePrice(raw?: string): ParsedPrice {
   if (!raw) return {};
 
-  const value = raw.trim();
+  const value = formatPriceLabel(raw)!;
   const explicitMatch = value.match(EXPLICIT_DISCOUNT);
   const explicitDiscount = explicitMatch
     ? Number.parseInt(explicitMatch[1], 10)

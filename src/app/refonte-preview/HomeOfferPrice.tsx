@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { extractPriceAmount, parsePrice } from "@/lib/price";
+import { extractPriceAmount, formatPriceLabel, parsePrice } from "@/lib/price";
 import { formatCardTitle } from "@/lib/display-title";
 import styles from "./refonte.module.css";
 
@@ -28,7 +28,7 @@ export default function HomeOfferPrice({ asin, price, originalPrice, title, mode
     return () => { active = false; };
   }, [asin]);
   const now = parsePrice(live?.price || price).now;
-  const before = live?.price ? live.oldPrice : originalPrice || parsePrice(price).was;
+  const before = formatPriceLabel(live?.price ? live.oldPrice : originalPrice || parsePrice(price).was);
   const amount = extractPriceAmount(now);
   const oldAmount = extractPriceAmount(before);
   const validBefore = amount !== undefined && oldAmount !== undefined && oldAmount > amount;
