@@ -32,6 +32,8 @@ const EXCLUDED_CATEGORIES = new Set(["test-gratuit", "test-avis", "concours", "b
 function isNinjaArticle(meta: { slug?: string; tags?: string[]; category?: string }) {
   if (meta.category && EXCLUDED_CATEGORIES.has(meta.category)) return false;
   const slug = (meta.slug || "").toLowerCase();
+  // Les Tortues Ninja sont une licence de jouets, pas la marque électroménager.
+  if (/(^|-)tortues?-ninja(-|$)/.test(slug)) return false;
   if (/(^|-)ninja(-|$)/.test(slug)) return true;
   const tags = (meta.tags || []).map((t) => t.toLowerCase());
   if (tags.some((t) => EXCLUDED_TAGS_FROM_HERE.has(t))) return false;

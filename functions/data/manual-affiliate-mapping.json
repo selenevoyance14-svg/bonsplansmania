@@ -330,5 +330,109 @@
   "carrefour-livraison-produits-remplaces": {
     "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Ffaq%3Fquestion%3Dest-ce-un-produit-indisponible-comment-le-faire-rembourser-24202",
     "label": "Produits indisponibles ou remplacés Carrefour"
+  },
+  "guide-coffrets-cadeaux-1": {
+    "url": "https://lk.gt/aQEPL",
+    "label": "Découvrir Biotyfull Box"
+  },
+  "guide-coffrets-cadeaux-2": {
+    "url": "https://tidd.ly/4fElVKy",
+    "label": "Découvrir Blissim"
+  },
+  "guide-coffrets-cadeaux-3": {
+    "url": "https://glowria.com/?ae=487",
+    "label": "Découvrir les offres Glowria"
+  },
+  "guide-coffrets-cadeaux-4": {
+    "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fbeauty-box%2Flookfantastic-beauty-box%2Flist",
+    "label": "Explorer les box Lookfantastic"
+  },
+  "guide-coffrets-cadeaux-5": {
+    "url": "https://lk.gt/a5Gc7l",
+    "label": "Découvrir Prescription Lab"
+  },
+  "guide-coffrets-cadeaux-6": {
+    "url": "https://mieuxquedesfleurs.com/?ae=462",
+    "label": "Découvrir Mieux Que Des Fleurs"
+  },
+  "guide-coffrets-cadeaux-7": {
+    "url": "https://www.wonderbox.fr/",
+    "label": "Explorer les coffrets Wonderbox"
+  },
+  "guide-coffrets-cadeaux-8": {
+    "url": "https://www.smartbox.com/",
+    "label": "Explorer les coffrets Smartbox"
+  },
+  "guide-coffrets-cadeaux-9": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249991&url=https%3A%2F%2Fwww.mybeautyfactory.fr",
+    "label": "Découvrir My Beauty Factory"
+  },
+  "guide-coffrets-cadeaux-10": {
+    "url": "https://www.rituals.com/",
+    "label": "Découvrir les coffrets Rituals"
+  },
+  "guide-peaux-matures-soin-1": {
+    "url": "https://www.amazon.fr/dp/B0BTHWYVGB?tag=lebrunnathali-21",
+    "label": "Consulter le soin visage sur Amazon"
+  },
+  "guide-peaux-matures-soin-2": {
+    "url": "https://www.amazon.fr/dp/B07XYGVQ9T?tag=lebrunnathali-21",
+    "label": "Consulter le soin visage sur Amazon"
+  },
+  "guide-peaux-matures-soin-3": {
+    "url": "https://www.amazon.fr/dp/B09DZ2SDTN?tag=lebrunnathali-21",
+    "label": "Consulter le soin visage sur Amazon"
+  },
+  "guide-peaux-matures-soin-4": {
+    "url": "https://www.amazon.fr/dp/B0CBBTX2Y3?tag=lebrunnathali-21",
+    "label": "Consulter le soin visage sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-1": {
+    "url": "https://www.amazon.fr/s?k=aspirateur+laveur+sans+fil&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-2": {
+    "url": "https://www.amazon.fr/s?k=Dreame+H15+Pro&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-3": {
+    "url": "https://www.amazon.fr/s?k=Tineco+Floor+One+Stretch+S6&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-4": {
+    "url": "https://www.amazon.fr/s?k=Rowenta+X-Clean+10&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-5": {
+    "url": "https://www.amazon.fr/s?k=Roborock+F25+ACE&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-6": {
+    "url": "https://www.amazon.fr/s?k=Bissell+CrossWave+HydroSteam+Pet+Select&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-aspirateurs-laveurs-7": {
+    "url": "https://www.amazon.fr/s?k=Dyson+WashG1&tag=lebrunnathali-21",
+    "label": "Consulter les offres aspirateur laveur sur Amazon"
+  },
+  "guide-tefal-ingenio-1": {
+    "url": "https://www.amazon.fr/s?k=tefal+ingenio+poignee+amovible&tag=lebrunnathali-21",
+    "label": "Comparer les lots Tefal Ingenio sur Amazon"
+  },
+  "guide-tefal-ingenio-2": {
+    "url": "https://www.amazon.fr/s?k=Tefal+Ingenio+Emotion&tag=lebrunnathali-21",
+    "label": "Comparer les lots Tefal Ingenio sur Amazon"
+  },
+  "guide-tefal-ingenio-3": {
+    "url": "https://www.amazon.fr/s?k=Tefal+Ingenio+Preference&tag=lebrunnathali-21",
+    "label": "Comparer les lots Tefal Ingenio sur Amazon"
+  },
+  "guide-tefal-ingenio-4": {
+    "url": "https://www.amazon.fr/s?k=Tefal+Ingenio+Eco+Resist&tag=lebrunnathali-21",
+    "label": "Comparer les lots Tefal Ingenio sur Amazon"
+  },
+  "guide-tefal-ingenio-5": {
+    "url": "https://www.amazon.fr/s?k=Tefal+Ingenio+Renew&tag=lebrunnathali-21",
+    "label": "Comparer les lots Tefal Ingenio sur Amazon"
   }
 }
