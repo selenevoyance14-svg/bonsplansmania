@@ -29,25 +29,24 @@ export type FeaturedPartnerConfig = {
 
 export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   active: true,
-  id: "carrefour-jouets-noel-20-pourcent-2026",
+  id: "carrefour-courses20-novembre-2026",
   brandName: "Carrefour",
   merchant: "carrefour",
   badge: "Partenaire à la une",
-  title: "Carrefour : jusqu’à 20 % d’économies sur les jouets de Noël",
+  title: "Carrefour : 20 € de remise dès 80 € de courses",
   description:
-    "Préparez Noël avec jusqu’à 20 % d’économies Club Carrefour sur une sélection de jouets participants.",
-  imageSrc: "/images/partenariats/exemple-carrefour-jouets-noel-2026.webp",
-  imageAlt:
-    "Carrefour propose jusqu’à 20 % d’économies Club Carrefour sur une sélection de jouets de Noël",
-  promoCode: "CLUB CARREFOUR",
-  promoValidityText: "Offre valable sur une sélection de jouets de Noël participants",
+    "À partir du 2 novembre : profitez de 20 € de remise immédiate sur votre première commande Drive, Livré Chez Vous ou Livraison Express.",
+  imageSrc: "/images/articles/livraison-courses-carrefour-domicile-2026.png",
+  imageAlt: "Illustration d’un camion de livraison transportant un sac de courses",
+  promoCode: "COURSES20",
+  promoValidityText: "Code valable du 2 au 29 novembre 2026 — nouveaux clients",
   conditionsText:
-    "Avantage réservé aux détenteurs de la Carte Club Carrefour sur les références participantes, selon les conditions affichées par Carrefour et dans la limite des stocks disponibles.",
-  startsAt: "2026-10-16T00:00:00+02:00",
-  endsAt: "2026-12-24T23:59:59+01:00",
-  primaryCtaLabel: "Voir les jouets de Noël",
-  primaryCtaHref: "/go/carrefour-jouets-noel-20-pourcent-2026",
-  copyButtonLabel: "Voir l’offre Club Carrefour",
+    "Offre à venir, valable du 02/11 au 29/11/2026 pour une première commande dès 80 € en Drive, Carrefour Livré Chez Vous (CLCV) ou Livraison Express (LEX), sur Carrefour.fr et l’application Carrefour. Conditions détaillées à vérifier au panier.",
+  startsAt: "2026-10-26T00:00:00+01:00",
+  endsAt: "2026-11-29T23:59:59+01:00",
+  primaryCtaLabel: "Découvrir les courses Carrefour",
+  primaryCtaHref: "/go/carrefour-courses20-novembre-2026",
+  copyButtonLabel: "Copier COURSES20",
   theme: {
     background: "#FFF4F4",
     border: "#E30613",

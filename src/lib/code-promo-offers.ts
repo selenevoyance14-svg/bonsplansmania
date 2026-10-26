@@ -534,6 +534,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // CARREFOUR — première commande Drive et livraison, automne 2026
   // ============================================================
   {
+    id: "carrefour-courses-20-euros-des-80-novembre-2026",
+    brandSlug: "carrefour",
+    type: "code",
+    value: "20 €",
+    valueLabel: "DÈS 80 €",
+    title: "20 € de remise dès 80 € sur la première commande Carrefour",
+    code: "COURSES20",
+    starts: "2026-11-02",
+    expires: "2026-11-29",
+    conditions: "Code COURSES20 : 20 € de remise immédiate dès 80 € d’achat, réservé aux nouveaux clients pour une première commande en Drive, Carrefour Livré Chez Vous (CLCV) ou Livraison Express (LEX), sur Carrefour.fr et l’application Carrefour. Valable du 2 au 29 novembre 2026 inclus. Vérifiez les exclusions et conditions détaillées au panier.",
+    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcourses",
+    featured: true,
+  },
+  {
     id: "carrefour-bingo20-novembre-2026",
     brandSlug: "carrefour",
     type: "code",
