@@ -36,8 +36,8 @@ export const FEATURED_PARTNER: FeaturedPartnerConfig = {
   title: "Carrefour : 20 € de remise dès 80 € de courses",
   description:
     "À partir du 2 novembre : profitez de 20 € de remise immédiate sur votre première commande Drive, Livré Chez Vous ou Livraison Express.",
-  imageSrc: "/images/articles/livraison-courses-carrefour-domicile-2026.png",
-  imageAlt: "Illustration d’un camion de livraison transportant un sac de courses",
+  imageSrc: "/images/partenariats/carrefour-courses20-novembre-2026.png",
+  imageAlt: "Code Carrefour COURSES20 : 20 € de remise dès 80 € pour une première commande, du 2 au 29 novembre 2026",
   promoCode: "COURSES20",
   promoValidityText: "Code valable du 2 au 29 novembre 2026 — nouveaux clients",
   conditionsText:
