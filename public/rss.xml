@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 26 Oct 2026 13:23:10 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 26 Oct 2026 14:03:39 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Purito SEOUL à l’avoine : mon avis sur trois soins de ma routine</title>
+      <link>https://bonsplansmania.fr/article/avis-purito-seoul-routine-avoine-nettoyant-toner-gel-creme-2026</link>
+      <guid>https://bonsplansmania.fr/article/avis-purito-seoul-routine-avoine-nettoyant-toner-gel-creme-2026</guid>
+      <pubDate>Mon, 26 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Mon expérience avec trois soins Purito SEOUL à l’avoine : nettoyant exfoliant, toner Oat PDRN et gel-crème Oat-In. Texture, confort et prix YesStyle.</description>
+      <category>test-avis</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/purito-oat-routine-trois-soins.png" type="image/png" length="0"/>
+    </item>
     <item>
       <title>Blissim x TheGingerChloe : le coffret Automne Cosy à 50 €</title>
       <link>https://bonsplansmania.fr/article/blissim-automne-cosy-the-ginger-chloe-50-euros-2026</link>
@@ -447,15 +456,6 @@
       <description>La Whey Isolate VitaXtend Sport Diet biscuit cookie 1,8 kg est à 72,17 € au lieu de 84,90 € chez Musculation.com. Format, prix au kilo et livraison.</description>
       <category>bon-plan</category>
       <enclosure url="https://www.musculation.com/13712-large_default/whey-isolate-vitaxtend-18kg.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Whey Optimax Eric Favre framboise 500 g à 25,42 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-musculation-whey-optimax-eric-favre-framboise-500g-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-musculation-whey-optimax-eric-favre-framboise-500g-2026</guid>
-      <pubDate>Sun, 25 Oct 2026 00:00:00 GMT</pubDate>
-      <description>La Whey Optimax Protein Eric Favre framboise 500 g est à 25,42 € au lieu de 29,90 € sur Musculation.com. Prix au kilo et conditions de livraison.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://www.musculation.com/4123-large_default/whey-optimax-protein-500-gr.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
