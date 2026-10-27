@@ -103,7 +103,7 @@ const newsletterWorker = {
       }
       return jsonResponse({ error: "Not found" }, 404);
     } catch {
-      return jsonResponse({ error: "Internal error" }, 500);
+      return jsonResponse({ error: "Le service est momentanément indisponible. Réessayez plus tard." }, 503);
     }
   },
 

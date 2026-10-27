@@ -1,5 +1,7 @@
 "use client";
 
+import { hasNewsletterSubscription, subscribeNewsletter } from "@/lib/newsletter-client";
+
 import { useState, useEffect } from "react";
 import { Flame } from "lucide-react";
 
@@ -14,7 +16,7 @@ export default function NewsletterInline({
   const [message, setMessage] = useState("");
 
   useEffect(() => {
-    if (localStorage.getItem("bpm_subscribed")) setHidden(true);
+    setHidden(hasNewsletterSubscription());
   }, []);
 
   async function handleSubmit(e: React.FormEvent) {
@@ -23,29 +25,15 @@ export default function NewsletterInline({
     setStatus("loading");
 
     try {
-      const response = await fetch("https://bonsplansmania-newsletter.selenevoyance14.workers.dev/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await response.json().catch(() => null);
-
-      if (!response.ok) {
-        setStatus("error");
-        setMessage(data?.error || "L'inscription a échoué. Réessayez dans un instant.");
-        return;
-      }
-
-      localStorage.setItem("bpm_newsletter_email", email);
-      localStorage.setItem("bpm_subscribed", "true");
+      await subscribeNewsletter(email);
       window.gtag?.("event", "newsletter_signup", {
         form_location: formLocation,
         page_path: window.location.pathname,
       });
       setStatus("done");
-    } catch {
+    } catch (error) {
       setStatus("error");
-      setMessage("Impossible de joindre le service d'inscription. Réessayez dans un instant.");
+      setMessage(error instanceof Error ? error.message : "Impossible de joindre le service d’inscription.");
     }
   }
 
@@ -54,7 +42,7 @@ export default function NewsletterInline({
   if (status === "done") {
     return (
       <div style={{ background: "var(--surface, #f0fdf4)", padding: "1rem", borderRadius: "12px", textAlign: "center", margin: "2rem 0" }}>
-        <p style={{ fontWeight: 600 }}>Merci pour votre inscription !</p>
+        <p style={{ fontWeight: 600 }}>Merci, votre inscription est enregistrée pour les prochaines newsletters du mardi et du samedi.</p>
       </div>
     );
   }

@@ -4,13 +4,13 @@ import { useMemo, useState } from "react";
 import styles from "./page.module.css";
 
 const fields = [
-  ["income", "Revenus du foyer"],
+  ["income", "Revenus disponibles du foyer"],
   ["housing", "Logement"],
   ["bills", "Factures et assurances"],
   ["credits", "Crédits et dettes"],
   ["food", "Courses"],
   ["transport", "Transport"],
-  ["other", "Autres dépenses"],
+  ["other", "Autres dépenses et provisions"],
 ] as const;
 
 type Field = (typeof fields)[number][0];
@@ -34,8 +34,8 @@ export default function BudgetCalculator() {
       <div className={`${styles.result} ${result.balance < 0 ? styles.negative : ""}`} aria-live="polite">
         <div><span>Total des dépenses</span><strong>{result.expenses.toLocaleString("fr-FR", { maximumFractionDigits: 2 })} €</strong></div>
         <div><span>Reste à répartir ce mois</span><strong>{result.balance.toLocaleString("fr-FR", { maximumFractionDigits: 2 })} €</strong></div>
-        {result.balance >= 0 && <p>Repère hebdomadaire maximum : <strong>{result.weekly.toLocaleString("fr-FR", { maximumFractionDigits: 0 })} €</strong>. Gardez une partie de cette somme pour les imprévus et l’épargne.</p>}
-        {result.balance < 0 && <p>Le budget est déficitaire de <strong>{Math.abs(result.balance).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} €</strong>. Passez directement à la rubrique « Si le compte est déjà dans le rouge » ci-dessous.</p>}
+        {result.balance >= 0 && <p>Répartition indicative du solde par semaine : <strong>{result.weekly.toLocaleString("fr-FR", { maximumFractionDigits: 0 })} €</strong>. Gardez une partie de cette somme pour les imprévus et l’épargne.</p>}
+        {result.balance < 0 && <p>Le budget est déficitaire de <strong>{Math.abs(result.balance).toLocaleString("fr-FR", { maximumFractionDigits: 2 })} €</strong>. Consultez la rubrique « Si vous n’arrivez plus à payer l’essentiel » ci-dessous.</p>}
       </div>
       <p className={styles.privacy}>Calcul effectué uniquement dans votre navigateur : aucun montant n’est enregistré ni envoyé.</p>
     </div>

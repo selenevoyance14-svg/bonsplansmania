@@ -1,5 +1,7 @@
 "use client";
 
+import { hasNewsletterSubscription, subscribeNewsletter } from "@/lib/newsletter-client";
+
 import { ArrowRight, Mail } from "lucide-react";
 import { useEffect, useState } from "react";
 import styles from "./refonte.module.css";
@@ -10,22 +12,14 @@ export default function EditorialNewsletter() {
   const [status, setStatus] = useState<"idle" | "loading" | "done" | "error">("idle");
   const [message, setMessage] = useState("");
 
-  useEffect(() => setHidden(localStorage.getItem("bpm_subscribed") === "true"), []);
+  useEffect(() => setHidden(hasNewsletterSubscription()), []);
 
   async function subscribe(event: React.FormEvent) {
     event.preventDefault();
     if (!email) return;
     setStatus("loading");
     try {
-      const response = await fetch("https://bonsplansmania-newsletter.selenevoyance14.workers.dev/subscribe", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email }),
-      });
-      const data = await response.json().catch(() => null);
-      if (!response.ok) throw new Error(data?.error || "L’inscription a échoué.");
-      localStorage.setItem("bpm_newsletter_email", email);
-      localStorage.setItem("bpm_subscribed", "true");
+      await subscribeNewsletter(email);
       window.gtag?.("event", "newsletter_signup", { form_location: "homepage_deals_inline", page_path: window.location.pathname });
       setStatus("done");
     } catch (error) {
@@ -45,7 +39,7 @@ export default function EditorialNewsletter() {
         <p>Notre sélection du mardi et du samedi, courte et utile.</p>
       </div>
       {status === "done" ? (
-        <p className={styles.newsletterThanks}>Merci, vous êtes bien inscrit(e) !</p>
+        <p className={styles.newsletterThanks}>Merci, votre inscription est enregistrée pour les prochaines newsletters du mardi et du samedi.</p>
       ) : (
         <form onSubmit={subscribe} className={styles.newsletterForm}>
           <label htmlFor="homepage-deals-email">Votre adresse e-mail</label>

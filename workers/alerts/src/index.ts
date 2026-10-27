@@ -49,7 +49,14 @@ export default {
     if (request.method === "OPTIONS") return new Response(null, { status: 204, headers: corsHeaders });
     const url = new URL(request.url);
 
-    if (request.method === "POST" && url.pathname === "/alerts") return createAlert(request, env);
+    if (request.method === "POST" && url.pathname === "/alerts") {
+      try {
+        return await createAlert(request, env);
+      } catch {
+        // Keep CORS and a readable response even when storage or email fails.
+        return json({ error: "Le service d’alertes est momentanément indisponible. Réessayez plus tard." }, 503);
+      }
+    }
     if (request.method === "GET" && url.pathname === "/confirm") return confirmAlert(url, env);
     if (request.method === "GET" && url.pathname === "/unsubscribe") return unsubscribeAlert(url, env);
     if (request.method === "GET" && url.pathname === "/health") return json({ ok: true, service: "bonsplansmania-alerts" });
@@ -60,10 +67,15 @@ export default {
     return json({ error: "Route introuvable." }, 404);
   },
 
-  async scheduled(_controller: ScheduledController, env: Env): Promise<void> {
+  async scheduled(controller: ScheduledController, env: Env): Promise<void> {
     await scanArticles(env);
-    await scanMerchantLinks(env);
-    await scanAmazonPrices(env);
+    // Reserve the shared free KV quota for subscriptions: 4 monitoring batches/day,
+    // instead of 96 batches writing up to 50 individual results each time.
+    const time = new Date(controller.scheduledTime);
+    if (time.getUTCMinutes() === 0 && time.getUTCHours() % 6 === 0) {
+      await scanMerchantLinks(env);
+      await scanAmazonPrices(env);
+    }
   },
 };
 
@@ -210,7 +222,14 @@ async function createAlert(request: Request, env: Env): Promise<Response> {
     source,
   };
   await env.ALERTS.put(`alert:${id}`, JSON.stringify(alert));
-  await sendConfirmation(alert, env);
+  try {
+    await sendConfirmation(alert, env);
+  } catch (error) {
+    // Do not leave a new pending subscription after a failed confirmation.
+    if (duplicate) await env.ALERTS.put(`alert:${id}`, JSON.stringify(duplicate));
+    else await env.ALERTS.delete(`alert:${id}`);
+    throw error;
+  }
   return json({ ok: true });
 }
 
@@ -280,7 +299,9 @@ async function scanArticles(env: Env): Promise<{ seeded?: number; newArticles?: 
     }
   }
 
-  await env.ALERTS.put("state:seen-urls", JSON.stringify(currentUrls));
+  if (JSON.stringify(seen) !== JSON.stringify(currentUrls)) {
+    await env.ALERTS.put("state:seen-urls", JSON.stringify(currentUrls));
+  }
   return { newArticles: newArticles.length, emails };
 }
 

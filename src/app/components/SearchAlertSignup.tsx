@@ -7,7 +7,7 @@ import styles from "./SearchAlertSignup.module.css";
 type AlertKind = "product" | "brand" | "category";
 type Frequency = "instant" | "daily";
 
-const ALERTS_ENDPOINT = process.env.NEXT_PUBLIC_ALERTS_ENDPOINT || "https://bonsplansmania-alerts.selenevoyance14.workers.dev";
+const ALERTS_ENDPOINT = "/api/alerts";
 
 const kindLabels: Record<AlertKind, string> = {
   product: "Produit",
@@ -35,9 +35,10 @@ export default function SearchAlertSignup({ initialQuery, compact = false }: { i
     setMessage("");
 
     try {
-      const response = await fetch(`${ALERTS_ENDPOINT}/alerts`, {
+      const response = await fetch(ALERTS_ENDPOINT, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
+        signal: AbortSignal.timeout(25000),
         body: JSON.stringify({
           email: email.trim(),
           query: query.trim(),
@@ -48,12 +49,15 @@ export default function SearchAlertSignup({ initialQuery, compact = false }: { i
         }),
       });
       const data = await response.json().catch(() => null);
-      if (!response.ok) throw new Error(data?.error || "Impossible de créer l’alerte pour le moment.");
+      if (!response.ok || data?.ok !== true) throw new Error(data?.error || "Impossible de créer l’alerte pour le moment.");
+      setMessage(data.alreadyExists ? "Cette alerte est déjà active pour votre adresse e-mail." : "");
       setStatus("done");
       window.gtag?.("event", "deal_alert_signup", { alert_kind: kind, alert_frequency: frequency, page_path: window.location.pathname });
     } catch (error) {
       setStatus("error");
-      setMessage(error instanceof Error ? error.message : "Réessayez dans un instant.");
+      setMessage(error instanceof Error && !(error instanceof TypeError) && error.name !== "TimeoutError"
+        ? error.message
+        : "La connexion au service d’alertes a échoué. Réessayez dans quelques minutes.");
     }
   }
 
@@ -63,8 +67,8 @@ export default function SearchAlertSignup({ initialQuery, compact = false }: { i
         <span className={styles.successIcon}><Check size={24} /></span>
         <div>
           <p className={styles.eyebrow}>Dernière étape</p>
-          <h2>Confirmez l’alerte dans votre boîte mail</h2>
-          <p>Nous surveillerons les nouvelles offres correspondant à <strong>« {query} »</strong> dès que vous aurez cliqué sur le lien de confirmation.</p>
+          <h2>{message ? "Votre alerte est déjà active" : "Confirmez l’alerte dans votre boîte mail"}</h2>
+          {message ? <p>{message}</p> : <p>Nous surveillerons les nouvelles offres correspondant à <strong>« {query} »</strong> dès que vous aurez cliqué sur le lien de confirmation. Pensez à vérifier les courriers indésirables.</p>}
         </div>
       </aside>
     );
