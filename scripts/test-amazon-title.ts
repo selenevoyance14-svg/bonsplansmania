@@ -1,0 +1,12 @@
+import assert from "node:assert/strict";
+import { canUseLiveAmazonTitle, updateAmazonTitle } from "../src/lib/amazon-title";
+assert.equal(updateAmazonTitle("Jinafire à 21,39 € au lieu de 34,99 € (-39 %)", "15,00 €"), "Jinafire à 15,00 €");
+assert.equal(updateAmazonTitle("Cluedo à 25,64 € sur Amazon : −36 %", "25,99 €"), "Cluedo à 25,99 € sur Amazon");
+assert.equal(updateAmazonTitle("LEGO 10431, 20 pièces", "27,13 €"), "LEGO 10431, 20 pièces à 27,13 €");
+assert.equal(updateAmazonTitle("Produit à 10 €", null), "Produit à 10 €");
+assert.equal(updateAmazonTitle("Produit à 10 €", "indisponible"), "Produit à 10 €");
+assert.equal(updateAmazonTitle("A à 10 € contre B à 20 €", "15 €"), "A à 10 € contre B à 20 €");
+assert.equal(canUseLiveAmazonTitle("bon-plan", "Produit coupon 10 %"), false);
+assert.equal(canUseLiveAmazonTitle("comparatif", "10 meilleurs LEGO"), false);
+assert.equal(canUseLiveAmazonTitle("bon-plan", "Jinafire Long"), true);
+console.log("Titres Amazon : 9 scénarios validés");

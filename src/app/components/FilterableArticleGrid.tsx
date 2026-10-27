@@ -1,11 +1,13 @@
 "use client";
 
-import { Fragment, useEffect, useMemo, useState } from "react";
+import { Fragment, useMemo, useState } from "react";
 import { ArrowRight, Filter, X } from "lucide-react";
 import ListAd from "@/app/components/ListAd";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
 import { DEFAULT_OFFER_CTA, hasDirectMerchantCta, shouldHideAmazonPrice } from "@/lib/article-commerce";
+import AmazonOfferText from "@/app/components/AmazonOfferText";
+import { canUseLiveAmazonTitle } from "@/lib/amazon-title";
 import { formatCardTitle } from "@/lib/display-title";
 
 interface ArticleListItem {
@@ -399,34 +401,7 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
 
   const shown = filtered.slice(0, visible);
   const hasMore = visible < filtered.length;
-  useEffect(() => {
-    const controller = new AbortController();
-    const asins = Array.from(new Set(
-      filtered.slice(0, visible).flatMap((article) => {
-        const asin = article.amazonAsin
-          || article.affiliateUrl?.match(/amazon\.fr\/[^\s]*\/dp\/([A-Z0-9]{10})/i)?.[1]
-          || article.affiliateUrl?.match(/amazon\.fr\/dp\/([A-Z0-9]{10})/i)?.[1];
-        return asin ? [asin.toUpperCase()] : [];
-      }),
-    ));
 
-    Promise.all(asins.map(async (asin) => {
-      try {
-        const response = await fetch(`/api/amazon/${encodeURIComponent(asin)}`, { signal: controller.signal });
-        if (!response.ok) return;
-        const offer = await response.json() as { price?: string };
-        if (offer.price) {
-          document.querySelectorAll<HTMLElement>(`[data-amazon-price="${asin}"]`).forEach((element) => {
-            element.textContent = offer.price!;
-          });
-        }
-      } catch {
-        // Le libellé neutre reste visible si Amazon ne répond pas.
-      }
-    }));
-
-    return () => controller.abort();
-  }, [filtered, visible]);
 
   // Style commun pour tous les selects inline (compact, lisible)
   const selectStyle: React.CSSProperties = {
@@ -669,17 +644,15 @@ export default function FilterableArticleGrid({ articles, category, brandsOnly }
                         </time>
                       </div>
 
-                      <h2 className="bpm-card-h-title">{formatCardTitle(article.title)}</h2>
+                      <h2 className="bpm-card-h-title"><AmazonOfferText asin={hasExternalAffiliate && !hideAmazonPrice && canUseLiveAmazonTitle(article.category, `${article.title} ${article.description} ${article.slug}`) ? amazonAsin : undefined} title={formatCardTitle(article.title)} /></h2>
                       <p className="bpm-card-h-excerpt">{article.description}</p>
 
                       <div className="bpm-card-h-footer">
                         {(now || (isAmazonOffer && hasExternalAffiliate && !hideAmazonPrice)) && (
                           <div className="bpm-card-h-price">
                             <span className={`bpm-card-h-price-now ${isFree ? "bpm-card-h-price-free" : ""}`}>
-                              <span data-amazon-price={amazonAsin?.toUpperCase()}>{now || "Prix sur Amazon"}</span>
+                              <AmazonOfferText mode="price" asin={hasExternalAffiliate && !hideAmazonPrice && canUseLiveAmazonTitle(article.category, `${article.title} ${article.description} ${article.slug}`) ? amazonAsin : undefined} price={now} oldPrice={was} />
                             </span>
-                            {was && <span className="bpm-card-h-price-was">{was}</span>}
-                            {savings && <span className="bpm-card-h-chip">{savings}</span>}
                           </div>
                         )}
                         {hasExternalAffiliate ? (

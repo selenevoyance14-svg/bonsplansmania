@@ -1,3 +1,4 @@
+import { canUseLiveAmazonTitle } from "@/lib/amazon-title";
 import HomeOfferPrice from "./HomeOfferPrice";
 import { Fragment } from "react";
 import Image from "next/image";
@@ -304,11 +305,11 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                   updated={article.meta.updated}
                   variant="posted"
                 />
-                <h3><Link href={`/article/${article.meta.slug}`}>{BON_PLAN_CATEGORIES.has(article.meta.category) ? <HomeOfferPrice mode="title" hideReferencePriceInTitle={article.meta.hideReferencePriceInTitle} title={article.meta.title} originalPrice={originalPrice} price={article.meta.price} asin={article.meta.amazonPriceOverride ? undefined : article.meta.amazonAsin} /> : formatCardTitle(article.meta.title)}</Link></h3>
+                <h3><Link href={`/article/${article.meta.slug}`}>{BON_PLAN_CATEGORIES.has(article.meta.category) ? <HomeOfferPrice mode="title" hideReferencePriceInTitle={article.meta.hideReferencePriceInTitle} title={article.meta.title} originalPrice={originalPrice} price={article.meta.price} asin={!article.meta.expired && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${article.meta.slug}`) ? article.meta.amazonAsin : undefined} /> : formatCardTitle(article.meta.title)}</Link></h3>
                 <p>{article.meta.description}</p>
                 <div className={styles.cardFooter}>
                   <div className={styles.priceGroup}>
-                    <HomeOfferPrice mode="price" price={article.meta.price} originalPrice={originalPrice} asin={article.meta.amazonPriceOverride ? undefined : article.meta.amazonAsin} />
+                    <HomeOfferPrice mode="price" price={article.meta.price} originalPrice={originalPrice} asin={!article.meta.expired && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${article.meta.slug}`) ? article.meta.amazonAsin : undefined} />
                     {article.meta.deliveryPrice ? (
                       <span className={styles.deliveryPrice} aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
                         <Truck size={17} aria-hidden />

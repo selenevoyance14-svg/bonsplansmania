@@ -1,3 +1,5 @@
+import AmazonOfferText from "@/app/components/AmazonOfferText";
+import { canUseLiveAmazonTitle } from "@/lib/amazon-title";
 import { notFound } from "next/navigation";
 import { getArticleBySlug, getRelatedArticles, getAffiliateRecommendations, getAllArticles, getAllPublishedArticles, getPrevNextArticle, isEffectivelyExpired, shouldNoIndexArchivedArticle } from "@/lib/articles";
 import Image from "next/image";
@@ -430,7 +432,7 @@ export default async function ArticlePage({ params }: PageProps) {
                 </span>
               </div>
 
-              <h1>{article.meta.title}</h1>
+              <h1><AmazonOfferText asin={!isExpired && !shouldHideAmazonPrice(slug) && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${slug}`) ? article.meta.amazonAsin : undefined} title={article.meta.title} /></h1>
               <p className="article-subtitle">{article.meta.description}</p>
 
               {(article.meta.rating || article.meta.price || (affiliateUrl !== "#" && !isFreebieCategory)) && (
@@ -447,10 +449,7 @@ export default async function ArticlePage({ params }: PageProps) {
                   )}
                   {article.meta.price && (
                     <span className="article-price-group">
-                      <span className="article-price-current">{article.meta.price}</span>
-                      {article.meta.prix_origine && (
-                        <del className="article-price-original">{article.meta.prix_origine}</del>
-                      )}
+                      <span className="article-price-current"><AmazonOfferText mode="price" asin={!isExpired && !shouldHideAmazonPrice(slug) && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${slug}`) ? article.meta.amazonAsin : undefined} price={article.meta.price} oldPrice={article.meta.prix_origine} /></span>
                     </span>
                   )}
                   {affiliateUrl !== "#" && !isFreebieCategory && !isExpired && (
