@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 27 Oct 2026 08:43:18 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 09:39:30 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Outlet BazarChic : jusqu’à −90 % sur une sélection</title>
@@ -105,6 +105,15 @@
       <description>Six soins visage YesStyle sous 9 € : nettoyants, huiles, crèmes et contour des yeux. Code NATHALIE83 : 12 % supplémentaires annoncés, selon conditions.</description>
       <category>bon-plan</category>
       <enclosure url="https://d1flfk77wl2xk4.cloudfront.net/Assets/28/181/M_p0224318128.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test PURINA PRO PLAN : 4 800 mousses pour chats stérilisés à gagner</title>
+      <link>https://bonsplansmania.fr/article/test-produit-purina-pro-plan-mousse-chat-sterilise-4800-echantillons-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-purina-pro-plan-mousse-chat-sterilise-4800-echantillons-2026</guid>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Wamiz propose 4 800 échantillons de mousse PURINA PRO PLAN pour chats stérilisés. Inscrivez-vous jusqu’au 22 novembre 2026, sans obligation d’achat.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://cdn.wamiz.fr/article/main-picture/6adf1856ae7b9-6adf1856ae7e7.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>6 toniques YesStyle sous 9 €, dès 2,59 € en mini format</title>
@@ -447,15 +456,6 @@
       <description>Le sweat court Athleisure Essential Prozis pour femme passe à 25,99 € au lieu de 39,99 € avec IMBACK, soit 35 % de réduction.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-prozis-sweat-court-athleisure-essential-20-euros-septembre-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Vitamine B12 Prozis 100 µg : 60 comprimés à 5,59 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-prozis-vitamine-b12-100-mcg-60-comprimes-5-19-euros-aout-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-prozis-vitamine-b12-100-mcg-60-comprimes-5-19-euros-aout-2026</guid>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-      <description>La Vitamine B12 Prozis 100 µg en boîte de 60 comprimés passe à 5,59 € au lieu de 7,99 €, soit 2,40 € d'économie et environ 30 % de réduction.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/prozis-vitamine-b12-100-mcg-60-comprimes-5-19-euros-aout-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
