@@ -551,5 +551,105 @@
   "prozis-selection-octobre-21bc9": {
     "url": "https://prozis.com/21BC9",
     "label": "Voir Double Creamy Protein Cookies chocolat-noisette, 2 x 4 chez Prozis"
+  },
+  "center-parcs-noel-2026": {
+    "url": "https://www.centerparcs.fr/fr-fr/vente-flash_sck",
+    "label": "Voir les offres et conditions Center Parcs"
+  },
+  "center-parcs-offre-famille": {
+    "url": "https://www.centerparcs.fr/fr-fr/offre-famille_sck",
+    "label": "Voir les offres et conditions Center Parcs"
+  },
+  "center-parcs-early-booking": {
+    "url": "https://www.centerparcs.fr/fr-fr/premieres-minutes_sck",
+    "label": "Voir les offres et conditions Center Parcs"
+  },
+  "center-parcs-bienvenue": {
+    "url": "https://www.centerparcs.fr/fr-fr/conditions-offre-bienvenue_ms",
+    "label": "Voir les offres et conditions Center Parcs"
+  },
+  "leclerc-dessineo-selection": {
+    "url": "https://www.awin1.com/cread.php?awinmid=15135&awinaffid=990397&ued=https%3A%2F%2Fwww.e.leclerc%2Frecherche%3Fq%3Ddessin%25C3%25A9o",
+    "label": "Voir les jeux Dessinéo chez E.Leclerc"
+  },
+  "bazarchic-outlet-3343618": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343618/",
+    "label": "Voir le déstockage Femme BazarChic"
+  },
+  "bazarchic-outlet-3343621": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343621/",
+    "label": "Voir le déstockage Homme BazarChic"
+  },
+  "bazarchic-outlet-3343627": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343627/",
+    "label": "Voir le déstockage Chaussures et accessoires BazarChic"
+  },
+  "bazarchic-outlet-3343639": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343639/",
+    "label": "Voir le déstockage Maison BazarChic"
+  },
+  "bazarchic-outlet-3343633": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343633/",
+    "label": "Voir le déstockage Lingerie et bain BazarChic"
+  },
+  "bazarchic-outlet-3343624": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343624/",
+    "label": "Voir le déstockage Enfant BazarChic"
+  },
+  "bazarchic-outlet-3343645": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343645/",
+    "label": "Voir le déstockage Beauté BazarChic"
+  },
+  "bazarchic-outlet-3343699": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3343699/",
+    "label": "Voir le déstockage Idées cadeaux BazarChic"
+  },
+  "bazarchic-vente-3341959": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3341959/",
+    "label": "Voir la vente Geox"
+  },
+  "bazarchic-vente-3334975": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3334975/",
+    "label": "Voir la vente Le Rouge Français"
+  },
+  "bazarchic-vente-3331126": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3331126/",
+    "label": "Voir la vente Timberland"
+  },
+  "bazarchic-vente-3329734": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3329734/",
+    "label": "Voir la vente Le Monde du Parapluie"
+  },
+  "bazarchic-vente-3335329": {
+    "url": "https://fr.bazarchic.com/ventes/cata/id/3335329/",
+    "label": "Voir la vente Under Armour"
+  },
+  "comparatif-ventes-privees-sport": {
+    "url": "https://tracking.publicidees.com/clic.php?promoid=60430&progid=2334&partid=61992",
+    "label": "Découvrir Private Sport Shop"
+  },
+  "comparatif-ventes-privees-bebe": {
+    "url": "https://www.bebeboutik-prive.fr/?utm_source=acquiz&utm_medium=affil&utm_campaign=leads&utm_content=affilae&lp=acquiz-affil-leads-affilae-infuence&ae=200",
+    "label": "Découvrir Bébéboutik"
+  },
+  "comparatif-ventes-privees-bazarchic": {
+    "url": "https://fr.bazarchic.com/",
+    "label": "Découvrir BazarChic"
+  },
+  "comparatif-ventes-privees-veepee": {
+    "url": "https://www.veepee.fr/gr/registration?mgmcode=190231DF",
+    "label": "Découvrir Veepee"
+  },
+  "comparatif-ventes-privees-showroom": {
+    "url": "https://www.showroomprive.com/account/sponsorship",
+    "label": "Découvrir Showroomprivé"
+  },
+  "comparatif-ventes-privees-beaute": {
+    "url": "https://www.beauteprivee.fr#ref=15379567",
+    "label": "Découvrir Beauté Privée"
+  },
+  "comparatif-ventes-privees-zalando": {
+    "url": "https://www.zalando-prive.fr/event",
+    "label": "Découvrir Privé by Zalando"
   }
 }
