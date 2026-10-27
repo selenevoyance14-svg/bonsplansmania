@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 27 Oct 2026 09:39:30 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 27 Oct 2026 10:06:24 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Outlet BazarChic : jusqu’à −90 % sur une sélection</title>
@@ -35,6 +35,15 @@
       <enclosure url="https://assets.qualifio.com/2648/3217534B-9BD3-46C7-9E7C66FE76AFD7EE.png?cacheID=261022150924" type="image/svg+xml" length="0"/>
     </item>
     <item>
+      <title>Concours Halloween Sampleo : 3 gagnants pour un lot surprise</title>
+      <link>https://bonsplansmania.fr/article/concours-sampleo-halloween-questionnaires-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-sampleo-halloween-questionnaires-2026</guid>
+      <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Candidatez au concours Halloween Sampleo et complétez au moins trois questionnaires, dont celui sur le tabac. Trois gagnants annoncés le 2 novembre 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://zephyr.sampleo.com/uploads/brands/882/campaigns/page/6adf56d550aed.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>Concours Ysé : 2 silhouettes Grand soir jusqu’à 400 € à gagner</title>
       <link>https://bonsplansmania.fr/article/concours-yse-grand-soir-silhouette-400-euros-octobre-2026</link>
       <guid>https://bonsplansmania.fr/article/concours-yse-grand-soir-silhouette-400-euros-octobre-2026</guid>
@@ -44,7 +53,7 @@
       <enclosure url="https://images.prismic.io/yse-paris-production/szhWaMICPiIv-Upo_yse-argentique-mood33.jpg?auto=format%2Ccompress&amp;rect=0%2C206%2C1686%2C1914&amp;w=1920&amp;h=2180" type="image/svg+xml" length="0"/>
     </item>
     <item>
-      <title>6 démaquillants et nettoyants YesStyle sous 9 €, dès 2,87 €</title>
+      <title>6 nettoyants et démaquillants YesStyle dès 2,87 €</title>
       <link>https://bonsplansmania.fr/article/demaquillants-nettoyants-moins-9-euros-yesstyle-2026</link>
       <guid>https://bonsplansmania.fr/article/demaquillants-nettoyants-moins-9-euros-yesstyle-2026</guid>
       <pubDate>Tue, 27 Oct 2026 00:00:00 GMT</pubDate>
@@ -447,15 +456,6 @@
       <description>La Supreme Whey Protein Prozis en pot de 907 g passe à 36,79 € au lieu de 45,99 € avec IMBACK, soit 20 % de réduction.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-prozis-supreme-whey-protein-907g-39-09-euros-septembre-2026.webp" type="image/webp" length="0"/>
-    </item>
-    <item>
-      <title>Sweat court Athleisure Essential Prozis à 25,99 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-prozis-sweat-court-athleisure-essential-20-euros-septembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-prozis-sweat-court-athleisure-essential-20-euros-septembre-2026</guid>
-      <pubDate>Mon, 05 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Le sweat court Athleisure Essential Prozis pour femme passe à 25,99 € au lieu de 39,99 € avec IMBACK, soit 35 % de réduction.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-prozis-sweat-court-athleisure-essential-20-euros-septembre-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
