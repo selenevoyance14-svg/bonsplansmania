@@ -17,7 +17,7 @@ const COMPARISON_CALENDAR_HREFS = new Set([
   "/article/calendriers-avent-loccitane-2026-classique-prestige",
   "/article/bon-plan-lookfantastic-offres-semaine-10-mars-2026",
   "/article/calendrier-avent-marie-claire-2026-24-surprises-74-99-euros",
-  "/article/calendrier-avent-cottage-2026-24-soins-corps-cheveux",
+  "/article/calendrier-avent-mademoiselle-confettis-2026-89-euros",
   "/article/calendrier-avent-miin-cosmetics-kbeauty-2026-24-produits",
   "/article/calendrier-avent-clarins-2026-24-soins-maquillage",
   "/article/calendrier-avent-blissim-2026-sortie-9-septembre",

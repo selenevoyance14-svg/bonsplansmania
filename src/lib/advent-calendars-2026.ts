@@ -17,6 +17,19 @@ export type AdventCalendar2026 = {
 
 export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
+    brand: "Mademoiselle Confettis",
+    name: "Calendrier de l’Avent 2026 · 5–10 ans ou 11–14 ans",
+    price: "99 €",
+    value: "Valeur produits annoncée : plus de 230 €",
+    contents: "24 surprises en formats vente · contenu adapté à la tranche d’âge",
+    status: "Précommande · expédition dès le 15 novembre · livraison gratuite en France",
+    checkedAt: "28 octobre 2026",
+    image: "/images/articles/calendrier-avent-mademoiselle-confettis-2026.png",
+    imageAlt: "Calendrier Mademoiselle Confettis avec ses pochettes de surprises pour les 5 à 14 ans",
+    articleHref: "/article/calendrier-avent-mademoiselle-confettis-2026-89-euros",
+    merchantHref: "/go/calendrier-avent-mademoiselle-confettis-2026-89-euros",
+  },
+  {
     brand: "Dr Pierre Ricaud",
     name: "Calendrier de l’Avent 2026 — réédition 2025",
     price: "89 €",
