@@ -4024,3 +4024,7 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
 
 .anticernes-comparison .comparison-table tbody th { min-width: 210px; }
 .anticernes-comparison .comparison-table td:nth-child(2) { line-height: 1.6; }
+
+.routine-printemps-comparison .routine-guide-link { display: inline-flex; justify-content: center; align-items: center; width: 124px; min-height: 44px; box-sizing: border-box; white-space: nowrap; background: #365c42; color: #fff; padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; }
+.routine-printemps-comparison .routine-guide-link:hover { background: #284730; }
+.routine-printemps-comparison .routine-guide-link:focus-visible { outline: 3px solid #8bae78; outline-offset: 3px; }
