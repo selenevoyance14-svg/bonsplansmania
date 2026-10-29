@@ -1,7 +1,7 @@
 /** Coupon prices are editorial calculations, not the standard Amazon buy-box price. */
 export function canUseLiveAmazonTitle(category: string, text: string): boolean {
   return ["bon-plan", "bon-plan-beaute", "calendrier-avent", "calendrier"].includes(category)
-    && !/coupon|code\s+promo|avec\s+(?:le\s+)?code|abonnement|prévoyez|économisez/i.test(text);
+    && !/à\s+partir\s+de|coupon|code\s+promo|avec\s+(?:le\s+)?code|abonnement|prévoyez|économisez/i.test(text);
 }
 
 export function updateAmazonTitle(title: string, price?: string | null): string {

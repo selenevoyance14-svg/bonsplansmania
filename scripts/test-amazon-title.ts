@@ -9,4 +9,5 @@ assert.equal(updateAmazonTitle("A à 10 € contre B à 20 €", "15 €"), "A �
 assert.equal(canUseLiveAmazonTitle("bon-plan", "Produit coupon 10 %"), false);
 assert.equal(canUseLiveAmazonTitle("comparatif", "10 meilleurs LEGO"), false);
 assert.equal(canUseLiveAmazonTitle("bon-plan", "Jinafire Long"), true);
-console.log("Titres Amazon : 9 scénarios validés");
+assert.equal(canUseLiveAmazonTitle("bon-plan", "Cuisines en bois : 10 modèles à partir de 46,77 €"), false);
+console.log("Titres Amazon : 10 scénarios validés");
