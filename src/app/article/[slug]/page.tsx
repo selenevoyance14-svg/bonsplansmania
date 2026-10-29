@@ -435,7 +435,7 @@ export default async function ArticlePage({ params }: PageProps) {
               <h1><AmazonOfferText asin={!isExpired && !shouldHideAmazonPrice(slug) && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${slug}`) ? article.meta.amazonAsin : undefined} title={article.meta.title} /></h1>
               <p className="article-subtitle">{article.meta.description}</p>
 
-              {(article.meta.rating || article.meta.price || (affiliateUrl !== "#" && !isFreebieCategory)) && (
+              {(article.meta.rating || article.meta.price || (affiliateUrl !== "#" && !isFreebieCategory && !article.meta.hideHeaderCta)) && (
                 <div className="article-rating-bar">
                   {article.meta.rating && (
                     <div style={{ display: "flex", alignItems: "center", gap: "6px" }}>
@@ -452,7 +452,7 @@ export default async function ArticlePage({ params }: PageProps) {
                       <span className="article-price-current"><AmazonOfferText mode="price" asin={!isExpired && !shouldHideAmazonPrice(slug) && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${slug}`) ? article.meta.amazonAsin : undefined} price={article.meta.price} oldPrice={article.meta.prix_origine} /></span>
                     </span>
                   )}
-                  {affiliateUrl !== "#" && !isFreebieCategory && !isExpired && (
+                  {affiliateUrl !== "#" && !isFreebieCategory && !isExpired && !article.meta.hideHeaderCta && (
                     <a
                       href={affiliateUrl}
                       className="btn btn-primary btn-sm article-primary-cta"

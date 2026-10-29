@@ -240,6 +240,7 @@ export interface ArticleMeta {
   /** Liens affiliés secondaires, rendus eux aussi via /go/<alias>. */
   affiliateLinks?: Array<{ alias: string; url: string }>;
   affiliateLabel?: string;
+  hideHeaderCta?: boolean;
   amazonAsin?: string;
   readingTime: string;
   published: boolean;
@@ -367,6 +368,7 @@ export function getArticleBySlug(slug: string): Article | null {
           })
         : undefined,
       affiliateLabel: data.affiliateLabel,
+      hideHeaderCta: data.hideHeaderCta === true,
       amazonAsin: amazonArticle ? extractAmazonAsin(data, content) : undefined,
       readingTime: stats.text.replace("min read", "min"),
       published: data.published !== false,
