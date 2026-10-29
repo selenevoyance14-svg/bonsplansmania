@@ -3998,3 +3998,29 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
   .bpm-card-h-chip { font-size: 0.66rem; padding: 2px 6px; }
   .bpm-card-h-cta { font-size: 0.8rem; }
 }
+
+/* Tableau éditorial Sophie : même format de bouton pour chaque coffret. */
+.sophie-coffrets-comparison { border: 1px solid #cbdace; border-radius: 16px; background: #fff; }
+.sophie-coffrets-comparison .comparison-table { min-width: 760px; }
+.sophie-coffrets-comparison .comparison-table thead th { background: #eaf2e9; color: #284c38; border-bottom: 2px solid #cbdace; font-size: .82rem; }
+.sophie-coffrets-comparison .comparison-table tbody th { background: #fff; font-size: .9rem; font-weight: 700; border-bottom: 1px solid #e2eae1; padding: 16px; min-width: 250px; }
+.sophie-coffrets-comparison .comparison-table td { vertical-align: middle; border-color: #e2eae1; }
+.sophie-coffrets-comparison .comparison-table tbody tr:nth-child(even) td,
+.sophie-coffrets-comparison .comparison-table tbody tr:nth-child(even) th { background: #f7faf5; }
+.sophie-coffrets-comparison .comparison-table tbody tr:last-child th { border-bottom: 0; }
+.sophie-coffret-name { display: flex; align-items: center; gap: 14px; }
+.sophie-coffret-name img { width: 72px; height: 72px; flex-shrink: 0; object-fit: contain; background: #fff; border-radius: 8px; }
+.sophie-coffret-price { color: #284c38; white-space: nowrap; font-size: 1.05rem; }
+.sophie-coffrets-comparison .comparison-table a[target="_blank"] { display: inline-flex; justify-content: center; align-items: center; width: 124px; min-height: 44px; box-sizing: border-box; white-space: nowrap; background: #365c42 !important; padding: 10px 14px !important; border-radius: 8px !important; }
+.sophie-coffrets-comparison .comparison-table a[target="_blank"]:hover { background: #284730 !important; }
+.sophie-coffrets-comparison a:focus-visible { outline: 3px solid #8bae78; outline-offset: 3px; }
+.sophie-coffrets-comparison:focus-visible { outline: 3px solid #8bae78; outline-offset: 3px; }
+
+.box-homme-comparison .comparison-table { min-width: 880px; }
+.box-homme-comparison .comparison-table tbody th { min-width: 210px; }
+
+.ventes-privees-comparison .comparison-table tbody th { min-width: 190px; }
+.ventes-privees-comparison .comparison-site-name { color: #284c38; text-decoration: underline; text-underline-offset: 3px; border: 0; font-weight: 700; }
+
+.anticernes-comparison .comparison-table tbody th { min-width: 210px; }
+.anticernes-comparison .comparison-table td:nth-child(2) { line-height: 1.6; }
