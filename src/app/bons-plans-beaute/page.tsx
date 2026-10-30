@@ -246,7 +246,7 @@ const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
-  "couche-", "couches-", "lingette-bebe", "doudou-", "-doudou-",
+  "couche-", "couches-", "-pingo-", "lingette-bebe", "doudou-", "-doudou-",
   "pukylino", "puky-", "porteur-", "jouet-eveil", "cadeau-naissance",
 ];
 
@@ -257,7 +257,7 @@ const BEBE_TOKENS = [
 // - électroménager (fer à repasser, aspirateur, etc.)
 const NON_BEAUTE_TOKENS = [
   // Rentrée scolaire (Greenweez vend aussi des articles hors beauté)
-  "cartable-", "-cartable-",
+  "cartable-", "-cartable-", "sac-dos-dinosaure-bleu",
   // Accessoires plage/jardin
   "isotoner", "parasol-plage", "-parasol-", "parasol-jardin",
   "tente-plage", "tente-jardin", "-hamac-", "hamac-",
