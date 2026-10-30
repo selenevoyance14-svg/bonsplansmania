@@ -722,10 +722,10 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     matchTags: ["oscaro", "pièces auto", "voiture", "entretien auto"],
     color: "#00549F",
     currentOffer: {
-      code: "OSCARO2OCTOBRE",
-      discount: "2 % de réduction immédiate",
-      conditions: "2 % de réduction immédiate sur l'ensemble du site, sans minimum d'achat. Vérifier l'application du code et les éventuelles exclusions dans le panier.",
-      verifiedAt: "2026-10-02",
+      code: "OSCARONEW15NOVEMBRE",
+      discount: "15 € de réduction — nouveaux clients uniquement",
+      conditions: "Offre réservée exclusivement aux NOUVEAUX CLIENTS, pour une première commande sur Oscaro.com : 15 € de réduction immédiate avec OSCARONEW15NOVEMBRE. Non cumulable avec le cashback. Date de fin, éventuel minimum d’achat et exclusions non communiqués : vérifier les conditions et l’application du code au panier.",
+      verifiedAt: "2026-10-30",
     },
   },
   {
