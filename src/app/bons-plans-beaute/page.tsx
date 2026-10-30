@@ -246,7 +246,7 @@ const BEBE_TOKENS = [
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
-  "couche-", "couches-", "-pingo-", "lingette-bebe", "doudou-", "-doudou-",
+  "couche-", "couches-", "-pingo-", "ptits-dessous-so-bamboo", "lingette-bebe", "doudou-", "-doudou-",
   "pukylino", "puky-", "porteur-", "jouet-eveil", "cadeau-naissance",
 ];
 
