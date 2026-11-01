@@ -3555,8 +3555,20 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // DAMART — offres vérifiées le 18/10/2026
+  // DAMART — offre du moment communiquée le 01/11/2026
   // ============================================================
+  {
+    id: "damart-20-euros-70-novembre-2026",
+    brandSlug: "damart",
+    type: "offre",
+    value: "-20 €",
+    valueLabel: "DÈS 70 €",
+    title: "20 € de réduction dès 70 € d'achat chez Damart",
+    expires: "2026-11-09",
+    conditions: "Réduction de 20 € dès 70 € d'achat jusqu'au 9 novembre 2026. Vérifier les éventuelles exclusions et les modalités d'application dans le panier avant le paiement.",
+    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
+    featured: true,
+  },
   {
     id: "damart-jusqu-a-60-octobre-2026",
     brandSlug: "damart",
