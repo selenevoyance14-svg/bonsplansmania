@@ -17,6 +17,20 @@ export type BeautyBox2026 = {
 // Chaque offre conserve sa date de constat pour éviter de présenter un prix comme permanent.
 export const BEAUTY_BOXES_2026: BeautyBox2026[] = [
   {
+    brand: "Biotyfull Box",
+    name: "8 box et 52 produits",
+    price: "9,90 € le 1er mois, puis 39,90 €/mois",
+    value: "Valeur annoncée : 819 € pour l’offre initiale",
+    contents: "8 box · 52 produits en format vente le premier mois",
+    commitment: "Engagement de 12 mois · livraison offerte",
+    formulas: ["Abonnement", "Engagement 12 mois", "Offre découverte", "Bio et naturel"],
+    checkedAt: "16 octobre 2026",
+    image: "/images/articles/biotyfull-box-6-routines-12-euros-octobre-2026.png",
+    imageAlt: "Les six routines Biotyfull Box et leurs seize produits proposés pour 12 euros",
+    articleHref: "/article/biotyfull-box-6-routines-13-euros-sans-engagement-juin-2026",
+    merchantHref: "/go/biotyfull-box-6-routines-13-euros-sans-engagement-juin-2026",
+  },
+  {
     brand: "Blissim",
     name: "Box beauté mensuelle",
     price: "18,90 € par mois",
@@ -100,20 +114,7 @@ export const BEAUTY_BOXES_2026: BeautyBox2026[] = [
     articleHref: "/article/belle-au-naturel-box-beaute-bio-parrainage-2026",
     merchantHref: "/go/belle-au-naturel-box-beaute-bio-parrainage-2026",
   },
-  {
-    brand: "Biotyfull Box",
-    name: "8 box et 52 produits",
-    price: "9,90 € le 1er mois, puis 39,90 €/mois",
-    value: "Valeur annoncée : 819 € pour l’offre initiale",
-    contents: "8 box · 52 produits en format vente le premier mois",
-    commitment: "Engagement de 12 mois · livraison offerte",
-    formulas: ["Abonnement", "Engagement 12 mois", "Offre découverte", "Bio et naturel"],
-    checkedAt: "16 octobre 2026",
-    image: "/images/articles/biotyfull-box-6-routines-12-euros-octobre-2026.png",
-    imageAlt: "Les six routines Biotyfull Box et leurs seize produits proposés pour 12 euros",
-    articleHref: "/article/biotyfull-box-6-routines-13-euros-sans-engagement-juin-2026",
-    merchantHref: "/go/biotyfull-box-6-routines-13-euros-sans-engagement-juin-2026",
-  },
+
   {
     brand: "Glowria",
     name: "Box mensuelle 5 produits",

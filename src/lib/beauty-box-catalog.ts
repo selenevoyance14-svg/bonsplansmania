@@ -80,5 +80,5 @@ export function getBeautyBoxCatalog(): BeautyBox2026[] {
 
   const byHref = new Map<string, BeautyBox2026>();
   for (const item of [...BEAUTY_BOXES_2026, ...discovered]) byHref.set(item.articleHref, item);
-  return [...byHref.values()].sort((a, b) => a.brand.localeCompare(b.brand, "fr", { sensitivity: "base" }) || a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
+  return [...byHref.values()].sort((a, b) => Number(b.brand === "Biotyfull Box") - Number(a.brand === "Biotyfull Box") || a.brand.localeCompare(b.brand, "fr", { sensitivity: "base" }) || a.name.localeCompare(b.name, "fr", { sensitivity: "base" }));
 }
