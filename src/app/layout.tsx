@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Poppins } from "next/font/google";
+import { DM_Sans, Lora } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import ClientShell from "@/app/components/ClientShell";
@@ -7,11 +7,16 @@ import ClientShell from "@/app/components/ClientShell";
 const GA_MEASUREMENT_ID = "G-HH3TT98TED";
 const ADSENSE_CLIENT_ID = "ca-pub-5064203547863113";
 
-const poppins = Poppins({
+const dmSans = DM_Sans({
   subsets: ["latin"],
-  weight: ["400", "600", "800"],
   display: "swap",
-  variable: "--font-poppins",
+  variable: "--font-dm-sans",
+});
+
+const lora = Lora({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-lora",
 });
 
 export const viewport: Viewport = {
@@ -64,7 +69,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="fr" className={poppins.variable}>
+    <html lang="fr" className={`${dmSans.variable} ${lora.variable}`}>
       <head>
         <meta name="msvalidate.01" content="1E74255D934E3CCDB2B46C09841223E0" />
         <script
@@ -73,7 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
         />
       </head>
-      <body className={poppins.className}>
+      <body className={dmSans.className}>
         {children}
         <footer
           style={{

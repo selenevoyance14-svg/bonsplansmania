@@ -105,7 +105,7 @@ html {
 }
 
 body {
-  font-family: 'Poppins', system-ui, sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   background: var(--background);
   color: var(--foreground);
   font-size: 16px;
@@ -149,7 +149,7 @@ body {
 }
 
 .logo {
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   font-size: 1.5rem;
   font-weight: 800;
   color: var(--primary);
@@ -313,7 +313,7 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 6px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   font-weight: 600;
   border-radius: var(--radius-pill);
   cursor: pointer;
@@ -1733,7 +1733,7 @@ body {
   border: none;
   outline: none;
   font-size: 0.92rem;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   background: transparent;
   color: var(--foreground);
   min-width: 0;
@@ -1749,7 +1749,7 @@ body {
   border: none;
   border-radius: var(--radius-pill);
   padding: 12px 24px;
-  font-family: 'Poppins', sans-serif;
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
   font-size: 0.88rem;
   font-weight: 800;
   cursor: pointer;
@@ -4053,4 +4053,33 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
   .lipstick-comparison .comparison-table td:last-child { border-bottom: 0; }
   .lipstick-comparison .comparison-table td:last-child::before { display: none; }
   .lipstick-comparison .comparison-table small { margin: 0; }
+}
+
+/* Typographie éditoriale : titres Lora et texte DM Sans. */
+h1, h2, h3,
+.card-title,
+.bpm-card-title {
+  font-family: var(--font-lora), Georgia, serif;
+}
+.article h1 {
+  font-weight: 600;
+  line-height: 1.24;
+  letter-spacing: -.025em;
+  text-wrap: balance;
+}
+.article-content {
+  font-family: var(--font-dm-sans), system-ui, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.85;
+}
+.article-content h2,
+.article-content h3 {
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: -.015em;
+}
+.card-title,
+.bpm-card-title {
+  font-weight: 600;
+  line-height: 1.45;
 }
