@@ -4028,3 +4028,29 @@ ins.adsbygoogle[data-ad-status="unfilled"] {
 .routine-printemps-comparison .routine-guide-link { display: inline-flex; justify-content: center; align-items: center; width: 124px; min-height: 44px; box-sizing: border-box; white-space: nowrap; background: #365c42; color: #fff; padding: 10px 14px; border-radius: 8px; text-decoration: none; font-weight: 700; }
 .routine-printemps-comparison .routine-guide-link:hover { background: #284730; }
 .routine-printemps-comparison .routine-guide-link:focus-visible { outline: 3px solid #8bae78; outline-offset: 3px; }
+
+/* Photos généreuses et lecture en fiches sur mobile pour cette sélection. */
+.lipstick-comparison { margin: 24px 0 32px; box-shadow: 0 12px 32px rgb(40 76 56 / 7%); }
+.lipstick-comparison .comparison-table { width: 100%; min-width: 720px; }
+.lipstick-comparison .comparison-table tbody th { width: 36%; min-width: 230px; }
+.lipstick-comparison .sophie-coffret-name { gap: 18px; line-height: 1.5; }
+.lipstick-comparison .sophie-coffret-name img { width: 104px; height: 116px; padding: 8px; box-sizing: border-box; border: 1px solid #edf0e9; }
+.lipstick-comparison .comparison-table td { padding: 20px 16px; line-height: 1.6; font-size: .9rem; }
+.lipstick-comparison .sophie-coffret-price { font-size: 1.2rem; }
+.lipstick-comparison .comparison-table td:last-child { text-align: center; }
+.lipstick-comparison .comparison-table a[target="_blank"] { color: #fff !important; text-decoration: none; font-weight: 700; }
+.lipstick-comparison .comparison-table small { display: inline-block; margin-top: 7px; color: #53665b; }
+@media (max-width: 640px) {
+  .lipstick-comparison { overflow: visible; border: 0; background: transparent; box-shadow: none; }
+  .lipstick-comparison .comparison-table { min-width: 0; display: block; border: 0; }
+  .lipstick-comparison thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .lipstick-comparison tbody { display: grid; gap: 16px; }
+  .lipstick-comparison .comparison-table tr { display: block; border: 1px solid #cbdace; border-radius: 16px; overflow: hidden; background: #fff; box-shadow: 0 5px 16px rgb(40 76 56 / 5%); }
+  .lipstick-comparison .comparison-table tbody th { display: block; width: auto; min-width: 0; padding: 18px; background: #f4f8f1 !important; }
+  .lipstick-comparison .comparison-table td { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 6px 14px; padding: 12px 18px; background: #fff !important; border-bottom: 1px solid #edf0e9; }
+  .lipstick-comparison .comparison-table td::before { content: attr(data-label); flex-basis: 100%; color: #53665b; font-size: .75rem; font-weight: 700; text-transform: uppercase; letter-spacing: .04em; }
+  .lipstick-comparison .comparison-table td br { display: none; }
+  .lipstick-comparison .comparison-table td:last-child { border-bottom: 0; }
+  .lipstick-comparison .comparison-table td:last-child::before { display: none; }
+  .lipstick-comparison .comparison-table small { margin: 0; }
+}
