@@ -473,19 +473,19 @@ export default async function ArticlePage({ params }: PageProps) {
               <AdBlock collapseWhenEmpty />
             </div>
 
-            <div className="article-hero-image" style={{ position: "relative", width: "100%", minHeight: "clamp(260px, 45vw, 450px)", background: "#fff", borderRadius: "12px", overflow: "hidden", display: "flex", justifyContent: "center", alignItems: "center", maxHeight: "450px" }}>
+            <div className="article-hero-image">
               {article.meta.amazonAsin ? (
                 <AmazonProductImage
                   asin={article.meta.amazonAsin}
                   fallbackSrc={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image}
                   alt={article.meta.imageAlt}
                   objectFit="contain"
-                  padding="18px"
+                  padding="0px"
                   sizes="(max-width: 768px) 100vw, 800px"
                   priority
                 />
               ) : (
-                <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image} alt={article.meta.imageAlt} width={800} height={450} style={{ width: "100%", height: "100%", objectFit: "contain", maxHeight: "450px" }} priority />
+                <Image src={article.meta.image.toLowerCase().endsWith(".svg") ? "/images/articles/_placeholder-bonsplansmania-beige.png" : article.meta.image} alt={article.meta.imageAlt} fill sizes="(max-width: 768px) 100vw, 800px" style={{ objectFit: "contain" }} priority />
               )}
             </div>
 

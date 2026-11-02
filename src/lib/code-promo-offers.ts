@@ -28,6 +28,8 @@ export interface CodePromoOffer {
 }
 
 export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
+  {"id": "daxon-83710-novembre-2026", "brandSlug": "daxon", "type": "code", "value": "-40 %", "valueLabel": "ARTICLES ÉLIGIBLES", "title": "40 % sur la commande avec 83710, hors exclusions", "code": "83710", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-03", "conditions": "Offre valable jusqu’au 3 novembre 2026 inclus. Remise limitée à 20 % sur les prix verts. Prix rouges et articles déjà démarqués exclus. Non cumulable avec une autre offre en cours.", "featured": true},
+  {"id": "daxon-promotions-automne-novembre-2026", "brandSlug": "daxon", "type": "offre", "value": "-50 %", "valueLabel": "JUSQU’À", "title": "Jusqu’à 50 % sur la sélection promotions Daxon", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-30", "conditions": "Réductions variables sur une sélection de produits signalée chez Daxon, jusqu’au 30 novembre 2026 inclus. Prix déjà remisés ; aucun cumul avec un code confirmé."},
   {"id": "lookfantastic-lundi-2-novembre-2026", "brandSlug": "lookfantastic", "type": "code", "value": "-25 %", "valueLabel": "SÉLECTION", "title": "25 % de réduction sur une sélection avec LUNDI", "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu%2Fmonday-shopping%2F", "starts": "2026-11-02", "expires": "2026-11-02", "conditions": "Offre annoncée pour le 2 novembre 2026 : 25 % de remise avec LUNDI uniquement sur les produits de la sélection liée. Des exclusions s’appliquent et les produits participants peuvent changer. Vérifier la remise dans le panier ; aucun cumul supplémentaire n’est confirmé.", "featured": true, "code": "LUNDI"},
   {"id": "lookfantastic-shop-3-6-novembre-2026", "brandSlug": "lookfantastic", "type": "code", "value": "-22 %", "valueLabel": "SÉLECTION", "title": "22 % de réduction sur une sélection avec SHOP", "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu-exclusions%2Fsitewide%2Flanding-page%2F", "starts": "2026-11-03", "expires": "2026-11-06", "conditions": "Du 3 au 6 novembre 2026 : 22 % de remise avec SHOP uniquement sur les produits de la sélection liée. Des exclusions s’appliquent et les produits participants peuvent changer. Vérifier la remise finale dans le panier ; aucun cumul supplémentaire n’est confirmé.", "featured": true, "code": "SHOP"},
   {"id": "lookfantastic-kiehls-2-8-novembre-2026", "brandSlug": "lookfantastic", "type": "offre", "value": "-25 %", "valueLabel": "AU MOINS", "title": "Au moins 25 % de réduction sur la sélection Kiehl’s", "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fkiehls%2Fshop-all-kiehls%2F", "starts": "2026-11-02", "expires": "2026-11-08", "conditions": "Du 2 au 8 novembre 2026 : au moins 25 % de réduction annoncés sur la sélection Kiehl’s liée. Aucun code communiqué pour cette opération. Vérifier les références participantes, les exclusions et les prix affichés ; aucun cumul avec un autre code n’est confirmé.", "featured": true},
@@ -3419,12 +3421,13 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   {
     id: "damart-20-euros-70-novembre-2026",
     brandSlug: "damart",
-    type: "offre",
+    type: "code",
+    code: "41081",
     value: "-20 €",
     valueLabel: "DÈS 70 €",
-    title: "20 € de réduction dès 70 € d'achat chez Damart",
+    title: "20 € dès 70 € avec le code Damart 41081",
     expires: "2026-11-09",
-    conditions: "Réduction de 20 € dès 70 € d'achat jusqu'au 9 novembre 2026. Vérifier les éventuelles exclusions et les modalités d'application dans le panier avant le paiement.",
+    conditions: "20 € dès 70 € avec 41081 jusqu’au 9 novembre 2026. Points rouges et prix déjà réduits exclus. Non cumulable avec les autres réductions et promotions. Livraison relais Pickup ou bureau de poste Colissimo offerte dès 70 € après remise ; frais habituels annoncés de 4,90 €. Vérifier le total du panier.",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
     featured: true,
   },

@@ -1294,8 +1294,29 @@ body {
   font-size: 1rem;
 }
 
+/* Boutons des articles : rectangles à coins discrets. */
+.article-page .btn,
+.sticky-cta-mobile .btn {
+  border-radius: 8px;
+  max-width: 100%;
+  justify-content: center;
+  text-align: center;
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.article-page .btn svg,
+.sticky-cta-mobile .btn svg {
+  flex-shrink: 0;
+}
+
+
 .article-hero-image {
-  border-radius: var(--radius-lg);
+  position: relative;
+  width: 100%;
+  aspect-ratio: 3 / 2;
+  background: #fff;
+  border-radius: 12px;
   overflow: hidden;
   margin-bottom: 40px;
 }
@@ -4082,4 +4103,46 @@ h1, h2, h3,
 .bpm-card-title {
   font-weight: 600;
   line-height: 1.45;
+}
+
+/* Hub mensuel des box : photos réelles, conditions visibles et actions alignées. */
+.monthly-box-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; margin: 28px 0 42px; }
+.monthly-box-card { display: flex; flex-direction: column; overflow: hidden; border: 1px solid #d9e4d6; border-radius: 20px; background: #fff; box-shadow: 0 8px 28px rgb(40 76 56 / 6%); }
+.monthly-box-photo { display: block; background: #f6f7f1; border: 0 !important; }
+.monthly-box-photo img { display: block; width: 100%; height: 255px; object-fit: contain; margin: 0; }
+.monthly-box-copy { display: flex; flex-direction: column; flex: 1; padding: 22px; }
+.monthly-box-brand { color: #365c42; font-size: .75rem; font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+.article-content .monthly-box-card h3 { margin: 8px 0 12px; font-size: 1.35rem; }
+.article-content .monthly-box-card p { margin: 0 0 14px; font-size: .94rem; line-height: 1.65; }
+.article-content .monthly-box-card .monthly-box-price { font-size: 1.12rem; color: #284c38; font-weight: 800; }
+.article-content .monthly-box-card .monthly-box-terms { margin-top: auto; background: #f4f8f1; padding: 12px; border-radius: 10px; font-size: .82rem; }
+.monthly-box-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+.article-content .monthly-box-actions a { display: flex; align-items: center; justify-content: center; box-sizing: border-box; min-height: 46px; padding: 10px 8px !important; border: 1px solid #365c42 !important; border-radius: 9px !important; font-size: .81rem; font-weight: 700; text-decoration: none !important; text-align: center; }
+.article-content .monthly-box-actions a:first-child { color: #365c42 !important; background: #fff !important; }
+.article-content .monthly-box-actions a:last-child { color: #fff !important; background: #365c42 !important; }
+.monthly-box-actions a:focus-visible { outline: 3px solid #8bae78; outline-offset: 3px; }
+.monthly-box-table .comparison-table { min-width: 740px; }
+.monthly-box-table .comparison-table tbody th { min-width: 140px; }
+.monthly-box-table td { font-size: .85rem; line-height: 1.65; }
+.monthly-box-table-name { color: #284c38; text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 620px) {
+  .monthly-box-grid { grid-template-columns: minmax(0, 1fr); gap: 20px; }
+  .monthly-box-photo img { height: 270px; }
+  .monthly-box-copy { padding: 20px; }
+  .monthly-box-table { border: 0; overflow: visible; background: transparent; }
+  .monthly-box-table .comparison-table { min-width: 0; display: block; }
+  .monthly-box-table thead { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); }
+  .monthly-box-table tbody { display: grid; gap: 14px; }
+  .monthly-box-table .comparison-table tr { display: block; border: 1px solid #cbdace; border-radius: 14px; overflow: hidden; }
+  .monthly-box-table .comparison-table tbody th { display: block; padding: 15px; background: #eaf2e9 !important; }
+  .monthly-box-table .comparison-table td { display: block; padding: 12px 15px; background: #fff !important; }
+  .monthly-box-table .comparison-table td::before { content: attr(data-label); display: block; margin-bottom: 4px; color: #53665b; font-size: .72rem; font-weight: 800; text-transform: uppercase; }
+}
+@media (min-width: 621px) {
+  .monthly-box-card:last-child { grid-column: 1 / -1; display: grid; grid-template-columns: .9fr 1.1fr; }
+  .monthly-box-card:last-child .monthly-box-photo img { height: 100%; min-height: 320px; }
+}
+
+.article-page .comparison-table a[target="_blank"] {
+  border-radius: 8px !important;
 }
