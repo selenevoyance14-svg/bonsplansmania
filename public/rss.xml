@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 03 Nov 2026 05:27:52 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 06:40:40 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Jeu de Noël Mapiwee : 30 coffrets Maped Creativ à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-mapiwee-noel-30-coffrets-maped-creativ-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-mapiwee-noel-30-coffrets-maped-creativ-novembre-2026</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Du 1er au 30 novembre 2026, tentez de gagner un coffret Maped Creativ avec Mapiwee. Jeu sans achat, un instant gagnant par jour, France métropolitaine et Corse.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-mapiwee-maped-creativ-noel-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
     <item>
       <title>Biotyfull Box novembre 2026 : découvrez Bulles de Douceur et ses 6 soins</title>
       <link>https://bonsplansmania.fr/article/biotyfull-box-bulles-de-douceur-novembre-2026</link>
@@ -447,15 +456,6 @@
       <description>Le vélo d’appartement Burever orange passe de 246,99 € à 200,99 € avec le coupon Amazon. Résistance magnétique, écran LCD et capacité annoncée de 160 kg.</description>
       <category>bon-plan</category>
       <enclosure url="https://m.media-amazon.com/images/I/51aOQBeK3ML._AC_SX679_.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Déshumidificateur COMFEE Aqua Dry 12 sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-comfee-aqua-dry-12-deshumidificateur-119-99-euros-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-comfee-aqua-dry-12-deshumidificateur-119-99-euros-2026</guid>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Le COMFEE Aqua Dry 12 est sur Amazon, contre de prix conseillé. Réservoir 2,5 litres, drainage continu et mode nuit.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://m.media-amazon.com/images/I/6135Aez-0SL._AC_SY879_.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
