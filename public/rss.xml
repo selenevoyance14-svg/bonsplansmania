@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 03 Nov 2026 13:55:49 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 15:36:10 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Carrefour : foie gras Larnaudie 100 % remboursé en bons d’achat jusqu’au 16 novembre</title>
@@ -53,6 +53,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/noel-amazon-5-jouets-49-04-euros-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Noël : 6 jouets premier âge pour un total de 48,78 € chez Cdiscount</title>
+      <link>https://bonsplansmania.fr/article/noel-cdiscount-6-jouets-premier-age-moins-50-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/noel-cdiscount-6-jouets-premier-age-moins-50-euros-2026</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Six idées cadeaux premier âge pour 48,78 € au total chez Cdiscount, hors livraison : Fisher-Price, Sophie la Girafe, panda et jeux Lisciani.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/noel-cdiscount-6-jouets-48-78-euros-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
       <title>Noël : 6 jouets pour les tout-petits à 49,40 € au total chez E.Leclerc</title>
       <link>https://bonsplansmania.fr/article/noel-leclerc-6-jouets-premier-age-moins-50-euros-2026</link>
       <guid>https://bonsplansmania.fr/article/noel-leclerc-6-jouets-premier-age-moins-50-euros-2026</guid>
@@ -78,6 +87,15 @@
       <description>Opinagora propose 20 places pour tester un projecteur portable WiFi 6 et Bluetooth 5.4. Candidatez avant le 30 novembre 2026 à 23 h 59.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-opinagora-projecteur-wifi-novembre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Tests Eye Care : 4 missions produits, candidatures jusqu’au 16 novembre</title>
+      <link>https://bonsplansmania.fr/article/tests-produits-eye-care-ultracapil-hydra-cocoon-maquillage-levres-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/tests-produits-eye-care-ultracapil-hydra-cocoon-maquillage-levres-novembre-2026</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Eye Care Cosmetics propose 30 places Ultracapil et 15 places pour chacune des missions Hydra Cocoon, Toasty Makeup et Lip Love. Fin le 16 novembre 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/tests-eye-care-4-missions-novembre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Biotyfull Box novembre 2026 : découvrez Bulles de Douceur et ses 6 soins</title>
@@ -438,24 +456,6 @@
       <description>ConsoBaby&amp;Kid propose à 30 testeurs de découvrir le tire-lait double mains libres chauffant Momcozy Wellness 1. Candidatez avant le 8 novembre 2026 à 23 h 59.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-momcozy-wellness-1-consobaby-novembre-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Test produit : 6 masques chauffants pour les yeux Arboleaf à essayer</title>
-      <link>https://bonsplansmania.fr/article/test-produit-masque-chauffant-yeux-arboleaf-janvier-2027</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-masque-chauffant-yeux-arboleaf-janvier-2027</guid>
-      <pubDate>Mon, 02 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Tester Des Produits propose 6 masques chauffants pour les yeux Arboleaf à tester. Tirage au sort annoncé le 25 janvier 2027 : inscription et conditions.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-masque-chauffant-yeux-arboleaf-2027.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Coffret Baïja Minuit Chéri x Nailmatic à 18,68 €</title>
-      <link>https://bonsplansmania.fr/article/baija-coffret-minuit-cheri-nailmatic-beauty-success-2026</link>
-      <guid>https://bonsplansmania.fr/article/baija-coffret-minuit-cheri-nailmatic-beauty-success-2026</guid>
-      <pubDate>Tue, 22 Sep 2026 00:00:00 GMT</pubDate>
-      <description>Le coffret Baïja Minuit Chéri x Nailmatic passe à 18,68 € au lieu de 24,90 € chez Beauty Success : crème mains, vernis, lime et paillettes.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/baija-coffret-minuit-cheri-beauty-success-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>

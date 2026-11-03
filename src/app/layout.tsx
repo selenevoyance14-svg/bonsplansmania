@@ -71,6 +71,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="fr" className={`${dmSans.variable} ${lora.variable}`}>
       <head>
+        <meta name="p:domain_verify" content="0838f88b7492c11b6a4fa4f10edbf7ef" />
         <meta name="msvalidate.01" content="1E74255D934E3CCDB2B46C09841223E0" />
         <script
           async
