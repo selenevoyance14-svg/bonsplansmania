@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 03 Nov 2026 09:53:29 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 10:30:11 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Familiscope : 5 romans L’Académie des sorcières rebelles à gagner</title>
@@ -51,6 +51,15 @@
       <description>Six cadeaux de Noël pour les tout-petits à 49,40 € au total chez E.Leclerc : peluche, cube d’activités, cubes à empiler, camion, imitation et memory.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/noel-leclerc-6-jouets-49-40-euros-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test produit Opinagora : 20 vidéoprojecteurs à tester, jusqu’au 30 novembre</title>
+      <link>https://bonsplansmania.fr/article/test-produit-opinagora-projecteur-wifi-bluetooth-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-opinagora-projecteur-wifi-bluetooth-novembre-2026</guid>
+      <pubDate>Tue, 03 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Opinagora propose 20 places pour tester un projecteur portable WiFi 6 et Bluetooth 5.4. Candidatez avant le 30 novembre 2026 à 23 h 59.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-opinagora-projecteur-wifi-novembre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Biotyfull Box novembre 2026 : découvrez Bulles de Douceur et ses 6 soins</title>
@@ -447,15 +456,6 @@
       <description>Découvrez les quatre Collections Miraculeuses Biotyfull Box, leurs besoins ciblés et les formules. Éclat dès 10,90 € le premier mois avec engagement de 12 mois.</description>
       <category>box-beaute</category>
       <enclosure url="https://page.biotyfullbox.fr/uploads/edito/photo2bonnemine-69ee69dc13bfd.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Blissim novembre 2026 : la box solidaire à 18,90 € avec Camping Care</title>
-      <link>https://bonsplansmania.fr/article/blissim-box-automne-promod-18-90-euros-2026</link>
-      <guid>https://bonsplansmania.fr/article/blissim-box-automne-promod-18-90-euros-2026</guid>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
-      <description>La box Blissim de novembre à 18,90 € : Mimitika, Maison Maïssa, Polaar, Tropikal Bliss et un soin personnalisé. Photos et soutien à Camping Care.</description>
-      <category>box-beaute</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/blissim-novembre-2026-hero.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
