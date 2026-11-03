@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 03 Nov 2026 10:30:11 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 03 Nov 2026 12:07:30 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Familiscope : 5 romans L’Académie des sorcières rebelles à gagner</title>
@@ -51,6 +51,15 @@
       <description>Six cadeaux de Noël pour les tout-petits à 49,40 € au total chez E.Leclerc : peluche, cube d’activités, cubes à empiler, camion, imitation et memory.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/noel-leclerc-6-jouets-49-40-euros-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test Algologie : coffrets de Noël, candidatures les 15 et 17 novembre</title>
+      <link>https://bonsplansmania.fr/article/test-produit-algologie-coffrets-noel-60-places-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-algologie-coffrets-noel-60-places-2026</guid>
+      <pubDate>Thu, 29 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Testez les coffrets de Noël Algologie : 60 places sur TikTok jusqu’au 15 novembre et 60 sur Instagram jusqu’au 17 novembre 2026. Produit offert si sélectionné.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-algologie-coffrets-noel-60-places-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Test produit Opinagora : 20 vidéoprojecteurs à tester, jusqu’au 30 novembre</title>
@@ -447,15 +456,6 @@
       <description>Découvrez les ventes Bebeboutik : Corolle, Yoto, Doudou &amp; Compagnie, Infantino, Kinderkraft et Weleda. Tableau des remises et conseils avant achat.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bebeboutik-ventes-maison-good-gout-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Biotyfull Box : les Collections Miraculeuses dès 10,90 € sous engagement</title>
-      <link>https://bonsplansmania.fr/article/biotyfull-box-collections-miraculeuses-routines-beaute-2026</link>
-      <guid>https://bonsplansmania.fr/article/biotyfull-box-collections-miraculeuses-routines-beaute-2026</guid>
-      <pubDate>Sun, 01 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Découvrez les quatre Collections Miraculeuses Biotyfull Box, leurs besoins ciblés et les formules. Éclat dès 10,90 € le premier mois avec engagement de 12 mois.</description>
-      <category>box-beaute</category>
-      <enclosure url="https://page.biotyfullbox.fr/uploads/edito/photo2bonnemine-69ee69dc13bfd.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
