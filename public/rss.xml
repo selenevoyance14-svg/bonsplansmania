@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 06 Nov 2026 20:28:35 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 06 Nov 2026 20:45:09 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Amazfit Active Max à 157,49 € : la montre AMOLED GPS baisse de 7 %</title>
@@ -35,6 +35,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-jbl-tune-530bt-noir-35-euros-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Ninja Double Stack XL 9,5 L avec thermosonde à 179,99 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-amazon-ninja-double-stack-xl-sl451eusd-thermosonde-9-5l-juillet-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-ninja-double-stack-xl-sl451eusd-thermosonde-9-5l-juillet-2026</guid>
+      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Ninja Double Stack XL Air Fryer SL451EUSD 9,5 L avec thermosonde à 179,99 € sur Amazon : deux tiroirs, quatre niveaux et six modes de cuisson.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/ninja-double-stack-xl-sl451eusd-thermosonde-9-5l.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>Samsung Galaxy Watch Ultra 47 mm 4G à 602,48 € sur Amazon</title>
       <link>https://bonsplansmania.fr/article/bon-plan-amazon-samsung-galaxy-watch-ultra-french-week-mai-2026</link>
       <guid>https://bonsplansmania.fr/article/bon-plan-amazon-samsung-galaxy-watch-ultra-french-week-mai-2026</guid>
@@ -60,6 +69,15 @@
       <description>La box Marie Claire × Sanoflore réunit cinq soins visage pour 20 €, avec une valeur annoncée de 82,78 €. Contenu, formats et livraison détaillés.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-box-marie-claire-sanoflore-22-euros-juin-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>Ninja Foodi MAX DualZone 9,5 L à 184,00 € chez Carrefour (-45,99 €)</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-carrefour-ninja-foodi-max-dualzone-dz400eu-199-99-euros-octobre-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-carrefour-ninja-foodi-max-dualzone-dz400eu-199-99-euros-octobre-2026</guid>
+      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
+      <description>Bon plan Carrefour : le Ninja Foodi MAX DualZone DZ400EU 9,5 L passe à 184,00 € au lieu de 229,99 €. Deux tiroirs indépendants et 45,99 € de remise immédiate.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://media.carrefour.fr/media/referential/media/05209d29c40946eb8e653cde2fc05f96/p_1500x1500/0622356322676_0.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>iPhone 14 128 Go reconditionné à 279,99 € chez Cdiscount</title>
@@ -438,24 +456,6 @@
       <description>Les codes Zooplus de novembre : PURINA25 pour Felix, Gourmet et Purina ONE, WELCOMEMARS pour Dreamies et NEWHILLS20 pour Hill’s Science Plan. Conditions détaillées.</description>
       <category>code-promo</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/zooplus-avis-meilleurs-produits-chien-chat-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Concours La Vache Noire : GTA VI et cartes cadeaux à gagner jusqu’au 18 novembre</title>
-      <link>https://bonsplansmania.fr/article/concours-la-vache-noire-gta-vi-cartes-cadeaux-novembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-la-vache-noire-gta-vi-cartes-cadeaux-novembre-2026</guid>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-      <description>La Vache Noire met en jeu 5 GTA VI pour PS5 et 9 cartes cadeaux de 50 ou 100 €. Concours gratuit jusqu’au 18 novembre 2026, réservé aux majeurs en France métropolitaine.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-la-vache-noire-gta-vi-cartes-cadeaux-novembre-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>ghd jusqu’à −40 % sur Amazon : le coffret Air à 119,99 € et les soins dès 32 €</title>
-      <link>https://bonsplansmania.fr/article/ghd-promotions-amazon-jusqua-40-pourcent-novembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/ghd-promotions-amazon-jusqua-40-pourcent-novembre-2026</guid>
-      <pubDate>Thu, 05 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Sept offres ghd vérifiées : coffret Air à 119,99 €, Original à 132,99 €, Platinum+ à 188 € et soins Rehab à 32 €. Photos et références de prix.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/ghd-promos-amazon-novembre-2026.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
