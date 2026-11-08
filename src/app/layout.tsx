@@ -26,9 +26,9 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bonsplansmania.fr"),
-  title: "Bons Plans Mania : bons plans, concours et tests gratuits",
+  title: "Bons Plans Mania : bons plans et codes promo du moment",
   description:
-    "Bons Plans Mania : les meilleurs bons plans beauté, tests de produits gratuits, jeux concours et avis sur les box beauté. Économisez sur vos produits préférés.",
+    "Bons plans et codes promo : beauté, maison, jouets et high-tech. Retrouvez aussi les box, jeux concours et tests de produits gratuits sur Bons Plans Mania.",
   alternates: {
     canonical: "https://bonsplansmania.fr",
     types: {
@@ -44,8 +44,8 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   openGraph: {
-    title: "Bons Plans Mania — Bons plans beauté & tests gratuits",
-    description: "Les meilleurs bons plans beauté, tests gratuits, concours et avis box beauté.",
+    title: "Bons Plans Mania — Bons plans et codes promo",
+    description: "Beauté, maison, jouets et high-tech : bons plans, codes promo, box, concours et tests de produits gratuits.",
     type: "website",
     locale: "fr_FR",
     url: "https://bonsplansmania.fr",
@@ -55,14 +55,14 @@ export const metadata: Metadata = {
         url: "https://bonsplansmania.fr/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Bons Plans Mania — Bons plans beauté, tests gratuits et concours",
+        alt: "Bons Plans Mania — Bons plans, codes promo et tests gratuits",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Bons Plans Mania — Bons plans beauté & tests gratuits",
-    description: "Les meilleurs bons plans beauté, tests gratuits, concours et avis box beauté.",
+    title: "Bons Plans Mania — Bons plans et codes promo",
+    description: "Beauté, maison, jouets et high-tech : bons plans, codes promo, box, concours et tests de produits gratuits.",
     images: ["https://bonsplansmania.fr/og-image.png"],
   },
 };
@@ -81,6 +81,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className={dmSans.className}>
         {children}
+        <div data-nosnippet>
         <footer
           style={{
             margin: 0,
@@ -106,6 +107,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             En tant que Partenaire Amazon, Bons Plans Mania réalise un bénéfice sur les achats remplissant les conditions requises.
           </p>
         </footer>
+        </div>
         <ClientShell />
         <Script
           src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}

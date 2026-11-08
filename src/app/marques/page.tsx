@@ -11,9 +11,9 @@ import MarquesList from "./MarquesList";
 
 
 export const metadata: Metadata = {
-  title: "Toutes les Marques — Bons Plans & Articles | BonsPlansMania",
+  title: "Marques et enseignes : bons plans et codes promo",
   description:
-    "Retrouvez toutes les marques beauté et bons plans sur BonsPlansMania : L'Oréal, Garnier, Sephora, NYX, CeraVe, Bioderma et bien plus.",
+    "Retrouvez les marques et enseignes de Bons Plans Mania : offres, codes promo, comparatifs et avis en beauté, maison, jouets, bébé et high-tech.",
   alternates: { canonical: "https://bonsplansmania.fr/marques" },
 };
 
@@ -67,7 +67,7 @@ export default function MarquesPage() {
             "@type": "CollectionPage",
             name: "Toutes les Marques",
             description:
-              "Toutes les marques beauté et bons plans sur BonsPlansMania.",
+              "Les marques et enseignes de nos bons plans, codes promo, comparatifs et avis.",
             url: "https://bonsplansmania.fr/marques",
           }),
         }}
@@ -102,7 +102,8 @@ export default function MarquesPage() {
               Toutes les Marques
             </h1>
             <p style={{ color: "var(--muted-foreground)" }}>
-              {brands.length} marques — {totalArticles} articles au total
+              Explorez les offres, codes promo, comparatifs et avis par marque : beauté, maison, jouets, bébé et high-tech.
+              {" "}{brands.length} marques — {totalArticles} articles au total
             </p>
           </div>
         </section>
@@ -114,6 +115,7 @@ export default function MarquesPage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -124,6 +126,7 @@ export default function MarquesPage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

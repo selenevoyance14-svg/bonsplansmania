@@ -381,6 +381,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
       <section className={styles.manifesto}>
       </section>
 
+      <div data-nosnippet>
       <footer className={styles.footer}>
         <div className={styles.footerBrand}>
           <Link href="/" className={styles.logo}>Bons Plans <em>Mania</em></Link>
@@ -403,6 +404,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
           <span>Certains liens peuvent être affiliés, sans coût supplémentaire pour vous.</span>
         </div>
       </footer>
+      </div>
     </main>
   );
 }

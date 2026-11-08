@@ -106,10 +106,10 @@ const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: st
   // Elle se présente désormais pour ce qu'elle est : le sommaire général.
   "bon-plan":         { label: "Bons Plans",             Icon: Tag,          desc: "Toutes les réductions et promos du moment, tous univers confondus", seoTitle: "Tous nos bons plans : beauté, maison, bébé et tech", seoDesc: "Toutes nos réductions et promos du moment, tous univers confondus : beauté, bébé, maison, tech et mode. Chaque offre indique son prix et sa date de vérification.", color: "bon-plan" },
   "test-produit":     { label: "Tests Produits",           Icon: FlaskConical, desc: "Tests produits gratuits et avis détaillés", seoTitle: "Tests produits : tests gratuits et avis détaillés", seoDesc: "Tous nos tests produits : les tests gratuits ouverts (Trustt, Sampleo, ConsoBaby, Blissim) et nos avis détaillés. Beauté, bébé, maison, alimentaire.", color: "test-gratuit" },
-  "test-gratuit":     { label: "Tests Gratuits",          Icon: Gift,         desc: "Les campagnes en cours pour candidater à des tests de produits", seoTitle: "Tests produits gratuits : campagnes et candidatures", seoDesc: "Découvrez les campagnes de tests produits : dates limites, profils recherchés, conditions de participation et lien pour candidater gratuitement.", color: "test-gratuit" },
+  "test-gratuit":     { label: "Tests Gratuits",          Icon: Gift,         desc: "Découvrez les campagnes de tests produits gratuits : profils recherchés, dates limites et conditions pour envoyer votre candidature.", seoTitle: "Tests produits gratuits : campagnes et candidatures", seoDesc: "Découvrez les campagnes de tests produits : dates limites, profils recherchés, conditions de participation et lien pour candidater gratuitement.", color: "test-gratuit" },
   "test-avis":        { label: "Tests & Avis",            Icon: FlaskConical, desc: "Tests réellement effectués et analyses détaillées de produits", seoTitle: "Tests et avis produits : essais et analyses détaillées", seoDesc: "Découvrez nos tests réellement effectués et nos analyses de produits : utilisation, composition, avantages, limites et conseils avant achat.", color: "test-avis" },
   "comparatif":       { label: "Comparatifs",             Icon: FlaskConical, desc: "Des comparatifs et guides d'achat pour choisir selon tes besoins", seoTitle: "Comparatifs produits et guides d'achat 2026", seoDesc: "Comparez les produits selon leurs caractéristiques, usages, prix constatés, avantages et limites : beauté, maison, bébé, high-tech et loisirs.", color: "test-avis" },
-  "concours":         { label: "Concours",                Icon: Trophy,       desc: "Jeux concours, instants gagnants et tirages au sort", seoTitle: "Jeux concours, instants gagnants et tirages au sort", seoDesc: "Tous les jeux concours gratuits du moment : instants gagnants, tirages au sort et concours créatifs. Dates limites, nombre de lots et règlement vérifiés.", color: "concours" },
+  "concours":         { label: "Concours",                Icon: Trophy,       desc: "Retrouvez les jeux concours, instants gagnants et tirages au sort : lots annoncés, dates limites et conditions de participation.", seoTitle: "Jeux concours, instants gagnants et tirages au sort", seoDesc: "Retrouvez les jeux concours et instants gagnants : lots, dates limites, modalités et éventuelle obligation d’achat à vérifier avant de participer.", color: "concours" },
   "box-beaute":       { label: "Box Beauté",              Icon: ShoppingBag,  desc: "Offres, contenus et conditions des box beauté du moment", seoTitle: "Box beauté 2026 : offres, prix et comparatif", seoDesc: "Comparez les box beauté 2026 : prix datés, contenu, valeur annoncée, abonnement et conditions de résiliation. Offres Glowria, Blissim et Prescription Lab.", color: "box-beaute" },
   "beaute":           { label: "Guides & Tests Beauté",    Icon: Sparkles,     desc: "Tutos, guides, avis et tests sur les produits beauté, soins et bien-être", seoTitle: "Beauté : guides, avis et tests produits", seoDesc: "Tutos maquillage, routines skincare, guides huiles essentielles, tests de marques (Nuxe, Weleda, Clarins, Foreo) et avis produits. Toute la beauté en un seul hub.", color: "beaute" },
   "selection":        { label: "Sélection",               Icon: Calendar,     desc: "Nos coups de cœur et sélections du moment", seoTitle: "Sélections Beauté : Nos Coups de Cœur", seoDesc: "Nos sélections et coups de cœur beauté du moment. Les meilleurs produits testés et approuvés par la rédaction, à prix doux.", color: "selection" },
@@ -340,6 +340,7 @@ export default async function CategoryPage({ params }: PageProps) {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -347,6 +348,7 @@ export default async function CategoryPage({ params }: PageProps) {
           </div>
         </div>
       </footer>
+      </div>
       <StickyAdMobile />
     </>
   );

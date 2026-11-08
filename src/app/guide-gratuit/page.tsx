@@ -201,6 +201,7 @@ export default function GuideGratuit() {
         </div>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -208,6 +209,7 @@ export default function GuideGratuit() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }
