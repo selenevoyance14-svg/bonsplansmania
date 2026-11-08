@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 07 Nov 2026 20:38:18 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 08 Nov 2026 07:39:35 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Concours ManoMano Black Friday : des bons d’achat à gagner chaque jour</title>
+      <link>https://bonsplansmania.fr/article/concours-manomano-black-friday-manoclub-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-manomano-black-friday-manoclub-novembre-2026</guid>
+      <pubDate>Sun, 08 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Tournez la roue ManoClub jusqu’au 15 novembre 2026 : bons jusqu’à 50 € pour les particuliers et 100 € pour les pros. Une participation quotidienne, sans achat.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-manomano-black-friday-manoclub-novembre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
     <item>
       <title>Azzaro Sport Eau de Toilette</title>
       <link>https://bonsplansmania.fr/article/azzaro-sport-eau-toilette-promo-amazon-mars-2026</link>
@@ -447,15 +456,6 @@
       <description>La crème de jour anti-rides L'Oréal Paris Revitalift 50 ml est proposée à 7,41 € sur Amazon. Formule au Pro-Rétinol et aux Fibrelastyl.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-loreal-paris-revitalift-creme-jour-mai-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>L'Oréal Revitalift Filler sérum yeux 20 ml:</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-loreal-revitalift-filler-serum-contour-yeux-triple-bille</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-loreal-revitalift-filler-serum-contour-yeux-triple-bille</guid>
-      <pubDate>Sat, 18 Jul 2026 00:00:00 GMT</pubDate>
-      <description>L'Oréal Paris Revitalift Filler sérum contour des yeux anti-rides anti-poches anti-cernes à l'acide hyaluronique pur et caféine, embout triple-bille massant, 20 ml, sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-loreal-revitalift-filler-serum-contour-yeux-triple-bille.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
