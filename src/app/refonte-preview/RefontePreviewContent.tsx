@@ -130,7 +130,10 @@ function isPartnerArticle(article: Article, merchant: string) {
 export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
   const currentPage = Math.min(3, Math.max(1, page));
   const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
-  const active = getAllArticles().filter((article) => !isEffectivelyExpired(article.meta));
+  const active = getAllArticles().filter(
+    (article) => !isEffectivelyExpired(article.meta)
+      && article.meta.slug !== "bon-plan-amazon-aestemon-monster-trucks-dinosaures-lot-2-septembre-2026",
+  );
   const homepageEligible = active.filter(
     (article) => !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
   );
