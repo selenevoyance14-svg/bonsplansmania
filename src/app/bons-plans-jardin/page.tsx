@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Bons plans jardin, piscine & animalerie — Bons Plans Mania",
-  description: "Tous les bons plans jardin & animaux du moment : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, arbres à chat, litières, croquettes, colliers GPS. Worx, Segway Navimow, Aiper, Feandrea, Tractive, Zooplus.",
+  title: "Bons plans jardin et animaux : équipement et accessoires",
+  description: "Retrouvez les offres jardin, piscine et animaux : tondeuses, barbecues, mobilier extérieur, croquettes et accessoires. Consultez les prix et conditions.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-jardin" },
+  openGraph: {
+    title: "Bons plans jardin et animaux : équipement et accessoires",
+    description: "Retrouvez les offres jardin, piscine et animaux : tondeuses, barbecues, mobilier extérieur, croquettes et accessoires. Consultez les prix et conditions.",
+    url: "https://bonsplansmania.fr/bons-plans-jardin",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans jardin et animaux : équipement et accessoires",
+    description: "Retrouvez les offres jardin, piscine et animaux : tondeuses, barbecues, mobilier extérieur, croquettes et accessoires. Consultez les prix et conditions.",
+  },
 };
 
 const EXACT_TAGS = new Set([
@@ -157,7 +168,7 @@ export default async function BonsPlansJardinPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Jardin & Animaux — Bons Plans Jardin, Piscine, Animalerie",
+          name: "Bons plans jardin et animaux : équipement et accessoires",
           description: "Tous les bons plans jardin & animaux : robots tondeuse, robots piscine, barbecues, mobilier outdoor, outils jardinage, arbres à chat, litières, croquettes, colliers GPS animaux.",
           url: "https://bonsplansmania.fr/bons-plans-jardin",
           mainEntity: {
@@ -194,7 +205,7 @@ export default async function BonsPlansJardinPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <TreePine size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#65a30d" }} />
-              Coin Jardin & Animaux : Bons Plans Jardin, Piscine & Animalerie
+              Bons plans jardin et animaux : équipement et accessoires
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans jardin, piscine et outdoor</strong> du moment : robots tondeuse, robots piscine, barbecues, mobilier de jardin, outils jardinage, nettoyeurs haute pression. <strong>Worx, Segway Navimow, AIPER, Wybot, Medoxa, EcoFlow, Black+Decker</strong>… {articles.length} articles.
@@ -228,6 +239,7 @@ export default async function BonsPlansJardinPage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -235,6 +247,7 @@ export default async function BonsPlansJardinPage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

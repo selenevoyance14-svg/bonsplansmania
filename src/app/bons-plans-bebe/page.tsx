@@ -20,9 +20,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Bébé : Bons Plans Puériculture — Bons Plans Mania",
-  description: "Les meilleurs bons plans bébé et puériculture : biberons, poussettes, sièges auto, cododo, soins bébé, tests gratuits. Philips Avent, MAM, Chicco, Thermobaby, Biolane.",
+  title: "Bons plans bébé : couches, poussettes et puériculture",
+  description: "Retrouvez les offres bébé et puériculture : couches, biberons, poussettes, sièges auto et soins. Comparez les prix et consultez les tests produits.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-bebe" },
+  openGraph: {
+    title: "Bons plans bébé : couches, poussettes et puériculture",
+    description: "Retrouvez les offres bébé et puériculture : couches, biberons, poussettes, sièges auto et soins. Comparez les prix et consultez les tests produits.",
+    url: "https://bonsplansmania.fr/bons-plans-bebe",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans bébé : couches, poussettes et puériculture",
+    description: "Retrouvez les offres bébé et puériculture : couches, biberons, poussettes, sièges auto et soins. Comparez les prix et consultez les tests produits.",
+  },
 };
 
 // Filtre ultra-strict : tag exact OU slug contient token dédié bébé.
@@ -91,7 +102,7 @@ export default async function BonsPlansBebePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Bébé — Bons Plans Puériculture",
+          name: "Bons plans bébé : couches, poussettes et puériculture",
           description: "Tous les bons plans, promos et tests gratuits sur la puériculture et les produits bébé.",
           url: "https://bonsplansmania.fr/bons-plans-bebe",
           mainEntity: {
@@ -128,7 +139,7 @@ export default async function BonsPlansBebePage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Baby size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#0ea5e9" }} />
-              Coin Bébé : Bons Plans Puériculture
+              Bons plans bébé : couches, poussettes et puériculture
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Toutes les <strong>promos et tests bébé</strong> du moment : biberons Philips Avent et MAM, poussettes, sièges auto, cododo, soins Biolane, couches, vêtements Vertbaudet, ventes privées Bebeboutik. Et les <strong>tests gratuits</strong> pour recevoir des produits bébé à domicile. {articles.length} articles.
@@ -162,6 +173,7 @@ export default async function BonsPlansBebePage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -169,6 +181,7 @@ export default async function BonsPlansBebePage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

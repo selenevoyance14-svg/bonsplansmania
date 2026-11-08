@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Maison : Bons Plans Maison & Cuisine — Bons Plans Mania",
-  description: "Tous les bons plans maison et cuisine du moment : aspirateurs, robots, airfryers, machines à café, ventilateurs, climatiseurs, purificateurs d'air, électroménager. Ninja, Tefal, De'Longhi, Philips, Ecovacs.",
+  title: "Bons plans maison et cuisine : électroménager et déco",
+  description: "Découvrez les offres maison et cuisine : air fryers, machines à café, aspirateurs, robots et décoration. Retrouvez les prix et conditions de chaque offre.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-maison" },
+  openGraph: {
+    title: "Bons plans maison et cuisine : électroménager et déco",
+    description: "Découvrez les offres maison et cuisine : air fryers, machines à café, aspirateurs, robots et décoration. Retrouvez les prix et conditions de chaque offre.",
+    url: "https://bonsplansmania.fr/bons-plans-maison",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans maison et cuisine : électroménager et déco",
+    description: "Découvrez les offres maison et cuisine : air fryers, machines à café, aspirateurs, robots et décoration. Retrouvez les prix et conditions de chaque offre.",
+  },
 };
 
 const EXACT_TAGS = new Set([
@@ -146,7 +157,7 @@ export default async function BonsPlansMaisonPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Maison — Bons Plans Maison & Cuisine",
+          name: "Bons plans maison et cuisine : électroménager et déco",
           description: "Tous les bons plans maison et cuisine : aspirateurs, robots, airfryers, machines à café, ventilateurs, climatiseurs, purificateurs.",
           url: "https://bonsplansmania.fr/bons-plans-maison",
           mainEntity: {
@@ -183,7 +194,7 @@ export default async function BonsPlansMaisonPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Home size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#16a34a" }} />
-              Coin Maison : Bons Plans Maison & Cuisine
+              Bons plans maison et cuisine : électroménager et déco
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans maison & cuisine</strong> du moment : aspirateurs, robots aspirateurs/laveurs, airfryers, machines à café, sorbetières, batteries de cuisine, ventilateurs, climatiseurs mobiles, purificateurs d&apos;air, électroménager. <strong>Ninja, Tefal, De&apos;Longhi, Philips, Ecovacs, Roborock, Tineco</strong>… {articles.length} articles.
@@ -217,6 +228,7 @@ export default async function BonsPlansMaisonPage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -224,6 +236,7 @@ export default async function BonsPlansMaisonPage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

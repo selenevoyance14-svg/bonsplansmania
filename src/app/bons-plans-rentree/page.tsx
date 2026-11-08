@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Bons plans fournitures scolaires — Bons Plans Mania",
-  description: "Tous les bons plans rentrée scolaire du moment : cartables, trousses, crayons, feutres, cahiers, agendas, calculatrices. BIC, Maped, STABILO, Clairefontaine, Faber-Castell. Économiser sur la liste de fournitures.",
+  title: "Bons plans fournitures scolaires : cartables et papeterie",
+  description: "Préparez la liste scolaire avec nos offres : cartables, trousses, cahiers, crayons et calculatrices. Retrouvez les prix et sélections de fournitures.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-rentree" },
+  openGraph: {
+    title: "Bons plans fournitures scolaires : cartables et papeterie",
+    description: "Préparez la liste scolaire avec nos offres : cartables, trousses, cahiers, crayons et calculatrices. Retrouvez les prix et sélections de fournitures.",
+    url: "https://bonsplansmania.fr/bons-plans-rentree",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans fournitures scolaires : cartables et papeterie",
+    description: "Préparez la liste scolaire avec nos offres : cartables, trousses, cahiers, crayons et calculatrices. Retrouvez les prix et sélections de fournitures.",
+  },
 };
 
 const EXACT_TAGS = new Set([
@@ -214,7 +225,7 @@ export default async function BonsPlansRentreePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Rentrée — Bons Plans Fournitures Scolaires",
+          name: "Bons plans fournitures scolaires : cartables et papeterie",
           description: "Tous les bons plans rentrée : cartables, trousses, crayons, feutres, cahiers, agendas, calculatrices. BIC, Maped, STABILO, Clairefontaine.",
           url: "https://bonsplansmania.fr/bons-plans-rentree",
           mainEntity: {
@@ -251,7 +262,7 @@ export default async function BonsPlansRentreePage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <GraduationCap size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#0EA5A9" }} />
-              Coin Rentrée : Bons Plans Fournitures Scolaires
+              Bons plans fournitures scolaires : cartables et papeterie
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans rentrée scolaire</strong> du moment : <strong>cartables, trousses, crayons, feutres, cahiers, agendas, calculatrices</strong>. Marques françaises et internationales : <strong>BIC, Maped, STABILO, Clairefontaine, Faber-Castell, Casio</strong>. Réduire la facture de la liste de fournitures. {articles.length} articles.
@@ -285,6 +296,7 @@ export default async function BonsPlansRentreePage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -292,6 +304,7 @@ export default async function BonsPlansRentreePage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

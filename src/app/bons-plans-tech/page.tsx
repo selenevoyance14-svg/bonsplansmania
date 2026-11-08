@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Tech & Mobilité : Bons Plans High-Tech — Bons Plans Mania",
-  description: "Tous les bons plans tech et mobilité électrique : smartphones, ordinateurs, écouteurs, montres connectées, trottinettes et vélos électriques.",
+  title: "Bons plans high-tech : smartphones, PC et mobilité",
+  description: "Découvrez les offres high-tech et mobilité : smartphones, PC, écouteurs, montres connectées, vélos et trottinettes électriques. Prix et conditions indiqués.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-tech" },
+  openGraph: {
+    title: "Bons plans high-tech : smartphones, PC et mobilité",
+    description: "Découvrez les offres high-tech et mobilité : smartphones, PC, écouteurs, montres connectées, vélos et trottinettes électriques. Prix et conditions indiqués.",
+    url: "https://bonsplansmania.fr/bons-plans-tech",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans high-tech : smartphones, PC et mobilité",
+    description: "Découvrez les offres high-tech et mobilité : smartphones, PC, écouteurs, montres connectées, vélos et trottinettes électriques. Prix et conditions indiqués.",
+  },
 };
 
 const EXACT_TAGS = new Set([
@@ -122,7 +133,7 @@ export default async function BonsPlansTechPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Tech — Bons Plans Tech & High-Tech",
+          name: "Bons plans high-tech : smartphones, PC et mobilité",
           description: "Tous les bons plans tech : smartphones, ordinateurs, écouteurs, montres connectées, trottinettes et vélos électriques.",
           url: "https://bonsplansmania.fr/bons-plans-tech",
           mainEntity: {
@@ -159,7 +170,7 @@ export default async function BonsPlansTechPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Smartphone size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#2563eb" }} />
-              Coin Tech : Bons Plans Tech & High-Tech
+              Bons plans high-tech : smartphones, PC et mobilité
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans tech & mobilité électrique</strong> du moment : smartphones, ordinateurs portables, tablettes, écouteurs Bluetooth, montres connectées, trottinettes et vélos électriques. <strong>Apple, Samsung, Google, Xiaomi, Sony, JBL, Isinwheel</strong>… {articles.length} articles.
@@ -188,6 +199,7 @@ export default async function BonsPlansTechPage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -195,6 +207,7 @@ export default async function BonsPlansTechPage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

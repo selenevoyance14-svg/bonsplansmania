@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Bons plans Ninja : Airfryer, Foodi, CREAMi — Bons Plans Mania",
-  description: "Bons plans Ninja actuellement publiés : Airfryer Foodi, CREAMi, SLUSHi, CRISPi et blenders. Comparez les modèles, capacités et offres avant de commander.",
+  title: "Bons plans Ninja : air fryers, CREAMi et SLUSHi",
+  description: "Retrouvez les offres Ninja : air fryers Foodi, CREAMi, SLUSHi, CRISPi et blenders. Comparez les modèles, capacités, prix et conditions avant de choisir.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-ninja" },
+  openGraph: {
+    title: "Bons plans Ninja : air fryers, CREAMi et SLUSHi",
+    description: "Retrouvez les offres Ninja : air fryers Foodi, CREAMi, SLUSHi, CRISPi et blenders. Comparez les modèles, capacités, prix et conditions avant de choisir.",
+    url: "https://bonsplansmania.fr/bons-plans-ninja",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans Ninja : air fryers, CREAMi et SLUSHi",
+    description: "Retrouvez les offres Ninja : air fryers Foodi, CREAMi, SLUSHi, CRISPi et blenders. Comparez les modèles, capacités, prix et conditions avant de choisir.",
+  },
 };
 
 // La marque Ninja doit être un mot entier : « Ninjago » est une gamme LEGO.
@@ -73,7 +84,7 @@ export default async function BonsPlansNinjaPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Bons Plans Ninja — Airfryer, CREAMi, SLUSHi, Foodi",
+          name: "Bons plans Ninja : air fryers, CREAMi et SLUSHi",
           description: "Tous les bons plans, promos et tests sur les produits Ninja : airfryers Foodi, sorbetières CREAMi, machines à granités SLUSHi, friteuses CRISPi.",
           url: "https://bonsplansmania.fr/bons-plans-ninja",
           mainEntity: {
@@ -110,7 +121,7 @@ export default async function BonsPlansNinjaPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Flame size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#dc2626" }} />
-              Bons Plans Ninja : Airfryer, CREAMi, SLUSHi, Foodi
+              Bons plans Ninja : air fryers, CREAMi et SLUSHi
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Retrouvez les <strong>bons plans Ninja actuellement publiés</strong> sur les <strong>Airfryers Foodi</strong> (Dual Zone, FlexDrawer), les machines à desserts glacés <strong>CREAMi</strong>, les machines à boissons glacées <strong>SLUSHi</strong>, les appareils <strong>CRISPi</strong> et les blenders. {articles.length} articles.
@@ -139,6 +150,7 @@ export default async function BonsPlansNinjaPage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -146,6 +158,7 @@ export default async function BonsPlansNinjaPage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

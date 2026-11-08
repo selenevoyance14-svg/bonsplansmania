@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Coin Jouets : Bons Plans Jouets Enfants — Bons Plans Mania",
-  description: "Tous les bons plans jouets du moment : LEGO, Playmobil, Barbie, jeux de société, peluches, poupées, jouets éducatifs. Idées cadeaux à prix doux toute l'année.",
+  title: "Bons plans jouets : promos LEGO, Playmobil et Barbie",
+  description: "Retrouvez les offres jouets et nos sélections par âge et budget : LEGO, Playmobil, Barbie, jeux de société, peluches et jouets premier âge.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-jouets" },
+  openGraph: {
+    title: "Bons plans jouets : promos LEGO, Playmobil et Barbie",
+    description: "Retrouvez les offres jouets et nos sélections par âge et budget : LEGO, Playmobil, Barbie, jeux de société, peluches et jouets premier âge.",
+    url: "https://bonsplansmania.fr/bons-plans-jouets",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans jouets : promos LEGO, Playmobil et Barbie",
+    description: "Retrouvez les offres jouets et nos sélections par âge et budget : LEGO, Playmobil, Barbie, jeux de société, peluches et jouets premier âge.",
+  },
 };
 
 const EXACT_TAGS = new Set([
@@ -128,7 +139,7 @@ export default async function BonsPlansJouetsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Jouets — Bons Plans Jouets Enfants",
+          name: "Bons plans jouets : promos LEGO, Playmobil et Barbie",
           description: "Tous les bons plans jouets : LEGO, Playmobil, Barbie, jeux de société, peluches, poupées, jouets éducatifs.",
           url: "https://bonsplansmania.fr/bons-plans-jouets",
           mainEntity: {
@@ -165,7 +176,7 @@ export default async function BonsPlansJouetsPage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <ToyBrick size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#F59E0B" }} />
-              Coin Jouets : Bons Plans Jouets Enfants
+              Bons plans jouets : promos LEGO, Playmobil et Barbie
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans jouets</strong> du moment : LEGO, Playmobil, Barbie, jeux de société, peluches, poupées, jouets éducatifs, kits créatifs. <strong>Cadeaux d&apos;anniversaire, Noël, fêtes</strong> ou simple petit plaisir. {articles.length} articles.
@@ -199,6 +210,7 @@ export default async function BonsPlansJouetsPage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -206,6 +218,7 @@ export default async function BonsPlansJouetsPage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }

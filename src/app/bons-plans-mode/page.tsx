@@ -19,9 +19,20 @@ const categoryLabels: Record<string, { label: string; color: string }> = {
 };
 
 export const metadata: Metadata = {
-  title: "Bons plans mode, chaussures & accessoires — Bons Plans Mania",
-  description: "Tous les bons plans mode du moment : chaussures, baskets, sneakers, sandales, montres, sacs, lunettes, vêtements. Nike, Adidas, Lacoste, Levi's, Calvin Klein, Tommy Hilfiger, Eastpak, Ray-Ban.",
+  title: "Bons plans mode : vêtements, chaussures et accessoires",
+  description: "Retrouvez nos offres mode pour femme, homme et enfant : vêtements, chaussures, sacs, montres et accessoires. Consultez les prix et conditions des promotions.",
   alternates: { canonical: "https://bonsplansmania.fr/bons-plans-mode" },
+  openGraph: {
+    title: "Bons plans mode : vêtements, chaussures et accessoires",
+    description: "Retrouvez nos offres mode pour femme, homme et enfant : vêtements, chaussures, sacs, montres et accessoires. Consultez les prix et conditions des promotions.",
+    url: "https://bonsplansmania.fr/bons-plans-mode",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Bons plans mode : vêtements, chaussures et accessoires",
+    description: "Retrouvez nos offres mode pour femme, homme et enfant : vêtements, chaussures, sacs, montres et accessoires. Consultez les prix et conditions des promotions.",
+  },
 };
 
 const EXACT_TAGS = new Set([
@@ -155,7 +166,7 @@ export default async function BonsPlansModePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify({
           "@context": "https://schema.org",
           "@type": "CollectionPage",
-          name: "Coin Mode — Bons Plans Mode, Chaussures & Accessoires",
+          name: "Bons plans mode : vêtements, chaussures et accessoires",
           description: "Tous les bons plans mode : chaussures, baskets, sneakers, sandales, montres analogiques, sacs, lunettes, vêtements.",
           url: "https://bonsplansmania.fr/bons-plans-mode",
           mainEntity: {
@@ -192,7 +203,7 @@ export default async function BonsPlansModePage() {
             </nav>
             <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
               <Shirt size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#be185d" }} />
-              Coin Mode : Bons Plans Mode, Chaussures & Accessoires
+              Bons plans mode : vêtements, chaussures et accessoires
             </h1>
             <p style={{ color: "var(--muted-foreground)", maxWidth: "720px" }}>
               Tous les <strong>bons plans mode</strong> du moment : chaussures, baskets, sneakers, sandales, montres analogiques, sacs, valises, lunettes, vêtements. <strong>Nike, Adidas, Lacoste, Levi&apos;s, Calvin Klein, Tommy Hilfiger, Eastpak, Ray-Ban, Reebok, Asics, Hoka</strong>… {articles.length} articles.
@@ -226,6 +237,7 @@ export default async function BonsPlansModePage() {
         </section>
       </main>
 
+      <div data-nosnippet>
       <footer className="footer">
         <div className="container">
           <div className="footer-bottom">
@@ -233,6 +245,7 @@ export default async function BonsPlansModePage() {
           </div>
         </div>
       </footer>
+      </div>
     </>
   );
 }
