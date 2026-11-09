@@ -1597,6 +1597,9 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
 
   // ============================================================
   // LÉA NATURE, PIN UP SECRET, TWENTY DC ET URIAGE
+  {"id":"lea-nature-noel20-novembre-2026","type":"code","value":"-20 %","title":"20 % sur la sélection du mois avec NOEL20","code":"NOEL20","starts":"2026-11-01","expires":"2026-11-26","conditions":"Du 1er au 26 novembre 2026 inclus sur les produits de la sélection. Les produits Direct Usine, les kits et les routines sont exclus. Offre non cumulable avec les autres promotions en cours.","brandSlug":"lea-nature","affiliateUrl":"https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fselections%2Fselection-de-l-automne.html"},
+  {"id":"lea-nature-kits-routines-novembre-2026","type":"offre","value":"-30 %","valueLabel":"JUSQU’À","title":"Jusqu’à 30 % sur les kits et routines","conditions":"Remise variable selon le kit ou la routine. Offre non cumulable avec les autres promotions en cours.","brandSlug":"lea-nature","affiliateUrl":"https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fbons-plans%2Fkits-routines-et-coffrets.html"},
+  {"id":"lea-nature-saveurs-novembre-2026","type":"offre","value":"-10 %","title":"10 % sur la sélection Les saveurs de novembre","starts":"2026-11-01","expires":"2026-11-30","conditions":"Du 1er au 30 novembre 2026 inclus sur la sélection alimentaire. Les produits Direct Usine, les fins de série et la gamme Bio Malin sont exclus. Offre non cumulable avec les autres promotions en cours.","brandSlug":"lea-nature","affiliateUrl":"https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2Ffr_fr%2Fselections%2Fles-plaisirs-de-novembre.html"},
   // Offres vérifiées le 07/09/2026
   // ============================================================
   {
