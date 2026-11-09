@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Mon, 09 Nov 2026 10:57:26 GMT</lastBuildDate>
+    <lastBuildDate>Mon, 09 Nov 2026 12:33:36 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours BienManger : 3 calendriers de l’Avent régionaux à gagner jusqu’au 15 novembre</title>
@@ -24,6 +24,24 @@
       <description>Tentez de gagner une poussette Kinderkraft INDY 3 de 109,99 € avec La Boîte Rose jusqu’au 31 décembre 2026. Concours gratuit pour futurs et jeunes parents.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-la-boite-rose-poussette-noel-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Concours de Noël Pointe de Penmarc’h : 5 coffrets gourmands à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-pointe-de-penmarch-noel-5-coffrets-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-pointe-de-penmarch-noel-5-coffrets-2026</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Tentez de gagner l’un des cinq coffrets de fêtes Pointe de Penmarc’h. Jeu sans achat jusqu’au 11 décembre 2026, tirage le 14 décembre.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-pointe-de-penmarch-noel-5-coffrets-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Grand Jeu Intermarché : un séjour à la montagne pour 4 à gagner</title>
+      <link>https://bonsplansmania.fr/article/grand-jeu-intermarche-fidelite-sejour-montagne-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/grand-jeu-intermarche-fidelite-sejour-montagne-novembre-2026</guid>
+      <pubDate>Mon, 09 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Jusqu’au 15 novembre 2026, le Grand Jeu Fidélité Intermarché annonce un séjour à la montagne, 15 appareils à croque-monsieur et 30 appareils à fondue.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/grand-jeu-intermarche-fidelite-sejour-montagne-novembre-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Monster High Skulltimate Secrets : 3 poupées à moins de 30 € sur Amazon</title>
@@ -438,24 +456,6 @@
       <description>Le coffret Disney Princesse Belle avec son chien à toiletter, sa baignoire et sa brosse est à 18,99 € contre un prix conseillé de 24,99 € sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-disney-coffret-princesse-belle-chien-toiletter-amazon-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Ricaud crème de nuit Collector 40 ml à 28,90 € en bienvenue</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-dr-pierre-ricaud-creme-de-nuit-regeneration-supreme-collector-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-dr-pierre-ricaud-creme-de-nuit-regeneration-supreme-collector-2026</guid>
-      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Crème de nuit régénération suprême Collector Dr Pierre Ricaud 40 ml à 28,90 € en offre publique de bienvenue. Prix fidélité accessible après connexion.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/dr-pierre-ricaud-creme-de-nuit-regeneration-supreme-collector.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Dr Pierre Ricaud : crème riche Nutrition Intense à 25,40 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-dr-pierre-ricaud-creme-riche-nutrition-intense-et-reconfort-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-dr-pierre-ricaud-creme-riche-nutrition-intense-et-reconfort-2026</guid>
-      <pubDate>Mon, 03 Aug 2026 00:00:00 GMT</pubDate>
-      <description>La crème riche Nutrition Intense et Réconfort Dr Pierre Ricaud est actuellement à 25,40 €. Ce soin nourrissant pour peaux sèches est noté 4,6/5 sur 935 avis.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/dr-pierre-ricaud-creme-riche-nutrition-intense-et-reconfort.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
