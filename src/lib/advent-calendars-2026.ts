@@ -32,10 +32,10 @@ export const ADVENT_CALENDARS_2026: AdventCalendar2026[] = [
   {
     brand: "Dr Pierre Ricaud",
     name: "Calendrier de l’Avent 2026 — réédition 2025",
-    price: "89 €",
+    price: "69,90 € au lieu de 89 €",
     contents: "24 produits · 17 formats vente et 7 formats voyage · 12 soins et 12 maquillages-soin",
-    status: "Disponible · réédition 2025 · BEAUTE15 : 75,65 € calculés si accepté, jusqu’au 8/11 minuit",
-    checkedAt: "8 novembre 2026",
+    status: "Disponible · réédition 2025 · livraison offerte dès 35 €",
+    checkedAt: "9 novembre 2026",
     image: "/images/articles/calendrier-avent-dr-pierre-ricaud-2026-reedition-2025.png",
     imageAlt: "Calendrier de l’Avent Dr Pierre Ricaud 2026, réédition du coffret 2025",
     articleHref: "/article/calendrier-avent-dr-pierre-ricaud-2026-reedition-2025",
