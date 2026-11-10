@@ -17,7 +17,6 @@ export const metadata: Metadata = {
 const guides = [
   ["Réduire le budget courses", "30 actions à tester sans dégrader les repas", "/article/guide-economiser-200-euros-mois-courses-astuces-2026"],
   ["Préparer des menus petit budget", "Des repas simples avant de faire la liste", "/article/manger-pour-pas-cher-2026-menus-semaine-petit-budget"],
-  ["Cuisiner en avance", "La méthode batch cooking pour débuter", "/article/guide-batch-cooking-debutante-economies-temps-recettes-2026"],
   ["Vérifier les aides", "Les démarches officielles à faire selon sa situation", "/article/aides-pouvoir-achat-2026-cheques-primes-bons-plans-etat"],
   ["Réduire les factures", "Les gestes et contrats à contrôler en priorité", "/article/baisser-facture-electricite-2026-astuces-economies"],
   ["Construire son budget familial", "Tableaux, enveloppes et exemple chiffré", "/article/comment-gerer-budget-familial-guide-complet-outils-2026"],
