@@ -5027,5 +5027,21 @@
   "amazon-yankee-candle-couverture-douce": {
     "url": "https://www.amazon.fr/dp/B004JX7MRI?th=1&linkCode=ll2&tag=lebrunnathali-21&linkId=21d3eb08c41d1a79a21779ce0e2ea7e7&gaOptInStatus=true&ref_=as_li_ss_tl",
     "label": "Voir Couverture douce sur Amazon"
+  },
+  "garnier-vitamine-c-carrefour": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fp%2Fcreme-visage-sorbet-hydratante-booster-d-eclat-vitamine-c-fresh-bright-garnier-3600542663007%3Ft%3D2453",
+    "label": "Voir la crème chez Carrefour"
+  },
+  "garnier-vitamine-c-serum-creme-spf25": {
+    "url": "https://www.amazon.fr/dp/B09QHDH9TS?tag=lebrunnathali-21",
+    "label": "Voir sur Amazon"
+  },
+  "garnier-vitamine-c-fluide-uv-spf50": {
+    "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fp%2Fgarnier-vitamin-c-daily-uv-brightening-fluid-invisible-spf-50-40ml%2F14992709%2F",
+    "label": "Voir sur Lookfantastic"
+  },
+  "garnier-vitamine-c-wonder-tint-spf50": {
+    "url": "https://www.amazon.fr/dp/B0FVG1MK94?tag=lebrunnathali-21",
+    "label": "Voir sur Amazon"
   }
 }
