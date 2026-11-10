@@ -60,7 +60,7 @@ export function getAdventCalendarCatalog(): AdventCalendar2026[] {
     const searchable = `${meta.slug} ${meta.title} ${meta.description} ${meta.tags.join(" ")}`.toLocaleLowerCase("fr");
     if (EXCLUDED_TERMS.some((term) => searchable.includes(term)) || /calendrier (?:de l[’']|d[’']?)(?:après|apres|été|ete)/.test(searchable)) return [];
     const articleHref = `/article/${meta.slug}`;
-    if (curatedHrefs.has(articleHref)) return [];
+    if (curatedHrefs.has(articleHref) || meta.slug === "calendrier-apres-prescription-lab-25-produits-59-euros-mai-2026") return [];
     const classification = classify(searchable);
     return [{ brand: brandFor(searchable, meta.title), name: meta.title.replace(/^bon plan\s+/i, "").trim(), price: meta.price || "Voir le prix actuel", contents: meta.description, status: availabilityFor(searchable), checkedAt: formatDate(meta.updated || meta.date), image: meta.image, imageAlt: meta.imageAlt, articleHref, merchantHref: `/go/${meta.affiliateAlias || meta.slug}`, ...classification }];
   });
