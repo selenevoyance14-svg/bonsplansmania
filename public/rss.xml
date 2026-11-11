@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 11 Nov 2026 16:21:02 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 11 Nov 2026 19:18:16 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Singles’ Day BIOTYfull Box : 2 box beauté à 11 € sans engagement</title>
@@ -78,6 +78,15 @@
       <description>Mam’Advisor propose de tester le lave-biberons Momcozy DeepClean BW05. Candidatures du 11 au 17 novembre 2026 sur Magicmaman.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-momcozy-deepclean-bw05-lave-biberons-mamadvisor-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Test produit Timotei sur trnd – 500 places pour découvrir 5 routines capillaires</title>
+      <link>https://bonsplansmania.fr/article/test-produit-timotei-trnd-500-testeurs-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-timotei-trnd-500-testeurs-novembre-2026</guid>
+      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
+      <description>trnd recherche 500 personnes pour tester une routine capillaire Timotei pendant trois semaines. Candidatures jusqu’au 16 novembre 2026 inclus.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-timotei-trnd-500-testeurs-novembre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Beauty of Joseon Glow Serum 30 ml à 11,91 €</title>
@@ -447,15 +456,6 @@
       <description>L’Eau Dynamisante Clarins est à 40,92 € le flacon de 100 ml chez Beauty Success, contre 68,20 € en prix barré.</description>
       <category>bon-plan</category>
       <enclosure url="https://www.beautysuccess.fr/media/catalog/product/cache/3a41e500f8ba61a6d5fd9d7633402e0f/2/0/204640407d-clarins-eau-dynamisante-100ml-visuel_1.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Crème Clarins Multi-Intensive Rose Radiance 50 ml à 79,26 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-beautysuccess-clarins-multi-intensive-rose-radiance-50ml</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-beautysuccess-clarins-multi-intensive-rose-radiance-50ml</guid>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-      <description>La crème de jour Clarins Multi-Intensive Rose Radiance est à 79,26 € chez Beauty Success, contre 132,10 € en prix barré.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://www.beautysuccess.fr/media/catalog/product/cache/3a41e500f8ba61a6d5fd9d7633402e0f/2/0/2045757c73-clarins-multi-intensive-rose-radiance-50ml-visuel_1.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
