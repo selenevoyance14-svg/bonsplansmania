@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 12 Nov 2026 09:52:14 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 12:13:02 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Catit : 3 lots de friandises pour chat à gagner jusqu’au 30 novembre</title>
@@ -17,6 +17,15 @@
       <enclosure url="https://www.catit.com/wp-content/uploads/2026/10/My_Cat_NOV26-Giveaway-EU.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
+      <title>Grand Jeu Hiver Cheerz : un pack lit Tediber à gagner jusqu’au 15 novembre</title>
+      <link>https://bonsplansmania.fr/article/concours-cheerz-grand-jeu-hiver-tediber-morphee-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-cheerz-grand-jeu-hiver-tediber-morphee-novembre-2026</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Participez gratuitement au Grand Jeu de l’Hiver Cheerz pour tenter de gagner un pack lit Tediber, une boîte Petit Morphée ou des lots photo.</description>
+      <category>concours</category>
+      <enclosure url="https://storage.kimple.co/kapmedia/client/a180gov62l/media/650j26o7m5.png" type="image/png" length="0"/>
+    </item>
+    <item>
       <title>Jeu concours La Villageoise : gagnez une lunchbox jusqu’au 18 décembre 2026</title>
       <link>https://bonsplansmania.fr/article/concours-la-villageoise-lunchbox-decembre-2026</link>
       <guid>https://bonsplansmania.fr/article/concours-la-villageoise-lunchbox-decembre-2026</guid>
@@ -26,7 +35,7 @@
       <enclosure url="https://www.la-villageoise.com/img/jeu-concours/lunchbox.png" type="image/png" length="0"/>
     </item>
     <item>
-      <title>Test produit Boiron Belgique : 20 places pour essayer le duo Stoplants</title>
+      <title>Test produit Boiron : 20 places pour essayer le duo Stoplants</title>
       <link>https://bonsplansmania.fr/article/test-gratuit-boiron-duo-stoplants-belgique-novembre-2026</link>
       <guid>https://bonsplansmania.fr/article/test-gratuit-boiron-duo-stoplants-belgique-novembre-2026</guid>
       <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
@@ -447,15 +456,6 @@
       <description>Shampooing antipelliculaire Head &amp; Shoulders DermaXPro Apaise 800 ml à 11,94 € sur Amazon. Aloe vera et complexe de céramides pour cuir chevelu sec et irrité.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-head-shoulders-derma-xpro-apaise-800ml-french-week-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>IT Cosmetics CC+ Crème SPF 50 Medium 12 ml à 11,33 € sur Amazon</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-it-cosmetics-cc-creme-medium-12ml-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-it-cosmetics-cc-creme-medium-12ml-2026</guid>
-      <pubDate>Tue, 10 Nov 2026 00:00:00 GMT</pubDate>
-      <description>La CC+ Crème IT Cosmetics haute couvrance, en teinte Medium et tube de 12 ml, est affichée à 11,33 € sur Amazon.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://m.media-amazon.com/images/I/51S+DoovAQL._AC_SL1500_.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
