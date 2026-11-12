@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 12 Nov 2026 15:16:27 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 15:24:21 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>10 coffrets Clarins à moins de 50 € pour Noël, dès 29 €</title>
@@ -141,6 +141,15 @@
       <description>Trois idées de cadeaux gourmands chez Graines de Pèlerins : les coffrets Découverte, Prestige et Vitalité. Comparez les assortiments et les prix en achat unique.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/graines-de-pelerins-coffrets-miels-noel-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>Mr.Bricolage 100 % remboursé : 4 produits dans la sélection de novembre</title>
+      <link>https://bonsplansmania.fr/article/mr-bricolage-100-rembourse-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/mr-bricolage-100-rembourse-novembre-2026</guid>
+      <pubDate>Thu, 12 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Absorbeur Rubson, chauffage Scholtès, station météo Optex et ampoules Xanlite : les quatre références de l’opération Mr.Bricolage et les prix relevés selon le magasin.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/_placeholder-bonsplansmania.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Prozis BNOVEMBER : jusqu’à −50 % sur la nutrition et le sportswear</title>
@@ -447,15 +456,6 @@
       <description>Mam’Advisor propose de tester le lave-biberons Momcozy DeepClean BW05. Candidatures du 11 au 17 novembre 2026 sur Magicmaman.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/test-gratuit-momcozy-deepclean-bw05-lave-biberons-mamadvisor-2026.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Test produit Timotei sur trnd – 500 places pour découvrir 5 routines capillaires</title>
-      <link>https://bonsplansmania.fr/article/test-produit-timotei-trnd-500-testeurs-novembre-2026</link>
-      <guid>https://bonsplansmania.fr/article/test-produit-timotei-trnd-500-testeurs-novembre-2026</guid>
-      <pubDate>Wed, 11 Nov 2026 00:00:00 GMT</pubDate>
-      <description>trnd recherche 500 personnes pour tester une routine capillaire Timotei pendant trois semaines. Candidatures jusqu’au 16 novembre 2026 inclus.</description>
-      <category>test-gratuit</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/test-produit-timotei-trnd-500-testeurs-novembre-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
