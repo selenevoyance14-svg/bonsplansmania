@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 12 Nov 2026 12:13:02 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 12 Nov 2026 12:37:30 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Concours Catit : 3 lots de friandises pour chat à gagner jusqu’au 30 novembre</title>
@@ -33,6 +33,15 @@
       <description>Tentez de gagner une lunchbox La Villageoise en cuisine d’une valeur de 7,50 €. Jeu gratuit jusqu’au 18 décembre 2026 à 23 h 59.</description>
       <category>concours</category>
       <enclosure url="https://www.la-villageoise.com/img/jeu-concours/lunchbox.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Prozis BNOVEMBER : jusqu’à −50 % sur la nutrition et le sportswear</title>
+      <link>https://bonsplansmania.fr/article/prozis-bnovember-jusqua-45-pourcent-novembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/prozis-bnovember-jusqua-45-pourcent-novembre-2026</guid>
+      <pubDate>Fri, 06 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Sélection Prozis BNOVEMBER : Protein Skyr, Big Shot, TesToid, nappage caramel et vêtements. Offres jusqu’à −50 % et liens vers les produits.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/code-promo-prozis-bonsmania-10-pourcent-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
       <title>Test produit Boiron : 20 places pour essayer le duo Stoplants</title>
@@ -447,15 +456,6 @@
       <description>La coloration permanente sans ammoniaque Garnier Olia 5.0 Châtain Clair Fondant est à 5,50 € la boîte sur Amazon.</description>
       <category>bon-plan</category>
       <enclosure url="https://m.media-amazon.com/images/I/61juwX0ufbL._AC_SL1025_.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Head &amp; Shoulders DermaXPro Apaise 800 ml à 11,94 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-head-shoulders-derma-xpro-apaise-800ml-french-week-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-head-shoulders-derma-xpro-apaise-800ml-french-week-2026</guid>
-      <pubDate>Mon, 04 May 2026 00:00:00 GMT</pubDate>
-      <description>Shampooing antipelliculaire Head &amp; Shoulders DermaXPro Apaise 800 ml à 11,94 € sur Amazon. Aloe vera et complexe de céramides pour cuir chevelu sec et irrité.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-head-shoulders-derma-xpro-apaise-800ml-french-week-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
