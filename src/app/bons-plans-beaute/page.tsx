@@ -283,7 +283,7 @@ const NON_BEAUTE_TOKENS = [
   "spot-scrub", "aspirateur-robot", "robot-aspirateur", "robot-laveur",
   "lave-linge", "lave-vaisselle", "refrigerateur", "congelateur",
   "micro-ondes", "cuisiniere", "hotte-", "-hotte-",
-  "climatiseur", "ventilateur-",
+  "climatiseur", "ventilateur-", "ninja-autobarista-",
   // Déco maison (parfum d'ambiance ≠ parfum beauté)
   "diffuseur-parfum", "diffuseur-de-parfum", "parfum-ambiance", "parfum-d-ambiance",
 ];
