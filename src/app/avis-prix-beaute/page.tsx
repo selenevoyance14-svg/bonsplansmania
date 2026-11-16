@@ -1,18 +1,19 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ChevronRight, Sparkles } from "lucide-react";
+import { BadgeCheck, ChevronRight, Heart, Search, Sparkles } from "lucide-react";
 import Header from "@/app/components/Header";
 import AdBlock from "@/app/components/AdBlock";
 import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
 import MyFavoriteProducts from "@/app/components/MyFavoriteProducts";
 import CommunityProductList from "@/app/components/CommunityProductList";
+import styles from "./avis-prix-beaute.module.css";
 
 const canonical = "https://bonsplansmania.fr/avis-prix-beaute";
 
 export const metadata: Metadata = {
-  title: "Comparateur beauté : avis, prix et offres — Bons Plans Mania",
+  title: "Avis et comparateur de produits beauté — Bons Plans Mania",
   description:
-    "Les fiches produits beauté de Bons Plans Mania : comparez les prix chez plusieurs marchands, lisez les avis de la communauté et partagez le vôtre.",
+    "Comparez les produits beauté par marque et par rayon, consultez les avis, les tests de Nathalie et les offres vérifiées chez plusieurs marchands.",
   alternates: { canonical },
 };
 
@@ -21,7 +22,7 @@ export default function AvisPrixBeautePage() {
     <>
       <Header activePage="/avis-prix-beaute" />
       <main>
-        <section className="section" style={{ paddingBottom: "8px" }}>
+        <section className={styles.hero}>
           <div className="container">
             <nav className="breadcrumbs">
               <Link href="/">Accueil</Link>
@@ -29,49 +30,56 @@ export default function AvisPrixBeautePage() {
               <span>Avis et prix beauté</span>
             </nav>
 
-            <h1 style={{ fontSize: "2rem", fontWeight: 800, marginBottom: "8px" }}>
-              <Sparkles size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px" }} />
-              Comparateur beauté : avis, prix et offres
-            </h1>
-            <p style={{ color: "var(--muted-foreground)" }}>
-              Comparez les produits et les marchands — {COMMUNITY_PRODUCTS.length} fiche
-              {COMMUNITY_PRODUCTS.length > 1 ? "s" : ""}
-            </p>
+            <div className={styles.heroInner}>
+              <div>
+                <span className={styles.eyebrow}>
+                  <Sparkles size={16} aria-hidden="true" /> Sélection indépendante
+                </span>
+                <h1 className={styles.title}>Avis et comparateur de produits beauté</h1>
+                <p className={styles.lead}>
+                  Trouvez un parfum, un soin ou un produit de maquillage, consultez les
+                  avis disponibles et comparez les marchands. Les prix Amazon sont
+                  actualisés automatiquement sur les fiches concernées.
+                </p>
+              </div>
+              <div className={styles.heroStats} aria-label="Chiffres clés du comparateur">
+                <div className={styles.stat}>
+                  <strong>{COMMUNITY_PRODUCTS.length}</strong>
+                  <span>fiches produits classées</span>
+                </div>
+                <div className={styles.stat}>
+                  <strong>10</strong>
+                  <span>univers beauté à explorer</span>
+                </div>
+                <div className={styles.stat}>
+                  <strong>Prix</strong>
+                  <span>datés ou mis à jour par l’API</span>
+                </div>
+                <div className={styles.stat}>
+                  <strong>Avis</strong>
+                  <span>personnels et communautaires</span>
+                </div>
+              </div>
+            </div>
           </div>
         </section>
 
         <MyFavoriteProducts />
 
-        <section className="container" style={{ paddingTop: "20px", paddingBottom: "0" }}>
-          <div
-            style={{
-              background: "white",
-              border: "1px solid var(--border, #e5e7eb)",
-              borderRadius: "16px",
-              padding: "24px 28px",
-              fontSize: "0.97rem",
-              lineHeight: 1.65,
-              color: "#1f2937",
-            }}
-          >
-            <p>
-              Une <strong>fiche produit</strong> réunit au même endroit ce qu&apos;on a de
-              plus utile sur un produit beauté : une description honnête, les{" "}
-              <strong>avis laissés par la communauté</strong>, et un lien direct
-              vers les marchands qui le vendent.
-            </p>
-            <p>
-              Les prix contrôlés sont accompagnés d&apos;une date de constatation.
-              Pour Amazon, les tarifs proviennent exclusivement de l&apos;API
-              officielle et ne sont jamais recopiés à la main. Le prix affiché
-              chez le marchand au moment de la commande reste celui qui fait foi.
-            </p>
-            <p>
-              Contrairement à un article de bon plan, qui photographie une offre à un
-              instant donné, la fiche reste en place et s&apos;enrichit avec le temps. Tu
-              peux y déposer ton propre avis, indiquer si celui des autres t&apos;a été
-              utile, et retrouver le produit en favori.
-            </p>
+        <section className="container" style={{ paddingTop: "24px", paddingBottom: "0" }}>
+          <div className={styles.method}>
+            <div className={styles.methodCard}>
+              <strong><Search size={17} aria-hidden="true" /> Trouver rapidement</strong>
+              <p>Recherchez une marque ou un produit, puis affinez par rayon.</p>
+            </div>
+            <div className={styles.methodCard}>
+              <strong><BadgeCheck size={17} aria-hidden="true" /> Comprendre la sélection</strong>
+              <p>Les fiches distinguent les tests personnels, les informations produit et les avis déposés.</p>
+            </div>
+            <div className={styles.methodCard}>
+              <strong><Heart size={17} aria-hidden="true" /> Garder ses favoris</strong>
+              <p>Enregistrez les références qui vous intéressent pour les retrouver facilement.</p>
+            </div>
           </div>
         </section>
 
@@ -87,20 +95,23 @@ export default function AvisPrixBeautePage() {
 
         <section className="section" style={{ paddingTop: "8px" }}>
           <div className="container">
-            <h2 style={{ fontSize: "1.25rem", fontWeight: 700, marginBottom: "12px" }}>
-              Pour aller plus loin
+            <h2 style={{ fontSize: "1.35rem", fontWeight: 750, marginBottom: "14px" }}>
+              Guides, tests et offres beauté
             </h2>
-            <ul style={{ lineHeight: 2 }}>
-              <li>
-                <Link href="/categorie/comparatif">Nos guides et comparatifs beauté</Link>
-              </li>
-              <li>
-                <Link href="/categorie/test-avis">Nos tests et avis produits</Link>
-              </li>
-              <li>
-                <Link href="/bons-plans-beaute">Tous les bons plans beauté</Link>
-              </li>
-            </ul>
+            <div className={styles.editorialGrid}>
+              <Link href="/categorie/comparatif" className={styles.editorialLink}>
+                <strong>Guides et comparatifs beauté</strong>
+                <span>Des sélections pour comparer les usages, les formats et les critères importants.</span>
+              </Link>
+              <Link href="/categorie/test-avis" className={styles.editorialLink}>
+                <strong>Tests et avis produits</strong>
+                <span>Les produits réellement essayés, avec leurs points forts et leurs limites.</span>
+              </Link>
+              <Link href="/bons-plans-beaute" className={styles.editorialLink}>
+                <strong>Bons plans beauté</strong>
+                <span>Les offres ponctuelles vérifiées chez Amazon et les autres marchands.</span>
+              </Link>
+            </div>
           </div>
         </section>
       </main>
