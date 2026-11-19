@@ -1815,20 +1815,28 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // PIN UP SECRET — offres vérifiées le 17/08/2026
+  // PIN UP SECRET — Black Friday vérifié le 19/11/2026
   // ============================================================
   {
-    id: "pin-up-secret-welcome35",
+    id: "pin-up-secret-black-friday-50",
     brandSlug: "pin-up-secret",
-    type: "code",
-    value: "-35 %",
-    valueLabel: "1RE COMMANDE",
-    title: "35 % de réduction et livraison offerte pour une première commande",
-    code: "WELCOME35",
-    permanent: true,
-    conditions: "Offre de bienvenue officielle Pin Up Secret réservée à la première commande, avec livraison offerte en France métropolitaine. Vérifier les exclusions et l'application de la remise dans le panier.",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "SANS CODE",
+    title: "Black Friday : 50 % de réduction sur tout le site sans code",
+    conditions: "Offre annoncée sur la bannière officielle le 19/11/2026. Prix remisés directement affichés ; date de fin non communiquée. Vérifier le total au panier.",
     affiliateUrl: "https://a.time1.me/r?promoid=243139&progid=8054&partid=61992",
     featured: true,
+  },
+  {
+    id: "pin-up-secret-newsletter-5",
+    brandSlug: "pin-up-secret",
+    type: "newsletter",
+    value: "-5 %",
+    valueLabel: "NEWSLETTER",
+    title: "5 % annoncés après inscription à la newsletter, selon conditions",
+    conditions: "Avantage signalé par notre partenaire. Conditions du code à consulter dans l’e-mail reçu après inscription ; cumul avec les prix Black Friday non confirmé sur la page publique.",
+    affiliateUrl: "https://a.time1.me/r?promoid=243139&progid=8054&partid=61992",
   },
   {
     id: "pin-up-secret-club-jusqua-42",
@@ -1849,7 +1857,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "DÈS 49 €",
     title: "Livraison offerte dès 49 € d'achat",
     permanent: true,
-    conditions: "Seuil affiché par Pin Up Secret le 13/08/2026. Vérifier le mode de livraison éligible dans le panier.",
+    conditions: "Seuil affiché par Pin Up Secret le 19/11/2026. Vérifier le mode de livraison éligible dans le panier.",
   },
   {
     id: "twenty-dc-newsletter-10",
