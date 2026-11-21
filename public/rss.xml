@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 20 Nov 2026 16:24:09 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 20 Nov 2026 17:12:13 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Jeu Fnac Black Friday : 10 000 € de cartes cadeaux à gagner</title>
+      <link>https://bonsplansmania.fr/article/jeu-concours-fnac-roue-black-friday-cartes-cadeaux-2026</link>
+      <guid>https://bonsplansmania.fr/article/jeu-concours-fnac-roue-black-friday-cartes-cadeaux-2026</guid>
+      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
+      <description>La roue Black Friday Fnac propose un lancer offert chaque jour. Découvrez les dates du jeu et les informations à vérifier avant de participer.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-fnac-roue-black-friday-novembre-2026.png" type="image/png" length="0"/>
+    </item>
     <item>
       <title>Black Week Prescription Lab : calendrier et box à 35 € avec abonnement</title>
       <link>https://bonsplansmania.fr/article/prescription-lab-black-week-calendrier-box-35-euros-novembre-2026</link>
@@ -447,15 +456,6 @@
       <description>Un puzzle Clementoni de 104 pièces pour retrouver KPop Demon Hunters dans une activité calme, avec une image de 38 × 27 cm à reconstituer dès 6 ans.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/clementoni-puzzle-kpop-demon-hunters-104-pieces.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Concours MaFamilleZen : des romans ados à gagner jusqu’au 2 décembre</title>
-      <link>https://bonsplansmania.fr/article/concours-mafamillezen-romans-ados-revolte-pouvoir-liberte-2026</link>
-      <guid>https://bonsplansmania.fr/article/concours-mafamillezen-romans-ados-revolte-pouvoir-liberte-2026</guid>
-      <pubDate>Thu, 19 Nov 2026 00:00:00 GMT</pubDate>
-      <description>MaFamilleZen propose un concours autour de romans pour adolescents sur la révolte, le pouvoir et la liberté. Participation via le club jusqu’au 2 décembre.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-mafamillezen-romans-ados-revolte.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
