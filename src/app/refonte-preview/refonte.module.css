@@ -242,7 +242,7 @@
 .priceGroup { min-width:0; display:flex; align-items:baseline; gap:7px; flex-wrap:wrap; }
 .priceComparison { display:inline-flex; align-items:center; gap:6px; font-size:10px; line-height:1; }
 .priceComparison del { color:#8a8a8a; font-weight:500; text-decoration-line:line-through; text-decoration-color:#666666; text-decoration-thickness:1.5px; }
-.priceComparison>span { padding:3px 6px; border-radius:999px; background:#7d293d; color:#fff; font-weight:800; letter-spacing:.02em; }
+.priceComparison>span { padding:3px 6px; border-radius:999px; background:#222; color:#fff; font-weight:800; letter-spacing:.02em; }
 .merchantName { padding:3px 6px; border:1px solid #ddd5cb; border-radius:999px; background:#f3efe9; color:#5c554f; font-size:10px; font-weight:800; line-height:1; white-space:nowrap; }
 .deliveryPrice { display:inline-flex; align-items:center; gap:4px; color:#666; font-size:11px; font-weight:700; line-height:1; white-space:nowrap; }
 .deliveryPrice svg { flex:0 0 auto; stroke-width:1.8; }
@@ -343,4 +343,165 @@
   border-color:var(--wine);
   color:var(--wine);
   text-decoration:underline;
+}
+
+/* Accueil : navigation, sélection et accès marchands. */
+.conversionHeader { display:flex; align-items:center; gap:24px; padding:20px max(20px,calc((100% - 1240px)/2)); background:#fff; border-bottom:1px solid var(--line); }
+.conversionDesktopNav { display:flex; flex:1; justify-content:center; gap:20px; font-size:14px; font-weight:700; }
+.newsletterCta,.conversionOfferButton { background:var(--wine); color:#fff!important; border-radius:10px; padding:14px 18px; font-weight:700; text-align:center; }
+.conversionMobileNav { display:none; }
+.conversionSection { max-width:1280px; margin:auto; padding:44px 20px 12px; }
+.conversionHeading { display:flex; justify-content:space-between; align-items:end; gap:20px; margin-bottom:24px; }
+.conversionHeading h1,.conversionHeading h2 { font-size:clamp(26px,3vw,38px); line-height:1.15; letter-spacing:-.025em; margin:8px 0 12px; }
+.conversionHeading p { color:#625b55; line-height:1.6; margin:0; }
+.conversionHeading>a { flex-shrink:0; color:var(--wine); font-weight:700; }
+.eyebrow { font-size:12px; font-weight:700; text-transform:uppercase; letter-spacing:.12em; }
+.highlightGrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.highlightCard { display:flex; flex-direction:column; background:#fff; border:1px solid #e9e3dd; border-radius:18px; overflow:hidden; box-shadow:0 5px 20px #231d1710; }
+.highlightImage { position:relative; display:block; height:200px; background:#fff; }
+.highlightCopy { padding:20px; display:flex; flex-direction:column; flex:1; gap:12px; }
+.offerMerchant { font-size:14px; font-weight:700; color:#111; }
+.highlightCopy h2 { font-size:19px; line-height:1.4; margin:0; display:-webkit-box; -webkit-line-clamp:3; -webkit-box-orient:vertical; overflow:hidden; }
+.highlightPrice { display:flex; flex-wrap:wrap; gap:10px; align-items:baseline; margin-top:auto; }
+.highlightPrice>strong { color:var(--wine); font-size:28px; line-height:1.3; }
+.highlightPrice .priceComparison { font-size:13px; }
+.conversionOfferButton { display:flex; align-items:center; justify-content:center; gap:12px; min-height:48px; }
+.conversionOfferButton:hover,.newsletterCta:hover { background:#5f1e2f; }
+.offerDetails { text-align:center; font-size:12px; color:#625b55!important; text-decoration:underline!important; }
+.merchantGrid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; }
+.merchantBlock { background:white; padding:24px; border-radius:18px; border:1px solid #e9e3dd; display:flex; flex-direction:column; }
+.merchantBlock h3 { margin:0 0 8px; font-size:24px; color:#111; }
+.merchantBlock>p { font-size:12px; color:#625b55; line-height:1.5; min-height:36px; }
+.merchantBlock ul { padding:0; margin:8px 0 20px; list-style:none; }
+.merchantBlock li+li { border-top:1px solid #eee; }
+.merchantBlock li a { display:flex; gap:12px; align-items:center; padding:14px 0; font-size:13px; line-height:1.4; }
+.merchantBlock img { object-fit:contain; flex-shrink:0; }
+.merchantBlock li span { min-width:0; }
+.merchantBlock li strong { display:block; margin-top:5px; color:var(--wine); font-size:16px; }
+.merchantBlock li strong strong { display:inline; }
+.merchantAll { margin-top:auto; color:var(--wine)!important; font-size:16px; line-height:1.5; font-weight:700; padding-top:16px; border-top:1px solid #eee; }
+.newsletterBand { max-width:1280px; margin:36px auto 0; padding:0 20px; }
+.newsletterBand .newsletter { padding:36px; }
+.newsletterForm button { width:auto; min-width:112px; padding:12px 16px; font-weight:700; }
+.conversionHeader a:focus-visible,.conversionSection a:focus-visible,.conversionMobileNav summary:focus-visible { outline:3px solid #7d293d; outline-offset:4px; }
+@media(max-width:1000px) { .conversionDesktopNav { display:none; }.conversionHeader { gap:12px; flex-wrap:wrap; }.conversionHeader .logo { margin-right:auto; }.conversionMobileNav { display:block; position:relative; }.conversionMobileNav summary { cursor:pointer; padding:12px; }.conversionMobileNav nav { position:absolute; right:0; top:48px; z-index:40; min-width:220px; padding:12px; border:1px solid var(--line); background:#fff; border-radius:12px; box-shadow:0 10px 30px #0002; }.conversionMobileNav nav a { display:block; padding:12px; }.highlightGrid { grid-template-columns:repeat(2,minmax(0,1fr)); }.merchantGrid { grid-template-columns:1fr; }.merchantBlock>p { min-height:0; } }
+@media(max-width:600px) { .conversionHeader { padding:16px; gap:8px; }.conversionHeader .logo { font-size:21px; }.newsletterCta { padding:12px; font-size:12px; }.conversionSection { padding:30px 16px 0; }.conversionHeading { display:block; }.conversionHeading>a { display:inline-block; margin-top:12px; font-size:13px; }.highlightGrid { grid-template-columns:1fr; gap:18px; }.highlightImage { height:180px; }.highlightCopy { padding:18px; }.highlightCopy h2 { font-size:19px; }.newsletterBand { padding:0 16px; margin-top:30px; }.newsletterBand .newsletter { padding:24px 18px; }.newsletterForm input { width:100%; font-size:16px; }.newsletterForm button { min-width:104px; padding:12px; } }
+
+/* Prix prioritaires, codes visibles et boutons cohérents. */
+.promoCodeBadge { display:inline-flex; align-items:center; padding:6px 9px; border:1px dashed #a83a57; border-radius:7px; background:#fff0f4; color:#82243e; font-size:11px; line-height:1.3; font-weight:800; white-space:nowrap; }
+.merchantOfferCopy { flex:1; }
+.merchantOfferTitle { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.merchantOfferPrice { display:flex; flex-wrap:wrap; align-items:baseline; gap:6px 9px; margin-top:8px; }
+.merchantBlock .merchantOfferPrice>strong { display:inline; margin:0; font-size:25px; line-height:1.25; font-weight:800; }
+.merchantOfferPrice .priceComparison { font-size:11px; }
+.highlightCopy h2 { -webkit-line-clamp:2; }
+.cardCopy h3 { display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden; }
+.cardCopy p { -webkit-line-clamp:2; }
+.cardFooter .offerButton,.conversionOfferButton { min-height:48px; padding:13px 20px; border-radius:10px; font-size:15px; font-weight:800; background:#8c2948; border-color:#8c2948; color:#fff; }
+.cardFooter .offerButton:hover,.conversionOfferButton:hover { background:#6f1f38; border-color:#6f1f38; }
+@media(max-width:600px) { .cardFooter { flex-wrap:wrap; gap:12px; }.cardFooter .priceGroup { flex:1 1 100%; }.cardFooter .offerButton { width:100%; }.cardFooter strong { font-size:24px; }.merchantBlock .merchantOfferPrice>strong { font-size:25px; } }
+
+/* Le code Prozis occupe sa propre ligne sous le prix. */
+.highlightPrice>.promoCodeBadge,
+.merchantOfferPrice>.promoCodeBadge,
+.priceGroup>.promoCodeBadge { flex-basis:100%; width:max-content; max-width:100%; margin-top:3px; }
+.promoCodeBadge { justify-content:center; text-align:center; }
+.conversionPartner { max-width:1280px; margin:32px auto 0; padding:0 20px; }
+.conversionPartner:empty { display:none; }
+@media(max-width:600px) { .conversionPartner { margin-top:26px; padding:0 16px; } }
+
+/* Partenaire : format discret, accordé à la palette de l’accueil. */
+.conversionPartner :global(.featured-partner-section) { padding:0; }
+.conversionPartner :global(.container) { max-width:none; width:100%; padding:0; }
+.conversionPartner :global(.featured-partner) { grid-template-columns:minmax(0,1fr) 200px; border:1px solid #e4dad7; border-radius:16px; background:#fff; color:#211b1c; box-shadow:0 4px 16px #24181e08; }
+.conversionPartner :global(.featured-partner__content) { padding:22px 26px; }
+.conversionPartner :global(.featured-partner__badge) { background:#f4e9ed; color:#7d293d; font-size:10px; }
+.conversionPartner :global(.featured-partner__title) { margin-top:10px; color:#211b1c; font-size:24px; line-height:1.25; }
+.conversionPartner :global(.featured-partner__description) { margin:8px 0 12px; font-size:13px; color:#625b55; }
+.conversionPartner :global(.featured-partner__promo) { gap:14px; padding:9px 12px; border-color:#d7c5cb; border-radius:9px; background:#fcf9fa; }
+.conversionPartner :global(.featured-partner__promo-code) { font-size:17px; color:#7d293d; }
+.conversionPartner :global(.featured-partner__validity),.conversionPartner :global(.featured-partner__conditions) { font-size:11px; color:#625b55; line-height:1.5; }
+.conversionPartner :global(.featured-partner__copy) { background:#fff; border-color:#d7c5cb; color:#7d293d; min-height:40px; font-size:12px; }
+.conversionPartner :global(.featured-partner__copy-status) { min-height:0; margin:4px 0; }
+.conversionPartner :global(.featured-partner__conditions) { margin:8px 0 12px; }
+.conversionPartner :global(.featured-partner__cta) { background:#7d293d; color:#fff; font-size:13px; min-height:42px; padding:10px 16px; border-radius:9px; box-shadow:none; }
+.conversionPartner :global(.featured-partner__visual) { min-height:0; border:0; background:#faf7f6; }
+.conversionPartner :global(.featured-partner__image) { padding:18px; }
+@media(max-width:720px) {
+ .conversionPartner :global(.featured-partner) { grid-template-columns:1fr; }
+ .conversionPartner :global(.featured-partner__content) { padding:20px; }
+ .conversionPartner :global(.featured-partner__title) { font-size:22px; }
+ .conversionPartner :global(.featured-partner__visual) { display:none; }
+ .conversionPartner :global(.featured-partner__promo) { flex-direction:row; align-items:center; flex-wrap:wrap; }
+ .conversionPartner :global(.featured-partner__copy) { width:auto; }
+}
+.conversionPartner :global(.featured-partner) { grid-template-columns:1fr; }
+.conversionPartner :global(.featured-partner__promo) { width:100%; justify-content:space-between; gap:20px; }
+.conversionPartner :global(.featured-partner__promo>div) { flex:1; min-width:0; }
+.conversionPartner :global(.featured-partner__inline-image) { display:block; width:min(100%,420px); height:auto; max-height:220px; object-fit:contain; object-position:left center; }
+@media(max-width:600px) { .conversionPartner :global(.featured-partner__promo) { flex-direction:column; align-items:stretch; }.conversionPartner :global(.featured-partner__inline-image) { width:100%; max-height:200px; object-position:center; }.conversionPartner :global(.featured-partner__copy) { width:100%; } }
+
+/* Partenaire : visuel à gauche, contenu à droite, sans encadré imbriqué. */
+.conversionPartner :global(.featured-partner) { grid-template-columns:minmax(240px,.8fr) minmax(0,1.2fr); align-items:center; }
+.conversionPartner :global(.featured-partner__visual) { display:block; grid-column:1; grid-row:1; align-self:stretch; min-height:290px; background:#fff; }
+.conversionPartner :global(.featured-partner__image) { padding:22px; object-fit:contain; }
+.conversionPartner :global(.featured-partner__content) { grid-column:2; grid-row:1; padding:26px; }
+.conversionPartner :global(.featured-partner__promo) { width:auto; justify-content:flex-start; flex-wrap:wrap; gap:12px; padding:0; border:0; background:transparent; }
+.conversionPartner :global(.featured-partner__promo>div) { flex:initial; }
+.conversionPartner :global(.featured-partner__promo-code) { font-size:20px; letter-spacing:.05em; }
+.conversionPartner :global(.featured-partner__copy) { width:auto; }
+@media(max-width:720px) {
+ .conversionPartner :global(.featured-partner) { grid-template-columns:1fr; }
+ .conversionPartner :global(.featured-partner__visual) { grid-column:1; grid-row:1; min-height:210px; }
+ .conversionPartner :global(.featured-partner__content) { grid-column:1; grid-row:2; padding:20px; }
+ .conversionPartner :global(.featured-partner__promo) { flex-direction:row; align-items:center; }
+}
+
+/* Code au-dessus du montant ; les prix restent sur la même ligne visuelle. */
+.highlightPrice>.promoCodeBadge,
+.merchantOfferPrice>.promoCodeBadge,
+.priceGroup>.promoCodeBadge { order:-1; margin:0 0 3px; }
+.highlightPrice { align-content:flex-end; min-height:83px; }
+
+/* Même hauteur de ligne et mêmes repères dans les trois blocs marchands. */
+.merchantBlock ul { display:grid; grid-template-rows:repeat(3,minmax(168px,1fr)); }
+.merchantBlock li { min-width:0; }
+.merchantBlock li a { height:100%; align-items:center; }
+.merchantOfferCopy { display:grid; grid-template-rows:2.8em auto; gap:8px; }
+.merchantOfferTitle { line-height:1.4; }
+.merchantOfferPrice { display:grid; grid-template-columns:max-content minmax(0,1fr); grid-template-rows:32px minmax(34px,auto); align-items:baseline; gap:7px 9px; margin:0; }
+.merchantBlock .merchantOfferPrice>strong { grid-column:1; grid-row:2; }
+.merchantOfferPrice>.priceComparison { grid-column:2; grid-row:2; align-self:center; flex-wrap:wrap; }
+.merchantOfferPrice>.promoCodeBadge { grid-column:1/-1; grid-row:1; width:100%; margin:0; align-self:center; }
+@media(max-width:1000px) { .merchantBlock ul { grid-template-rows:repeat(3,minmax(160px,1fr)); } }
+
+.homeOfferTabs { display:flex; gap:10px; flex-wrap:wrap; margin:0 0 24px; }
+.homeOfferTabs button { padding:12px 18px; min-height:44px; border:1px solid #d9cbd0; border-radius:999px; background:#fff; color:#4d3840; font:700 14px/1.3 Arial,sans-serif; cursor:pointer; }
+.homeOfferTabs button[aria-selected="true"] { background:#7d293d; border-color:#7d293d; color:#fff; }
+.homeOfferTabs button:hover { border-color:#7d293d; }
+.homeOfferTabs button:focus-visible { outline:3px solid #7d293d; outline-offset:3px; }
+.emptyOfferPanel { padding:28px; border-radius:14px; border:1px solid #e9e3dd; background:white; line-height:1.6; }
+.emptyOfferPanel a { text-decoration:underline; color:var(--wine); }
+@media(max-width:600px) { .homeOfferTabs { gap:8px; }.homeOfferTabs button { padding:10px 13px; font-size:12px; } }
+
+/* Cinq onglets réguliers, sans compresser les libellés sur téléphone. */
+.homeOfferTabs { display:grid; grid-template-columns:repeat(5,minmax(0,1fr)); gap:10px; }
+.homeOfferTabs button { width:100%; min-height:54px; padding:12px 10px; font-size:14px; }
+@media(max-width:1000px) { .homeOfferTabs { display:flex; flex-wrap:nowrap; overflow-x:auto; padding:4px 4px 10px; scroll-snap-type:x proximity; }.homeOfferTabs button { flex:0 0 210px; min-height:52px; scroll-snap-align:start; } }
+
+/* Mobile uniquement : offres à faire défiler et raccourcis marchands. */
+@media(max-width:600px) {
+ .highlightGrid { display:grid; grid-template-columns:none; grid-auto-flow:column; grid-auto-columns:86%; gap:14px; overflow-x:auto; scroll-snap-type:x mandatory; scroll-padding-inline:2px; padding:4px 2px 16px; overscroll-behavior-x:contain; scrollbar-width:thin; scrollbar-color:#b78996 #eee6e8; }
+ .highlightCard { scroll-snap-align:start; min-width:0; }
+ .highlightImage { height:170px; }
+ .highlightCopy { padding:16px; }
+ .highlightCopy h2 { font-size:18px; }
+ .merchantGrid { grid-template-columns:1fr; gap:10px; }
+ .merchantBlock { padding:0; border:0; border-radius:12px; background:transparent; }
+ .merchantBlock>h3,.merchantBlock>p,.merchantBlock>ul { display:none; }
+ .merchantBlock .merchantAll { display:flex; align-items:center; justify-content:space-between; margin:0; min-height:52px; padding:15px 18px; border:1px solid #dfcdd3; border-radius:12px; background:#fff; font-size:15px; }
+ .conversionPartner :global(.featured-partner__visual) { min-height:150px; }
+ .conversionPartner :global(.featured-partner__image) { padding:12px; }
+ .conversionPartner :global(.featured-partner__content) { padding:16px; }
+ .conversionPartner :global(.featured-partner__title) { font-size:21px; }
 }

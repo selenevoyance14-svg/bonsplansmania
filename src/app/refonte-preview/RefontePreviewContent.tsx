@@ -1,21 +1,18 @@
 import { canUseLiveAmazonTitle } from "@/lib/amazon-title";
 import HomeOfferPrice from "./HomeOfferPrice";
 import { Fragment } from "react";
-import Image from "next/image";
 import Link from "next/link";
 import { ArrowUpRight, Truck } from "lucide-react";
 import { getAllArticles, isEffectivelyExpired, type Article } from "@/lib/articles";
-import { FEATURED_PARTNER, isFeaturedPartnerActive } from "@/lib/featured-partner";
 import ListAd from "@/app/components/ListAd";
 import Header from "@/app/components/Header";
+import HomeConversionSections, { ProzisCodeBadge } from "./HomeConversionSections";
 import EditorialNewsletter from "./EditorialNewsletter";
-import AmazonCardPrice from "@/app/components/AmazonCardPrice";
 import AmazonProductImage from "@/app/components/AmazonProductImage";
 import ArticleDateLabel from "@/app/components/ArticleDateLabel";
 import { hasDirectMerchantCta } from "@/lib/article-commerce";
 import { formatCardTitle } from "@/lib/display-title";
 import { extractPriceAmount, parsePrice } from "@/lib/price";
-import CuratedDealsTabs, { type CuratedDealGroup } from "./CuratedDealsTabs";
 import styles from "./refonte.module.css";
 
 const labels: Record<string, string> = {
@@ -65,11 +62,6 @@ const HOMEPAGE_EDITORIAL_CATEGORIES = new Set([
   "selection",
 ]);
 
-function merchantHref(slug: string, affiliateUrl?: string) {
-  return process.env.NODE_ENV === "development" && affiliateUrl
-    ? affiliateUrl
-    : `/go/${slug}`;
-}
 
 function getBrandKey(title: string) {
   const cleaned = formatCardTitle(title)
@@ -113,23 +105,8 @@ function selectDiverse<T extends { meta: { slug: string; title: string } }>(
   return selected;
 }
 
-function articleTimestamp(article: Article) {
-  return new Date(`${article.meta.updated ?? article.meta.date}T12:00:00`).getTime();
-}
-
-function isRefundArticle(article: Article) {
-  const searchable = [article.meta.title, article.meta.description, article.meta.price, ...(article.meta.tags ?? [])].join(" ");
-  return /100\s*%\s*(?:rembours|cagnott|crédit)|rembours|cagnott|crédité.+carte|carte.+crédité/i.test(searchable);
-}
-
-function isPartnerArticle(article: Article, merchant: string) {
-  const searchable = [article.meta.title, article.meta.description, article.meta.affiliateUrl, ...(article.meta.tags ?? [])].join(" ");
-  return searchable.toLocaleLowerCase("fr-FR").includes(merchant.toLocaleLowerCase("fr-FR"));
-}
-
 export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
   const currentPage = Math.min(3, Math.max(1, page));
-  const partnerActive = isFeaturedPartnerActive(FEATURED_PARTNER, new Date());
   const active = getAllArticles().filter(
     (article) => !isEffectivelyExpired(article.meta)
       && article.meta.slug !== "bon-plan-amazon-aestemon-monster-trucks-dinosaures-lot-2-septembre-2026",
@@ -137,75 +114,20 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
   const homepageEligible = active.filter(
     (article) => !HOMEPAGE_EDITORIAL_CATEGORIES.has(article.meta.category),
   );
-  const homepageDeals = selectDiverse(homepageEligible, 120);
+  const conversionOffers = active.filter(article => DEAL_CATEGORIES.has(article.meta.category) && article.meta.affiliateUrl && article.meta.price && !/\.svg(?:\?|$)/i.test(article.meta.image));
+  const merchantCounts = new Map<string, number>();
+  const highlights = conversionOffers.filter(article => {
+    const merchant = article.meta.merchant || getBrandKey(article.meta.title);
+    const count = merchantCounts.get(merchant) || 0;
+    if (count >= 1) return false;
+    merchantCounts.set(merchant, count + 1);
+    return true;
+  }).slice(0, 6);
+  // Une seule liste paginée, sans les six offres déjà mises en avant.
+  const highlightedSlugs = new Set(highlights.map(article => article.meta.slug));
+  const homepageDeals = selectDiverse(homepageEligible, 120, highlightedSlugs);
   const deals = homepageDeals.slice((currentPage - 1) * 40, currentPage * 40);
-  const couponLimit = new Date();
-  couponLimit.setDate(couponLimit.getDate() - 21);
-  const amazonCoupons = active
-    .filter((article) => {
-      const checkedAt = new Date(`${article.meta.updated ?? article.meta.date}T12:00:00`);
-      return checkedAt >= couponLimit
-        && article.meta.tags?.some((tag) => tag.toLocaleLowerCase("fr-FR") === "coupon-amazon")
-        && Boolean(article.meta.amazonAsin || article.meta.affiliateUrl?.includes("amazon.fr"));
-    })
-    .sort((a, b) => new Date(b.meta.updated ?? b.meta.date).getTime() - new Date(a.meta.updated ?? a.meta.date).getTime())
-    .slice(0, 6);
-  const sortedDeals = active
-    .filter((article) => DEAL_CATEGORIES.has(article.meta.category) && Boolean(article.meta.affiliateUrl))
-    .sort((a, b) => articleTimestamp(b) - articleTimestamp(a) || Number(Boolean(b.meta.dealOfDay)) - Number(Boolean(a.meta.dealOfDay)));
-  const configuredPartnerDeals = selectDiverse(
-    sortedDeals.filter((article) => isPartnerArticle(article, FEATURED_PARTNER.merchant)),
-    6,
-  );
-  const partnerDeals = partnerActive && configuredPartnerDeals.length > 0
-    ? configuredPartnerDeals
-    : selectDiverse(sortedDeals.filter((article) => isPartnerArticle(article, "carrefour")), 6);
-  const partnerBrand = partnerActive && configuredPartnerDeals.length > 0
-    ? FEATURED_PARTNER.brandName
-    : "Carrefour";
-  const reimbursedDeals = selectDiverse(
-    sortedDeals.filter(isRefundArticle),
-    6,
-  );
-  const toCuratedItems = (articles: Article[], badge: string) => articles.map((article) => ({
-    slug: article.meta.slug,
-    title: article.meta.title,
-    image: article.meta.image,
-    imageAlt: article.meta.imageAlt,
-    amazonAsin: article.meta.amazonAsin,
-    price: article.meta.price,
-    updated: article.meta.updated ?? article.meta.date,
-    badge,
-  }));
-  const curatedDealGroups: CuratedDealGroup[] = [
-    {
-      id: "partner",
-      label: "Offres partenaire",
-      title: `Les offres ${partnerBrand} à ne pas manquer`,
-      description: `Les offres prioritaires de ${partnerBrand}, sélectionnées et expliquées clairement.`,
-      href: "/offres-du-jour/partenaire",
-      allLabel: `Voir toutes les offres ${partnerBrand}`,
-      items: toCuratedItems(partnerDeals, `Offre ${partnerBrand}`),
-    },
-    {
-      id: "coupons",
-      label: "Coupons Amazon",
-      title: "Coupons Amazon à cocher",
-      description: "Le vrai prix final après le coupon, et le code promotionnel supplémentaire lorsqu’il existe.",
-      href: "/offres-du-jour/coupons",
-      allLabel: "Voir tous les coupons Amazon",
-      items: toCuratedItems(amazonCoupons, "Coupon à cocher"),
-    },
-    {
-      id: "refund",
-      label: "Remboursé / cagnotté",
-      title: "100 % remboursé ou cagnotté",
-      description: "Les opérations qui permettent de récupérer tout ou partie du prix, avec les conditions détaillées.",
-      href: "/offres-du-jour/rembourse",
-      allLabel: "Voir toutes les offres remboursées ou cagnottées",
-      items: toCuratedItems(reimbursedDeals, "Remboursé ou cagnotté"),
-    },
-  ];
+
   const websiteJsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
@@ -229,46 +151,12 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
   return (
     <main className={styles.shell}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteJsonLd) }} />
-      {/* Zone éditoriale principale au-dessus de la publicité. */}
-      <div id="bpm-home-above-fold" className={styles.aboveFold}>
-        <Header activePage="/" />
-      </div>
-
-      <h1 className={styles.visuallyHidden}>Bons plans, codes promo, tests gratuits et concours</h1>
-
-      <div className={styles.topDealsLayout}>
-        <CuratedDealsTabs
-          groups={curatedDealGroups}
-          featuredCard={(
-            <article id="partenaire-a-la-une" className={styles.partnerAside} aria-labelledby="partner-feature-title">
-              {partnerActive ? (
-                <>
-                  <div className={styles.partnerAsideImage}>
-                    <Image src={FEATURED_PARTNER.imageSrc} alt={FEATURED_PARTNER.imageAlt} fill sizes="(max-width: 760px) 68vw, 25vw" />
-                    <span className={styles.partnerAsideBadge}>Partenaire à la une</span>
-                  </div>
-                  <div className={styles.partnerAsideCopy}>
-                    <h2 id="partner-feature-title">{FEATURED_PARTNER.brandName}</h2>
-                    <p>{FEATURED_PARTNER.description}</p>
-                    <a
-                      href={FEATURED_PARTNER.primaryCtaHref}
-                      target="_blank"
-                      rel="nofollow sponsored noopener noreferrer"
-                      data-affiliate-position="homepage_featured_partner"
-                      data-affiliate-merchant={FEATURED_PARTNER.merchant}
-                      data-affiliate-offer={FEATURED_PARTNER.promoCode}
-                    >
-                      {FEATURED_PARTNER.primaryCtaLabel} <ArrowUpRight size={16} />
-                    </a>
-                  </div>
-                </>
-              ) : (
-                <div className={styles.partnerAsideCopy}><h2 id="partner-feature-title">Espace partenaire</h2><p>Une mise en avant élégante réservée à une marque sélectionnée.</p></div>
-              )}
-            </article>
-          )}
-        />
-      </div>
+      <Header activePage="/" />
+      {currentPage !== 1 && <h1 className={styles.visuallyHidden}>Dernières offres — page {currentPage}</h1>}
+      {currentPage === 1 && <>
+        <HomeConversionSections highlights={highlights} offers={conversionOffers} />
+        <div className={styles.newsletterBand}><EditorialNewsletter /></div>
+      </>}
 
       <section className={styles.selection} id="selection">
         <header className={styles.sectionHeading}>
@@ -313,6 +201,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                 <div className={styles.cardFooter}>
                   <div className={styles.priceGroup}>
                     <HomeOfferPrice mode="price" price={article.meta.price} originalPrice={originalPrice} asin={!article.meta.expired && canUseLiveAmazonTitle(article.meta.category, `${article.meta.title} ${article.meta.description} ${article.meta.slug}`) ? article.meta.amazonAsin : undefined} />
+                    <ProzisCodeBadge article={article} />
                     {article.meta.deliveryPrice ? (
                       <span className={styles.deliveryPrice} aria-label={`Livraison : ${article.meta.deliveryPrice}`} title="Prix de livraison">
                         <Truck size={17} aria-hidden />
@@ -324,7 +213,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                     ) : null}
                   </div>
                   {directMerchantCta ? (
-                    <a className={styles.offerButton} href={merchantHref(article.meta.slug, article.meta.affiliateUrl)} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}>
+                    <a className={styles.offerButton} href={`/go/${article.meta.slug}`} target="_blank" rel="nofollow sponsored noopener" aria-label={`Voir l’offre ${article.meta.title} sur le site marchand`}>
                       <span>Voir l’offre</span><ArrowUpRight size={15} />
                     </a>
                   ) : (
@@ -343,7 +232,6 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
                 ariaLabel={`Publicité après l'offre ${index + 1}`}
               />
             ) : null}
-            {currentPage === 1 && index === 3 ? <EditorialNewsletter /> : null}
             {currentPage === 1 && index === 7 ? (
               <aside className={styles.carrefourGuide} aria-labelledby="carrefour-guide-title">
                 <div>
@@ -398,6 +286,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
           <Link href="/mentions-legales">Mentions légales</Link>
           <Link href="/confidentialite">Confidentialité</Link>
           <Link href="/marques">Toutes les marques</Link>
+          <Link href="/bons-plans-amazon">Bons plans Amazon</Link>
         </div>
         <div className={styles.footerBottom}>
           <span>© {new Date().getFullYear()} Bons Plans Mania</span>

@@ -11,9 +11,8 @@ const menus = [
     active: ["/bon-plan", "/bons-plans-"],
     links: [
       ["Air Fryer & Ninja", "/bons-plans-ninja"],
-      ["Bons plans Amazon", "/bons-plans-amazon"],
-      ["Bons plans beauté", "/bons-plans-beaute"],
       ["Bons plans en cours", "/bons-plans-en-cours"],
+      ["Cagnotté / remboursé", "/offres-du-jour"],
       ["Bons plans Prozis", "/marque/prozis"],
       ["Coin Bébé", "/bons-plans-bebe"],
       ["Coin Jouets", "/bons-plans-jouets"],
@@ -22,7 +21,6 @@ const menus = [
       ["Coin Rentrée", "/bons-plans-rentree"],
       ["Coin Tech", "/bons-plans-tech"],
       ["Jardin & animaux", "/bons-plans-jardin"],
-      ["Marques", "/marques"],
       ["Réductions toute l’année", "/codes-promo-permanents"],
     ],
   },
@@ -34,7 +32,7 @@ const menus = [
   {
     label: "Beauté",
     active: ["/beaute", "/box-beaute", "/meilleures-box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"], ["Avis et prix beauté", "/avis-prix-beaute"]],
+    links: [["Bons plans beauté", "/bons-plans-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"], ["Avis et prix beauté", "/avis-prix-beaute"]],
   },
 ] as const;
 
