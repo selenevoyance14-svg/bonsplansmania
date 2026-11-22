@@ -5,8 +5,17 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Sat, 21 Nov 2026 20:07:32 GMT</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2026 10:56:28 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>Test produit Boiron : 15 places pour essayer les pastilles Stoplants</title>
+      <link>https://bonsplansmania.fr/article/test-produit-boiron-stoplants-nez-gorge-pastilles-decembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/test-produit-boiron-stoplants-nez-gorge-pastilles-decembre-2026</guid>
+      <pubDate>Sun, 22 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Boiron recherche quinze personnes pour essayer Stoplants Nez &amp; Gorge Pastilles et partager un avis écrit. Le produit est offert aux profils sélectionnés et envoyé à domicile. Les candidatures sont ouvertes jusqu’au 9 décembre 2026.</description>
+      <category>test-gratuit</category>
+      <enclosure url="https://pro.trustt.io/data/2026/11/campaigns/92/22/9/f/stoplants-nez-gorge-pastilles-3b81f11f3155e4fa90595c4b7684605d.png" type="image/png" length="0"/>
+    </item>
     <item>
       <title>Barbie Camping-Car Transformable avec 60 accessoires à 83,79 € sur Amazon</title>
       <link>https://bonsplansmania.fr/article/barbie-camping-car-transformable-7-zones-60-accessoires-amazon-juin-2026</link>
@@ -447,15 +456,6 @@
       <description>Vista Pets recherche des foyers avec un chat adulte pour une étude d’appétence à domicile. Découvrez les critères et les mesures à effectuer à chaque repas.</description>
       <category>test-gratuit</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/vista-pets-etude-croquettes-chats-novembre-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Jeu Fnac Black Friday : 10 000 € de cartes cadeaux à gagner</title>
-      <link>https://bonsplansmania.fr/article/jeu-concours-fnac-roue-black-friday-cartes-cadeaux-2026</link>
-      <guid>https://bonsplansmania.fr/article/jeu-concours-fnac-roue-black-friday-cartes-cadeaux-2026</guid>
-      <pubDate>Fri, 20 Nov 2026 00:00:00 GMT</pubDate>
-      <description>La roue Black Friday Fnac propose un lancer offert chaque jour. Découvrez les dates du jeu et les informations à vérifier avant de participer.</description>
-      <category>concours</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/concours-fnac-roue-black-friday-novembre-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
