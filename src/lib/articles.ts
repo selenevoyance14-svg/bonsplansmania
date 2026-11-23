@@ -400,8 +400,8 @@ const TEMPORARY_DEAL_CATEGORIES = new Set([
  * Détermine si un article doit être considéré comme expiré :
  *   - flag manuel `expired: true` ;
  *   - date `endDate` dépassée (fin de journée incluse) ;
- *   - coupon Amazon vérifié depuis plus de 21 jours ;
- *   - offre remboursée ou cagnottée vérifiée depuis plus de 21 jours.
+ *   - sans date de fin valide, coupon Amazon vérifié depuis plus de 21 jours ;
+ *   - sans date de fin valide, offre remboursée ou cagnottée vérifiée depuis plus de 21 jours.
  *
  * Une mise à jour éditoriale remet le compteur de l’offre à zéro grâce à
  * `updated`, ce qui permet de conserver un bon plan réellement revérifié.
@@ -413,7 +413,10 @@ export function isEffectivelyExpired(
   if (meta.expired) return true;
   if (meta.endDate) {
     const end = new Date(meta.endDate + "T23:59:59");
-    if (end.getTime() < Date.now()) return true;
+    if (Number.isFinite(end.getTime())) {
+      // Une date de fin explicite prime sur le délai de revérification.
+      return end.getTime() < Date.now();
+    }
   }
   const isAmazonCoupon = meta.tags?.some(
     (tag) => tag.toLocaleLowerCase("fr-FR") === "coupon-amazon"
