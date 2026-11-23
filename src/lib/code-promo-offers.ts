@@ -65,9 +65,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   {"id": "yesstyle-medicube-booster-pro-x2-bpkpdfal-novembre-2026", "brandSlug": "yesstyle", "type": "code", "value": "-20 %", "valueLabel": "MEDICUBE X2", "title": "YesStyle : 20 % sur le Medicube AGE-R Booster Pro X2", "code": "BPKPDFAL", "affiliateUrl": "/go/permanent-yesstyle", "expires": "2026-11-10", "conditions": "Coupon communiqué : 20 % de réduction sur le Medicube AGE-R Booster Pro X2, valable jusqu’au 10 novembre 2026. Offre ciblée sur ce produit, sans extension annoncée à toute la marque Medicube ou à tout le site. Vérifiez la référence éligible, les éventuels seuils et exclusions dans le panier. Aucun cumul avec un autre coupon ou le code NATHALIE83 n’est confirmé.", "featured": true},
   {"id": "yesstyle-elite-club-honttqepyu-decembre-2026", "brandSlug": "yesstyle", "type": "code", "value": "-12 %", "valueLabel": "ELITE CLUB", "title": "YesStyle : coupon Elite Club de 12 %", "code": "HONTTQEPYU", "affiliateUrl": "/go/permanent-yesstyle", "expires": "2026-12-31", "conditions": "Coupon Elite Club communiqué : 12 % de réduction, valable jusqu’au 31 décembre 2026. Les conditions d’éligibilité au programme, le minimum d’achat et les exclusions ne sont pas précisés dans les informations reçues : vérifiez l’application du coupon et le total au panier. Aucun cumul avec d’autres codes n’est confirmé.", "featured": true},
 
-  {"id": "daxon-89810-novembre-2026", "brandSlug": "daxon", "type": "code", "value": "-40 %", "valueLabel": "HORS EXCLUSIONS", "title": "Daxon : 40 % sur la commande avec le code 89810", "code": "89810", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-12", "conditions": "Offre valable jusqu’au 12 novembre 2026 inclus. Réduction de 40 % sur les articles éligibles, limitée à 20 % sur les prix verts. Prix rouges et articles déjà démarqués exclus. Non cumulable avec une autre offre en cours. Vérifiez la remise au panier.", "featured": true},
-  {"id": "daxon-promotions-automne-novembre-2026", "brandSlug": "daxon", "type": "offre", "value": "-50 %", "valueLabel": "JUSQU’À", "title": "Jusqu’à 50 % sur la sélection promotions Daxon", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-12", "conditions": "Jusqu’à 50 % sur une sélection de produits signalée sur daxon.fr, jusqu’au 12 novembre 2026 inclus. Les prix affichés tiennent déjà compte de la réduction. Aucun cumul avec le code 89810 sur les articles déjà démarqués."},
-  {"id": "daxon-ecouteurs-soundtech-89810-novembre-2026", "brandSlug": "daxon", "type": "code", "value": "CADEAU", "valueLabel": "DÈS 75 €", "title": "Daxon : écouteurs sans fil Soundtech offerts dès 75 € facturés", "code": "89810", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-12", "conditions": "Écouteurs sans fil Soundtech avec pochon offerts dès 75 € d’achats facturés, jusqu’au 12 novembre 2026 inclus. Le seuil cadeau est distinct de la remise de 40 % ; vérifier le total facturé et la présence du cadeau au panier. En cas de rupture, Daxon peut fournir un cadeau de valeur commerciale égale ou supérieure. En cas de retour de tous les articles sans le cadeau, la participation forfaitaire n’est pas remboursée. Conditions officielles et stocks applicables.", "featured": true},
+  {"id": "daxon-black-friday-selection-novembre-2026", "brandSlug": "daxon", "type": "offre", "value": "-60 %", "valueLabel": "JUSQU’À", "title": "Black Friday Daxon : jusqu’à 60 % sur une sélection", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-30", "conditions": "Produits signalés uniquement. Les prix affichés incluent la réduction. Offre non cumulable avec une autre offre en cours, jusqu’au 30 novembre 2026 inclus.", "featured": true},
+  {"id": "daxon-livraison-85810-novembre-2026", "brandSlug": "daxon", "type": "code", "value": "LIVRAISON", "valueLabel": "DÈS 75 € FACTURÉS", "title": "Daxon : livraison standard en point relais offerte dès 75 €", "code": "85810", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2026-11-30", "conditions": "Avec 85810 jusqu’au 30 novembre 2026 inclus : livraison standard offerte en point relais Colissimo ou Mondial Relay dès 75 € facturés. Autres modes : 6,99 € en standard, plus 3 € en rapide. Vérifier le panier.", "featured": true},
   {"id": "lookfantastic-lundi-2-novembre-2026", "brandSlug": "lookfantastic", "type": "code", "value": "-25 %", "valueLabel": "SÉLECTION", "title": "25 % de réduction sur une sélection avec LUNDI", "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu%2Fmonday-shopping%2F", "starts": "2026-11-02", "expires": "2026-11-02", "conditions": "Offre annoncée pour le 2 novembre 2026 : 25 % de remise avec LUNDI uniquement sur les produits de la sélection liée. Des exclusions s’appliquent et les produits participants peuvent changer. Vérifier la remise dans le panier ; aucun cumul supplémentaire n’est confirmé.", "featured": true, "code": "LUNDI"},
   {"id": "lookfantastic-shop-3-6-novembre-2026", "brandSlug": "lookfantastic", "type": "code", "value": "-22 %", "valueLabel": "SÉLECTION", "title": "22 % de réduction sur une sélection avec SHOP", "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Foffers%2Feu-exclusions%2Fsitewide%2Flanding-page%2F", "starts": "2026-11-03", "expires": "2026-11-06", "conditions": "Du 3 au 6 novembre 2026 : 22 % de remise avec SHOP uniquement sur les produits de la sélection liée. Des exclusions s’appliquent et les produits participants peuvent changer. Vérifier la remise finale dans le panier ; aucun cumul supplémentaire n’est confirmé.", "featured": true, "code": "SHOP"},
   {"id": "lookfantastic-kiehls-2-8-novembre-2026", "brandSlug": "lookfantastic", "type": "offre", "value": "-25 %", "valueLabel": "AU MOINS", "title": "Au moins 25 % de réduction sur la sélection Kiehl’s", "affiliateUrl": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2Fc%2Fbrands%2Fkiehls%2Fshop-all-kiehls%2F", "starts": "2026-11-02", "expires": "2026-11-08", "conditions": "Du 2 au 8 novembre 2026 : au moins 25 % de réduction annoncés sur la sélection Kiehl’s liée. Aucun code communiqué pour cette opération. Vérifier les références participantes, les exclusions et les prix affichés ; aucun cumul avec un autre code n’est confirmé.", "featured": true},
@@ -200,7 +199,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // DAXON — offres vérifiées le 28 août 2026
   { id: "daxon-code-82310-septembre-2026", brandSlug: "daxon", type: "code", value: "-30 %", valueLabel: "SUR LA COMMANDE", title: "30 % sur la commande avec le code 82310", code: "82310", affiliateUrl: "https://fnty.co/c/r-nCqxZeUT", expires: "2026-09-07", conditions: "Remise limitée à 20 % sur les prix verts. Offre non cumulable, non applicable aux prix rouges et aux articles déjà démarqués.", featured: true },
   { id: "daxon-derniere-chance-septembre-2026", brandSlug: "daxon", type: "offre", value: "-70 %", valueLabel: "JUSQU'À", title: "Jusqu'à 70 % sur la sélection Dernière chance", affiliateUrl: "https://fnty.co/c/r-nCqxZeUT", expires: "2026-09-07", conditions: "Sélection d'articles des collections précédentes signalés « Dernière chance ». Prix déjà remisés, offre non cumulable et valable dans la limite des stocks disponibles." },
-  { id: "daxon-newsletter-15-euros", brandSlug: "daxon", type: "newsletter", value: "15 €", valueLabel: "DÈS 29 €", title: "15 € offerts dès 29 € sur la première commande avec la newsletter", affiliateUrl: "https://fnty.co/c/r-nCqxZeUT", permanent: true, conditions: "Inscription gratuite à la newsletter Daxon. Avantage valable sur la première commande dès 29 € d'achats facturés, selon les conditions communiquées après l'inscription.", featured: true },
+  {"id": "daxon-newsletter-15-euros", "brandSlug": "daxon", "type": "newsletter", "value": "15 €", "valueLabel": "DÈS 29 €", "title": "15 € offerts aux nouvelles inscrites à la newsletter Daxon", "code": "NEWSAH26", "affiliateUrl": "https://fnty.co/c/r-nCqxZeUT", "expires": "2027-02-28", "conditions": "Réservé aux nouvelles inscrites à la newsletter : 15 € dès 29 € d’achats facturés avec NEWSAH26, jusqu’au 28 février 2027. Offre personnelle non cumulable, hors prix rouges, prix verts et articles déjà démarqués ; non cessible, non utilisable partiellement.", "featured": true},
   { id: "bears-with-benefits-octobre-15-octobre-2026", brandSlug: "bears-with-benefits", type: "code", value: "-15 %", valueLabel: "DÈS 20 €", title: "15 % de réduction sur toute la commande dès 20 €", code: "OCTOBRE", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2F", starts: "2026-10-09", expires: "2026-10-31", conditions: "Code valable jusqu'au 31 octobre 2026 à 23 h 59 sur toute la commande dès 20 € d'achat. Utilisation annoncée sans limite pendant la période. Offre non cumulable avec d'autres réductions ; vérifier l'application du code OCTOBRE dans le panier avant le paiement.", featured: true },
   { id: "bears-with-benefits-cozybears-octobre-2026", brandSlug: "bears-with-benefits", type: "code", value: "-20 %", valueLabel: "DÈS 25 €", title: "20 % de réduction dès 25 € d’achat", code: "COZYBEARS", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", starts: "2026-10-01", expires: "2026-10-07", conditions: "Code valable du 1er au 7 octobre 2026 inclus, dès 25 € de commande. La marque annonce une utilisation sans limite pendant la période. Vérifier les produits éligibles, le cumul et l’application de la remise dans le panier.", featured: true },
   { id: "bears-with-benefits-newsletter-15", brandSlug: "bears-with-benefits", type: "newsletter", value: "-15 %", valueLabel: "NEWSLETTER", title: "15 % de réduction avec l'inscription à la newsletter", affiliateUrl: "https://www.awin1.com/cread.php?awinmid=109774&awinaffid=990397&ued=https%3A%2F%2Fwww.bears-with-benefits.fr%2Fcollections%2Fbestseller", permanent: true, conditions: "Avantage proposé après inscription à la newsletter Bears with Benefits. Code envoyé par e-mail. Vérifier sa durée de validité, les exclusions et le cumul avec les promotions en cours avant de commander.", featured: true },
@@ -341,6 +340,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "sans-complexe-ensembles-10", brandSlug: "sans-complexe", type: "offre", value: "-10 %", valueLabel: "ENSEMBLES", title: "10 % de remise sur les ensembles lingerie signalés", permanent: true, conditions: "Remise immédiate sur les ensembles portant la mention « -10 % sur l'ensemble ». Non cumulable avec les autres promotions." },
   { id: "desigual-club-25", brandSlug: "desigual", type: "offre", value: "25 %", valueLabel: "CRÉDITÉS", title: "25 % crédités pour de futurs achats avec le Club Desigual", permanent: true, conditions: "Inscription requise. Avantage pour de futurs achats, pas nécessairement une remise immédiate.", featured: true },
   { id: "desigual-livraison-55", brandSlug: "desigual", type: "livraison", value: "55 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte à domicile dès 55 € et en boutique", permanent: true, conditions: "Selon les conditions Desigual." },
+  {"id": "gemo-marques-noel-novembre-2026", "brandSlug": "gemo", "type": "offre", "value": "-30 %", "valueLabel": "SÉLECTIONS", "title": "Gémo : 30 % sur les sélections marques et Noël", "expires": "2026-12-15", "conditions": "Du 18 novembre au 15 décembre 2026 : articles signalés uniquement, hors Annemasse et Apt. Non cumulable sauf avantages G’M autorisés. Voir exclusions sur Gémo.", "featured": true, "affiliateUrl": "https://ava.gemo.fr/?P4894B57CD2D191&redir=https%3A%2F%2Fwww.gemo.fr%2F"},
+  {"id": "gemo-grande-recre-2026", "brandSlug": "gemo", "type": "code", "value": "10 €", "valueLabel": "DÈS 40 €", "title": "Gémo : 10 € dès 40 € avec GEMOXLGR26", "code": "GEMOXLGR26", "expires": "2026-12-01", "conditions": "Code web ; coupon papier en magasin. Hors bijoux, entretien, DIM, promotions et autres exclusions officielles. Certains avantages G’M acceptés.", "featured": true, "affiliateUrl": "https://ava.gemo.fr/?P4894B57CD2D191&redir=https%3A%2F%2Fwww.gemo.fr%2F"},
   { id: "gemo-deuxieme-produit-ete-50", brandSlug: "gemo", type: "offre", value: "-50 %", valueLabel: "SUR LE 2E", title: "50 % sur le deuxième produit d'été", expires: "2026-08-16", conditions: "Sur le moins cher des deux parmi la sélection signalée.", featured: true },
   { id: "gemo-deuxieme-pyjama-50", brandSlug: "gemo", type: "offre", value: "-50 %", valueLabel: "SUR LE 2E", title: "50 % sur le deuxième pyjama bébé au choix", conditions: "Vérifier la sélection et le panier." },
   { id: "gemo-livraison-40", brandSlug: "gemo", type: "livraison", value: "40 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 40 € et retrait magasin gratuit", permanent: true, conditions: "Selon les modes affichés par Gémo." },
@@ -983,14 +984,13 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // C-MONETIQUETTE — rentrée 2026
   // ============================================================
   {
-    id: "c-mon-etiquette-fun-15-octobre-2026",
+    id: "c-mon-etiquette-famille-15",
     brandSlug: "c-mon-etiquette",
-    type: "code",
+    type: "offre",
     value: "-15 %",
-    valueLabel: "SUR TOUT LE SITE",
-    title: "15 % de réduction sur tout le site C-MonEtiquette",
-    code: "FUN",
-    conditions: "Code annoncé pour bénéficier de 15 % de réduction sur tout le site C-MonEtiquette. Date de fin non communiquée ; vérifier l’application du code FUN, les éventuelles exclusions et le montant final dans le panier.",
+    valueLabel: "DÈS 2 PACKS",
+    title: "15 % de remise automatique dès deux packs d’étiquettes",
+    conditions: "Remise automatique dès deux packs d’étiquettes achetés, sans code. La FAQ annonce aussi 15 % dès deux articles dans les catégories gourdes, boîtes repas, sacs, trousses de toilette ou trousses scolaires. Vérifier les articles éligibles et le montant au panier ; date de fin non communiquée.",
     featured: true,
   },
   {
@@ -1017,14 +1017,13 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     featured: true,
   },
   {
-    id: "c-mon-etiquette-mini-prix-50",
+    id: "c-mon-etiquette-quantite-50",
     brandSlug: "c-mon-etiquette",
     type: "offre",
     value: "-50 %",
-    valueLabel: "MINI PRIX",
-    title: "Jusqu'à -50 % sur la sélection mini prix",
-    expires: "2026-12-31",
-    conditions: "Prix remisés sur une sélection variable. Vérifier les produits concernés et le prix final sur C-MonEtiquette.",
+    valueLabel: "QUANTITÉ",
+    title: "50 % sur les étiquettes identiques au-delà des 30 premières",
+    conditions: "La remise concerne uniquement les étiquettes supplémentaires identiques après les 30 premières. Exemple donné dans la FAQ : 40 étiquettes à 10,50 € au lieu de 12 €. Vérifier la configuration et le total au panier ; date de fin non communiquée.",
   },
   {
     id: "c-mon-etiquette-livraison",
@@ -2627,17 +2626,17 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   },
 
   // ============================================================
-  // CHAUSSEA — avantages vérifiés le 13 août 2026
+  // CHAUSSEA — avantages vérifiés le 23 novembre 2026
   // ============================================================
   {
-    id: "chaussea-soldes-ete",
+    id: "chaussea-black-friday-novembre-2026",
     brandSlug: "chaussea",
-    type: "soldes",
-    value: "SOLDES",
-    valueLabel: "JUSQU'AU 28/07",
-    title: "Soldes d'été Chaussea sur une sélection en magasin et sur chaussea.com",
-    expires: "2026-07-28",
-    conditions: "Soldes d'été 2026 Chaussea valables du 24/06/2026 au 28/07/2026 inclus, dans les magasins Chaussea et sur chaussea.com, dans la limite des stocks disponibles. Réductions calculées sur le prix de référence conforme à la réglementation. Non cumulables avec toute autre promotion.",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "JUSQU’À",
+    title: "Black Friday Chaussea : jusqu’à 50 % sur une sélection",
+    expires: "2026-12-01",
+    conditions: "Du 2 novembre au 1er décembre 2026 inclus, en ligne et dans les magasins participants, sur les articles signalés et selon les stocks. Réduction sur les prix de référence des produits concernés. Non cumulable avec d’autres promotions ou avantages, sauf mention contraire.",
     featured: true,
   },
   {
@@ -3481,43 +3480,9 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // ============================================================
   // DAMART — offre du moment communiquée le 01/11/2026
   // ============================================================
-  {
-    id: "damart-20-euros-70-novembre-2026",
-    brandSlug: "damart",
-    type: "code",
-    code: "41081",
-    value: "-20 €",
-    valueLabel: "DÈS 70 €",
-    title: "20 € dès 70 € avec le code Damart 41081",
-    expires: "2026-11-09",
-    conditions: "20 € dès 70 € avec 41081 jusqu’au 9 novembre 2026. Points rouges et prix déjà réduits exclus. Non cumulable avec les autres réductions et promotions. Livraison relais Pickup ou bureau de poste Colissimo offerte dès 70 € après remise ; frais habituels annoncés de 4,90 €. Vérifier le total du panier.",
-    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
-    featured: true,
-  },
-  {
-    id: "damart-jusqu-a-60-octobre-2026",
-    brandSlug: "damart",
-    type: "offre",
-    value: "-60 %",
-    valueLabel: "JUSQU'À",
-    title: "Jusqu'à 60 % de réduction sur une sélection Damart",
-    expires: "2026-10-27",
-    conditions: "Offre valable jusqu'au 27 octobre 2026 sur une sélection d'articles Damart. Le taux de réduction varie selon les produits. Vérifier le prix barré, les éventuelles exclusions et la disponibilité avant de commander.",
-    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
-    featured: true,
-  },
-  {
-    id: "damart-livraison-offerte-40-octobre-2026",
-    brandSlug: "damart",
-    type: "livraison",
-    value: "GRATUITE",
-    valueLabel: "DÈS 40 €",
-    title: "Livraison offerte dès 40 € d'achat chez Damart",
-    expires: "2026-10-27",
-    conditions: "Livraison offerte dès 40 € d'achat jusqu'au 27 octobre 2026. Vérifier le mode de livraison éligible, le montant du panier après remises et l'application de l'avantage avant le paiement.",
-    affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
-    featured: true,
-  },
+  {"id": "damart-black-friday-novembre-2026", "type": "offre", "value": "-60 %", "valueLabel": "JUSQU’À EN LIGNE", "title": "Black Friday Damart : jusqu’à 60 % sur une sélection", "expires": "2026-11-30", "conditions": "Articles signalés en ligne uniquement ; jusqu’à 50 % en boutique. Fin le 30 novembre 2026. Non cumulable avec les autres réductions ou promotions.", "brandSlug": "damart", "affiliateUrl": "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992", "featured": true},
+  {"id": "damart-30-euros-100-janvier-2027", "type": "offre", "value": "-30 €", "valueLabel": "DÈS 100 €", "title": "Damart : 30 € dès 100 € sur les articles éligibles", "expires": "2027-01-05", "conditions": "Code à récupérer sur la page officielle des codes promo Damart. Hors prix barrés, points rouges et Atouts prix. Une utilisation, non cumulable avec les autres réductions et promotions.", "brandSlug": "damart", "affiliateUrl": "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992", "featured": true},
+  {"id": "damart-livraison-relais-70-janvier-2027", "type": "livraison", "value": "OFFERTE", "valueLabel": "DÈS 70 €", "title": "Damart : livraison en point relais offerte dès 70 € après remises", "expires": "2027-01-05", "conditions": "Avantage distinct à récupérer chez Damart. Seuil de 70 € calculé remises déduites ; une utilisation jusqu’au 5 janvier 2027. Non cumulable avec d’autres réductions ou promotions. Contrôler les frais au panier.", "brandSlug": "damart", "affiliateUrl": "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992", "featured": true},
   {
     id: "damart-newsletter-15",
     brandSlug: "damart",
@@ -3525,8 +3490,8 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "-15 €",
     valueLabel: "DÈS 40 €",
     title: "15 € de réduction dès 40 € d'achat après inscription à la newsletter",
-    permanent: true,
-    conditions: "Offre réservée aux personnes qui s'inscrivent à la newsletter Damart. Réduction de 15 € dès 40 € d'achat selon les modalités communiquées après l'inscription. Vérifier les exclusions, la durée de validité et la bonne application de l'avantage dans le panier.",
+    expires: "2027-03-31",
+    conditions: "Après inscription, 15 € dès 40 € hors points rouges et articles déjà réduits. Livraison relais Pickup ou bureau de poste offerte dès 60 € après remises. Une utilisation jusqu’au 31 mars 2027, non cumulable. Vérifier les modalités reçues et le panier.",
     affiliateUrl: "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
     featured: true,
   },

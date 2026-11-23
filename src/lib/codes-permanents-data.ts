@@ -147,8 +147,9 @@ export const CODES_PERMANENTS_OFFERS: CodePromoOffer[] = [
     value: "15 €",
     valueLabel: "OFFERTS",
     title: "15 € offerts dès 29 € sur la 1ʳᵉ commande Daxon via newsletter",
-    permanent: true,
-    conditions: "Inscription gratuite à la newsletter. 15 € offerts sur la première commande dès 29 € d'achats facturés, selon les conditions communiquées par Daxon.",
+    code: "NEWSAH26",
+    expires: "2027-02-28",
+    conditions: "Réservé aux nouvelles inscrites à la newsletter : 15 € dès 29 € d’achats facturés avec NEWSAH26, jusqu’au 28 février 2027. Offre personnelle non cumulable, hors prix rouges, prix verts et articles déjà démarqués ; non cessible, non utilisable partiellement.",
     affiliateUrl: "https://fnty.co/c/r-nCqxZeUT",
   },
   {
