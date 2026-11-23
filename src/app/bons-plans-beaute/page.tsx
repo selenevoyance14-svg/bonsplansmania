@@ -275,6 +275,7 @@ const NON_BEAUTE_TOKENS = [
   "isotoner", "parasol-plage", "-parasol-", "parasol-jardin",
   "tente-plage", "tente-jardin", "-hamac-", "hamac-",
   // Jouets
+  "vilac-labyrinthe-magnetique-",
   "puzzle-", "puzzles-", "-puzzle-", "-puzzles-",
   "-barbie-", "barbie-", "monster-high-", "rainbow-high-",
   "-poupee-", "poupee-", "-jouet-", "jouet-",
