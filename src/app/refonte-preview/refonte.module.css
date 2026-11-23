@@ -505,3 +505,13 @@
  .conversionPartner :global(.featured-partner__content) { padding:16px; }
  .conversionPartner :global(.featured-partner__title) { font-size:21px; }
 }
+
+/* Entire merchant product rows lead directly to their offer. */
+.merchantOfferLink { border-radius:8px; transition:background-color 160ms ease; }
+@media (hover:hover) {
+  .merchantOfferLink:hover { background-color:#fbf3f6; }
+}
+.merchantOfferLink:focus-visible { background-color:#fbf3f6; outline:2px solid var(--wine); outline-offset:3px; }
+@media (prefers-reduced-motion:reduce) {
+  .merchantOfferLink { transition:none; }
+}

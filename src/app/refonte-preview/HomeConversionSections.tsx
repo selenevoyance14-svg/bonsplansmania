@@ -32,7 +32,13 @@ export default function HomeConversionSections({ highlights, offers }: { highlig
       <div className={styles.conversionHeading}><div><h2 id="merchant-title">Offres qui cartonnent</h2><p>Trois marchands à explorer, avec notre sélection d’offres récentes.</p></div></div>
       <div className={styles.merchantGrid}>{merchants.map(merchant => {
         const items = offers.filter(a => `${a.meta.merchant || ""} ${a.meta.affiliateUrl || ""}`.toLowerCase().includes(merchant.match)).slice(0, 3);
-        return <article className={styles.merchantBlock} key={merchant.name}><h3>{merchant.name}</h3><p>{merchant.note}</p><ul>{items.map(a => <li key={a.meta.slug}><Link href={`/article/${a.meta.slug}`}><Image src={a.meta.image} alt="" width={64} height={64} loading="lazy" /><span className={styles.merchantOfferCopy}><span className={styles.merchantOfferTitle}>{formatCardTitle(a.meta.title)}</span><span className={styles.merchantOfferPrice}><HomeOfferPrice mode="price" asin={a.meta.amazonAsin} price={a.meta.price} originalPrice={a.meta.prix_origine} /><ProzisCodeBadge article={a} /></span></span></Link></li>)}</ul><Link className={styles.merchantAll} href={merchant.href}>Voir toutes les offres {merchant.name} →</Link></article>;
+        return <article className={styles.merchantBlock} key={merchant.name}><h3>{merchant.name}</h3><p>{merchant.note}</p><ul>{items.map(a => <li key={a.meta.slug}><a
+          className={styles.merchantOfferLink}
+          href={/^https?:\/\//i.test(a.meta.affiliateUrl || "") ? `/go/${a.meta.affiliateAlias || a.meta.slug}` : `/article/${a.meta.slug}`}
+          target="_blank"
+          rel="nofollow sponsored noopener"
+          aria-label={`Voir l’offre : ${formatCardTitle(a.meta.title)} chez ${merchant.name}`}
+        ><Image src={a.meta.image} alt="" width={64} height={64} loading="lazy" /><span className={styles.merchantOfferCopy}><span className={styles.merchantOfferTitle}>{formatCardTitle(a.meta.title)}</span><span className={styles.merchantOfferPrice}><HomeOfferPrice mode="price" asin={a.meta.amazonAsin} price={a.meta.price} originalPrice={a.meta.prix_origine} /><ProzisCodeBadge article={a} /></span></span></a></li>)}</ul><Link className={styles.merchantAll} href={merchant.href}>Voir toutes les offres {merchant.name} →</Link></article>;
       })}</div>
     </section>
   </>;
