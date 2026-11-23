@@ -254,6 +254,7 @@ const SLUG_TOKENS = [
 // Slugs à exclure : Coin bébé / puériculture (ne doivent pas remonter en Beauté
 // même si jamais un tag "soin-" matchait par erreur)
 const BEBE_TOKENS = [
+  "hipp-bio-promos-",
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
   "berceau", "tetine", "landau", "mamadvisor", "consobaby",
@@ -267,15 +268,18 @@ const BEBE_TOKENS = [
 // - jouets Barbie/Monster High/Rainbow High : univers jouet, pas beauté
 // - électroménager (fer à repasser, aspirateur, etc.)
 const NON_BEAUTE_TOKENS = [
+  // Montres Braun : accessoires de mode, distincts des rasoirs de la marque.
+  "braun-chronographe-",
   // Gamme Dyson V8 : aspirateurs, distincts des appareils de coiffure.
   "dyson-v8-",
+  "dyson-v15-",
   // Rentrée scolaire (Greenweez vend aussi des articles hors beauté)
   "cartable-", "-cartable-", "sac-dos-dinosaure-bleu",
   // Accessoires plage/jardin
   "isotoner", "parasol-plage", "-parasol-", "parasol-jardin",
   "tente-plage", "tente-jardin", "-hamac-", "hamac-",
   // Jouets
-  "vilac-labyrinthe-magnetique-",
+  "vilac-",
   "puzzle-", "puzzles-", "-puzzle-", "-puzzles-",
   "-barbie-", "barbie-", "monster-high-", "rainbow-high-",
   "-poupee-", "poupee-", "-jouet-", "jouet-",

@@ -47,6 +47,7 @@ const EXACT_TAGS = new Set([
   "lingettes-bebe", "lingettes bébé", "lait-infantile", "lait infantile",
 ]);
 const SLUG_TOKENS = [
+  "hipp-bio-promos-",
   "bebe-", "-bebe-", "puericulture", "biberon", "poussette", "siege-auto",
   "babyboom", "babycook", "babyphone", "tire-lait", "chaise-haute", "cododo",
   "landau", "allaitement", "mamadvisor", "bebeboutik", "berceau", "tetine",

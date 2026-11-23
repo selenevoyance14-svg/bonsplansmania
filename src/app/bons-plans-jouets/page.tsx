@@ -58,6 +58,7 @@ const EXACT_TAGS = new Set([
 ]);
 
 const SLUG_TOKENS = [
+  "vilac-",
   "-jouet-", "jouet-", "-jouets-",
   "-jeu-de-societe-", "-jeux-societe-", "-jeu-cartes-", "-jeux-cartes-",
   "-puzzle-", "-puzzles-",
