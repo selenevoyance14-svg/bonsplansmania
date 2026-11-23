@@ -707,14 +707,6 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     color: "#E91E63",
   },
   {
-    slug: "one-watch-company",
-    name: "One Watch Company",
-    affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51379557CD2D1D1&redir=https%3A%2F%2Fonewatchcompany.com%2Ffr",
-    affiliateLabel: "Voir les offres One Watch Company",
-    matchTags: ["one-watch-company", "one-watch", "one watch company"],
-    color: "#111827",
-  },
-  {
     slug: "oscaro",
     name: "Oscaro",
     affiliateUrl: "https://lk.gt/aIgoW",

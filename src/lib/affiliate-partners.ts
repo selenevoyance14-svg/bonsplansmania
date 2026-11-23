@@ -6,7 +6,7 @@ export const AFFILIATE_PARTNER_GROUPS = {
   "Mode & chaussures": ["caroll", "morgan", "desigual", "gemo", "chaussea", "sarenza", "spartoo", "shoes-fr", "degriffstock", "sans-complexe", "lollipops", "damart", "afibel", "blanche-porte", "private-sport-shop", "made-in-sport", "bebeboutik"],
   "Maison, courses & high-tech": ["carrefour", "e-leclerc", "cdiscount", "darty", "manomano", "electro-depot", "aliexpress", "greenweez", "hellofresh"],
   "Bébé, famille & loisirs": ["la-boite-rose", "beaba", "babybio", "milan-jeunesse", "bayard-jeunesse", "c-mon-etiquette", "micromania", "rougier-ple", "creabul"],
-  "Cadeaux & alimentation": ["histoire-dor", "one-watch-company", "monsieur-tshirt", "mieux-que-des-fleurs", "famille-mary", "la-boite-du-fromager", "la-box-fromage", "la-gourmet-box", "le-petit-ballon", "une-petite-mousse"],
+  "Cadeaux & alimentation": ["histoire-dor", "monsieur-tshirt", "mieux-que-des-fleurs", "famille-mary", "la-boite-du-fromager", "la-box-fromage", "la-gourmet-box", "le-petit-ballon", "une-petite-mousse"],
   Voyages: ["havas-voyages", "voyages-auchan", "mileade", "lagrange-vacances"],
 } as const;
 

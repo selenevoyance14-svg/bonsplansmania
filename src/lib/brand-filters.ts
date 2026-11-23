@@ -528,7 +528,6 @@ export const MODE_BRANDS: BrandDef[] = [
   { key: "kiabi-mode", label: "Kiabi", keywords: ["kiabi"] },
   { key: "lollipops", label: "Lollipops", keywords: ["lollipops"] },
   { key: "magnifaik-mode", label: "Magnifaïk", keywords: ["magnifaïk", "magnifaik"] },
-  { key: "one-watch-company", label: "One Watch Company", keywords: ["one watch company", "one-watch-company"] },
   { key: "prozis-mode", label: "Prozis", keywords: ["prozis"] },
   { key: "sans-complexe", label: "Sans Complexe", keywords: ["sans complexe", "sans-complexe"] },
   { key: "spartoo", label: "Spartoo", keywords: ["spartoo"] },

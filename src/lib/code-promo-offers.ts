@@ -307,13 +307,10 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // COUPON NETWORK — service permanent, offres variables
   { id: "coupon-network-offres", brandSlug: "coupon-network", type: "offre", value: "BONS", valueLabel: "& REMBOURSEMENTS", title: "Bons de réduction et offres de remboursement Coupon Network", permanent: true, conditions: "Le nombre d'offres, les produits éligibles, les montants et les dates changent régulièrement. Vérifier les conditions de chaque coupon ou remboursement avant l'achat.", featured: true },
   // SPARTOO — codes communiqués le 19 octobre 2026
-  { id: "spartoo-oct26sp10", brandSlug: "spartoo", type: "code", value: "-10 %", valueLabel: "DÈS 60 €", title: "10 % de réduction dès 60 € d’achat", code: "OCT26SP10", conditions: "Saisir OCT26SP10 dans le panier pour obtenir 10 % de réduction dès 60 € d’achat. Offre non cumulable. Vérifier les exclusions et l’application du code avant le paiement." },
-  { id: "spartoo-oct26sp15", brandSlug: "spartoo", type: "code", value: "-15 %", valueLabel: "DÈS 80 €", title: "15 % de réduction dès 80 € d’achat", code: "OCT26SP15", conditions: "Saisir OCT26SP15 dans le panier pour obtenir 15 % de réduction dès 80 € d’achat. Offre non cumulable. Vérifier les exclusions et l’application du code avant le paiement." },
-  { id: "spartoo-oct26sp20", brandSlug: "spartoo", type: "code", value: "-20 %", valueLabel: "DÈS 100 €", title: "20 % de réduction dès 100 € d’achat", code: "OCT26SP20", conditions: "Saisir OCT26SP20 dans le panier pour obtenir 20 % de réduction dès 100 € d’achat. Offre non cumulable. Vérifier les exclusions et l’application du code avant le paiement." },
-  { id: "spartoo-oct26sp5", brandSlug: "spartoo", type: "code", value: "-5 %", valueLabel: "SANS MINIMUM", title: "5 % de réduction sans minimum d’achat", code: "OCT26SP5", conditions: "Saisir OCT26SP5 dans le panier pour obtenir 5 % de réduction sans minimum d’achat. Offre non cumulable. Vérifier les exclusions et l’application du code avant le paiement." },
-  { id: "spartoo-etudiants-20", brandSlug: "spartoo", type: "offre", value: "-20 %", valueLabel: "ÉTUDIANTS", title: "20 % de réduction pour les étudiants", permanent: true, conditions: "Accès après validation du statut étudiant. Vérifier le minimum d'achat, les exclusions, les produits partenaires et le cumul au moment de l'activation.", featured: true },
+  { id: "spartoo-black-week-novembre-2026", brandSlug: "spartoo", type: "offre", value: "-50 %", valueLabel: "JUSQU’À", title: "Black Week : jusqu’à −50 % sur une sélection", expires: "2026-11-30", conditions: "Sélection d’articles du 20 au 30 novembre 2026 inclus, dans la limite des stocks disponibles. Vérifier la taille, le coloris, le vendeur et le prix final au panier.", featured: true },
+  { id: "spartoo-etudiants-20", brandSlug: "spartoo", type: "offre", value: "-20 %", valueLabel: "ÉTUDIANTS", title: "20 % de réduction pour les étudiants", permanent: true, conditions: "20 % dès 60 € d’achat après validation du statut étudiant via une adresse e-mail étudiante. Offre non cumulable, hors produits partenaires.", featured: true },
   { id: "spartoo-newsletter-10", brandSlug: "spartoo", type: "newsletter", value: "10 €", valueLabel: "NEWSLETTER", title: "10 € de réduction en s'inscrivant à la newsletter", permanent: true, conditions: "Bon envoyé après inscription. Vérifier dans l'e-mail le minimum d'achat, la durée et les marques ou produits exclus." },
-  { id: "spartoo-livraison-retour", brandSlug: "spartoo", type: "livraison", value: "0 €", valueLabel: "LIVRAISON & RETOUR", title: "Livraison et retour gratuits sur les articles éligibles", permanent: true, conditions: "Livraison gratuite en quatre jours et retour gratuit sous 30 jours annoncés sur les produits éligibles. Les vendeurs partenaires peuvent appliquer d'autres conditions." },
+  { id: "spartoo-livraison-retour", brandSlug: "spartoo", type: "livraison", value: "0 €", valueLabel: "LIVRAISON & RETOUR", title: "Livraison et retour gratuits sur les articles éligibles", permanent: true, conditions: "Livraison offerte selon le montant, le type d’article et le transporteur : en France, à domicile standard, gratuité dès 79,99 € pour les prix barrés et dès 59,99 € pour les prix non barrés selon les CGV. Retour gratuit sous 30 jours sur les produits éligibles. Conditions distinctes possibles chez les partenaires." },
   // WELEDA — offres vérifiées le 13 août 2026
   { id: "weleda-very-cherry-offerte", brandSlug: "weleda", type: "offre", value: "3 + 1", valueLabel: "DOUCHE", title: "Une crème de douche Very Cherry offerte pour trois gels ou crèmes de douche achetés", expires: "2026-08-31", conditions: "Formats de 200 ml et 750 ml éligibles, dans la limite des stocks. Vérifier l'ajout du produit offert au panier.", featured: true },
   { id: "weleda-newsletter-15", brandSlug: "weleda", type: "newsletter", value: "-15 %", valueLabel: "1ʳᵉ COMMANDE", title: "15 % sur la première commande avec la newsletter", permanent: true, conditions: "Code envoyé par e-mail après inscription. Vérifier la durée, les exclusions et le cumul dans le message reçu.", featured: true },
@@ -345,7 +342,12 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   { id: "gemo-deuxieme-produit-ete-50", brandSlug: "gemo", type: "offre", value: "-50 %", valueLabel: "SUR LE 2E", title: "50 % sur le deuxième produit d'été", expires: "2026-08-16", conditions: "Sur le moins cher des deux parmi la sélection signalée.", featured: true },
   { id: "gemo-deuxieme-pyjama-50", brandSlug: "gemo", type: "offre", value: "-50 %", valueLabel: "SUR LE 2E", title: "50 % sur le deuxième pyjama bébé au choix", conditions: "Vérifier la sélection et le panier." },
   { id: "gemo-livraison-40", brandSlug: "gemo", type: "livraison", value: "40 €", valueLabel: "LIVRAISON OFFERTE", title: "Livraison offerte dès 40 € et retrait magasin gratuit", permanent: true, conditions: "Selon les modes affichés par Gémo." },
-  // SHOES.FR — avantages vérifiés le 13 août 2026
+  // SHOES.FR — avantages vérifiés le 23 novembre 2026
+  {
+    id: "shoes-fr-black-week-novembre-2026", brandSlug: "shoes-fr", type: "offre",
+    value: "-50 %", valueLabel: "JUSQU’À", title: "Black Week : jusqu’à −50 % sur une sélection",
+    expires: "2026-11-30", conditions: "Du 20 au 30 novembre 2026 sur une sélection de produits, dans la limite des stocks disponibles. Non cumulable avec les autres promotions en cours. Vérifier les variantes et le prix final.", featured: true,
+  },
   {
     id: "shoes-fr-newsletter-5-euros", brandSlug: "shoes-fr", type: "newsletter",
     value: "5 €", valueLabel: "NEWSLETTER", title: "5 € de réduction avec l'inscription à la newsletter",
@@ -833,6 +835,16 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
   // HISTOIRE D'OR — avantages vérifiés le 13 août 2026
   // ============================================================
   {
+    id: "histoire-dor-black-friday-2026",
+    brandSlug: "histoire-dor",
+    type: "offre",
+    value: "-50 %",
+    valueLabel: "JUSQU’À",
+    title: "Black Friday : jusqu’à −50 % sur une sélection de bijoux et montres",
+    conditions: "Réduction sur les références identifiées Black Friday. Vérifier les modèles, les variantes, la disponibilité et le prix final. Date de fin précise non communiquée sur la sélection consultée le 23 novembre 2026.",
+    featured: true,
+  },
+  {
     id: "histoire-dor-livraison-offerte",
     brandSlug: "histoire-dor",
     type: "livraison",
@@ -868,8 +880,9 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     type: "offre",
     value: "10 %",
     valueLabel: "FIDÉLITÉ",
-    title: "Chèque fidélité de 10 % dès cinq articles achetés",
-    conditions: "Chèque correspondant à 10 % du montant total des cinq articles éligibles, selon les exclusions, la durée de validité et les règles du programme Histoire d'Or.",
+    title: "Ancien programme : chèque fidélité de 10 % dès cinq articles",
+    expires: "2026-10-31",
+    conditions: "Ancien programme terminé le 31 octobre 2026. Nouveau programme annoncé pour février 2027. Les avantages déjà émis relèvent des communications personnalisées et des échéances indiquées dans l’espace client.",
   },
   {
     id: "histoire-dor-paiement-3x",
@@ -879,48 +892,6 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     valueLabel: "SANS FRAIS",
     title: "Paiement en trois fois sans frais avec Alma",
     conditions: "Solution de paiement proposée sous réserve d'éligibilité et selon les conditions affichées par Histoire d'Or et Alma au moment du paiement.",
-  },
-
-  // ============================================================
-  // ONE WATCH COMPANY — avantages vérifiés le 13 août 2026
-  // ============================================================
-  {
-    id: "one-watch-newsletter-10",
-    brandSlug: "one-watch-company",
-    type: "newsletter",
-    value: "-10 %",
-    valueLabel: "1RE COMMANDE",
-    title: "10 % de réduction sur la première commande via la newsletter",
-    conditions: "Réduction obtenue après inscription à la newsletter One Watch Company. Non cumulable avec d'autres réductions ; consulter le message reçu pour connaître les conditions du code.",
-    featured: true,
-  },
-  {
-    id: "one-watch-livraison-55",
-    brandSlug: "one-watch-company",
-    type: "livraison",
-    value: "OFFERTE",
-    valueLabel: "DÈS 55 €",
-    title: "Livraison gratuite dès 55 € de commande",
-    conditions: "Livraison gratuite pour les commandes supérieures à 55 €, selon la destination et les modalités affichées au moment de la commande.",
-    featured: true,
-  },
-  {
-    id: "one-watch-charms-collier-89",
-    brandSlug: "one-watch-company",
-    type: "offre",
-    value: "89 €",
-    valueLabel: "PACK CHARMS",
-    title: "Collier Master avec deux charms à 89 €",
-    conditions: "Composition présentée dans la collection Charms : un collier Master et deux charms selon la sélection et les disponibilités proposées.",
-  },
-  {
-    id: "one-watch-charms-bracelet-69",
-    brandSlug: "one-watch-company",
-    type: "offre",
-    value: "69 €",
-    valueLabel: "PACK CHARMS",
-    title: "Bracelet Master avec deux charms à 69 €",
-    conditions: "Composition présentée dans la collection Charms : un bracelet Master et deux charms selon la sélection et les disponibilités proposées.",
   },
 
   // ============================================================
