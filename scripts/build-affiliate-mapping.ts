@@ -1,3 +1,4 @@
+import { CODES_PERMANENTS_OFFERS } from "../src/lib/codes-permanents-data";
 // Génère functions/data/affiliate-mapping.json à partir des frontmatters MDX,
 // des offres de la page codes promo et des codes promo permanents.
 // Le mapping est lu côté serveur par functions/go/[slug].ts pour rediriger sans exposer le lien affilié dans le HTML.
@@ -12,7 +13,6 @@ import {
 } from "../src/lib/code-promo-offers";
 
 const CONTENT_DIR = path.join(process.cwd(), "content");
-const PERMANENTS_DATA = path.join(process.cwd(), "src", "lib", "codes-permanents-data.ts");
 const OUT_FILE = path.join(process.cwd(), "functions", "data", "affiliate-mapping.json");
 const AMAZON_PARTNER_TAG = "lebrunnathali-21";
 
@@ -84,22 +84,19 @@ function collectMdx(mapping: Record<string, Row>): number {
   return count;
 }
 
-// Parse src/lib/codes-permanents-data.ts pour extraire brandSlug + affiliateUrl
-// de chaque offre permanente. Les slugs sont utilisés côté featured teaser
-// (permanent-codes-featured.ts) via /go/permanent-<brandSlug>.
+// Keep both teaser aliases and the aliases rendered by OfferGrid.
 function collectPermanentCodes(mapping: Record<string, Row>): number {
-  if (!fs.existsSync(PERMANENTS_DATA)) return 0;
-  const src = fs.readFileSync(PERMANENTS_DATA, "utf8");
-  // Match chaque bloc contenant brandSlug: "..." et affiliateUrl: "..."
-  const blockRegex = /brandSlug:\s*"([^"]+)"[\s\S]*?affiliateUrl:\s*"([^"]+)"/g;
   let count = 0;
-  let m: RegExpExecArray | null;
-  while ((m = blockRegex.exec(src)) !== null) {
-    const slug = m[1];
-    const url = m[2];
+  for (const offer of CODES_PERMANENTS_OFFERS) {
+    const url = getOfferDestinationUrl(offer).trim();
     if (!/^https?:\/\//i.test(url)) continue;
-    if (!slug) continue;
-    mapping[`permanent-${slug}`] = { url };
+    const row = { url: secureAmazonAffiliateUrl(url), label: offer.title };
+    for (const alias of [`permanent-${offer.brandSlug}`, getOfferAffiliateAlias(offer)]) {
+      if (mapping[alias] && mapping[alias].url !== row.url) {
+        throw new Error(`[affiliate-mapping] Alias permanent déjà utilisé : ${alias}`);
+      }
+      mapping[alias] = row;
+    }
     count++;
   }
   return count;

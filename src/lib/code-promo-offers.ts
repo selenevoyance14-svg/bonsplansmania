@@ -570,7 +570,7 @@ export const CODE_PROMO_OFFERS: CodePromoOffer[] = [
     value: "1 + 1",
     valueLabel: "OFFRE PRODUITS",
     title: "1 produit acheté = 1 gratuit sur 7 références",
-    affiliateUrl: "/go/prozis-voir-plus-offres-1ylnv",
+    affiliateUrl: "https://prozis.com/1YlNV",
     starts: "2026-10-17",
     conditions: "Offre constatée le 17 octobre 2026 sur sept références sélectionnées. Stocks, parfums, quantité requise et cumul avec le code BONSMANIA à vérifier dans le panier.",
     featured: true,

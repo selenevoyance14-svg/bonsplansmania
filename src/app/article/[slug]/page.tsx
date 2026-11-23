@@ -1,3 +1,4 @@
+import { replaceExactAffiliateUrl } from "@/lib/affiliate-content-links";
 import AmazonOfferText from "@/app/components/AmazonOfferText";
 import { canUseLiveAmazonTitle } from "@/lib/amazon-title";
 import { notFound } from "next/navigation";
@@ -195,17 +196,13 @@ export default async function ArticlePage({ params }: PageProps) {
   // est remplacé avant rendu par la redirection interne. On couvre aussi la
   // variante Markdown où les esperluettes ont été échappées (`\&`).
   let articleContent = affiliateUrl !== "#" && rawAffiliate
-    ? article.content
-        .split(rawAffiliate).join(affiliateUrl)
-        .split(rawAffiliate.replaceAll("&", "\\&")).join(affiliateUrl)
+    ? replaceExactAffiliateUrl(article.content, rawAffiliate, affiliateUrl)
     : article.content;
   // Les sélections multi-produits peuvent déclarer plusieurs destinations.
   // Chacune est remplacée côté serveur par /go/<alias> avant le rendu HTML.
   for (const link of article.meta.affiliateLinks || []) {
     const redirectUrl = `/go/${link.alias}`;
-    articleContent = articleContent
-      .split(link.url).join(redirectUrl)
-      .split(link.url.replaceAll("&", "\\&")).join(redirectUrl);
+    articleContent = replaceExactAffiliateUrl(articleContent, link.url, redirectUrl);
   }
   const affiliateMerchant = getAffiliateMerchant(rawAffiliate);
   const affiliateLabel = article.meta.affiliateLabel || DEFAULT_OFFER_CTA;
@@ -586,7 +583,9 @@ export default async function ArticlePage({ params }: PageProps) {
                   {affiliateRecommendations.map((recommended) => (
                     <a
                       key={recommended.meta.slug}
-                      href={`/go/${recommended.meta.affiliateAlias || recommended.meta.slug}`}
+                      href={/^https?:\/\//i.test(recommended.meta.affiliateUrl || "")
+                        ? `/go/${recommended.meta.affiliateAlias || recommended.meta.slug}`
+                        : `/article/${recommended.meta.slug}`}
                       target="_blank"
                       rel="nofollow sponsored noopener"
                       data-affiliate-position="similar_products"
