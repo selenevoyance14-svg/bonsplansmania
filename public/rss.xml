@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Tue, 24 Nov 2026 07:03:07 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 24 Nov 2026 07:21:52 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Baume solaire minéral Aroma-Zone SPF 50 à 9,47 € : −50 %</title>
@@ -69,6 +69,24 @@
       <description>La Porsche 911 Carrera RS 2.7 version tout-terrain rejoint les aventures PLAYMOBIL, avec galerie de toit, roue de secours et accessoires.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/leclerc-playmobil-porsche-71436-offroad.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>Concours M6+ : 2 peluches FurReal Gabby à gagner jusqu’au 13 décembre 2026</title>
+      <link>https://bonsplansmania.fr/article/concours-m6-furreal-gabby-tigre-13-decembre-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-m6-furreal-gabby-tigre-13-decembre-2026</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Retrouvez les paires du jeu de mémoire M6+ pour tenter de gagner une peluche FurReal Gabby le tigre. Participation gratuite jusqu’au 13 décembre 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-m6-furreal-gabby-tigre-decembre-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Concours Astérix sur MaFamilleZen : 4 invitations pour 2 jusqu’au 1er décembre 2026</title>
+      <link>https://bonsplansmania.fr/article/concours-mafamillezen-asterix-royaume-nubie-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-mafamillezen-asterix-royaume-nubie-2026</guid>
+      <pubDate>Tue, 24 Nov 2026 00:00:00 GMT</pubDate>
+      <description>MaFamilleZen propose quatre invitations pour deux personnes pour Astérix – Le Royaume de Nubie. Quiz dans le Club et tirage au sort le 2 décembre 2026.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/_placeholder-bonsplansmania-beige.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Nike Jr. Mercurial Superfly 11 Mbappé enfant à 39,99 € : −50 %</title>
@@ -438,24 +456,6 @@
       <description>La Brume Délice Amande L’Occitane parfume le corps et les cheveux avec un accord d’amande, de vanille et de fleurs. Découvrez le format 100 ml et son nouveau packaging.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/loccitane-brume-delice-amande-100ml-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>L'Occitane Crème Confort Légère Karité à 28,80 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-loccitane-creme-confort-legere-karite-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-loccitane-creme-confort-legere-karite-2026</guid>
-      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-      <description>La Crème Confort Légère Karité L’Occitane est un soin visage de 50 ml destiné aux peaux normales à mixtes. Découvrez sa texture et les conditions de l’offre officielle.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/loccitane-creme-confort-legere-karite.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>L'Occitane Crème Confort Ultra Riche Karité à 28,80 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-loccitane-creme-confort-ultra-riche-karite-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-loccitane-creme-confort-ultra-riche-karite-2026</guid>
-      <pubDate>Fri, 24 Jul 2026 00:00:00 GMT</pubDate>
-      <description>La Crème Confort Ultra Riche Karité L’Occitane associe une texture onctueuse à 25 % de beurre de karité. Découvrez le pot de 50 ml et les conditions de l’offre officielle.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/loccitane-creme-confort-ultra-riche-karite.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
