@@ -47,7 +47,7 @@ export function getBeautyBoxCatalog(): BeautyBox2026[] {
   const curated = new Map(BEAUTY_BOXES_2026.map((item) => [item.articleHref, item]));
   const discovered = getAllArticles().flatMap((article): BeautyBox2026[] => {
     const { meta } = article;
-    if (meta.category !== "box-beaute" || !meta.affiliateUrl) return [];
+    if (meta.category !== "box-beaute" || meta.expired || !meta.affiliateUrl) return [];
     const searchable = `${meta.title} ${meta.description} ${meta.tags.join(" ")}`.toLowerCase();
     if (EDITORIAL_TERMS.some((term) => searchable.includes(term))) return [];
     if (OUT_OF_SCOPE_TERMS.some((term) => searchable.includes(term))) return [];
@@ -57,11 +57,9 @@ export function getBeautyBoxCatalog(): BeautyBox2026[] {
     const selected = curated.get(articleHref);
     if (selected) return [{
       ...selected,
-      price: meta.price || selected.price,
-      checkedAt: formatDate(meta.updated || meta.date),
       image: meta.image || selected.image,
       imageAlt: meta.imageAlt || selected.imageAlt,
-      merchantHref: meta.affiliateUrl || selected.merchantHref,
+      merchantHref: selected.merchantHref,
     }];
     return [{
       brand,
@@ -74,7 +72,7 @@ export function getBeautyBoxCatalog(): BeautyBox2026[] {
       image: meta.image,
       imageAlt: meta.imageAlt,
       articleHref,
-      merchantHref: meta.affiliateUrl,
+      merchantHref: `/go/${meta.affiliateAlias || meta.slug}`,
     }];
   });
 
