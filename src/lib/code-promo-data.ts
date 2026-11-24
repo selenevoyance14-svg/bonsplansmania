@@ -230,14 +230,14 @@ export const CODE_PROMO_BRANDS: CodePromoBrand[] = [
     slug: "carrefour",
     name: "Carrefour",
     affiliateUrl: "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcourses",
-    affiliateLabel: "Utiliser le code BINGO20 chez Carrefour",
+    affiliateLabel: "Utiliser le code COURSES20 chez Carrefour",
     matchTags: ["carrefour", "carrefour drive"],
     color: "#0050AA",
     currentOffer: {
-      code: "BINGO20",
+      code: "COURSES20",
       discount: "20 € offerts dès 80 € d'achat",
-      conditions: "Première commande Carrefour Drive, Livré Chez Vous ou Livraison Express. Offre valable une fois par utilisateur jusqu'au 1er novembre 2026 inclus, hors Maison & Loisirs, Marketplace, remises immédiates, sacs consignés et frais de livraison. Non cumulable.",
-      verifiedAt: "2026-09-30",
+      conditions: "Première commande Drive, livraison à domicile ou Express, une fois par utilisateur jusqu’au 29 novembre 2026. Hors Maison & Loisirs et Marketplace. Seuil hors remises immédiates, frais de livraison et sacs consignés. Non cumulable ; points de retrait et zones participants.",
+      verifiedAt: "2026-11-24",
     },
   },
   {
