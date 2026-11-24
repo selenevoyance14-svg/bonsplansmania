@@ -2,14 +2,25 @@
 
 import { useEffect, useState } from "react";
 
-export type LiveAmazonOffer = { price?: string | null; oldPrice?: string | null; inStock?: boolean };
+export type LiveAmazonOffer = {
+  asin?: string;
+  price?: string | null;
+  oldPrice?: string | null;
+  inStock?: boolean;
+  checkedAt?: string;
+  receivedAt?: number;
+  availability?: string | null;
+  // Optional: only render when the official API supplies these fields.
+  rating?: number | null;
+  reviewCount?: number | null;
+};
 const requests = new Map<string, { expires: number; promise: Promise<LiveAmazonOffer | null> }>();
 
 export function loadAmazonOffer(asin: string): Promise<LiveAmazonOffer | null> {
   const key = asin.toUpperCase();
   const cached = requests.get(key);
   if (cached && cached.expires > Date.now()) return cached.promise;
-  const promise = fetch(`/api/amazon/${encodeURIComponent(key)}`)
+  const promise = fetch(`/api/amazon/${encodeURIComponent(key)}`, { signal: AbortSignal.timeout(10_000) })
     .then(response => response.ok ? response.json() as Promise<LiveAmazonOffer> : null)
     .catch(() => null);
   requests.set(key, { expires: Date.now() + 5 * 60_000, promise });
@@ -21,7 +32,7 @@ export function useAmazonOffer(asin?: string) {
   useEffect(() => {
     if (!asin) return;
     let active = true;
-    const refresh = () => { loadAmazonOffer(asin).then(offer => { if (active) setResult({ asin, offer }); }); };
+    const refresh = () => { loadAmazonOffer(asin).then(offer => { if (active) setResult({ asin, offer: offer ? { ...offer, receivedAt: Date.now() } : null }); }); };
     refresh();
     const timer = setInterval(refresh, 5 * 60_000);
     return () => { active = false; clearInterval(timer); };

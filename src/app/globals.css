@@ -4149,3 +4149,34 @@ h1, h2, h3,
 .article-page .comparison-table a.table-guide-link {
   border-radius: 8px !important;
 }
+
+/* Fiches beauté : prix en premier, puis avis Amazon et communauté distincts. */
+.beauty-product-buybox { margin: 24px 0; padding: 24px; border: 1px solid #e6d8dc; border-radius: 20px; background: #fff; }
+.beauty-product-buybox-label { margin: 0 0 12px; color: #242424; font-weight: 750; }
+.beauty-product-price-row { display: flex; flex-wrap: wrap; align-items: baseline; gap: 12px; }
+.beauty-product-price { color: #872a47; font-size: clamp(2.6rem, 5vw, 4rem); line-height: 1.1; font-weight: 800; }
+.beauty-product-price-fallback { font-size: 1.25rem; color: #872a47; }
+.beauty-product-price-row del { color: #6b6264; }
+.beauty-product-discount { background: #242424; color: white; border-radius: 18px; padding: 4px 10px; font-weight: 750; }
+.beauty-product-updated, .beauty-product-stock { font-size: .85rem; margin: 10px 0; color: #51474b; }
+.beauty-product-cta { width: 100%; justify-content: center; min-height: 56px; font-size: 1.15rem; margin: 8px 0; }
+.beauty-product-fine-print { font-size: .75rem; color: #665b60; line-height: 1.6; margin: 8px 0 0; }
+.beauty-product-amazon-reviews { display: flex; flex-direction: column; gap: 8px; margin: 20px 0 12px; padding-top: 18px; border-top: 1px solid #eee6e8; }
+.beauty-product-amazon-reviews a { color: #872a47; font-weight: 700; text-decoration: underline; text-underline-offset: 3px; }
+.beauty-product-amazon-reviews small { color: #665b60; font-size: .75rem; }
+.beauty-product-similar { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 20px; margin-top: 24px; }
+.beauty-product-similar a { display: flex; flex-direction: column; gap: 10px; padding: 20px; border: 1px solid #e6d8dc; border-radius: 18px; background: #fff; }
+.beauty-product-similar img { width: 100%; height: 180px; object-fit: contain; }
+.beauty-product-similar span { color: #665b60; font-size: .85rem; }
+.community-product-grid:has(.beauty-product-buybox) { align-items: start; }
+.community-product-grid:has(.beauty-product-buybox) .community-product-image { width: min(100%, 440px); }
+@media (max-width: 760px) {
+  .community-product-grid:has(.beauty-product-buybox) .community-product-copy { order: -1; }
+  .beauty-product-buybox { padding: 18px; }
+  .beauty-product-similar { grid-template-columns: 1fr; }
+  .beauty-product-similar a { display: grid; grid-template-columns: 90px minmax(0, 1fr); }
+  .beauty-product-similar img { grid-row: span 2; width: 90px; height: 90px; }
+}
+.community-product-page .beauty-product-cta { background: #872a47; color: #fff; }
+.community-product-page .beauty-product-cta:hover { background: #70213b; }
+.community-product-page .merchant-info ul { list-style: disc; padding-left: 1.2rem; }

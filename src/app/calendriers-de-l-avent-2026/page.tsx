@@ -9,7 +9,7 @@ import styles from "./page.module.css";
 const COMPARISON_CALENDAR_HREFS = new Set([
   "/article/calendrier-avent-dr-pierre-ricaud-2026-reedition-2025",
   "/article/calendrier-avent-biotyfull-box-2026-majestueuse-malle-noel-27-produits",
-  "/article/prescription-lab-offre-flash-calendrier-avent-69-euros-octobre-2026",
+  "/article/calendrier-apres-prescription-lab-25-produits-59-euros-mai-2026",
   "/article/glowria-calendrier-apres-shine-on-39-euros-2026",
   "/article/calendrier-avent-adopt-seine-etoilee-2026-24-parfums",
   "/article/calendrier-avent-fleurance-nature-nuit-etoilee-24-soins-bio-2026",
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
 };
 
 export default function AdventCalendarsHub() {
-  const updatedAt = "21 octobre 2026";
+  const updatedAt = "24 novembre 2026";
   const catalog = getAdventCalendarCatalog();
   const comparisonCalendars = sortAdventCalendarsForFeatured(ADVENT_CALENDARS_2026
     .filter((calendar) => COMPARISON_CALENDAR_HREFS.has(calendar.articleHref))
@@ -66,9 +66,9 @@ export default function AdventCalendarsHub() {
           <div className="container">
             <p className={styles.eyebrow}>Comparateur et agrégateur de calendriers</p>
             <h1>Calendriers de l’Avent 2026 : prix, contenu et comparatif</h1>
-            <p className={styles.intro}>Beauté, parfums et soins : nous ajoutons uniquement les calendriers dont le prix et la disponibilité ont été vérifiés. Aucun faux prix, aucun contenu supposé.</p>
+            <p className={styles.intro}>Beauté, parfums et soins : comparez les contenus, le montant à payer avec la livraison et les conditions de chaque offre. Les abonnements et les calendriers indisponibles sont signalés séparément.</p>
             <div className={styles.stats}><span><strong>{catalog.length}</strong> calendriers référencés</span><span><strong>{new Set(catalog.map((item) => item.brand)).size}</strong> marques comparées</span><span><strong>Prix datés</strong> et disponibilités indiquées</span></div>
-            <p className={styles.updated}>Dernière vérification : {updatedAt}</p>
+            <p className={styles.updated}>Sélection actualisée le {updatedAt} · date de contrôle indiquée pour chaque calendrier</p>
             <Link href="/calendriers-de-l-avent-lego-2026" className={styles.legoSpotlight}>
               <span>🧱</span>
               <span><strong>Page spéciale LEGO 2026</strong>Comparez City, Friends, Disney, Marvel, Star Wars et Harry Potter.</span>
@@ -79,6 +79,7 @@ export default function AdventCalendarsHub() {
 
         <section className={`container ${styles.section}`}>
           <h2>Comparatif rapide des calendriers de l’Avent 2026</h2>
+          <p className={styles.sectionIntro}>Les valeurs produits annoncées ne sont pas des anciens prix de vente des calendriers. Glowria et Prescription Lab déclenchent un abonnement : vérifiez la résiliation et les mensualités suivantes. Liens affiliés : Bons Plans Mania peut percevoir une commission sur vos achats, sans surcoût pour vous.</p>
           <div className={styles.tableWrap}>
             <table>
               <thead><tr><th>Calendrier</th><th>Prix constaté</th><th>Contenu</th><th>Disponibilité</th></tr></thead>
@@ -93,7 +94,7 @@ export default function AdventCalendarsHub() {
                       <strong>{calendar.brand}</strong><br />{calendar.name}
                     </a>
                   </td>
-                  <td><strong>{calendar.price}</strong>{calendar.value ? <small>{calendar.value}</small> : null}</td>
+                  <td><strong>{calendar.price}</strong>{calendar.value ? <small>{calendar.value}</small> : null}<small>Contrôle : {calendar.checkedAt}</small></td>
                   <td>{calendar.contents}</td><td>{calendar.status}</td>
                 </tr>
               ))}</tbody>

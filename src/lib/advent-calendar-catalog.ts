@@ -31,7 +31,7 @@ function brandFor(searchable: string, title: string): string {
 }
 function availabilityFor(searchable: string): string {
   if (/précommande|precommande/.test(searchable)) return "Précommande";
-  if (/à venir|a venir|annonc/.test(searchable)) return "À venir";
+  if (/à venir|a venir|prochainement disponible/.test(searchable)) return "À venir";
   return "Disponible";
 }
 

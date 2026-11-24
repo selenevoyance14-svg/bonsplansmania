@@ -7,7 +7,9 @@ import ProductReviewForm from "@/app/components/ProductReviewForm";
 import HelpfulButton from "@/app/components/HelpfulButton";
 import ProductPublishedReviews from "@/app/components/ProductPublishedReviews";
 import ProductRatingSummary from "@/app/components/ProductRatingSummary";
-import AmazonLiveOffer from "@/app/components/AmazonLiveOffer";
+import AmazonProductOffer from "@/app/components/AmazonProductOffer";
+import { COMMUNITY_PRODUCTS } from "@/lib/community-products";
+import productAffiliateLinks from "@/lib/product-affiliate-links.json";
 
 /**
  * Un marchand chez qui le produit est disponible.
@@ -56,6 +58,15 @@ export default function CommunityProductPage({
   editorialNote?: string;
   offers?: MerchantOffer[];
 }) {
+  const linkedOffers = offers?.map(offer => {
+    const href = offer.href.startsWith("/go/") ? offer.href : (productAffiliateLinks as Record<string, string>)[offer.href];
+    if (!href) throw new Error(`Missing product affiliate alias: ${slug} / ${offer.merchant}`);
+    return { ...offer, href };
+  });
+  const amazon = linkedOffers?.find(offer => offer.amazonAsin);
+  const currentProduct = COMMUNITY_PRODUCTS.find(product => product.slug === slug);
+  const similar = currentProduct ? COMMUNITY_PRODUCTS.filter(product => product.slug !== slug && product.category === currentProduct.category).slice(0, 3) : [];
+
   return (
     <>
       <Header />
@@ -85,9 +96,10 @@ export default function CommunityProductPage({
                 <p className="product-brand">{brand}</p>
                 <h1>{name}</h1>
                 <p className="product-lead">{lead}</p>
+                {amazon?.amazonAsin && <AmazonProductOffer asin={amazon.amazonAsin} href={amazon.href} />}
                 <ProductRatingSummary productSlug={slug} />
                 <div className="community-product-actions">
-                  <a href="#donner-avis" className="btn btn-primary">Donner mon avis</a>
+                  <a href="#donner-avis" className="btn btn-outline">Donner mon avis</a>
                   <ProductFavoriteButton productSlug={slug} />
                 </div>
               </div>
@@ -118,14 +130,14 @@ export default function CommunityProductPage({
               {editorialNote && <p className="community-section-intro">{editorialNote}</p>}
               <div className="merchant-comparison">
                 {idealFor?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>Idéal pour</strong><span>{idealFor.join(" · ")}</span></div></article> : null}
-                {strengths?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>Points forts</strong><span>{strengths.join(" · ")}</span></div></article> : null}
+                {strengths?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>Points forts</strong><ul>{strengths.slice(0, 5).map(strength => <li key={strength}>{strength}</li>)}</ul></div></article> : null}
                 {watchOut?.length ? <article className="merchant-offer"><div className="merchant-info"><strong>À savoir avant d’acheter</strong><span>{watchOut.join(" · ")}</span></div></article> : null}
               </div>
             </div>
           </section>
         )}
 
-        {offers && offers.length > 0 && (
+        {linkedOffers && linkedOffers.length > 0 && (
           <section className="community-product-section" id="prix">
             <div className="container community-product-narrow">
               <span className="community-section-kicker">Où l’acheter</span>
@@ -137,15 +149,15 @@ export default function CommunityProductPage({
                 de la commande reste celui qui fait foi.
               </p>
               <div className="merchant-comparison" role="list">
-                {offers.map((offer) => (
+                {linkedOffers.map((offer) => (
                   <article className="merchant-offer" role="listitem" key={offer.merchant}>
                     <div className="merchant-info">
                       <strong>{offer.merchant}</strong>
                       {offer.note && <span>{offer.note}</span>}
-                      {offer.offer && <span>{offer.offer}</span>}
+                      {!offer.amazonAsin && offer.offer && <span>{offer.offer}</span>}
                     </div>
                     {offer.amazonAsin ? (
-                      <AmazonLiveOffer asin={offer.amazonAsin} affiliateUrl={offer.href} />
+                      <a className="btn btn-primary btn-sm" href={offer.href} target="_blank" rel="nofollow sponsored noopener">Voir sur Amazon</a>
                     ) : (
                       <div className="merchant-live-offer">
                         <span className="merchant-live-label">Prix chez {offer.merchant}</span>
@@ -192,6 +204,17 @@ export default function CommunityProductPage({
             <ProductReviewForm productSlug={slug} productName={`${name} — ${brand}`} />
           </div>
         </section>
+        {similar.length > 0 && <section className="community-product-section">
+          <div className="container community-product-narrow">
+            <h2>À découvrir aussi</h2>
+            <div className="beauty-product-similar">
+              {similar.map(product => <Link href={`/produit/${product.slug}`} key={product.slug}>
+                <Image src={product.image} alt={product.imageAlt} width={180} height={180} sizes="(max-width: 760px) 40vw, 180px" />
+                <span>{product.brand}</span><strong>{product.name}</strong>
+              </Link>)}
+            </div>
+          </div>
+        </section>}
       </main>
       <footer className="footer">
         <div className="container">
