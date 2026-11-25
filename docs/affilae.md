@@ -28,6 +28,8 @@ Après déploiement, `/api/admin/affilae?resource=profiles` utilise la session a
 
 `feeds` fournit les catalogues disponibles et leurs URLs `urlTracked`. Les prix et les produits dépendent des catalogues proposés par chaque marchand. Cette connexion ne modifie pas automatiquement les articles : l'import des catalogues et leur correspondance avec les produits devront être configurés selon les flux disponibles. Conserver les destinations affiliées côté serveur et les liens publics sous `/go/...`.
 
+Le bouton « Tester Affilae » utilise `resource=profiles&check=1` et ne renvoie que `{ "connected": true }` en cas de succès, sans les données du compte. Les erreurs du service distant utilisent HTTP 424 avec un message JSON et, si disponible, `upstreamStatus`. Elles ne doivent pas utiliser HTTP 502, que Cloudflare peut remplacer par une page HTML. Une session absente reste une erreur HTTP 401 ; une clé non configurée, HTTP 503.
+
 Les données sont renvoyées au format Affilae, sans conversion monétaire globale : les commissions et revenus des KPI sont en centimes, les compteurs ne le sont pas. Consulter le schéma de chaque champ avant affichage. Le CLI et l'endpoint ne constituent pas un tableau de bord graphique.
 
 Vérification : `node --import tsx scripts/test-affilae.ts`. Une validation réelle de la clé et des flux nécessite le secret et un compte autorisé.

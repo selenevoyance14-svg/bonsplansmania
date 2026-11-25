@@ -2,6 +2,7 @@ import assert from "node:assert/strict";
 import { affilaeQuery, fetchAffilae } from "../functions/lib/affilae";
 import { handleAffilae } from "../functions/api/admin/affilae";
 import { createSessionCookie } from "../functions/api/admin/_auth";
+import { readAdminResponse } from "../src/lib/read-admin-response";
 
 async function main() {
   const env = { AFFILAE_API_TOKEN: "private-test-token", AFFILAE_PROFILE_ID: "0123456789abcdef01234567", ADMIN_PASSWORD: "test", ADMIN_SESSION_SECRET: "test-secret", GITHUB_TOKEN: "" };
@@ -31,6 +32,14 @@ async function main() {
   const authenticated = await handleAffilae(new Request("https://example.com/api/admin/affilae?resource=profiles", { headers: { Cookie: cookie } }), { ...env, AFFILAE_API_TOKEN: undefined });
   assert.equal(authenticated.status, 503);
   assert.equal(authenticated.headers.get("x-robots-tag"), "noindex, nofollow");
+  const checkRequest = new Request("https://example.com/api/admin/affilae?resource=profiles&check=1", { headers: { Cookie: cookie } });
+  const refused = await handleAffilae(checkRequest, env, async () => new Response("private upstream information", { status: 401 }));
+  assert.equal(refused.status, 424);
+  assert.deepEqual(await refused.json(), { error: "Clé ou accès Affilae refusé.", upstreamStatus: 401 });
+  const success = await handleAffilae(checkRequest, env, async () => Response.json({ privateAccount: "not for display" }));
+  assert.deepEqual(await success.json(), { connected: true });
+  await assert.rejects(readAdminResponse(new Response("<!DOCTYPE html>private error", { status: 502, headers: { "content-type": "text/html" } })), error => error instanceof Error && error.message.includes("HTTP 502") && !error.message.includes("private"));
+  await assert.rejects(readAdminResponse(new Response("invalid", { headers: { "content-type": "application/json" } })), /illisible/);
   console.log("Affilae : validations, authentification, confidentialité et erreurs OK.");
 }
 main().catch(error => { console.error(error); process.exitCode = 1; });

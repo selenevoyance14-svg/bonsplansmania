@@ -1,7 +1,7 @@
 /** Read-only publisher API. Never import this module into browser components. */
 export type AffilaeEnv = { AFFILAE_API_TOKEN?: string; AFFILAE_PROFILE_ID?: string };
 export class AffilaeError extends Error {
-  constructor(message: string, public status: number) { super(message); }
+  constructor(message: string, public status: number, public upstreamStatus?: number) { super(message); }
 }
 const endpoints = {
   profiles: "/publisher/publishers.me",
@@ -55,7 +55,7 @@ export async function fetchAffilae(resource: string, input: URLSearchParams, env
     response = await fetcher(url, { headers: { Authorization: `Bearer ${env.AFFILAE_API_TOKEN.trim()}`, Accept: "application/json" }, signal: AbortSignal.timeout(15000), redirect: "error" });
   } catch { throw new AffilaeError("Affilae est momentanément inaccessible.", 502); }
   if (!response.ok) {
-    throw new AffilaeError(response.status === 429 ? "Limite Affilae atteinte, réessayez plus tard." : response.status === 401 || response.status === 403 ? "Clé ou accès Affilae refusé." : "Erreur du service Affilae.", response.status === 429 ? 429 : 502);
+    throw new AffilaeError(response.status === 429 ? "Limite Affilae atteinte, réessayez plus tard." : response.status === 401 || response.status === 403 ? "Clé ou accès Affilae refusé." : "Erreur du service Affilae.", response.status === 429 ? 429 : 502, response.status);
   }
   try { return await response.json(); }
   catch { throw new AffilaeError("Réponse Affilae illisible.", 502); }

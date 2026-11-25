@@ -4,6 +4,7 @@ import { useEffect, useMemo, useState } from "react";
 import Image from "next/image";
 import { AlertTriangle, Archive, ArrowDown, ArrowUp, CalendarClock, Check, ChevronDown, ExternalLink, ImageOff, Link2Off, LoaderCircle, RefreshCw, Search, ShoppingBag, Tag } from "lucide-react";
 import styles from "./cockpit.module.css";
+import { readAdminResponse } from "@/lib/read-admin-response";
 
 export type DealStatus = "ok" | "scheduled" | "due" | "unchecked" | "unavailable" | "missing-image" | "missing-price" | "price-check" | "missing-link" | "expiring";
 export type CockpitDeal = { slug: string; title: string; merchant: string; category: string; price: string; updated: string; image: string; status: DealStatus; onHomepage?: boolean; amazonAsin?: string; affiliateUrl?: string; endDate?: string };
@@ -185,13 +186,14 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     setAffilaePending(true);
     setAffilaeMessage("");
     try {
-      const response = await fetch("/api/admin/affilae?resource=profiles", { credentials: "same-origin", cache: "no-store" });
-      const payload = await response.json() as { error?: string };
+      const response = await fetch("/api/admin/affilae?resource=profiles&check=1", { credentials: "same-origin", cache: "no-store" });
+      const payload = await readAdminResponse<{ error?: string; upstreamStatus?: number; connected?: boolean }>(response);
       if (response.status === 401) {
         setAuthenticated(false);
         setShowLogin(true);
       }
-      if (!response.ok) throw new Error(payload.error || "Le test Affilae a échoué.");
+      if (!response.ok) throw new Error(`${payload.error || "Le test Affilae a échoué."}${payload.upstreamStatus ? ` (Affilae HTTP ${payload.upstreamStatus})` : ""}`);
+      if (payload.connected !== true) throw new Error("La réponse ne confirme pas la connexion Affilae.");
       setAffilaeMessage("Connexion Affilae réussie : la clé permet de consulter ton compte.");
     } catch (error) {
       setAffilaeMessage(error instanceof Error ? error.message : "Test Affilae impossible.");
@@ -208,7 +210,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ password }),
       });
-      const payload = await response.json() as { authenticated?: boolean; error?: string };
+      const payload = await readAdminResponse<{ authenticated?: boolean; error?: string }>(response);
       if (!response.ok || !payload.authenticated) throw new Error(payload.error || "Connexion impossible.");
       setAuthenticated(true);
       setShowLogin(false);
