@@ -18,3 +18,9 @@
 .actionButtons button:disabled{cursor:wait;opacity:.65}
 @media(max-width:1050px){.editor{position:relative;top:auto;max-height:80vh}}
 @media(max-width:700px){.editor{max-height:85vh}.actionButtons{grid-template-columns:1fr}.actionButtons .archiveButton{grid-column:auto}}
+
+.connectionPanel { margin: 0 0 24px; padding: 20px; border: 1px solid #dce3e4; border-radius: 16px; background: #fff; }
+.connectionPanel p { margin: 0 0 12px; }
+.connectionButtons { display: flex; flex-wrap: wrap; gap: 12px; margin-bottom: 12px; }
+.connectionButtons button:disabled { opacity: .65; cursor: wait; }
+.connectionButtons .checkButton { font-size: .875rem; }

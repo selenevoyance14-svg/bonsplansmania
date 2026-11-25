@@ -49,6 +49,8 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [authenticated, setAuthenticated] = useState(false);
   const [showLogin, setShowLogin] = useState(false);
   const [password, setPassword] = useState("");
+  const [affilaePending, setAffilaePending] = useState(false);
+  const [affilaeMessage, setAffilaeMessage] = useState("");
   const [actionPending, setActionPending] = useState<"publish" | null>(null);
   const [actionError, setActionError] = useState("");
   const [pendingChanges, setPendingChanges] = useState<PendingChange[]>([]);
@@ -177,6 +179,25 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     }
   }
 
+  async function testAffilae() {
+    if (affilaePending) return;
+    if (!authenticated) { setShowLogin(true); return; }
+    setAffilaePending(true);
+    setAffilaeMessage("");
+    try {
+      const response = await fetch("/api/admin/affilae?resource=profiles", { credentials: "same-origin", cache: "no-store" });
+      const payload = await response.json() as { error?: string };
+      if (response.status === 401) {
+        setAuthenticated(false);
+        setShowLogin(true);
+      }
+      if (!response.ok) throw new Error(payload.error || "Le test Affilae a échoué.");
+      setAffilaeMessage("Connexion Affilae réussie : la clé permet de consulter ton compte.");
+    } catch (error) {
+      setAffilaeMessage(error instanceof Error ? error.message : "Test Affilae impossible.");
+    } finally { setAffilaePending(false); }
+  }
+
   async function login(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
     setActionError("");
@@ -254,6 +275,17 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
     </aside>
     <section className={styles.workspace}>
       <header className={styles.header}><div><p>Cockpit éditorial réel</p><h1>Bonjour Nathalie 👋</h1></div><button className={styles.checkButton} onClick={() => setStatus(issueCount ? "issues" : "all")}><RefreshCw size={17}/> Afficher les contrôles</button></header>
+      <section className={styles.connectionPanel} aria-label="Connexion administrateur et Affilae">
+        <p>{authenticated ? "Session administrateur active" : "Le tableau de bord est consultable sans connexion. Connecte-toi pour tester Affilae ou publier des modifications."}</p>
+        <div className={styles.connectionButtons}>
+          {!authenticated ? <button type="button" className={styles.checkButton} onClick={() => { setActionError(""); setShowLogin(true); }}>Se connecter</button> : null}
+          <button type="button" className={styles.checkButton} disabled={affilaePending} onClick={testAffilae}>{affilaePending ? "Test en cours…" : "Tester Affilae"}</button>
+        </div>
+        {showLogin ? <form className={styles.loginBox} onSubmit={login}><label>Mot de passe administrateur<input type="password" autoFocus value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password"/></label><div><button type="button" onClick={() => { setShowLogin(false); setActionError(""); }}>Annuler</button><button type="submit">Se connecter</button></div></form> : null}
+        {showLogin && actionError ? <p role="alert">{actionError}</p> : null}
+        {affilaeMessage ? <p role="status">{affilaeMessage}</p> : null}
+      </section>
+
       <section className={styles.stats}>
         <article><span className={styles.statIconGreen}><Check size={20}/></span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "ok").length}</strong><small>fiches sans anomalie</small></div></article>
         <article><span className={styles.statIconPink}>€</span><div><strong>{liveStatuses.filter((dealStatus) => dealStatus === "missing-price" || dealStatus === "price-check").length}</strong><small>prix à contrôler</small></div></article>
@@ -285,7 +317,7 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
           {activePriceDrop ? <div className={styles.priceDropCard}><ArrowDown size={18}/><div><b>Vraie baisse constatée : {activePriceDrop.changePercent}%</b><small>{activePriceDrop.previousPrice?.toLocaleString("fr-FR", { style: "currency", currency: "EUR" })} → {activePriceDrop.displayPrice} · relevé le {new Date(activePriceDrop.checkedAt).toLocaleString("fr-FR")}</small></div></div> : null}
           <div className={styles.actionDock}>
             <div className={styles.actionInfo}><b>Actions {authenticated ? <span className={styles.connected}>Connectée</span> : null}</b><p>Ajoute la correction au lot.</p></div>
-            {showLogin ? <form className={styles.loginBox} onSubmit={login}><label>Mot de passe administrateur<input type="password" autoFocus value={password} onChange={(event) => setPassword(event.target.value)} autoComplete="current-password"/></label><div><button type="button" onClick={() => { setShowLogin(false); setActionError(""); }}>Annuler</button><button type="submit">Se connecter</button></div></form> : null}
+
             {actionError ? <p className={styles.actionError}><AlertTriangle size={15}/> {actionError}</p> : null}
             <div className={styles.actionButtons}><button className={styles.updateOnly} disabled={Boolean(actionPending)} onClick={() => queueAction("update")}><Check size={16}/> Mettre à jour</button><button className={styles.updateAndRaise} disabled={Boolean(actionPending)} onClick={() => queueAction("raise")}><ArrowUp size={16}/> Mettre à jour et remonter</button><button className={styles.archiveButton} disabled={Boolean(actionPending)} onClick={() => queueAction("archive")}><Archive size={16}/> Archiver</button></div>
           </div>
