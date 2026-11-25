@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 25 Nov 2026 12:11:07 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 12:53:01 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Poussette Bebeconfort Haze 3 en 1 à 179,99 € chez Cdiscount</title>
@@ -242,6 +242,15 @@
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-carrefour-assurance-suivez-le-fil-2026.webp" type="image/webp" length="0"/>
     </item>
     <item>
+      <title>Concours Legrand : 4 thermostats connectés et 4 caméras à gagner</title>
+      <link>https://bonsplansmania.fr/article/concours-legrand-smarther-netatmo-thermostats-cameras-2026</link>
+      <guid>https://bonsplansmania.fr/article/concours-legrand-smarther-netatmo-thermostats-cameras-2026</guid>
+      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
+      <description>Reconstituez le puzzle du Grand Jeu Legrand pour tenter de gagner un thermostat Smarther with Netatmo ou une caméra intérieure. Jeu gratuit sans achat jusqu’au 16 décembre.</description>
+      <category>concours</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/concours-legrand-smarther-netatmo-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
       <title>Concours Wamiz Noël : 11 litières autonettoyantes MOVA à gagner</title>
       <link>https://bonsplansmania.fr/article/concours-wamiz-noel-memory-litieres-mova-2026</link>
       <guid>https://bonsplansmania.fr/article/concours-wamiz-noel-memory-litieres-mova-2026</guid>
@@ -447,15 +456,6 @@
       <description>Ce lot Pampers contient 540 lingettes composées à 99 % d’eau, réparties en neuf paquets de 60, sans parfum, sans alcool et sans plastique.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-pampers-99-eau-lingettes-540-mai-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Robot bébé Philips Avent 4-en-1 avec pots à 193,00 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-philips-4-en-1-robot-cuiseur-mixeur-bebe-juin-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-philips-4-en-1-robot-cuiseur-mixeur-bebe-juin-2026</guid>
-      <pubDate>Sun, 21 Jun 2026 00:00:00 GMT</pubDate>
-      <description>Le robot cuiseur-mixeur Philips Avent 4-en-1 cuit à la vapeur, mixe, décongèle et réchauffe les repas pour bébé, avec des pots de conservation.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-philips-4-en-1-robot-cuiseur-mixeur-bebe-juin-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
