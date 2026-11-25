@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Wed, 25 Nov 2026 15:35:53 GMT</lastBuildDate>
+    <lastBuildDate>Wed, 25 Nov 2026 15:50:53 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Poussette Bebeconfort Haze 3 en 1 à 179,99 € chez Cdiscount</title>
@@ -105,6 +105,15 @@
       <description>Le Panasonic ES-PV3B-K803 est un rasoir compact à cinq lames, utilisable sur peau sèche ou humide et entièrement lavable.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/panasonic-es-pv3b-k803-boulanger-2026.jpg" type="image/jpeg" length="0"/>
+    </item>
+    <item>
+      <title>Labyrinthe Pokémon Ravensburger à 29,99 € : 20 % d’économies Club Carrefour</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-carrefour-labyrinthe-pokemon-ravensburger-25-pourcent-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-carrefour-labyrinthe-pokemon-ravensburger-25-pourcent-2026</guid>
+      <pubDate>Mon, 14 Sep 2026 00:00:00 GMT</pubDate>
+      <description>Découvrez le jeu Labyrinthe Pokémon Ravensburger chez Carrefour, pour 2 à 4 joueurs dès 7 ans, avec un avantage Club et un retrait selon magasin.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-carrefour-labyrinthe-pokemon-ravensburger-25-pourcent-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>LEGO Wicked Le Mariage de Glinda à 20,99 € chez Carrefour : −40 %</title>
@@ -447,15 +456,6 @@
       <description>Découvrez le lit bébé cododo Lionelo Aurora 3-en-1 gris, ses caractéristiques et les précautions d’installation et d’utilisation.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-lionelo-aurora-lit-bebe-cododo-3-en-1-cododo-berceau-mai-2026.png" type="image/png" length="0"/>
-    </item>
-    <item>
-      <title>Momcozy : 2 couvertures d’emmaillotage à 29,99 €</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-amazon-momcozy-couverture-emmaillotage-bebe-lot-2-juillet-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-momcozy-couverture-emmaillotage-bebe-lot-2-juillet-2026</guid>
-      <pubDate>Sun, 12 Jul 2026 00:00:00 GMT</pubDate>
-      <description>Découvrez le lot de deux couvertures d’emmaillotage Momcozy Airflow en rose et beige, leurs caractéristiques et les précautions d’utilisation.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-momcozy-couverture-emmaillotage-bebe-lot-2-juillet-2026.png" type="image/png" length="0"/>
     </item>
   </channel>
 </rss>
