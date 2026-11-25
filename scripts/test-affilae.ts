@@ -17,11 +17,18 @@ async function main() {
     calls++;
     assert.equal(new URL(String(url)).origin, "https://rest.affilae.com");
     assert.equal(new Headers(init?.headers).get("Authorization"), "Bearer private-test-token");
-    assert.equal(init?.redirect, "error");
+    assert.equal(init?.redirect, "manual");
     return Response.json([{ id: "feed", urlTracked: "https://example.com/feed" }]);
   };
   assert.deepEqual(await fetchAffilae("feeds", params, env, mock), [{ id: "feed", urlTracked: "https://example.com/feed" }]);
   assert.equal(calls, 1);
+  let redirectCalls = 0;
+  await assert.rejects(fetchAffilae("profiles", params, env, async (_url, init) => {
+    redirectCalls++;
+    assert.equal(init?.redirect, "manual");
+    return new Response(null, { status: 302, headers: { Location: "https://other.example/private" } });
+  }), /redirection inattendue/);
+  assert.equal(redirectCalls, 1);
   await assert.rejects(fetchAffilae("profiles", params, env, async () => new Response("sensitive upstream content", { status: 403 })), error => error instanceof Error && !error.message.includes("sensitive") && error.message.includes("refusé"));
   await assert.rejects(fetchAffilae("profiles", params, env, async () => new Response("", { status: 429 })), /Limite/);
   await assert.rejects(fetchAffilae("profiles", params, env, async () => { throw new Error("secret"); }), /inaccessible/);

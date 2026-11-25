@@ -52,8 +52,11 @@ export async function fetchAffilae(resource: string, input: URLSearchParams, env
   if (!env.AFFILAE_API_TOKEN?.trim()) throw new AffilaeError("Clé AFFILAE_API_TOKEN non configurée.", 503);
   let response: Response;
   try {
-    response = await fetcher(url, { headers: { Authorization: `Bearer ${env.AFFILAE_API_TOKEN.trim()}`, Accept: "application/json" }, signal: AbortSignal.timeout(15000), redirect: "error" });
+    // Workers does not implement redirect: "error". Manual mode prevents
+    // forwarding the bearer token; reject redirects below without following.
+    response = await fetcher(url, { headers: { Authorization: `Bearer ${env.AFFILAE_API_TOKEN.trim()}`, Accept: "application/json" }, signal: AbortSignal.timeout(15000), redirect: "manual" });
   } catch { throw new AffilaeError("Affilae est momentanément inaccessible.", 502); }
+  if (response.status >= 300 && response.status < 400) throw new AffilaeError("Affilae a renvoyé une redirection inattendue. La clé n’a pas été transmise à cette destination.", 502, response.status);
   if (!response.ok) {
     throw new AffilaeError(response.status === 429 ? "Limite Affilae atteinte, réessayez plus tard." : response.status === 401 || response.status === 403 ? "Clé ou accès Affilae refusé." : "Erreur du service Affilae.", response.status === 429 ? 429 : 502, response.status);
   }
