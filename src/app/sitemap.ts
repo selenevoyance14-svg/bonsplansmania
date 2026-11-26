@@ -46,7 +46,6 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
   { path: "/bons-plans-jouets",        priority: 0.9, changeFrequency: "weekly" },
   { path: "/bons-plans-rentree",       priority: 0.9, changeFrequency: "weekly" },
   { path: "/avis-prix-beaute",         priority: 0.8, changeFrequency: "weekly" },
-  { path: "/marques",                  priority: 0.7, changeFrequency: "weekly" },
   { path: "/qui-suis-je",             priority: 0.4, changeFrequency: "monthly" },
   { path: "/archives",                 priority: 0.5, changeFrequency: "weekly" },
   { path: "/partenariats",             priority: 0.4, changeFrequency: "monthly" },
@@ -56,6 +55,7 @@ const STATIC_PAGES: { path: string; priority: number; changeFrequency: MetadataR
 ];
 
 const CATEGORY_SLUGS = [
+  "guide",
   "bon-plan",
   "test-gratuit",
   "test-avis",

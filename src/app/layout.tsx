@@ -94,10 +94,14 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           }}
         >
           <nav aria-label="Liens de pied de page" style={{ display: "flex", justifyContent: "center", gap: "16px", flexWrap: "wrap", marginBottom: "8px" }}>
+            <a href="/categorie/code-promo" style={{ color: "#ffffff" }}>Articles codes promo</a>
+            <a href="/categorie/guide" style={{ color: "#ffffff" }}>Guides pratiques</a>
             <a href="/archives" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>Archives</a>
             <a href="/categorie/concours" style={{ color: "#ffffff" }}>Concours en cours</a>
             <a href="/guide-air-fryer-2026" style={{ color: "#ffffff" }}>Guide Air Fryer</a>
+            <a href="/fete-des-peres" style={{ color: "#ffffff" }}>Fête des pères</a>
             <a href="/idees-cadeaux-noel-2026" style={{ color: "#ffffff" }}>Idées cadeaux</a>
+            <a href="/tests-produits-gratuits-2026" style={{ color: "#ffffff" }}>Tests produits gratuits</a>
             <a href="/guide-gratuit" style={{ color: "#ffffff" }}>Guide tests gratuits</a>
             <a href="/marques-partenaires" style={{ color: "#ffffff" }}>Marques partenaires</a>
             <a href="/mentions-legales" style={{ color: "#ffffff" }}>Mentions légales</a>

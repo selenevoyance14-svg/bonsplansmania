@@ -5,7 +5,7 @@ import AdBlock from "@/app/components/AdBlock";
 import ArticleCard from "@/app/components/ArticleCard";
 import { getAllArticles, isEffectivelyExpired } from "@/lib/articles";
 import StickyAdMobile from "@/app/components/StickyAdMobile";
-import { matchesSeasonalKeywords } from "@/lib/seasonal-match";
+import { getSummerThemes } from "@/lib/summer-selection";
 
 export const metadata: Metadata = {
   title: "Bons plans été : solaires et vacances — BonsPlansMania",
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Bons plans été — Solaires, vacances et fraîcheur",
     description:
-      "Toutes nos sélections, bons plans et concours pour l'été : solaires bio, autobronzants, parasols, ventilateurs, maillots, box beauté été.",
+      "Toutes nos sélections, bons plans et concours pour l'été : solaires bio, autobronzants, parasols, ventilateurs, maillots et équipements de plage.",
     type: "website",
     locale: "fr_FR",
     url: "https://bonsplansmania.fr/ete",
@@ -24,70 +24,28 @@ export const metadata: Metadata = {
 
 type ArticleType = ReturnType<typeof getAllArticles>[number];
 
-const SUMMER_KEYWORDS = [
-  "ete-2026",
-  "solaire",
-  "spf50",
-  "spf-50",
-  "autobronzant",
-  "auto-bronzant",
-  "bronzage",
-  "vacances",
-  "parasol",
-  "ventilateur",
-  "climatiseur",
-  "anti-canicule",
-  "canicule",
-  "maillot-bain",
-  "bebe-ete",
-  "piscine",
-  "plage",
-  "fete-des-peres",
-  "ete",
-];
-
-function matchesSummer(article: ArticleType): boolean {
-  const haystack = [
-    article.meta.title.toLowerCase(),
-    article.meta.description.toLowerCase(),
-    ...(article.meta.tags || []).map((t) => t.toLowerCase()),
-  ].join(" ");
-  return matchesSeasonalKeywords(haystack, SUMMER_KEYWORDS);
-}
-
 export default function Ete2026Page() {
   const all = getAllArticles();
 
   const summer = all
-    .filter((a) => !isEffectivelyExpired(a.meta) && matchesSummer(a))
+    .filter((article) => !isEffectivelyExpired(article.meta) && getSummerThemes(article.meta).length > 0)
     .sort((a, b) => new Date(b.meta.date).getTime() - new Date(a.meta.date).getTime());
-
-  const byTag = (kw: string | string[]) => {
-    const kws = Array.isArray(kw) ? kw : [kw];
-    return summer.filter((a) => {
-      const haystack = [
-        a.meta.title.toLowerCase(),
-        a.meta.description.toLowerCase(),
-        ...(a.meta.tags || []).map((t) => t.toLowerCase()),
-      ].join(" ");
-      return matchesSeasonalKeywords(haystack, kws);
-    });
-  };
-
-  const solaires = byTag(["solaire", "spf50", "spf-50", "uv50"]).slice(0, 6);
-  const autobronzants = byTag(["autobronzant", "auto-bronzant", "bronzage"]).slice(0, 6);
-  const climatisation = byTag(["ventilateur", "climatiseur", "anti-canicule", "canicule", "brumisateur"]).slice(0, 6);
-  const vacances = byTag(["parasol", "vacances", "camping", "mobil-home"]).slice(0, 6);
-  const bebeEte = byTag(["bebe-ete", "maillot-bain", "piscine-bebe", "couches-bain", "brassard"]).slice(0, 6);
-  const featured = summer.filter((a) => a.meta.featured).slice(0, 6);
+  const byTheme = (theme: string) => summer.filter((article) => getSummerThemes(article.meta).includes(theme)).slice(0, 6);
+  const solaires = byTheme("solaires");
+  const autobronzants = byTheme("autobronzants");
+  const climatisation = byTheme("anti-canicule");
+  const vacances = byTheme("vacances");
+  const bebeEte = byTheme("bebe-ete");
+  const featured = summer.filter((article) => article.meta.featured).slice(0, 6);
+  const displayedCount = new Set([...solaires, ...autobronzants, ...climatisation, ...vacances, ...bebeEte, ...featured].map((article) => article.meta.slug)).size;
 
   const today = new Date().toLocaleDateString("fr-FR", { day: "numeric", month: "long", year: "numeric" });
 
   const sections: { id: string; title: string; desc: string; Icon: typeof Sun; color: string; articles: ArticleType[] }[] = [
     { id: "solaires", title: "☀️ Crèmes solaires & soins SPF", desc: "Protections bio, visage & corps, bébé, anti-taches", Icon: Sun, color: "#F59E0B", articles: solaires },
-    { id: "autobronzants", title: "✨ Autobronzants & glow", desc: "Sans soleil, sans UV — peau dorée naturelle", Icon: Sparkles, color: "#EAB308", articles: autobronzants },
+    { id: "autobronzants", title: "✨ Autobronzants & glow", desc: "Soins autobronzants pour le visage et le corps", Icon: Sparkles, color: "#EAB308", articles: autobronzants },
     { id: "anti-canicule", title: "🌬️ Anti-canicule : ventilateurs & climatisation", desc: "Ventilateurs silencieux, climatiseurs mobiles, brumisateurs", Icon: Wind, color: "#0EA5E9", articles: climatisation },
-    { id: "vacances", title: "🏖️ Vacances, parasols & camping", desc: "Tout pour le jardin, terrasse, séjour à la mer", Icon: Umbrella, color: "#EC4899", articles: vacances },
+    { id: "vacances", title: "🏖️ Vacances, parasols & camping", desc: "Équipements de plage, baignade, camping et séjours estivaux", Icon: Umbrella, color: "#EC4899", articles: vacances },
     { id: "bebe-ete", title: "👶 Bébé en été : maillots, couches bain, anti-UV", desc: "Vêtements UPF 50+, couches piscine, brassards", Icon: Baby, color: "#10B981", articles: bebeEte },
   ];
 
@@ -125,7 +83,7 @@ export default function Ete2026Page() {
             <p style={{ color: "#7C2D12", fontSize: "1.1rem", maxWidth: "820px", marginBottom: "16px", lineHeight: 1.6 }}>
               Retrouvez nos sélections saisonnières : protections solaires, autobronzants,
               ventilateurs, équipements pour la plage et les vacances, produits adaptés aux
-              bébés et box beauté d&apos;été. Les offres terminées sont retirées automatiquement.
+              bébés. Les offres signalées comme terminées sont exclues de cette sélection.
             </p>
             <div style={{ display: "flex", gap: "12px", flexWrap: "wrap", alignItems: "center" }}>
               <div
@@ -157,7 +115,7 @@ export default function Ete2026Page() {
                   fontWeight: 700,
                 }}
               >
-                🔥 {summer.length} articles été
+                🔥 {displayedCount} articles dans la sélection
               </div>
             </div>
           </div>
@@ -171,7 +129,7 @@ export default function Ete2026Page() {
         <section className="section" style={{ paddingTop: "20px", paddingBottom: "8px" }}>
           <div className="container">
             <div style={{ display: "flex", gap: "10px", flexWrap: "wrap", justifyContent: "center" }}>
-              {sections.map((s) => (
+              {sections.filter((s) => s.articles.length > 0).map((s) => (
                 <a
                   key={s.id}
                   href={`#${s.id}`}
@@ -203,7 +161,7 @@ export default function Ete2026Page() {
                   <Heart size={22} style={{ display: "inline", verticalAlign: "middle", marginRight: "8px", color: "#EC4899" }} />
                   Nos coups de cœur de l&apos;été
                 </h2>
-                <p>Sélection rédactionnelle des meilleurs deals saisonniers</p>
+                <p>Des articles liés aux thèmes de l’été</p>
               </div>
               <div className="articles-grid">
                 {featured.map((article, index) => (

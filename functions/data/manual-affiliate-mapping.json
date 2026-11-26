@@ -5927,5 +5927,353 @@
   "noel20-play-doh-jardin-fleurs": {
     "url": "https://www.amazon.fr/dp/B0D87Q157S?tag=lebrunnathali-21",
     "label": "Voir Mon Jardin de Fleurs Play-Doh sur Amazon"
+  },
+  "guide-courses-poulpeo": {
+    "url": "https://www.poulpeo.com/p/UaLtab",
+    "label": "Découvrir Poulpeo"
+  },
+  "guide-courses-joko": {
+    "url": "https://www.joko.com/",
+    "label": "Découvrir Joko"
+  },
+  "guide-courses-ebuyclub": {
+    "url": "https://www.ebuyclub.com/inscription?parrain=lebrunjoel83",
+    "label": "Découvrir eBuyClub"
+  },
+  "guide-courses-igraal": {
+    "url": "https://fr.igraal.com/parrainage?parrain=AG_66d33e65091a1&utm_medium=inf&utm_source=premium",
+    "label": "Découvrir iGraal"
+  },
+  "guide-courses-shopmium": {
+    "url": "https://www.shopmium.com/fr/",
+    "label": "Découvrir Shopmium"
+  },
+  "guide-courses-coupon-network": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249363&url=https%3A%2F%2Fwww.couponnetwork.fr",
+    "label": "Découvrir Coupon Network"
+  },
+  "guide-courses-phenix": {
+    "url": "https://www.wearephenix.com/",
+    "label": "Découvrir Phenix"
+  },
+  "guide-courses-too-good-to-go": {
+    "url": "https://www.toogoodtogo.com/fr",
+    "label": "Découvrir Too Good To Go"
+  },
+  "guide-courses-ma-vie-en-couleurs": {
+    "url": "https://www.mavieencouleurs.fr/",
+    "label": "Découvrir Ma Vie en Couleurs"
+  },
+  "guide-courses-fidmarques": {
+    "url": "https://www.fidmarques.com/",
+    "label": "Découvrir FidMarques"
+  },
+  "annuaire-partenaire-adopt": {
+    "url": "https://lb.affilae.com/r/?p=678fab80242409f9262715e4&af=65&lp=https%3A%2F%2Fwww.adopt.com%2Ffr%3Futm_source%3Daffilae%26utm_medium%3Dcodes-promos%26utm_campaign%3Dbonsplansmania",
+    "label": "Visiter Adopt"
+  },
+  "annuaire-partenaire-afibel": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23267212&url=https%3A%2F%2Fwww.afibel.com",
+    "label": "Visiter Afibel"
+  },
+  "annuaire-partenaire-aliexpress": {
+    "url": "https://www.awin1.com/cread.php?awinmid=26009&awinaffid=990397&ued=https%3A%2F%2Ffr.aliexpress.com%2F%3Fwh_offline%3Dtrue%26gatewayAdapt%3Dglo2fra",
+    "label": "Visiter AliExpress"
+  },
+  "annuaire-partenaire-atida": {
+    "url": "https://nwq.atida.fr/?P512F8957CD2D1F1&redir=https%3A%2F%2Fwww.atida.fr%2F",
+    "label": "Visiter Atida"
+  },
+  "annuaire-partenaire-babybio": {
+    "url": "https://awe.babybio.fr/?P5125FF57CD2D151&redir=https%3A%2F%2Fwww.babybio.fr%2Ffr%2F",
+    "label": "Visiter Babybio"
+  },
+  "annuaire-partenaire-bayard-jeunesse": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51323D57CD2D171&redir=https%3A%2F%2Fwww.bayard-jeunesse.com%2F",
+    "label": "Visiter Bayard Jeunesse"
+  },
+  "annuaire-partenaire-beaba": {
+    "url": "https://oam.beaba.com/?P5127CD57CD2D1D1&redir=https%3A%2F%2Fwww.beaba.com%2F",
+    "label": "Visiter Béaba"
+  },
+  "annuaire-partenaire-beauty-success": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247206&url=https%3A%2F%2Fwww.beautysuccess.fr%2F",
+    "label": "Visiter Beauty Success"
+  },
+  "annuaire-partenaire-bebeboutik": {
+    "url": "https://a.time1.me/r?promoid=193535&progid=2890&partid=61992",
+    "label": "Visiter Bebeboutik"
+  },
+  "annuaire-partenaire-belle-au-naturel": {
+    "url": "https://wkl.belleaunaturel.fr/click-9693-2623?clickid=&subid=",
+    "label": "Visiter Belle au Naturel"
+  },
+  "annuaire-partenaire-biolane": {
+    "url": "https://www.awin1.com/cread.php?awinmid=27764&awinaffid=990397&ued=https%3A%2F%2Fbiolane.fr%2F",
+    "label": "Visiter Biolane"
+  },
+  "annuaire-partenaire-biotyfull-box": {
+    "url": "https://xno.biotyfullbox.fr/?P51362157CD2D1D1&redir=https%3A%2F%2Fwww.biotyfullbox.fr%2F",
+    "label": "Visiter Biotyfull Box"
+  },
+  "annuaire-partenaire-blanche-porte": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23247216&url=https%3A%2F%2Fwww.blancheporte.fr%2F",
+    "label": "Visiter Blancheporte"
+  },
+  "annuaire-partenaire-blissim": {
+    "url": "https://tidd.ly/3TxbBY7",
+    "label": "Visiter Blissim"
+  },
+  "annuaire-partenaire-c-mon-etiquette": {
+    "url": "https://wgn.c-monetiquette.fr/?P510ED957CD2D151&redir=https%3A%2F%2Fwww.c-monetiquette.fr%2F",
+    "label": "Visiter C-MonEtiquette"
+  },
+  "annuaire-partenaire-caroll": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P512E6157CD2D1F1&redir=https%3A%2F%2Fwww.caroll.com%2Ffr_fr%2F",
+    "label": "Visiter Caroll"
+  },
+  "annuaire-partenaire-carrefour": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51378757CD2D2131&redir=https%3A%2F%2Fwww.carrefour.fr%2Fcourses",
+    "label": "Visiter Carrefour"
+  },
+  "annuaire-partenaire-cdiscount": {
+    "url": "https://www.awin1.com/cread.php?awinmid=6948&awinaffid=990397&ued=https%3A%2F%2Fwww.cdiscount.com%2F",
+    "label": "Visiter Cdiscount"
+  },
+  "annuaire-partenaire-chaussea": {
+    "url": "https://jwv.chaussea.com/?P51387157CD2D1B1&redir=https%3A%2F%2Fwww.chaussea.com%2Ffr%2F",
+    "label": "Visiter Chaussea"
+  },
+  "annuaire-partenaire-clarins": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23248736&url=https%3A%2F%2Fwww.clarins.fr",
+    "label": "Visiter Clarins"
+  },
+  "annuaire-partenaire-creabul": {
+    "url": "https://www.creabul.fr/?ae=1036",
+    "label": "Visiter Creabul"
+  },
+  "annuaire-partenaire-damart": {
+    "url": "https://tracking.publicidees.com/clic.php?promoid=97278&progid=3079&partid=61992",
+    "label": "Visiter Damart"
+  },
+  "annuaire-partenaire-darty": {
+    "url": "https://www.awin1.com/cread.php?awinmid=7735&awinaffid=990397&ued=https%3A%2F%2Fwww.darty.com%2F",
+    "label": "Visiter Darty"
+  },
+  "annuaire-partenaire-degriffstock": {
+    "url": "https://auz.degriffstock.com/?P51257757CD2D1D1&redir=https%3A%2F%2Fwww.degriffstock.com%2F",
+    "label": "Visiter Dégriffstock"
+  },
+  "annuaire-partenaire-desigual": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P4EFAB57CD2D151&redir=https%3A%2F%2Fwww.desigual.com%2Ffr_FR%2F",
+    "label": "Visiter Desigual"
+  },
+  "annuaire-partenaire-dr-pierre-ricaud": {
+    "url": "https://www.awin1.com/cread.php?awinmid=6977&awinaffid=990397&ued=https%3A%2F%2Fwww.ricaud.com%2Ffr-fr",
+    "label": "Visiter Dr Pierre Ricaud"
+  },
+  "annuaire-partenaire-e-leclerc": {
+    "url": "https://www.awin1.com/cread.php?awinmid=15135&awinaffid=990397&ued=https%3A%2F%2Fwww.e.leclerc%2F",
+    "label": "Visiter E.Leclerc"
+  },
+  "annuaire-partenaire-electro-depot": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23260341&url=https%3A%2F%2Fwww.electrodepot.fr",
+    "label": "Visiter Électro Dépôt"
+  },
+  "annuaire-partenaire-famille-mary": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249989&url=https%3A%2F%2Fwww.famillemary.fr",
+    "label": "Visiter Famille Mary"
+  },
+  "annuaire-partenaire-gemo": {
+    "url": "https://ava.gemo.fr/?P4894B57CD2D191&redir=https%3A%2F%2Fwww.gemo.fr%2F",
+    "label": "Visiter Gémo"
+  },
+  "annuaire-partenaire-glowria": {
+    "url": "https://glowria.com/?ae=487",
+    "label": "Visiter Glowria"
+  },
+  "annuaire-partenaire-greenweez": {
+    "url": "https://www.greenweez.com/?utm_source=affilae&utm_medium=affiliation&utm_campaign=bonsplansmania&ae=344",
+    "label": "Visiter Greenweez"
+  },
+  "annuaire-partenaire-havas-voyages": {
+    "url": "https://kfx.havas-voyages.fr/?P511EA757CD2D151&redir=https%3A%2F%2Fwww.havas-voyages.fr%2F",
+    "label": "Visiter Havas Voyages"
+  },
+  "annuaire-partenaire-hellofresh": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51241357CD2D1B1&redir=https%3A%2F%2Fwww.hellofresh.fr%2F",
+    "label": "Visiter HelloFresh"
+  },
+  "annuaire-partenaire-histoire-dor": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51334157CD2D1D1&redir=https%3A%2F%2Fwww.histoiredor.com%2Ffr_FR",
+    "label": "Visiter Histoire d'Or"
+  },
+  "annuaire-partenaire-ioma": {
+    "url": "https://www.awin1.com/cread.php?awinmid=26447&awinaffid=990397&ued=https%3A%2F%2Fioma-paris.com%2F",
+    "label": "Visiter IOMA Paris"
+  },
+  "annuaire-partenaire-atelier-du-sourcil": {
+    "url": "https://www.awin1.com/cread.php?awinmid=33057&awinaffid=990397&ued=https%3A%2F%2Fwww.atelierdusourcil.com%2F",
+    "label": "Visiter L'Atelier du Sourcil"
+  },
+  "annuaire-partenaire-loccitane": {
+    "url": "https://fr.loccitane.com/?eaf-publisher=affilae&eaf-name=affilae-fil_rouge&eaf-creative=all&eaf-creativetype=all&utm_source=affilae&utm_medium=roiAffiliate&utm_campaign=affilae-fil_rouge&utm_term=bonsplansmania&eseg-name=bonsplansmania&eseg-item=474&ae=474",
+    "label": "Visiter L'Occitane"
+  },
+  "annuaire-partenaire-la-boite-du-fromager": {
+    "url": "https://www.laboitedufromager.com/?ae=470",
+    "label": "Visiter La Boîte du Fromager"
+  },
+  "annuaire-partenaire-la-boite-rose": {
+    "url": "https://www.awin1.com/cread.php?awinmid=26737&awinaffid=990397&ued=https%3A%2F%2Fwww.laboiterose.fr%2Ffr",
+    "label": "Visiter La Boîte Rose"
+  },
+  "annuaire-partenaire-la-box-fromage": {
+    "url": "https://laboxfromage.fr/?ae=991",
+    "label": "Visiter La Box Fromage"
+  },
+  "annuaire-partenaire-la-gourmet-box": {
+    "url": "https://www.lagourmetbox.com/fr/?ae=481",
+    "label": "Visiter La Gourmet Box"
+  },
+  "annuaire-partenaire-le-petit-ballon": {
+    "url": "https://lb.affilae.com/r/?p=534ea4a10f4c9a09348b4568&af=542&lp=https%3A%2F%2Fwww.lepetitballon.com%2F%3F_mkpid%3D2114%26_mkpd%3D%7BaffiliateId%7D%7C%7BClickID%7D%26utm_source%3Daffilae%26utm_medium%3Daffiliation%26_mkpc%3D542%26utm_campaign%3D542",
+    "label": "Visiter Le Petit Ballon"
+  },
+  "annuaire-partenaire-le-rouge-francais": {
+    "url": "https://www.awin1.com/cread.php?awinmid=115665&awinaffid=990397&ued=https%3A%2F%2Flerougefrancais.com%2F",
+    "label": "Visiter Le Rouge Français"
+  },
+  "annuaire-partenaire-lea-nature": {
+    "url": "https://ryt.leanature.com/?P5127D757CD2D2131&redir=https%3A%2F%2Fwww.leanature.com%2F",
+    "label": "Visiter Léa Nature"
+  },
+  "annuaire-partenaire-lollipops": {
+    "url": "https://fou.lollipops.fr/?P51322957CD2D151&redir=https%3A%2F%2Flollipops.fr%2F",
+    "label": "Visiter Lollipops"
+  },
+  "annuaire-partenaire-lookfantastic": {
+    "url": "https://www.awin1.com/cread.php?awinmid=7496&awinaffid=990397&ued=https%3A%2F%2Fwww.lookfantastic.fr%2F",
+    "label": "Visiter LOOKFANTASTIC"
+  },
+  "annuaire-partenaire-made-in-sport": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23254976&url=https%3A%2F%2Fwww.madeinsport.com",
+    "label": "Visiter Made in Sport"
+  },
+  "annuaire-partenaire-magnifaik": {
+    "url": "https://www.awin1.com/cread.php?awinmid=112600&awinaffid=990397&ued=https%3A%2F%2Fwww.magnifaik.com%2F",
+    "label": "Visiter Magnifaïk"
+  },
+  "annuaire-partenaire-manomano": {
+    "url": "https://www.awin1.com/cread.php?awinmid=17547&awinaffid=990397&ued=https%3A%2F%2Fwww.manomano.fr%2F",
+    "label": "Visiter ManoMano"
+  },
+  "annuaire-partenaire-micromania": {
+    "url": "https://xht.micromania.fr/?P3CB057CD2D161&redir=https%3A%2F%2Fwww.micromania.fr%2F",
+    "label": "Visiter Micromania"
+  },
+  "annuaire-partenaire-mieux-que-des-fleurs": {
+    "url": "https://mieuxquedesfleurs.com/?ae=462",
+    "label": "Visiter Mieux Que Des Fleurs"
+  },
+  "annuaire-partenaire-miin-cosmetics": {
+    "url": "https://www.awin1.com/cread.php?awinmid=29885&awinaffid=990397&ued=https%3A%2F%2Fmiin-cosmetics.fr%2F",
+    "label": "Visiter MiiN Cosmetics"
+  },
+  "annuaire-partenaire-milan-jeunesse": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P51323F57CD2D171&redir=https%3A%2F%2Fmilan-jeunesse.com%2F",
+    "label": "Visiter Milan Jeunesse"
+  },
+  "annuaire-partenaire-mileade": {
+    "url": "https://a.time1.me/r?promoid=105072&progid=3530&partid=61992",
+    "label": "Visiter Miléade"
+  },
+  "annuaire-partenaire-monsieur-tshirt": {
+    "url": "/go/monsieur-tshirt-promotions",
+    "label": "Visiter Monsieur TSHIRT"
+  },
+  "annuaire-partenaire-morgan": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P43B4357CD2D131&redir=https%3A%2F%2Fwww.morgandetoi.fr%2F",
+    "label": "Visiter Morgan"
+  },
+  "annuaire-partenaire-news-parfums": {
+    "url": "https://track.effiliation.com/servlet/effi.redir?id_compteur=23249990&url=https%3A%2F%2Fwww.news-parfums.com",
+    "label": "Visiter News Parfums"
+  },
+  "annuaire-partenaire-parfums-moins-chers": {
+    "url": "https://zmk.parfumsmoinschers.com/?P4642357CD2D191&redir=https%3A%2F%2Fwww.parfumsmoinschers.com%2F",
+    "label": "Visiter Parfums Moins Chers"
+  },
+  "annuaire-partenaire-pin-up-secret": {
+    "url": "https://a.time1.me/r?promoid=243139&progid=8054&partid=61992",
+    "label": "Visiter Pin Up Secret"
+  },
+  "annuaire-partenaire-pranarom": {
+    "url": "https://lb.affilae.com/r/?p=6814b22bc71e1ba3064b7ebb&af=978&lp=https%3A%2F%2Fpranarom.fr%2F",
+    "label": "Visiter Pranarom"
+  },
+  "annuaire-partenaire-prescription-lab": {
+    "url": "https://www.prescriptionlab.com/landing/4pour14?ae=10&aev=https%3A%2F%2Fwww.prescriptionlab.com%2Flanding%2F5pour15%3Fml%3Dmail%26utm_source%3DMailing_pub%26utm_medium%3Dspeciale%26utm_campaign%3DM_allcampaigns",
+    "label": "Visiter Prescription Lab"
+  },
+  "annuaire-partenaire-private-sport-shop": {
+    "url": "https://tracking.publicidees.com/clic.php?promoid=60430&progid=2334&partid=61992",
+    "label": "Visiter Private Sport Shop"
+  },
+  "annuaire-partenaire-rougier-ple": {
+    "url": "https://afi.rougier-ple.fr/?P4826957CD2D1B1&redir=https%3A%2F%2Fwww.rougier-ple.fr%2F",
+    "label": "Visiter Rougier & Plé"
+  },
+  "annuaire-partenaire-sans-complexe": {
+    "url": "https://hca.sanscomplexe.com/?P4E63D57CD2D1D1&redir=https%3A%2F%2Fwww.sanscomplexe.com%2F",
+    "label": "Visiter Sans Complexe"
+  },
+  "annuaire-partenaire-sarenza": {
+    "url": "https://action.metaffiliation.com/trk.php?mclic=P512D1157CD2D191&redir=https%3A%2F%2Fwww.sarenza.com%2Ffr%2Ffr",
+    "label": "Visiter Sarenza"
+  },
+  "annuaire-partenaire-seasonly": {
+    "url": "https://www.awin1.com/cread.php?awinmid=30403&awinaffid=990397&ued=https%3A%2F%2Fseasonly.fr%2F",
+    "label": "Visiter Seasonly"
+  },
+  "annuaire-partenaire-shoes-fr": {
+    "url": "https://vkz.shoes.fr/?P51317957CD2D171&redir=https%3A%2F%2Fwww.shoes.fr%2F",
+    "label": "Visiter Shoes.fr"
+  },
+  "annuaire-partenaire-spartoo": {
+    "url": "https://cgl.spartoo.com/?P510F5157CD2D1A1&redir=https%3A%2F%2Fwww.spartoo.com%2F",
+    "label": "Visiter Spartoo"
+  },
+  "annuaire-partenaire-stylevana": {
+    "url": "https://www.awin1.com/cread.php?awinmid=23223&awinaffid=990397&ued=https%3A%2F%2Fwww.stylevana.com%2Ffr",
+    "label": "Visiter Stylevana"
+  },
+  "annuaire-partenaire-thalgo": {
+    "url": "https://swc.thalgo.fr/?P4F50557CD2D1D1&redir=https%3A%2F%2Fwww.thalgo.fr%2F",
+    "label": "Visiter Thalgo"
+  },
+  "annuaire-partenaire-une-petite-mousse": {
+    "url": "https://unepetitemousse.fr/?ae=992",
+    "label": "Visiter Une Petite Mousse"
+  },
+  "annuaire-partenaire-uriage": {
+    "url": "https://ntk.uriage.fr/?P511FDB57CD2D131&redir=https%3A%2F%2Fwww.uriage.fr%2F",
+    "label": "Visiter Uriage"
+  },
+  "annuaire-partenaire-lagrange-vacances": {
+    "url": "https://tracking.publicidees.com/clic.php?promoid=113863&progid=4201&partid=61992",
+    "label": "Visiter Vacances Lagrange"
+  },
+  "annuaire-partenaire-voyages-auchan": {
+    "url": "https://vmx.voyages-auchan.com/?P51211D57CD2D1D1&redir=https%3A%2F%2Fwww.voyages-auchan.com%2F",
+    "label": "Visiter Voyages Auchan"
+  },
+  "annuaire-partenaire-weleda": {
+    "url": "https://zew.weleda.fr/?P511D9D57CD2D1D1&redir=https%3A%2F%2Fwww.weleda.fr%2F",
+    "label": "Visiter Weleda"
+  },
+  "annuaire-partenaire-yesstyle": {
+    "url": "/go/permanent-yesstyle",
+    "label": "Visiter YesStyle"
   }
 }

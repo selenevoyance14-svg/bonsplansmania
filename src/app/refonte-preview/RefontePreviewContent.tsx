@@ -285,7 +285,7 @@ export default function RefontePreviewContent({ page = 1 }: { page?: number }) {
           <h2>Informations</h2>
           <Link href="/mentions-legales">Mentions légales</Link>
           <Link href="/confidentialite">Confidentialité</Link>
-          <Link href="/marques">Toutes les marques</Link>
+          <Link href="/marques-partenaires">Toutes les marques</Link>
           <Link href="/bons-plans-amazon">Bons plans Amazon</Link>
         </div>
         <div className={styles.footerBottom}>

@@ -92,12 +92,13 @@ function getContestMechanics(article: { title: string; description: string; tags
 
 
 export async function generateStaticParams() {
-  return ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "selection", "concours", "box-beaute", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
+  return ["guide", "bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "beaute", "selection", "concours", "box-beaute", "calendrier", "calendrier-avent", "code-promo"].map((slug) => ({ slug }));
 }
 
 interface PageProps { params: Promise<{ slug: string }>; }
 
 const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: string; seoTitle: string; seoDesc: string; color: string }> = {
+  "guide": { label: "Guides pratiques", Icon: Sparkles, desc: "Cuisine, maison et économies : nos conseils pratiques au quotidien", seoTitle: "Guides pratiques : cuisine, maison et économies", seoDesc: "Retrouvez nos guides pratiques pour cuisiner, organiser la maison et faire des économies au quotidien.", color: "bon-plan" },
   // seoTitle : raccourcis < 60 chars (suppression du suffixe "— Bons Plans Mania" déjà présent dans le siteName)
   // Cette page rassemble TOUS les bons plans, tous univers confondus (2 900+
   // articles : beauté, bébé, maison, tech, mode, papeterie…). Son seoTitle
@@ -261,6 +262,15 @@ export default async function CategoryPage({ params }: PageProps) {
             <p style={{ color: "var(--muted-foreground)" }}>
               {cat.desc} — {articles.length} article{articles.length > 1 ? "s" : ""}
             </p>
+            {slug === "beaute" && (
+              <a
+                href="/guide-solaires-2026"
+                style={{ display: "inline-flex", flexDirection: "column", gap: "6px", marginTop: "16px", padding: "16px 20px", borderRadius: "8px", background: "#FFF7E6", color: "#7C4A03", textDecoration: "none", border: "1px solid #F3D79C" }}
+              >
+                <strong>Guide des solaires : comparer les protections SPF</strong>
+                <span>Visage, corps, bébé et enfant : retrouvez la sélection selon vos besoins et votre budget. →</span>
+              </a>
+            )}
             {slug === "bon-plan" && (
               <a
                 href="/archives/bons-plans"

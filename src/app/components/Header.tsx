@@ -27,12 +27,16 @@ const menus = [
   {
     label: "Tests Produits",
     active: ["/test-", "/comparatif"],
-    links: [["Tests gratuits", "/categorie/test-gratuit"], ["Tests & avis", "/categorie/test-avis"], ["Comparatifs", "/categorie/comparatif"]],
+    links: [
+      ["Tests gratuits", "/categorie/test-gratuit"],
+      ["Tests & avis", "/categorie/test-avis"],
+      ["Comparatifs", "/categorie/comparatif"],
+    ],
   },
   {
     label: "Beauté",
     active: ["/beaute", "/box-beaute", "/meilleures-box-beaute", "/avis-prix-beaute", "/calendrier"],
-    links: [["Bons plans beauté", "/bons-plans-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"], ["Avis et prix beauté", "/avis-prix-beaute"]],
+    links: [["Bons plans beauté", "/bons-plans-beaute"], ["Comparatif box beauté", "/meilleures-box-beaute"], ["Toutes les box beauté", "/categorie/box-beaute"], ["Comparatif calendriers de l’Avent 2026", "/calendriers-de-l-avent-2026"], ["Tous les calendriers de l’Avent", "/categorie/calendrier-avent"], ["Guides & tests", "/categorie/beaute"], ["Guide des solaires", "/guide-solaires-2026"], ["Avis et prix beauté", "/avis-prix-beaute"]],
   },
 ] as const;
 
