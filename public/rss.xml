@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 26 Nov 2026 09:47:28 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 10:29:20 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Bose QuietComfort Ultra noir à 244,99 € sur Amazon</title>
@@ -96,6 +96,15 @@
       <description>Inspire Metz propose un quiz pour gagner une nuit pour deux, un coffret ou des City Pass. Participation réservée aux majeurs résidant en France hors Moselle.</description>
       <category>concours</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/concours-noel-metz-marche-merveilleux-2026.png" type="image/png" length="0"/>
+    </item>
+    <item>
+      <title>HOMCOM : moto-cross électrique enfant 350 W verte à 205,10 €</title>
+      <link>https://bonsplansmania.fr/article/homcom-moto-cross-electrique-enfant-350w-amazon-promo-2026</link>
+      <guid>https://bonsplansmania.fr/article/homcom-moto-cross-electrique-enfant-350w-amazon-promo-2026</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 GMT</pubDate>
+      <description>La moto-cross électrique HOMCOM 350 W verte pour les enfants de 8 à 12 ans coûte 205,10 € sur Amazon. Deux vitesses, pneus gonflables et amortisseur arrière.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/homcom-moto-cross-350w-verte-b0ftx757nc.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Sweat à capuche Hummel hmlMOVER à 6,66 € au lieu de 34,95 € : −81 %</title>
@@ -447,15 +456,6 @@
       <description>Découvrez le Ninja Foodi MAX DualZone DZ400EU chez Carrefour : deux tiroirs indépendants, une capacité de 9,5 L et six programmes pour les repas familiaux.</description>
       <category>bon-plan</category>
       <enclosure url="https://media.carrefour.fr/media/referential/media/05209d29c40946eb8e653cde2fc05f96/p_1500x1500/0622356322676_0.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Airfryer Nutribullet 8 L à 59,99 € chez Carrefour : deux bacs pour cuisiner</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-carrefour-nutribullet-airfryer-8l-nba081b-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-carrefour-nutribullet-airfryer-8l-nba081b-2026</guid>
-      <pubDate>Wed, 25 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Le Nutribullet NBA081B dispose de deux bacs indépendants avec synchronisation de cuisson. Un airfryer à découvrir pour préparer le plat et son accompagnement.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/nutribullet-nba081b-airfryer-8l-carrefour-2026.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
