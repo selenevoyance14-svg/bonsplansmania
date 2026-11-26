@@ -6275,5 +6275,145 @@
   "annuaire-partenaire-yesstyle": {
     "url": "/go/permanent-yesstyle",
     "label": "Visiter YesStyle"
+  },
+  "pain-maison-materiel-1": {
+    "url": "https://www.amazon.fr/s?k=moule+a+pain+four+antiadhesif&tag=lebrunnathali-21",
+    "label": "Voir Moule à pain sur Amazon"
+  },
+  "pain-maison-materiel-2": {
+    "url": "https://www.amazon.fr/s?k=balance+cuisine+precision+digitale&tag=lebrunnathali-21",
+    "label": "Voir Balance de cuisine sur Amazon"
+  },
+  "pain-maison-materiel-3": {
+    "url": "https://www.amazon.fr/s?k=cul+de+poule+inox+patisserie&tag=lebrunnathali-21",
+    "label": "Voir Cul de poule inox sur Amazon"
+  },
+  "pain-maison-materiel-4": {
+    "url": "https://www.amazon.fr/s?k=grille+refroidissement+patisserie&tag=lebrunnathali-21",
+    "label": "Voir Grille de refroidissement sur Amazon"
+  },
+  "pain-maison-materiel-5": {
+    "url": "https://www.amazon.fr/s?k=coupe+pate+patisserie+inox&tag=lebrunnathali-21",
+    "label": "Voir Coupe-pâte sur Amazon"
+  },
+  "pain-maison-materiel-6": {
+    "url": "https://www.amazon.fr/s?k=levure+boulangere+seche+saf+instant&tag=lebrunnathali-21",
+    "label": "Voir levure boulangère sèche sur Amazon"
+  },
+  "pain-maison-materiel-7": {
+    "url": "https://www.amazon.fr/s?k=saladier+grand+patisserie&tag=lebrunnathali-21",
+    "label": "Voir saladier sur Amazon"
+  },
+  "pain-maison-materiel-8": {
+    "url": "https://www.amazon.fr/s?k=moule+pain+de+mie+couvercle&tag=lebrunnathali-21",
+    "label": "Voir moule à pain de mie sur Amazon"
+  },
+  "pain-maison-materiel-9": {
+    "url": "https://www.amazon.fr/s?k=plaque+cuisson+four+perforee+patisserie&tag=lebrunnathali-21",
+    "label": "Voir plaque de cuisson sur Amazon"
+  },
+  "pain-maison-materiel-10": {
+    "url": "https://www.amazon.fr/s?k=melange+graines+boulangerie+lin+tournesol+courge&tag=lebrunnathali-21",
+    "label": "Voir mélange de graines sur Amazon"
+  },
+  "pain-maison-materiel-11": {
+    "url": "https://www.amazon.fr/s?k=livre+recettes+pain+maison+boulangerie&tag=lebrunnathali-21",
+    "label": "Voir livre de recettes de pains maison sur Amazon"
+  },
+  "guide-livres-recyclivre": {
+    "url": "https://www.recyclivre.com/",
+    "label": "Découvrir recyclivre"
+  },
+  "guide-livres-amazon": {
+    "url": "https://www.amazon.fr/s?k=livres+occasion&tag=lebrunnathali-21",
+    "label": "Découvrir amazon"
+  },
+  "guide-livres-fnac": {
+    "url": "https://www.fnac.com/",
+    "label": "Découvrir fnac"
+  },
+  "guide-livres-gibert": {
+    "url": "https://www.gibert.com/",
+    "label": "Découvrir gibert"
+  },
+  "guide-livres-vinted": {
+    "url": "https://www.vinted.fr/",
+    "label": "Découvrir vinted"
+  },
+  "guide-livres-leboncoin": {
+    "url": "https://www.leboncoin.fr/c/livres",
+    "label": "Découvrir leboncoin"
+  },
+  "guide-roomba-plus-amazon": {
+    "url": "https://www.amazon.fr/s?k=iRobot+Roomba+Plus+Combo+AutoWash&tag=lebrunnathali-21",
+    "label": "Comparer les Roomba Plus sur Amazon"
+  },
+  "guide-sonicare-3100-amazon": {
+    "url": "https://www.amazon.fr/s?k=Philips+Sonicare+3100&tag=lebrunnathali-21",
+    "label": "Comparer les Sonicare 3100"
+  },
+  "guide-sonicare-5300-amazon": {
+    "url": "https://www.amazon.fr/s?k=Philips+Sonicare+5300&tag=lebrunnathali-21",
+    "label": "Comparer les Sonicare 5300"
+  },
+  "guide-sonicare-6100-amazon": {
+    "url": "https://www.amazon.fr/s?k=Philips+Sonicare+6100&tag=lebrunnathali-21",
+    "label": "Comparer les Sonicare 6100"
+  },
+  "guide-sonicare-diamondclean-amazon": {
+    "url": "https://www.amazon.fr/s?k=Philips+Sonicare+DiamondClean&tag=lebrunnathali-21",
+    "label": "Comparer les Sonicare diamondclean"
+  },
+  "guide-essais-prime": {
+    "url": "https://www.amazon.fr/amazonprime?tag=lebrunnathali-21",
+    "label": "Consulter prime"
+  },
+  "guide-essais-audible": {
+    "url": "https://www.audible.fr/ep/essai-gratuit",
+    "label": "Consulter audible"
+  },
+  "guide-essais-apple-tv": {
+    "url": "https://www.apple.com/fr/apple-tv/",
+    "label": "Consulter apple-tv"
+  },
+  "guide-essais-apple-music": {
+    "url": "https://www.apple.com/fr/apple-music/",
+    "label": "Consulter apple-music"
+  },
+  "guide-essais-deezer": {
+    "url": "https://www.deezer.com/fr/offers",
+    "label": "Consulter deezer"
+  },
+  "guide-essais-crunchyroll": {
+    "url": "https://www.crunchyroll.com/fr/premium",
+    "label": "Consulter crunchyroll"
+  },
+  "guide-essais-spotify": {
+    "url": "https://www.spotify.com/fr/premium/",
+    "label": "Consulter spotify"
+  },
+  "guide-essais-canva": {
+    "url": "https://www.canva.com/fr_fr/pro/",
+    "label": "Consulter canva"
+  },
+  "guide-forfaits-red": {
+    "url": "https://www.red-by-sfr.fr/forfaits-mobiles/",
+    "label": "Consulter les forfaits red"
+  },
+  "guide-forfaits-sosh": {
+    "url": "https://shop.sosh.fr/mobile/forfaits-mobiles",
+    "label": "Consulter les forfaits sosh"
+  },
+  "guide-forfaits-byou": {
+    "url": "https://www.bouyguestelecom.fr/forfaits-mobiles/sans-engagement",
+    "label": "Consulter les forfaits byou"
+  },
+  "guide-forfaits-free": {
+    "url": "https://mobile.free.fr/",
+    "label": "Consulter les forfaits free"
+  },
+  "guide-forfaits-prixtel": {
+    "url": "https://www.prixtel.com/",
+    "label": "Consulter les forfaits prixtel"
   }
 }
