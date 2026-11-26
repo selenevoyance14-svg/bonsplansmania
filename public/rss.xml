@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Thu, 26 Nov 2026 10:29:20 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 26 Nov 2026 10:57:08 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Bose QuietComfort Ultra noir à 244,99 € sur Amazon</title>
@@ -60,6 +60,15 @@
       <description>La Kindle Paperwhite noire 16 Go sans publicités associe un écran antireflets de 7 pouces, un éclairage chaud réglable et une résistance à l’eau pour accompagner vos lectures.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/amazon-kindle-paperwhite-guide-2026-v2.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>SALKING diffuseur d'huiles essentielles 500 ml à 39,99 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-amazon-salking-diffuseur-huile-essentielle-500ml-31-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-amazon-salking-diffuseur-huile-essentielle-500ml-31-euros-2026</guid>
+      <pubDate>Fri, 03 Apr 2026 00:00:00 GMT</pubDate>
+      <description>Découvrez le diffuseur ultrasonique SALKING de 500 ml, avec son motif décoratif, son éclairage LED et sa minuterie.</description>
+      <category>bon-plan</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-amazon-salking-diffuseur-huile-essentielle-500ml-31-euros-2026.jpg" type="image/jpeg" length="0"/>
     </item>
     <item>
       <title>Samsung Galaxy Buds4 Pro noirs : prix neuf à 161,45 € sur Amazon</title>
@@ -447,15 +456,6 @@
       <description>Découvrez le Moulinex Crisp &amp; Go FY701AE0 chez Carrefour : deux cuves en verre, cinq programmes, remise immédiate et avantage Club selon conditions.</description>
       <category>bon-plan</category>
       <enclosure url="https://media.carrefour.fr/media/referential/media/44aeaefd96dc47ccabb08866804bc6c0/p_1500x1500/3045387212117_0.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Ninja Foodi MAX DualZone 9,5 L à 149,99 € chez Carrefour (-80 €)</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-carrefour-ninja-foodi-max-dualzone-dz400eu-199-99-euros-octobre-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-carrefour-ninja-foodi-max-dualzone-dz400eu-199-99-euros-octobre-2026</guid>
-      <pubDate>Sun, 11 Oct 2026 00:00:00 GMT</pubDate>
-      <description>Découvrez le Ninja Foodi MAX DualZone DZ400EU chez Carrefour : deux tiroirs indépendants, une capacité de 9,5 L et six programmes pour les repas familiaux.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://media.carrefour.fr/media/referential/media/05209d29c40946eb8e653cde2fc05f96/p_1500x1500/0622356322676_0.jpg" type="image/jpeg" length="0"/>
     </item>
   </channel>
 </rss>
