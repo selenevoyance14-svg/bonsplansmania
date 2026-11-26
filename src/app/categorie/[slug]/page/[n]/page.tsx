@@ -21,7 +21,7 @@ function getCategoryArticles(slug: string) {
 }
 
 export function generateStaticParams() {
-  const slugs = ["bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
+  const slugs = ["guide", "bon-plan", "test-gratuit", "test-avis", "test-produit", "comparatif", "concours", "box-beaute", "beaute", "selection", "calendrier", "calendrier-avent", "code-promo"];
   const params: { slug: string; n: string }[] = [];
   for (const slug of slugs) {
     const articles = getCategoryArticles(slug);
@@ -37,6 +37,7 @@ export function generateStaticParams() {
 interface PageProps { params: Promise<{ slug: string; n: string }>; }
 
 const categoryConfig: Record<string, { label: string; Icon: LucideIcon; desc: string; color: string }> = {
+  "guide": { label: "Guides pratiques", Icon: Sparkles, desc: "Cuisine, maison et économies : nos conseils pratiques au quotidien", color: "bon-plan" },
   "bon-plan":         { label: "Bons Plans",            Icon: Tag,          desc: "Toutes les réductions, promos et codes exclusifs", color: "bon-plan" },
   "test-produit":     { label: "Tests Produits",        Icon: FlaskConical, desc: "Tests gratuits et avis détaillés sur les produits beauté", color: "test-gratuit" },
   "test-gratuit":     { label: "Tests Gratuits",        Icon: Gift,         desc: "Campagnes en cours et conditions pour candidater à des tests de produits", color: "test-gratuit" },

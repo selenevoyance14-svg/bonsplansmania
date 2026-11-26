@@ -90,7 +90,8 @@ export function getSolarCatalog(): SolarGuideProduct[] {
       brand,
       name: meta.title.replace(/^bon plan\s+/i, "").replace(/\s+[àa]\s+\d[\s\S]*$/i, "").trim(),
       spf: getSpf(searchable),
-      price: meta.price || "Voir le prix actuel",
+      price: "Prix à vérifier",
+      conditions: "Autre référence du catalogue : prix actuel à consulter chez le marchand.",
       checkedAt: formatDate(meta.updated || meta.date),
       usages: getUsages(searchable),
       skinTypes: getSkinTypes(searchable),
@@ -98,7 +99,7 @@ export function getSolarCatalog(): SolarGuideProduct[] {
       image: meta.image,
       imageAlt: meta.imageAlt,
       articleHref,
-      merchantHref: meta.affiliateUrl,
+      merchantHref: `/go/${meta.affiliateAlias || meta.slug}`,
     }];
   });
 

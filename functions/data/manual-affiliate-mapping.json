@@ -6415,5 +6415,93 @@
   "guide-forfaits-prixtel": {
     "url": "https://www.prixtel.com/",
     "label": "Consulter les forfaits prixtel"
+  },
+  "guide-coupons-marque-1": {
+    "url": "https://offers.shopmium.com/fr",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-2": {
+    "url": "https://www.mavieencouleurs.fr/bons-de-reduction",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-3": {
+    "url": "https://www.enviedebienmanger.fr/bons-de-reduction",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-4": {
+    "url": "https://www.labelleadresse.com/economies/bon-reduction",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-5": {
+    "url": "https://www.enviedeplus.com/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-6": {
+    "url": "https://www.nestlegoodnest.com/fr/promotions/toutes",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-7": {
+    "url": "https://www.pampers.fr/offres",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-8": {
+    "url": "https://www.guigoz.fr/vos-reductions",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-9": {
+    "url": "https://www.charal.fr/bons-de-reduction/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-10": {
+    "url": "https://www.bigard.fr/bons-de-reduction",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-11": {
+    "url": "https://www.huggies.fr/drynites",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-12": {
+    "url": "https://www.bledina.com/inscription/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-13": {
+    "url": "https://www.hipp.fr/babyclub/inscription/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-14": {
+    "url": "https://www.marie.fr/mes-avantages-marie/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-15": {
+    "url": "https://www.legaulois.fr/club",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-16": {
+    "url": "https://www.maitrecoq.fr/le-club-maitre-coq/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-17": {
+    "url": "https://www.charlesetalice.fr/user/login?destination=/vouchers",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-18": {
+    "url": "https://www.croustipate.com/bons-de-reduction/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-19": {
+    "url": "https://webcoupon-regilait.offre-promotionnelle.fr/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-20": {
+    "url": "https://www.emilien-fromages.com/bons-de-reduction",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-21": {
+    "url": "https://entremont.com/club-connect/",
+    "label": "Consulter les avantages de la marque"
+  },
+  "guide-coupons-marque-22": {
+    "url": "https://www.francine.com/mon-compte",
+    "label": "Consulter les avantages de la marque"
   }
 }
