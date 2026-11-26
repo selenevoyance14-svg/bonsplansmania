@@ -92,3 +92,10 @@
 - Avant de terminer un article, contrôler les prix, les calculs, les conditions, les dates, les images, les redirections et la présence de la mention d'affiliation.
 - Vérifier que le titre public, le titre SEO, la description, le tableau et le corps de l'article ne se contredisent pas.
 - Ne publier aucune donnée essentielle non vérifiée et ne présenter aucune supposition comme un fait.
+
+## Classement des articles
+
+- Une offre doit être retrouvable par son type de contenu, son univers et son marchand. La catégorie générale `bon-plan` ne remplace pas le classement dans une rubrique thématique.
+- Classer les offres de box beauté dans `category: "box-beaute"` ; un simple tag « box beauté » ne suffit pas à les afficher dans cette catégorie. Conserver les concours, tests, codes promo et calendriers dans leur catégorie spécifique.
+- Pour les offres générales, ajouter des tags de produit reconnus par la rubrique pertinente (Maison, Beauté, Bébé, Jouets, Mode, Tech, Jardin et animaux, Rentrée) et le tag du marchand réel. Vérifier les filtres des pages concernées plutôt que d’inventer un tag qui ne serait pas utilisé.
+- Avant livraison, vérifier que l’article apparaît dans les sélections attendues, sans le forcer dans un univers sans rapport. Une correction de classement ne modifie ni les prix, ni les dates, ni la remontée de l’article.

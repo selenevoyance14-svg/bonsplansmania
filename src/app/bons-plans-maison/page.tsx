@@ -36,6 +36,8 @@ export const metadata: Metadata = {
 };
 
 const EXACT_TAGS = new Set([
+  "chauffage", "chauffe-eau", "four", "raclette", "bouilloire", "grille-pain",
+  "vaisselle", "ustensiles-cuisine", "entretien-maison", "petit-electromenager",
   // Aspirateurs / robots
   "aspirateur", "aspirateur-balai", "aspirateur-laveur", "aspirateur-sans-fil",
   "aspirateur-robot", "robot-aspirateur", "robot-laveur", "shampouineuse",
