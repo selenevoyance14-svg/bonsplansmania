@@ -5,7 +5,7 @@
     <link>https://bonsplansmania.fr</link>
     <description>Les meilleurs bons plans, concours, tests gratuits et codes promo</description>
     <language>fr</language>
-    <lastBuildDate>Fri, 27 Nov 2026 18:55:19 GMT</lastBuildDate>
+    <lastBuildDate>Fri, 27 Nov 2026 19:35:51 GMT</lastBuildDate>
     <atom:link href="https://bonsplansmania.fr/rss.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title>Blissim Ma première routine : la trousse beauté à 26,60 € au lieu de 38 €</title>
@@ -15,6 +15,15 @@
       <description>La trousse Blissim Ma première routine rassemble onze produits et accessoires beauté, du parfum au maquillage, avec plusieurs variantes aléatoires. Découvrez son contenu et les conditions de l’offre.</description>
       <category>box-beaute</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/blissim-edition-limitee-ma-premiere-routine-ado-trousse-38-euros-juillet-2026.webp" type="image/webp" length="0"/>
+    </item>
+    <item>
+      <title>Calendrier Avent Adopt Homme : 12 parfums à 45,46 €</title>
+      <link>https://bonsplansmania.fr/article/bon-plan-adopt-calendrier-avent-homme-12-parfums-51-euros-2026</link>
+      <guid>https://bonsplansmania.fr/article/bon-plan-adopt-calendrier-avent-homme-12-parfums-51-euros-2026</guid>
+      <pubDate>Tue, 21 Jul 2026 00:00:00 GMT</pubDate>
+      <description>Le coffret Collector Homme d’Adopt réunit douze eaux de parfum de 30 ml aux univers variés. Découvrez sa sélection de fragrances boisées, fraîches et épicées, à offrir ou à explorer au quotidien.</description>
+      <category>calendrier-avent</category>
+      <enclosure url="https://bonsplansmania.fr/images/articles/bon-plan-adopt-calendrier-avent-homme-12-parfums-51-euros-2026.png" type="image/png" length="0"/>
     </item>
     <item>
       <title>Ariel Original: la lessive liquide 100 lavages sur Amazon</title>
@@ -447,15 +456,6 @@
       <description>Un duo de serviettes en coton aux motifs végétaux roses et dorés, avec une bordure grise, pour habiller la table.</description>
       <category>bon-plan</category>
       <enclosure url="https://bonsplansmania.fr/images/articles/francoise-saget-arbre-enchanteur-serviettes.jpg" type="image/jpeg" length="0"/>
-    </item>
-    <item>
-      <title>Fisher-Price : l’ours culbuto La Forêt de l’Amitié à 13,20 € en retrait E.Leclerc</title>
-      <link>https://bonsplansmania.fr/article/bon-plan-leclerc-fisher-price-ours-culbuto-foret-amitie-2026</link>
-      <guid>https://bonsplansmania.fr/article/bon-plan-leclerc-fisher-price-ours-culbuto-foret-amitie-2026</guid>
-      <pubDate>Fri, 27 Nov 2026 00:00:00 GMT</pubDate>
-      <description>Un ours culbuto gonflable avec des balles dans le ventre et des détails en tissu, pour les jeux d’éveil dès 6 mois. Disponibilité à vérifier en magasin.</description>
-      <category>bon-plan</category>
-      <enclosure url="https://bonsplansmania.fr/images/articles/fisher-price-ours-culbuto-foret-amitie.webp" type="image/webp" length="0"/>
     </item>
   </channel>
 </rss>
