@@ -60,7 +60,7 @@ export default function DealsAdministrationPage() {
     return {
       slug: meta.slug,
       title: meta.title,
-      merchant: detectMerchant(meta.tags, meta.affiliateUrl),
+      merchant: meta.merchant || detectMerchant(meta.tags, meta.affiliateUrl),
       category: meta.category,
       price: meta.price || (meta.amazonAsin ? "Prix Amazon en direct" : "Non renseigné"),
       updated: meta.updated || meta.date,

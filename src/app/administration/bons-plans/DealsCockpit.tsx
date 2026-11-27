@@ -14,6 +14,10 @@ type LinkMonitor = { slug?: string; ok?: boolean; status?: number; checkedAt?: s
 type PriceDrop = { slug: string; asin: string; title?: string; price: number; displayPrice: string; previousPrice?: number; change?: number; changePercent?: number; checkedAt: string };
 type PendingChange = { slug: string; title: string; action: "update" | "raise" | "archive"; price: string };
 
+const normalizeSearch = (value: string) => value.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+const PAGE_SIZE = 50;
+const categoryLabels: Record<string, string> = { "bon-plan": "Bons plans", "bon-plan-beaute": "Bons plans beauté", "box-beaute": "Box beauté", "code-promo": "Codes promo" };
+
 const REMINDERS_KEY = "bonsplansmania:deal-reminders";
 const PENDING_CHANGES_KEY = "bonsplansmania:pending-changes";
 const statusLabel: Record<DealStatus, string> = { ok: "À jour", scheduled: "Contrôle programmé", due: "À contrôler aujourd’hui", unchecked: "Non contrôlé", unavailable: "Indisponible", "missing-image": "Image manquante", "missing-price": "Prix manquant", "price-check": "Prix à contrôler", "missing-link": "Lien inaccessible", expiring: "Expire bientôt" };
@@ -40,6 +44,15 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [status, setStatus] = useState<"all" | "issues" | DealStatus>("all");
   const [section, setSection] = useState<"deals" | "codes" | "homepage" | "price-drops">("deals");
   const [merchant, setMerchant] = useState("all");
+  const [category, setCategory] = useState("all");
+  const [sort, setSort] = useState("default");
+  const [page, setPage] = useState(1);
+  const filterKey = [query, merchant, category, status, section, sort].join("|");
+  const [previousFilterKey, setPreviousFilterKey] = useState(filterKey);
+  if (filterKey !== previousFilterKey) {
+    setPreviousFilterKey(filterKey);
+    setPage(1);
+  }
   const [selected, setSelected] = useState<string | null>(initialDeals[0]?.slug || null);
   const [amazonState, setAmazonState] = useState<{ asin?: string; offer?: AmazonOffer }>({});
   const [linkResults, setLinkResults] = useState<Record<string, LinkMonitor>>({});
@@ -57,8 +70,22 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
   const [pendingChanges, setPendingChanges] = useState<PendingChange[]>([]);
   const merchants = useMemo(() => [...new Set(initialDeals.map((deal) => deal.merchant))].sort((a, b) => a.localeCompare(b, "fr")), [initialDeals]);
   const statusFor = (deal: CockpitDeal) => currentStatus(deal, amazonState.asin === deal.amazonAsin ? amazonState.offer : undefined, linkResults[deal.slug], reminders[deal.slug]);
-  const filtered = initialDeals.filter((deal) => `${deal.title} ${deal.merchant}`.toLowerCase().includes(query.toLowerCase()) && (section === "deals" || (section === "codes" ? deal.category === "code-promo" : section === "homepage" ? deal.onHomepage : Boolean(priceDrops[deal.slug]))) && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status)) && (merchant === "all" || deal.merchant === merchant));
-  const active = filtered.find((deal) => deal.slug === selected) || filtered[0];
+  const searchTerms = normalizeSearch(query.trim().replace(/^https?:\/\/[^/]+\/article\//, "")).split(/\s+/).filter(Boolean);
+  const filtered = initialDeals.filter((deal) => {
+    const text = normalizeSearch(`${deal.title} ${deal.merchant} ${deal.slug} ${deal.amazonAsin || ""}`);
+    return searchTerms.every((term) => text.includes(term))
+      && (category === "all" || deal.category === category)
+      && (section === "deals" || (section === "codes" ? deal.category === "code-promo" : section === "homepage" ? deal.onHomepage : Boolean(priceDrops[deal.slug])))
+      && (status === "all" || (status === "issues" ? !["ok", "scheduled"].includes(statusFor(deal)) : statusFor(deal) === status))
+      && (merchant === "all" || deal.merchant === merchant);
+  });
+  if (sort === "oldest") filtered.sort((a, b) => a.updated.localeCompare(b.updated) || a.slug.localeCompare(b.slug));
+  if (sort === "recent") filtered.sort((a, b) => b.updated.localeCompare(a.updated) || a.slug.localeCompare(b.slug));
+  if (sort === "title") filtered.sort((a, b) => a.title.localeCompare(b.title, "fr"));
+  const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE));
+  const currentPage = Math.min(page, totalPages);
+  const visibleDeals = filtered.slice((currentPage - 1) * PAGE_SIZE, currentPage * PAGE_SIZE);
+  const active = visibleDeals.find((deal) => deal.slug === selected) || visibleDeals[0];
   const liveStatuses = initialDeals.map(statusFor);
   const issueCount = liveStatuses.filter((dealStatus) => !["ok", "scheduled"].includes(dealStatus)).length;
   const amazonOffer = active?.amazonAsin && amazonState.asin === active.amazonAsin ? amazonState.offer || null : null;
@@ -296,17 +323,28 @@ export default function DealsCockpit({ initialDeals, summary }: { initialDeals: 
       </section>
       <section className={styles.alertBox}><div><span>CONTRÔLE RÉEL</span><h2>{issueCount ? `${issueCount} fiches demandent ton attention` : "Aucune anomalie dans les fiches affichées"}</h2><p>Le cockpit analyse liens, images, prix renseignés et dates de fin. Amazon est interrogé en direct fiche par fiche.</p></div><button onClick={() => setStatus(issueCount ? "issues" : "all")}>Voir les contrôles <ArrowUp size={16}/></button></section>
       <div className={styles.toolbar}>
-        <label><Search size={18}/><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder="Rechercher un produit ou une marque…"/></label>
-        <div className={styles.selectWrap}><select value={merchant} onChange={(event) => setMerchant(event.target.value)}><option value="all">Tous les marchands</option>{merchants.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={15}/></div>
-        <div className={styles.selectWrap}><select value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="due">À contrôler aujourd’hui</option><option value="scheduled">Contrôles programmés</option><option value="missing-link">Lien inaccessible</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="price-check">Prix Amazon à contrôler</option><option value="unavailable">Produit indisponible</option><option value="unchecked">Non contrôlé</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
+        <label><Search size={18}/><input value={query} onChange={(event) => setQuery(event.target.value)} aria-label="Rechercher une offre" placeholder="Produit, marque, ASIN ou lien d’article…"/></label>
+        <div className={styles.selectWrap}><select aria-label="Marchand" value={merchant} onChange={(event) => setMerchant(event.target.value)}><option value="all">Tous les marchands</option>{merchants.map((item) => <option key={item}>{item}</option>)}</select><ChevronDown size={15}/></div>
+        <div className={styles.selectWrap}><select aria-label="Statut du contrôle" value={status} onChange={(event) => setStatus(event.target.value as "all" | "issues" | DealStatus)}><option value="all">Tous les statuts</option><option value="issues">Toutes les anomalies</option><option value="due">À contrôler aujourd’hui</option><option value="scheduled">Contrôles programmés</option><option value="missing-link">Lien inaccessible</option><option value="missing-image">Image manquante</option><option value="missing-price">Prix manquant</option><option value="price-check">Prix Amazon à contrôler</option><option value="unavailable">Produit indisponible</option><option value="unchecked">Non contrôlé</option><option value="expiring">Expire bientôt</option><option value="ok">À jour</option></select><ChevronDown size={15}/></div>
       </div>
+      <div className={styles.listTools}>
+        <label>Type de contenu <select value={category} onChange={(event) => setCategory(event.target.value)}><option value="all">Tous les types</option>{Object.entries(categoryLabels).map(([value, label]) => <option key={value} value={value}>{label}</option>)}</select></label>
+        <label>Trier par <select value={sort} onChange={(event) => setSort(event.target.value)}><option value="default">Ordre du site</option><option value="oldest">Mises à jour les plus anciennes</option><option value="recent">Mises à jour les plus récentes</option><option value="title">Nom du produit</option></select></label>
+        <button onClick={() => { setQuery(""); setMerchant("all"); setCategory("all"); setStatus("all"); setSort("default"); }}>Réinitialiser les filtres</button>
+      </div>
+      <nav className={styles.pagination} aria-label="Pages des offres">
+        <span>{filtered.length ? `${(currentPage - 1) * PAGE_SIZE + 1}–${Math.min(currentPage * PAGE_SIZE, filtered.length)} sur ${filtered.length} offres` : "Aucune offre"}</span>
+        <button disabled={currentPage === 1} onClick={() => setPage(currentPage - 1)}>Précédent</button>
+        <span aria-live="polite">Page {currentPage} / {totalPages}</span>
+        <button disabled={currentPage === totalPages} onClick={() => setPage(currentPage + 1)}>Suivant</button>
+      </nav>
       <p className={styles.scopeNote}>{filtered.length} offre{filtered.length > 1 ? "s" : ""} affichée{filtered.length > 1 ? "s" : ""} sur {summary.totalActive} offres actives.</p>
       <div className={styles.contentGrid}>
         <section className={styles.dealList}><div className={styles.listHead}><span>OFFRE</span><span>PRIX</span><span>ÉTAT</span></div>
-          {filtered.map((deal) => <button key={deal.slug} className={`${styles.dealRow} ${active?.slug === deal.slug ? styles.selected : ""}`} onClick={() => setSelected(deal.slug)}>
+          {visibleDeals.map((deal) => <button key={deal.slug} className={`${styles.dealRow} ${active?.slug === deal.slug ? styles.selected : ""}`} onClick={() => setSelected(deal.slug)}>
             <div className={styles.thumb}>{deal.image && !deal.image.includes("placeholder") ? <Image src={deal.image} alt="" width={44} height={44}/> : <ShoppingBag size={21}/>}</div>
             <div className={styles.dealName}><a href={`/article/${deal.slug}`} target="_blank" onClick={(event) => event.stopPropagation()}>{deal.title} <ExternalLink size={12}/></a><span>{deal.merchant} · modifié le {new Date(`${deal.updated}T12:00:00`).toLocaleDateString("fr-FR", { day: "numeric", month: "short" })}</span></div><span className={styles.price}>{priceDrops[deal.slug]?.displayPrice || deal.price}</span><span className={`${styles.status} ${priceDrops[deal.slug] ? styles["price-drop"] : styles[statusFor(deal)]}`}>{priceDrops[deal.slug] ? `${priceDrops[deal.slug].changePercent}%` : statusLabel[statusFor(deal)]}</span>
-          </button>)}{filtered.length === 0 ? <p className={styles.empty}>Aucune offre ne correspond à ces filtres.</p> : null}
+          </button>)}{filtered.length === 0 ? <p className={styles.empty}>Aucune offre ne correspond à ces filtres. Essaie un autre mot ou réinitialise les filtres.</p> : null}
         </section>
         <aside className={styles.editor}>{active ? <><span className={styles.editorEyebrow}>FICHE SÉLECTIONNÉE</span>
           {liveImage && !liveImage.includes("placeholder") ? <div className={styles.previewImage}><Image src={liveImage} alt="" width={250} height={150}/></div> : null}
